@@ -7,3 +7,6 @@ C:\Users\Cristina.DESKTOP-QPL135E\Documents\UTU\Programacion\Verificar Cedula - 
 C:\Users\Cristina.DESKTOP-QPL135E\Documents\UTU\Programacion\Verificar Cedula - Clase 16-05-2018\Verificar Cedula - Clase 16-05-2018\obj\x86\Debug\Verificar Cedula - Clase 16-05-2018.exe
 C:\Users\Cristina.DESKTOP-QPL135E\Documents\UTU\Programacion\Verificar Cedula - Clase 16-05-2018\Verificar Cedula - Clase 16-05-2018\obj\x86\Debug\Verificar Cedula - Clase 16-05-2018.xml
 C:\Users\Cristina.DESKTOP-QPL135E\Documents\UTU\Programacion\Verificar Cedula - Clase 16-05-2018\Verificar Cedula - Clase 16-05-2018\obj\x86\Debug\Verificar Cedula - Clase 16-05-2018.pdb
+C:\Users\Cristina.DESKTOP-QPL135E\Documents\GitHub\flickers_biblioteca\Verificar Cedula - Clase 16-05-2018\obj\x86\Debug\Verificar Cedula - Clase 16-05-2018.exe
+C:\Users\Cristina.DESKTOP-QPL135E\Documents\GitHub\flickers_biblioteca\Verificar Cedula - Clase 16-05-2018\obj\x86\Debug\Verificar Cedula - Clase 16-05-2018.xml
+C:\Users\Cristina.DESKTOP-QPL135E\Documents\GitHub\flickers_biblioteca\Verificar Cedula - Clase 16-05-2018\obj\x86\Debug\Verificar Cedula - Clase 16-05-2018.pdb
