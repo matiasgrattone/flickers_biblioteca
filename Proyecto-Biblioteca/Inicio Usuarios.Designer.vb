@@ -420,7 +420,9 @@ Partial Class inicio_usuarios
         '
         'registro
         '
+        Me.registro.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.registro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.registro.ColumnHeadersVisible = False
         Me.registro.Location = New System.Drawing.Point(433, 120)
         Me.registro.Name = "registro"
         Me.registro.Size = New System.Drawing.Size(385, 235)
