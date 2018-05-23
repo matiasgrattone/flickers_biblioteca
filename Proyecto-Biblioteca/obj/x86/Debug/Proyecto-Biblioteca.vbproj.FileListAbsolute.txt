@@ -1,0 +1,122 @@
+C:\Users\Matias\Documents\Visual Studio 2010\Projects\Proyecto-Biblioteca\Proyecto-Biblioteca\bin\Debug\Proyecto-Biblioteca.exe
+C:\Users\Matias\Documents\Visual Studio 2010\Projects\Proyecto-Biblioteca\Proyecto-Biblioteca\bin\Debug\Proyecto-Biblioteca.pdb
+C:\Users\Matias\Documents\Visual Studio 2010\Projects\Proyecto-Biblioteca\Proyecto-Biblioteca\bin\Debug\Proyecto-Biblioteca.xml
+C:\Users\Matias\Documents\Visual Studio 2010\Projects\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Form1.resources
+C:\Users\Matias\Documents\Visual Studio 2010\Projects\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Resources.resources
+C:\Users\Matias\Documents\Visual Studio 2010\Projects\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.vbproj.GenerateResource.Cache
+C:\Users\Matias\Documents\Visual Studio 2010\Projects\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.exe
+C:\Users\Matias\Documents\Visual Studio 2010\Projects\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.xml
+C:\Users\Matias\Documents\Visual Studio 2010\Projects\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.pdb
+C:\Users\Matias\Documents\Visual Studio 2010\Projects\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.vbprojResolveAssemblyReference.cache
+C:\Users\Matias\Documents\Visual Studio 2010\Projects\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Form2.resources
+E:\Herramientas\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.exe
+E:\Herramientas\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.xml
+E:\Herramientas\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.pdb
+E:\Herramientas\Proyecto-Biblioteca\Proyecto-Biblioteca\bin\Debug\Proyecto-Biblioteca.exe
+E:\Herramientas\Proyecto-Biblioteca\Proyecto-Biblioteca\bin\Debug\Proyecto-Biblioteca.pdb
+E:\Herramientas\Proyecto-Biblioteca\Proyecto-Biblioteca\bin\Debug\Proyecto-Biblioteca.xml
+E:\Herramientas\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.vbprojResolveAssemblyReference.cache
+E:\Herramientas\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Form1.resources
+E:\Herramientas\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Form2.resources
+E:\Herramientas\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Resources.resources
+E:\Herramientas\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.vbproj.GenerateResource.Cache
+D:\Herramientas\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.exe
+D:\Herramientas\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.xml
+D:\Herramientas\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.pdb
+D:\Herramientas\Proyecto-Biblioteca\Proyecto-Biblioteca\bin\Debug\Proyecto-Biblioteca.exe
+D:\Herramientas\Proyecto-Biblioteca\Proyecto-Biblioteca\bin\Debug\Proyecto-Biblioteca.pdb
+D:\Herramientas\Proyecto-Biblioteca\Proyecto-Biblioteca\bin\Debug\Proyecto-Biblioteca.xml
+D:\Herramientas\Proyecto-Biblioteca\Proyecto-Biblioteca\bin\Debug\MySql.Data.dll
+D:\Herramientas\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.vbprojResolveAssemblyReference.cache
+D:\Herramientas\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Form1.resources
+D:\Herramientas\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Form2.resources
+D:\Herramientas\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Resources.resources
+D:\Herramientas\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.vbproj.GenerateResource.Cache
+G:\Herramientas\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.exe
+G:\Herramientas\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.xml
+G:\Herramientas\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.pdb
+G:\Herramientas\Proyecto-Biblioteca\Proyecto-Biblioteca\bin\Debug\Proyecto-Biblioteca.exe
+G:\Herramientas\Proyecto-Biblioteca\Proyecto-Biblioteca\bin\Debug\Proyecto-Biblioteca.pdb
+G:\Herramientas\Proyecto-Biblioteca\Proyecto-Biblioteca\bin\Debug\Proyecto-Biblioteca.xml
+G:\Herramientas\Proyecto-Biblioteca\Proyecto-Biblioteca\bin\Debug\MySql.Data.dll
+G:\Herramientas\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.vbprojResolveAssemblyReference.cache
+G:\Herramientas\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Form1.resources
+G:\Herramientas\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Form2.resources
+G:\Herramientas\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Resources.resources
+G:\Herramientas\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.vbproj.GenerateResource.Cache
+C:\Users\Matias\Desktop\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.exe
+C:\Users\Matias\Desktop\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.xml
+C:\Users\Matias\Desktop\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.pdb
+C:\Users\Matias\Desktop\Proyecto-Biblioteca\Proyecto-Biblioteca\bin\Debug\Proyecto-Biblioteca.exe
+C:\Users\Matias\Desktop\Proyecto-Biblioteca\Proyecto-Biblioteca\bin\Debug\Proyecto-Biblioteca.pdb
+C:\Users\Matias\Desktop\Proyecto-Biblioteca\Proyecto-Biblioteca\bin\Debug\Proyecto-Biblioteca.xml
+C:\Users\Matias\Desktop\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Form1.resources
+C:\Users\Matias\Desktop\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Form2.resources
+C:\Users\Matias\Desktop\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Resources.resources
+C:\Users\Matias\Desktop\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.vbproj.GenerateResource.Cache
+C:\Users\Matias\Desktop\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Form3.resources
+C:\Users\Matias\Desktop\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Form4.resources
+C:\Users\Matias\Desktop\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.LOGIN.resources
+C:\Users\Matias\Desktop\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Form5.resources
+C:\Users\Matias\Desktop\Proyecto Biblioteca UTU 3°BE 2018\BETA\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.exe
+C:\Users\Matias\Desktop\Proyecto Biblioteca UTU 3°BE 2018\BETA\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.xml
+C:\Users\Matias\Desktop\Proyecto Biblioteca UTU 3°BE 2018\BETA\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.pdb
+C:\Users\Matias\Desktop\Proyecto Biblioteca UTU 3°BE 2018\BETA\Proyecto-Biblioteca\Proyecto-Biblioteca\bin\Debug\Proyecto-Biblioteca.exe
+C:\Users\Matias\Desktop\Proyecto Biblioteca UTU 3°BE 2018\BETA\Proyecto-Biblioteca\Proyecto-Biblioteca\bin\Debug\Proyecto-Biblioteca.pdb
+C:\Users\Matias\Desktop\Proyecto Biblioteca UTU 3°BE 2018\BETA\Proyecto-Biblioteca\Proyecto-Biblioteca\bin\Debug\Proyecto-Biblioteca.xml
+C:\Users\Matias\Desktop\Proyecto Biblioteca UTU 3°BE 2018\BETA\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Form1.resources
+C:\Users\Matias\Desktop\Proyecto Biblioteca UTU 3°BE 2018\BETA\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.LOGIN.resources
+C:\Users\Matias\Desktop\Proyecto Biblioteca UTU 3°BE 2018\BETA\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Resources.resources
+C:\Users\Matias\Desktop\Proyecto Biblioteca UTU 3°BE 2018\BETA\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.vbproj.GenerateResource.Cache
+C:\Users\Matias\Desktop\Proyecto Biblioteca UTU 3°BE 2018\BETA\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Carga.resources
+C:\Users\Matias\Desktop\Proyecto Biblioteca UTU 3°BE 2018\BETA\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Menu.resources
+C:\Users\Matias\Desktop\Proyecto Biblioteca UTU 3°BE 2018\BETA\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Form2.resources
+C:\Users\Matias\Desktop\Carpeta biblioteca\BETA\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.exe
+C:\Users\Matias\Desktop\Carpeta biblioteca\BETA\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.xml
+C:\Users\Matias\Desktop\Carpeta biblioteca\BETA\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.pdb
+C:\Users\Matias\Desktop\Carpeta biblioteca\BETA\Proyecto-Biblioteca\Proyecto-Biblioteca\bin\Debug\Proyecto-Biblioteca.exe
+C:\Users\Matias\Desktop\Carpeta biblioteca\BETA\Proyecto-Biblioteca\Proyecto-Biblioteca\bin\Debug\Proyecto-Biblioteca.pdb
+C:\Users\Matias\Desktop\Carpeta biblioteca\BETA\Proyecto-Biblioteca\Proyecto-Biblioteca\bin\Debug\Proyecto-Biblioteca.xml
+C:\Users\Matias\Desktop\Carpeta biblioteca\BETA\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Carga.resources
+C:\Users\Matias\Desktop\Carpeta biblioteca\BETA\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.LOGIN.resources
+C:\Users\Matias\Desktop\Carpeta biblioteca\BETA\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Menu.resources
+C:\Users\Matias\Desktop\Carpeta biblioteca\BETA\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Resources.resources
+C:\Users\Matias\Desktop\Carpeta biblioteca\BETA\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.vbproj.GenerateResource.Cache
+C:\Users\Matias\Desktop\Carpeta biblioteca\BETA\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.inicio_usuarios.resources
+C:\Users\Matias\Desktop\Carpeta biblioteca\BETA\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Form1.resources
+C:\Users\Matias\Desktop\Carpeta biblioteca\BETA\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Form2.resources
+C:\Users\Matias\Desktop\Carpeta biblioteca\BETA\Proyecto-Biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Form3.resources
+<<<<<<< HEAD
+C:\Users\Matias\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.exe
+C:\Users\Matias\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.xml
+C:\Users\Matias\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.pdb
+C:\Users\Matias\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\Proyecto-Biblioteca.exe
+C:\Users\Matias\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\Proyecto-Biblioteca.pdb
+C:\Users\Matias\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\Proyecto-Biblioteca.xml
+C:\Users\Matias\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Form1.resources
+C:\Users\Matias\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Form2.resources
+C:\Users\Matias\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Form3.resources
+C:\Users\Matias\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Form4.resources
+C:\Users\Matias\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.inicio_usuarios.resources
+C:\Users\Matias\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Carga.resources
+C:\Users\Matias\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.LOGIN.resources
+C:\Users\Matias\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Menu.resources
+C:\Users\Matias\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Resources.resources
+C:\Users\Matias\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.vbproj.GenerateResource.Cache
+=======
+C:\Users\guill\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.exe
+C:\Users\guill\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.xml
+C:\Users\guill\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.pdb
+C:\Users\guill\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\Proyecto-Biblioteca.exe
+C:\Users\guill\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\Proyecto-Biblioteca.pdb
+C:\Users\guill\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\Proyecto-Biblioteca.xml
+C:\Users\guill\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Form1.resources
+C:\Users\guill\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Form2.resources
+C:\Users\guill\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Form3.resources
+C:\Users\guill\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.inicio_usuarios.resources
+C:\Users\guill\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Carga.resources
+C:\Users\guill\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.LOGIN.resources
+C:\Users\guill\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Menu.resources
+C:\Users\guill\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Resources.resources
+C:\Users\guill\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.vbproj.GenerateResource.Cache
+>>>>>>> d7113537f131e44f7e71b81b0e83489ea008b556
