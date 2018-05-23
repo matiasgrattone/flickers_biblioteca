@@ -472,7 +472,7 @@
             nom = nombre.Text
         End If
         ape = apellido.Text
-        If LTrim$(cedula.Text) = "" Then ' Verifica si esta vacio cedula
+        If LTrim$(cedula_txt.Text) = "" Then ' Verifica si esta vacio cedula
             errorcedula.Text = "Cedula no puede estar vacío"
             i = 1
         End If
