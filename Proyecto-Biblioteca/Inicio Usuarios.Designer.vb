@@ -47,6 +47,28 @@ Partial Class inicio_usuarios
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Panel10 = New System.Windows.Forms.Panel()
+        Me.apellido_txt = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.registro = New System.Windows.Forms.DataGridView()
+        Me.errortelefono = New System.Windows.Forms.Label()
+        Me.errornombre = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.tipo_txt = New System.Windows.Forms.TextBox()
+        Me.errorcedula = New System.Windows.Forms.Label()
+        Me.guardar = New System.Windows.Forms.Button()
+        Me.anio = New System.Windows.Forms.ComboBox()
+        Me.mes = New System.Windows.Forms.ComboBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.dia = New System.Windows.Forms.ComboBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.direccion_txt = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.telefono_txt = New System.Windows.Forms.TextBox()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.cedula_txt = New System.Windows.Forms.TextBox()
+        Me.nombre_txt = New System.Windows.Forms.TextBox()
+        Me.Label17 = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.Panel9 = New System.Windows.Forms.Panel()
         Me.Panel8 = New System.Windows.Forms.Panel()
@@ -85,28 +107,6 @@ Partial Class inicio_usuarios
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.registro = New System.Windows.Forms.DataGridView()
-        Me.errortelefono = New System.Windows.Forms.Label()
-        Me.errornombre = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
-        Me.errorcedula = New System.Windows.Forms.Label()
-        Me.guardar = New System.Windows.Forms.Button()
-        Me.anio = New System.Windows.Forms.ComboBox()
-        Me.mes = New System.Windows.Forms.ComboBox()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.dia = New System.Windows.Forms.ComboBox()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.TextBox9 = New System.Windows.Forms.TextBox()
-        Me.TextBox10 = New System.Windows.Forms.TextBox()
-        Me.Label17 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -123,6 +123,7 @@ Partial Class inicio_usuarios
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.Panel10.SuspendLayout()
+        CType(Me.registro, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
         Me.Panel9.SuspendLayout()
         Me.Panel8.SuspendLayout()
@@ -141,7 +142,6 @@ Partial Class inicio_usuarios
         Me.Panel15.SuspendLayout()
         Me.Panel17.SuspendLayout()
         CType(Me.PictureBox12, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.registro, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -374,13 +374,13 @@ Partial Class inicio_usuarios
         '
         'Panel10
         '
-        Me.Panel10.Controls.Add(Me.TextBox5)
+        Me.Panel10.Controls.Add(Me.apellido_txt)
         Me.Panel10.Controls.Add(Me.Label2)
         Me.Panel10.Controls.Add(Me.registro)
         Me.Panel10.Controls.Add(Me.errortelefono)
         Me.Panel10.Controls.Add(Me.errornombre)
         Me.Panel10.Controls.Add(Me.Label11)
-        Me.Panel10.Controls.Add(Me.TextBox6)
+        Me.Panel10.Controls.Add(Me.tipo_txt)
         Me.Panel10.Controls.Add(Me.errorcedula)
         Me.Panel10.Controls.Add(Me.guardar)
         Me.Panel10.Controls.Add(Me.anio)
@@ -388,18 +388,205 @@ Partial Class inicio_usuarios
         Me.Panel10.Controls.Add(Me.Label12)
         Me.Panel10.Controls.Add(Me.dia)
         Me.Panel10.Controls.Add(Me.Label13)
-        Me.Panel10.Controls.Add(Me.TextBox7)
+        Me.Panel10.Controls.Add(Me.direccion_txt)
         Me.Panel10.Controls.Add(Me.Label14)
-        Me.Panel10.Controls.Add(Me.TextBox8)
+        Me.Panel10.Controls.Add(Me.telefono_txt)
         Me.Panel10.Controls.Add(Me.Label15)
         Me.Panel10.Controls.Add(Me.Label16)
-        Me.Panel10.Controls.Add(Me.TextBox9)
-        Me.Panel10.Controls.Add(Me.TextBox10)
+        Me.Panel10.Controls.Add(Me.cedula_txt)
+        Me.Panel10.Controls.Add(Me.nombre_txt)
         Me.Panel10.Controls.Add(Me.Label17)
         Me.Panel10.Location = New System.Drawing.Point(-4, -11)
         Me.Panel10.Name = "Panel10"
         Me.Panel10.Size = New System.Drawing.Size(873, 661)
         Me.Panel10.TabIndex = 2
+        '
+        'apellido_txt
+        '
+        Me.apellido_txt.Location = New System.Drawing.Point(143, 155)
+        Me.apellido_txt.Name = "apellido_txt"
+        Me.apellido_txt.Size = New System.Drawing.Size(221, 20)
+        Me.apellido_txt.TabIndex = 44
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(50, 156)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(53, 16)
+        Me.Label2.TabIndex = 43
+        Me.Label2.Text = "Apellido"
+        '
+        'registro
+        '
+        Me.registro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.registro.Location = New System.Drawing.Point(433, 120)
+        Me.registro.Name = "registro"
+        Me.registro.Size = New System.Drawing.Size(385, 235)
+        Me.registro.TabIndex = 42
+        '
+        'errortelefono
+        '
+        Me.errortelefono.AutoSize = True
+        Me.errortelefono.Location = New System.Drawing.Point(140, 253)
+        Me.errortelefono.Name = "errortelefono"
+        Me.errortelefono.Size = New System.Drawing.Size(0, 13)
+        Me.errortelefono.TabIndex = 41
+        '
+        'errornombre
+        '
+        Me.errornombre.AutoSize = True
+        Me.errornombre.Location = New System.Drawing.Point(140, 142)
+        Me.errornombre.Name = "errornombre"
+        Me.errornombre.Size = New System.Drawing.Size(0, 13)
+        Me.errornombre.TabIndex = 40
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(52, 356)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(33, 16)
+        Me.Label11.TabIndex = 39
+        Me.Label11.Text = "Tipo"
+        '
+        'tipo_txt
+        '
+        Me.tipo_txt.Location = New System.Drawing.Point(143, 355)
+        Me.tipo_txt.Name = "tipo_txt"
+        Me.tipo_txt.Size = New System.Drawing.Size(221, 20)
+        Me.tipo_txt.TabIndex = 38
+        '
+        'errorcedula
+        '
+        Me.errorcedula.AutoSize = True
+        Me.errorcedula.Location = New System.Drawing.Point(143, 210)
+        Me.errorcedula.Name = "errorcedula"
+        Me.errorcedula.Size = New System.Drawing.Size(0, 13)
+        Me.errorcedula.TabIndex = 37
+        '
+        'guardar
+        '
+        Me.guardar.Location = New System.Drawing.Point(154, 396)
+        Me.guardar.Name = "guardar"
+        Me.guardar.Size = New System.Drawing.Size(84, 23)
+        Me.guardar.TabIndex = 36
+        Me.guardar.Text = "Guardar"
+        Me.guardar.UseVisualStyleBackColor = True
+        '
+        'anio
+        '
+        Me.anio.FormattingEnabled = True
+        Me.anio.Location = New System.Drawing.Point(311, 315)
+        Me.anio.Name = "anio"
+        Me.anio.Size = New System.Drawing.Size(62, 21)
+        Me.anio.TabIndex = 35
+        '
+        'mes
+        '
+        Me.mes.FormattingEnabled = True
+        Me.mes.Location = New System.Drawing.Point(225, 315)
+        Me.mes.Name = "mes"
+        Me.mes.Size = New System.Drawing.Size(80, 21)
+        Me.mes.TabIndex = 34
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(21, 317)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(126, 16)
+        Me.Label12.TabIndex = 33
+        Me.Label12.Text = "Fecha de nacimiento"
+        '
+        'dia
+        '
+        Me.dia.FormattingEnabled = True
+        Me.dia.Location = New System.Drawing.Point(163, 316)
+        Me.dia.Name = "dia"
+        Me.dia.Size = New System.Drawing.Size(56, 21)
+        Me.dia.TabIndex = 32
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(50, 275)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(60, 16)
+        Me.Label13.TabIndex = 31
+        Me.Label13.Text = "Dirección"
+        '
+        'direccion_txt
+        '
+        Me.direccion_txt.Location = New System.Drawing.Point(143, 274)
+        Me.direccion_txt.Name = "direccion_txt"
+        Me.direccion_txt.Size = New System.Drawing.Size(221, 20)
+        Me.direccion_txt.TabIndex = 30
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(52, 231)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(58, 16)
+        Me.Label14.TabIndex = 29
+        Me.Label14.Text = "Teléfono"
+        '
+        'telefono_txt
+        '
+        Me.telefono_txt.Location = New System.Drawing.Point(143, 230)
+        Me.telefono_txt.Name = "telefono_txt"
+        Me.telefono_txt.Size = New System.Drawing.Size(221, 20)
+        Me.telefono_txt.TabIndex = 28
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Location = New System.Drawing.Point(52, 188)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(47, 16)
+        Me.Label15.TabIndex = 27
+        Me.Label15.Text = "Cédula"
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Location = New System.Drawing.Point(50, 121)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(53, 16)
+        Me.Label16.TabIndex = 26
+        Me.Label16.Text = "Nombre"
+        '
+        'cedula_txt
+        '
+        Me.cedula_txt.Location = New System.Drawing.Point(143, 187)
+        Me.cedula_txt.Name = "cedula_txt"
+        Me.cedula_txt.Size = New System.Drawing.Size(221, 20)
+        Me.cedula_txt.TabIndex = 25
+        '
+        'nombre_txt
+        '
+        Me.nombre_txt.Location = New System.Drawing.Point(143, 120)
+        Me.nombre_txt.Name = "nombre_txt"
+        Me.nombre_txt.Size = New System.Drawing.Size(221, 20)
+        Me.nombre_txt.TabIndex = 24
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.Location = New System.Drawing.Point(101, 82)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(204, 25)
+        Me.Label17.TabIndex = 23
+        Me.Label17.Text = "Registro de Socios"
         '
         'TabPage2
         '
@@ -763,199 +950,12 @@ Partial Class inicio_usuarios
         Me.Label3.Size = New System.Drawing.Size(479, 55)
         Me.Label3.TabIndex = 1
         '
-        'TextBox5
-        '
-        Me.TextBox5.Location = New System.Drawing.Point(143, 155)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(221, 20)
-        Me.TextBox5.TabIndex = 44
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(50, 156)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(53, 16)
-        Me.Label2.TabIndex = 43
-        Me.Label2.Text = "Apellido"
-        '
-        'registro
-        '
-        Me.registro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.registro.Location = New System.Drawing.Point(433, 120)
-        Me.registro.Name = "registro"
-        Me.registro.Size = New System.Drawing.Size(385, 235)
-        Me.registro.TabIndex = 42
-        '
-        'errortelefono
-        '
-        Me.errortelefono.AutoSize = True
-        Me.errortelefono.Location = New System.Drawing.Point(140, 253)
-        Me.errortelefono.Name = "errortelefono"
-        Me.errortelefono.Size = New System.Drawing.Size(0, 13)
-        Me.errortelefono.TabIndex = 41
-        '
-        'errornombre
-        '
-        Me.errornombre.AutoSize = True
-        Me.errornombre.Location = New System.Drawing.Point(140, 142)
-        Me.errornombre.Name = "errornombre"
-        Me.errornombre.Size = New System.Drawing.Size(0, 13)
-        Me.errornombre.TabIndex = 40
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(52, 356)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(67, 16)
-        Me.Label11.TabIndex = 39
-        Me.Label11.Text = "Ocupación"
-        '
-        'TextBox6
-        '
-        Me.TextBox6.Location = New System.Drawing.Point(143, 355)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(221, 20)
-        Me.TextBox6.TabIndex = 38
-        '
-        'errorcedula
-        '
-        Me.errorcedula.AutoSize = True
-        Me.errorcedula.Location = New System.Drawing.Point(143, 210)
-        Me.errorcedula.Name = "errorcedula"
-        Me.errorcedula.Size = New System.Drawing.Size(0, 13)
-        Me.errorcedula.TabIndex = 37
-        '
-        'guardar
-        '
-        Me.guardar.Location = New System.Drawing.Point(154, 396)
-        Me.guardar.Name = "guardar"
-        Me.guardar.Size = New System.Drawing.Size(84, 23)
-        Me.guardar.TabIndex = 36
-        Me.guardar.Text = "Guardar"
-        Me.guardar.UseVisualStyleBackColor = True
-        '
-        'anio
-        '
-        Me.anio.FormattingEnabled = True
-        Me.anio.Location = New System.Drawing.Point(311, 315)
-        Me.anio.Name = "anio"
-        Me.anio.Size = New System.Drawing.Size(62, 21)
-        Me.anio.TabIndex = 35
-        '
-        'mes
-        '
-        Me.mes.FormattingEnabled = True
-        Me.mes.Location = New System.Drawing.Point(225, 315)
-        Me.mes.Name = "mes"
-        Me.mes.Size = New System.Drawing.Size(80, 21)
-        Me.mes.TabIndex = 34
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(21, 317)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(126, 16)
-        Me.Label12.TabIndex = 33
-        Me.Label12.Text = "Fecha de nacimiento"
-        '
-        'dia
-        '
-        Me.dia.FormattingEnabled = True
-        Me.dia.Location = New System.Drawing.Point(163, 316)
-        Me.dia.Name = "dia"
-        Me.dia.Size = New System.Drawing.Size(56, 21)
-        Me.dia.TabIndex = 32
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(50, 275)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(60, 16)
-        Me.Label13.TabIndex = 31
-        Me.Label13.Text = "Dirección"
-        '
-        'TextBox7
-        '
-        Me.TextBox7.Location = New System.Drawing.Point(143, 274)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(221, 20)
-        Me.TextBox7.TabIndex = 30
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(52, 231)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(58, 16)
-        Me.Label14.TabIndex = 29
-        Me.Label14.Text = "Teléfono"
-        '
-        'TextBox8
-        '
-        Me.TextBox8.Location = New System.Drawing.Point(143, 230)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(221, 20)
-        Me.TextBox8.TabIndex = 28
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(52, 188)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(47, 16)
-        Me.Label15.TabIndex = 27
-        Me.Label15.Text = "Cédula"
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(50, 121)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(53, 16)
-        Me.Label16.TabIndex = 26
-        Me.Label16.Text = "Nombre"
-        '
-        'TextBox9
-        '
-        Me.TextBox9.Location = New System.Drawing.Point(143, 187)
-        Me.TextBox9.Name = "TextBox9"
-        Me.TextBox9.Size = New System.Drawing.Size(221, 20)
-        Me.TextBox9.TabIndex = 25
-        '
-        'TextBox10
-        '
-        Me.TextBox10.Location = New System.Drawing.Point(143, 120)
-        Me.TextBox10.Name = "TextBox10"
-        Me.TextBox10.Size = New System.Drawing.Size(221, 20)
-        Me.TextBox10.TabIndex = 24
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(101, 82)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(204, 25)
-        Me.Label17.TabIndex = 23
-        Me.Label17.Text = "Registro de Socios"
-        '
         'inicio_usuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Gray
-        Me.ClientSize = New System.Drawing.Size(1354, 800)
+        Me.ClientSize = New System.Drawing.Size(1354, 788)
         Me.ControlBox = False
         Me.Controls.Add(Me.Panel13)
         Me.Controls.Add(Me.Panel1)
@@ -983,6 +983,7 @@ Partial Class inicio_usuarios
         Me.TabPage1.ResumeLayout(False)
         Me.Panel10.ResumeLayout(False)
         Me.Panel10.PerformLayout()
+        CType(Me.registro, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
         Me.Panel9.ResumeLayout(False)
         Me.Panel8.ResumeLayout(False)
@@ -1006,7 +1007,6 @@ Partial Class inicio_usuarios
         Me.Panel15.PerformLayout()
         Me.Panel17.ResumeLayout(False)
         CType(Me.PictureBox12, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.registro, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1072,13 +1072,13 @@ Partial Class inicio_usuarios
     Friend WithEvents DataGridView3 As System.Windows.Forms.DataGridView
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox5 As System.Windows.Forms.TextBox
+    Friend WithEvents apellido_txt As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents registro As System.Windows.Forms.DataGridView
     Friend WithEvents errortelefono As System.Windows.Forms.Label
     Friend WithEvents errornombre As System.Windows.Forms.Label
     Friend WithEvents Label11 As System.Windows.Forms.Label
-    Friend WithEvents TextBox6 As System.Windows.Forms.TextBox
+    Friend WithEvents tipo_txt As System.Windows.Forms.TextBox
     Friend WithEvents errorcedula As System.Windows.Forms.Label
     Friend WithEvents guardar As System.Windows.Forms.Button
     Friend WithEvents anio As System.Windows.Forms.ComboBox
@@ -1086,13 +1086,13 @@ Partial Class inicio_usuarios
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents dia As System.Windows.Forms.ComboBox
     Friend WithEvents Label13 As System.Windows.Forms.Label
-    Friend WithEvents TextBox7 As System.Windows.Forms.TextBox
+    Friend WithEvents direccion_txt As System.Windows.Forms.TextBox
     Friend WithEvents Label14 As System.Windows.Forms.Label
-    Friend WithEvents TextBox8 As System.Windows.Forms.TextBox
+    Friend WithEvents telefono_txt As System.Windows.Forms.TextBox
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents Label16 As System.Windows.Forms.Label
-    Friend WithEvents TextBox9 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox10 As System.Windows.Forms.TextBox
+    Friend WithEvents cedula_txt As System.Windows.Forms.TextBox
+    Friend WithEvents nombre_txt As System.Windows.Forms.TextBox
     Friend WithEvents Label17 As System.Windows.Forms.Label
 
 End Class

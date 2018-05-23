@@ -446,8 +446,6 @@
 
         '//////////////////////////////editar usuarios boton cargar //////////////////////
 
-
-
     End Sub
 
     Private Sub guardar_Click(sender As System.Object, e As System.EventArgs) Handles guardar.Click
@@ -455,51 +453,47 @@
 
         ' Crear Variables
 
-        Dim ced As Double
+        Dim ced As Integer
         Dim nom As String
         Dim ape As String
-        Dim tel As Double
+        Dim tel As Integer
         Dim dir As String
-        Dim ocu As String
-        Dim i As Double ' Variable bandera para avisar que existe un error
+        Dim tipo As Integer
+        Dim i As Integer ' Variable bandera para avisar que existe un error
         i = 0
 
         ' Verificar campos
-        If LTrim$(nombre.Text) = "" Then ' Verifica si esta vacio nombre
+        If LTrim$(nombre_txt.Text) = "" Then ' Verifica si esta vacio nombre
             errornombre.Text = "Nombre no puede estar vacío"
             i = 1
         Else
-            nom = nombre.Text
+            nom = nombre_txt.Text
         End If
-        ape = apellido.Text
-        If LTrim$(cedula.Text) = "" Then ' Verifica si esta vacio cedula
+        ape = apellido_txt.Text
+        If LTrim$(cedula_txt.Text) = "" Then ' Verifica si esta vacio cedula
             errorcedula.Text = "Cedula no puede estar vacío"
             i = 1
         End If
         If i = 0 Then
-            If IsNumeric(cedula.Text) = True Then
-                ced = cedula.Text
+            If IsNumeric(cedula_txt.Text) = True Then
+                ced = cedula_txt.Text
             Else
                 errorcedula.Text = "No valido, ingrese solo numeros"
             End If
         End If
-        If IsNumeric(telefono.Text) = True Then
-            tel = telefono.Text
+        If IsNumeric(telefono_txt.Text) = True Then
+            tel = telefono_txt.Text
         Else
             errortelefono.Text = "No valido, ingrese solo numeros"
         End If
-        dir = direccion.Text
-        ocu = ocupacion.Text
+        dir = direccion_txt.Text
+        tipo = tipo_txt.Text
 
         If i = 0 Then ' Si no hay errores se pasan los datos la base de datos
             Try
-
-
-                ' sql = "insert into usuarios (nombre, cedula, telefono, direccion, ocupacion) values '" + nom + "', '" + Str(ced) + "', '" + Str(tel) + "', '" + dir + "', '" + ocu + "'"
-                Consulta = "insert into usuarios (nombre, cedulaU, telefono, direccion, tipo) values ('" + nom + "', '" + Str(ced) + "', '" + Str(tel) + "', '" + dir + "', '" + ocu + "');"
-
+                'Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo) values ('" + nom + "', " + ape + "', '" + Str(ced) + "', '" + Str(tel) + "', '" + dir + "', '" + Str(tipo) + "');
+                Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo) values ('" + nom + "', '" + ape + "', '" + Str(ced) + "', '" + Str(tel) + "', '" + dir + "', '" + Str(tipo) + "');"
                 consultar()
-
                 MsgBox("Usuario agregado con exito")
             Catch ex As Exception
                 MsgBox(ex.Message)
@@ -509,15 +503,13 @@
         End If
         Try
             Consulta = "select * from usuarios;"
-
             consultar()
-
-            DataGridView1.Rows.Add(Tabla)
+            registro.DataSource = Tabla
         Catch ex As Exception
             MsgBox(ex.Message)
-
         End Try
 
         '///////////////////////////////////////////////////////////////////
     End Sub
+
 End Class
