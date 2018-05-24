@@ -443,12 +443,18 @@
             DataGridView3.DataSource = filtro(TextBox4.Text)
         End If
 
-
-        '//////////////////////////////editar usuarios boton cargar //////////////////////
-
     End Sub
 
-    Private Sub guardar_Click(sender As System.Object, e As System.EventArgs) Handles guardar.Click
+    '////////////////////////////// editar usuarios boton actualizar datos //////////////////////
+
+    Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
+        'Consulta = "update usuarios set nombre='" + nom + "', apellido='" + ape + "', cedula='" + ced1 + "', telefono='" + tel + "', direccion='" + Dir() + "', tipo='" + tipo + "' where cedula='" + ced + "';"
+        'consultar()
+    End Sub
+
+
+
+    Private Sub guardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles guardar.Click
         '//////////////////// AGREGAR USUARIOS /////////////////////////////
 
         ' Crear Variables
