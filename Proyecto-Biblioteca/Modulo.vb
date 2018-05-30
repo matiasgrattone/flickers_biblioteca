@@ -5,7 +5,7 @@ Imports MySql.Data.MySqlClient
 
 Module Modulo
 
-    Dim ubicacion As String = "server=localhost; user id=root ; password='';database = biblioteca"
+    Dim ubicacion As String = "server=localhost; user id=root; password=''; database=biblioteca"
     Public Conexion As MySqlDataAdapter
     Public Tabla As DataTable
     Public Consulta As String

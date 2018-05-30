@@ -81,7 +81,7 @@ Partial Class inicio_usuarios
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.apellido = New System.Windows.Forms.TextBox()
-        Me.ocupacion = New System.Windows.Forms.TextBox()
+        Me.tipo = New System.Windows.Forms.TextBox()
         Me.direccion = New System.Windows.Forms.TextBox()
         Me.nombre = New System.Windows.Forms.TextBox()
         Me.telefono = New System.Windows.Forms.TextBox()
@@ -107,6 +107,9 @@ Partial Class inicio_usuarios
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.errorcedula1 = New System.Windows.Forms.Label()
+        Me.errornombre1 = New System.Windows.Forms.Label()
+        Me.errortelefono1 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -670,11 +673,14 @@ Partial Class inicio_usuarios
         '
         'Panel11
         '
+        Me.Panel11.Controls.Add(Me.errortelefono1)
+        Me.Panel11.Controls.Add(Me.errornombre1)
+        Me.Panel11.Controls.Add(Me.errorcedula1)
         Me.Panel11.Controls.Add(Me.Button3)
         Me.Panel11.Controls.Add(Me.Button4)
         Me.Panel11.Controls.Add(Me.Button5)
         Me.Panel11.Controls.Add(Me.apellido)
-        Me.Panel11.Controls.Add(Me.ocupacion)
+        Me.Panel11.Controls.Add(Me.tipo)
         Me.Panel11.Controls.Add(Me.direccion)
         Me.Panel11.Controls.Add(Me.nombre)
         Me.Panel11.Controls.Add(Me.telefono)
@@ -721,12 +727,12 @@ Partial Class inicio_usuarios
         Me.apellido.Size = New System.Drawing.Size(165, 20)
         Me.apellido.TabIndex = 21
         '
-        'ocupacion
+        'tipo
         '
-        Me.ocupacion.Location = New System.Drawing.Point(341, 291)
-        Me.ocupacion.Name = "ocupacion"
-        Me.ocupacion.Size = New System.Drawing.Size(165, 20)
-        Me.ocupacion.TabIndex = 20
+        Me.tipo.Location = New System.Drawing.Point(341, 291)
+        Me.tipo.Name = "tipo"
+        Me.tipo.Size = New System.Drawing.Size(165, 20)
+        Me.tipo.TabIndex = 20
         '
         'direccion
         '
@@ -952,6 +958,30 @@ Partial Class inicio_usuarios
         Me.Label3.Size = New System.Drawing.Size(479, 55)
         Me.Label3.TabIndex = 1
         '
+        'errorcedula1
+        '
+        Me.errorcedula1.AutoSize = True
+        Me.errorcedula1.Location = New System.Drawing.Point(139, 267)
+        Me.errorcedula1.Name = "errorcedula1"
+        Me.errorcedula1.Size = New System.Drawing.Size(0, 13)
+        Me.errorcedula1.TabIndex = 25
+        '
+        'errornombre1
+        '
+        Me.errornombre1.AutoSize = True
+        Me.errornombre1.Location = New System.Drawing.Point(139, 212)
+        Me.errornombre1.Name = "errornombre1"
+        Me.errornombre1.Size = New System.Drawing.Size(0, 13)
+        Me.errornombre1.TabIndex = 26
+        '
+        'errortelefono1
+        '
+        Me.errortelefono1.AutoSize = True
+        Me.errortelefono1.Location = New System.Drawing.Point(341, 267)
+        Me.errortelefono1.Name = "errortelefono1"
+        Me.errortelefono1.Size = New System.Drawing.Size(0, 13)
+        Me.errortelefono1.TabIndex = 27
+        '
         'inicio_usuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1066,7 +1096,7 @@ Partial Class inicio_usuarios
     Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents apellido As System.Windows.Forms.TextBox
-    Friend WithEvents ocupacion As System.Windows.Forms.TextBox
+    Friend WithEvents tipo As System.Windows.Forms.TextBox
     Friend WithEvents direccion As System.Windows.Forms.TextBox
     Friend WithEvents nombre As System.Windows.Forms.TextBox
     Friend WithEvents telefono As System.Windows.Forms.TextBox
@@ -1096,5 +1126,8 @@ Partial Class inicio_usuarios
     Friend WithEvents cedula_txt As System.Windows.Forms.TextBox
     Friend WithEvents nombre_txt As System.Windows.Forms.TextBox
     Friend WithEvents Label17 As System.Windows.Forms.Label
+    Friend WithEvents errorcedula1 As System.Windows.Forms.Label
+    Friend WithEvents errornombre1 As System.Windows.Forms.Label
+    Friend WithEvents errortelefono1 As System.Windows.Forms.Label
 
 End Class
