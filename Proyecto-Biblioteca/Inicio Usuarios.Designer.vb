@@ -47,6 +47,9 @@ Partial Class inicio_usuarios
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Panel10 = New System.Windows.Forms.Panel()
+        Me.Panel18 = New System.Windows.Forms.Panel()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.PictureBox9 = New System.Windows.Forms.PictureBox()
         Me.apellido_txt = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.registro = New System.Windows.Forms.DataGridView()
@@ -123,6 +126,8 @@ Partial Class inicio_usuarios
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.Panel10.SuspendLayout()
+        Me.Panel18.SuspendLayout()
+        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.registro, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
         Me.Panel9.SuspendLayout()
@@ -211,7 +216,7 @@ Partial Class inicio_usuarios
         '
         'MonthCalendar1
         '
-        Me.MonthCalendar1.Location = New System.Drawing.Point(9, 415)
+        Me.MonthCalendar1.Location = New System.Drawing.Point(36, 413)
         Me.MonthCalendar1.Name = "MonthCalendar1"
         Me.MonthCalendar1.TabIndex = 4
         '
@@ -374,6 +379,8 @@ Partial Class inicio_usuarios
         '
         'Panel10
         '
+        Me.Panel10.Controls.Add(Me.Panel18)
+        Me.Panel10.Controls.Add(Me.PictureBox9)
         Me.Panel10.Controls.Add(Me.apellido_txt)
         Me.Panel10.Controls.Add(Me.Label2)
         Me.Panel10.Controls.Add(Me.registro)
@@ -401,11 +408,40 @@ Partial Class inicio_usuarios
         Me.Panel10.Size = New System.Drawing.Size(873, 661)
         Me.Panel10.TabIndex = 2
         '
+        'Panel18
+        '
+        Me.Panel18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel18.Controls.Add(Me.Label18)
+        Me.Panel18.Location = New System.Drawing.Point(490, 274)
+        Me.Panel18.Name = "Panel18"
+        Me.Panel18.Size = New System.Drawing.Size(181, 42)
+        Me.Panel18.TabIndex = 46
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.Location = New System.Drawing.Point(3, 4)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(162, 26)
+        Me.Label18.TabIndex = 0
+        Me.Label18.Text = "tambien Puede Seleccionar" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " la fecha en el calendario"
+        '
+        'PictureBox9
+        '
+        Me.PictureBox9.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.faq
+        Me.PictureBox9.Location = New System.Drawing.Point(465, 315)
+        Me.PictureBox9.Name = "PictureBox9"
+        Me.PictureBox9.Size = New System.Drawing.Size(28, 24)
+        Me.PictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox9.TabIndex = 45
+        Me.PictureBox9.TabStop = False
+        '
         'apellido_txt
         '
         Me.apellido_txt.Location = New System.Drawing.Point(143, 155)
         Me.apellido_txt.Name = "apellido_txt"
-        Me.apellido_txt.Size = New System.Drawing.Size(221, 20)
+        Me.apellido_txt.Size = New System.Drawing.Size(314, 20)
         Me.apellido_txt.TabIndex = 44
         '
         'Label2
@@ -420,12 +456,20 @@ Partial Class inicio_usuarios
         '
         'registro
         '
+        Me.registro.AllowDrop = True
+        Me.registro.AllowUserToAddRows = False
+        Me.registro.AllowUserToDeleteRows = False
+        Me.registro.AllowUserToOrderColumns = True
+        Me.registro.AllowUserToResizeColumns = False
+        Me.registro.AllowUserToResizeRows = False
         Me.registro.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.registro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.registro.ColumnHeadersVisible = False
-        Me.registro.Location = New System.Drawing.Point(433, 120)
+        Me.registro.Location = New System.Drawing.Point(551, 42)
         Me.registro.Name = "registro"
-        Me.registro.Size = New System.Drawing.Size(385, 235)
+        Me.registro.RowHeadersVisible = False
+        Me.registro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.registro.Size = New System.Drawing.Size(267, 495)
         Me.registro.TabIndex = 42
         '
         'errortelefono
@@ -481,24 +525,24 @@ Partial Class inicio_usuarios
         'anio
         '
         Me.anio.FormattingEnabled = True
-        Me.anio.Location = New System.Drawing.Point(311, 315)
+        Me.anio.Location = New System.Drawing.Point(384, 317)
         Me.anio.Name = "anio"
-        Me.anio.Size = New System.Drawing.Size(62, 21)
+        Me.anio.Size = New System.Drawing.Size(73, 21)
         Me.anio.TabIndex = 35
         '
         'mes
         '
         Me.mes.FormattingEnabled = True
-        Me.mes.Location = New System.Drawing.Point(225, 315)
+        Me.mes.Location = New System.Drawing.Point(265, 316)
         Me.mes.Name = "mes"
-        Me.mes.Size = New System.Drawing.Size(80, 21)
+        Me.mes.Size = New System.Drawing.Size(99, 21)
         Me.mes.TabIndex = 34
         '
         'Label12
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(21, 317)
+        Me.Label12.Location = New System.Drawing.Point(10, 316)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(126, 16)
         Me.Label12.TabIndex = 33
@@ -507,9 +551,9 @@ Partial Class inicio_usuarios
         'dia
         '
         Me.dia.FormattingEnabled = True
-        Me.dia.Location = New System.Drawing.Point(163, 316)
+        Me.dia.Location = New System.Drawing.Point(146, 316)
         Me.dia.Name = "dia"
-        Me.dia.Size = New System.Drawing.Size(56, 21)
+        Me.dia.Size = New System.Drawing.Size(103, 21)
         Me.dia.TabIndex = 32
         '
         'Label13
@@ -526,7 +570,7 @@ Partial Class inicio_usuarios
         '
         Me.direccion_txt.Location = New System.Drawing.Point(143, 274)
         Me.direccion_txt.Name = "direccion_txt"
-        Me.direccion_txt.Size = New System.Drawing.Size(221, 20)
+        Me.direccion_txt.Size = New System.Drawing.Size(314, 20)
         Me.direccion_txt.TabIndex = 30
         '
         'Label14
@@ -543,7 +587,7 @@ Partial Class inicio_usuarios
         '
         Me.telefono_txt.Location = New System.Drawing.Point(143, 230)
         Me.telefono_txt.Name = "telefono_txt"
-        Me.telefono_txt.Size = New System.Drawing.Size(221, 20)
+        Me.telefono_txt.Size = New System.Drawing.Size(314, 20)
         Me.telefono_txt.TabIndex = 28
         '
         'Label15
@@ -568,23 +612,23 @@ Partial Class inicio_usuarios
         '
         'cedula_txt
         '
-        Me.cedula_txt.Location = New System.Drawing.Point(143, 187)
+        Me.cedula_txt.Location = New System.Drawing.Point(146, 187)
         Me.cedula_txt.Name = "cedula_txt"
-        Me.cedula_txt.Size = New System.Drawing.Size(221, 20)
+        Me.cedula_txt.Size = New System.Drawing.Size(311, 20)
         Me.cedula_txt.TabIndex = 25
         '
         'nombre_txt
         '
         Me.nombre_txt.Location = New System.Drawing.Point(143, 120)
         Me.nombre_txt.Name = "nombre_txt"
-        Me.nombre_txt.Size = New System.Drawing.Size(221, 20)
+        Me.nombre_txt.Size = New System.Drawing.Size(314, 20)
         Me.nombre_txt.TabIndex = 24
         '
         'Label17
         '
         Me.Label17.AutoSize = True
         Me.Label17.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(101, 82)
+        Me.Label17.Location = New System.Drawing.Point(19, 31)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(204, 25)
         Me.Label17.TabIndex = 23
@@ -653,6 +697,7 @@ Partial Class inicio_usuarios
         Me.DataGridView1.Location = New System.Drawing.Point(10, 109)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView1.Size = New System.Drawing.Size(840, 414)
         Me.DataGridView1.TabIndex = 0
@@ -814,14 +859,19 @@ Partial Class inicio_usuarios
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(595, 20)
         Me.TextBox3.TabIndex = 1
-        Me.TextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'DataGridView2
         '
+        Me.DataGridView2.AllowUserToAddRows = False
+        Me.DataGridView2.AllowUserToDeleteRows = False
+        Me.DataGridView2.AllowUserToResizeColumns = False
+        Me.DataGridView2.AllowUserToResizeRows = False
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView2.Location = New System.Drawing.Point(20, 189)
         Me.DataGridView2.Name = "DataGridView2"
+        Me.DataGridView2.ReadOnly = True
         Me.DataGridView2.RowHeadersVisible = False
+        Me.DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView2.Size = New System.Drawing.Size(836, 404)
         Me.DataGridView2.TabIndex = 0
         '
@@ -985,6 +1035,9 @@ Partial Class inicio_usuarios
         Me.TabPage1.ResumeLayout(False)
         Me.Panel10.ResumeLayout(False)
         Me.Panel10.PerformLayout()
+        Me.Panel18.ResumeLayout(False)
+        Me.Panel18.PerformLayout()
+        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.registro, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
         Me.Panel9.ResumeLayout(False)
@@ -1084,9 +1137,7 @@ Partial Class inicio_usuarios
     Friend WithEvents errorcedula As System.Windows.Forms.Label
     Friend WithEvents guardar As System.Windows.Forms.Button
     Friend WithEvents anio As System.Windows.Forms.ComboBox
-    Friend WithEvents mes As System.Windows.Forms.ComboBox
     Friend WithEvents Label12 As System.Windows.Forms.Label
-    Friend WithEvents dia As System.Windows.Forms.ComboBox
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents direccion_txt As System.Windows.Forms.TextBox
     Friend WithEvents Label14 As System.Windows.Forms.Label
@@ -1096,5 +1147,10 @@ Partial Class inicio_usuarios
     Friend WithEvents cedula_txt As System.Windows.Forms.TextBox
     Friend WithEvents nombre_txt As System.Windows.Forms.TextBox
     Friend WithEvents Label17 As System.Windows.Forms.Label
+    Friend WithEvents mes As System.Windows.Forms.ComboBox
+    Friend WithEvents dia As System.Windows.Forms.ComboBox
+    Friend WithEvents PictureBox9 As System.Windows.Forms.PictureBox
+    Friend WithEvents Panel18 As System.Windows.Forms.Panel
+    Friend WithEvents Label18 As System.Windows.Forms.Label
 
 End Class

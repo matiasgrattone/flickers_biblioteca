@@ -13,9 +13,15 @@
 
 
 
+        '//cargar usuarios en registro//
 
+        Consulta = "select * from usuarios"
+        consultar()
+        registro.DataSource = Tabla
 
+        '//////////////////
 
+        Panel18.Hide()
         '----------------------------- CONSULTA PARA LA BUSQUEDA DE LOS USUARIOS ----- 
 
         '-------------------VERIFICAR SI ESTA CONECTADO A LA BASE , SI DA ERROR APARECE LA IMAGEN DE OK (LA QUE ESTA ADENTRO DEL TRY) , SI DA ERROR APARECE LA IMAGEN DE ERROR (LA QUE ESTA ADENTRO DEL CATCH)
@@ -367,39 +373,6 @@
 
     End Sub
 
-    Private Sub DataGridView2_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView2.CellContentClick
-
-        Dim nombre As String
-        Dim codlibro As Integer
-        Dim a As MsgBoxStyle = MsgBoxStyle.YesNo + MsgBoxStyle.Critical
-        Dim b As MsgBoxResult
-        nombre = DataGridView2.Item(1, DataGridView2.CurrentRow.Index).Value
-
-        b = MsgBox("desea eliminar a " + nombre + "?", a, Title:="hola")
-
-
-        Select Case b
-
-            Case MsgBoxResult.No
-
-                MsgBox("hola")
-
-            Case MsgBoxResult.Yes
-
-                codlibro = DataGridView2.Item(0, DataGridView2.CurrentRow.Index).Value
-                Consulta = "delete from usuarios where cedulaU = '" & codlibro & "'"
-                consultar()
-
-
-        End Select
-
-
-        Consulta = "select * from usuarios"
-        consultar()
-        DataGridView2.DataSource = Tabla
-
-
-    End Sub
 
 
     '////////////////////////////////////////CONSULTA EDITAR USUARIOS//////////////////////////////////////////
@@ -470,6 +443,7 @@
             nom = nombre_txt.Text
         End If
         ape = apellido_txt.Text
+
         If LTrim$(cedula_txt.Text) = "" Then ' Verifica si esta vacio cedula
             errorcedula.Text = "Cedula no puede estar vacío"
             i = 1
@@ -486,15 +460,30 @@
         Else
             errortelefono.Text = "No valido, ingrese solo numeros"
         End If
+
         dir = direccion_txt.Text
         tipo = tipo_txt.Text
 
         If i = 0 Then ' Si no hay errores se pasan los datos la base de datos
             Try
                 'Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo) values ('" + nom + "', " + ape + "', '" + Str(ced) + "', '" + Str(tel) + "', '" + dir + "', '" + Str(tipo) + "');
-                Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo) values ('" + nom + "', '" + ape + "', '" + Str(ced) + "', '" + Str(tel) + "', '" + dir + "', '" + Str(tipo) + "');"
+
+                Dim nacimiento As String = anio.Text & "-" & mes.Text & "-" & dia.Text '//GUARDA LOS DATOS DEL COMBO A LA VARIABLE NACIMIENTO PARA LUEGO USARLA EN LA CONSULTA INSERT
+
+                Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo , nacimiento) values ('" + nom + "', '" + ape + "', '" + Str(ced) + "', '" + Str(tel) + "', '" + dir + "', '" + Str(tipo) + "', '" + nacimiento + "' );"
                 consultar()
                 MsgBox("Usuario agregado con exito")
+
+                nombre_txt.Clear()
+                apellido_txt.Clear()
+                cedula_txt.Clear()
+                telefono_txt.Clear()
+                direccion_txt.Clear()
+                dia.Text = ""
+                mes.Text = ""
+                anio.Text = ""
+                tipo_txt.Clear()
+
             Catch ex As Exception
                 MsgBox(ex.Message)
 
@@ -512,4 +501,65 @@
         '///////////////////////////////////////////////////////////////////
     End Sub
 
+
+
+
+
+    Private Sub DataGridView2_MouseDoubleClick(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles DataGridView2.MouseDoubleClick
+
+        Dim nombre As String
+        Dim codusuario As Integer
+        Dim a As MsgBoxStyle = MsgBoxStyle.YesNo + MsgBoxStyle.Critical
+        Dim b As MsgBoxResult
+        nombre = DataGridView2.Item(1, DataGridView2.CurrentRow.Index).Value
+
+        b = MsgBox("desea eliminar a " + nombre + "?", a, Title:="Eliminar")
+
+
+        Select Case b
+
+            Case MsgBoxResult.No
+
+
+            Case MsgBoxResult.Yes
+
+                codusuario = DataGridView2.Item(0, DataGridView2.CurrentRow.Index).Value
+                Consulta = "delete from usuarios where cedula = '" & codusuario & "'"
+                consultar()
+
+
+        End Select
+
+
+        Consulta = "select * from usuarios"
+        consultar()
+        DataGridView2.DataSource = Tabla
+    End Sub
+
+    Private Sub MonthCalendar1_DateChanged(sender As System.Object, e As System.Windows.Forms.DateRangeEventArgs) Handles MonthCalendar1.DateChanged
+
+        Dim fecha As String = MonthCalendar1.SelectionStart
+
+        dia.Text = fecha.Substring(0, 2)
+        mes.Text = fecha.Substring(3, 2)
+        anio.Text = fecha.Substring(6, 4)
+
+    End Sub
+
+    Private Sub PictureBox9_MouseEnter(sender As Object, e As System.EventArgs) Handles PictureBox9.MouseEnter
+        Panel18.Show()
+    End Sub
+
+    Private Sub PictureBox9_MouseLeave(sender As Object, e As System.EventArgs) Handles PictureBox9.MouseLeave
+        Panel18.Hide()
+    End Sub
+
+
+
+
+
+
+
+
 End Class
+

@@ -35,6 +35,10 @@ Proyecto-Biblioteca
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
+</member><member name="P:Proyecto_Biblioteca.My.Resources.Resources.faq">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="P:Proyecto_Biblioteca.My.Resources.Resources.file">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
