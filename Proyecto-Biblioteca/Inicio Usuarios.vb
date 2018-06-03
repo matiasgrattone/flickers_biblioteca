@@ -3,7 +3,7 @@
 
     Dim configuracion As Integer = 1
     Dim notas As Integer = 1
-
+    Dim ced As Integer
 
 
     Private Sub Form1_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
@@ -377,22 +377,23 @@
 
     '////////////////////////////////////////CONSULTA EDITAR USUARIOS//////////////////////////////////////////
     Function filtro(ByVal busqueda As String) As DataTable
-        Consulta = "select cedulaU, nombre, telefono, direccion, tipo from usuarios where nombre like '%" + busqueda + "%';"
+        Consulta = "select cedula, nombre, apellido, telefono, direccion, tipo from usuarios where nombre like '%" + busqueda + "%';"
         consultar()
         Return (Tabla)
     End Function
     '////////////////////////////////////////////////////////////////////////////////////////
     '//////////////////////////////editar usuarios boton cargar //////////////////////
-    Private Sub Button3_Click(sender As System.Object, e As System.EventArgs) Handles Button3.Click
+    Public Sub Button3_Click(sender As System.Object, e As System.EventArgs) Handles Button3.Click
 
         Dim rowindex As Integer = DataGridView3.SelectedRows(0).Index()
 
         nombre.Text = Convert.ToString(DataGridView3.Rows(rowindex).Cells(1).Value.ToString())
         apellido.Text = Convert.ToString(DataGridView3.Rows(rowindex).Cells(2).Value.ToString())
         cedula.Text = Convert.ToString(DataGridView3.Rows(rowindex).Cells(0).Value.ToString())
+        ' ced = Convert.ToString(DataGridView3.Rows(rowindex).Cells(0).Value.ToString())
         telefono.Text = Convert.ToString(DataGridView3.Rows(rowindex).Cells(3).Value.ToString())
         direccion.Text = Convert.ToString(DataGridView3.Rows(rowindex).Cells(4).Value.ToString())
-        ocupacion.Text = Convert.ToString(DataGridView3.Rows(rowindex).Cells(5).Value.ToString())
+        tipo.Text = Convert.ToString(DataGridView3.Rows(rowindex).Cells(5).Value.ToString())
         '//////////////////////////////////////////////////////////////////////////////////
     End Sub
 
@@ -416,12 +417,62 @@
             DataGridView3.DataSource = filtro(TextBox4.Text)
         End If
 
-
-        '//////////////////////////////editar usuarios boton cargar //////////////////////
-
     End Sub
 
-    Private Sub guardar_Click(sender As System.Object, e As System.EventArgs) Handles guardar.Click
+    '////////////////////////////// editar usuarios boton actualizar datos //////////////////////
+
+    Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
+        ' Crear Variables
+
+        Dim ced1 As Integer
+        Dim nom As String
+        Dim ape As String
+        Dim tel As Integer
+        Dim dir As String
+        Dim tip As Integer
+        Dim i As Integer ' Variable bandera para avisar que existe un error
+        i = 0
+
+        ced = cedula.Text
+
+        ' Verificar campos
+        If LTrim$(nombre.Text) = "" Then ' Verifica si esta vacio nombre
+            errornombre1.Text = "Nombre no puede estar vacío" 'Label invisible debajo de nombre
+            i = 1
+        Else
+            nom = nombre.Text
+        End If
+        ape = apellido.Text
+        If LTrim$(cedula.Text) = "" Then ' Verifica si esta vacio cedula
+            errorcedula1.Text = "Cedula no puede estar vacío" 'Label invisible debajo de cedula
+            i = 1
+        End If
+        If i = 0 Then
+            If IsNumeric(cedula.Text) = True Then
+                ced1 = cedula.Text
+            Else
+                errorcedula1.Text = "No valido, ingrese solo numeros" 'Label invisible debajo de cedula
+            End If
+        End If
+        If IsNumeric(telefono.Text) = True Then
+            tel = telefono.Text
+        Else
+            errortelefono1.Text = "No valido, ingrese solo numeros" 'Label invisible debajo de telefono
+        End If
+        dir = direccion.Text
+        tip = tipo.Text
+        Try
+            Consulta = "update usuarios set nombre='" + nom + "', apellido='" + ape + "', cedula='" + Str(ced1) + "', telefono='" + Str(tel) + "', direccion='" + dir + "', tipo='" + Str(tipo) + "' where cedula='" + Str(ced) + "';"
+            consultar()
+            MsgBox("Edición guardada satisfactoriamente")
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+
+
+    Private Sub guardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles guardar.Click
         '//////////////////// AGREGAR USUARIOS /////////////////////////////
 
         ' Crear Variables
