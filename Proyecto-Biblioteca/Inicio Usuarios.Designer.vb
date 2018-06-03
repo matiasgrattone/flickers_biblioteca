@@ -80,6 +80,9 @@ Partial Class inicio_usuarios
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.Panel11 = New System.Windows.Forms.Panel()
+        Me.errortelefono1 = New System.Windows.Forms.Label()
+        Me.errornombre1 = New System.Windows.Forms.Label()
+        Me.errorcedula1 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
@@ -110,9 +113,6 @@ Partial Class inicio_usuarios
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.errorcedula1 = New System.Windows.Forms.Label()
-        Me.errornombre1 = New System.Windows.Forms.Label()
-        Me.errortelefono1 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -738,6 +738,30 @@ Partial Class inicio_usuarios
         Me.Panel11.Size = New System.Drawing.Size(873, 659)
         Me.Panel11.TabIndex = 3
         '
+        'errortelefono1
+        '
+        Me.errortelefono1.AutoSize = True
+        Me.errortelefono1.Location = New System.Drawing.Point(341, 267)
+        Me.errortelefono1.Name = "errortelefono1"
+        Me.errortelefono1.Size = New System.Drawing.Size(0, 13)
+        Me.errortelefono1.TabIndex = 27
+        '
+        'errornombre1
+        '
+        Me.errornombre1.AutoSize = True
+        Me.errornombre1.Location = New System.Drawing.Point(139, 212)
+        Me.errornombre1.Name = "errornombre1"
+        Me.errornombre1.Size = New System.Drawing.Size(0, 13)
+        Me.errornombre1.TabIndex = 26
+        '
+        'errorcedula1
+        '
+        Me.errorcedula1.AutoSize = True
+        Me.errorcedula1.Location = New System.Drawing.Point(139, 267)
+        Me.errorcedula1.Name = "errorcedula1"
+        Me.errorcedula1.Size = New System.Drawing.Size(0, 13)
+        Me.errorcedula1.TabIndex = 25
+        '
         'Button3
         '
         Me.Button3.Location = New System.Drawing.Point(643, 542)
@@ -1007,30 +1031,6 @@ Partial Class inicio_usuarios
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(479, 55)
         Me.Label3.TabIndex = 1
-        '
-        'errorcedula1
-        '
-        Me.errorcedula1.AutoSize = True
-        Me.errorcedula1.Location = New System.Drawing.Point(139, 267)
-        Me.errorcedula1.Name = "errorcedula1"
-        Me.errorcedula1.Size = New System.Drawing.Size(0, 13)
-        Me.errorcedula1.TabIndex = 25
-        '
-        'errornombre1
-        '
-        Me.errornombre1.AutoSize = True
-        Me.errornombre1.Location = New System.Drawing.Point(139, 212)
-        Me.errornombre1.Name = "errornombre1"
-        Me.errornombre1.Size = New System.Drawing.Size(0, 13)
-        Me.errornombre1.TabIndex = 26
-        '
-        'errortelefono1
-        '
-        Me.errortelefono1.AutoSize = True
-        Me.errortelefono1.Location = New System.Drawing.Point(341, 267)
-        Me.errortelefono1.Name = "errortelefono1"
-        Me.errortelefono1.Size = New System.Drawing.Size(0, 13)
-        Me.errortelefono1.TabIndex = 27
         '
         'inicio_usuarios
         '

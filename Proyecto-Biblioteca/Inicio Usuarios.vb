@@ -612,5 +612,8 @@
 
 
 
+    Private Sub DataGridView2_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView2.CellContentClick
+
+    End Sub
 End Class
 
