@@ -62,10 +62,6 @@
 
     End Sub
 
-
-
-    End Sub
-
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
 
         Label2.Text = Date.Now.ToString("hh:mm:ss")

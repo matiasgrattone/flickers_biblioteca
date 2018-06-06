@@ -11,13 +11,23 @@
 
         Panel15.Hide() '// OCULTAR EL PANEL DE CONFIGURACION
 
+        'Cargar nombre de funcionario
+        Label1.Text = Modulo.nombre
 
 
         '//cargar usuarios en registro//
 
-        Consulta = "select * from usuarios"
+        Consulta = "select nombre, apellido, cedula, telefono, direccion, nacimiento from usuarios;"
         consultar()
         registro.DataSource = Tabla
+
+        '//////////////////
+
+        '//cargar usuarios en borrar//
+
+        Consulta = "select cedula, nombre, apellido, telefono, direccion, nacimiento from usuarios;"
+        consultar()
+        borrar.DataSource = Tabla
 
         '//////////////////
 
@@ -151,9 +161,9 @@
         Panel6.Height = 42
         Panel7.Height = 45
 
-        Consulta = "select * from usuarios"
+        Consulta = "select nombre, apellido, cedula, telefono, direccion, nacimiento from usuarios;"
         consultar()
-        DataGridView2.DataSource = Tabla
+        borrar.DataSource = Tabla
 
 
         '//------------------------------------------------//
@@ -240,7 +250,7 @@
 
         Consulta = "select * from usuarios"
         consultar()
-        DataGridView2.DataSource = Tabla
+        borrar.DataSource = Tabla
 
 
 
@@ -407,7 +417,7 @@
     Private Sub TextBox4_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextBox4.TextChanged
         '//////////////////////////////editar usuarios boton cargar //////////////////////
         Try
-            Consulta = "select * from usuarios;"
+            Consulta = "select nombre, apellido, cedula, telefono, direccion, nacimiento from usuarios;"
             consultar()
             registro.DataSource = Tabla
         Catch ex As Exception
@@ -484,6 +494,7 @@
         Dim tel As Integer
         Dim dir As String
         Dim tipo As Integer
+        Dim pass As String
         Dim i As Integer ' Variable bandera para avisar que existe un error
         i = 0
 
@@ -514,7 +525,12 @@
         End If
 
         dir = direccion_txt.Text
-        tipo = tipo_txt.Text
+        If RadioButton3.Checked Then
+            tipo = 0
+            pass = InputBox("Ingrese una Contraseña", "Contraseña")
+        Else
+            tipo = 1
+        End If
 
         If i = 0 Then ' Si no hay errores se pasan los datos la base de datos
             Try
@@ -522,7 +538,7 @@
 
                 Dim nacimiento As String = DateTimePicker1.Value.ToString("yyyy-MM-dd")  '//GUARDA LOS DATOS DEL COMBO A LA VARIABLE NACIMIENTO PARA LUEGO USARLA EN LA CONSULTA INSERT
 
-                Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo , nacimiento) values ('" + nom + "', '" + ape + "', '" + Str(ced) + "', '" + Str(tel) + "', '" + dir + "', '" + Str(tipo) + "', '" + nacimiento + "' );"
+                Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo , nacimiento, contrasenia) values ('" + nom + "', '" + ape + "', '" + Str(ced) + "', '" + Str(tel) + "', '" + dir + "', '" + Str(tipo) + "', '" + nacimiento + "', '" + pass + "');"
                 consultar()
                 MsgBox("Usuario agregado con exito")
 
@@ -531,16 +547,14 @@
                 cedula_txt.Clear()
                 telefono_txt.Clear()
                 direccion_txt.Clear()
-                tipo_txt.Clear()
 
             Catch ex As Exception
                 MsgBox(ex.Message)
-
             End Try
 
         End If
         Try
-            Consulta = "select * from usuarios;"
+            Consulta = "select nombre, apellido, cedula, telefono, direccion, nacimiento from usuarios;"
             consultar()
             registro.DataSource = Tabla
         Catch ex As Exception
@@ -554,7 +568,7 @@
 
 
 
-    Private Sub DataGridView2_MouseDoubleClick(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles DataGridView2.MouseDoubleClick
+    Private Sub DataGridView2_MouseDoubleClick(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles borrar.MouseDoubleClick
 
         '////////////////////// ELIMINAR USUARIOS ////////////////////////////////////////////
 
@@ -562,7 +576,7 @@
         Dim codusuario As Integer
         Dim a As MsgBoxStyle = MsgBoxStyle.YesNo + MsgBoxStyle.Critical
         Dim b As MsgBoxResult
-        nombre = DataGridView2.Item(1, DataGridView2.CurrentRow.Index).Value
+        nombre = borrar.Item(1, borrar.CurrentRow.Index).Value
 
         b = MsgBox("desea eliminar a " + nombre + "?", a, Title:="Eliminar")
 
@@ -574,17 +588,16 @@
 
             Case MsgBoxResult.Yes
 
-                codusuario = DataGridView2.Item(0, DataGridView2.CurrentRow.Index).Value
+                codusuario = borrar.Item(0, borrar.CurrentRow.Index).Value
                 Consulta = "delete from usuarios where cedula = '" & codusuario & "'"
                 consultar()
 
 
         End Select
 
-
-        Consulta = "select * from usuarios"
+        Consulta = "select cedula, nombre, apellido, telefono, direccion, nacimiento from usuarios;"
         consultar()
-        DataGridView2.DataSource = Tabla
+        borrar.DataSource = Tabla
 
         '/////////////////////////////////////////////////////////////////////////////////////
     End Sub
