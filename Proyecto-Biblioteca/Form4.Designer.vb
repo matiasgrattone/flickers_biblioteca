@@ -51,11 +51,13 @@ Partial Class Form4
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Cedula = New System.Windows.Forms.TextBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.OPA = New System.Windows.Forms.DataGridView()
         Me.devoCOMBO.SuspendLayout()
         CType(Me.DataGridAGG, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ExtCombo.SuspendLayout()
         CType(Me.VERLIBROSAGG, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.OPA, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Timer1
@@ -305,11 +307,20 @@ Partial Class Form4
         Me.DataGridView1.Size = New System.Drawing.Size(36, 30)
         Me.DataGridView1.TabIndex = 56
         '
+        'OPA
+        '
+        Me.OPA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.OPA.Location = New System.Drawing.Point(317, 553)
+        Me.OPA.Name = "OPA"
+        Me.OPA.Size = New System.Drawing.Size(9, 8)
+        Me.OPA.TabIndex = 77
+        '
         'Form4
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1370, 683)
+        Me.Controls.Add(Me.OPA)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
@@ -339,6 +350,7 @@ Partial Class Form4
         Me.ExtCombo.PerformLayout()
         CType(Me.VERLIBROSAGG, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.OPA, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -371,4 +383,5 @@ Partial Class Form4
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Cedula As System.Windows.Forms.TextBox
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents OPA As System.Windows.Forms.DataGridView
 End Class

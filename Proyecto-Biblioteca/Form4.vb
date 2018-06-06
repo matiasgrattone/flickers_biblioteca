@@ -161,22 +161,61 @@
     End Sub
 
     Private Sub DataGridAGG_CellDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridAGG.CellContentClick
-        libro = DataGridAGG.Item(1, DataGridAGG.CurrentRow.Index).Value
-        Dim a As MsgBoxResult
-        a = MsgBox("Desea devolver el libro " & libro & " ?", MsgBoxStyle.YesNo)
+        'Consulta a DATAGRIDVIEW oculto
+        Consulta = "select * from prestamo;"
+        consultar()
+        OPA.DataSource = Tabla
+        '////////////////////////////////
 
-        If a = vbYes Then
-            Consulta = "update libro set estado = 'libre' where cod_libro = '" & libro & "';"
+        'Para que si o si se tenga que ingresar una cedula para realizar las funciones 
+        If Cedula.Text <> "" Then
+            Consulta = "select * from prestamo where CI = '" & Cedula.Text & " ';"
             consultar()
-            MsgBox("se ha devuelto")
-            Consulta = "select * from prestamo where estado = ocupado"
-            consultar()
+            '////////////////////
 
-        End If
+            'Se iguala una variable a un valor de la base de datos
+            OPA.DataSource = Tabla
+            Dim TransoformarDBSDaVariable As DataGridViewRow = OPA.CurrentRow
+            Dim VALIDADOR As String
+            VALIDADOR = CStr(TransoformarDBSDaVariable.Cells(4).Value)
+            '//////////////////////////////////////////////////////////
 
-        If a = vbNo Then
-            MsgBox("no")
+            '1) Len dice al usario si quiere devolver el libro SI ESTE NO TIENE NINGUN LIBROS EN PODER AHORA
+            If VALIDADOR = 0 Then
+                MsgBox("Usted puede retirar un libro 0")
+
+                libro = DataGridAGG.Item(1, DataGridAGG.CurrentRow.Index).Value
+                Dim a As MsgBoxResult
+                a = MsgBox("Desea devolver el libro " & libro & " ?", MsgBoxStyle.YesNo)
+
+                '       2) Se devuelve el libro y se actualiza la Base da datos 
+                If a = vbYes Then
+                    Consulta = "update libro set estado = 'libre' where cod_libro = '" & libro & "';"
+                    consultar()
+                    MsgBox("se ha devuelto")
+                    Consulta = "select * from prestamo where estado = ocupado"
+                    consultar()
+
+                End If
+
+                If a = vbNo Then
+                    MsgBox("no")
+                End If
+                '       2)/////////////////
+
+
+                '1) En caso que el usuario tenga LIBROS EN PODER no le dejara realizar la tarea  
+            ElseIf VALIDADOR = 1 Then
+                MsgBox("Usted no puede retirar libros")
+
+            End If
+            '    1)////////////////////
         End If
+        '/////////////////////////////////////////////////
+    End Sub
+
+    Private Sub DataGridView2_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles OPA.CellContentClick
 
     End Sub
+
 End Class
