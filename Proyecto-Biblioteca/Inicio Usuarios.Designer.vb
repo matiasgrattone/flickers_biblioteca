@@ -528,7 +528,7 @@ Partial Class inicio_usuarios
         'anio
         '
         Me.anio.FormattingEnabled = True
-        Me.anio.Location = New System.Drawing.Point(384, 317)
+        Me.anio.Location = New System.Drawing.Point(361, 315)
         Me.anio.Name = "anio"
         Me.anio.Size = New System.Drawing.Size(73, 21)
         Me.anio.TabIndex = 35
@@ -536,7 +536,7 @@ Partial Class inicio_usuarios
         'mes
         '
         Me.mes.FormattingEnabled = True
-        Me.mes.Location = New System.Drawing.Point(265, 316)
+        Me.mes.Location = New System.Drawing.Point(247, 316)
         Me.mes.Name = "mes"
         Me.mes.Size = New System.Drawing.Size(99, 21)
         Me.mes.TabIndex = 34
@@ -554,7 +554,7 @@ Partial Class inicio_usuarios
         'dia
         '
         Me.dia.FormattingEnabled = True
-        Me.dia.Location = New System.Drawing.Point(146, 316)
+        Me.dia.Location = New System.Drawing.Point(138, 315)
         Me.dia.Name = "dia"
         Me.dia.Size = New System.Drawing.Size(103, 21)
         Me.dia.TabIndex = 32
