@@ -25,7 +25,6 @@ Partial Class inicio_usuarios
         Me.components = New System.ComponentModel.Container()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -47,6 +46,8 @@ Partial Class inicio_usuarios
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Panel10 = New System.Windows.Forms.Panel()
+        Me.RadioButton4 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.apellido_txt = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -81,7 +82,6 @@ Partial Class inicio_usuarios
         Me.errorcedula1 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
         Me.apellido = New System.Windows.Forms.TextBox()
         Me.tipo = New System.Windows.Forms.TextBox()
         Me.direccion = New System.Windows.Forms.TextBox()
@@ -109,8 +109,6 @@ Partial Class inicio_usuarios
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton4 = New System.Windows.Forms.RadioButton()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -152,7 +150,6 @@ Partial Class inicio_usuarios
         '
         Me.Panel1.BackColor = System.Drawing.Color.Silver
         Me.Panel1.Controls.Add(Me.Button2)
-        Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Controls.Add(Me.Label8)
         Me.Panel1.Controls.Add(Me.Label7)
         Me.Panel1.Controls.Add(Me.Label5)
@@ -168,21 +165,12 @@ Partial Class inicio_usuarios
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(0, 618)
+        Me.Button2.Location = New System.Drawing.Point(9, 620)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(51, 31)
         Me.Button2.TabIndex = 9
-        Me.Button2.Text = "Button"
+        Me.Button2.Text = "Cerrar"
         Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(-1, 618)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(51, 31)
-        Me.Button1.TabIndex = 8
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'Label8
         '
@@ -404,6 +392,28 @@ Partial Class inicio_usuarios
         Me.Panel10.Name = "Panel10"
         Me.Panel10.Size = New System.Drawing.Size(873, 661)
         Me.Panel10.TabIndex = 2
+        '
+        'RadioButton4
+        '
+        Me.RadioButton4.AutoSize = True
+        Me.RadioButton4.Location = New System.Drawing.Point(252, 356)
+        Me.RadioButton4.Name = "RadioButton4"
+        Me.RadioButton4.Size = New System.Drawing.Size(52, 17)
+        Me.RadioButton4.TabIndex = 47
+        Me.RadioButton4.TabStop = True
+        Me.RadioButton4.Text = "Socio"
+        Me.RadioButton4.UseVisualStyleBackColor = True
+        '
+        'RadioButton3
+        '
+        Me.RadioButton3.AutoSize = True
+        Me.RadioButton3.Location = New System.Drawing.Point(141, 356)
+        Me.RadioButton3.Name = "RadioButton3"
+        Me.RadioButton3.Size = New System.Drawing.Size(80, 17)
+        Me.RadioButton3.TabIndex = 46
+        Me.RadioButton3.TabStop = True
+        Me.RadioButton3.Text = "Funcionario"
+        Me.RadioButton3.UseVisualStyleBackColor = True
         '
         'DateTimePicker1
         '
@@ -686,7 +696,6 @@ Partial Class inicio_usuarios
         Me.Panel11.Controls.Add(Me.errorcedula1)
         Me.Panel11.Controls.Add(Me.Button3)
         Me.Panel11.Controls.Add(Me.Button4)
-        Me.Panel11.Controls.Add(Me.Button5)
         Me.Panel11.Controls.Add(Me.apellido)
         Me.Panel11.Controls.Add(Me.tipo)
         Me.Panel11.Controls.Add(Me.direccion)
@@ -736,21 +745,12 @@ Partial Class inicio_usuarios
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(341, 542)
+        Me.Button4.Location = New System.Drawing.Point(129, 542)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(109, 23)
         Me.Button4.TabIndex = 23
         Me.Button4.Text = "Guardar"
         Me.Button4.UseVisualStyleBackColor = True
-        '
-        'Button5
-        '
-        Me.Button5.Location = New System.Drawing.Point(54, 542)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(109, 23)
-        Me.Button5.TabIndex = 22
-        Me.Button5.Text = "Cancelar"
-        Me.Button5.UseVisualStyleBackColor = True
         '
         'apellido
         '
@@ -995,28 +995,6 @@ Partial Class inicio_usuarios
         Me.Label3.Size = New System.Drawing.Size(479, 55)
         Me.Label3.TabIndex = 1
         '
-        'RadioButton3
-        '
-        Me.RadioButton3.AutoSize = True
-        Me.RadioButton3.Location = New System.Drawing.Point(141, 356)
-        Me.RadioButton3.Name = "RadioButton3"
-        Me.RadioButton3.Size = New System.Drawing.Size(80, 17)
-        Me.RadioButton3.TabIndex = 46
-        Me.RadioButton3.TabStop = True
-        Me.RadioButton3.Text = "Funcionario"
-        Me.RadioButton3.UseVisualStyleBackColor = True
-        '
-        'RadioButton4
-        '
-        Me.RadioButton4.AutoSize = True
-        Me.RadioButton4.Location = New System.Drawing.Point(252, 356)
-        Me.RadioButton4.Name = "RadioButton4"
-        Me.RadioButton4.Size = New System.Drawing.Size(52, 17)
-        Me.RadioButton4.TabIndex = 47
-        Me.RadioButton4.TabStop = True
-        Me.RadioButton4.Text = "Socio"
-        Me.RadioButton4.UseVisualStyleBackColor = True
-        '
         'inicio_usuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1109,7 +1087,6 @@ Partial Class inicio_usuarios
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Panel13 As System.Windows.Forms.Panel
     Friend WithEvents Panel14 As System.Windows.Forms.Panel
@@ -1130,7 +1107,6 @@ Partial Class inicio_usuarios
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents Button4 As System.Windows.Forms.Button
-    Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents apellido As System.Windows.Forms.TextBox
     Friend WithEvents tipo As System.Windows.Forms.TextBox
     Friend WithEvents direccion As System.Windows.Forms.TextBox

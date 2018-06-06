@@ -2,6 +2,7 @@
 
 
     Dim configuracion As Integer = 1
+    Dim panelizq As Integer = 1
     Dim notas As Integer = 1
     Dim ced As Integer
 
@@ -68,8 +69,7 @@
 
         '--------------------- OCULTAR EL BOTON PARA "MINIMIZAR EL PANEL" -----------
 
-        Button2.Hide()
-        Button1.Location = New Point(214, 618)
+        Button2.Location = New Point(214, 618)
 
         '----------------------------------------------------------------------------
 
@@ -258,26 +258,9 @@
     End Sub
 
 
-    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
         '//////////////////////////// OCULTAR PANEL IZQUIERDO EN LA PANTALLA /////////////////////////////////////
-
-
-        Panel1.Width = 106
-        Panel1.Height = 749
-        MonthCalendar1.Visible = False
-        Label1.Visible = False
-        Label5.Visible = False
-        Label7.Visible = False
-        PictureBox2.Visible = False
-
-        Panel1.Location = New Point(172, 12)
-        Button2.Location = New Point(0, 618)
-
-        Button1.Hide()
-        Button2.Show()
-
-
 
         '///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -287,19 +270,38 @@
     Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
         '//////////////////////////// MOSTRAR PANEL IZQUIERDO EN LA PANTALLA /////////////////////////////////////
 
-        Panel1.Width = 265
-        Panel1.Height = 749
-        MonthCalendar1.Visible = True
-        Label1.Visible = True
-        Label5.Visible = True
-        Label7.Visible = True
-        PictureBox2.Visible = True
+        Select Case panelizq
+            Case 0
+                Panel1.Width = 265
+                Panel1.Height = 749
+                MonthCalendar1.Visible = True
+                Label1.Visible = True
+                Label5.Visible = True
+                Label7.Visible = True
+                PictureBox2.Visible = True
 
-        Panel1.Location = New Point(12, 12)
-        Button1.Location = New Point(214, 618)
+                Panel1.Location = New Point(12, 12)
+                Button2.Location = New Point(214, 618)
 
-        Button1.Show()
-        Button2.Hide()
+                Button2.Text = "Abrir"
+
+                panelizq = 1
+            Case 1
+                Panel1.Width = 106
+                Panel1.Height = 749
+                MonthCalendar1.Visible = False
+                Label1.Visible = False
+                Label5.Visible = False
+                Label7.Visible = False
+                PictureBox2.Visible = False
+
+                Panel1.Location = New Point(172, 12)
+                Button2.Location = New Point(0, 618)
+
+                Button2.Text = "Cerrar"
+
+                panelizq = 0
+        End Select
 
         '/////////////////////////////////////////////////////////////////////////////////////////////////////////
     End Sub
@@ -406,11 +408,17 @@
         direccion.Text = Convert.ToString(DataGridView3.Rows(rowindex).Cells(4).Value.ToString())
         tipo.Text = Convert.ToString(DataGridView3.Rows(rowindex).Cells(5).Value.ToString())
         '//////////////////////////////////////////////////////////////////////////////////
+
     End Sub
 
     Private Sub DataGridView3_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView3.CellContentClick
 
         nombre.Text = DataGridView1.Item(1, DataGridView3.CurrentRow.Index).Value
+        apellido.Text = DataGridView1.Item(2, DataGridView3.CurrentRow.Index).Value
+        cedula.Text = DataGridView1.Item(0, DataGridView3.CurrentRow.Index).Value
+        'nombre.Text = DataGridView1.Item(1, DataGridView3.CurrentRow.Index).Value
+        'nombre.Text = DataGridView1.Item(1, DataGridView3.CurrentRow.Index).Value
+        'nombre.Text = DataGridView1.Item(1, DataGridView3.CurrentRow.Index).Value
 
     End Sub
 
@@ -419,7 +427,7 @@
         Try
             Consulta = "select nombre, apellido, cedula, telefono, direccion, nacimiento from usuarios;"
             consultar()
-            registro.DataSource = Tabla
+            DataGridView3.DataSource = Tabla
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -625,5 +633,12 @@
 
     End Sub
 
+    Private Sub TextBox3_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox3.TextChanged
+
+        Consulta = "select cedula, nombre, apellido, telefono, direccion, nacimiento from usuarios where nombre like '" & TextBox3.Text & "%'"
+        consultar()
+        borrar.DataSource = Tabla
+
+    End Sub
 End Class
 
