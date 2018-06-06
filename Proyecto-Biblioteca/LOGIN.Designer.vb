@@ -23,7 +23,6 @@ Partial Class LOGIN
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.errorpass = New System.Windows.Forms.Label()
         Me.errorusuario = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -33,9 +32,10 @@ Partial Class LOGIN
         Me.contrasenia = New System.Windows.Forms.TextBox()
         Me.usuario = New System.Windows.Forms.TextBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Panel1.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -56,14 +56,6 @@ Partial Class LOGIN
         Me.Panel1.Size = New System.Drawing.Size(720, 331)
         Me.Panel1.TabIndex = 0
         '
-        'DataGridView1
-        '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(102, 133)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(93, 74)
-        Me.DataGridView1.TabIndex = 9
-        '
         'errorpass
         '
         Me.errorpass.AutoSize = True
@@ -77,7 +69,7 @@ Partial Class LOGIN
         '
         Me.errorusuario.AutoSize = True
         Me.errorusuario.ForeColor = System.Drawing.Color.Snow
-        Me.errorusuario.Location = New System.Drawing.Point(464, 133)
+        Me.errorusuario.Location = New System.Drawing.Point(464, 121)
         Me.errorusuario.Name = "errorusuario"
         Me.errorusuario.Size = New System.Drawing.Size(0, 13)
         Me.errorusuario.TabIndex = 7
@@ -85,7 +77,7 @@ Partial Class LOGIN
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(464, 241)
+        Me.Button1.Location = New System.Drawing.Point(430, 197)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(193, 54)
         Me.Button1.TabIndex = 6
@@ -97,7 +89,7 @@ Partial Class LOGIN
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(332, 152)
+        Me.Label2.Location = New System.Drawing.Point(332, 140)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(92, 20)
         Me.Label2.TabIndex = 5
@@ -108,7 +100,7 @@ Partial Class LOGIN
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(332, 97)
+        Me.Label1.Location = New System.Drawing.Point(332, 85)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(59, 20)
         Me.Label1.TabIndex = 4
@@ -117,7 +109,7 @@ Partial Class LOGIN
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources._302c8eb1f942e4312e3dc37f61f468c6
-        Me.PictureBox1.Location = New System.Drawing.Point(57, 76)
+        Me.PictureBox1.Location = New System.Drawing.Point(57, 64)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(187, 190)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -127,7 +119,7 @@ Partial Class LOGIN
         'contrasenia
         '
         Me.contrasenia.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.contrasenia.Location = New System.Drawing.Point(464, 152)
+        Me.contrasenia.Location = New System.Drawing.Point(464, 140)
         Me.contrasenia.Name = "contrasenia"
         Me.contrasenia.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.contrasenia.Size = New System.Drawing.Size(213, 26)
@@ -136,7 +128,7 @@ Partial Class LOGIN
         'usuario
         '
         Me.usuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.usuario.Location = New System.Drawing.Point(464, 97)
+        Me.usuario.Location = New System.Drawing.Point(464, 85)
         Me.usuario.Name = "usuario"
         Me.usuario.Size = New System.Drawing.Size(213, 26)
         Me.usuario.TabIndex = 1
@@ -144,10 +136,18 @@ Partial Class LOGIN
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.Lime
-        Me.Panel2.Location = New System.Drawing.Point(307, 43)
+        Me.Panel2.Location = New System.Drawing.Point(307, 31)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(3, 252)
         Me.Panel2.TabIndex = 0
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(102, 133)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(93, 74)
+        Me.DataGridView1.TabIndex = 9
         '
         'LOGIN
         '
@@ -159,8 +159,8 @@ Partial Class LOGIN
         Me.Text = "LOGIN"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
