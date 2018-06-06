@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form1
+Partial Class ingresolibro
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,7 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ingresolibro))
         Me.estado = New System.Windows.Forms.TextBox()
         Me.observaciones = New System.Windows.Forms.TextBox()
         Me.origen = New System.Windows.Forms.TextBox()
@@ -30,12 +30,9 @@ Partial Class Form1
         Me.casa_editorial = New System.Windows.Forms.TextBox()
         Me.volumen = New System.Windows.Forms.TextBox()
         Me.titulo = New System.Windows.Forms.TextBox()
-        Me.autor = New System.Windows.Forms.TextBox()
         Me.cod_libro = New System.Windows.Forms.TextBox()
         Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.ingresar_boton = New System.Windows.Forms.Button()
         Me.Editorial_label = New System.Windows.Forms.Label()
@@ -48,10 +45,15 @@ Partial Class Form1
         Me.autor_label = New System.Windows.Forms.Label()
         Me.id_label = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.autor = New System.Windows.Forms.TextBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -96,7 +98,7 @@ Partial Class Form1
         Me.casa_editorial.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.casa_editorial.Location = New System.Drawing.Point(181, 222)
         Me.casa_editorial.Name = "casa_editorial"
-        Me.casa_editorial.Size = New System.Drawing.Size(178, 29)
+        Me.casa_editorial.Size = New System.Drawing.Size(143, 29)
         Me.casa_editorial.TabIndex = 34
         '
         'volumen
@@ -114,14 +116,6 @@ Partial Class Form1
         Me.titulo.Name = "titulo"
         Me.titulo.Size = New System.Drawing.Size(178, 29)
         Me.titulo.TabIndex = 38
-        '
-        'autor
-        '
-        Me.autor.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.autor.Location = New System.Drawing.Point(181, 120)
-        Me.autor.Name = "autor"
-        Me.autor.Size = New System.Drawing.Size(178, 29)
-        Me.autor.TabIndex = 35
         '
         'cod_libro
         '
@@ -141,16 +135,6 @@ Partial Class Form1
         Me.Button5.Text = "S/O"
         Me.Button5.UseVisualStyleBackColor = True
         '
-        'Button4
-        '
-        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(365, 225)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(30, 24)
-        Me.Button4.TabIndex = 26
-        Me.Button4.Text = "S/E"
-        Me.Button4.UseVisualStyleBackColor = True
-        '
         'Button3
         '
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -160,16 +144,6 @@ Partial Class Form1
         Me.Button3.TabIndex = 29
         Me.Button3.Text = "S/V"
         Me.Button3.UseVisualStyleBackColor = True
-        '
-        'Button1
-        '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(365, 118)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(30, 24)
-        Me.Button1.TabIndex = 28
-        Me.Button1.Text = "S/A"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'DataGridView1
         '
@@ -296,10 +270,29 @@ Partial Class Form1
         Me.Label1.TabIndex = 10
         Me.Label1.Text = "Ingresar Nuevo Libro"
         '
+        'Button6
+        '
+        Me.Button6.Location = New System.Drawing.Point(330, 122)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(65, 24)
+        Me.Button6.TabIndex = 40
+        Me.Button6.Text = "Dato"
+        Me.Button6.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Location = New System.Drawing.Point(334, 225)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(61, 27)
+        Me.Button2.TabIndex = 39
+        Me.Button2.Text = "Dato"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'PictureBox3
         '
         Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
-        Me.PictureBox3.Location = New System.Drawing.Point(1234, 12)
+        Me.PictureBox3.Location = New System.Drawing.Point(1202, 2)
         Me.PictureBox3.Name = "PictureBox3"
         Me.PictureBox3.Size = New System.Drawing.Size(41, 28)
         Me.PictureBox3.TabIndex = 23
@@ -309,7 +302,7 @@ Partial Class Form1
         '
         Me.PictureBox2.BackColor = System.Drawing.SystemColors.ButtonShadow
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(1272, 12)
+        Me.PictureBox2.Location = New System.Drawing.Point(1249, 2)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(41, 28)
         Me.PictureBox2.TabIndex = 24
@@ -318,7 +311,7 @@ Partial Class Form1
         'PictureBox1
         '
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(1312, 12)
+        Me.PictureBox1.Location = New System.Drawing.Point(1296, 2)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(41, 28)
         Me.PictureBox1.TabIndex = 22
@@ -328,17 +321,43 @@ Partial Class Form1
         '
         Me.PictureBox4.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.PictureBox4.Image = CType(resources.GetObject("PictureBox4.Image"), System.Drawing.Image)
-        Me.PictureBox4.Location = New System.Drawing.Point(28, 12)
+        Me.PictureBox4.Location = New System.Drawing.Point(12, -1)
         Me.PictureBox4.Name = "PictureBox4"
         Me.PictureBox4.Size = New System.Drawing.Size(1325, 31)
         Me.PictureBox4.TabIndex = 25
         Me.PictureBox4.TabStop = False
         '
-        'Form1
+        'autor
+        '
+        Me.autor.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.autor.Location = New System.Drawing.Point(181, 118)
+        Me.autor.Name = "autor"
+        Me.autor.Size = New System.Drawing.Size(143, 29)
+        Me.autor.TabIndex = 41
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox1.Location = New System.Drawing.Point(182, 118)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(143, 29)
+        Me.TextBox1.TabIndex = 42
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox2.Location = New System.Drawing.Point(182, 223)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(143, 29)
+        Me.TextBox2.TabIndex = 43
+        '
+        'ingresolibro
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1398, 516)
+        Me.Controls.Add(Me.Button6)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.estado)
         Me.Controls.Add(Me.observaciones)
         Me.Controls.Add(Me.origen)
@@ -346,12 +365,9 @@ Partial Class Form1
         Me.Controls.Add(Me.casa_editorial)
         Me.Controls.Add(Me.volumen)
         Me.Controls.Add(Me.titulo)
-        Me.Controls.Add(Me.autor)
         Me.Controls.Add(Me.cod_libro)
         Me.Controls.Add(Me.Button5)
-        Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox1)
@@ -368,7 +384,10 @@ Partial Class Form1
         Me.Controls.Add(Me.id_label)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox4)
-        Me.Name = "Form1"
+        Me.Controls.Add(Me.autor)
+        Me.Controls.Add(Me.TextBox2)
+        Me.Controls.Add(Me.TextBox1)
+        Me.Name = "ingresolibro"
         Me.Text = "Form1"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
@@ -386,12 +405,9 @@ Partial Class Form1
     Friend WithEvents casa_editorial As System.Windows.Forms.TextBox
     Friend WithEvents volumen As System.Windows.Forms.TextBox
     Friend WithEvents titulo As System.Windows.Forms.TextBox
-    Friend WithEvents autor As System.Windows.Forms.TextBox
     Friend WithEvents cod_libro As System.Windows.Forms.TextBox
     Friend WithEvents Button5 As System.Windows.Forms.Button
-    Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents Button3 As System.Windows.Forms.Button
-    Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
@@ -408,4 +424,9 @@ Partial Class Form1
     Friend WithEvents id_label As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
+    Friend WithEvents Button6 As System.Windows.Forms.Button
+    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents autor As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
 End Class

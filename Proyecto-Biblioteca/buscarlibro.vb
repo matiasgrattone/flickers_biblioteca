@@ -1,6 +1,6 @@
 ﻿Imports System.Data
 Imports System.Data.OleDb
-Public Class Form2
+Public Class buscarlibro
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
 
@@ -11,19 +11,6 @@ Public Class Form2
 
     End Sub
 
-    Private Sub Form2_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'Invocamos al modulo para conectar el programa con la base de datos llamada Libros, y luego lo mostramos en el DataGrid'
-        Consulta = "SELECT cod_libro as Codigo,autor as Autor, titulo as Titulo, casa_editorial as Editorial,fecha as Fecha,origen as Origen,estado as Estado FROM LIBROS"
-        consultar()
-        DataGridView1.DataSource = Tabla
-        DataGridView1.Columns(0).Width = 50
-
-        Consulta = "SELECT volumen as Volumen, observaciones as Observaciones FROM LIBROS"
-        consultar()
-        DataGridView2.DataSource = Tabla
-
-
-    End Sub
 
     Private Sub DataGridView1_MouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles DataGridView1.MouseDoubleClick
 
@@ -31,12 +18,13 @@ Public Class Form2
         'Permite al usuario una mejor visualizacion de los datos del libro que busca'
 
         cod_libro_label.Text = DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value
-        autor_label.Text = DataGridView1.Item(1, DataGridView1.CurrentRow.Index).Value
-        titulo_label.Text = DataGridView1.Item(2, DataGridView1.CurrentRow.Index).Value
+        autor_label.Text = DataGridView1.Item(2, DataGridView1.CurrentRow.Index).Value
+        titulo_label.Text = DataGridView1.Item(1, DataGridView1.CurrentRow.Index).Value
         editorial_label.Text = DataGridView1.Item(3, DataGridView1.CurrentRow.Index).Value
         fecha_label.Text = DataGridView1.Item(4, DataGridView1.CurrentRow.Index).Value
         origen_label.Text = DataGridView1.Item(5, DataGridView1.CurrentRow.Index).Value
         estado_label.Text = DataGridView1.Item(6, DataGridView1.CurrentRow.Index).Value
+
         observaciones_label.Text = DataGridView2.Item(1, DataGridView2.CurrentRow.Index).Value
         volumen_label.Text = DataGridView2.Item(0, DataGridView2.CurrentRow.Index).Value
 
@@ -127,6 +115,22 @@ Public Class Form2
     End Sub
 
     Private Sub cod_libro_label2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cod_libro_label2.Click
+
+    End Sub
+
+    Private Sub buscarlibro_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'Invocamos al modulo para conectar el programa con la base de datos llamada Libros, y luego lo mostramos en el DataGrid'
+        Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre , editorial.nombre, libro.fecha , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial;"
+        consultar()
+        DataGridView1.DataSource = Tabla
+
+
+        Consulta = "SELECT volumen as Volumen, observaciones as Observaciones FROM libro"
+        consultar()
+        DataGridView2.DataSource = Tabla
+    End Sub
+
+    Private Sub DataGridView2_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView2.CellContentClick
 
     End Sub
 End Class
