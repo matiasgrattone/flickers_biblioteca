@@ -85,6 +85,7 @@
     End Sub
 
     Private Sub Panel5_MouseClick(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel5.MouseClick
+    
 
         '//-------------BUSCAR USUARIOS--------------------//
 
@@ -195,6 +196,7 @@
     End Sub
 
     Private Sub PictureBox5_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox5.Click
+
 
         '//-------------BUSCAR USUARIOS PICTUREBOX--------------------//
 
@@ -558,6 +560,8 @@
 
     Private Sub DataGridView2_MouseDoubleClick(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles DataGridView2.MouseDoubleClick
 
+        '////////////////////// ELIMINAR USUARIOS ////////////////////////////////////////////
+
         Dim nombre As String
         Dim codusuario As Integer
         Dim a As MsgBoxStyle = MsgBoxStyle.YesNo + MsgBoxStyle.Critical
@@ -585,6 +589,8 @@
         Consulta = "select * from usuarios"
         consultar()
         DataGridView2.DataSource = Tabla
+
+        '/////////////////////////////////////////////////////////////////////////////////////
     End Sub
 
     Private Sub MonthCalendar1_DateChanged(sender As System.Object, e As System.Windows.Forms.DateRangeEventArgs) Handles MonthCalendar1.DateChanged
@@ -605,15 +611,29 @@
         Panel18.Hide()
     End Sub
 
+   
+    Private Sub Panel5_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles Panel5.Paint
+
+        '////////////////// COLOR EN EL DATAGRID DEPENDIENDO DEL VALOR EN UNA FILA DETERMINADA //////////////
+
+
+        For Each Row As DataGridViewRow In DataGridView1.Rows
+
+            If Row.Cells("nombre").Value = "juan alberto" Then
+                Row.DefaultCellStyle.BackColor = Drawing.Color.BlueViolet
+            End If
+
+        Next
 
 
 
 
+        '///////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
-    Private Sub DataGridView2_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView2.CellContentClick
 
     End Sub
+
 End Class
 

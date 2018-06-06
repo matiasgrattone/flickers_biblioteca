@@ -59,10 +59,7 @@ Partial Class inicio_usuarios
         Me.tipo_txt = New System.Windows.Forms.TextBox()
         Me.errorcedula = New System.Windows.Forms.Label()
         Me.guardar = New System.Windows.Forms.Button()
-        Me.anio = New System.Windows.Forms.ComboBox()
-        Me.mes = New System.Windows.Forms.ComboBox()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.dia = New System.Windows.Forms.ComboBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.direccion_txt = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
@@ -113,6 +110,11 @@ Partial Class inicio_usuarios
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.Dia = New System.Windows.Forms.TextBox()
+        Me.Mes = New System.Windows.Forms.TextBox()
+        Me.Anio = New System.Windows.Forms.TextBox()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -382,6 +384,9 @@ Partial Class inicio_usuarios
         '
         'Panel10
         '
+        Me.Panel10.Controls.Add(Me.Anio)
+        Me.Panel10.Controls.Add(Me.Mes)
+        Me.Panel10.Controls.Add(Me.Dia)
         Me.Panel10.Controls.Add(Me.Panel18)
         Me.Panel10.Controls.Add(Me.PictureBox9)
         Me.Panel10.Controls.Add(Me.apellido_txt)
@@ -393,10 +398,7 @@ Partial Class inicio_usuarios
         Me.Panel10.Controls.Add(Me.tipo_txt)
         Me.Panel10.Controls.Add(Me.errorcedula)
         Me.Panel10.Controls.Add(Me.guardar)
-        Me.Panel10.Controls.Add(Me.anio)
-        Me.Panel10.Controls.Add(Me.mes)
         Me.Panel10.Controls.Add(Me.Label12)
-        Me.Panel10.Controls.Add(Me.dia)
         Me.Panel10.Controls.Add(Me.Label13)
         Me.Panel10.Controls.Add(Me.direccion_txt)
         Me.Panel10.Controls.Add(Me.Label14)
@@ -525,22 +527,6 @@ Partial Class inicio_usuarios
         Me.guardar.Text = "Guardar"
         Me.guardar.UseVisualStyleBackColor = True
         '
-        'anio
-        '
-        Me.anio.FormattingEnabled = True
-        Me.anio.Location = New System.Drawing.Point(361, 315)
-        Me.anio.Name = "anio"
-        Me.anio.Size = New System.Drawing.Size(73, 21)
-        Me.anio.TabIndex = 35
-        '
-        'mes
-        '
-        Me.mes.FormattingEnabled = True
-        Me.mes.Location = New System.Drawing.Point(247, 316)
-        Me.mes.Name = "mes"
-        Me.mes.Size = New System.Drawing.Size(99, 21)
-        Me.mes.TabIndex = 34
-        '
         'Label12
         '
         Me.Label12.AutoSize = True
@@ -550,14 +536,6 @@ Partial Class inicio_usuarios
         Me.Label12.Size = New System.Drawing.Size(126, 16)
         Me.Label12.TabIndex = 33
         Me.Label12.Text = "Fecha de nacimiento"
-        '
-        'dia
-        '
-        Me.dia.FormattingEnabled = True
-        Me.dia.Location = New System.Drawing.Point(138, 315)
-        Me.dia.Name = "dia"
-        Me.dia.Size = New System.Drawing.Size(103, 21)
-        Me.dia.TabIndex = 32
         '
         'Label13
         '
@@ -650,6 +628,8 @@ Partial Class inicio_usuarios
         '
         'Panel9
         '
+        Me.Panel9.Controls.Add(Me.RadioButton2)
+        Me.Panel9.Controls.Add(Me.RadioButton1)
         Me.Panel9.Controls.Add(Me.Panel8)
         Me.Panel9.Controls.Add(Me.DataGridView1)
         Me.Panel9.Location = New System.Drawing.Point(-4, 0)
@@ -702,7 +682,7 @@ Partial Class inicio_usuarios
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(840, 414)
+        Me.DataGridView1.Size = New System.Drawing.Size(840, 474)
         Me.DataGridView1.TabIndex = 0
         '
         'TabPage3
@@ -1032,6 +1012,47 @@ Partial Class inicio_usuarios
         Me.Label3.Size = New System.Drawing.Size(479, 55)
         Me.Label3.TabIndex = 1
         '
+        'Dia
+        '
+        Me.Dia.Location = New System.Drawing.Point(146, 316)
+        Me.Dia.Name = "Dia"
+        Me.Dia.Size = New System.Drawing.Size(94, 20)
+        Me.Dia.TabIndex = 47
+        '
+        'Mes
+        '
+        Me.Mes.Location = New System.Drawing.Point(250, 316)
+        Me.Mes.Name = "Mes"
+        Me.Mes.Size = New System.Drawing.Size(88, 20)
+        Me.Mes.TabIndex = 48
+        '
+        'Anio
+        '
+        Me.Anio.Location = New System.Drawing.Point(353, 316)
+        Me.Anio.Name = "Anio"
+        Me.Anio.Size = New System.Drawing.Size(73, 20)
+        Me.Anio.TabIndex = 49
+        '
+        'RadioButton1
+        '
+        Me.RadioButton1.AutoSize = True
+        Me.RadioButton1.Location = New System.Drawing.Point(565, 47)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(85, 17)
+        Me.RadioButton1.TabIndex = 6
+        Me.RadioButton1.Text = "Funcionarios"
+        Me.RadioButton1.UseVisualStyleBackColor = True
+        '
+        'RadioButton2
+        '
+        Me.RadioButton2.AutoSize = True
+        Me.RadioButton2.Location = New System.Drawing.Point(694, 47)
+        Me.RadioButton2.Name = "RadioButton2"
+        Me.RadioButton2.Size = New System.Drawing.Size(57, 17)
+        Me.RadioButton2.TabIndex = 6
+        Me.RadioButton2.Text = "Socios"
+        Me.RadioButton2.UseVisualStyleBackColor = True
+        '
         'inicio_usuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1071,6 +1092,7 @@ Partial Class inicio_usuarios
         CType(Me.registro, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
         Me.Panel9.ResumeLayout(False)
+        Me.Panel9.PerformLayout()
         Me.Panel8.ResumeLayout(False)
         Me.Panel8.PerformLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1166,7 +1188,6 @@ Partial Class inicio_usuarios
     Friend WithEvents tipo_txt As System.Windows.Forms.TextBox
     Friend WithEvents errorcedula As System.Windows.Forms.Label
     Friend WithEvents guardar As System.Windows.Forms.Button
-    Friend WithEvents anio As System.Windows.Forms.ComboBox
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents direccion_txt As System.Windows.Forms.TextBox
@@ -1178,8 +1199,6 @@ Partial Class inicio_usuarios
     Friend WithEvents nombre_txt As System.Windows.Forms.TextBox
     Friend WithEvents Label17 As System.Windows.Forms.Label
 
-    Friend WithEvents mes As System.Windows.Forms.ComboBox
-    Friend WithEvents dia As System.Windows.Forms.ComboBox
     Friend WithEvents PictureBox9 As System.Windows.Forms.PictureBox
     Friend WithEvents Panel18 As System.Windows.Forms.Panel
     Friend WithEvents Label18 As System.Windows.Forms.Label
@@ -1187,6 +1206,11 @@ Partial Class inicio_usuarios
     Friend WithEvents errorcedula1 As System.Windows.Forms.Label
     Friend WithEvents errornombre1 As System.Windows.Forms.Label
     Friend WithEvents errortelefono1 As System.Windows.Forms.Label
+    Friend WithEvents Anio As System.Windows.Forms.TextBox
+    Friend WithEvents Mes As System.Windows.Forms.TextBox
+    Friend WithEvents Dia As System.Windows.Forms.TextBox
+    Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
+    Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
 
 
 End Class
