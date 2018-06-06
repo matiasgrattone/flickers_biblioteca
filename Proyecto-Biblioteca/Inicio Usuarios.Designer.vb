@@ -25,7 +25,6 @@ Partial Class inicio_usuarios
         Me.components = New System.ComponentModel.Container()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -47,6 +46,8 @@ Partial Class inicio_usuarios
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Panel10 = New System.Windows.Forms.Panel()
+        Me.RadioButton4 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.apellido_txt = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -54,7 +55,6 @@ Partial Class inicio_usuarios
         Me.errortelefono = New System.Windows.Forms.Label()
         Me.errornombre = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.tipo_txt = New System.Windows.Forms.TextBox()
         Me.errorcedula = New System.Windows.Forms.Label()
         Me.guardar = New System.Windows.Forms.Button()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -82,7 +82,6 @@ Partial Class inicio_usuarios
         Me.errorcedula1 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
         Me.apellido = New System.Windows.Forms.TextBox()
         Me.tipo = New System.Windows.Forms.TextBox()
         Me.direccion = New System.Windows.Forms.TextBox()
@@ -95,7 +94,7 @@ Partial Class inicio_usuarios
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.Panel12 = New System.Windows.Forms.Panel()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.borrar = New System.Windows.Forms.DataGridView()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel13 = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -137,7 +136,7 @@ Partial Class inicio_usuarios
         CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage4.SuspendLayout()
         Me.Panel12.SuspendLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.borrar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel13.SuspendLayout()
         CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -151,7 +150,6 @@ Partial Class inicio_usuarios
         '
         Me.Panel1.BackColor = System.Drawing.Color.Silver
         Me.Panel1.Controls.Add(Me.Button2)
-        Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Controls.Add(Me.Label8)
         Me.Panel1.Controls.Add(Me.Label7)
         Me.Panel1.Controls.Add(Me.Label5)
@@ -167,21 +165,12 @@ Partial Class inicio_usuarios
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(0, 618)
+        Me.Button2.Location = New System.Drawing.Point(9, 620)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(51, 31)
         Me.Button2.TabIndex = 9
-        Me.Button2.Text = "Button"
+        Me.Button2.Text = "Cerrar"
         Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(-1, 618)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(51, 31)
-        Me.Button1.TabIndex = 8
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'Label8
         '
@@ -239,9 +228,10 @@ Partial Class inicio_usuarios
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(112, 69)
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(99, 45)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(39, 13)
+        Me.Label1.Size = New System.Drawing.Size(63, 20)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Label1"
         '
@@ -377,6 +367,8 @@ Partial Class inicio_usuarios
         '
         'Panel10
         '
+        Me.Panel10.Controls.Add(Me.RadioButton4)
+        Me.Panel10.Controls.Add(Me.RadioButton3)
         Me.Panel10.Controls.Add(Me.DateTimePicker1)
         Me.Panel10.Controls.Add(Me.apellido_txt)
         Me.Panel10.Controls.Add(Me.Label2)
@@ -384,7 +376,6 @@ Partial Class inicio_usuarios
         Me.Panel10.Controls.Add(Me.errortelefono)
         Me.Panel10.Controls.Add(Me.errornombre)
         Me.Panel10.Controls.Add(Me.Label11)
-        Me.Panel10.Controls.Add(Me.tipo_txt)
         Me.Panel10.Controls.Add(Me.errorcedula)
         Me.Panel10.Controls.Add(Me.guardar)
         Me.Panel10.Controls.Add(Me.Label12)
@@ -402,16 +393,38 @@ Partial Class inicio_usuarios
         Me.Panel10.Size = New System.Drawing.Size(873, 661)
         Me.Panel10.TabIndex = 2
         '
+        'RadioButton4
+        '
+        Me.RadioButton4.AutoSize = True
+        Me.RadioButton4.Location = New System.Drawing.Point(252, 356)
+        Me.RadioButton4.Name = "RadioButton4"
+        Me.RadioButton4.Size = New System.Drawing.Size(52, 17)
+        Me.RadioButton4.TabIndex = 47
+        Me.RadioButton4.TabStop = True
+        Me.RadioButton4.Text = "Socio"
+        Me.RadioButton4.UseVisualStyleBackColor = True
+        '
+        'RadioButton3
+        '
+        Me.RadioButton3.AutoSize = True
+        Me.RadioButton3.Location = New System.Drawing.Point(141, 356)
+        Me.RadioButton3.Name = "RadioButton3"
+        Me.RadioButton3.Size = New System.Drawing.Size(80, 17)
+        Me.RadioButton3.TabIndex = 46
+        Me.RadioButton3.TabStop = True
+        Me.RadioButton3.Text = "Funcionario"
+        Me.RadioButton3.UseVisualStyleBackColor = True
+        '
         'DateTimePicker1
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(143, 316)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(141, 312)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(314, 20)
         Me.DateTimePicker1.TabIndex = 45
         '
         'apellido_txt
         '
-        Me.apellido_txt.Location = New System.Drawing.Point(143, 155)
+        Me.apellido_txt.Location = New System.Drawing.Point(141, 155)
         Me.apellido_txt.Name = "apellido_txt"
         Me.apellido_txt.Size = New System.Drawing.Size(314, 20)
         Me.apellido_txt.TabIndex = 44
@@ -470,13 +483,6 @@ Partial Class inicio_usuarios
         Me.Label11.TabIndex = 39
         Me.Label11.Text = "Tipo"
         '
-        'tipo_txt
-        '
-        Me.tipo_txt.Location = New System.Drawing.Point(143, 355)
-        Me.tipo_txt.Name = "tipo_txt"
-        Me.tipo_txt.Size = New System.Drawing.Size(221, 20)
-        Me.tipo_txt.TabIndex = 38
-        '
         'errorcedula
         '
         Me.errorcedula.AutoSize = True
@@ -516,7 +522,7 @@ Partial Class inicio_usuarios
         '
         'direccion_txt
         '
-        Me.direccion_txt.Location = New System.Drawing.Point(143, 274)
+        Me.direccion_txt.Location = New System.Drawing.Point(141, 274)
         Me.direccion_txt.Name = "direccion_txt"
         Me.direccion_txt.Size = New System.Drawing.Size(314, 20)
         Me.direccion_txt.TabIndex = 30
@@ -533,7 +539,7 @@ Partial Class inicio_usuarios
         '
         'telefono_txt
         '
-        Me.telefono_txt.Location = New System.Drawing.Point(143, 230)
+        Me.telefono_txt.Location = New System.Drawing.Point(141, 230)
         Me.telefono_txt.Name = "telefono_txt"
         Me.telefono_txt.Size = New System.Drawing.Size(314, 20)
         Me.telefono_txt.TabIndex = 28
@@ -560,14 +566,14 @@ Partial Class inicio_usuarios
         '
         'cedula_txt
         '
-        Me.cedula_txt.Location = New System.Drawing.Point(146, 187)
+        Me.cedula_txt.Location = New System.Drawing.Point(141, 188)
         Me.cedula_txt.Name = "cedula_txt"
-        Me.cedula_txt.Size = New System.Drawing.Size(311, 20)
+        Me.cedula_txt.Size = New System.Drawing.Size(314, 20)
         Me.cedula_txt.TabIndex = 25
         '
         'nombre_txt
         '
-        Me.nombre_txt.Location = New System.Drawing.Point(143, 120)
+        Me.nombre_txt.Location = New System.Drawing.Point(141, 120)
         Me.nombre_txt.Name = "nombre_txt"
         Me.nombre_txt.Size = New System.Drawing.Size(314, 20)
         Me.nombre_txt.TabIndex = 24
@@ -690,7 +696,6 @@ Partial Class inicio_usuarios
         Me.Panel11.Controls.Add(Me.errorcedula1)
         Me.Panel11.Controls.Add(Me.Button3)
         Me.Panel11.Controls.Add(Me.Button4)
-        Me.Panel11.Controls.Add(Me.Button5)
         Me.Panel11.Controls.Add(Me.apellido)
         Me.Panel11.Controls.Add(Me.tipo)
         Me.Panel11.Controls.Add(Me.direccion)
@@ -740,21 +745,12 @@ Partial Class inicio_usuarios
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(341, 542)
+        Me.Button4.Location = New System.Drawing.Point(129, 542)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(109, 23)
         Me.Button4.TabIndex = 23
         Me.Button4.Text = "Guardar"
         Me.Button4.UseVisualStyleBackColor = True
-        '
-        'Button5
-        '
-        Me.Button5.Location = New System.Drawing.Point(54, 542)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(109, 23)
-        Me.Button5.TabIndex = 22
-        Me.Button5.Text = "Cancelar"
-        Me.Button5.UseVisualStyleBackColor = True
         '
         'apellido
         '
@@ -844,7 +840,7 @@ Partial Class inicio_usuarios
         'Panel12
         '
         Me.Panel12.Controls.Add(Me.TextBox3)
-        Me.Panel12.Controls.Add(Me.DataGridView2)
+        Me.Panel12.Controls.Add(Me.borrar)
         Me.Panel12.Location = New System.Drawing.Point(-10, -23)
         Me.Panel12.Name = "Panel12"
         Me.Panel12.Size = New System.Drawing.Size(873, 659)
@@ -857,20 +853,20 @@ Partial Class inicio_usuarios
         Me.TextBox3.Size = New System.Drawing.Size(595, 20)
         Me.TextBox3.TabIndex = 1
         '
-        'DataGridView2
+        'borrar
         '
-        Me.DataGridView2.AllowUserToAddRows = False
-        Me.DataGridView2.AllowUserToDeleteRows = False
-        Me.DataGridView2.AllowUserToResizeColumns = False
-        Me.DataGridView2.AllowUserToResizeRows = False
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(20, 189)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.ReadOnly = True
-        Me.DataGridView2.RowHeadersVisible = False
-        Me.DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView2.Size = New System.Drawing.Size(836, 404)
-        Me.DataGridView2.TabIndex = 0
+        Me.borrar.AllowUserToAddRows = False
+        Me.borrar.AllowUserToDeleteRows = False
+        Me.borrar.AllowUserToResizeColumns = False
+        Me.borrar.AllowUserToResizeRows = False
+        Me.borrar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.borrar.Location = New System.Drawing.Point(20, 189)
+        Me.borrar.Name = "borrar"
+        Me.borrar.ReadOnly = True
+        Me.borrar.RowHeadersVisible = False
+        Me.borrar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.borrar.Size = New System.Drawing.Size(836, 404)
+        Me.borrar.TabIndex = 0
         '
         'Timer1
         '
@@ -1047,7 +1043,7 @@ Partial Class inicio_usuarios
         Me.TabPage4.ResumeLayout(False)
         Me.Panel12.ResumeLayout(False)
         Me.Panel12.PerformLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.borrar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel13.ResumeLayout(False)
         Me.Panel13.PerformLayout()
         CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1091,7 +1087,6 @@ Partial Class inicio_usuarios
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Panel13 As System.Windows.Forms.Panel
     Friend WithEvents Panel14 As System.Windows.Forms.Panel
@@ -1108,11 +1103,10 @@ Partial Class inicio_usuarios
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
-    Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
+    Friend WithEvents borrar As System.Windows.Forms.DataGridView
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents Button4 As System.Windows.Forms.Button
-    Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents apellido As System.Windows.Forms.TextBox
     Friend WithEvents tipo As System.Windows.Forms.TextBox
     Friend WithEvents direccion As System.Windows.Forms.TextBox
@@ -1128,7 +1122,6 @@ Partial Class inicio_usuarios
     Friend WithEvents errortelefono As System.Windows.Forms.Label
     Friend WithEvents errornombre As System.Windows.Forms.Label
     Friend WithEvents Label11 As System.Windows.Forms.Label
-    Friend WithEvents tipo_txt As System.Windows.Forms.TextBox
     Friend WithEvents errorcedula As System.Windows.Forms.Label
     Friend WithEvents guardar As System.Windows.Forms.Button
     Friend WithEvents Label12 As System.Windows.Forms.Label
@@ -1149,6 +1142,8 @@ Partial Class inicio_usuarios
     Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
     Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
     Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents RadioButton4 As System.Windows.Forms.RadioButton
+    Friend WithEvents RadioButton3 As System.Windows.Forms.RadioButton
 
 
 End Class
