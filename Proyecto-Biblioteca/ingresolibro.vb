@@ -62,21 +62,12 @@
 
     End Sub
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        'Boton que al dar click sobre el actualiza el textbox autor a "Autor Desconocido"
-        autor.Text = "Autor Desconocido"
-    End Sub
 
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
         'Boton que al dar click sobre el actualiza el textbox volumen a S/V
         volumen.Text = "S/V"
     End Sub
 
-    Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
-        'Boton que al dar click sobre el actualiza el textbox casa_Editorial a S/E
-        casa_editorial.Text = "S/E"
-
-    End Sub
 
     Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
         'Boton que al dar click sobre el actualiza el textbox origen a S/O

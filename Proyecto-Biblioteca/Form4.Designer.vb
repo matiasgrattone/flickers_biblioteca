@@ -93,9 +93,9 @@ Partial Class Form4
         '
         'Panel1
         '
-        Me.Panel1.Location = New System.Drawing.Point(355, 390)
+        Me.Panel1.Location = New System.Drawing.Point(317, 406)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(102, 125)
+        Me.Panel1.Size = New System.Drawing.Size(118, 168)
         Me.Panel1.TabIndex = 73
         '
         'Label4
@@ -137,7 +137,7 @@ Partial Class Form4
         'LIBROSAGG
         '
         Me.LIBROSAGG.FormattingEnabled = True
-        Me.LIBROSAGG.Location = New System.Drawing.Point(185, 237)
+        Me.LIBROSAGG.Location = New System.Drawing.Point(185, 236)
         Me.LIBROSAGG.Name = "LIBROSAGG"
         Me.LIBROSAGG.Size = New System.Drawing.Size(116, 238)
         Me.LIBROSAGG.TabIndex = 68
@@ -320,7 +320,6 @@ Partial Class Form4
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1370, 683)
-        Me.Controls.Add(Me.OPA)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
@@ -342,6 +341,7 @@ Partial Class Form4
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Cedula)
         Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.OPA)
         Me.Name = "Form4"
         Me.Text = "Form4"
         Me.devoCOMBO.ResumeLayout(False)
