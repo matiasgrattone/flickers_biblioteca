@@ -2,8 +2,9 @@
 Imports System.Data.OleDb
 Imports MySql.Data.MySqlClient
 
-
 Module Modulo
+
+    Public nombre As String 'Variable para cambiar mostrar nombre en inicio usuario
 
     Dim ubicacion As String = "server=localhost; user id=root; password=''; database=biblioteca"
     Public Conexion As MySqlDataAdapter

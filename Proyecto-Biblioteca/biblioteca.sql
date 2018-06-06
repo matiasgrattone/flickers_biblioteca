@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-06-2018 a las 21:28:15
+-- Tiempo de generación: 06-06-2018 a las 23:45:27
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 7.2.4
 
@@ -98,7 +98,8 @@ CREATE TABLE `prestamo` (
   `cedula` int(11) DEFAULT NULL,
   `cod_libro` int(11) DEFAULT NULL,
   `fecha_salida` varchar(255) DEFAULT NULL,
-  `fecha_entrada` varchar(255) DEFAULT NULL
+  `fecha_entrada` varchar(255) DEFAULT NULL,
+  `tipo` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -123,13 +124,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`cedula`, `nombre`, `direccion`, `telefono`, `nacimiento`, `tipo`, `apellido`, `contrasenia`) VALUES
-(454, 'guille', 'chile', 4545, NULL, 1, '', NULL),
-(4223, 'lolo', 'yata', 34534, NULL, 2, '', NULL),
-(4544, 'lolo', 'yata', 5487, NULL, 2, '', NULL),
-(12345, 'mateo', 'barrio uruguay', 454, '2018-06-06', 2, 'otako', NULL),
-(50432, 'guille', 'chile 1234', 324875, '1990-02-05', 1, 'coelho', NULL),
-(5043831, 'pedro', NULL, NULL, NULL, NULL, NULL, 'hola123'),
-(50438316, 'Guille ', 'Chile 1489', 998728, NULL, 1, 'Coelho', NULL);
+(50438316, 'Guille', 'Chile 1489', 99867268, '2001-02-05', 0, 'Coelho', 'hola123');
 
 --
 -- Índices para tablas volcadas
