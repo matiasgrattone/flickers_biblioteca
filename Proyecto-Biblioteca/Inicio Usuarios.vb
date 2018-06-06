@@ -21,7 +21,6 @@
 
         '//////////////////
 
-        Panel18.Hide()
         '----------------------------- CONSULTA PARA LA BUSQUEDA DE LOS USUARIOS ----- 
 
         '-------------------VERIFICAR SI ESTA CONECTADO A LA BASE , SI DA ERROR APARECE LA IMAGEN DE OK (LA QUE ESTA ADENTRO DEL TRY) , SI DA ERROR APARECE LA IMAGEN DE ERROR (LA QUE ESTA ADENTRO DEL CATCH)
@@ -521,7 +520,7 @@
             Try
                 'Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo) values ('" + nom + "', " + ape + "', '" + Str(ced) + "', '" + Str(tel) + "', '" + dir + "', '" + Str(tipo) + "');
 
-                Dim nacimiento As String = anio.Text & "-" & mes.Text & "-" & dia.Text '//GUARDA LOS DATOS DEL COMBO A LA VARIABLE NACIMIENTO PARA LUEGO USARLA EN LA CONSULTA INSERT
+                Dim nacimiento As String = DateTimePicker1.Value.ToString("yyyy-MM-dd")  '//GUARDA LOS DATOS DEL COMBO A LA VARIABLE NACIMIENTO PARA LUEGO USARLA EN LA CONSULTA INSERT
 
                 Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo , nacimiento) values ('" + nom + "', '" + ape + "', '" + Str(ced) + "', '" + Str(tel) + "', '" + dir + "', '" + Str(tipo) + "', '" + nacimiento + "' );"
                 consultar()
@@ -532,9 +531,6 @@
                 cedula_txt.Clear()
                 telefono_txt.Clear()
                 direccion_txt.Clear()
-                dia.Text = ""
-                mes.Text = ""
-                anio.Text = ""
                 tipo_txt.Clear()
 
             Catch ex As Exception
@@ -592,25 +588,6 @@
 
         '/////////////////////////////////////////////////////////////////////////////////////
     End Sub
-
-    Private Sub MonthCalendar1_DateChanged(sender As System.Object, e As System.Windows.Forms.DateRangeEventArgs) Handles MonthCalendar1.DateChanged
-
-        Dim fecha As String = MonthCalendar1.SelectionStart
-
-        dia.Text = fecha.Substring(0, 2)
-        mes.Text = fecha.Substring(3, 2)
-        anio.Text = fecha.Substring(6, 4)
-
-    End Sub
-
-    Private Sub PictureBox9_MouseEnter(sender As Object, e As System.EventArgs) Handles PictureBox9.MouseEnter
-        Panel18.Show()
-    End Sub
-
-    Private Sub PictureBox9_MouseLeave(sender As Object, e As System.EventArgs) Handles PictureBox9.MouseLeave
-        Panel18.Hide()
-    End Sub
-
    
     Private Sub Panel5_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles Panel5.Paint
 
@@ -619,7 +596,7 @@
 
         For Each Row As DataGridViewRow In DataGridView1.Rows
 
-            If Row.Cells("nombre").Value = "juan alberto" Then
+            If Row.Cells("nombre").Value = "mateo" Then
                 Row.DefaultCellStyle.BackColor = Drawing.Color.BlueViolet
             End If
 

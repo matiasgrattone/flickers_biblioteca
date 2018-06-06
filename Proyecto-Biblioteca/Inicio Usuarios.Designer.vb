@@ -47,9 +47,7 @@ Partial Class inicio_usuarios
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Panel10 = New System.Windows.Forms.Panel()
-        Me.Panel18 = New System.Windows.Forms.Panel()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.PictureBox9 = New System.Windows.Forms.PictureBox()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.apellido_txt = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.registro = New System.Windows.Forms.DataGridView()
@@ -71,6 +69,8 @@ Partial Class inicio_usuarios
         Me.Label17 = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.Panel9 = New System.Windows.Forms.Panel()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
@@ -110,11 +110,6 @@ Partial Class inicio_usuarios
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Dia = New System.Windows.Forms.TextBox()
-        Me.Mes = New System.Windows.Forms.TextBox()
-        Me.Anio = New System.Windows.Forms.TextBox()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -131,8 +126,6 @@ Partial Class inicio_usuarios
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.Panel10.SuspendLayout()
-        Me.Panel18.SuspendLayout()
-        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.registro, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
         Me.Panel9.SuspendLayout()
@@ -178,7 +171,7 @@ Partial Class inicio_usuarios
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(51, 31)
         Me.Button2.TabIndex = 9
-        Me.Button2.Text = "Button2"
+        Me.Button2.Text = "Button"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'Button1
@@ -221,7 +214,7 @@ Partial Class inicio_usuarios
         '
         'MonthCalendar1
         '
-        Me.MonthCalendar1.Location = New System.Drawing.Point(36, 413)
+        Me.MonthCalendar1.Location = New System.Drawing.Point(16, 413)
         Me.MonthCalendar1.Name = "MonthCalendar1"
         Me.MonthCalendar1.TabIndex = 4
         '
@@ -384,11 +377,7 @@ Partial Class inicio_usuarios
         '
         'Panel10
         '
-        Me.Panel10.Controls.Add(Me.Anio)
-        Me.Panel10.Controls.Add(Me.Mes)
-        Me.Panel10.Controls.Add(Me.Dia)
-        Me.Panel10.Controls.Add(Me.Panel18)
-        Me.Panel10.Controls.Add(Me.PictureBox9)
+        Me.Panel10.Controls.Add(Me.DateTimePicker1)
         Me.Panel10.Controls.Add(Me.apellido_txt)
         Me.Panel10.Controls.Add(Me.Label2)
         Me.Panel10.Controls.Add(Me.registro)
@@ -413,34 +402,12 @@ Partial Class inicio_usuarios
         Me.Panel10.Size = New System.Drawing.Size(873, 661)
         Me.Panel10.TabIndex = 2
         '
-        'Panel18
+        'DateTimePicker1
         '
-        Me.Panel18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel18.Controls.Add(Me.Label18)
-        Me.Panel18.Location = New System.Drawing.Point(490, 274)
-        Me.Panel18.Name = "Panel18"
-        Me.Panel18.Size = New System.Drawing.Size(181, 42)
-        Me.Panel18.TabIndex = 46
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(3, 4)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(162, 26)
-        Me.Label18.TabIndex = 0
-        Me.Label18.Text = "tambien Puede Seleccionar" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " la fecha en el calendario"
-        '
-        'PictureBox9
-        '
-        Me.PictureBox9.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.faq
-        Me.PictureBox9.Location = New System.Drawing.Point(465, 315)
-        Me.PictureBox9.Name = "PictureBox9"
-        Me.PictureBox9.Size = New System.Drawing.Size(28, 24)
-        Me.PictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox9.TabIndex = 45
-        Me.PictureBox9.TabStop = False
+        Me.DateTimePicker1.Location = New System.Drawing.Point(143, 316)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(314, 20)
+        Me.DateTimePicker1.TabIndex = 45
         '
         'apellido_txt
         '
@@ -636,6 +603,26 @@ Partial Class inicio_usuarios
         Me.Panel9.Name = "Panel9"
         Me.Panel9.Size = New System.Drawing.Size(860, 617)
         Me.Panel9.TabIndex = 6
+        '
+        'RadioButton2
+        '
+        Me.RadioButton2.AutoSize = True
+        Me.RadioButton2.Location = New System.Drawing.Point(694, 47)
+        Me.RadioButton2.Name = "RadioButton2"
+        Me.RadioButton2.Size = New System.Drawing.Size(57, 17)
+        Me.RadioButton2.TabIndex = 6
+        Me.RadioButton2.Text = "Socios"
+        Me.RadioButton2.UseVisualStyleBackColor = True
+        '
+        'RadioButton1
+        '
+        Me.RadioButton1.AutoSize = True
+        Me.RadioButton1.Location = New System.Drawing.Point(565, 47)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(85, 17)
+        Me.RadioButton1.TabIndex = 6
+        Me.RadioButton1.Text = "Funcionarios"
+        Me.RadioButton1.UseVisualStyleBackColor = True
         '
         'Panel8
         '
@@ -1012,47 +999,6 @@ Partial Class inicio_usuarios
         Me.Label3.Size = New System.Drawing.Size(479, 55)
         Me.Label3.TabIndex = 1
         '
-        'Dia
-        '
-        Me.Dia.Location = New System.Drawing.Point(146, 316)
-        Me.Dia.Name = "Dia"
-        Me.Dia.Size = New System.Drawing.Size(94, 20)
-        Me.Dia.TabIndex = 47
-        '
-        'Mes
-        '
-        Me.Mes.Location = New System.Drawing.Point(250, 316)
-        Me.Mes.Name = "Mes"
-        Me.Mes.Size = New System.Drawing.Size(88, 20)
-        Me.Mes.TabIndex = 48
-        '
-        'Anio
-        '
-        Me.Anio.Location = New System.Drawing.Point(353, 316)
-        Me.Anio.Name = "Anio"
-        Me.Anio.Size = New System.Drawing.Size(73, 20)
-        Me.Anio.TabIndex = 49
-        '
-        'RadioButton1
-        '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(565, 47)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(85, 17)
-        Me.RadioButton1.TabIndex = 6
-        Me.RadioButton1.Text = "Funcionarios"
-        Me.RadioButton1.UseVisualStyleBackColor = True
-        '
-        'RadioButton2
-        '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(694, 47)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(57, 17)
-        Me.RadioButton2.TabIndex = 6
-        Me.RadioButton2.Text = "Socios"
-        Me.RadioButton2.UseVisualStyleBackColor = True
-        '
         'inicio_usuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1086,9 +1032,6 @@ Partial Class inicio_usuarios
         Me.TabPage1.ResumeLayout(False)
         Me.Panel10.ResumeLayout(False)
         Me.Panel10.PerformLayout()
-        Me.Panel18.ResumeLayout(False)
-        Me.Panel18.PerformLayout()
-        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.registro, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
         Me.Panel9.ResumeLayout(False)
@@ -1199,18 +1142,13 @@ Partial Class inicio_usuarios
     Friend WithEvents nombre_txt As System.Windows.Forms.TextBox
     Friend WithEvents Label17 As System.Windows.Forms.Label
 
-    Friend WithEvents PictureBox9 As System.Windows.Forms.PictureBox
-    Friend WithEvents Panel18 As System.Windows.Forms.Panel
-    Friend WithEvents Label18 As System.Windows.Forms.Label
 
     Friend WithEvents errorcedula1 As System.Windows.Forms.Label
     Friend WithEvents errornombre1 As System.Windows.Forms.Label
     Friend WithEvents errortelefono1 As System.Windows.Forms.Label
-    Friend WithEvents Anio As System.Windows.Forms.TextBox
-    Friend WithEvents Mes As System.Windows.Forms.TextBox
-    Friend WithEvents Dia As System.Windows.Forms.TextBox
     Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
     Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
+    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
 
 
 End Class
