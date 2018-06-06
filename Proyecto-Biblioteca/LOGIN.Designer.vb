@@ -23,6 +23,9 @@ Partial Class LOGIN
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.errorpass = New System.Windows.Forms.Label()
+        Me.errorusuario = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -31,12 +34,15 @@ Partial Class LOGIN
         Me.usuario = New System.Windows.Forms.TextBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel1.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Panel1.Controls.Add(Me.errorpass)
+        Me.Panel1.Controls.Add(Me.errorusuario)
         Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.Label1)
@@ -44,10 +50,37 @@ Partial Class LOGIN
         Me.Panel1.Controls.Add(Me.contrasenia)
         Me.Panel1.Controls.Add(Me.usuario)
         Me.Panel1.Controls.Add(Me.Panel2)
+        Me.Panel1.Controls.Add(Me.DataGridView1)
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(720, 331)
         Me.Panel1.TabIndex = 0
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(102, 133)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(93, 74)
+        Me.DataGridView1.TabIndex = 9
+        '
+        'errorpass
+        '
+        Me.errorpass.AutoSize = True
+        Me.errorpass.ForeColor = System.Drawing.Color.Snow
+        Me.errorpass.Location = New System.Drawing.Point(461, 181)
+        Me.errorpass.Name = "errorpass"
+        Me.errorpass.Size = New System.Drawing.Size(0, 13)
+        Me.errorpass.TabIndex = 8
+        '
+        'errorusuario
+        '
+        Me.errorusuario.AutoSize = True
+        Me.errorusuario.ForeColor = System.Drawing.Color.Snow
+        Me.errorusuario.Location = New System.Drawing.Point(464, 133)
+        Me.errorusuario.Name = "errorusuario"
+        Me.errorusuario.Size = New System.Drawing.Size(0, 13)
+        Me.errorusuario.TabIndex = 7
         '
         'Button1
         '
@@ -77,9 +110,9 @@ Partial Class LOGIN
         Me.Label1.ForeColor = System.Drawing.Color.White
         Me.Label1.Location = New System.Drawing.Point(332, 97)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(64, 20)
+        Me.Label1.Size = New System.Drawing.Size(59, 20)
         Me.Label1.TabIndex = 4
-        Me.Label1.Text = "Usuario"
+        Me.Label1.Text = "Cedula"
         '
         'PictureBox1
         '
@@ -96,6 +129,7 @@ Partial Class LOGIN
         Me.contrasenia.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.contrasenia.Location = New System.Drawing.Point(464, 152)
         Me.contrasenia.Name = "contrasenia"
+        Me.contrasenia.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.contrasenia.Size = New System.Drawing.Size(213, 26)
         Me.contrasenia.TabIndex = 2
         '
@@ -125,6 +159,7 @@ Partial Class LOGIN
         Me.Text = "LOGIN"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -137,4 +172,7 @@ Partial Class LOGIN
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents errorpass As System.Windows.Forms.Label
+    Friend WithEvents errorusuario As System.Windows.Forms.Label
+    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
 End Class

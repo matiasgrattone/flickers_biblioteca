@@ -1,9 +1,36 @@
 ﻿Public Class LOGIN
-
+    Dim i As Integer = 0
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
-        inicio_usuarios.Label1.Text = usuario.Text
-        Me.Hide()
-        inicio_usuarios.Show()
+        Dim user As String
+        Dim pass As String
+
+        If LTrim$(usuario.Text) = "" Then ' Verifica si esta vacio nombre
+            errorusuario.Text = "Nombre no puede estar vacío"
+            i = 1
+        Else
+            user = usuario.Text
+        End If
+
+        If LTrim$(contrasenia.Text) = "" Then ' Verifica si esta vacio nombre
+            errorpass.Text = "Nombre no puede estar vacío"
+            i = 1
+        Else
+            pass = contrasenia.Text
+        End If
+
+        If i = 0 Then
+            Consulta = "select contrasenia from usuarios where cedula = '" + user + "';"
+            consultar()
+            DataGridView1.DataSource = Tabla
+            Dim row As DataGridViewRow = DataGridView1.CurrentRow
+            Dim pass1 As String = CStr(row.Cells(0).Value)
+            If pass1 = pass Then
+                Me.Hide()
+                inicio_usuarios.Show()
+            Else
+                MsgBox("Cedula/Contraseaña Incorrecto")
+            End If
+        End If
     End Sub
 
 End Class
