@@ -151,7 +151,7 @@ Partial Class inicio_usuarios
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.Silver
+        Me.Panel1.BackColor = System.Drawing.Color.DarkGray
         Me.Panel1.Controls.Add(Me.Button2)
         Me.Panel1.Controls.Add(Me.Label8)
         Me.Panel1.Controls.Add(Me.Label7)
@@ -250,7 +250,7 @@ Partial Class inicio_usuarios
         '
         'Panel3
         '
-        Me.Panel3.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Panel3.BackColor = System.Drawing.Color.Silver
         Me.Panel3.Controls.Add(Me.Panel7)
         Me.Panel3.Controls.Add(Me.Panel4)
         Me.Panel3.Controls.Add(Me.Panel5)
@@ -450,6 +450,7 @@ Partial Class inicio_usuarios
         Me.registro.AllowUserToOrderColumns = True
         Me.registro.AllowUserToResizeColumns = False
         Me.registro.AllowUserToResizeRows = False
+        Me.registro.BackgroundColor = System.Drawing.SystemColors.ActiveCaption
         Me.registro.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.registro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.registro.ColumnHeadersVisible = False
@@ -672,6 +673,7 @@ Partial Class inicio_usuarios
         Me.DataGridView1.AllowUserToOrderColumns = True
         Me.DataGridView1.AllowUserToResizeColumns = False
         Me.DataGridView1.AllowUserToResizeRows = False
+        Me.DataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(10, 109)
         Me.DataGridView1.Name = "DataGridView1"
@@ -803,6 +805,7 @@ Partial Class inicio_usuarios
         Me.DataGridView3.AllowUserToDeleteRows = False
         Me.DataGridView3.AllowUserToResizeColumns = False
         Me.DataGridView3.AllowUserToResizeRows = False
+        Me.DataGridView3.BackgroundColor = System.Drawing.SystemColors.ActiveCaption
         Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView3.Location = New System.Drawing.Point(592, 133)
         Me.DataGridView3.Name = "DataGridView3"
@@ -862,6 +865,7 @@ Partial Class inicio_usuarios
         Me.borrar.AllowUserToDeleteRows = False
         Me.borrar.AllowUserToResizeColumns = False
         Me.borrar.AllowUserToResizeRows = False
+        Me.borrar.BackgroundColor = System.Drawing.SystemColors.ActiveCaption
         Me.borrar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.borrar.Location = New System.Drawing.Point(20, 189)
         Me.borrar.Name = "borrar"
