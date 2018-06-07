@@ -30,3 +30,6 @@ C:\Users\guill\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\
 C:\Users\guill\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Menu.resources
 C:\Users\guill\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Resources.resources
 C:\Users\guill\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.vbproj.GenerateResource.Cache
+C:\Users\usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.exe
+C:\Users\usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.xml
+C:\Users\usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.pdb
