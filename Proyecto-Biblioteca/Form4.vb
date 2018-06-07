@@ -4,8 +4,8 @@
         '/////////////////////////////////////////////GRUPBOX OCULTOS////////////////////
         ExtCombo.Visible = False
         devoCOMBO.Visible = False
+        ComboBoxMORTAL.Visible = False
         '/////////////////////////////////////////////VARIABLES CON DIA Y HORA////////////////////
-
 
     End Sub
 
@@ -23,13 +23,17 @@
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
 
         '////////////////////////////SE TOMA EL LIBRO MANDADO DEL TEXTBOX Y SE LO PASA A OCUPADO EN LA TABLA LIBROS///////////////////////  
+        If Cedula.Text <> "" Then
+            ComboBoxMORTAL.Visible = True
 
-        If Consulta = "update libro set (estado = ocupado) where cod_libros = '" & LIBROS.Text & "';" Then
-            consultar()
-        Else
-            MsgBox("No se encontraron los datos")
+            If Consulta = "update libro set (estado = ocupado) where cod_libros = '" & LIBROS.Text & "';" Then
+                consultar()
+            Else
+                MsgBox("No se encontraron los datos")
+            End If
+
+
         End If
-
     End Sub
 
 
@@ -55,9 +59,6 @@
         ElseIf LIBROSAGG.Items.Count < 9 Then
             LIBROSAGG.Items.Add(VERLIBROSAGG.Item(1, VERLIBROSAGG.CurrentRow.Index).Value)
         End If
-
-
-        MsgBox("Usted no puede hacer su devolucion hasta que devuelba los libros (agregar consulta aqui luego)")
 
 
     End Sub
@@ -102,17 +103,45 @@
 
     Private Sub ComboBoxMORTAL_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBoxMORTAL.SelectedIndexChanged
 
+        'Consulta a DATAGRIDVIEW oculto
+        Consulta = "select * from prestamo where cedula = '" & Cedula.Text & " ';"
+        consultar()
+        OPA.DataSource = Tabla
+        '////////////////////////////////
+
+        'Se iguala una variable a un valor de la base de datos
+        OPA.DataSource = Tabla
+        Dim TransoformarDBSDaVariable As DataGridViewRow = OPA.CurrentRow
+        Dim VALIDADOR As String
+        VALIDADOR = CStr(TransoformarDBSDaVariable.Cells(4).Value)
+
+        '//////////////////////////////////////////////////////////
+
         '////////////////////////////SI EL COMBOBOX = EXTREACCION ----- SE MUESTRA EL GRUPOBOX1///////////////////////  
+
         If ComboBoxMORTAL.Text = "Extraccion" Then
             ExtCombo.Visible = True
-            Consulta = "select * from libro"
-            consultar()
-            VERLIBROSAGG.DataSource = Tabla
+
+            If VALIDADOR = 0 Then
+                MsgBox("Usted puede retirar un libro 0")
+                Consulta = "select * from libro"
+                consultar()
+                VERLIBROSAGG.DataSource = Tabla
+
+            End If
 
         ElseIf ComboBoxMORTAL.Text <> "Extraccion" Then
             ExtCombo.Visible = False
 
+            If VALIDADOR = 1 Then
+
+                MsgBox("Usted NO puede retirar un libro hasta devolver los ya prestados")
+                ExtCombo.Visible = False
+
+            End If
+
         End If
+
 
 
         '////////////////////////////SI EL COMBOBOX = DEVOLUCION ----- SE MUESTRA EL GRUPOBOX2///////////////////////  
@@ -137,75 +166,91 @@
     Dim h As String
 
     Private Sub Button2_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
-        libro = IDAGG.Items(0)
-        h = libro + " " + Cedula.Text + " " + Label4.Text
-        MsgBox(h)
-        Try
-            Consulta = "insert into prestamo  values ('" & Cedula.Text & "','" & libro & "','" & Label4.Text & "','')"
-            consultar()
+        'Consulta a DATAGRIDVIEW oculto
+        Consulta = "select * from prestamo where cedula = '" & Cedula.Text & " ';"
+        consultar()
+        OPA.DataSource = Tabla
+        '////////////////////////////////
 
-            Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & libro & "';"
-            consultar()
-            MsgBox("se ha ingresado")
+        'Se iguala una variable a un valor de la base de datos
+        OPA.DataSource = Tabla
+        Dim TransoformarDBSDaVariable As DataGridViewRow = OPA.CurrentRow
+        Dim VALIDADOR As String
+        VALIDADOR = CStr(TransoformarDBSDaVariable.Cells(4).Value)
+        '//////////////////////////////////////////////////////////
+
+        '1) El usario que puede extraer un libro SI ESTE NO TIENE NINGUN LIBROS EN PODER AHORA
+        If VALIDADOR = 0 Then
+
+            ComboBoxMORTAL.Visible = True
+            MsgBox("Usted puede retirar un libro 0")
+
+            If Cedula.Text <> "" Then
 
 
 
-        Catch ex As Exception
-            MsgBox("se ha ingresasdsddosdfasdfsdfsdfsdfsdfsdfs")
-        End Try
+                libro = IDAGG.Items(0)
+                h = libro + " " + Cedula.Text + " " + Label4.Text
+                MsgBox(h)
+                Try
+                    Consulta = "insert into prestamo  values ('" & Cedula.Text & "','" & libro & "','" & Label4.Text & "','')"
+                    consultar()
+
+                    Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & libro & "';"
+                    consultar()
+                    MsgBox("se ha ingresado")
+
+
+
+                Catch ex As Exception
+                    MsgBox("se ha ingresasdsddosdfasdfsdfsdfsdfsdfsdfs")
+                End Try
+
+            End If
+            '1) En caso que el usuario tenga LIBROS EN PODER no le dejara realizar la tarea (extraccion)  
+        ElseIf VALIDADOR = 1 Then
+            MsgBox("Usted no puede retirar libros")
+
+        End If
+        '    1)////////////////////
 
     End Sub
 
     Private Sub DataGridAGG_CellDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridAGG.CellContentClick
         'Consulta a DATAGRIDVIEW oculto
-        Consulta = "select * from prestamo;"
+        Consulta = "select * from prestamo where cedula = '" & Cedula.Text & " ';"
         consultar()
         OPA.DataSource = Tabla
         '////////////////////////////////
 
         'Para que si o si se tenga que ingresar una cedula para realizar las funciones 
         If Cedula.Text <> "" Then
-            Consulta = "select * from prestamo where CI = '" & Cedula.Text & " ';"
+            Consulta = "select * from prestamo where cedula = '" & Cedula.Text & " ';"
             consultar()
+
+            ComboBoxMORTAL.Visible = True
+
             '////////////////////
 
-            'Se iguala una variable a un valor de la base de datos
-            OPA.DataSource = Tabla
-            Dim TransoformarDBSDaVariable As DataGridViewRow = OPA.CurrentRow
-            Dim VALIDADOR As String
-            VALIDADOR = CStr(TransoformarDBSDaVariable.Cells(4).Value)
-            '//////////////////////////////////////////////////////////
+            libro = DataGridAGG.Item(1, DataGridAGG.CurrentRow.Index).Value
+            Dim a As MsgBoxResult
+            a = MsgBox("Desea devolver el libro " & libro & " ?", MsgBoxStyle.YesNo)
 
-            '1) Len dice al usario si quiere devolver el libro SI ESTE NO TIENE NINGUN LIBROS EN PODER AHORA
-            If VALIDADOR = 0 Then
-                MsgBox("Usted puede retirar un libro 0")
-
-                libro = DataGridAGG.Item(1, DataGridAGG.CurrentRow.Index).Value
-                Dim a As MsgBoxResult
-                a = MsgBox("Desea devolver el libro " & libro & " ?", MsgBoxStyle.YesNo)
-
-                '       2) Se devuelve el libro y se actualiza la Base da datos 
-                If a = vbYes Then
-                    Consulta = "update libro set estado = 'libre' where cod_libro = '" & libro & "';"
-                    consultar()
-                    MsgBox("se ha devuelto")
-                    Consulta = "select * from prestamo where estado = ocupado"
-                    consultar()
-
-                End If
-
-                If a = vbNo Then
-                    MsgBox("no")
-                End If
-                '       2)/////////////////
-
-
-                '1) En caso que el usuario tenga LIBROS EN PODER no le dejara realizar la tarea  
-            ElseIf VALIDADOR = 1 Then
-                MsgBox("Usted no puede retirar libros")
+            '       1) Si se devuelve el libro y se actualiza la Base da datos 
+            If a = vbYes Then
+                Consulta = "update libro set estado = 'libre' where cod_libro = '" & libro & "';"
+                consultar()
+                MsgBox("se ha devuelto")
+                Consulta = "select * from prestamo where estado = ocupado"
+                consultar()
 
             End If
-            '    1)////////////////////
+
+            If a = vbNo Then
+                MsgBox("no")
+            End If
+            '       1)/////////////////
+
         End If
         '/////////////////////////////////////////////////
     End Sub
