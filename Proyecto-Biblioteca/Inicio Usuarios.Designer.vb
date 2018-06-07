@@ -23,6 +23,7 @@ Partial Class inicio_usuarios
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(inicio_usuarios))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -97,6 +98,7 @@ Partial Class inicio_usuarios
         Me.borrar = New System.Windows.Forms.DataGridView()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel13 = New System.Windows.Forms.Panel()
+        Me.PictureBox9 = New System.Windows.Forms.PictureBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.PictureBox11 = New System.Windows.Forms.PictureBox()
         Me.PictureBox8 = New System.Windows.Forms.PictureBox()
@@ -138,6 +140,7 @@ Partial Class inicio_usuarios
         Me.Panel12.SuspendLayout()
         CType(Me.borrar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel13.SuspendLayout()
+        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel14.SuspendLayout()
@@ -874,6 +877,7 @@ Partial Class inicio_usuarios
         'Panel13
         '
         Me.Panel13.BackColor = System.Drawing.Color.Silver
+        Me.Panel13.Controls.Add(Me.PictureBox9)
         Me.Panel13.Controls.Add(Me.Label4)
         Me.Panel13.Controls.Add(Me.PictureBox11)
         Me.Panel13.Controls.Add(Me.PictureBox8)
@@ -884,6 +888,16 @@ Partial Class inicio_usuarios
         Me.Panel13.Name = "Panel13"
         Me.Panel13.Size = New System.Drawing.Size(1044, 749)
         Me.Panel13.TabIndex = 11
+        '
+        'PictureBox9
+        '
+        Me.PictureBox9.Image = CType(resources.GetObject("PictureBox9.Image"), System.Drawing.Image)
+        Me.PictureBox9.Location = New System.Drawing.Point(960, 650)
+        Me.PictureBox9.Name = "PictureBox9"
+        Me.PictureBox9.Size = New System.Drawing.Size(60, 62)
+        Me.PictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox9.TabIndex = 25
+        Me.PictureBox9.TabStop = False
         '
         'Label4
         '
@@ -1046,6 +1060,7 @@ Partial Class inicio_usuarios
         CType(Me.borrar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel13.ResumeLayout(False)
         Me.Panel13.PerformLayout()
+        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel14.ResumeLayout(False)
@@ -1144,6 +1159,7 @@ Partial Class inicio_usuarios
     Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
     Friend WithEvents RadioButton4 As System.Windows.Forms.RadioButton
     Friend WithEvents RadioButton3 As System.Windows.Forms.RadioButton
+    Friend WithEvents PictureBox9 As System.Windows.Forms.PictureBox
 
 
 End Class
