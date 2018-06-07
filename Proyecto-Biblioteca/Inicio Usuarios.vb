@@ -32,6 +32,8 @@
 
         '//////////////////
 
+
+
         '----------------------------- CONSULTA PARA LA BUSQUEDA DE LOS USUARIOS ----- 
 
         '-------------------VERIFICAR SI ESTA CONECTADO A LA BASE , SI DA ERROR APARECE LA IMAGEN DE OK (LA QUE ESTA ADENTRO DEL TRY) , SI DA ERROR APARECE LA IMAGEN DE ERROR (LA QUE ESTA ADENTRO DEL CATCH)
@@ -283,7 +285,7 @@
                 Panel1.Location = New Point(12, 12)
                 Button2.Location = New Point(214, 618)
 
-                Button2.Text = "Abrir"
+                Button2.Text = "Cerrar"
 
                 panelizq = 1
             Case 1
@@ -298,7 +300,7 @@
                 Panel1.Location = New Point(172, 12)
                 Button2.Location = New Point(0, 618)
 
-                Button2.Text = "Cerrar"
+                Button2.Text = "Abrir"
 
                 panelizq = 0
         End Select
@@ -639,6 +641,11 @@
         consultar()
         borrar.DataSource = Tabla
 
+    End Sub
+
+    Private Sub PictureBox9_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox9.Click
+        Me.Close()
+        LOGIN.Show()
     End Sub
 End Class
 

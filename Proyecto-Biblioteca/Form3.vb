@@ -2,13 +2,13 @@
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         Me.Hide()
-        Form1.Show()
+        ingresolibro.Show()
 
     End Sub
 
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
         Me.Hide()
-        Form2.Show()
+        buscarlibro.Show()
 
     End Sub
 
