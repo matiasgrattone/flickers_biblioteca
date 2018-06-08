@@ -179,7 +179,7 @@
 
         Dim a As String = TextBox1.Text
 
-        Consulta = "select * from usuarios where nombre like '" & TextBox1.Text & "%'"
+        Consulta = "select * from usuarios where cedula like '" & TextBox1.Text & "%' or nombre like '" & TextBox1.Text & "%'"
         consultar()
         DataGridView1.DataSource = Tabla
 
