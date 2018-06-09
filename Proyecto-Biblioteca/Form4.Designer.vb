@@ -145,6 +145,7 @@ Partial Class Form4
         'devoCOMBO
         '
         Me.devoCOMBO.Controls.Add(Me.DataGridAGG)
+        Me.devoCOMBO.Controls.Add(Me.ENPODER)
         Me.devoCOMBO.Location = New System.Drawing.Point(923, 71)
         Me.devoCOMBO.Name = "devoCOMBO"
         Me.devoCOMBO.Size = New System.Drawing.Size(413, 460)
@@ -266,7 +267,7 @@ Partial Class Form4
         '
         Me.ENPODER.AutoSize = True
         Me.ENPODER.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ENPODER.Location = New System.Drawing.Point(102, 179)
+        Me.ENPODER.Location = New System.Drawing.Point(13, 94)
         Me.ENPODER.Name = "ENPODER"
         Me.ENPODER.Size = New System.Drawing.Size(119, 20)
         Me.ENPODER.TabIndex = 61
@@ -319,7 +320,7 @@ Partial Class Form4
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1370, 683)
+        Me.ClientSize = New System.Drawing.Size(1362, 683)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
@@ -336,7 +337,6 @@ Partial Class Form4
         Me.Controls.Add(Me.IDAGG)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.ESTADO)
-        Me.Controls.Add(Me.ENPODER)
         Me.Controls.Add(Me.NOMBRE)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Cedula)
@@ -345,6 +345,7 @@ Partial Class Form4
         Me.Name = "Form4"
         Me.Text = "Form4"
         Me.devoCOMBO.ResumeLayout(False)
+        Me.devoCOMBO.PerformLayout()
         CType(Me.DataGridAGG, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ExtCombo.ResumeLayout(False)
         Me.ExtCombo.PerformLayout()

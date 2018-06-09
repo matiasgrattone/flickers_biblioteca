@@ -39,29 +39,47 @@
 
     Private Sub VERLIBROSAGG_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles VERLIBROSAGG.CellContentClick
 
+
+        'Se iguala una variable a un valor de la base de datos
+        OPA.DataSource = Tabla
+        Dim TransoformarDBSDaVariable As DataGridViewRow = VERLIBROSAGG.CurrentRow
+        Dim NOMBREdelLIBRO As String
+        NOMBREdelLIBRO = CStr(TransoformarDBSDaVariable.Cells(1).Value)
+
+
+
         '////////////////////////////SI CEDULA.TEXT TIENE LA CEDULA PUESTA AHI SI SE PODRA AGREGAR LIBROS O REALIZAR OTRAS FUNCIONES  /////////////////////// 
+        Dim a As MsgBoxResult
 
 
-        If IDAGG.Items.Count > 9 Then   '1- Controlar cuántos elementos ya tiene el listbox
+        If IDAGG.Items.Count < 10 Then   '1- Controlar cuántos elementos ya tiene el listbox
+
+            a = MsgBox("Desea llevar al carrito el libro " & NOMBREdelLIBRO & " ?", MsgBoxStyle.YesNo)
+
+            If a = vbYes Then
+                IDAGG.Items.Add(VERLIBROSAGG.Item(0, VERLIBROSAGG.CurrentRow.Index).Value)
+            End If
+
+        ElseIf IDAGG.Items.Count > 10 Then
+
             MsgBox("Se llegó al máximo de elementos")
 
-        ElseIf IDAGG.Items.Count < 9 Then
-            IDAGG.Items.Add(VERLIBROSAGG.Item(0, VERLIBROSAGG.CurrentRow.Index).Value)
         End If
 
 
 
 
 
-        If LIBROSAGG.Items.Count > 9 Then    '1- Controlar cuántos elementos ya tiene el listbox
-            MsgBox("Se llegó al máximo de elementos")
+        If LIBROSAGG.Items.Count < 10 Then    '1- Controlar cuántos elementos ya tiene el listbox
 
-        ElseIf LIBROSAGG.Items.Count < 9 Then
-            LIBROSAGG.Items.Add(VERLIBROSAGG.Item(1, VERLIBROSAGG.CurrentRow.Index).Value)
+            If a = vbYes Then
+                LIBROSAGG.Items.Add(VERLIBROSAGG.Item(1, VERLIBROSAGG.CurrentRow.Index).Value)
+            End If
+
         End If
-
-
     End Sub
+
+
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
 
@@ -160,8 +178,19 @@
     End Sub
 
     Private Sub Button1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        NOMBRE.Text = DataGridView1.Item(1, DataGridView1.CurrentRow.Index).Value
+
+        'Se cambia el label solo cuando haya un valor en el textbox CEDULA
+        If Cedula.Text <> "" Then
+            NOMBRE.Text = DataGridView1.Item(1, DataGridView1.CurrentRow.Index).Value
+
+        ElseIf Cedula.Text = "" Then
+
+            MsgBox("Debe ingresar una cedula")
+
+        End If
     End Sub
+
+
     Dim libro As String
     Dim h As String
 
@@ -208,6 +237,7 @@
 
             End If
             '1) En caso que el usuario tenga LIBROS EN PODER no le dejara realizar la tarea (extraccion)  
+
         ElseIf VALIDADOR = 1 Then
             MsgBox("Usted no puede retirar libros")
 
