@@ -1,16 +1,30 @@
 ﻿Public Class Form4
 
-    Private Sub Form4_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+    '//////////////VARIABLE ESPECIAL PARA REALIZAR CONSULTAS (preguntarle a Gastesi su función)//////////
+    Dim z As MsgBoxResult
+    Dim h As String
+    Dim a As String
+    '/////////////////////////////////////////////////////////
+
+
+    Private Sub Form4_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         '/////////////////////////////////////////////GRUPBOX OCULTOS////////////////////
         ExtCombo.Visible = False
         devoCOMBO.Visible = False
         ComboBoxMORTAL.Visible = False
+        '//////////////////////////////////////VARIABLES PARA RALIZAR "CONSULTAS Y IFs" SIN ERRORES///////////////////////
+        Dim Contador As Integer = 0
+        If z = vbYes Then
+            Contador = 1 + Contador
+        End If
         '/////////////////////////////////////////////VARIABLES CON DIA Y HORA////////////////////
 
     End Sub
 
 
-    Private Sub Button3_Click(sender As System.Object, e As System.EventArgs) Handles Button3.Click
+
+
+    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
         If Consulta = "update usuarios set (tipo = libre) where cedulaU = '" & Cedula.Text & "';" Then
             consultar()
             VERLIBROSAGG.DataSource = Tabla
@@ -19,6 +33,9 @@
             MsgBox("No se encontraron los datos")
         End If
     End Sub
+
+
+
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
 
@@ -37,7 +54,8 @@
     End Sub
 
 
-    Private Sub VERLIBROSAGG_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles VERLIBROSAGG.CellContentClick
+
+    Private Sub VERLIBROSAGG_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles VERLIBROSAGG.CellContentClick
 
 
         'Se iguala una variable a un valor de la base de datos
@@ -49,16 +67,17 @@
 
 
         '////////////////////////////SI CEDULA.TEXT TIENE LA CEDULA PUESTA AHI SI SE PODRA AGREGAR LIBROS O REALIZAR OTRAS FUNCIONES  /////////////////////// 
-        Dim a As MsgBoxResult
 
-
+        '1)if
         If IDAGG.Items.Count < 10 Then   '1- Controlar cuántos elementos ya tiene el listbox
 
-            a = MsgBox("Desea llevar al carrito el libro " & NOMBREdelLIBRO & " ?", MsgBoxStyle.YesNo)
+            z = MsgBox("Desea llevar al carrito el libro " & NOMBREdelLIBRO & " ?", MsgBoxStyle.YesNo)
 
-            If a = vbYes Then
+            '1)a - if
+            If z = vbYes Then
                 IDAGG.Items.Add(VERLIBROSAGG.Item(0, VERLIBROSAGG.CurrentRow.Index).Value)
             End If
+
 
         ElseIf IDAGG.Items.Count > 10 Then
 
@@ -67,12 +86,9 @@
         End If
 
 
-
-
-
         If LIBROSAGG.Items.Count < 10 Then    '1- Controlar cuántos elementos ya tiene el listbox
 
-            If a = vbYes Then
+            If z = vbYes Then
                 LIBROSAGG.Items.Add(VERLIBROSAGG.Item(1, VERLIBROSAGG.CurrentRow.Index).Value)
             End If
 
@@ -93,7 +109,11 @@
 
     End Sub
 
-    Dim a As String
+
+
+
+
+
     Private Sub Cedula_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cedula.TextChanged
 
         Consulta = "select cedula , nombre from usuarios where cedula like '" & Cedula.Text & "'  "
@@ -118,6 +138,12 @@
 
         ' End If
     End Sub
+
+
+
+
+
+
 
     Private Sub ComboBoxMORTAL_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBoxMORTAL.SelectedIndexChanged
 
@@ -173,9 +199,19 @@
         End If
     End Sub
 
+
+
+
+
+
     Private Sub DataGridView1_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
 
     End Sub
+
+
+
+
+
 
     Private Sub Button1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
 
@@ -191,8 +227,7 @@
     End Sub
 
 
-    Dim libro As String
-    Dim h As String
+
 
     Private Sub Button2_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
         'Consulta a DATAGRIDVIEW oculto
@@ -208,6 +243,12 @@
         VALIDADOR = CStr(TransoformarDBSDaVariable.Cells(4).Value)
         '//////////////////////////////////////////////////////////
 
+
+
+
+
+
+
         '1) El usario que puede extraer un libro SI ESTE NO TIENE NINGUN LIBROS EN PODER AHORA
         If VALIDADOR = 0 Then
 
@@ -215,24 +256,50 @@
             MsgBox("Usted puede retirar un libro 0")
 
             If Cedula.Text <> "" Then
+                Dim Libro1 As String
+                Dim L2 As String
+                Dim L3 As String
+                Dim L4 As String
+                Dim L5 As String
+                Dim L6 As String
+                Dim L7 As String
+                Dim L8 As String
+                Dim L9 As String
+                Dim L10 As String
+
+                Libro1 = IDAGG.Items(0)
+                L2 = IDAGG.Items(1)
+                L3 = IDAGG.Items(2)
+                L4 = IDAGG.Items(3)
+                L5 = IDAGG.Items(4)
+                L6 = IDAGG.Items(5)
+                L7 = IDAGG.Items(6)
+                L8 = IDAGG.Items(7)
+                L9 = IDAGG.Items(8)
+                L10 = IDAGG.Items(9)
 
 
-
-                libro = IDAGG.Items(0)
-                h = libro + " " + Cedula.Text + " " + Label4.Text
+                h = Libro1 + "<-- 1Libro /// Cedula:" + Cedula.Text + " fecha de extraccion" + Label4.Text
                 MsgBox(h)
+
+
                 Try
-                    Consulta = "insert into prestamo  values ('" & Cedula.Text & "','" & libro & "','" & Label4.Text & "','')"
-                    consultar()
+
+                    Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & libro & "','" & Label4.Text & "','')"
 
                     Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & libro & "';"
-                    consultar()
-                    MsgBox("se ha ingresado")
 
+                    consultar()
+
+                    MsgBox("se ha ingresado")
+                    IDAGG.Items.RemoveAt(IDAGG.SelectedIndex)
+                    LIBROSAGG.Items.RemoveAt(LIBROSAGG.SelectedIndex)
 
 
                 Catch ex As Exception
-                    MsgBox("se ha ingresasdsddosdfasdfsdfsdfsdfsdfsdfs")
+
+                    MsgBox("NO SE A INGRESADOOOOOOOO")
+
                 End Try
 
             End If
@@ -243,8 +310,12 @@
 
         End If
         '    1)////////////////////
-
     End Sub
+
+
+
+
+
 
     Private Sub DataGridAGG_CellDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridAGG.CellContentClick
         'Consulta a DATAGRIDVIEW oculto
@@ -285,8 +356,10 @@
         '/////////////////////////////////////////////////
     End Sub
 
-    Private Sub DataGridView2_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles OPA.CellContentClick
 
-    End Sub
+
+
+
+
 
 End Class
