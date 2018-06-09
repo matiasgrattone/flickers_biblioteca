@@ -35,6 +35,7 @@ Partial Class Form4
         Me.LIBROSAGG = New System.Windows.Forms.ListBox()
         Me.devoCOMBO = New System.Windows.Forms.GroupBox()
         Me.DataGridAGG = New System.Windows.Forms.DataGridView()
+        Me.ENPODER = New System.Windows.Forms.Label()
         Me.ExtCombo = New System.Windows.Forms.GroupBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -46,7 +47,6 @@ Partial Class Form4
         Me.IDAGG = New System.Windows.Forms.ListBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ESTADO = New System.Windows.Forms.Label()
-        Me.ENPODER = New System.Windows.Forms.Label()
         Me.NOMBRE = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Cedula = New System.Windows.Forms.TextBox()
@@ -93,7 +93,7 @@ Partial Class Form4
         '
         'Panel1
         '
-        Me.Panel1.Location = New System.Drawing.Point(317, 406)
+        Me.Panel1.Location = New System.Drawing.Point(146, 347)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(118, 168)
         Me.Panel1.TabIndex = 73
@@ -137,7 +137,7 @@ Partial Class Form4
         'LIBROSAGG
         '
         Me.LIBROSAGG.FormattingEnabled = True
-        Me.LIBROSAGG.Location = New System.Drawing.Point(185, 236)
+        Me.LIBROSAGG.Location = New System.Drawing.Point(185, 237)
         Me.LIBROSAGG.Name = "LIBROSAGG"
         Me.LIBROSAGG.Size = New System.Drawing.Size(116, 238)
         Me.LIBROSAGG.TabIndex = 68
@@ -160,6 +160,16 @@ Partial Class Form4
         Me.DataGridAGG.Name = "DataGridAGG"
         Me.DataGridAGG.Size = New System.Drawing.Size(390, 314)
         Me.DataGridAGG.TabIndex = 0
+        '
+        'ENPODER
+        '
+        Me.ENPODER.AutoSize = True
+        Me.ENPODER.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ENPODER.Location = New System.Drawing.Point(13, 94)
+        Me.ENPODER.Name = "ENPODER"
+        Me.ENPODER.Size = New System.Drawing.Size(119, 20)
+        Me.ENPODER.TabIndex = 61
+        Me.ENPODER.Text = "Libros en poder"
         '
         'ExtCombo
         '
@@ -263,16 +273,6 @@ Partial Class Form4
         Me.ESTADO.TabIndex = 62
         Me.ESTADO.Text = "Estado"
         '
-        'ENPODER
-        '
-        Me.ENPODER.AutoSize = True
-        Me.ENPODER.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ENPODER.Location = New System.Drawing.Point(13, 94)
-        Me.ENPODER.Name = "ENPODER"
-        Me.ENPODER.Size = New System.Drawing.Size(119, 20)
-        Me.ENPODER.TabIndex = 61
-        Me.ENPODER.Text = "Libros en poder"
-        '
         'NOMBRE
         '
         Me.NOMBRE.AutoSize = True
@@ -303,9 +303,9 @@ Partial Class Form4
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(374, 430)
+        Me.DataGridView1.Location = New System.Drawing.Point(347, 268)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(36, 30)
+        Me.DataGridView1.Size = New System.Drawing.Size(114, 172)
         Me.DataGridView1.TabIndex = 56
         '
         'OPA

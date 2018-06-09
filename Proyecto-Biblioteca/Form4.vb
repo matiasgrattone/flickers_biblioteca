@@ -4,6 +4,8 @@
     Dim z As MsgBoxResult
     Dim h As String
     Dim a As String
+    Dim Libro1 As String
+    Dim VALIDADOR As Integer
     '/////////////////////////////////////////////////////////
 
 
@@ -38,6 +40,9 @@
 
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        Consulta = "select cedula , nombre from usuarios where cedula like '" & Cedula.Text & "'  "
+        consultar()
+        DataGridView1.DataSource = Tabla
 
         '////////////////////////////SE TOMA EL LIBRO MANDADO DEL TEXTBOX Y SE LO PASA A OCUPADO EN LA TABLA LIBROS///////////////////////  
         If Cedula.Text <> "" Then
@@ -116,10 +121,6 @@
 
     Private Sub Cedula_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cedula.TextChanged
 
-        Consulta = "select cedula , nombre from usuarios where cedula like '" & Cedula.Text & "'  "
-        consultar()
-        DataGridView1.DataSource = Tabla
-
 
 
 
@@ -153,12 +154,20 @@
         OPA.DataSource = Tabla
         '////////////////////////////////
 
-        'Se iguala una variable a un valor de la base de datos
         OPA.DataSource = Tabla
-        Dim TransoformarDBSDaVariable As DataGridViewRow = OPA.CurrentRow
-        Dim VALIDADOR As String
-        VALIDADOR = CStr(TransoformarDBSDaVariable.Cells(4).Value)
 
+        'Se iguala una variable a un valor de la base de datos
+
+        If OPA.Rows.Count > 0 Then
+
+            VALIDADOR = 0
+
+        Else
+
+            Dim TransoformarDBSDaVariable As DataGridViewRow = OPA.CurrentRow
+            VALIDADOR = CStr(TransoformarDBSDaVariable.Cells(4).Value)
+
+        End If
         '//////////////////////////////////////////////////////////
 
         '////////////////////////////SI EL COMBOBOX = EXTREACCION ----- SE MUESTRA EL GRUPOBOX1///////////////////////  
@@ -204,16 +213,12 @@
 
 
 
-    Private Sub DataGridView1_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-
-    End Sub
-
-
 
 
 
 
     Private Sub Button1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+
 
         'Se cambia el label solo cuando haya un valor en el textbox CEDULA
         If Cedula.Text <> "" Then
@@ -221,9 +226,10 @@
 
         ElseIf Cedula.Text = "" Then
 
-            MsgBox("Debe ingresar una cedula")
+            MsgBox("Debe ingresar una cedula valida")
 
         End If
+        
     End Sub
 
 
@@ -256,7 +262,6 @@
             MsgBox("Usted puede retirar un libro 0")
 
             If Cedula.Text <> "" Then
-                Dim Libro1 As String
                 Dim L2 As String
                 Dim L3 As String
                 Dim L4 As String
@@ -285,9 +290,9 @@
 
                 Try
 
-                    Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & libro & "','" & Label4.Text & "','')"
+                    Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & Libro1 & "','" & Label4.Text & "','')"
 
-                    Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & libro & "';"
+                    Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & Libro1 & "';"
 
                     consultar()
 
@@ -333,13 +338,13 @@
 
             '////////////////////
 
-            libro = DataGridAGG.Item(1, DataGridAGG.CurrentRow.Index).Value
+            Libro1 = DataGridAGG.Item(1, DataGridAGG.CurrentRow.Index).Value
             Dim a As MsgBoxResult
-            a = MsgBox("Desea devolver el libro " & libro & " ?", MsgBoxStyle.YesNo)
+            a = MsgBox("Desea devolver el libro " & Libro1 & " ?", MsgBoxStyle.YesNo)
 
             '       1) Si se devuelve el libro y se actualiza la Base da datos 
             If a = vbYes Then
-                Consulta = "update libro set estado = 'libre' where cod_libro = '" & libro & "';"
+                Consulta = "update libro set estado = 'libre' where cod_libro = '" & Libro1 & "';"
                 consultar()
                 MsgBox("se ha devuelto")
                 Consulta = "select * from prestamo where estado = ocupado"
