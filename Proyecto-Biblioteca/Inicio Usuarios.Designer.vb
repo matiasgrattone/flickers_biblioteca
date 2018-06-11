@@ -895,6 +895,7 @@ Partial Class inicio_usuarios
         '
         'PictureBox9
         '
+        Me.PictureBox9.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBox9.Image = CType(resources.GetObject("PictureBox9.Image"), System.Drawing.Image)
         Me.PictureBox9.Location = New System.Drawing.Point(960, 650)
         Me.PictureBox9.Name = "PictureBox9"

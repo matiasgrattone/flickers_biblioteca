@@ -131,10 +131,10 @@
     <Compile Include="LOGIN.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu.Designer.vb">
-      <DependentUpon>Menu.vb</DependentUpon>
+    <Compile Include="Menu1.Designer.vb">
+      <DependentUpon>Menu1.vb</DependentUpon>
     </Compile>
-    <Compile Include="Menu.vb">
+    <Compile Include="Menu1.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modulo.vb" />
@@ -182,8 +182,8 @@
     <EmbeddedResource Include="LOGIN.resx">
       <DependentUpon>LOGIN.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu.resx">
-      <DependentUpon>Menu.vb</DependentUpon>
+    <EmbeddedResource Include="Menu1.resx">
+      <DependentUpon>Menu1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

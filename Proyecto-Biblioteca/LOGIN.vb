@@ -28,7 +28,7 @@
                 Modulo.nombre = CStr(row.Cells(1).Value)
                 If pass1 = pass Then
                     Me.Hide()
-                    inicio_usuarios.Show()
+                    Menu1.Show()
                 Else
                     MsgBox("Cedula/Contraseaña Incorrecto")
                 End If
