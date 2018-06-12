@@ -19,14 +19,29 @@ Module Modulo
             Conexion = New MySqlDataAdapter(Consulta, ubicacion)
             Tabla = New DataTable
             Conexion.Fill(Tabla)
-
+            MysqlConexion.Close()
         Catch ex As Exception
 
         End Try
 
     End Sub
 
+    Public Sub prueba() ' VERIFICAR SI ESTA CERRADA LA CONEXION
 
+        Select Case MysqlConexion.State
+            Case ConnectionState.Open
+                MsgBox("open")
+            Case ConnectionState.Closed
+                MsgBox("close")
+            Case ConnectionState.Connecting
+                MsgBox("connect")
+            Case ConnectionState.Fetching
+                MsgBox("fetching")
+            Case ConnectionState.Broken
+                MsgBox("broke")
+
+        End Select
+    End Sub
     Public Sub color()
 
 

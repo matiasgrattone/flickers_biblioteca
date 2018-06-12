@@ -9,6 +9,8 @@
 
     Private Sub Form1_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
 
+        xf = Me.Location.X
+        yf = Me.Location.Y
 
         Panel15.Hide() '// OCULTAR EL PANEL DE CONFIGURACION
 
@@ -275,7 +277,9 @@
         Select Case panelizq
             Case 0
                 Panel1.Width = 265
-                Panel1.Height = 749
+                Panel1.Height = 693
+                Panel18.Width = 1192
+
                 MonthCalendar1.Visible = True
                 Label1.Visible = True
                 Label5.Visible = True
@@ -284,13 +288,15 @@
 
                 Panel1.Location = New Point(12, 12)
                 Button2.Location = New Point(214, 618)
-
+                Panel18.Location = New Point(12, -1)
                 Button2.Text = "Cerrar"
 
                 panelizq = 1
             Case 1
                 Panel1.Width = 106
-                Panel1.Height = 749
+                Panel1.Height = 693
+                Panel18.Width = 1032
+
                 MonthCalendar1.Visible = False
                 Label1.Visible = False
                 Label5.Visible = False
@@ -299,7 +305,7 @@
 
                 Panel1.Location = New Point(172, 12)
                 Button2.Location = New Point(0, 618)
-
+                Panel18.Location = New Point(172, -1)
                 Button2.Text = "Abrir"
 
                 panelizq = 0
@@ -647,5 +653,57 @@
         Me.Close()
         LOGIN.Show()
     End Sub
+
+    Private Sub Button1_Click_1(sender As System.Object, e As System.EventArgs)
+        prueba()
+    End Sub
+
+
+    '/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    '/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    '/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    '////////////////////////////////////////////////////////////////////DESPLAZAMIENTO DE VENTANA////////////////////////////////////////////////////////////////
+    '/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    '/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    '/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    Dim a As Integer = 0
+    Public xco, yco As Integer
+    Dim resultx, resulty As Integer
+    Dim xc, yc As Integer
+    Dim xf, yf As Integer
+
+    Private Sub Panel18_MouseMove(sender As Object, e As System.EventArgs) Handles Panel18.MouseMove
+        Select Case a
+            Case 1
+                xc = Cursor.Position.X
+                yc = Cursor.Position.Y
+                Me.Location = New Point(xf + (xc - xco), yf + (yc - yco))
+            Case 0
+                xco = Cursor.Position.X
+                yco = Cursor.Position.Y
+        End Select
+    End Sub
+
+
+    Private Sub Panel18_MouseUp(sender As Object, e As System.EventArgs) Handles Panel18.MouseUp
+        xf = Me.Location.X
+        yf = Me.Location.Y
+        a = 0
+        Me.Opacity = 1
+    End Sub
+
+    Private Sub Panel18_MouseDown(sender As Object, e As System.EventArgs) Handles Panel18.MouseDown
+        a = 1
+        Me.Opacity = 0.8
+    End Sub
+
+
+    '/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    '/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    '/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    '/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 End Class
 

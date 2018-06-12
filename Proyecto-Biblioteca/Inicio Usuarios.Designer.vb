@@ -111,6 +111,7 @@ Partial Class inicio_usuarios
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.Panel18 = New System.Windows.Forms.Panel()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -161,14 +162,14 @@ Partial Class inicio_usuarios
         Me.Panel1.Controls.Add(Me.Label6)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.PictureBox1)
-        Me.Panel1.Location = New System.Drawing.Point(12, 12)
+        Me.Panel1.Location = New System.Drawing.Point(12, 28)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(265, 749)
+        Me.Panel1.Size = New System.Drawing.Size(265, 677)
         Me.Panel1.TabIndex = 7
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(9, 620)
+        Me.Button2.Location = New System.Drawing.Point(3, 498)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(51, 31)
         Me.Button2.TabIndex = 9
@@ -178,7 +179,7 @@ Partial Class inicio_usuarios
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(224, 699)
+        Me.Label8.Location = New System.Drawing.Point(218, 577)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(32, 13)
         Me.Label8.TabIndex = 7
@@ -188,7 +189,7 @@ Partial Class inicio_usuarios
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(90, 367)
+        Me.Label7.Location = New System.Drawing.Point(90, 252)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(75, 20)
         Me.Label7.TabIndex = 6
@@ -198,7 +199,7 @@ Partial Class inicio_usuarios
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(97, 347)
+        Me.Label5.Location = New System.Drawing.Point(97, 232)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(71, 20)
         Me.Label5.TabIndex = 5
@@ -206,13 +207,13 @@ Partial Class inicio_usuarios
         '
         'MonthCalendar1
         '
-        Me.MonthCalendar1.Location = New System.Drawing.Point(16, 413)
+        Me.MonthCalendar1.Location = New System.Drawing.Point(16, 298)
         Me.MonthCalendar1.Name = "MonthCalendar1"
         Me.MonthCalendar1.TabIndex = 4
         '
         'PictureBox2
         '
-        Me.PictureBox2.Location = New System.Drawing.Point(9, 679)
+        Me.PictureBox2.Location = New System.Drawing.Point(3, 557)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(60, 57)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -257,7 +258,7 @@ Partial Class inicio_usuarios
         Me.Panel3.Controls.Add(Me.Panel6)
         Me.Panel3.Location = New System.Drawing.Point(10, 5)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(428, 50)
+        Me.Panel3.Size = New System.Drawing.Size(306, 50)
         Me.Panel3.TabIndex = 9
         '
         'Panel7
@@ -342,7 +343,7 @@ Partial Class inicio_usuarios
         Me.Panel2.Controls.Add(Me.TabControl1)
         Me.Panel2.Location = New System.Drawing.Point(10, 48)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(925, 685)
+        Me.Panel2.Size = New System.Drawing.Size(795, 583)
         Me.Panel2.TabIndex = 10
         '
         'TabControl1
@@ -351,10 +352,10 @@ Partial Class inicio_usuarios
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.Controls.Add(Me.TabPage4)
-        Me.TabControl1.Location = New System.Drawing.Point(25, 25)
+        Me.TabControl1.Location = New System.Drawing.Point(3, 5)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(860, 615)
+        Me.TabControl1.Size = New System.Drawing.Size(793, 578)
         Me.TabControl1.TabIndex = 0
         '
         'TabPage1
@@ -363,7 +364,7 @@ Partial Class inicio_usuarios
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(852, 589)
+        Me.TabPage1.Size = New System.Drawing.Size(785, 552)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "AGREGAR"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -393,7 +394,7 @@ Partial Class inicio_usuarios
         Me.Panel10.Controls.Add(Me.Label17)
         Me.Panel10.Location = New System.Drawing.Point(-4, -11)
         Me.Panel10.Name = "Panel10"
-        Me.Panel10.Size = New System.Drawing.Size(873, 661)
+        Me.Panel10.Size = New System.Drawing.Size(789, 661)
         Me.Panel10.TabIndex = 2
         '
         'RadioButton4
@@ -454,7 +455,7 @@ Partial Class inicio_usuarios
         Me.registro.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.registro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.registro.ColumnHeadersVisible = False
-        Me.registro.Location = New System.Drawing.Point(551, 42)
+        Me.registro.Location = New System.Drawing.Point(472, 46)
         Me.registro.Name = "registro"
         Me.registro.RowHeadersVisible = False
         Me.registro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -598,7 +599,7 @@ Partial Class inicio_usuarios
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(852, 589)
+        Me.TabPage2.Size = New System.Drawing.Size(785, 552)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "BUSCAR"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -611,7 +612,7 @@ Partial Class inicio_usuarios
         Me.Panel9.Controls.Add(Me.DataGridView1)
         Me.Panel9.Location = New System.Drawing.Point(-4, 0)
         Me.Panel9.Name = "Panel9"
-        Me.Panel9.Size = New System.Drawing.Size(860, 617)
+        Me.Panel9.Size = New System.Drawing.Size(789, 617)
         Me.Panel9.TabIndex = 6
         '
         'RadioButton2
@@ -680,7 +681,7 @@ Partial Class inicio_usuarios
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(840, 474)
+        Me.DataGridView1.Size = New System.Drawing.Size(741, 474)
         Me.DataGridView1.TabIndex = 0
         '
         'TabPage3
@@ -689,7 +690,7 @@ Partial Class inicio_usuarios
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(852, 589)
+        Me.TabPage3.Size = New System.Drawing.Size(785, 552)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "EDITAR"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -712,7 +713,7 @@ Partial Class inicio_usuarios
         Me.Panel11.Controls.Add(Me.TextBox4)
         Me.Panel11.Location = New System.Drawing.Point(-10, -23)
         Me.Panel11.Name = "Panel11"
-        Me.Panel11.Size = New System.Drawing.Size(873, 659)
+        Me.Panel11.Size = New System.Drawing.Size(793, 659)
         Me.Panel11.TabIndex = 3
         '
         'errortelefono1
@@ -838,7 +839,7 @@ Partial Class inicio_usuarios
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(852, 589)
+        Me.TabPage4.Size = New System.Drawing.Size(785, 552)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "BORRAR"
         Me.TabPage4.UseVisualStyleBackColor = True
@@ -847,14 +848,14 @@ Partial Class inicio_usuarios
         '
         Me.Panel12.Controls.Add(Me.TextBox3)
         Me.Panel12.Controls.Add(Me.borrar)
-        Me.Panel12.Location = New System.Drawing.Point(-10, -23)
+        Me.Panel12.Location = New System.Drawing.Point(-6, -14)
         Me.Panel12.Name = "Panel12"
-        Me.Panel12.Size = New System.Drawing.Size(873, 659)
+        Me.Panel12.Size = New System.Drawing.Size(795, 570)
         Me.Panel12.TabIndex = 3
         '
         'TextBox3
         '
-        Me.TextBox3.Location = New System.Drawing.Point(117, 95)
+        Me.TextBox3.Location = New System.Drawing.Point(76, 100)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(595, 20)
         Me.TextBox3.TabIndex = 1
@@ -867,12 +868,12 @@ Partial Class inicio_usuarios
         Me.borrar.AllowUserToResizeRows = False
         Me.borrar.BackgroundColor = System.Drawing.SystemColors.ActiveCaption
         Me.borrar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.borrar.Location = New System.Drawing.Point(20, 189)
+        Me.borrar.Location = New System.Drawing.Point(19, 147)
         Me.borrar.Name = "borrar"
         Me.borrar.ReadOnly = True
         Me.borrar.RowHeadersVisible = False
         Me.borrar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.borrar.Size = New System.Drawing.Size(836, 404)
+        Me.borrar.Size = New System.Drawing.Size(748, 404)
         Me.borrar.TabIndex = 0
         '
         'Timer1
@@ -888,16 +889,16 @@ Partial Class inicio_usuarios
         Me.Panel13.Controls.Add(Me.Panel14)
         Me.Panel13.Controls.Add(Me.Panel15)
         Me.Panel13.Controls.Add(Me.TextBox2)
-        Me.Panel13.Location = New System.Drawing.Point(282, 12)
+        Me.Panel13.Location = New System.Drawing.Point(283, 28)
         Me.Panel13.Name = "Panel13"
-        Me.Panel13.Size = New System.Drawing.Size(1044, 749)
+        Me.Panel13.Size = New System.Drawing.Size(921, 678)
         Me.Panel13.TabIndex = 11
         '
         'PictureBox9
         '
         Me.PictureBox9.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBox9.Image = CType(resources.GetObject("PictureBox9.Image"), System.Drawing.Image)
-        Me.PictureBox9.Location = New System.Drawing.Point(960, 650)
+        Me.PictureBox9.Location = New System.Drawing.Point(839, 577)
         Me.PictureBox9.Name = "PictureBox9"
         Me.PictureBox9.Size = New System.Drawing.Size(60, 62)
         Me.PictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -911,7 +912,7 @@ Partial Class inicio_usuarios
         Me.Label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(1007, 78)
+        Me.Label4.Location = New System.Drawing.Point(874, 71)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(16, 15)
         Me.Label4.TabIndex = 23
@@ -920,7 +921,7 @@ Partial Class inicio_usuarios
         'PictureBox11
         '
         Me.PictureBox11.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.file
-        Me.PictureBox11.Location = New System.Drawing.Point(958, 85)
+        Me.PictureBox11.Location = New System.Drawing.Point(825, 78)
         Me.PictureBox11.Name = "PictureBox11"
         Me.PictureBox11.Size = New System.Drawing.Size(62, 58)
         Me.PictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -931,7 +932,7 @@ Partial Class inicio_usuarios
         '
         Me.PictureBox8.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox8.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.ios7_gear
-        Me.PictureBox8.Location = New System.Drawing.Point(960, 16)
+        Me.PictureBox8.Location = New System.Drawing.Point(827, 9)
         Me.PictureBox8.Name = "PictureBox8"
         Me.PictureBox8.Size = New System.Drawing.Size(63, 59)
         Me.PictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -942,9 +943,9 @@ Partial Class inicio_usuarios
         '
         Me.Panel14.Controls.Add(Me.Panel2)
         Me.Panel14.Controls.Add(Me.Panel3)
-        Me.Panel14.Location = New System.Drawing.Point(3, 3)
+        Me.Panel14.Location = New System.Drawing.Point(3, 8)
         Me.Panel14.Name = "Panel14"
-        Me.Panel14.Size = New System.Drawing.Size(945, 741)
+        Me.Panel14.Size = New System.Drawing.Size(816, 669)
         Me.Panel14.TabIndex = 12
         '
         'Panel15
@@ -954,7 +955,7 @@ Partial Class inicio_usuarios
         Me.Panel15.Controls.Add(Me.Label9)
         Me.Panel15.Location = New System.Drawing.Point(8, 8)
         Me.Panel15.Name = "Panel15"
-        Me.Panel15.Size = New System.Drawing.Size(940, 603)
+        Me.Panel15.Size = New System.Drawing.Size(811, 603)
         Me.Panel15.TabIndex = 17
         '
         'Panel17
@@ -1014,13 +1015,22 @@ Partial Class inicio_usuarios
         Me.Label3.Size = New System.Drawing.Size(479, 55)
         Me.Label3.TabIndex = 1
         '
+        'Panel18
+        '
+        Me.Panel18.BackColor = System.Drawing.Color.DimGray
+        Me.Panel18.Location = New System.Drawing.Point(12, -1)
+        Me.Panel18.Name = "Panel18"
+        Me.Panel18.Size = New System.Drawing.Size(1192, 29)
+        Me.Panel18.TabIndex = 12
+        '
         'inicio_usuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Gray
-        Me.ClientSize = New System.Drawing.Size(1354, 788)
+        Me.ClientSize = New System.Drawing.Size(1211, 718)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Panel18)
         Me.Controls.Add(Me.Panel13)
         Me.Controls.Add(Me.Panel1)
         Me.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
@@ -1165,6 +1175,7 @@ Partial Class inicio_usuarios
     Friend WithEvents RadioButton4 As System.Windows.Forms.RadioButton
     Friend WithEvents RadioButton3 As System.Windows.Forms.RadioButton
     Friend WithEvents PictureBox9 As System.Windows.Forms.PictureBox
+    Friend WithEvents Panel18 As System.Windows.Forms.Panel
 
 
 End Class
