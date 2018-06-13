@@ -24,7 +24,6 @@ Partial Class Form4
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.Button4 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -64,15 +63,6 @@ Partial Class Form4
         '
         Me.Timer1.Enabled = True
         '
-        'Button4
-        '
-        Me.Button4.Location = New System.Drawing.Point(940, 572)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(303, 83)
-        Me.Button4.TabIndex = 76
-        Me.Button4.Text = "Button4"
-        Me.Button4.UseVisualStyleBackColor = True
-        '
         'Button2
         '
         Me.Button2.Location = New System.Drawing.Point(504, 575)
@@ -93,7 +83,7 @@ Partial Class Form4
         '
         'Panel1
         '
-        Me.Panel1.Location = New System.Drawing.Point(146, 347)
+        Me.Panel1.Location = New System.Drawing.Point(342, 347)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(118, 168)
         Me.Panel1.TabIndex = 73
@@ -287,7 +277,7 @@ Partial Class Form4
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(34, 33)
+        Me.Label1.Location = New System.Drawing.Point(12, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(196, 13)
         Me.Label1.TabIndex = 58
@@ -295,7 +285,7 @@ Partial Class Form4
         '
         'Cedula
         '
-        Me.Cedula.Location = New System.Drawing.Point(37, 49)
+        Me.Cedula.Location = New System.Drawing.Point(15, 30)
         Me.Cedula.Name = "Cedula"
         Me.Cedula.Size = New System.Drawing.Size(190, 20)
         Me.Cedula.TabIndex = 57
@@ -303,25 +293,26 @@ Partial Class Form4
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(347, 268)
+        Me.DataGridView1.Location = New System.Drawing.Point(377, 409)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(114, 172)
+        Me.DataGridView1.Size = New System.Drawing.Size(34, 30)
         Me.DataGridView1.TabIndex = 56
         '
         'OPA
         '
         Me.OPA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.OPA.Location = New System.Drawing.Point(317, 553)
+        Me.OPA.Location = New System.Drawing.Point(356, 409)
         Me.OPA.Name = "OPA"
-        Me.OPA.Size = New System.Drawing.Size(9, 8)
+        Me.OPA.Size = New System.Drawing.Size(29, 30)
         Me.OPA.TabIndex = 77
         '
         'Form4
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.BackgroundImage = Global.Proyecto_Biblioteca.My.Resources.Resources._302c8eb1f942e4312e3dc37f61f468c6
         Me.ClientSize = New System.Drawing.Size(1362, 683)
-        Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Panel1)
@@ -342,8 +333,10 @@ Partial Class Form4
         Me.Controls.Add(Me.Cedula)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.OPA)
+        Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.Name = "Form4"
-        Me.Text = "Form4"
+        Me.Text = "PRESTAMOS"
+        Me.TransparencyKey = System.Drawing.Color.White
         Me.devoCOMBO.ResumeLayout(False)
         Me.devoCOMBO.PerformLayout()
         CType(Me.DataGridAGG, System.ComponentModel.ISupportInitialize).EndInit()
@@ -357,7 +350,6 @@ Partial Class Form4
 
     End Sub
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
-    Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Panel1 As System.Windows.Forms.Panel

@@ -5,15 +5,16 @@
     Dim h As String
     Dim a As String
     Dim Libro1 As String
-    Dim VALIDADOR As Integer
     '/////////////////////////////////////////////////////////
 
 
     Private Sub Form4_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
         '/////////////////////////////////////////////GRUPBOX OCULTOS////////////////////
         ExtCombo.Visible = False
         devoCOMBO.Visible = False
         ComboBoxMORTAL.Visible = False
+
         '//////////////////////////////////////VARIABLES PARA RALIZAR "CONSULTAS Y IFs" SIN ERRORES///////////////////////
         Dim Contador As Integer = 0
         If z = vbYes Then
@@ -27,35 +28,35 @@
 
 
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
-        If Consulta = "update usuarios set (tipo = libre) where cedulaU = '" & Cedula.Text & "';" Then
+
+        If Consulta = "update usuarios set (tipo = ""libre"") where cedulaU = '" & Cedula.Text & "';" Then
             consultar()
-            VERLIBROSAGG.DataSource = Tabla
+
 
         Else
+
             MsgBox("No se encontraron los datos")
+
         End If
+
     End Sub
 
 
 
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+
         Consulta = "select cedula , nombre from usuarios where cedula like '" & Cedula.Text & "'  "
         consultar()
         DataGridView1.DataSource = Tabla
 
         '////////////////////////////SE TOMA EL LIBRO MANDADO DEL TEXTBOX Y SE LO PASA A OCUPADO EN LA TABLA LIBROS///////////////////////  
         If Cedula.Text <> "" Then
+
             ComboBoxMORTAL.Visible = True
 
-            If Consulta = "update libro set (estado = ocupado) where cod_libros = '" & LIBROS.Text & "';" Then
-                consultar()
-            Else
-                MsgBox("No se encontraron los datos")
-            End If
-
-
         End If
+
     End Sub
 
 
@@ -125,7 +126,6 @@
 
 
 
-
         '  If lista <> 0 Then
         'NOMBRE.Text = datos.Tables("usuarios").Rows(0).Item("Nombre")
         ' ESTADO.Text = datos.Tables("usuarios").Rows(0).Item("observacion")
@@ -154,30 +154,16 @@
         OPA.DataSource = Tabla
         '////////////////////////////////
 
-        OPA.DataSource = Tabla
-
-        'Se iguala una variable a un valor de la base de datos
-
-        If OPA.Rows.Count > 0 Then
-
-            VALIDADOR = 0
-
-        Else
-
-            Dim TransoformarDBSDaVariable As DataGridViewRow = OPA.CurrentRow
-            VALIDADOR = CStr(TransoformarDBSDaVariable.Cells(4).Value)
-
-        End If
-        '//////////////////////////////////////////////////////////
-
         '////////////////////////////SI EL COMBOBOX = EXTREACCION ----- SE MUESTRA EL GRUPOBOX1///////////////////////  
 
         If ComboBoxMORTAL.Text = "Extraccion" Then
             ExtCombo.Visible = True
 
-            If VALIDADOR = 0 Then
-                MsgBox("Usted puede retirar un libro 0")
-                Consulta = "select * from libro"
+            If OPA.Rows.Count > 0 Then
+
+                MsgBox("/////////Usted puede RETIRAR un libro 0//////////")
+
+                Consulta = "select * from libro where estado = ""Disponible"";"
                 consultar()
                 VERLIBROSAGG.DataSource = Tabla
 
@@ -186,7 +172,7 @@
         ElseIf ComboBoxMORTAL.Text <> "Extraccion" Then
             ExtCombo.Visible = False
 
-            If VALIDADOR = 1 Then
+            If OPA.Rows.Count <> 0 Then
 
                 MsgBox("Usted NO puede retirar un libro hasta devolver los ya prestados")
                 ExtCombo.Visible = False
@@ -219,44 +205,36 @@
 
     Private Sub Button1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
 
-
         'Se cambia el label solo cuando haya un valor en el textbox CEDULA
-        If Cedula.Text <> "" Then
-            NOMBRE.Text = DataGridView1.Item(1, DataGridView1.CurrentRow.Index).Value
 
-        ElseIf Cedula.Text = "" Then
+        Try
+
+            If Cedula.Text <> "" Then
+                NOMBRE.Text = DataGridView1.Item(1, DataGridView1.CurrentRow.Index).Value
+
+            End If
+
+        Catch ex As Exception
 
             MsgBox("Debe ingresar una cedula valida")
 
-        End If
-        
+        End Try
+
     End Sub
 
 
 
 
     Private Sub Button2_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+
         'Consulta a DATAGRIDVIEW oculto
         Consulta = "select * from prestamo where cedula = '" & Cedula.Text & " ';"
         consultar()
         OPA.DataSource = Tabla
         '////////////////////////////////
 
-        'Se iguala una variable a un valor de la base de datos
-        OPA.DataSource = Tabla
-        Dim TransoformarDBSDaVariable As DataGridViewRow = OPA.CurrentRow
-        Dim VALIDADOR As String
-        VALIDADOR = CStr(TransoformarDBSDaVariable.Cells(4).Value)
-        '//////////////////////////////////////////////////////////
-
-
-
-
-
-
-
         '1) El usario que puede extraer un libro SI ESTE NO TIENE NINGUN LIBROS EN PODER AHORA
-        If VALIDADOR = 0 Then
+        If OPA.Rows.Count > 0 Then
 
             ComboBoxMORTAL.Visible = True
             MsgBox("Usted puede retirar un libro 0")
@@ -297,6 +275,7 @@
                     consultar()
 
                     MsgBox("se ha ingresado")
+
                     IDAGG.Items.RemoveAt(IDAGG.SelectedIndex)
                     LIBROSAGG.Items.RemoveAt(LIBROSAGG.SelectedIndex)
 
@@ -310,7 +289,8 @@
             End If
             '1) En caso que el usuario tenga LIBROS EN PODER no le dejara realizar la tarea (extraccion)  
 
-        ElseIf VALIDADOR = 1 Then
+        ElseIf OPA.Rows.Count <> 0 Then
+
             MsgBox("Usted no puede retirar libros")
 
         End If
@@ -360,11 +340,5 @@
         End If
         '/////////////////////////////////////////////////
     End Sub
-
-
-
-
-
-
 
 End Class
