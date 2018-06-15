@@ -343,7 +343,7 @@ Partial Class inicio_usuarios
         Me.Panel2.Controls.Add(Me.TabControl1)
         Me.Panel2.Location = New System.Drawing.Point(10, 48)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(795, 583)
+        Me.Panel2.Size = New System.Drawing.Size(795, 558)
         Me.Panel2.TabIndex = 10
         '
         'TabControl1
@@ -392,9 +392,9 @@ Partial Class inicio_usuarios
         Me.Panel10.Controls.Add(Me.cedula_txt)
         Me.Panel10.Controls.Add(Me.nombre_txt)
         Me.Panel10.Controls.Add(Me.Label17)
-        Me.Panel10.Location = New System.Drawing.Point(-4, -11)
+        Me.Panel10.Location = New System.Drawing.Point(-12, -11)
         Me.Panel10.Name = "Panel10"
-        Me.Panel10.Size = New System.Drawing.Size(789, 661)
+        Me.Panel10.Size = New System.Drawing.Size(797, 567)
         Me.Panel10.TabIndex = 2
         '
         'RadioButton4

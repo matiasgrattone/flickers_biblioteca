@@ -8,9 +8,8 @@
 
 
 
-
-
         Menu2_1.Show()
+
 
         Dim x = Me.Location.X
         Dim y = Me.Location.Y
@@ -24,12 +23,20 @@
         xf2 = Menu2_1.Location.X
         xf1 = Me.Location.X
         yf1 = Me.Location.Y
+
+
+
+        Menu2_1.ShowInTaskbar() = False
+        Me.ShowInTaskbar() = False
+        Me.Show()
+
+
     End Sub
 
     Private Sub Panel1_MouseDown(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseDown
         a = 1
         Me.Opacity = 0.8
-        Menu2_1.Opacity = 0.7
+        ' Menu2_1.Opacity = 0.7
     End Sub
     Private Sub Panel1_MouseUp(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseUp
         xf1 = Me.Location.X
