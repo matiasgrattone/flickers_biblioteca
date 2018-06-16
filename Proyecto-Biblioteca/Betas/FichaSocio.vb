@@ -165,7 +165,15 @@
         Mail.Show()
     End Sub
 
-    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
+    Private Sub cmbmes_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles cmbmes.SelectedIndexChanged
+        substring = cmbmes.SelectedItem
+        mestonum()
+        Consulta = "SELECT concat(usuarios1.nombre,' ',usuarios1.apellido) as 'Nombre Socio', `cod_libro`, fecha_salida as 'Fecha Prestamo', `fecha_entrada`, concat(usuarios2.nombre,' ',usuarios2.apellido) as 'Funcionario Prestamo', concat(usuarios3.nombre,' ',usuarios3.apellido) as 'Funcionario Devolucion' FROM prestamolibro as prestamolibro1 inner join usuarios as usuarios1 on usuarios1.cedula = prestamolibro1.cedula inner join usuarios as usuarios2 on usuarios2.cedula = prestamolibro1.cod_prestado inner join usuarios as usuarios3 on usuarios3.cedula = prestamolibro1.cod_devuelto WHERE usuarios1.cedula = '" & FichaCedulaSocio & "' and year(fecha_salida) = '" & cmbaño.SelectedItem & "' and month(fecha_salida) = '" & substring & "'"
+        consultar()
+        DataGridView1.DataSource = Tabla
+    End Sub
+
+    Private Sub cmbaño_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles cmbaño.SelectedIndexChanged
         substring = cmbmes.SelectedItem
         mestonum()
         Consulta = "SELECT concat(usuarios1.nombre,' ',usuarios1.apellido) as 'Nombre Socio', `cod_libro`, fecha_salida as 'Fecha Prestamo', `fecha_entrada`, concat(usuarios2.nombre,' ',usuarios2.apellido) as 'Funcionario Prestamo', concat(usuarios3.nombre,' ',usuarios3.apellido) as 'Funcionario Devolucion' FROM prestamolibro as prestamolibro1 inner join usuarios as usuarios1 on usuarios1.cedula = prestamolibro1.cedula inner join usuarios as usuarios2 on usuarios2.cedula = prestamolibro1.cod_prestado inner join usuarios as usuarios3 on usuarios3.cedula = prestamolibro1.cod_devuelto WHERE usuarios1.cedula = '" & FichaCedulaSocio & "' and year(fecha_salida) = '" & cmbaño.SelectedItem & "' and month(fecha_salida) = '" & substring & "'"
