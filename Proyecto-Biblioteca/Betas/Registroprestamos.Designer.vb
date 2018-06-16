@@ -22,12 +22,21 @@ Partial Class Registroprestamos
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgvregistro = New System.Windows.Forms.DataGridView()
-        Me.cmbbusqueda = New System.Windows.Forms.ComboBox()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.cmbdia2 = New System.Windows.Forms.ComboBox()
+        Me.cmbmes2 = New System.Windows.Forms.ComboBox()
+        Me.cmbaño2 = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.cmbdia = New System.Windows.Forms.ComboBox()
         Me.cmbmes = New System.Windows.Forms.ComboBox()
         Me.cmbaño = New System.Windows.Forms.ComboBox()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.cmbbusqueda = New System.Windows.Forms.ComboBox()
         Me.txtbusqueda = New Proyecto_Biblioteca.PlaceHolder()
         CType(Me.dgvregistro, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -38,71 +47,163 @@ Partial Class Registroprestamos
         Me.dgvregistro.AllowUserToDeleteRows = False
         Me.dgvregistro.AllowUserToResizeColumns = False
         Me.dgvregistro.AllowUserToResizeRows = False
-        Me.dgvregistro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvregistro.Location = New System.Drawing.Point(12, 52)
+        Me.dgvregistro.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.dgvregistro.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle16.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle16.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvregistro.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle16
+        Me.dgvregistro.ColumnHeadersHeight = 40
+        Me.dgvregistro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.dgvregistro.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.dgvregistro.EnableHeadersVisualStyles = False
+        Me.dgvregistro.Location = New System.Drawing.Point(5, 88)
+        Me.dgvregistro.MultiSelect = False
         Me.dgvregistro.Name = "dgvregistro"
         Me.dgvregistro.ReadOnly = True
         Me.dgvregistro.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle17.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle17.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle17.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvregistro.RowHeadersDefaultCellStyle = DataGridViewCellStyle17
         Me.dgvregistro.RowHeadersVisible = False
-        Me.dgvregistro.Size = New System.Drawing.Size(844, 522)
-        Me.dgvregistro.TabIndex = 0
+        Me.dgvregistro.RowHeadersWidth = 50
+        Me.dgvregistro.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        DataGridViewCellStyle18.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle18.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.White
+        Me.dgvregistro.RowsDefaultCellStyle = DataGridViewCellStyle18
+        Me.dgvregistro.RowTemplate.Height = 32
+        Me.dgvregistro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvregistro.Size = New System.Drawing.Size(859, 492)
+        Me.dgvregistro.TabIndex = 81
         '
-        'cmbbusqueda
+        'Button2
         '
-        Me.cmbbusqueda.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbbusqueda.FormattingEnabled = True
-        Me.cmbbusqueda.Items.AddRange(New Object() {"Cedula de Socio", "Nombre de Socio", "Codigo de Inventario", "Titulo de Libro"})
-        Me.cmbbusqueda.Location = New System.Drawing.Point(292, 23)
-        Me.cmbbusqueda.Name = "cmbbusqueda"
-        Me.cmbbusqueda.Size = New System.Drawing.Size(194, 23)
-        Me.cmbbusqueda.TabIndex = 2
+        Me.Button2.Location = New System.Drawing.Point(589, 6)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(136, 23)
+        Me.Button2.TabIndex = 80
+        Me.Button2.Text = "Reiniciar Busqueda"
+        Me.Button2.UseVisualStyleBackColor = True
         '
-        'cmbdia
+        'Label2
         '
-        Me.cmbdia.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbdia.FormattingEnabled = True
-        Me.cmbdia.Items.AddRange(New Object() {"01", "02", "03", "04", "05", "29"})
-        Me.cmbdia.Location = New System.Drawing.Point(602, 24)
-        Me.cmbdia.Name = "cmbdia"
-        Me.cmbdia.Size = New System.Drawing.Size(58, 23)
-        Me.cmbdia.TabIndex = 8
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(302, 43)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(42, 15)
+        Me.Label2.TabIndex = 79
+        Me.Label2.Text = "Hasta"
         '
-        'cmbmes
+        'Button1
         '
-        Me.cmbmes.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbmes.FormattingEnabled = True
-        Me.cmbmes.Items.AddRange(New Object() {"01", "02", "03", "04", "05", "09"})
-        Me.cmbmes.Location = New System.Drawing.Point(666, 24)
-        Me.cmbmes.Name = "cmbmes"
-        Me.cmbmes.Size = New System.Drawing.Size(116, 23)
-        Me.cmbmes.TabIndex = 7
+        Me.Button1.Location = New System.Drawing.Point(589, 59)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(136, 23)
+        Me.Button1.TabIndex = 78
+        Me.Button1.Text = "Filtrar por fecha"
+        Me.Button1.UseVisualStyleBackColor = True
         '
-        'cmbaño
+        'cmbdia2
         '
-        Me.cmbaño.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbaño.FormattingEnabled = True
-        Me.cmbaño.Items.AddRange(New Object() {"2000", "2001", "2002", "2018"})
-        Me.cmbaño.Location = New System.Drawing.Point(788, 24)
-        Me.cmbaño.Name = "cmbaño"
-        Me.cmbaño.Size = New System.Drawing.Size(68, 23)
-        Me.cmbaño.TabIndex = 6
+        Me.cmbdia2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbdia2.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbdia2.FormattingEnabled = True
+        Me.cmbdia2.Location = New System.Drawing.Point(303, 59)
+        Me.cmbdia2.Name = "cmbdia2"
+        Me.cmbdia2.Size = New System.Drawing.Size(58, 23)
+        Me.cmbdia2.TabIndex = 77
+        '
+        'cmbmes2
+        '
+        Me.cmbmes2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbmes2.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbmes2.FormattingEnabled = True
+        Me.cmbmes2.Location = New System.Drawing.Point(367, 59)
+        Me.cmbmes2.Name = "cmbmes2"
+        Me.cmbmes2.Size = New System.Drawing.Size(116, 23)
+        Me.cmbmes2.TabIndex = 76
+        '
+        'cmbaño2
+        '
+        Me.cmbaño2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbaño2.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbaño2.FormattingEnabled = True
+        Me.cmbaño2.Location = New System.Drawing.Point(489, 59)
+        Me.cmbaño2.Name = "cmbaño2"
+        Me.cmbaño2.Size = New System.Drawing.Size(68, 23)
+        Me.cmbaño2.TabIndex = 75
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(678, 8)
+        Me.Label1.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(13, 43)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(89, 13)
-        Me.Label1.TabIndex = 9
-        Me.Label1.Text = "Filtrado por fecha"
+        Me.Label1.Size = New System.Drawing.Size(52, 15)
+        Me.Label1.TabIndex = 74
+        Me.Label1.Text = "Desde:"
+        '
+        'cmbdia
+        '
+        Me.cmbdia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbdia.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbdia.FormattingEnabled = True
+        Me.cmbdia.Location = New System.Drawing.Point(13, 59)
+        Me.cmbdia.Name = "cmbdia"
+        Me.cmbdia.Size = New System.Drawing.Size(58, 23)
+        Me.cmbdia.TabIndex = 73
+        '
+        'cmbmes
+        '
+        Me.cmbmes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbmes.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbmes.FormattingEnabled = True
+        Me.cmbmes.Location = New System.Drawing.Point(77, 59)
+        Me.cmbmes.Name = "cmbmes"
+        Me.cmbmes.Size = New System.Drawing.Size(116, 23)
+        Me.cmbmes.TabIndex = 72
+        '
+        'cmbaño
+        '
+        Me.cmbaño.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbaño.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbaño.FormattingEnabled = True
+        Me.cmbaño.Location = New System.Drawing.Point(199, 59)
+        Me.cmbaño.Name = "cmbaño"
+        Me.cmbaño.Size = New System.Drawing.Size(68, 23)
+        Me.cmbaño.TabIndex = 71
+        '
+        'cmbbusqueda
+        '
+        Me.cmbbusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbbusqueda.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbbusqueda.FormattingEnabled = True
+        Me.cmbbusqueda.Items.AddRange(New Object() {"Cedula de Socio", "Nombre de Socio", "Codigo de Inventario", "Titulo de Libro"})
+        Me.cmbbusqueda.Location = New System.Drawing.Point(293, 6)
+        Me.cmbbusqueda.Name = "cmbbusqueda"
+        Me.cmbbusqueda.Size = New System.Drawing.Size(194, 23)
+        Me.cmbbusqueda.TabIndex = 70
         '
         'txtbusqueda
         '
         Me.txtbusqueda.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbusqueda.Location = New System.Drawing.Point(12, 23)
+        Me.txtbusqueda.Location = New System.Drawing.Point(12, 6)
         Me.txtbusqueda.Name = "txtbusqueda"
         Me.txtbusqueda.Size = New System.Drawing.Size(274, 23)
-        Me.txtbusqueda.TabIndex = 1
+        Me.txtbusqueda.TabIndex = 69
         Me.txtbusqueda.WaterMarkColor = System.Drawing.Color.Gray
         Me.txtbusqueda.WaterMarkText = "Ingrese"
         '
@@ -110,14 +211,21 @@ Partial Class Registroprestamos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.Teal
         Me.ClientSize = New System.Drawing.Size(868, 586)
+        Me.Controls.Add(Me.dgvregistro)
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.cmbdia2)
+        Me.Controls.Add(Me.cmbmes2)
+        Me.Controls.Add(Me.cmbaño2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.cmbdia)
         Me.Controls.Add(Me.cmbmes)
         Me.Controls.Add(Me.cmbaño)
         Me.Controls.Add(Me.cmbbusqueda)
         Me.Controls.Add(Me.txtbusqueda)
-        Me.Controls.Add(Me.dgvregistro)
         Me.Name = "Registroprestamos"
         Me.Text = "Registroprestamos"
         CType(Me.dgvregistro, System.ComponentModel.ISupportInitialize).EndInit()
@@ -126,10 +234,16 @@ Partial Class Registroprestamos
 
     End Sub
     Friend WithEvents dgvregistro As System.Windows.Forms.DataGridView
-    Friend WithEvents txtbusqueda As Proyecto_Biblioteca.PlaceHolder
-    Friend WithEvents cmbbusqueda As System.Windows.Forms.ComboBox
+    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents cmbdia2 As System.Windows.Forms.ComboBox
+    Friend WithEvents cmbmes2 As System.Windows.Forms.ComboBox
+    Friend WithEvents cmbaño2 As System.Windows.Forms.ComboBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents cmbdia As System.Windows.Forms.ComboBox
     Friend WithEvents cmbmes As System.Windows.Forms.ComboBox
     Friend WithEvents cmbaño As System.Windows.Forms.ComboBox
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents cmbbusqueda As System.Windows.Forms.ComboBox
+    Friend WithEvents txtbusqueda As Proyecto_Biblioteca.PlaceHolder
 End Class
