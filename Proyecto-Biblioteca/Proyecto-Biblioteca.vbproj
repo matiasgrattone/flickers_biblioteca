@@ -149,6 +149,12 @@
     <Compile Include="Menu2.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MENU3.Designer.vb">
+      <DependentUpon>MENU3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MENU3.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Modulo.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -202,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menu2.resx">
       <DependentUpon>Menu2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MENU3.resx">
+      <DependentUpon>MENU3.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -267,7 +276,10 @@
     <None Include="Resources\faq.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\reading.png" />
+    <None Include="Resources\books.png" />
     <Content Include="Resources\logoout.png" />
+    <None Include="Resources\users.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

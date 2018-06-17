@@ -336,7 +336,6 @@ Partial Class Form4
         Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.Name = "Form4"
         Me.Text = "PRESTAMOS"
-        Me.TransparencyKey = System.Drawing.Color.White
         Me.devoCOMBO.ResumeLayout(False)
         Me.devoCOMBO.PerformLayout()
         CType(Me.DataGridAGG, System.ComponentModel.ISupportInitialize).EndInit()
