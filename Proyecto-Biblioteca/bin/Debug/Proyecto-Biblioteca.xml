@@ -23,6 +23,10 @@ Proyecto-Biblioteca
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
+</member><member name="P:Proyecto_Biblioteca.My.Resources.Resources.blur_blurred_dark_1526">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="P:Proyecto_Biblioteca.My.Resources.Resources.books">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.

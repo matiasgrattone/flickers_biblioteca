@@ -124,6 +124,9 @@
   <data name="cloud" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\imagenes\cloud.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="reading" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\reading.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="busqueda" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\busqueda.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -169,7 +172,7 @@
   <data name="faq" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\faq.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="reading" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\reading.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="blur-blurred-dark-1526" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blur-blurred-dark-1526.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -278,6 +278,7 @@
   <ItemGroup>
     <None Include="Resources\reading.png" />
     <None Include="Resources\books.png" />
+    <None Include="Resources\blur-blurred-dark-1526.jpg" />
     <Content Include="Resources\logoout.png" />
     <None Include="Resources\users.png" />
   </ItemGroup>
