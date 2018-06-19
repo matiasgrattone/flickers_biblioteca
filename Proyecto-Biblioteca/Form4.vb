@@ -169,7 +169,7 @@
                 consultar()
                 VERLIBROSAGG.DataSource = Tabla
 
-            Else
+            ElseIf OPA.Rows.Count <> 0 Then
 
                 ExtCombo.Visible = False
                 MsgBox("Usted NO puede retirar un libro hasta devolver los ya prestados")
