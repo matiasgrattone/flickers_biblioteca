@@ -83,7 +83,7 @@ Partial Class buscarlibro
         '
         'Panel2
         '
-        Me.Panel2.Location = New System.Drawing.Point(894, 43)
+        Me.Panel2.Location = New System.Drawing.Point(802, 41)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(155, 68)
         Me.Panel2.TabIndex = 33
@@ -100,7 +100,7 @@ Partial Class buscarlibro
         '
         Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Codigo", "Autor", "Titulo", "Editorial", "Fecha", "Origen", "Estado"})
+        Me.ComboBox1.Items.AddRange(New Object() {"Codigo", "Autor", "Titulo", "Editorial", "Fecha", "Origen"})
         Me.ComboBox1.Location = New System.Drawing.Point(444, 83)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(191, 28)

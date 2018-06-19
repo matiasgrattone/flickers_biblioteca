@@ -165,7 +165,7 @@
 
                 MsgBox("/////////Usted puede RETIRAR un libro 0//////////")
 
-                Consulta = "select * from libro where estado = ""Disponible"";"
+                Consulta = "select * from libro where estado = 'disponible'"
                 consultar()
                 VERLIBROSAGG.DataSource = Tabla
 

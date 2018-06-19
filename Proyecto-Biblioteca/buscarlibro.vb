@@ -38,31 +38,27 @@ Public Class buscarlibro
         Select Case ComboBox1.SelectedItem
 
             Case "Autor"
-                Consulta = "SELECT cod_libro as Codigo,autor as Autor, titulo as Titulo, casa_editorial as Editorial,fecha as Fecha,origen as Origen,estado as Estado from libros where autor like '" & TextBox1.Text & "%' "
+                Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre , editorial.nombre, libro.fecha , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where autor.nombre like '" & TextBox1.Text & "%'"
                 consultar()
                 DataGridView1.DataSource = Tabla
             Case "Editorial"
-                Consulta = "SELECT cod_libro as Codigo,autor as Autor, titulo as Titulo, casa_editorial as Editorial,fecha as Fecha,origen as Origen,estado as Estado from libros where casa_editorial like '" & TextBox1.Text & "%' "
-                consultar()
-                DataGridView1.DataSource = Tabla
-            Case "Estado"
-                Consulta = "SELECT cod_libro as Codigo,autor as Autor, titulo as Titulo, casa_editorial as Editorial,fecha as Fecha,origen as Origen,estado as Estado from libros where estado like '" & TextBox1.Text & "%' "
+                Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre , editorial.nombre, libro.fecha , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where editorial.nombre like '" & TextBox1.Text & "%'"
                 consultar()
                 DataGridView1.DataSource = Tabla
             Case "Fecha"
-                Consulta = "SELECT cod_libro as Codigo,autor as Autor, titulo as Titulo, casa_editorial as Editorial,fecha as Fecha,origen as Origen,estado as Estado from libros where fecha like '" & TextBox1.Text & "%' "
+                Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre , editorial.nombre, libro.fecha , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.fecha like '" & TextBox1.Text & "%'"
                 consultar()
                 DataGridView1.DataSource = Tabla
             Case "Titulo"
-                Consulta = "SELECT cod_libro as Codigo,autor as Autor, titulo as Titulo, casa_editorial as Editorial,fecha as Fecha,origen as Origen,estado as Estado from libros where titulo like '" & TextBox1.Text & "%' "
+                Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre , editorial.nombre, libro.fecha , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.titulo like '" & TextBox1.Text & "%'"
                 consultar()
                 DataGridView1.DataSource = Tabla
             Case "Codigo"
-                Consulta = "SELECT cod_libro as Codigo,autor as Autor, titulo as Titulo, casa_editorial as Editorial,fecha as Fecha,origen as Origen,estado as Estado from libros where cod_libro like '" & TextBox1.Text & "%' "
+                Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre , editorial.nombre, libro.fecha , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.cod_libro like '" & TextBox1.Text & "%'"
                 consultar()
                 DataGridView1.DataSource = Tabla
             Case "Origen"
-                Consulta = "SELECT cod_libro as Codigo,autor as Autor, titulo as Titulo, casa_editorial as Editorial,fecha as Fecha,origen as Origen,estado as Estado from libros where origen like '" & TextBox1.Text & "%' "
+                Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre , editorial.nombre, libro.fecha , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.origen like '" & TextBox1.Text & "%'"
                 consultar()
                 DataGridView1.DataSource = Tabla
 
@@ -131,6 +127,10 @@ Public Class buscarlibro
     End Sub
 
     Private Sub DataGridView2_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView2.CellContentClick
+
+    End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBox1.SelectedIndexChanged
 
     End Sub
 End Class

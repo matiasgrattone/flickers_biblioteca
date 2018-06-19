@@ -8,7 +8,7 @@
 
         '/// Permite ingresar un nuevo dato a la tabla libros ///'
 
-        Consulta = "INSERT INTO libro VALUES('" + cod_libro.Text + "','" + titulo.Text + "','" + TextBox2.Text + "','" + TextBox1.Text + "','" + volumen.Text + "','" + fecha.Text + "','" + origen.Text + "','" + observaciones.Text + "','" + estado.Text + "')"
+        Consulta = "INSERT INTO libro VALUES('" + cod_libro.Text + "','" + titulo.Text + "','" + TextBox2.Text + "','" + TextBox1.Text + "','" + volumen.Text + "','" + fecha.Text + "','" + origen.Text + "','" + observaciones.Text + "','disponible')"
         consultar()
         '///////////////////////////////////////////
         '//// Muestra Los Datos en el DataGrid//////
@@ -30,7 +30,7 @@
         fecha.Clear()
         origen.Clear()
         observaciones.Clear()
-        estado.Clear()
+
 
         '/////////////////////////////////////////////////////
 

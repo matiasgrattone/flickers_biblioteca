@@ -23,7 +23,6 @@ Partial Class ingresolibro
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ingresolibro))
-        Me.estado = New System.Windows.Forms.TextBox()
         Me.observaciones = New System.Windows.Forms.TextBox()
         Me.origen = New System.Windows.Forms.TextBox()
         Me.fecha = New System.Windows.Forms.TextBox()
@@ -36,7 +35,6 @@ Partial Class ingresolibro
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.ingresar_boton = New System.Windows.Forms.Button()
         Me.Editorial_label = New System.Windows.Forms.Label()
-        Me.estado_label = New System.Windows.Forms.Label()
         Me.observaciones_label = New System.Windows.Forms.Label()
         Me.origen_label = New System.Windows.Forms.Label()
         Me.fecha_label = New System.Windows.Forms.Label()
@@ -60,14 +58,6 @@ Partial Class ingresolibro
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'estado
-        '
-        Me.estado.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.estado.Location = New System.Drawing.Point(181, 362)
-        Me.estado.Name = "estado"
-        Me.estado.Size = New System.Drawing.Size(178, 29)
-        Me.estado.TabIndex = 32
         '
         'observaciones
         '
@@ -180,15 +170,6 @@ Partial Class ingresolibro
         Me.Editorial_label.Size = New System.Drawing.Size(144, 24)
         Me.Editorial_label.TabIndex = 13
         Me.Editorial_label.Text = "Casa Editorial:"
-        '
-        'estado_label
-        '
-        Me.estado_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.estado_label.Location = New System.Drawing.Point(91, 358)
-        Me.estado_label.Name = "estado_label"
-        Me.estado_label.Size = New System.Drawing.Size(81, 24)
-        Me.estado_label.TabIndex = 14
-        Me.estado_label.Text = "Estado:"
         '
         'observaciones_label
         '
@@ -358,7 +339,6 @@ Partial Class ingresolibro
         Me.ClientSize = New System.Drawing.Size(1398, 516)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.estado)
         Me.Controls.Add(Me.observaciones)
         Me.Controls.Add(Me.origen)
         Me.Controls.Add(Me.fecha)
@@ -374,7 +354,6 @@ Partial Class ingresolibro
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.ingresar_boton)
         Me.Controls.Add(Me.Editorial_label)
-        Me.Controls.Add(Me.estado_label)
         Me.Controls.Add(Me.observaciones_label)
         Me.Controls.Add(Me.origen_label)
         Me.Controls.Add(Me.fecha_label)
@@ -398,7 +377,6 @@ Partial Class ingresolibro
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents estado As System.Windows.Forms.TextBox
     Friend WithEvents observaciones As System.Windows.Forms.TextBox
     Friend WithEvents origen As System.Windows.Forms.TextBox
     Friend WithEvents fecha As System.Windows.Forms.TextBox
@@ -414,7 +392,6 @@ Partial Class ingresolibro
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents ingresar_boton As System.Windows.Forms.Button
     Friend WithEvents Editorial_label As System.Windows.Forms.Label
-    Friend WithEvents estado_label As System.Windows.Forms.Label
     Friend WithEvents observaciones_label As System.Windows.Forms.Label
     Friend WithEvents origen_label As System.Windows.Forms.Label
     Friend WithEvents fecha_label As System.Windows.Forms.Label
