@@ -169,17 +169,16 @@
                 consultar()
                 VERLIBROSAGG.DataSource = Tabla
 
+            Else
+
+                ExtCombo.Visible = False
+                MsgBox("Usted NO puede retirar un libro hasta devolver los ya prestados")
+
             End If
 
         ElseIf ComboBoxMORTAL.Text <> "Extraccion" Then
             ExtCombo.Visible = False
 
-            If OPA.Rows.Count <> 0 Then
-
-                MsgBox("Usted NO puede retirar un libro hasta devolver los ya prestados")
-                ExtCombo.Visible = False
-
-            End If
 
         End If
 
@@ -188,9 +187,11 @@
         '////////////////////////////SI EL COMBOBOX = DEVOLUCION ----- SE MUESTRA EL GRUPOBOX2///////////////////////  
         If ComboBoxMORTAL.Text = "Devolucion" Then
             devoCOMBO.Visible = True
+
             Consulta = "select * from prestamo where cedula = '" & DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value & "'" '// falta join
             consultar()
             DataGridAGG.DataSource = Tabla
+
         ElseIf ComboBoxMORTAL.Text <> "Devolucion" Then
             devoCOMBO.Visible = False
         End If
