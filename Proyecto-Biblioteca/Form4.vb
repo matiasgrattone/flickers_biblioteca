@@ -170,7 +170,7 @@
 
 
             If VALIDADOR <> 1 Then
-
+                devoCOMBO.Visible = False
                 ExtCombo.Visible = False
                 MsgBox("Usted NO puede retirar un libro hasta devolver los ya prestados")
 
