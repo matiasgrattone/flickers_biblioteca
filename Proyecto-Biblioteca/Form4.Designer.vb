@@ -83,7 +83,7 @@ Partial Class Form4
         '
         'Panel1
         '
-        Me.Panel1.Location = New System.Drawing.Point(342, 347)
+        Me.Panel1.Location = New System.Drawing.Point(200, 503)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(118, 168)
         Me.Panel1.TabIndex = 73
@@ -301,9 +301,9 @@ Partial Class Form4
         'OPA
         '
         Me.OPA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.OPA.Location = New System.Drawing.Point(356, 409)
+        Me.OPA.Location = New System.Drawing.Point(341, 281)
         Me.OPA.Name = "OPA"
-        Me.OPA.Size = New System.Drawing.Size(29, 30)
+        Me.OPA.Size = New System.Drawing.Size(97, 109)
         Me.OPA.TabIndex = 77
         '
         'Form4

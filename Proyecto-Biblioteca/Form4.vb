@@ -7,6 +7,7 @@
     Dim Libro1 As String
     Dim Libro2 As String
     Dim Contador As Integer = 0
+    Dim VALIDADOR As String
     '/////////////////////////////////////////////////////////
 
 
@@ -52,6 +53,12 @@
         consultar()
         DataGridView1.DataSource = Tabla
 
+        'Consulta a DATAGRIDVIEW oculto
+        Consulta = "select * from prestamo where cedula = '" & Cedula.Text & " ';"
+        consultar()
+        OPA.DataSource = Tabla
+        '////////////////////////////////
+
         '////////////////////////////SE TOMA EL LIBRO MANDADO DEL TEXTBOX Y SE LO PASA A OCUPADO EN LA TABLA LIBROS///////////////////////  
         If Cedula.Text <> "" Then
 
@@ -72,7 +79,9 @@
         Dim NOMBREdelLIBRO As String
         NOMBREdelLIBRO = CStr(TransoformarDBSDaVariable.Cells(1).Value)
 
-
+        'Se iguala una variable a un valor de la base de datos
+        Dim TransoformarDBSDaVariable2 As DataGridViewRow = OPA.CurrentRow
+        VALIDADOR = CStr(TransoformarDBSDaVariable.Cells(2).Value)
 
         '////////////////////////////SI CEDULA.TEXT TIENE LA CEDULA PUESTA AHI SI SE PODRA AGREGAR LIBROS O REALIZAR OTRAS FUNCIONES  /////////////////////// 
 
@@ -150,29 +159,28 @@
 
     Private Sub ComboBoxMORTAL_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBoxMORTAL.SelectedIndexChanged
 
-        'Consulta a DATAGRIDVIEW oculto
-        Consulta = "select * from prestamo where cedula = '" & Cedula.Text & " ';"
-        consultar()
-        OPA.DataSource = Tabla
-        '////////////////////////////////
+
 
         '////////////////////////////SI EL COMBOBOX = EXTREACCION ----- SE MUESTRA EL GRUPOBOX1///////////////////////  
 
         If ComboBoxMORTAL.Text = "Extraccion" Then
             ExtCombo.Visible = True
 
-            If OPA.Rows.Count > 0 Then
+
+
+
+            If VALIDADOR <> 1 Then
+
+                ExtCombo.Visible = False
+                MsgBox("Usted NO puede retirar un libro hasta devolver los ya prestados")
+
+            ElseIf OPA.Rows.Count > 0 Then
 
                 MsgBox("/////////Usted puede RETIRAR un libro 0//////////")
 
                 Consulta = "select * from libro where estado = 'disponible'"
                 consultar()
                 VERLIBROSAGG.DataSource = Tabla
-
-            ElseIf OPA.Rows.Count <> 0 Then
-
-                ExtCombo.Visible = False
-                MsgBox("Usted NO puede retirar un libro hasta devolver los ya prestados")
 
             End If
 
