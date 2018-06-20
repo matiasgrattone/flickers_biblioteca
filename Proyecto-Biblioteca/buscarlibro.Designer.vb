@@ -73,6 +73,7 @@ Partial Class buscarlibro
         Me.Label28 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -93,7 +94,7 @@ Partial Class buscarlibro
         '
         Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Codigo", "Autor", "Titulo", "Editorial", "Fecha", "Origen"})
+        Me.ComboBox1.Items.AddRange(New Object() {"Codigo", "Autor", "Titulo", "Editorial", "Año", "Origen"})
         Me.ComboBox1.Location = New System.Drawing.Point(444, 83)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(191, 28)
@@ -102,7 +103,7 @@ Partial Class buscarlibro
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(663, 79)
+        Me.Button1.Location = New System.Drawing.Point(76, 45)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(107, 32)
         Me.Button1.TabIndex = 29
@@ -595,6 +596,17 @@ Partial Class buscarlibro
         Me.Panel2.Size = New System.Drawing.Size(179, 110)
         Me.Panel2.TabIndex = 33
         '
+        'ComboBox2
+        '
+        Me.ComboBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Items.AddRange(New Object() {"disponible", "descontinuado", "ocupado"})
+        Me.ComboBox2.Location = New System.Drawing.Point(641, 83)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(191, 28)
+        Me.ComboBox2.TabIndex = 30
+        Me.ComboBox2.Text = "Seleccione"
+        '
         'buscarlibro
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -602,6 +614,7 @@ Partial Class buscarlibro
         Me.ClientSize = New System.Drawing.Size(1168, 583)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.DataGridView2)
+        Me.Controls.Add(Me.ComboBox2)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label1)
@@ -674,4 +687,5 @@ Partial Class buscarlibro
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
     Friend WithEvents cod_libro_txt As System.Windows.Forms.TextBox
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
 End Class

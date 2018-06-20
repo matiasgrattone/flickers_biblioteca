@@ -46,29 +46,108 @@ Public Class buscarlibro
         Select Case ComboBox1.SelectedItem
 
             Case "Autor"
-                Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre , editorial.nombre, libro.fecha , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where autor.nombre like '" & TextBox1.Text & "%'"
-                consultar()
-                DataGridView1.DataSource = Tabla
+                Select Case ComboBox2.SelectedItem
+                    Case "ocupado"
+                        Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre , editorial.nombre, libro.anio , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where autor.nombre like '" & TextBox1.Text & "%' and libro.estado like 'ocupado'"
+                        consultar()
+                        DataGridView1.DataSource = Tabla
+                    Case "disponible"
+                        Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre , editorial.nombre, libro.anio , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where autor.nombre like '" & TextBox1.Text & "%' and libro.estado like 'disponible'"
+                        consultar()
+                        DataGridView1.DataSource = Tabla
+                    Case "descontinuado"
+                        Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre , editorial.nombre, libro.anio , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where autor.nombre like '" & TextBox1.Text & "%' and libro.estado like 'descontinuado'"
+                        consultar()
+                        DataGridView1.DataSource = Tabla
+                End Select
+
             Case "Editorial"
-                Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre , editorial.nombre, libro.fecha , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where editorial.nombre like '" & TextBox1.Text & "%'"
-                consultar()
-                DataGridView1.DataSource = Tabla
-            Case "Fecha"
-                Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre , editorial.nombre, libro.fecha , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.fecha like '" & TextBox1.Text & "%'"
-                consultar()
-                DataGridView1.DataSource = Tabla
+                Select Case ComboBox2.SelectedItem
+                    Case "ocupado"
+                        Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre , editorial.nombre, libro.anio , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where editorial.nombre like '" & TextBox1.Text & "%' and libro.estado like 'ocupado'"
+                        consultar()
+                        DataGridView1.DataSource = Tabla
+                    Case "disponible"
+                        Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre , editorial.nombre, libro.anio , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where editorial.nombre like '" & TextBox1.Text & "%' and libro.estado like 'disponible'"
+                        consultar()
+                        DataGridView1.DataSource = Tabla
+                    Case "descontinuado"
+                        Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre , editorial.nombre, libro.anio , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where editorial.nombre like '" & TextBox1.Text & "%' and libro.estado like 'descontinuado'"
+                        consultar()
+                        DataGridView1.DataSource = Tabla
+                End Select
+
+            Case "Año"
+                Select Case ComboBox2.SelectedItem
+                    Case "ocupado"
+                        Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre , editorial.nombre, libro.anio , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.fecha like '" & TextBox1.Text & "%' and libro.estado like 'ocupado'"
+                        consultar()
+                        DataGridView1.DataSource = Tabla
+                    Case "disponible"
+                        Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre , editorial.nombre, libro.anio , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.fecha like '" & TextBox1.Text & "%' and libro.estado like 'disponible'"
+                        consultar()
+                        DataGridView1.DataSource = Tabla
+                    Case "descontinuado"
+                        Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre , editorial.nombre, libro.anio , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.fecha like '" & TextBox1.Text & "%' and libro.estado like 'descontinuado'"
+                        consultar()
+                        DataGridView1.DataSource = Tabla
+                End Select
+
             Case "Titulo"
-                Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre , editorial.nombre, libro.fecha , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.titulo like '" & TextBox1.Text & "%'"
-                consultar()
-                DataGridView1.DataSource = Tabla
+                Select Case ComboBox2.SelectedItem
+                    Case "ocupado"
+                        Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre , editorial.nombre, libro.anio , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.titulo like '" & TextBox1.Text & "%' and libro.estado like 'ocupado'"
+                        consultar()
+                        DataGridView1.DataSource = Tabla
+                    Case "disponible"
+                        Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre , editorial.nombre, libro.anio , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.titulo like '" & TextBox1.Text & "%' and libro.estado like 'disponible'"
+                        consultar()
+                        DataGridView1.DataSource = Tabla
+                    Case "descontinuado"
+                        Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre , editorial.nombre, libro.anio , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.titulo like '" & TextBox1.Text & "%' and libro.estado like 'descontinuado'"
+                        consultar()
+                        DataGridView1.DataSource = Tabla
+                End Select
+
             Case "Codigo"
-                Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre , editorial.nombre, libro.fecha , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.cod_libro like '" & TextBox1.Text & "%'"
-                consultar()
-                DataGridView1.DataSource = Tabla
+                Select Case ComboBox2.SelectedItem
+                    Case "ocupado"
+                        Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre , editorial.nombre, libro.anio , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.cod_libro like '" & TextBox1.Text & "%' and libro.estado like 'ocupado'"
+                        consultar()
+                        DataGridView1.DataSource = Tabla
+                    Case "disponible"
+                        Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre , editorial.nombre, libro.anio , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.cod_libro like '" & TextBox1.Text & "%' and libro.estado like 'disponible'"
+                        consultar()
+                        DataGridView1.DataSource = Tabla
+                    Case "descontinuado"
+                        Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre , editorial.nombre, libro.anio , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.cod_libro like '" & TextBox1.Text & "%' and libro.estado like 'descontinuado'"
+                        consultar()
+                        DataGridView1.DataSource = Tabla
+                End Select
+
             Case "Origen"
-                Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre , editorial.nombre, libro.fecha , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.origen like '" & TextBox1.Text & "%'"
-                consultar()
-                DataGridView1.DataSource = Tabla
+                Select Case ComboBox2.SelectedItem
+                    Case "ocupado"
+                        Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre , editorial.nombre, libro.anio , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.origen like '" & TextBox1.Text & "%' and libro.estado like 'ocupado'"
+                        consultar()
+                        DataGridView1.DataSource = Tabla
+                    Case "disponible"
+                        Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre , editorial.nombre, libro.anio , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.origen like '" & TextBox1.Text & "%' and libro.estado like 'disponible'"
+                        consultar()
+                        DataGridView1.DataSource = Tabla
+                    Case "descontinuado"
+                        Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre , editorial.nombre, libro.anio , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.origen like '" & TextBox1.Text & "%' and libro.estado like 'descontinuado'"
+                        consultar()
+                        DataGridView1.DataSource = Tabla
+                End Select
+
+
+
+
+
+
+
+
 
         End Select
 
@@ -101,21 +180,18 @@ Public Class buscarlibro
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
         'Consulta Update Para la Tabla Libros en la Base'
         'Realiza la consulta, se actualizan los datos por los que el usuario indica y al momento el Datagrid se actualiza'
-        Consulta = "UPDATE libro SET titulo=('" + titulo_txt.Text + "'), volumen=('" + volumen_txt.Text + "'), fecha=('" + fecha_txt.Text + "'), origen=('" + origen_txt.Text + "'), observaciones=('" + observaciones_txt.Text + "') WHERE cod_libro=('" + cod_libro_txt.Text + "')"
+        Consulta = "UPDATE libro SET titulo=('" + titulo_txt.Text + "'), volumen=('" + volumen_txt.Text + "'), anio=('" + fecha_txt.Text + "'), origen=('" + origen_txt.Text + "'), observaciones=('" + observaciones_txt.Text + "') WHERE cod_libro=('" + cod_libro_txt.Text + "')"
         consultar()
         Panel3.SendToBack()
 
-        Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre as Autor , editorial.nombre as Editorial, libro.fecha , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial"
+        Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre as Autor , editorial.nombre as Editorial, libro.anio , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial"
         consultar()
         DataGridView1.DataSource = Tabla
 
-
-        'Consulta = "UPDATE libro SET volumen=('" + volumen_txt.Text + "')WHERE cod_libro=('" + cod_libro_label.Text + "')"
-        'consultar()
     End Sub
     Private Sub buscarlibro_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'Invocamos al modulo para conectar el programa con la base de datos llamada Libros, y luego lo mostramos en el DataGrid'
-        Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre as Autor , editorial.nombre as Editorial, libro.fecha , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial;"
+        Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre as Autor , editorial.nombre as Editorial, libro.anio , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial;"
         consultar()
         DataGridView1.DataSource = Tabla
 
@@ -126,5 +202,33 @@ Public Class buscarlibro
         Consulta = "SELECT volumen as Volumen, observaciones as Observaciones FROM libro where cod_libro = '" & DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value & "'"
         consultar()
         DataGridView2.DataSource = Tabla
+    End Sub
+
+    Private Sub ComboBox2_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBox2.SelectedIndexChanged
+
+        Select Case ComboBox2.SelectedItem
+
+            Case "ocupado"
+
+                Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre , editorial.nombre, libro.anio , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado like 'ocupado'"
+                consultar()
+                DataGridView1.DataSource = Tabla
+
+            Case "disponible"
+
+                Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre , editorial.nombre, libro.anio , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado like 'disponible'"
+                consultar()
+                DataGridView1.DataSource = Tabla
+
+            Case "descontinuado"
+
+                Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre , editorial.nombre, libro.anio , libro.origen , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado like 'descontinuado'"
+                consultar()
+                DataGridView1.DataSource = Tabla
+
+        End Select
+
+
+
     End Sub
 End Class
