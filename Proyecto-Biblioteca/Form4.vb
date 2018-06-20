@@ -100,7 +100,7 @@
                     If z = vbYes Then
                         IDAGG.Items.Add(VERLIBROSAGG.Item(0, VERLIBROSAGG.CurrentRow.Index).Value)
                 LIBROSAGG.Items.Add(VERLIBROSAGG.Item(1, VERLIBROSAGG.CurrentRow.Index).Value)
-                VERLIBROSAGG.Rows.
+                'VERLIBROSAGG.Rows.
 
 
 
