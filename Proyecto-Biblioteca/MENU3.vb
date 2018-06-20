@@ -1,4 +1,4 @@
-﻿
+﻿Imports System.Threading
 Public Class MENU3
     Dim a As Integer = 0
     Public xco, yco As Integer
@@ -16,6 +16,7 @@ Public Class MENU3
     Private Sub MENU3_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         xf = Me.Location.X
         yf = Me.Location.Y
+        WebBrowser1.Visible = False
     End Sub
 
     Private Sub Panel1_MouseDown(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseDown
@@ -34,6 +35,7 @@ Public Class MENU3
         If a = 0 Then
             xco = Cursor.Position.X
             yco = Cursor.Position.Y
+
         End If
     End Sub
 
@@ -77,7 +79,9 @@ Public Class MENU3
                 If Panel7.Location.X <= -602 Then
 
                     transicion = 2
-                    Timer2.Stop()
+                    '    Timer2.Stop()
+                    ' Thread.Sleep(5000)
+
 
                 Else
 
@@ -100,8 +104,8 @@ Public Class MENU3
                 If Panel6.Location.X >= 602 Then
 
                     transicion = 1
-                    Timer2.Stop()
-
+                    ' Timer2.Stop()
+                    'Thread.Sleep(5000)
                 Else
 
                     Panel6.Left += 10
@@ -134,8 +138,31 @@ Public Class MENU3
         Form4.Show()
     End Sub
 
-    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Timer2.Start()
     End Sub
 
+    Private Sub PictureBox5_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox5.Click
+        WebBrowser1.Visible = True
+        WebBrowser1.Navigate("www.google.com.uy")
+    End Sub
+
+    Private Sub Panel1_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Panel1.Paint
+
+    End Sub
+
+    Private Sub Button1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        Dim timer As Integer = 0
+        Select Case timer
+
+            Case 0
+                timer = 1
+                Timer2.Start()
+            Case 1
+                timer = 0
+                Timer2.Stop()
+        End Select
+
+
+    End Sub
 End Class
