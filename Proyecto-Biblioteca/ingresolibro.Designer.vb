@@ -30,8 +30,6 @@ Partial Class ingresolibro
         Me.volumen = New System.Windows.Forms.TextBox()
         Me.titulo = New System.Windows.Forms.TextBox()
         Me.cod_libro = New System.Windows.Forms.TextBox()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.ingresar_boton = New System.Windows.Forms.Button()
         Me.Editorial_label = New System.Windows.Forms.Label()
@@ -86,7 +84,7 @@ Partial Class ingresolibro
         'casa_editorial
         '
         Me.casa_editorial.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.casa_editorial.Location = New System.Drawing.Point(181, 222)
+        Me.casa_editorial.Location = New System.Drawing.Point(182, 223)
         Me.casa_editorial.Name = "casa_editorial"
         Me.casa_editorial.Size = New System.Drawing.Size(143, 29)
         Me.casa_editorial.TabIndex = 34
@@ -115,26 +113,6 @@ Partial Class ingresolibro
         Me.cod_libro.Size = New System.Drawing.Size(178, 29)
         Me.cod_libro.TabIndex = 36
         '
-        'Button5
-        '
-        Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.Location = New System.Drawing.Point(365, 294)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(30, 24)
-        Me.Button5.TabIndex = 27
-        Me.Button5.Text = "S/O"
-        Me.Button5.UseVisualStyleBackColor = True
-        '
-        'Button3
-        '
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(365, 189)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(30, 24)
-        Me.Button3.TabIndex = 29
-        Me.Button3.Text = "S/V"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
         'DataGridView1
         '
         Me.DataGridView1.AllowUserToAddRows = False
@@ -154,7 +132,7 @@ Partial Class ingresolibro
         'ingresar_boton
         '
         Me.ingresar_boton.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ingresar_boton.Location = New System.Drawing.Point(181, 415)
+        Me.ingresar_boton.Location = New System.Drawing.Point(182, 391)
         Me.ingresar_boton.Name = "ingresar_boton"
         Me.ingresar_boton.Size = New System.Drawing.Size(183, 61)
         Me.ingresar_boton.TabIndex = 20
@@ -311,7 +289,7 @@ Partial Class ingresolibro
         'autor
         '
         Me.autor.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.autor.Location = New System.Drawing.Point(181, 118)
+        Me.autor.Location = New System.Drawing.Point(182, 118)
         Me.autor.Name = "autor"
         Me.autor.Size = New System.Drawing.Size(143, 29)
         Me.autor.TabIndex = 41
@@ -346,8 +324,6 @@ Partial Class ingresolibro
         Me.Controls.Add(Me.volumen)
         Me.Controls.Add(Me.titulo)
         Me.Controls.Add(Me.cod_libro)
-        Me.Controls.Add(Me.Button5)
-        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox1)
@@ -384,8 +360,6 @@ Partial Class ingresolibro
     Friend WithEvents volumen As System.Windows.Forms.TextBox
     Friend WithEvents titulo As System.Windows.Forms.TextBox
     Friend WithEvents cod_libro As System.Windows.Forms.TextBox
-    Friend WithEvents Button5 As System.Windows.Forms.Button
-    Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox

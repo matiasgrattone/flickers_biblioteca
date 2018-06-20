@@ -131,12 +131,6 @@
     <Compile Include="LOGIN.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu1.Designer.vb">
-      <DependentUpon>Menu1.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Menu1.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Menu2-1.Designer.vb">
       <DependentUpon>Menu2-1.vb</DependentUpon>
     </Compile>
@@ -199,9 +193,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LOGIN.resx">
       <DependentUpon>LOGIN.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Menu1.resx">
-      <DependentUpon>Menu1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu2-1.resx">
       <DependentUpon>Menu2-1.vb</DependentUpon>
@@ -279,6 +270,7 @@
     <None Include="Resources\reading.png" />
     <None Include="Resources\books.png" />
     <None Include="Resources\blur-blurred-dark-1526.jpg" />
+    <None Include="Resources\296381.png" />
     <Content Include="Resources\logoout.png" />
     <None Include="Resources\users.png" />
   </ItemGroup>
