@@ -23,7 +23,6 @@ Partial Class buscarlibro
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(buscarlibro))
-        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -53,7 +52,6 @@ Partial Class buscarlibro
         Me.cod_libro_label = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.cod_libro_label2 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.estado_txt = New System.Windows.Forms.TextBox()
         Me.observaciones_txt = New System.Windows.Forms.TextBox()
@@ -62,6 +60,7 @@ Partial Class buscarlibro
         Me.editorial_txt = New System.Windows.Forms.TextBox()
         Me.volumen_txt = New System.Windows.Forms.TextBox()
         Me.titulo_txt = New System.Windows.Forms.TextBox()
+        Me.cod_libro_txt = New System.Windows.Forms.TextBox()
         Me.autor_txt = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
@@ -73,6 +72,7 @@ Partial Class buscarlibro
         Me.Label27 = New System.Windows.Forms.Label()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -81,19 +81,12 @@ Partial Class buscarlibro
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Panel2
-        '
-        Me.Panel2.Location = New System.Drawing.Point(802, 41)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(155, 68)
-        Me.Panel2.TabIndex = 33
-        '
         'DataGridView2
         '
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(820, 50)
+        Me.DataGridView2.Location = New System.Drawing.Point(870, 1)
         Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.Size = New System.Drawing.Size(74, 33)
+        Me.DataGridView2.Size = New System.Drawing.Size(129, 110)
         Me.DataGridView2.TabIndex = 32
         '
         'ComboBox1
@@ -394,7 +387,6 @@ Partial Class buscarlibro
         '
         'Panel3
         '
-        Me.Panel3.Controls.Add(Me.cod_libro_label2)
         Me.Panel3.Controls.Add(Me.Button3)
         Me.Panel3.Controls.Add(Me.estado_txt)
         Me.Panel3.Controls.Add(Me.observaciones_txt)
@@ -403,6 +395,7 @@ Partial Class buscarlibro
         Me.Panel3.Controls.Add(Me.editorial_txt)
         Me.Panel3.Controls.Add(Me.volumen_txt)
         Me.Panel3.Controls.Add(Me.titulo_txt)
+        Me.Panel3.Controls.Add(Me.cod_libro_txt)
         Me.Panel3.Controls.Add(Me.autor_txt)
         Me.Panel3.Controls.Add(Me.Label15)
         Me.Panel3.Controls.Add(Me.Label16)
@@ -419,19 +412,6 @@ Partial Class buscarlibro
         Me.Panel3.Size = New System.Drawing.Size(306, 412)
         Me.Panel3.TabIndex = 34
         '
-        'cod_libro_label2
-        '
-        Me.cod_libro_label2.AutoSize = True
-        Me.cod_libro_label2.BackColor = System.Drawing.SystemColors.Window
-        Me.cod_libro_label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.cod_libro_label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cod_libro_label2.ForeColor = System.Drawing.Color.Black
-        Me.cod_libro_label2.Location = New System.Drawing.Point(126, 133)
-        Me.cod_libro_label2.MinimumSize = New System.Drawing.Size(136, 20)
-        Me.cod_libro_label2.Name = "cod_libro_label2"
-        Me.cod_libro_label2.Size = New System.Drawing.Size(136, 20)
-        Me.cod_libro_label2.TabIndex = 23
-        '
         'Button3
         '
         Me.Button3.Location = New System.Drawing.Point(97, 375)
@@ -445,6 +425,7 @@ Partial Class buscarlibro
         '
         Me.estado_txt.Location = New System.Drawing.Point(126, 345)
         Me.estado_txt.Name = "estado_txt"
+        Me.estado_txt.ReadOnly = True
         Me.estado_txt.Size = New System.Drawing.Size(136, 20)
         Me.estado_txt.TabIndex = 21
         '
@@ -473,6 +454,7 @@ Partial Class buscarlibro
         '
         Me.editorial_txt.Location = New System.Drawing.Point(126, 237)
         Me.editorial_txt.Name = "editorial_txt"
+        Me.editorial_txt.ReadOnly = True
         Me.editorial_txt.Size = New System.Drawing.Size(136, 20)
         Me.editorial_txt.TabIndex = 21
         '
@@ -490,10 +472,19 @@ Partial Class buscarlibro
         Me.titulo_txt.Size = New System.Drawing.Size(136, 20)
         Me.titulo_txt.TabIndex = 21
         '
+        'cod_libro_txt
+        '
+        Me.cod_libro_txt.Location = New System.Drawing.Point(126, 133)
+        Me.cod_libro_txt.Name = "cod_libro_txt"
+        Me.cod_libro_txt.ReadOnly = True
+        Me.cod_libro_txt.Size = New System.Drawing.Size(136, 20)
+        Me.cod_libro_txt.TabIndex = 21
+        '
         'autor_txt
         '
         Me.autor_txt.Location = New System.Drawing.Point(126, 159)
         Me.autor_txt.Name = "autor_txt"
+        Me.autor_txt.ReadOnly = True
         Me.autor_txt.Size = New System.Drawing.Size(136, 20)
         Me.autor_txt.TabIndex = 21
         '
@@ -597,6 +588,13 @@ Partial Class buscarlibro
         Me.PictureBox2.TabIndex = 5
         Me.PictureBox2.TabStop = False
         '
+        'Panel2
+        '
+        Me.Panel2.Location = New System.Drawing.Point(854, 1)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(179, 110)
+        Me.Panel2.TabIndex = 33
+        '
         'buscarlibro
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -626,7 +624,6 @@ Partial Class buscarlibro
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents Button1 As System.Windows.Forms.Button
@@ -656,7 +653,6 @@ Partial Class buscarlibro
     Friend WithEvents cod_libro_label As System.Windows.Forms.Label
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
-    Friend WithEvents cod_libro_label2 As System.Windows.Forms.Label
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents estado_txt As System.Windows.Forms.TextBox
     Friend WithEvents observaciones_txt As System.Windows.Forms.TextBox
@@ -676,4 +672,6 @@ Partial Class buscarlibro
     Friend WithEvents Label27 As System.Windows.Forms.Label
     Friend WithEvents Label28 As System.Windows.Forms.Label
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
+    Friend WithEvents cod_libro_txt As System.Windows.Forms.TextBox
+    Friend WithEvents Panel2 As System.Windows.Forms.Panel
 End Class
