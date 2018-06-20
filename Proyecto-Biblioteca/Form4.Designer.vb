@@ -51,12 +51,15 @@ Partial Class Form4
         Me.Cedula = New System.Windows.Forms.TextBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.OPA = New System.Windows.Forms.DataGridView()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.devoCOMBO.SuspendLayout()
         CType(Me.DataGridAGG, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ExtCombo.SuspendLayout()
         CType(Me.VERLIBROSAGG, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.OPA, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Timer1
@@ -306,6 +309,23 @@ Partial Class Form4
         Me.OPA.Size = New System.Drawing.Size(97, 109)
         Me.OPA.TabIndex = 77
         '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(838, 575)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(288, 80)
+        Me.Button4.TabIndex = 78
+        Me.Button4.Text = "Button4"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'DataGridView2
+        '
+        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView2.Location = New System.Drawing.Point(397, 13)
+        Me.DataGridView2.Name = "DataGridView2"
+        Me.DataGridView2.Size = New System.Drawing.Size(11, 10)
+        Me.DataGridView2.TabIndex = 22
+        '
         'Form4
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -313,6 +333,8 @@ Partial Class Form4
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.BackgroundImage = Global.Proyecto_Biblioteca.My.Resources.Resources._302c8eb1f942e4312e3dc37f61f468c6
         Me.ClientSize = New System.Drawing.Size(1362, 683)
+        Me.Controls.Add(Me.DataGridView2)
+        Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Panel1)
@@ -344,6 +366,7 @@ Partial Class Form4
         CType(Me.VERLIBROSAGG, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.OPA, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -376,4 +399,6 @@ Partial Class Form4
     Friend WithEvents Cedula As System.Windows.Forms.TextBox
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents OPA As System.Windows.Forms.DataGridView
+    Friend WithEvents Button4 As System.Windows.Forms.Button
+    Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
 End Class

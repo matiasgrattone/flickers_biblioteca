@@ -74,7 +74,6 @@
 
 
         'Se iguala una variable a un valor de la base de datos
-        OPA.DataSource = Tabla
         Dim TransoformarDBSDaVariable As DataGridViewRow = VERLIBROSAGG.CurrentRow
         Dim NOMBREdelLIBRO As String
         NOMBREdelLIBRO = CStr(TransoformarDBSDaVariable.Cells(1).Value)
@@ -85,31 +84,45 @@
 
         '////////////////////////////SI CEDULA.TEXT TIENE LA CEDULA PUESTA AHI SI SE PODRA AGREGAR LIBROS O REALIZAR OTRAS FUNCIONES  /////////////////////// 
 
-        '1)if
-        If IDAGG.Items.Count < 10 Then   '1- Controlar cuántos elementos ya tiene el listbox
-
-            z = MsgBox("Desea llevar al carrito el libro " & NOMBREdelLIBRO & " ?", MsgBoxStyle.YesNo)
-
-            '1)a - if
-            If z = vbYes Then
-                IDAGG.Items.Add(VERLIBROSAGG.Item(0, VERLIBROSAGG.CurrentRow.Index).Value)
-            End If
+        Dim list1 As Integer
+        list1 = IDAGG.Items.Count
 
 
-        ElseIf IDAGG.Items.Count > 10 Then
-
-            MsgBox("Se llegó al máximo de elementos")
-
-        End If
 
 
-        If LIBROSAGG.Items.Count < 10 Then    '1- Controlar cuántos elementos ya tiene el listbox
+ 
 
-            If z = vbYes Then
+                If VERLIBROSAGG.Item(0, VERLIBROSAGG.CurrentRow.Index).Value <> list1 Then
+            Dim goku As String
+
+                    z = MsgBox("Desea llevar al carrito el libro " & NOMBREdelLIBRO & " ?", MsgBoxStyle.YesNo)
+
+                    If z = vbYes Then
+                        IDAGG.Items.Add(VERLIBROSAGG.Item(0, VERLIBROSAGG.CurrentRow.Index).Value)
                 LIBROSAGG.Items.Add(VERLIBROSAGG.Item(1, VERLIBROSAGG.CurrentRow.Index).Value)
+                VERLIBROSAGG.Rows.
+
+
+
+                goku = IDAGG.SelectedItem
+
+                If IDAGG.SelectedItem = VERLIBROSAGG.Rows(goku).Visible = False Then
+
+                    VERLIBROSAGG.Rows(goku).Visible = True
+
+                End If
+
             End If
 
+
+
         End If
+
+
+
+
+
+
     End Sub
 
 
@@ -118,7 +131,7 @@
 
         Label2.Text = Date.Now.ToString("hh:mm:ss")
 
-        Label4.Text = Date.Now.ToString("yy / MM / dd")
+        Label4.Text = Date.Now.ToString("yyyy-mm-dd")
 
     End Sub
 
@@ -169,7 +182,7 @@
 
 
 
-            If VALIDADOR <> 1 Then
+            If VALIDADOR <> 0 Then
 
                 ExtCombo.Visible = False
                 MsgBox("Usted NO puede retirar un libro hasta devolver los ya prestados")
@@ -196,8 +209,9 @@
         If ComboBoxMORTAL.Text = "Devolucion" Then
             devoCOMBO.Visible = True
 
-            Consulta = "select * from prestamo where cedula = '" & DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value & "'" '// falta join
+            Consulta = "select * from prestamo p INNER JOIN libro l on p.cod_libro=l.cod_libro where cedula = '" & Cedula.Text & "';"
             consultar()
+
             DataGridAGG.DataSource = Tabla
 
         ElseIf ComboBoxMORTAL.Text <> "Devolucion" Then
@@ -226,7 +240,7 @@
             End If
 
         Catch ex As Exception
-
+            ComboBoxMORTAL.Visible = False
             MsgBox("Debe ingresar una cedula valida")
 
         End Try
@@ -247,339 +261,35 @@
         '1) El usario que puede extraer un libro SI ESTE NO TIENE NINGUN LIBROS EN PODER AHORA
         If OPA.Rows.Count > 0 Then
 
-            Dim L2 As String
-            Dim L3 As String
-            Dim L4 As String
-            Dim L5 As String
-            Dim L6 As String
-            Dim L7 As String
-            Dim L8 As String
-            Dim L9 As String
-            Dim L10 As String
+            MsgBox("Usted pude RETIRAR UN LIBREO")
 
-            ComboBoxMORTAL.Visible = True
-            MsgBox("Usted puede retirar un libro 0")
+            Dim list, contador, libros As Integer
+            contador = 0
 
-            If Cedula.Text <> "" Then
+            list = 0
+            list = IDAGG.Items.Count
+            list = list
+            While contador < list
+                contador = Val(contador) + 1
 
-                If Contador = 1 Then
-                    Libro1 = IDAGG.Items(0)
-                    'h = Libro1 + "<-- 1Libro /// Cedula:" + Cedula.Text + " fecha de extraccion" + Label4.Text
-                    'MsgBox(h)
 
-                    Try
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & Libro1 & "','" & Label4.Text & "','')"
 
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & Libro1 & "';"
-                        consultar()
+                Consulta = "insert into prestamo (cedula, cod_libro, fecha_salida, fecha_entrada, tipo) values ('" & Cedula.Text & "','" & IDAGG.Items(libros) & "','" & Label4.Text & "','','0')"
+                consultar()
 
-                        MsgBox("se ha ingresado")
 
-                        IDAGG.Items.RemoveAt(IDAGG.SelectedIndex)
-                        LIBROSAGG.Items.RemoveAt(LIBROSAGG.SelectedIndex)
-                        Contador = 0
 
-                    Catch ex As Exception
 
-                        MsgBox("NO SE A INGRESADOOOOOOOO")
+                Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & IDAGG.Items(libros) & "';"
+                consultar()
 
-                    End Try
-                    '/////////////////////////////////////////////////////////////////////
-                ElseIf Contador = 2 Then
-                    Libro1 = IDAGG.Items(0)
-                    L2 = IDAGG.Items(1)
-                    Try
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & Libro1 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L2 & "','" & Label4.Text & "','')"
 
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & Libro1 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L2 & "';"
-                        consultar()
+                MsgBox(IDAGG.Items.Count)
+                MsgBox(contador)
+                libros = libros + 1
+            End While
 
-                        MsgBox("se ha ingresado")
-
-                        IDAGG.Items.RemoveAt(IDAGG.SelectedIndex)
-                        LIBROSAGG.Items.RemoveAt(LIBROSAGG.SelectedIndex)
-                        Contador = 0
-                    Catch ex As Exception
-                        MsgBox("NO SE A INGRESADOOOOOOOO")
-                    End Try
-                    '/////////////////////////////////////////////////////////////////////
-                ElseIf Contador = 3 Then
-                    Libro1 = IDAGG.Items(0)
-                    L2 = IDAGG.Items(1)
-                    L3 = IDAGG.Items(2)
-                    Try
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & Libro1 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L2 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L3 & "','" & Label4.Text & "','')"
-
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & Libro1 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L2 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L3 & "';"
-                        consultar()
-
-                        MsgBox("se ha ingresado")
-
-                        IDAGG.Items.RemoveAt(IDAGG.SelectedIndex)
-                        LIBROSAGG.Items.RemoveAt(LIBROSAGG.SelectedIndex)
-                        Contador = 0
-                    Catch ex As Exception
-                        MsgBox("NO SE A INGRESADOOOOOOOO")
-                    End Try
-                    '/////////////////////////////////////////////////////////////////////
-                ElseIf Contador = 4 Then
-                    Libro1 = IDAGG.Items(0)
-                    L2 = IDAGG.Items(1)
-                    L3 = IDAGG.Items(2)
-                    L4 = IDAGG.Items(3)
-                    Try
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & Libro1 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L2 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L3 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L4 & "','" & Label4.Text & "','')"
-
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & Libro1 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L2 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L3 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L4 & "';"
-                        consultar()
-
-                        MsgBox("se ha ingresado")
-
-                        IDAGG.Items.RemoveAt(IDAGG.SelectedIndex)
-                        LIBROSAGG.Items.RemoveAt(LIBROSAGG.SelectedIndex)
-                        Contador = 0
-                    Catch ex As Exception
-                        MsgBox("NO SE A INGRESADOOOOOOOO")
-                    End Try
-                    '/////////////////////////////////////////////////////////////////////
-                ElseIf Contador = 5 Then
-                    Libro1 = IDAGG.Items(0)
-                    L2 = IDAGG.Items(1)
-                    L3 = IDAGG.Items(2)
-                    L4 = IDAGG.Items(3)
-                    L5 = IDAGG.Items(4)
-                    Try
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & Libro1 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L2 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L3 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L4 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L5 & "','" & Label4.Text & "','')"
-
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & Libro1 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L2 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L3 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L4 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L5 & "';"
-                        consultar()
-
-                        MsgBox("se ha ingresado")
-
-                        IDAGG.Items.RemoveAt(IDAGG.SelectedIndex)
-                        LIBROSAGG.Items.RemoveAt(LIBROSAGG.SelectedIndex)
-                        Contador = 0
-                    Catch ex As Exception
-                        MsgBox("NO SE A INGRESADOOOOOOOO")
-                    End Try
-                    '/////////////////////////////////////////////////////////////////////
-                ElseIf Contador = 6 Then
-                    Libro1 = IDAGG.Items(0)
-                    L2 = IDAGG.Items(1)
-                    L3 = IDAGG.Items(2)
-                    L4 = IDAGG.Items(3)
-                    L5 = IDAGG.Items(4)
-                    L6 = IDAGG.Items(5)
-                    Try
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & Libro1 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L2 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L3 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L4 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L5 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L6 & "','" & Label4.Text & "','')"
-
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & Libro1 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L2 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L3 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L4 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L5 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L6 & "';"
-                        consultar()
-
-                        MsgBox("se ha ingresado")
-
-                        IDAGG.Items.RemoveAt(IDAGG.SelectedIndex)
-                        LIBROSAGG.Items.RemoveAt(LIBROSAGG.SelectedIndex)
-                        Contador = 0
-                    Catch ex As Exception
-                        MsgBox("NO SE A INGRESADOOOOOOOO")
-                    End Try
-                    '/////////////////////////////////////////////////////////////////////
-                ElseIf Contador = 7 Then
-                    Libro1 = IDAGG.Items(0)
-                    L2 = IDAGG.Items(1)
-                    L3 = IDAGG.Items(2)
-                    L4 = IDAGG.Items(3)
-                    L5 = IDAGG.Items(4)
-                    L6 = IDAGG.Items(5)
-                    L7 = IDAGG.Items(6)
-                    Try
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & Libro1 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L2 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L3 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L4 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L5 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L6 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L7 & "','" & Label4.Text & "','')"
-
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & Libro1 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L2 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L3 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L4 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L5 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L6 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L7 & "';"
-                        consultar()
-
-                        MsgBox("se ha ingresado")
-
-                        IDAGG.Items.RemoveAt(IDAGG.SelectedIndex)
-                        LIBROSAGG.Items.RemoveAt(LIBROSAGG.SelectedIndex)
-                        Contador = 0
-                    Catch ex As Exception
-                        MsgBox("NO SE A INGRESADOOOOOOOO")
-                    End Try
-                    '/////////////////////////////////////////////////////////////////////
-                ElseIf Contador = 8 Then
-                    Libro1 = IDAGG.Items(0)
-                    L2 = IDAGG.Items(1)
-                    L3 = IDAGG.Items(2)
-                    L4 = IDAGG.Items(3)
-                    L5 = IDAGG.Items(4)
-                    L6 = IDAGG.Items(5)
-                    L7 = IDAGG.Items(6)
-                    L8 = IDAGG.Items(7)
-                    Try
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & Libro1 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L2 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L3 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L4 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L5 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L6 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L7 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L8 & "','" & Label4.Text & "','')"
-
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & Libro1 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L2 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L3 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L4 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L5 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L6 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L7 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L8 & "';"
-                        consultar()
-
-                        MsgBox("se ha ingresado")
-
-                        IDAGG.Items.RemoveAt(IDAGG.SelectedIndex)
-                        LIBROSAGG.Items.RemoveAt(LIBROSAGG.SelectedIndex)
-                        Contador = 0
-                    Catch ex As Exception
-                        MsgBox("NO SE A INGRESADOOOOOOOO")
-                    End Try
-                    '/////////////////////////////////////////////////////////////////////
-                    '/////////////////////////////////////////////////////////////////////
-                ElseIf Contador = 9 Then
-                    Libro1 = IDAGG.Items(0)
-                    L2 = IDAGG.Items(1)
-                    L3 = IDAGG.Items(2)
-                    L4 = IDAGG.Items(3)
-                    L5 = IDAGG.Items(4)
-                    L6 = IDAGG.Items(5)
-                    L7 = IDAGG.Items(6)
-                    L8 = IDAGG.Items(7)
-                    L9 = IDAGG.Items(8)
-                    Try
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & Libro1 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L2 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L3 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L4 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L5 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L6 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L7 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L8 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L9 & "','" & Label4.Text & "','')"
-
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & Libro1 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L2 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L3 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L4 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L5 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L6 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L7 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L8 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L9 & "';"
-                        consultar()
-
-                        MsgBox("se ha ingresado")
-
-                        IDAGG.Items.RemoveAt(IDAGG.SelectedIndex)
-                        LIBROSAGG.Items.RemoveAt(LIBROSAGG.SelectedIndex)
-                        Contador = 0
-                    Catch ex As Exception
-                        MsgBox("NO SE A INGRESADOOOOOOOO")
-                    End Try
-                    '/////////////////////////////////////////////////////////////////////
-                ElseIf Contador = 10 Then
-                    Libro1 = IDAGG.Items(0)
-                    L2 = IDAGG.Items(1)
-                    L3 = IDAGG.Items(2)
-                    L4 = IDAGG.Items(3)
-                    L5 = IDAGG.Items(4)
-                    L6 = IDAGG.Items(5)
-                    L7 = IDAGG.Items(6)
-                    L8 = IDAGG.Items(7)
-                    L9 = IDAGG.Items(8)
-                    L10 = IDAGG.Items(9)
-                    Try
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & Libro1 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L2 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L3 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L4 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L5 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L6 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L7 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L8 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L9 & "','" & Label4.Text & "','')"
-                        Consulta = "insert into prestamo values ('" & Cedula.Text & "','" & L10 & "','" & Label4.Text & "','')"
-
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & Libro1 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L2 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L3 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L4 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L5 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L6 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L7 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L8 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L9 & "';"
-                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & L10 & "';"
-                        consultar()
-
-                        MsgBox("se ha ingresado")
-
-                        IDAGG.Items.RemoveAt(IDAGG.SelectedIndex)
-                        LIBROSAGG.Items.RemoveAt(LIBROSAGG.SelectedIndex)
-                        Contador = 0
-                    Catch ex As Exception
-                        MsgBox("NO SE A INGRESADOOOOOOOO")
-                    End Try
-                    '/////////////////////////////////////////////////////////////////////
-                End If
-
-            End If
-            '1) En caso que el usuario tenga LIBROS EN PODER no le dejara realizar la tarea (extraccion)  
-
-        ElseIf OPA.Rows.Count <> 0 Then
+        ElseIf VALIDADOR <> 0 Then
 
             MsgBox("Usted no puede retirar libros")
 
@@ -614,7 +324,9 @@
 
             '       1) Si se devuelve el libro y se actualiza la Base da datos 
             If a = vbYes Then
-                Consulta = "update libro set estado = 'libre' where cod_libro = '" & Libro1 & "';"
+                Consulta = "update libro set estado = 'disponible' where cod_libro = '" & Libro1 & "';"
+                consultar()
+                Consulta = "delete from prestamo where cod_libro = '" & Libro1 & "'"
                 consultar()
                 MsgBox("se ha devuelto")
                 Consulta = "select * from prestamo where estado = ocupado"
@@ -631,4 +343,60 @@
         '/////////////////////////////////////////////////
     End Sub
 
+    Private Sub Button4_Click(sender As System.Object, e As System.EventArgs) Handles Button4.Click
+
+
+
+        Dim list, contador, libros As Integer
+        contador = 0
+
+        list = 0
+        list = IDAGG.Items.Count
+        list = list
+        While contador < list
+            contador = Val(contador) + 1
+
+
+
+            Consulta = "insert into prestamo (cedula, cod_libro, fecha_salida, fecha_entrada, tipo) values ('" & Cedula.Text & "','" & IDAGG.Items(libros) & "','" & Label4.Text & "','','0')"
+            consultar()
+
+
+
+
+            Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & IDAGG.Items(libros) & "';"
+            consultar()
+
+
+            MsgBox(IDAGG.Items.Count)
+            MsgBox(contador)
+            libros = libros + 1
+        End While
+
+
+
+    End Sub
+
+    Private Sub IDAGG_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles IDAGG.SelectedIndexChanged
+        Dim G As String
+        Dim Ga2, Ga1 As String
+
+        G = MsgBox("Desea cancelar la extracción del libro? " & Libro2 & " ?", MsgBoxStyle.YesNo)
+
+        If G = vbYes Then
+
+            Ga1 = LIBROSAGG.SelectedItem
+            Ga2 = IDAGG.SelectedItem
+
+            LIBROSAGG.Items.Remove(Ga1)
+            IDAGG.Items.Remove(Ga2)
+
+            VERLIBROSAGG.Rows.Remove(VERLIBROSAGG.CurrentRow)
+
+
+
+        End If
+
+
+    End Sub
 End Class
