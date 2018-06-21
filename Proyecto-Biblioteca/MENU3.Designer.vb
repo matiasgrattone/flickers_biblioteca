@@ -205,7 +205,6 @@ Partial Class MENU3
         '
         'PictureBox5
         '
-        Me.PictureBox5.Image = Global.Proyecto_Biblioteca.My.Resources.Resources._296381
         Me.PictureBox5.Location = New System.Drawing.Point(13, 265)
         Me.PictureBox5.Name = "PictureBox5"
         Me.PictureBox5.Size = New System.Drawing.Size(32, 30)

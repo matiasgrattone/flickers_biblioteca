@@ -130,9 +130,9 @@ Partial Class Form4
         'LIBROSAGG
         '
         Me.LIBROSAGG.FormattingEnabled = True
-        Me.LIBROSAGG.Location = New System.Drawing.Point(185, 237)
+        Me.LIBROSAGG.Location = New System.Drawing.Point(74, 237)
         Me.LIBROSAGG.Name = "LIBROSAGG"
-        Me.LIBROSAGG.Size = New System.Drawing.Size(116, 238)
+        Me.LIBROSAGG.Size = New System.Drawing.Size(227, 238)
         Me.LIBROSAGG.TabIndex = 68
         '
         'devoCOMBO
@@ -241,9 +241,9 @@ Partial Class Form4
         'IDAGG
         '
         Me.IDAGG.FormattingEnabled = True
-        Me.IDAGG.Location = New System.Drawing.Point(71, 237)
+        Me.IDAGG.Location = New System.Drawing.Point(375, 445)
         Me.IDAGG.Name = "IDAGG"
-        Me.IDAGG.Size = New System.Drawing.Size(118, 238)
+        Me.IDAGG.Size = New System.Drawing.Size(33, 30)
         Me.IDAGG.TabIndex = 64
         '
         'Label3

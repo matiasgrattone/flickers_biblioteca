@@ -94,25 +94,36 @@
 
                 If VERLIBROSAGG.Item(0, VERLIBROSAGG.CurrentRow.Index).Value <> list1 Then
             Dim goku As String
-
-                    z = MsgBox("Desea llevar al carrito el libro " & NOMBREdelLIBRO & " ?", MsgBoxStyle.YesNo)
-
-                    If z = vbYes Then
-                        IDAGG.Items.Add(VERLIBROSAGG.Item(0, VERLIBROSAGG.CurrentRow.Index).Value)
-                LIBROSAGG.Items.Add(VERLIBROSAGG.Item(1, VERLIBROSAGG.CurrentRow.Index).Value)
-                'VERLIBROSAGG.Rows.
+            Dim vegeta As String
+            goku = VERLIBROSAGG.Item(0, VERLIBROSAGG.CurrentRow.Index).Value
+            vegeta = VERLIBROSAGG.Item(1, VERLIBROSAGG.CurrentRow.Index).Value
 
 
 
-                goku = IDAGG.SelectedItem
 
-                If IDAGG.SelectedItem = VERLIBROSAGG.Rows(goku).Visible = False Then
 
-                    VERLIBROSAGG.Rows(goku).Visible = True
+
+
+            If (IDAGG.Items.Contains(goku)) Then
+
+                MsgBox("Ah donde cree que va loquillo", , "Your King Is Bleeding")
+
+
+            Else
+
+                z = MsgBox("Desea llevar al carrito el libro " & NOMBREdelLIBRO & " ?", MsgBoxStyle.YesNo)
+
+                If z = vbYes Then
+
+
+                    IDAGG.Items.Add(goku)
+                    LIBROSAGG.Items.Add(goku & "                          " & vegeta)
+
 
                 End If
 
-            End If
+
+        End If
 
 
 
@@ -377,26 +388,22 @@
 
     End Sub
 
-    Private Sub IDAGG_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles IDAGG.SelectedIndexChanged
-        Dim G As String
-        Dim Ga2, Ga1 As String
+    Private Sub LIBROSAGG_SelectedIndexChanged_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LIBROSAGG.SelectedIndexChanged
 
-        G = MsgBox("Desea cancelar la extracción del libro? " & Libro2 & " ?", MsgBoxStyle.YesNo)
+        Dim G As String
+        Dim Ga1 As String
+        Ga1 = LIBROSAGG.SelectedItem
+
+
+        G = MsgBox("Desea cancelar la extracción del libro? " & Ga1 & " ?", MsgBoxStyle.YesNo)
 
         If G = vbYes Then
 
-            Ga1 = LIBROSAGG.SelectedItem
-            Ga2 = IDAGG.SelectedItem
-
             LIBROSAGG.Items.Remove(Ga1)
-            IDAGG.Items.Remove(Ga2)
-
-            VERLIBROSAGG.Rows.Remove(VERLIBROSAGG.CurrentRow)
-
 
 
         End If
 
-
     End Sub
+
 End Class
