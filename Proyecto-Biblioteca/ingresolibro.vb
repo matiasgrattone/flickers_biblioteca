@@ -3,9 +3,13 @@
     Private Sub ingresar_boton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ingresar_boton.Click
 
         '/// Permite ingresar un nuevo dato a la tabla libros ///'
+        Try
+            Consulta = "INSERT INTO libro VALUES('" + cod_libro.Text + "','" + titulo.Text + "','" + TextBox1.Text + "','" + TextBox2.Text + "','" + volumen.Text + "','" + fecha.Text + " ','" + origen.Text + "','" + observaciones.Text + "', 'disponible')"
+            consultar()
+        Catch ex As Exception
+            MsgBox(ex)
+        End Try
 
-        Consulta = "INSERT INTO libro VALUES('" + cod_libro.Text + "','" + titulo.Text + "','" + TextBox1.Text + "','" + TextBox2.Text + "','" + volumen.Text + "','" + origen.Text + "','" + observaciones.Text + "','disponible','" + fecha.Text + "')"
-        consultar()
         '///////////////////////////////////////////
         '//// Muestra Los Datos en el DataGrid//////
         '///////////////////////////////////////////
