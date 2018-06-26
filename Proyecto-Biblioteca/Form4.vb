@@ -17,7 +17,8 @@
         ExtCombo.Visible = False
         devoCOMBO.Visible = False
         ComboBoxMORTAL.Visible = False
-
+        Button2.Visible = False
+        Label5.Visible = False
         '//////////////////////////////////////VARIABLES PARA RALIZAR "CONSULTAS Y IFs" SIN ERRORES///////////////////////
         Dim Contador As Integer = 0
         If z = vbYes Then
@@ -60,11 +61,6 @@
         '////////////////////////////////
 
         '////////////////////////////SE TOMA EL LIBRO MANDADO DEL TEXTBOX Y SE LO PASA A OCUPADO EN LA TABLA LIBROS///////////////////////  
-        If Cedula.Text <> "" Then
-
-            ComboBoxMORTAL.Visible = True
-
-        End If
 
     End Sub
 
@@ -88,9 +84,6 @@
         list1 = IDAGG.Items.Count
 
 
-
-
- 
 
                 If VERLIBROSAGG.Item(0, VERLIBROSAGG.CurrentRow.Index).Value <> list1 Then
             Dim goku As String
@@ -125,10 +118,17 @@
 
         End If
 
-
-
         End If
 
+        If LIBROSAGG.Items.Count <> 0 Then
+
+            Button2.Visible = True
+
+        Else
+
+            Button2.Visible = False
+
+        End If
 
 
 
@@ -246,11 +246,15 @@
         Try
 
             If Cedula.Text <> "" Then
+
                 NOMBRE.Text = DataGridView1.Item(1, DataGridView1.CurrentRow.Index).Value
+                Label5.Visible = True
+                ComboBoxMORTAL.Visible = True
 
             End If
 
         Catch ex As Exception
+
             ComboBoxMORTAL.Visible = False
             MsgBox("Debe ingresar una cedula valida")
 
@@ -354,39 +358,6 @@
         '/////////////////////////////////////////////////
     End Sub
 
-    Private Sub Button4_Click(sender As System.Object, e As System.EventArgs) Handles Button4.Click
-
-
-
-        Dim list, contador, libros As Integer
-        contador = 0
-
-        list = 0
-        list = IDAGG.Items.Count
-        list = list
-        While contador < list
-            contador = Val(contador) + 1
-
-
-
-            Consulta = "insert into prestamo (cedula, cod_libro, fecha_salida, fecha_entrada, tipo) values ('" & Cedula.Text & "','" & IDAGG.Items(libros) & "','" & Label4.Text & "','','0')"
-            consultar()
-
-
-
-
-            Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & IDAGG.Items(libros) & "';"
-            consultar()
-
-
-            MsgBox(IDAGG.Items.Count)
-            MsgBox(contador)
-            libros = libros + 1
-        End While
-
-
-
-    End Sub
 
     Private Sub LIBROSAGG_SelectedIndexChanged_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LIBROSAGG.SelectedIndexChanged
 
@@ -405,5 +376,6 @@
         End If
 
     End Sub
+
 
 End Class
