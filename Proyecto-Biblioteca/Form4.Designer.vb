@@ -40,19 +40,20 @@ Partial Class Form4
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.devoCOMBO = New System.Windows.Forms.GroupBox()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.DataGridAGG = New System.Windows.Forms.DataGridView()
         Me.ENPODER = New System.Windows.Forms.Label()
         Me.ExtCombo = New System.Windows.Forms.GroupBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.LIBROS = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.VERLIBROSAGG = New System.Windows.Forms.DataGridView()
         Me.ComboBoxMORTAL = New System.Windows.Forms.ComboBox()
         Me.NOMBRE = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -225,6 +226,16 @@ Partial Class Form4
         Me.devoCOMBO.TabStop = False
         Me.devoCOMBO.Text = "DEVOLUCION"
         '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Impact", 20.25!)
+        Me.Label11.Location = New System.Drawing.Point(917, 27)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(148, 34)
+        Me.Label11.TabIndex = 62
+        Me.Label11.Text = "DEVOLUCION"
+        '
         'DataGridAGG
         '
         Me.DataGridAGG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -259,6 +270,27 @@ Partial Class Form4
         Me.ExtCombo.TabIndex = 66
         Me.ExtCombo.TabStop = False
         Me.ExtCombo.Text = "EXTRACCION"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Impact", 20.25!)
+        Me.Label7.Location = New System.Drawing.Point(918, 27)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(147, 34)
+        Me.Label7.TabIndex = 76
+        Me.Label7.Text = "EXTRACCION"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Impact", 20.25!)
+        Me.Label3.ForeColor = System.Drawing.Color.DarkViolet
+        Me.Label3.Location = New System.Drawing.Point(14, 93)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(224, 34)
+        Me.Label3.TabIndex = 74
+        Me.Label3.Text = "Libros disponibles "
         '
         'Label10
         '
@@ -316,17 +348,6 @@ Partial Class Form4
         Me.NOMBRE.TabIndex = 60
         Me.NOMBRE.Text = "Nombre"
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Impact", 20.25!)
-        Me.Label3.ForeColor = System.Drawing.Color.DarkViolet
-        Me.Label3.Location = New System.Drawing.Point(14, 93)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(224, 34)
-        Me.Label3.TabIndex = 74
-        Me.Label3.Text = "Libros disponibles "
-        '
         'Label5
         '
         Me.Label5.AutoSize = True
@@ -337,25 +358,15 @@ Partial Class Form4
         Me.Label5.TabIndex = 66
         Me.Label5.Text = "SELECCION DE FUNCION "
         '
-        'Label7
+        'Label12
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Impact", 20.25!)
-        Me.Label7.Location = New System.Drawing.Point(918, 27)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(147, 34)
-        Me.Label7.TabIndex = 76
-        Me.Label7.Text = "EXTRACCION"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Impact", 20.25!)
-        Me.Label11.Location = New System.Drawing.Point(917, 27)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(148, 34)
-        Me.Label11.TabIndex = 62
-        Me.Label11.Text = "DEVOLUCION"
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Impact", 20.25!)
+        Me.Label12.Location = New System.Drawing.Point(1140, 22)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(186, 34)
+        Me.Label12.TabIndex = 74
+        Me.Label12.Text = "Volver al menu "
         '
         'Form4
         '
@@ -363,6 +374,7 @@ Partial Class Form4
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.ClientSize = New System.Drawing.Size(1362, 683)
+        Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.ComboBoxMORTAL)
         Me.Controls.Add(Me.NOMBRE)
@@ -418,4 +430,5 @@ Partial Class Form4
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents Label12 As System.Windows.Forms.Label
 End Class

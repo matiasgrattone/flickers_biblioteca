@@ -99,12 +99,12 @@
 
             If (IDAGG.Items.Contains(goku)) Then
 
-                MsgBox("Ah donde cree que va loquillo", , "Your King Is Bleeding")
+                MsgBox("Este libro " & goku & " ya se encuentra en el carrito de extracción ", "PRESTAMOS")
 
 
             Else
 
-                z = MsgBox("Desea llevar al carrito el libro " & NOMBREdelLIBRO & " ?", MsgBoxStyle.YesNo)
+                z = MsgBox("Desea llevar al carrito el libro " & NOMBREdelLIBRO & " ?", MsgBoxStyle.YesNo, "PRESTAMOS")
 
                 If z = vbYes Then
 
@@ -196,7 +196,7 @@
             If VALIDADOR <> 0 Then
 
                 ExtCombo.Visible = False
-                MsgBox("Usted NO puede retirar un libro hasta devolver los ya prestados")
+                MsgBox("Usted NO puede retirar un libro hasta devolver los ya prestados", "PRESTAMOS")
 
             ElseIf OPA.Rows.Count > 0 Then
 
@@ -256,7 +256,7 @@
         Catch ex As Exception
 
             ComboBoxMORTAL.Visible = False
-            MsgBox("Debe ingresar una cedula valida")
+            MsgBox("Cedula no valida, intente otra vez", , "ERROR EN PRESTAMOS")
 
         End Try
 
@@ -306,7 +306,7 @@
 
         ElseIf VALIDADOR <> 0 Then
 
-            MsgBox("Usted no puede retirar libros")
+            MsgBox("Este usuario no puede retirar libros hasta devolver los prestados", "PRESTAMOS")
 
         End If
         '    1)////////////////////
@@ -335,7 +335,7 @@
 
             Libro1 = DataGridAGG.Item(1, DataGridAGG.CurrentRow.Index).Value
             Dim a As MsgBoxResult
-            a = MsgBox("Desea devolver el libro " & Libro1 & " ?", MsgBoxStyle.YesNo)
+            a = MsgBox("Desea devolver el libro " & Libro1 & " ?", MsgBoxStyle.YesNo, "PRESTAMOS")
 
             '       1) Si se devuelve el libro y se actualiza la Base da datos 
             If a = vbYes Then
@@ -360,22 +360,32 @@
 
 
     Private Sub LIBROSAGG_SelectedIndexChanged_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LIBROSAGG.SelectedIndexChanged
-
-        Dim G As String
         Dim Ga1 As String
+        Dim MSBOX_Consulta As MsgBoxResult
+
         Ga1 = LIBROSAGG.SelectedItem
+        MSBOX_Consulta = MsgBox("Desea cancelar la extracción del libro? " & Ga1 & " ?", MsgBoxStyle.YesNo, "PRESTAMOS")
 
-
-        G = MsgBox("Desea cancelar la extracción del libro? " & Ga1 & " ?", MsgBoxStyle.YesNo)
-
-        If G = vbYes Then
+        If MSBOX_Consulta = vbYes Then
 
             LIBROSAGG.Items.Remove(Ga1)
-
 
         End If
 
     End Sub
 
 
+    Private Sub Label12_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label12.Click
+        Dim MSBOX_Consulta As MsgBoxResult
+        MSBOX_Consulta = MsgBox("Desea volver al menú de inicio?", MsgBoxStyle.YesNo, "PRESTAMOS")
+
+        If MSBOX_Consulta = vbYes Then
+            MENU3.Show()
+
+
+
+        End If
+
+
+    End Sub
 End Class
