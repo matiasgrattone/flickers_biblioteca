@@ -267,6 +267,7 @@
     <None Include="Resources\faq.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\navigator.png" />
     <None Include="Resources\reading.png" />
     <None Include="Resources\books.png" />
     <None Include="Resources\blur-blurred-dark-1526.jpg" />

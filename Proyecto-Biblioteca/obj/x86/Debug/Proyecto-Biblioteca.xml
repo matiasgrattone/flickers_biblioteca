@@ -15,6 +15,10 @@ Proyecto-Biblioteca
   Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 </summary>
+</member><member name="P:Proyecto_Biblioteca.My.Resources.Resources._296381">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="P:Proyecto_Biblioteca.My.Resources.Resources._302c8eb1f942e4312e3dc37f61f468c6">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -56,6 +60,10 @@ Proyecto-Biblioteca
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member><member name="P:Proyecto_Biblioteca.My.Resources.Resources.ios7_gear">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Proyecto_Biblioteca.My.Resources.Resources.navigator">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

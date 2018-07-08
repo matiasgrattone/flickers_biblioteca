@@ -63,6 +63,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property _296381() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("296381", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property _302c8eb1f942e4312e3dc37f61f468c6() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("302c8eb1f942e4312e3dc37f61f468c6", resourceCulture)
@@ -166,6 +176,16 @@ Namespace My.Resources
         Friend ReadOnly Property ios7_gear() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("ios7-gear", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property navigator() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("navigator", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

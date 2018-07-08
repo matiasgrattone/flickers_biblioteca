@@ -143,8 +143,15 @@ Public Class MENU3
     End Sub
 
     Private Sub PictureBox5_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox5.Click
+
+        Panel5.Visible = False
+        Panel7.Visible = False
+        Button1.Visible = False
+        Panel8.Visible = False
+
         WebBrowser1.Visible = True
         WebBrowser1.Navigate("www.google.com.uy")
+
     End Sub
 
     Private Sub Panel1_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Panel1.Paint

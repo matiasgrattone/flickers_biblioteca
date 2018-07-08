@@ -124,6 +124,9 @@
   <data name="cloud" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\imagenes\cloud.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="reading" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\reading.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="busqueda" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\busqueda.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -139,11 +142,11 @@
   <data name="usuario (3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\usuario (3).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="302c8eb1f942e4312e3dc37f61f468c6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\302c8eb1f942e4312e3dc37f61f468c6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="file" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\file.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="296381" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\296381.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="usuario (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\usuario (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,8 +163,8 @@
   <data name="blur-blurred-dark-1526" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\blur-blurred-dark-1526.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="reading" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\reading.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="302c8eb1f942e4312e3dc37f61f468c6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\302c8eb1f942e4312e3dc37f61f468c6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="users" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\users.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -175,7 +178,7 @@
   <data name="faq" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\faq.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="296381" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\296381.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="navigator" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\navigator.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
