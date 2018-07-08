@@ -58,9 +58,9 @@
         Consulta = "select * from prestamo where cedula = '" & Cedula.Text & " ';"
         consultar()
         OPA.DataSource = Tabla
+
         '////////////////////////////////
 
-        '////////////////////////////SE TOMA EL LIBRO MANDADO DEL TEXTBOX Y SE LO PASA A OCUPADO EN LA TABLA LIBROS///////////////////////  
 
     End Sub
 
@@ -73,10 +73,6 @@
         Dim TransoformarDBSDaVariable As DataGridViewRow = VERLIBROSAGG.CurrentRow
         Dim NOMBREdelLIBRO As String
         NOMBREdelLIBRO = CStr(TransoformarDBSDaVariable.Cells(1).Value)
-
-        'Se iguala una variable a un valor de la base de datos
-        Dim TransoformarDBSDaVariable2 As DataGridViewRow = OPA.CurrentRow
-        VALIDADOR = CStr(TransoformarDBSDaVariable.Cells(2).Value)
 
         '////////////////////////////SI CEDULA.TEXT TIENE LA CEDULA PUESTA AHI SI SE PODRA AGREGAR LIBROS O REALIZAR OTRAS FUNCIONES  /////////////////////// 
 
@@ -190,15 +186,13 @@
         If ComboBoxMORTAL.Text = "Extraccion" Then
             ExtCombo.Visible = True
 
+            Consulta = "select * from prestamo where cedula = '" & Cedula.Text & " ';"
+            consultar()
+            OPA.DataSource = Tabla
 
 
 
-            If VALIDADOR <> 0 Then
-
-                ExtCombo.Visible = False
-                MsgBox("Usted NO puede retirar un libro hasta devolver los ya prestados", "PRESTAMOS")
-
-            ElseIf OPA.Rows.Count > 0 Then
+            If (OPA.RowCount = 1) Then
 
                 MsgBox("/////////Usted puede RETIRAR un libro 0//////////")
 
@@ -206,7 +200,12 @@
                 consultar()
                 VERLIBROSAGG.DataSource = Tabla
 
+            Else
+                ExtCombo.Visible = False
+                MsgBox("Usted NO puede retirar un libro hasta devolver los ya prestados")
+
             End If
+
 
         ElseIf ComboBoxMORTAL.Text <> "Extraccion" Then
             ExtCombo.Visible = False
@@ -267,14 +266,9 @@
 
     Private Sub Button2_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
 
-        'Consulta a DATAGRIDVIEW oculto
-        Consulta = "select * from prestamo where cedula = '" & Cedula.Text & " ';"
-        consultar()
-        OPA.DataSource = Tabla
-        '////////////////////////////////
 
         '1) El usario que puede extraer un libro SI ESTE NO TIENE NINGUN LIBROS EN PODER AHORA
-        If OPA.Rows.Count > 0 Then
+        If (OPA.RowCount = 1) Then
 
             MsgBox("Usted pude RETIRAR UN LIBREO")
 
@@ -289,7 +283,7 @@
 
 
 
-                Consulta = "insert into prestamo (cedula, cod_libro, fecha_salida, fecha_entrada, tipo) values ('" & Cedula.Text & "','" & IDAGG.Items(libros) & "','" & Label4.Text & "','','0')"
+                Consulta = "insert into prestamo (cedula, cod_libro, fecha_salida, fecha_entrada, tipo) values ('" & Cedula.Text & "','" & IDAGG.Items(libros) & "','" & Label4.Text & "','','1')"
                 consultar()
 
 
@@ -304,11 +298,12 @@
                 libros = libros + 1
             End While
 
-        ElseIf VALIDADOR <> 0 Then
+        Else
 
             MsgBox("Este usuario no puede retirar libros hasta devolver los prestados", "PRESTAMOS")
 
         End If
+
         '    1)////////////////////
     End Sub
 
@@ -327,6 +322,7 @@
         'Para que si o si se tenga que ingresar una cedula para realizar las funciones 
         If Cedula.Text <> "" Then
             Consulta = "select * from prestamo where cedula = '" & Cedula.Text & " ';"
+            VERLIBROSAGG.DataSource = Tabla
             consultar()
 
             ComboBoxMORTAL.Visible = True
@@ -344,7 +340,9 @@
                 Consulta = "delete from prestamo where cod_libro = '" & Libro1 & "'"
                 consultar()
                 MsgBox("se ha devuelto")
-                Consulta = "select * from prestamo where estado = ocupado"
+
+                Consulta = "select * from prestamo where cedula = '" & Cedula.Text & " ';"
+                VERLIBROSAGG.DataSource = Tabla
                 consultar()
 
             End If
@@ -388,4 +386,5 @@
 
 
     End Sub
+
 End Class

@@ -54,6 +54,7 @@ Partial Class Form4
         Me.NOMBRE = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
+        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -101,7 +102,7 @@ Partial Class Form4
         Me.Panel1.Controls.Add(Me.Label8)
         Me.Panel1.Location = New System.Drawing.Point(-6, -27)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(261, 712)
+        Me.Panel1.Size = New System.Drawing.Size(254, 712)
         Me.Panel1.TabIndex = 73
         '
         'Panel2
@@ -186,9 +187,9 @@ Partial Class Form4
         'OPA
         '
         Me.OPA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.OPA.Location = New System.Drawing.Point(23, 375)
+        Me.OPA.Location = New System.Drawing.Point(71, 344)
         Me.OPA.Name = "OPA"
-        Me.OPA.Size = New System.Drawing.Size(39, 39)
+        Me.OPA.Size = New System.Drawing.Size(32, 22)
         Me.OPA.TabIndex = 77
         '
         'Label9
@@ -361,12 +362,21 @@ Partial Class Form4
         'Label12
         '
         Me.Label12.AutoSize = True
+        Me.Label12.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.Label12.Font = New System.Drawing.Font("Impact", 20.25!)
         Me.Label12.Location = New System.Drawing.Point(1140, 22)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(186, 34)
         Me.Label12.TabIndex = 74
         Me.Label12.Text = "Volver al menu "
+        '
+        'Panel3
+        '
+        Me.Panel3.BackColor = System.Drawing.SystemColors.ScrollBar
+        Me.Panel3.Location = New System.Drawing.Point(254, -2)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(1119, 108)
+        Me.Panel3.TabIndex = 75
         '
         'Form4
         '
@@ -381,6 +391,7 @@ Partial Class Form4
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.ExtCombo)
         Me.Controls.Add(Me.devoCOMBO)
+        Me.Controls.Add(Me.Panel3)
         Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.Name = "Form4"
         Me.Text = "PRESTAMOS"
@@ -431,4 +442,5 @@ Partial Class Form4
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents Panel3 As System.Windows.Forms.Panel
 End Class
