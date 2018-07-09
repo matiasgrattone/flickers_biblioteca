@@ -211,7 +211,7 @@
 
     '////////////////////////////////////////CONSULTA EDITAR USUARIOS//////////////////////////////////////////
     Function filtro(ByVal busqueda As String) As DataTable
-        Consulta = "select cedula, nombre, apellido, telefono, direccion, tipo from usuarios where nombre like '%" + busqueda + "%';"
+        Consulta = "select cedula, nombre, apellido, telefono, direccion, nacimiento, contrasenia, tipo from usuarios where nombre like '%" + busqueda + "%';"
         consultar()
         Return (Tabla)
     End Function
@@ -227,7 +227,17 @@
         ' ced = Convert.ToString(DataGridView3.Rows(rowindex).Cells(0).Value.ToString())
         telefono.Text = Convert.ToString(DataGridView3.Rows(rowindex).Cells(3).Value.ToString())
         direccion.Text = Convert.ToString(DataGridView3.Rows(rowindex).Cells(4).Value.ToString())
-        tipo.Text = Convert.ToString(DataGridView3.Rows(rowindex).Cells(5).Value.ToString())
+        contrasenia.Text = Convert.ToString(DataGridView3.Rows(rowindex).Cells(6).Value.ToString())
+
+        Dim nacimiento1 As String = Convert.ToString(DataGridView3.Rows(rowindex).Cells(5).Value.ToString())
+        DateTimePicker2.Value = nacimiento1
+
+        If Convert.ToString(DataGridView3.Rows(rowindex).Cells(7).Value.ToString()) = "0" Then
+            RadioButton5.Select()
+        Else
+            RadioButton6.Select()
+        End If
+
         '//////////////////////////////////////////////////////////////////////////////////
 
     End Sub
@@ -269,7 +279,8 @@
         Dim ape As String
         Dim tel As Integer
         Dim dir As String
-        Dim tip As Integer
+        Dim tipo As Integer
+        Dim contra As String
         Dim i As Integer ' Variable bandera para avisar que existe un error
         i = 0
 
@@ -300,9 +311,16 @@
             errortelefono1.Text = "No valido, ingrese solo numeros" 'Label invisible debajo de telefono
         End If
         dir = direccion.Text
-        tip = tipo.Text
+        If RadioButton5.Checked Then
+            tipo = 0
+        Else
+            tipo = 1
+        End If
+
+        Dim nacimiento As String = DateTimePicker2.Value.ToString("yyyy-MM-dd")
+
         Try
-            Consulta = "update usuarios set nombre='" + nom + "', apellido='" + ape + "', cedula='" + Str(ced1) + "', telefono='" + Str(tel) + "', direccion='" + dir + "', tipo='" + Str(tipo) + "' where cedula='" + Str(ced) + "';"
+            Consulta = "update usuarios set nombre='" + nom + "', apellido='" + ape + "', cedula='" + Str(ced1) + "', telefono='" + Str(tel) + "', direccion='" + dir + "', tipo='" + Str(tipo) + "', nacimiento='" + nacimiento + "' where cedula='" + Str(ced) + "';"
             consultar()
             MsgBox("Edición guardada satisfactoriamente")
         Catch ex As Exception
@@ -490,15 +508,6 @@
         borrar.DataSource = Tabla
 
         '/////////////////////////////////////////////////////////////////////////////////////
-    End Sub
-
- 
-    Private Sub Panel7_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles Panel7.Paint
-
-    End Sub
-
-    Private Sub Panel4_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles Panel4.Paint
-
     End Sub
 End Class
 

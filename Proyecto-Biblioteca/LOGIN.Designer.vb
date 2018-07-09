@@ -41,7 +41,7 @@ Partial Class LOGIN
         '
         Me.errorpass.AutoSize = True
         Me.errorpass.ForeColor = System.Drawing.Color.Snow
-        Me.errorpass.Location = New System.Drawing.Point(700, 192)
+        Me.errorpass.Location = New System.Drawing.Point(534, 318)
         Me.errorpass.Name = "errorpass"
         Me.errorpass.Size = New System.Drawing.Size(0, 13)
         Me.errorpass.TabIndex = 8
@@ -50,7 +50,7 @@ Partial Class LOGIN
         '
         Me.errorusuario.AutoSize = True
         Me.errorusuario.ForeColor = System.Drawing.Color.Snow
-        Me.errorusuario.Location = New System.Drawing.Point(713, 86)
+        Me.errorusuario.Location = New System.Drawing.Point(534, 262)
         Me.errorusuario.Name = "errorusuario"
         Me.errorusuario.Size = New System.Drawing.Size(0, 13)
         Me.errorusuario.TabIndex = 7
@@ -77,7 +77,7 @@ Partial Class LOGIN
         'usuario
         '
         Me.usuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.usuario.Location = New System.Drawing.Point(537, 236)
+        Me.usuario.Location = New System.Drawing.Point(537, 233)
         Me.usuario.Name = "usuario"
         Me.usuario.Size = New System.Drawing.Size(213, 26)
         Me.usuario.TabIndex = 1
