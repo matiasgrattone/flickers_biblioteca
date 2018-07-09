@@ -1,4 +1,5 @@
 ﻿Imports System.Threading
+Imports System.Text.RegularExpressions
 Public Class MENU3
     Dim a As Integer = 0
     Public xco, yco As Integer
@@ -11,19 +12,17 @@ Public Class MENU3
     Dim respuesta As Integer = 1
     Dim transicion As Integer = 1
 
-
-
-    Private Sub MENU3_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+    Private Sub MENU3_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         xf = Me.Location.X
         yf = Me.Location.Y
         WebBrowser1.Visible = False
     End Sub
 
-    Private Sub Panel1_MouseDown(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseDown
+    Private Sub Panel1_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseDown
         a = 1
     End Sub
 
-    Private Sub Panel1_MouseMove(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseMove
+    Private Sub Panel1_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseMove
         If a = 1 Then
             xc = Cursor.Position.X
             yc = Cursor.Position.Y
@@ -39,14 +38,14 @@ Public Class MENU3
         End If
     End Sub
 
-    Private Sub Panel1_MouseUp(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseUp
+    Private Sub Panel1_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseUp
         xf = Me.Location.X
         yf = Me.Location.Y
         a = 0
         Me.Opacity = 1
     End Sub
 
-    Private Sub PictureBox5_Click(sender As System.Object, e As System.EventArgs)
+    Private Sub PictureBox5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
         Select Case respuesta
             Case 1
@@ -62,11 +61,11 @@ Public Class MENU3
 
     End Sub
 
-    Private Sub Timer1_Tick(sender As System.Object, e As System.EventArgs) Handles Timer1.Tick
+    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
         Label2.Text = Date.Now.ToString("hh:mm:ss")
     End Sub
 
-    Private Sub Timer2_Tick(sender As System.Object, e As System.EventArgs) Handles Timer2.Tick
+    Private Sub Timer2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer2.Tick
 
         Select Case transicion
 
@@ -126,15 +125,15 @@ Public Class MENU3
 
     End Sub
 
-    Private Sub PictureBox1_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox1.Click
+    Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox1.Click
         inicio_usuarios.Show()
     End Sub
 
-    Private Sub PictureBox2_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox2.Click
+    Private Sub PictureBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox2.Click
         Form3.Show()
     End Sub
 
-    Private Sub PictureBox3_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox3.Click
+    Private Sub PictureBox3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox3.Click
         Form4.Show()
     End Sub
 
@@ -142,6 +141,7 @@ Public Class MENU3
         Timer2.Start()
     End Sub
 
+    '/////////////////////////////////////////// NAVEGADOR /////////////////////////////////////////////////
     Private Sub PictureBox5_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox5.Click
 
         Panel5.Visible = False
@@ -149,13 +149,46 @@ Public Class MENU3
         Button1.Visible = False
         Panel8.Visible = False
 
+        TextBox1.Visible = True
+        Button2.Visible = True
+        Button3.Visible = True
         WebBrowser1.Visible = True
-        WebBrowser1.Navigate("www.google.com.uy")
+        WebBrowser1.Navigate("www.ecosia.org")
 
     End Sub
-
-    Private Sub Panel1_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Panel1.Paint
-
+    Private Sub WebBrowser1_DocumentCompleted(ByVal sender As System.Object, ByVal e As System.Windows.Forms.WebBrowserDocumentCompletedEventArgs) Handles WebBrowser1.DocumentCompleted
+        TextBox1.Text = WebBrowser1.Document.Url.ToString()
+    End Sub
+    Public Function ValidarURL(ByVal url As String) As Boolean
+        Dim re As Regex = New Regex("^(https?|ftp|file)://[-A-Z0-9+&@#/%?=~_|!:,.;]*[-A-Z0-9+&@#/%=~_|]", RegexOptions.IgnoreCase)
+        Dim m As Match = re.Match(url)
+        If m.Captures.Count = 0 Then
+            Return False
+        Else
+            Return True
+        End If
+    End Function
+    Public Sub Navegar(ByVal url As String)
+        Try
+            WebBrowser1.Navigate(url)
+        Catch ex As Exception
+            MessageBox.Show("Lo siento. Si has llegado hasta este mensaje ocurrió un error, pero tranquilo que no pasa nada", "Genesis Navigator")
+        End Try
+    End Sub
+    Private Sub TextBox1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TextBox1.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            If (ValidarURL(TextBox1.Text) = True) Then
+                Navegar(TextBox1.Text)
+            Else
+                Navegar("http://" & TextBox1.Text)
+            End If
+        End If
+    End Sub
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+        WebBrowser1.GoBack()
+    End Sub
+    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
+        WebBrowser1.GoForward()
     End Sub
 
     Private Sub Button1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click

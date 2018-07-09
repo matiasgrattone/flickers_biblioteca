@@ -25,12 +25,17 @@ Partial Class MENU3
         Me.components = New System.ComponentModel.Container()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.Nombre = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Panel6 = New System.Windows.Forms.Panel()
@@ -41,21 +46,19 @@ Partial Class MENU3
         Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
-        Me.Panel2.SuspendLayout()
-        Me.Panel5.SuspendLayout()
-        Me.Panel8.SuspendLayout()
-        Me.Panel3.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel5.SuspendLayout()
+        Me.Panel8.SuspendLayout()
+        Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -79,6 +82,16 @@ Partial Class MENU3
         Me.Label2.Size = New System.Drawing.Size(63, 20)
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "Label2"
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.boss
+        Me.PictureBox4.Location = New System.Drawing.Point(846, 3)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(43, 43)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox4.TabIndex = 3
+        Me.PictureBox4.TabStop = False
         '
         'Nombre
         '
@@ -115,6 +128,17 @@ Partial Class MENU3
         Me.Label5.TabIndex = 7
         Me.Label5.Text = "Navegador"
         '
+        'PictureBox5
+        '
+        Me.PictureBox5.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureBox5.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.navigator
+        Me.PictureBox5.Location = New System.Drawing.Point(13, 265)
+        Me.PictureBox5.Name = "PictureBox5"
+        Me.PictureBox5.Size = New System.Drawing.Size(32, 30)
+        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox5.TabIndex = 6
+        Me.PictureBox5.TabStop = False
+        '
         'Label4
         '
         Me.Label4.AutoSize = True
@@ -133,6 +157,17 @@ Partial Class MENU3
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "Libros"
         '
+        'PictureBox3
+        '
+        Me.PictureBox3.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureBox3.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.reading
+        Me.PictureBox3.Location = New System.Drawing.Point(13, 224)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(32, 30)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox3.TabIndex = 2
+        Me.PictureBox3.TabStop = False
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -141,6 +176,28 @@ Partial Class MENU3
         Me.Label1.Size = New System.Drawing.Size(48, 13)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Usuarios"
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureBox2.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.books
+        Me.PictureBox2.Location = New System.Drawing.Point(13, 182)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(32, 30)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 1
+        Me.PictureBox2.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.users
+        Me.PictureBox1.Location = New System.Drawing.Point(13, 140)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(32, 30)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabStop = False
         '
         'Timer1
         '
@@ -180,9 +237,9 @@ Partial Class MENU3
         'Panel8
         '
         Me.Panel8.Controls.Add(Me.Panel9)
-        Me.Panel8.Location = New System.Drawing.Point(254, 629)
+        Me.Panel8.Location = New System.Drawing.Point(119, 559)
         Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(601, 12)
+        Me.Panel8.Size = New System.Drawing.Size(604, 11)
         Me.Panel8.TabIndex = 10
         '
         'Panel9
@@ -195,16 +252,20 @@ Partial Class MENU3
         '
         'WebBrowser1
         '
-        Me.WebBrowser1.Location = New System.Drawing.Point(0, -2)
+        Me.WebBrowser1.Location = New System.Drawing.Point(0, 29)
         Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WebBrowser1.Name = "WebBrowser1"
-        Me.WebBrowser1.Size = New System.Drawing.Size(858, 591)
+        Me.WebBrowser1.Size = New System.Drawing.Size(858, 564)
         Me.WebBrowser1.TabIndex = 11
         '
         'Panel3
         '
+        Me.Panel3.Controls.Add(Me.Panel8)
         Me.Panel3.Controls.Add(Me.Button1)
         Me.Panel3.Controls.Add(Me.WebBrowser1)
+        Me.Panel3.Controls.Add(Me.TextBox1)
+        Me.Panel3.Controls.Add(Me.Button2)
+        Me.Panel3.Controls.Add(Me.Button3)
         Me.Panel3.Location = New System.Drawing.Point(135, 49)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(862, 611)
@@ -219,66 +280,39 @@ Partial Class MENU3
         Me.Button1.Text = "Button1"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'PictureBox4
+        'TextBox1
         '
-        Me.PictureBox4.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.boss
-        Me.PictureBox4.Location = New System.Drawing.Point(846, 3)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(43, 43)
-        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox4.TabIndex = 3
-        Me.PictureBox4.TabStop = False
+        Me.TextBox1.Location = New System.Drawing.Point(3, 3)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(651, 20)
+        Me.TextBox1.TabIndex = 12
+        Me.TextBox1.Visible = False
         '
-        'PictureBox5
+        'Button2
         '
-        Me.PictureBox5.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureBox5.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.navigator
-        Me.PictureBox5.Location = New System.Drawing.Point(13, 265)
-        Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(32, 30)
-        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox5.TabIndex = 6
-        Me.PictureBox5.TabStop = False
+        Me.Button2.Location = New System.Drawing.Point(690, 3)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(58, 23)
+        Me.Button2.TabIndex = 13
+        Me.Button2.Text = "Atras"
+        Me.Button2.UseVisualStyleBackColor = True
+        Me.Button2.Visible = False
         '
-        'PictureBox3
+        'Button3
         '
-        Me.PictureBox3.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureBox3.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.reading
-        Me.PictureBox3.Location = New System.Drawing.Point(13, 224)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(32, 30)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox3.TabIndex = 2
-        Me.PictureBox3.TabStop = False
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureBox2.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.books
-        Me.PictureBox2.Location = New System.Drawing.Point(13, 182)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(32, 30)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 1
-        Me.PictureBox2.TabStop = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.users
-        Me.PictureBox1.Location = New System.Drawing.Point(13, 140)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(32, 30)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
+        Me.Button3.Location = New System.Drawing.Point(776, 3)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(63, 23)
+        Me.Button3.TabIndex = 14
+        Me.Button3.Text = "Adelante"
+        Me.Button3.UseVisualStyleBackColor = True
+        Me.Button3.Visible = False
         '
         'MENU3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1005, 653)
-        Me.Controls.Add(Me.Panel8)
         Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel2)
@@ -288,16 +322,17 @@ Partial Class MENU3
         Me.Text = "MENU3"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
-        Me.Panel5.ResumeLayout(False)
-        Me.Panel8.ResumeLayout(False)
-        Me.Panel3.ResumeLayout(False)
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel5.ResumeLayout(False)
+        Me.Panel8.ResumeLayout(False)
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -324,4 +359,7 @@ Partial Class MENU3
     Friend WithEvents WebBrowser1 As System.Windows.Forms.WebBrowser
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents Button2 As System.Windows.Forms.Button
 End Class
