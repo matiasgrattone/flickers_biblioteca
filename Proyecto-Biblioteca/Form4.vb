@@ -358,6 +358,7 @@
 
 
     Private Sub LIBROSAGG_SelectedIndexChanged_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LIBROSAGG.SelectedIndexChanged
+        Dim a1 As String
         Dim Ga1 As String
         Dim MSBOX_Consulta As MsgBoxResult
 
@@ -366,10 +367,19 @@
 
         If MSBOX_Consulta = vbYes Then
 
-            LIBROSAGG.Items.Remove(Ga1)
+            a1 = InputBox("Ingrese la id del libro para verificar", "PRESTAMO")
+
+            If (IDAGG.Items.Contains(a1)) Then
+
+                IDAGG.Items.Remove(a1)
+                Ga1 = LIBROSAGG.SelectedItem
+                LIBROSAGG.Items.Remove(Ga1)
+
+            Else
+                MsgBox("Error al ingresar la id", "PRESTAMO ERROR")
+            End If
 
         End If
-
     End Sub
 
 
