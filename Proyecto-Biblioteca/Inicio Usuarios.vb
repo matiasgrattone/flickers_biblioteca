@@ -258,8 +258,14 @@
         direccion.Text = Convert.ToString(DataGridView3.Rows(rowindex).Cells(4).Value.ToString())
         contrasenia.Text = Convert.ToString(DataGridView3.Rows(rowindex).Cells(6).Value.ToString())
 
-        Dim nacimiento1 As String = Convert.ToString(DataGridView3.Rows(rowindex).Cells(5).Value.ToString())
-        DateTimePicker2.Value = nacimiento1
+        Try
+            'Dim nacimiento1 As String = Convert.ToString(DataGridView3.Rows(rowindex).Cells(5).Value.ToString())
+            Dim nacimiento2 As Date = DataGridView3.Rows(rowindex).Cells(5).Value
+            DateTimePicker2.Value = nacimiento2
+        Catch ex As Exception
+
+        End Try
+
 
         If Convert.ToString(DataGridView3.Rows(rowindex).Cells(7).Value.ToString()) = "0" Then
             RadioButton5.Select()
@@ -352,9 +358,26 @@
             Consulta = "update usuarios set nombre='" + nom + "', apellido='" + ape + "', cedula='" + Str(ced1) + "', telefono='" + Str(tel) + "', direccion='" + dir + "', tipo='" + Str(tipo) + "', nacimiento='" + nacimiento + "' where cedula='" + Str(ced) + "';"
             consultar()
             MsgBox("Edición guardada satisfactoriamente")
+
+            '//////////////////Mostrar los datos actualizados en el datagrid///////////////////////
+            Try
+                Consulta = "select nombre, apellido, cedula, telefono, direccion, nacimiento from usuarios;"
+                consultar()
+                DataGridView3.DataSource = Tabla
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+
+            If filtro(TextBox4.Text).Rows.Count > 0 Then
+                DataGridView3.DataSource = filtro(TextBox4.Text)
+            End If
+
+
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+
+        '//////////////////////////////////////////////////////////////////////////////////////
     End Sub
 
 

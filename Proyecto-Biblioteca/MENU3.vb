@@ -8,9 +8,6 @@ Public Class MENU3
     Dim xf, yf As Integer
     Dim holax, holay As Integer
 
-    Dim opciontamaño As Integer = 0
-    Dim respuesta As Integer = 1
-    Dim transicion As Integer = 1
 
     Private Sub MENU3_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         xf = Me.Location.X
@@ -66,27 +63,9 @@ Public Class MENU3
         Me.Opacity = 1
     End Sub
 
-    Private Sub PictureBox5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
-        Select Case respuesta
-            Case 1
-                opciontamaño = 1
-                Timer1.Start()
-                respuesta = 2
-            Case 2
-                opciontamaño = 2
-                Timer1.Start()
-                respuesta = 1
-        End Select
-
-
-    End Sub
-
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
         Label2.Text = Date.Now.ToString("hh:mm:ss")
     End Sub
-
-
 
     Private Sub WebBrowser1_DocumentCompleted(ByVal sender As System.Object, ByVal e As System.Windows.Forms.WebBrowserDocumentCompletedEventArgs) Handles WebBrowser1.DocumentCompleted
         TextBox1.Text = WebBrowser1.Document.Url.ToString()
@@ -213,7 +192,10 @@ Public Class MENU3
         panel_prestamos.BackColor = Drawing.Color.Aqua
         panel_navegador.BackColor = Drawing.Color.Silver
     End Sub
+    '///////////////////////////////////////////////////////////////////////////////////////////////////////
     '/////////////////////////////////////////// NAVEGADOR /////////////////////////////////////////////////
+    '///////////////////////////////////////////////////////////////////////////////////////////////////////
+
     Private Sub PictureBox5_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox5.Click
         panel_usuarios.BackColor = Drawing.Color.Silver
         panel_libros.BackColor = Drawing.Color.Silver
@@ -234,24 +216,20 @@ Public Class MENU3
         Catch ex As Exception
 
         End Try
-
     End Sub
+    '/////////////////////////////////////////////////////////////////////////////////////////////////////
+    '/////////////////////////////////////////////////////////////////////////////////////////////////////
+    '/////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
     Private Sub panel_libros_Mouseclick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles panel_libros.MouseClick
 
-        'Dim F2 As New Form3
-        'panel_menu.Controls.Clear()
-        ' F2.TopLevel = False
-        'F2.Parent = panel_menu
-
-        'F2.Show()
 
         Dim F3 As New Seleccion_Libro
         panel_menu.Controls.Clear()
         F3.TopLevel = False
         F3.Parent = panel_menu
         F3.Dock = DockStyle.Fill
-
         F3.Show()
 
         panel_menu.Visible = True
@@ -267,6 +245,7 @@ Public Class MENU3
         panel_libros.BackColor = Drawing.Color.Aqua
         panel_prestamos.BackColor = Drawing.Color.Silver
         panel_navegador.BackColor = Drawing.Color.Silver
+
     End Sub
 
     Private Sub panel_prestamos_MouseClick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles panel_prestamos.MouseClick
@@ -275,7 +254,6 @@ Public Class MENU3
         panel_menu.Controls.Clear()
         F4.TopLevel = False
         F4.Parent = panel_menu
-
         F4.Show()
 
         panel_menu.Visible = True
@@ -291,33 +269,41 @@ Public Class MENU3
         panel_libros.BackColor = Drawing.Color.Silver
         panel_prestamos.BackColor = Drawing.Color.Aqua
         panel_navegador.BackColor = Drawing.Color.Silver
+
     End Sub
+
+    '///////////////////////////////////////////////////////////////////////////////////////////////////////
+    '/////////////////////////////////////////// NAVEGADOR /////////////////////////////////////////////////
+    '///////////////////////////////////////////////////////////////////////////////////////////////////////
 
     Private Sub panel_navegador_MouseClick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles panel_navegador.MouseClick
 
 
 
-       panel_usuarios.BackColor = Drawing.Color.Silver
+        panel_usuarios.BackColor = Drawing.Color.Silver
         panel_libros.BackColor = Drawing.Color.Silver
         panel_prestamos.BackColor = Drawing.Color.Silver
         panel_navegador.BackColor = Drawing.Color.Silver
 
-        Try
-            Panel3.Visible = True
-            panel_menu.Visible = False
-            TextBox1.Visible = True
-            Button2.Visible = True
-            Button3.Visible = True
-            Button1.Visible = True
-            Button4.Visible = True
-            WebBrowser1.Visible = True
-            WebBrowser1.Navigate("www.ecosia.org")
 
-        Catch ex As Exception
 
-        End Try
+        Panel3.Visible = True
+        panel_menu.Visible = False
+        TextBox1.Visible = True
+        Button2.Visible = True
+        Button3.Visible = True
+        Button1.Visible = True
+        Button4.Visible = True
+        WebBrowser1.Visible = True
+        WebBrowser1.Navigate("www.ecosia.org")
 
     End Sub
+
+    '/////////////////////////////////////////////////////////////////////////////////////////////////////
+    '/////////////////////////////////////////////////////////////////////////////////////////////////////
+    '///////////////////////////////////////////////////////////////////////////////////////////////////// 
+
+
 
     Private Sub panel_usuarios_LostFocus(sender As Object, e As System.EventArgs) Handles panel_usuarios.LostFocus
 
@@ -330,7 +316,6 @@ Public Class MENU3
         panel_menu.Controls.Clear()
         F1.TopLevel = False
         F1.Parent = panel_menu
-
         F1.Show()
 
         panel_menu.Visible = True
@@ -348,6 +333,7 @@ Public Class MENU3
         panel_libros.BackColor = Drawing.Color.Silver
         panel_prestamos.BackColor = Drawing.Color.Silver
         panel_navegador.BackColor = Drawing.Color.Silver
+
     End Sub
 
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
@@ -358,8 +344,4 @@ Public Class MENU3
         WebBrowser1.Refresh()
     End Sub
 
-
-    Private Sub panel_navegador_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles panel_navegador.Paint
-
-    End Sub
 End Class
