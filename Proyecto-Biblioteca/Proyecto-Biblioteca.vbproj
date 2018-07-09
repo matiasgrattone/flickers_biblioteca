@@ -76,6 +76,12 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuracion_ADMIN.Designer.vb">
+      <DependentUpon>Configuracion_ADMIN.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion_ADMIN.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ingresolibro.Designer.vb">
       <DependentUpon>ingresolibro.vb</DependentUpon>
     </Compile>
@@ -169,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="beditorial.resx">
       <DependentUpon>beditorial.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion_ADMIN.resx">
+      <DependentUpon>Configuracion_ADMIN.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ingresolibro.resx">
       <DependentUpon>ingresolibro.vb</DependentUpon>
