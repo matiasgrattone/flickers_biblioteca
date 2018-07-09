@@ -125,22 +125,13 @@
     <Compile Include="Carga.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="labels_transparentes.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="LOGIN.Designer.vb">
       <DependentUpon>LOGIN.vb</DependentUpon>
     </Compile>
     <Compile Include="LOGIN.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Menu2-1.Designer.vb">
-      <DependentUpon>Menu2-1.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Menu2-1.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Menu2.Designer.vb">
-      <DependentUpon>Menu2.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Menu2.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MENU3.Designer.vb">
@@ -164,6 +155,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Seleccion_Libro.Designer.vb">
+      <DependentUpon>Seleccion_Libro.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Seleccion_Libro.vb">
+      <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -194,12 +191,6 @@
     <EmbeddedResource Include="LOGIN.resx">
       <DependentUpon>LOGIN.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu2-1.resx">
-      <DependentUpon>Menu2-1.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Menu2.resx">
-      <DependentUpon>Menu2.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MENU3.resx">
       <DependentUpon>MENU3.vb</DependentUpon>
     </EmbeddedResource>
@@ -208,6 +199,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seleccion_Libro.resx">
+      <DependentUpon>Seleccion_Libro.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -267,7 +261,17 @@
     <None Include="Resources\faq.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\reload.png" />
+    <None Include="Resources\right-arrow.png" />
+    <None Include="Resources\IMG_3252.png" />
+    <None Include="Resources\left-arrow.png" />
+    <None Include="Resources\left-arrow %281%29.png" />
+    <None Include="Resources\home.png" />
+    <None Include="Resources\clock.png" />
+    <None Include="Resources\clock %281%29.png" />
+    <None Include="Resources\clock %282%29.png" />
     <Content Include="Resources\navigator.png" />
+    <None Include="Resources\Sin título-1.jpg" />
     <None Include="Resources\reading.png" />
     <None Include="Resources\books.png" />
     <None Include="Resources\blur-blurred-dark-1526.jpg" />

@@ -16,6 +16,27 @@ Public Class MENU3
         xf = Me.Location.X
         yf = Me.Location.Y
         WebBrowser1.Visible = False
+        Panel3.Visible = False
+
+        '-------------------VERIFICAR SI ESTA CONECTADO A LA BASE , SI DA ERROR APARECE LA IMAGEN DE OK (LA QUE ESTA ADENTRO DEL TRY) , SI DA ERROR APARECE LA IMAGEN DE ERROR (LA QUE ESTA ADENTRO DEL CATCH)
+
+        Try
+
+            Consulta = "select * from usuarios"
+            consultar()
+            DataGridView1.DataSource = Tabla
+
+            PictureBox8.Image = Image.FromFile("imagenes\cloud.png")
+
+        Catch ex As Exception
+
+            PictureBox8.Image = Image.FromFile("imagenes\cloud-error.png")
+
+        End Try
+
+        '----------------------------------------------------------------------------
+
+
     End Sub
 
     Private Sub Panel1_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseDown
@@ -65,97 +86,8 @@ Public Class MENU3
         Label2.Text = Date.Now.ToString("hh:mm:ss")
     End Sub
 
-    Private Sub Timer2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer2.Tick
-
-        Select Case transicion
 
 
-
-            Case 1
-
-
-
-                If Panel7.Location.X <= -602 Then
-
-                    transicion = 2
-                    '    Timer2.Stop()
-                    ' Thread.Sleep(5000)
-
-
-                Else
-
-                    Panel6.Left -= 10
-                    Panel7.Left -= 10
-
-
-
-
-                End If
-
-                If Panel9.Location.X >= 0 Then
-                    Panel9.Left -= 5
-                End If
-
-
-            Case 2
-
-
-                If Panel6.Location.X >= 602 Then
-
-                    transicion = 1
-                    ' Timer2.Stop()
-                    'Thread.Sleep(5000)
-                Else
-
-                    Panel6.Left += 10
-                    Panel7.Left += 10
-
-                    If Panel9.Location.X <= 305 Then
-                        Panel9.Left += 5
-                    End If
-
-                End If
-
-
-            Case 3
-
-
-
-        End Select
-
-    End Sub
-
-    Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox1.Click
-        inicio_usuarios.Show()
-    End Sub
-
-    Private Sub PictureBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox2.Click
-        Form3.Show()
-    End Sub
-
-    Private Sub PictureBox3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox3.Click
-        Form4.Show()
-    End Sub
-
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        Timer2.Start()
-    End Sub
-
-    '/////////////////////////////////////////// NAVEGADOR /////////////////////////////////////////////////
-    Private Sub PictureBox5_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox5.Click
-
-        Panel5.Visible = False
-        Panel7.Visible = False
-        Button1.Visible = False
-        Panel8.Visible = False
-
-        TextBox1.Visible = True
-        Button2.Visible = True
-        Button3.Visible = True
-        WebBrowser1.Visible = True
-        WebBrowser1.Navigate("www.ecosia.org")
-
-    End Sub
     Private Sub WebBrowser1_DocumentCompleted(ByVal sender As System.Object, ByVal e As System.Windows.Forms.WebBrowserDocumentCompletedEventArgs) Handles WebBrowser1.DocumentCompleted
         TextBox1.Text = WebBrowser1.Document.Url.ToString()
     End Sub
@@ -191,7 +123,7 @@ Public Class MENU3
         WebBrowser1.GoForward()
     End Sub
 
-    Private Sub Button1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+    Private Sub Button1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Dim timer As Integer = 0
         Select Case timer
 
@@ -206,4 +138,235 @@ Public Class MENU3
 
     End Sub
 
+    Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox1.Click
+
+        Dim F1 As New inicio_usuarios
+        panel_menu.Controls.Clear()
+        F1.TopLevel = False
+        F1.Parent = panel_menu
+
+        F1.Show()
+
+        panel_menu.Visible = True
+        TextBox1.Visible = False
+        Button2.Visible = False
+        Button3.Visible = False
+        Button1.Visible = False
+        Button4.Visible = False
+        Panel3.Visible = False
+        WebBrowser1.Visible = False
+
+
+
+        panel_usuarios.BackColor = Drawing.Color.Aqua
+        panel_libros.BackColor = Drawing.Color.Silver
+        panel_prestamos.BackColor = Drawing.Color.Silver
+        panel_navegador.BackColor = Drawing.Color.Silver
+
+    End Sub
+
+    Private Sub PictureBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox2.Click
+
+        Dim F3 As New Seleccion_Libro
+        panel_menu.Controls.Clear()
+        F3.TopLevel = False
+        F3.Parent = panel_menu
+        F3.Dock = DockStyle.Fill
+
+        F3.Show()
+
+        panel_menu.Visible = True
+        TextBox1.Visible = False
+        Button2.Visible = False
+        Button3.Visible = False
+        Button1.Visible = False
+        Button4.Visible = False
+        Panel3.Visible = False
+        WebBrowser1.Visible = False
+
+        panel_usuarios.BackColor = Drawing.Color.Silver
+        panel_libros.BackColor = Drawing.Color.Aqua
+        panel_prestamos.BackColor = Drawing.Color.Silver
+        panel_navegador.BackColor = Drawing.Color.Silver
+    End Sub
+
+    Private Sub PictureBox3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox3.Click
+
+        Dim F4 As New Form4
+        panel_menu.Controls.Clear()
+        F4.TopLevel = False
+        F4.Parent = panel_menu
+
+        F4.Show()
+
+        panel_menu.Visible = True
+        TextBox1.Visible = False
+        Button2.Visible = False
+        Button3.Visible = False
+        Button1.Visible = False
+        Button4.Visible = False
+        Panel3.Visible = False
+        WebBrowser1.Visible = False
+
+        panel_usuarios.BackColor = Drawing.Color.Silver
+        panel_libros.BackColor = Drawing.Color.Silver
+        panel_prestamos.BackColor = Drawing.Color.Aqua
+        panel_navegador.BackColor = Drawing.Color.Silver
+    End Sub
+    '/////////////////////////////////////////// NAVEGADOR /////////////////////////////////////////////////
+    Private Sub PictureBox5_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox5.Click
+        panel_usuarios.BackColor = Drawing.Color.Silver
+        panel_libros.BackColor = Drawing.Color.Silver
+        panel_prestamos.BackColor = Drawing.Color.Silver
+        panel_navegador.BackColor = Drawing.Color.Aqua
+
+        Try
+            Panel3.Visible = True
+            panel_menu.Visible = False
+            TextBox1.Visible = True
+            Button2.Visible = True
+            Button3.Visible = True
+            Button1.Visible = True
+            Button4.Visible = True
+            WebBrowser1.Visible = True
+            WebBrowser1.Navigate("www.ecosia.org")
+
+        Catch ex As Exception
+
+        End Try
+
+    End Sub
+
+    Private Sub panel_libros_Mouseclick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles panel_libros.MouseClick
+
+        'Dim F2 As New Form3
+        'panel_menu.Controls.Clear()
+        ' F2.TopLevel = False
+        'F2.Parent = panel_menu
+
+        'F2.Show()
+
+        Dim F3 As New Seleccion_Libro
+        panel_menu.Controls.Clear()
+        F3.TopLevel = False
+        F3.Parent = panel_menu
+        F3.Dock = DockStyle.Fill
+
+        F3.Show()
+
+        panel_menu.Visible = True
+        TextBox1.Visible = False
+        Button2.Visible = False
+        Button3.Visible = False
+        Button1.Visible = False
+        Button4.Visible = False
+        Panel3.Visible = False
+        WebBrowser1.Visible = False
+
+        panel_usuarios.BackColor = Drawing.Color.Silver
+        panel_libros.BackColor = Drawing.Color.Aqua
+        panel_prestamos.BackColor = Drawing.Color.Silver
+        panel_navegador.BackColor = Drawing.Color.Silver
+    End Sub
+
+    Private Sub panel_prestamos_MouseClick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles panel_prestamos.MouseClick
+
+        Dim F4 As New Form4
+        panel_menu.Controls.Clear()
+        F4.TopLevel = False
+        F4.Parent = panel_menu
+
+        F4.Show()
+
+        panel_menu.Visible = True
+        TextBox1.Visible = False
+        Button2.Visible = False
+        Button3.Visible = False
+        Button1.Visible = False
+        Button4.Visible = False
+        Panel3.Visible = False
+        WebBrowser1.Visible = False
+
+        panel_usuarios.BackColor = Drawing.Color.Silver
+        panel_libros.BackColor = Drawing.Color.Silver
+        panel_prestamos.BackColor = Drawing.Color.Aqua
+        panel_navegador.BackColor = Drawing.Color.Silver
+    End Sub
+
+    Private Sub panel_navegador_MouseClick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles panel_navegador.MouseClick
+
+
+
+       panel_usuarios.BackColor = Drawing.Color.Silver
+        panel_libros.BackColor = Drawing.Color.Silver
+        panel_prestamos.BackColor = Drawing.Color.Gray
+        panel_navegador.BackColor = Drawing.Color.Silver
+
+        Try
+            Panel3.Visible = True
+            panel_menu.Visible = False
+            TextBox1.Visible = True
+            Button2.Visible = True
+            Button3.Visible = True
+            Button1.Visible = True
+            Button4.Visible = True
+            WebBrowser1.Visible = True
+            WebBrowser1.Navigate("www.ecosia.org")
+
+        Catch ex As Exception
+
+        End Try
+
+    End Sub
+
+    Private Sub panel_usuarios_LostFocus(sender As Object, e As System.EventArgs) Handles panel_usuarios.LostFocus
+
+    End Sub
+
+    Private Sub panel_usuarios_MouseClick(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles panel_usuarios.MouseClick
+
+
+        Dim F1 As New inicio_usuarios
+        panel_menu.Controls.Clear()
+        F1.TopLevel = False
+        F1.Parent = panel_menu
+
+        F1.Show()
+
+        panel_menu.Visible = True
+        TextBox1.Visible = False
+        Button2.Visible = False
+        Button3.Visible = False
+        Button1.Visible = False
+        Button4.Visible = False
+        Panel3.Visible = False
+        WebBrowser1.Visible = False
+
+
+
+        panel_usuarios.BackColor = Drawing.Color.Aqua
+        panel_libros.BackColor = Drawing.Color.Silver
+        panel_prestamos.BackColor = Drawing.Color.Silver
+        panel_navegador.BackColor = Drawing.Color.Silver
+    End Sub
+
+    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
+        WebBrowser1.Navigate("www.ecosia.org")
+    End Sub
+
+    Private Sub Button4_Click(sender As System.Object, e As System.EventArgs) Handles Button4.Click
+        WebBrowser1.Refresh()
+    End Sub
+
+    Private Sub panel_navegador_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles panel_navegador.Paint
+
+    End Sub
+
+    Private Sub panel_usuarios_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles panel_usuarios.Paint
+
+    End Sub
+
+    Private Sub Panel1_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles Panel1.Paint
+
+    End Sub
 End Class

@@ -43,6 +43,18 @@ Proyecto-Biblioteca
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
+</member><member name="P:Proyecto_Biblioteca.My.Resources.Resources.clock">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Proyecto_Biblioteca.My.Resources.Resources.clock__1_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Proyecto_Biblioteca.My.Resources.Resources.clock__2_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="P:Proyecto_Biblioteca.My.Resources.Resources.cloud">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -59,7 +71,23 @@ Proyecto-Biblioteca
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
+</member><member name="P:Proyecto_Biblioteca.My.Resources.Resources.home">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Proyecto_Biblioteca.My.Resources.Resources.IMG_3252">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="P:Proyecto_Biblioteca.My.Resources.Resources.ios7_gear">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Proyecto_Biblioteca.My.Resources.Resources.left_arrow">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Proyecto_Biblioteca.My.Resources.Resources.left_arrow__1_">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -72,6 +100,18 @@ Proyecto-Biblioteca
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member><member name="P:Proyecto_Biblioteca.My.Resources.Resources.reading">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Proyecto_Biblioteca.My.Resources.Resources.reload">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Proyecto_Biblioteca.My.Resources.Resources.right_arrow">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Proyecto_Biblioteca.My.Resources.Resources.Sin_título_1">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

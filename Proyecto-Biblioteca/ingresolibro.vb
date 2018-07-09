@@ -77,12 +77,19 @@
 
     Private Sub ingresolibro_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'Carga datos dentro de la tabla Libros en la base de datos en MySql y los muestra en la datagrid
-        Consulta = " SELECT libro.cod_libro , libro.titulo , autor.nombre , libro.volumen ,editorial.nombre, libro.anio , libro.origen , libro.observaciones , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial;"
-        consultar()
-        DataGridView1.DataSource = Tabla
-        DataGridView1.Columns(4).HeaderText = "nombre editorial"
-        DataGridView1.Columns(2).HeaderText = "nombre autor"
-        DataGridView1.Columns(0).HeaderText = "nº libro"
-        DataGridView1.Columns(5).HeaderText = "Año"
+        Try
+
+            Consulta = " SELECT libro.cod_libro , libro.titulo , autor.nombre , libro.volumen ,editorial.nombre, libro.anio , libro.origen , libro.observaciones , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial;"
+            consultar()
+            DataGridView1.DataSource = Tabla
+            DataGridView1.Columns(4).HeaderText = "nombre editorial"
+            DataGridView1.Columns(2).HeaderText = "nombre autor"
+            DataGridView1.Columns(0).HeaderText = "nº libro"
+            DataGridView1.Columns(5).HeaderText = "Año"
+
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 End Class

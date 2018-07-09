@@ -55,8 +55,6 @@ Module Modulo
         inicio_usuarios.Panel5.BackColor = opcioncolor
         inicio_usuarios.Panel6.BackColor = opcioncolor
         inicio_usuarios.Panel7.BackColor = opcioncolor
-        inicio_usuarios.Panel1.BackColor = opcioncolor
-        inicio_usuarios.Panel13.BackColor = opcioncolor
         '----------------------------------------------------------------------------
 
         '----------------------------------------------------------------------------

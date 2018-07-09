@@ -1,22 +1,11 @@
 ﻿Public Class inicio_usuarios
 
-
-    Dim configuracion As Integer = 1
-    Dim panelizq As Integer = 1
-    Dim notas As Integer = 1
     Dim ced As Integer
 
 
     Private Sub Form1_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
 
-        xf = Me.Location.X
-        yf = Me.Location.Y
-
-        Panel15.Hide() '// OCULTAR EL PANEL DE CONFIGURACION
-
-        'Cargar nombre de funcionario
-        Label1.Text = Modulo.nombre
-
+      
 
         '//cargar usuarios en registro//
 
@@ -26,76 +15,14 @@
 
         '//////////////////
 
-        '//cargar usuarios en borrar//
-
-        Consulta = "select cedula, nombre, apellido, telefono, direccion, nacimiento from usuarios;"
-        consultar()
-        borrar.DataSource = Tabla
-
-        '//////////////////
-
-
-
-        '----------------------------- CONSULTA PARA LA BUSQUEDA DE LOS USUARIOS ----- 
-
-        '-------------------VERIFICAR SI ESTA CONECTADO A LA BASE , SI DA ERROR APARECE LA IMAGEN DE OK (LA QUE ESTA ADENTRO DEL TRY) , SI DA ERROR APARECE LA IMAGEN DE ERROR (LA QUE ESTA ADENTRO DEL CATCH)
-
-        Try
-
-            Consulta = "select * from usuarios"
-            consultar()
-            DataGridView1.DataSource = Tabla
-
-            DataGridView1.Columns(0).Width = 200
-            DataGridView1.Columns(1).Width = 200
-            DataGridView1.Columns(2).Width = 200
-            DataGridView1.Columns(3).Width = 150
-
-            PictureBox2.Image = Image.FromFile("imagenes\cloud.png")
-
-        Catch ex As Exception
-
-            PictureBox2.Image = Image.FromFile("imagenes\cloud-error.png")
-
-        End Try
-
-        '----------------------------------------------------------------------------
-
-
-
-        '----- ACTIVAR EL TIMER PARA LA HORA Y FECHA --------------------------------
-
-        Timer1.Enabled = True
-
-        '----------------------------------------------------------------------------
-
-
-
-        '--------------------- OCULTAR EL BOTON PARA "MINIMIZAR EL PANEL" -----------
-
-        Button2.Location = New Point(214, 618)
-
-        '----------------------------------------------------------------------------
 
 
 
 
-        '/////////////////////////////////////////////////////////////////////////////////////////////////////
+       
 
     End Sub
 
-
-    Private Sub Timer1_Tick(sender As System.Object, e As System.EventArgs) Handles Timer1.Tick
-
-        '//////////////////////////////////////////// TIMER PARA HORA Y FECHA /////////////////////////////////
-
-        Label5.Text = Date.Now.ToString("hh:mm:ss")
-
-        Label7.Text = Date.Now.ToString("dd / MM / yy")
-
-        '//////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    End Sub
 
     Private Sub Panel5_MouseClick(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel5.MouseClick
     
@@ -118,7 +45,9 @@
     Private Sub Panel4_MouseClick(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel4.MouseClick
 
         '//-------------AGREGAR USUARIOS--------------------//
-
+        Consulta = "select nombre, apellido, cedula, telefono, direccion, nacimiento from usuarios;"
+        consultar()
+        registro.DataSource = Tabla
 
         'Panel2.BackColor = Drawing.Color.LightBlue
         TabControl1.SelectTab("TabPage1")
@@ -194,8 +123,11 @@
 
     Private Sub PictureBox4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox4.Click
 
-        '//-------------BUSCAR USUARIOS PICTUREBOX--------------------//
+        '//-------------AGREGAR USUARIOS PICTUREBOX--------------------//
 
+        Consulta = "select nombre, apellido, cedula, telefono, direccion, nacimiento from usuarios;"
+        consultar()
+        registro.DataSource = Tabla
 
         TabControl1.SelectTab("TabPage1")
 
@@ -213,6 +145,9 @@
 
         '//-------------BUSCAR USUARIOS PICTUREBOX--------------------//
 
+        Consulta = "select cedula, nombre, apellido, telefono, direccion, nacimiento from usuarios;"
+        consultar()
+        DataGridView1.DataSource = Tabla
 
         TabControl1.SelectTab("TabPage2")
 
@@ -252,7 +187,7 @@
         Panel6.Height = 42
         Panel7.Height = 45
 
-        Consulta = "select * from usuarios"
+        Consulta = "select cedula, nombre, apellido, telefono, direccion, nacimiento from usuarios;"
         consultar()
         borrar.DataSource = Tabla
 
@@ -271,128 +206,6 @@
 
     End Sub
 
-    Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
-        '//////////////////////////// MOSTRAR PANEL IZQUIERDO EN LA PANTALLA /////////////////////////////////////
-
-        Select Case panelizq
-            Case 0
-                Panel1.Width = 265
-                Panel1.Height = 693
-                Panel18.Width = 1192
-
-                MonthCalendar1.Visible = True
-                Label1.Visible = True
-                Label5.Visible = True
-                Label7.Visible = True
-                PictureBox2.Visible = True
-
-                Panel1.Location = New Point(12, 12)
-                Button2.Location = New Point(214, 618)
-                Panel18.Location = New Point(12, -1)
-                Button2.Text = "Cerrar"
-
-                panelizq = 1
-            Case 1
-                Panel1.Width = 106
-                Panel1.Height = 693
-                Panel18.Width = 1032
-
-                MonthCalendar1.Visible = False
-                Label1.Visible = False
-                Label5.Visible = False
-                Label7.Visible = False
-                PictureBox2.Visible = False
-
-                Panel1.Location = New Point(172, 12)
-                Button2.Location = New Point(0, 618)
-                Panel18.Location = New Point(172, -1)
-                Button2.Text = "Abrir"
-
-                panelizq = 0
-        End Select
-
-        '/////////////////////////////////////////////////////////////////////////////////////////////////////////
-    End Sub
-
-
-    Private Sub PictureBox8_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox8.Click
-
-        '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-        Select Case configuracion
-
-
-            Case 1 '/////////////////////////MOSTRAR EL PANEL DE CONFIGUARCION Y OCULTAR EL PANEL DE USUARIOS///////////////////////////////
-
-                Panel15.Show()
-                Panel14.Hide()
-
-                configuracion = 0
-
-            Case 0 '/////////////////////////OCULTAR EL PANEL DE CONFIGURACION Y MOSTRAR EL PANEL DE USUARIOS///////////////////////////////
-
-                Panel15.Hide()
-                Panel14.Show()
-
-                configuracion = 1
-
-        End Select
-
-        '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    End Sub
-
-
-    Private Sub PictureBox11_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox11.Click
-
-        '/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-        Select Case notas
-
-            Case 1 '///////////////////////////// ACTIVAR PANEL DE NOTAS /////////////////////////////////////////////////////
-
-                Panel15.Hide()
-                Panel14.Hide()
-                notas = 0
-
-            Case 0 '///////////////////////////// DESACTIVAR PANEL DE NOTAS /////////////////////////////////////////////////////
-
-                Panel15.Hide()
-                Panel14.Show()
-                notas = 1
-
-        End Select
-
-
-
-
-
-        '//////////////////////////////////////////////////////////////////////////////////////////////////////////
-    End Sub
-
-    Private Sub PictureBox12_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox12.Click
-
-        Dim colors As DialogResult
-        colors = ColorDialog1.ShowDialog()
-        If colors = Windows.Forms.DialogResult.OK Then
-            opcioncolor = ColorDialog1.Color
-        End If
-        Panel16.BackColor = opcioncolor
-        color()
-
-    End Sub
-
-    Private Sub Panel16_Click1(sender As Object, e As System.EventArgs) Handles Panel16.Click
-
-        Dim colors As DialogResult
-        colors = ColorDialog1.ShowDialog()
-        If colors = Windows.Forms.DialogResult.OK Then
-            opcioncolor = ColorDialog1.Color
-        End If
-        Panel16.BackColor = opcioncolor
-        color()
-
-    End Sub
 
 
 
@@ -586,6 +399,67 @@
 
     Private Sub DataGridView2_MouseDoubleClick(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles borrar.MouseDoubleClick
 
+    End Sub
+   
+    Private Sub Panel5_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles Panel5.Paint
+
+
+        '//-------------BUSCAR USUARIOS PANEL-------------------//
+
+        Consulta = "select cedula, nombre, apellido, telefono, direccion, nacimiento from usuarios;"
+        consultar()
+        DataGridView1.DataSource = Tabla
+
+        TabControl1.SelectTab("TabPage2")
+
+        Panel4.Height = 42
+        Panel5.Height = 45
+        Panel6.Height = 42
+        Panel7.Height = 42
+
+        '//------------------------------------------------//
+
+
+        '////////////////// COLOR EN EL DATAGRID DEPENDIENDO DEL VALOR EN UNA FILA DETERMINADA //////////////
+
+
+        For Each Row As DataGridViewRow In DataGridView1.Rows
+
+            If Row.Cells("nombre").Value = "mateo" Then
+                Row.DefaultCellStyle.BackColor = Drawing.Color.BlueViolet
+            End If
+
+        Next
+
+
+
+
+        '///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+    End Sub
+
+    Private Sub TextBox3_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox3.TextChanged
+
+        Consulta = "select cedula, nombre, apellido, telefono, direccion, nacimiento from usuarios where nombre like '" & TextBox3.Text & "%'"
+        consultar()
+        borrar.DataSource = Tabla
+
+    End Sub
+
+    Private Sub PictureBox9_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        Me.Close()
+    End Sub
+
+    Private Sub Button1_Click_1(sender As System.Object, e As System.EventArgs)
+        prueba()
+    End Sub
+
+
+    Private Sub borrar_CellContentDoubleClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles borrar.CellContentDoubleClick
+
         '////////////////////// ELIMINAR USUARIOS ////////////////////////////////////////////
 
         Dim nombre As String
@@ -617,93 +491,14 @@
 
         '/////////////////////////////////////////////////////////////////////////////////////
     End Sub
-   
-    Private Sub Panel5_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles Panel5.Paint
 
-        '////////////////// COLOR EN EL DATAGRID DEPENDIENDO DEL VALOR EN UNA FILA DETERMINADA //////////////
-
-
-        For Each Row As DataGridViewRow In DataGridView1.Rows
-
-            If Row.Cells("nombre").Value = "mateo" Then
-                Row.DefaultCellStyle.BackColor = Drawing.Color.BlueViolet
-            End If
-
-        Next
-
-
-
-
-        '///////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
+ 
+    Private Sub Panel7_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles Panel7.Paint
 
     End Sub
 
-    Private Sub TextBox3_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox3.TextChanged
-
-        Consulta = "select cedula, nombre, apellido, telefono, direccion, nacimiento from usuarios where nombre like '" & TextBox3.Text & "%'"
-        consultar()
-        borrar.DataSource = Tabla
+    Private Sub Panel4_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles Panel4.Paint
 
     End Sub
-
-    Private Sub PictureBox9_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox9.Click
-        Me.Close()
-        LOGIN.Show()
-    End Sub
-
-    Private Sub Button1_Click_1(sender As System.Object, e As System.EventArgs)
-        prueba()
-    End Sub
-
-
-    '/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    '/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    '/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    '////////////////////////////////////////////////////////////////////DESPLAZAMIENTO DE VENTANA////////////////////////////////////////////////////////////////
-    '/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    '/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    '/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    Dim a As Integer = 0
-    Public xco, yco As Integer
-    Dim resultx, resulty As Integer
-    Dim xc, yc As Integer
-    Dim xf, yf As Integer
-
-    Private Sub Panel18_MouseMove(sender As Object, e As System.EventArgs) Handles Panel18.MouseMove
-        Select Case a
-            Case 1
-                xc = Cursor.Position.X
-                yc = Cursor.Position.Y
-                Me.Location = New Point(xf + (xc - xco), yf + (yc - yco))
-            Case 0
-                xco = Cursor.Position.X
-                yco = Cursor.Position.Y
-        End Select
-    End Sub
-
-
-    Private Sub Panel18_MouseUp(sender As Object, e As System.EventArgs) Handles Panel18.MouseUp
-        xf = Me.Location.X
-        yf = Me.Location.Y
-        a = 0
-        Me.Opacity = 1
-    End Sub
-
-    Private Sub Panel18_MouseDown(sender As Object, e As System.EventArgs) Handles Panel18.MouseDown
-        a = 1
-        Me.Opacity = 0.8
-    End Sub
-
-
-    '/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    '/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    '/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    '/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 End Class
 
