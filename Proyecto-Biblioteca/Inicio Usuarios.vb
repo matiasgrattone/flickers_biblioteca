@@ -27,11 +27,15 @@
     Private Sub Panel5_MouseClick(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel5.MouseClick
     
 
-        '//-------------BUSCAR USUARIOS--------------------//
 
-        'Panel2.BackColor = Drawing.Color.Pink
+
+        '//-------------BUSCAR USUARIOS PANEL-------------------//
+
+        Consulta = "select cedula, nombre, apellido, telefono, direccion, nacimiento from usuarios;"
+        consultar()
+        DataGridView1.DataSource = Tabla
+
         TabControl1.SelectTab("TabPage2")
-        'Panel9.BackColor = Drawing.Color.Pink
 
         Panel4.Height = 42
         Panel5.Height = 45
@@ -39,6 +43,24 @@
         Panel7.Height = 42
 
         '//------------------------------------------------//
+
+
+        '////////////////// COLOR EN EL DATAGRID DEPENDIENDO DEL VALOR EN UNA FILA DETERMINADA //////////////
+
+
+        For Each Row As DataGridViewRow In DataGridView1.Rows
+
+            If Row.Cells("nombre").Value = "mateo" Then
+                Row.DefaultCellStyle.BackColor = Drawing.Color.BlueViolet
+            End If
+
+        Next
+
+
+
+
+        '///////////////////////////////////////////////////////////////////////////////////////////////////
+
 
     End Sub
 
@@ -70,6 +92,10 @@
         'Panel2.BackColor = Drawing.Color.Red
         TabControl1.SelectTab("TabPage3")
         'Panel11.BackColor = Drawing.Color.Red
+
+        Consulta = "select nombre, apellido, cedula, telefono, direccion, nacimiento from usuarios;"
+        consultar()
+        DataGridView3.DataSource = Tabla
 
         Panel4.Height = 42
         Panel5.Height = 42
@@ -165,6 +191,9 @@
         '//-------------EDITAR USUARIOS PICTUREBOX--------------------//
 
         TabControl1.SelectTab("TabPage3")
+        Consulta = "select nombre, apellido, cedula, telefono, direccion, nacimiento from usuarios;"
+        consultar()
+        DataGridView3.DataSource = Tabla
 
 
         Panel4.Height = 42
@@ -418,46 +447,7 @@
     Private Sub DataGridView2_MouseDoubleClick(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles borrar.MouseDoubleClick
 
     End Sub
-   
-    Private Sub Panel5_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles Panel5.Paint
 
-
-        '//-------------BUSCAR USUARIOS PANEL-------------------//
-
-        Consulta = "select cedula, nombre, apellido, telefono, direccion, nacimiento from usuarios;"
-        consultar()
-        DataGridView1.DataSource = Tabla
-
-        TabControl1.SelectTab("TabPage2")
-
-        Panel4.Height = 42
-        Panel5.Height = 45
-        Panel6.Height = 42
-        Panel7.Height = 42
-
-        '//------------------------------------------------//
-
-
-        '////////////////// COLOR EN EL DATAGRID DEPENDIENDO DEL VALOR EN UNA FILA DETERMINADA //////////////
-
-
-        For Each Row As DataGridViewRow In DataGridView1.Rows
-
-            If Row.Cells("nombre").Value = "mateo" Then
-                Row.DefaultCellStyle.BackColor = Drawing.Color.BlueViolet
-            End If
-
-        Next
-
-
-
-
-        '///////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-    End Sub
 
     Private Sub TextBox3_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox3.TextChanged
 
@@ -508,6 +498,10 @@
         borrar.DataSource = Tabla
 
         '/////////////////////////////////////////////////////////////////////////////////////
+    End Sub
+
+    Private Sub Panel6_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Panel6.Paint
+
     End Sub
 End Class
 

@@ -299,7 +299,7 @@ Public Class MENU3
 
        panel_usuarios.BackColor = Drawing.Color.Silver
         panel_libros.BackColor = Drawing.Color.Silver
-        panel_prestamos.BackColor = Drawing.Color.Gray
+        panel_prestamos.BackColor = Drawing.Color.Silver
         panel_navegador.BackColor = Drawing.Color.Silver
 
         Try
@@ -358,15 +358,8 @@ Public Class MENU3
         WebBrowser1.Refresh()
     End Sub
 
-    Private Sub panel_navegador_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles panel_navegador.Paint
 
-    End Sub
-
-    Private Sub panel_usuarios_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles panel_usuarios.Paint
-
-    End Sub
-
-    Private Sub Panel1_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles Panel1.Paint
+    Private Sub panel_navegador_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles panel_navegador.Paint
 
     End Sub
 End Class
