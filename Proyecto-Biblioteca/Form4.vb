@@ -61,6 +61,8 @@
 
         '////////////////////////////////
 
+        'Se iguala una variable a un valor de la base de datos para hacer consulta luego
+
 
     End Sub
 
@@ -74,6 +76,7 @@
         Dim NOMBREdelLIBRO As String
         NOMBREdelLIBRO = CStr(TransoformarDBSDaVariable.Cells(1).Value)
 
+
         '////////////////////////////SI CEDULA.TEXT TIENE LA CEDULA PUESTA AHI SI SE PODRA AGREGAR LIBROS O REALIZAR OTRAS FUNCIONES  /////////////////////// 
 
         Dim list1 As Integer
@@ -81,7 +84,7 @@
 
 
 
-                If VERLIBROSAGG.Item(0, VERLIBROSAGG.CurrentRow.Index).Value <> list1 Then
+        If VERLIBROSAGG.Item(0, VERLIBROSAGG.CurrentRow.Index).Value <> list1 Then
             Dim goku As String
             Dim vegeta As String
             goku = VERLIBROSAGG.Item(0, VERLIBROSAGG.CurrentRow.Index).Value
@@ -112,7 +115,7 @@
                 End If
 
 
-        End If
+            End If
 
         End If
 
@@ -178,38 +181,63 @@
 
 
     Private Sub ComboBoxMORTAL_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBoxMORTAL.SelectedIndexChanged
+        Consulta = "select * from prestamo where `fecha_entrada` is null and cedula= '" & Cedula.Text & "';"
+        consultar()
+        OPA.DataSource = Tabla
 
-
+        Consulta = "select * from libro where estado = 'disponible'"
+        consultar()
+        VERLIBROSAGG.DataSource = Tabla
+        Dim ROWS As DataGridViewRow = OPA.CurrentRow
 
         '////////////////////////////SI EL COMBOBOX = EXTREACCION ----- SE MUESTRA EL GRUPOBOX1///////////////////////  
 
         If ComboBoxMORTAL.Text = "Extraccion" Then
-            ExtCombo.Visible = True
 
-            Consulta = "select * from prestamo where cedula = '" & Cedula.Text & " ';"
-            consultar()
-            OPA.DataSource = Tabla
+
 
 
 
             If (OPA.RowCount = 1) Then
 
+                ExtCombo.Visible = True
                 MsgBox("/////////Usted puede RETIRAR un libro 0//////////")
 
                 Consulta = "select * from libro where estado = 'disponible'"
                 consultar()
                 VERLIBROSAGG.DataSource = Tabla
 
-            Else
-                ExtCombo.Visible = False
-                MsgBox("Usted NO puede retirar un libro hasta devolver los ya prestados")
-
             End If
+
+
+            Try
+                If Cedula.Text <> "" Then
+                    If (ROWS.Cells(3).Value.ToString) <> "" Then
+                        ExtCombo.Visible = True
+                        MsgBox("Usted pude RETIRAR UN LIBREO", "CASO DOS")
+
+                        Consulta = "select * from libro where estado = 'disponible'"
+                        consultar()
+                        VERLIBROSAGG.DataSource = Tabla
+                    Else
+                        ExtCombo.Visible = False
+                        MsgBox("Usted NO puede retirar un libro hasta devolver los ya prestados")
+
+                    End If
+
+                Else
+                    MsgBox("La cedula debe estar ingrezada", "PRESTAMOS")
+                End If
+
+            Catch ex As Exception
+            End Try
+
+
+
 
 
         ElseIf ComboBoxMORTAL.Text <> "Extraccion" Then
             ExtCombo.Visible = False
-
 
         End If
 
@@ -265,28 +293,31 @@
 
 
     Private Sub Button2_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+        Consulta = "select * from prestamo where `fecha_entrada` is null and cedula= '" & Cedula.Text & "';"
+        consultar()
+        OPA.DataSource = Tabla
+        Dim ROWS As DataGridViewRow = OPA.CurrentRow
 
+
+        Dim list, contador, libros As Integer
+        contador = 0
+
+        list = 0
+        list = IDAGG.Items.Count
+        list = list
 
         '1) El usario que puede extraer un libro SI ESTE NO TIENE NINGUN LIBROS EN PODER AHORA
+        '/////////////////////CASO UNO///////////////////
         If (OPA.RowCount = 1) Then
 
             MsgBox("Usted pude RETIRAR UN LIBREO")
 
-            Dim list, contador, libros As Integer
-            contador = 0
-
-            list = 0
-            list = IDAGG.Items.Count
-            list = list
             While contador < list
                 contador = Val(contador) + 1
 
 
-
                 Consulta = "insert into prestamo (cedula, cod_libro, fecha_salida, fecha_entrada) values ('" & Cedula.Text & "','" & IDAGG.Items(libros) & "','" & Label4.Text & "','')"
                 consultar()
-
-
 
 
                 Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & IDAGG.Items(libros) & "';"
@@ -297,12 +328,45 @@
                 MsgBox(contador)
                 libros = libros + 1
             End While
-
-        Else
-
-            MsgBox("Este usuario no puede retirar libros hasta devolver los prestados", "PRESTAMOS")
-
         End If
+
+
+        '/////////////////////CASO DOS///////////////////
+        Try
+            If Cedula.Text <> "" Then
+
+                If (ROWS.Cells(3).Value.ToString) <> "" Then
+                    MsgBox("Usted pude RETIRAR UN LIBREO")
+
+                    While contador < list
+                        contador = Val(contador) + 1
+
+
+                        Consulta = "insert into prestamo (cedula, cod_libro, fecha_salida, fecha_entrada) values ('" & Cedula.Text & "','" & IDAGG.Items(libros) & "','" & Label4.Text & "','')"
+                        consultar()
+
+
+                        Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & IDAGG.Items(libros) & "';"
+                        consultar()
+
+
+                        MsgBox(IDAGG.Items.Count)
+                        MsgBox(contador)
+                        libros = libros + 1
+                    End While
+
+                Else
+                    MsgBox("Este usuario no puede retirar libros hasta devolver los prestados", "PRESTAMOS")
+
+                End If
+
+            Else
+                MsgBox("La cedula debe estar ingrezada", "PRESTAMOS")
+            End If
+
+        Catch ex As Exception
+        End Try
+
 
         '    1)////////////////////
     End Sub
@@ -314,7 +378,7 @@
 
     Private Sub DataGridAGG_CellDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridAGG.CellContentClick
         'Consulta a DATAGRIDVIEW oculto
-        Consulta = "select * from prestamo where cedula = '" & Cedula.Text & " ';"
+        Consulta = "select * from prestamo where `fecha_entrada` is null and cedula= '" & Cedula.Text & "';"
         consultar()
         OPA.DataSource = Tabla
         '////////////////////////////////
@@ -326,25 +390,32 @@
             consultar()
 
             ComboBoxMORTAL.Visible = True
-
             '////////////////////
 
             Libro1 = DataGridAGG.Item(1, DataGridAGG.CurrentRow.Index).Value
-            Dim a As MsgBoxResult
-            a = MsgBox("Desea devolver el libro " & Libro1 & " ?", MsgBoxStyle.YesNo, "PRESTAMOS")
 
-            '       1) Si se devuelve el libro y se actualiza la Base da datos 
-            If a = vbYes Then
-                Consulta = "update libro set estado = 'disponible' where cod_libro = '" & Libro1 & "';"
-                consultar()
-                Consulta = "delete from prestamo where cod_libro = '" & Libro1 & "'"
-                consultar()
-                MsgBox("se ha devuelto")
+            If DataGridAGG.Item(3, DataGridAGG.CurrentRow.Index).Value.ToString = "" Then
+                Dim a As MsgBoxResult
+                a = MsgBox("Desea devolver el libro " & Libro1 & " ?", MsgBoxStyle.YesNo, "PRESTAMOS")
 
-                Consulta = "select * from prestamo where cedula = '" & Cedula.Text & " ';"
-                VERLIBROSAGG.DataSource = Tabla
-                consultar()
+                '       1) Si se devuelve el libro y se actualiza la Base da datos 
+                If a = vbYes Then
 
+                    Consulta = "update libro set estado = 'disponible' where cod_libro = '" & Libro1 & "';"
+                    consultar()
+                    Consulta = "UPDATE prestamo SET fecha_entrada = '" & Label4.Text & "' WHERE cedula = '" & Cedula.Text & "' and cod_libro ='" & Libro1 & "';"
+                    consultar()
+                    MsgBox("se ha devuelto")
+
+                    Consulta = "select * from prestamo where cedula = '" & Cedula.Text & " ';"
+                    VERLIBROSAGG.DataSource = Tabla
+                    consultar()
+
+                Else
+
+                    MsgBox("Este libro ya fue devuelto")
+
+                End If
             End If
 
             If a = vbNo Then
