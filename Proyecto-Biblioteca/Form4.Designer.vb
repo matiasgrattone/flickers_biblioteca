@@ -187,9 +187,9 @@ Partial Class Form4
         'OPA
         '
         Me.OPA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.OPA.Location = New System.Drawing.Point(71, 344)
+        Me.OPA.Location = New System.Drawing.Point(71, 343)
         Me.OPA.Name = "OPA"
-        Me.OPA.Size = New System.Drawing.Size(32, 22)
+        Me.OPA.Size = New System.Drawing.Size(32, 23)
         Me.OPA.TabIndex = 77
         '
         'Label9

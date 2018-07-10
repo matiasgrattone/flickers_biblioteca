@@ -55,7 +55,7 @@
         DataGridView1.DataSource = Tabla
 
         'Consulta a DATAGRIDVIEW oculto
-        Consulta = "select * from prestamo where cedula = '" & Cedula.Text & " ';"
+        Consulta = "select * from prestamo where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
         consultar()
         OPA.DataSource = Tabla
 
@@ -98,12 +98,12 @@
 
             If (IDAGG.Items.Contains(goku)) Then
 
-                MsgBox("Este libro " & goku & " ya se encuentra en el carrito de extracción ", "PRESTAMOS")
+                MsgBox("Este libro " & goku & " ya se encuentra en el carrito de extracción ", Title:="PRESTAMOS")
 
 
             Else
 
-                z = MsgBox("Desea llevar al carrito el libro " & NOMBREdelLIBRO & " ?", MsgBoxStyle.YesNo, "PRESTAMOS")
+                z = MsgBox("Desea llevar al carrito el libro " & NOMBREdelLIBRO & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
 
                 If z = vbYes Then
 
@@ -181,7 +181,7 @@
 
 
     Private Sub ComboBoxMORTAL_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBoxMORTAL.SelectedIndexChanged
-        Consulta = "select * from prestamo where `fecha_entrada` is null and cedula= '" & Cedula.Text & "';"
+        Consulta = "select * from prestamo where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
         consultar()
         OPA.DataSource = Tabla
 
@@ -214,19 +214,19 @@
                 If Cedula.Text <> "" Then
                     If (ROWS.Cells(3).Value.ToString) <> "" Then
                         ExtCombo.Visible = True
-                        MsgBox("Usted pude RETIRAR UN LIBREO", "CASO DOS")
+                        MsgBox("Usted pude RETIRAR UN LIBREO", Title:="CASO DOS")
 
                         Consulta = "select * from libro where estado = 'disponible'"
                         consultar()
                         VERLIBROSAGG.DataSource = Tabla
                     Else
                         ExtCombo.Visible = False
-                        MsgBox("Usted NO puede retirar un libro hasta devolver los ya prestados")
+                        MsgBox("Usted NO puede retirar un libro hasta devolver los ya prestados", Title:="ERROR")
 
                     End If
 
                 Else
-                    MsgBox("La cedula debe estar ingrezada", "PRESTAMOS")
+                    MsgBox("La cedula debe estar ingrezada", Title:="PRESTAMOS")
                 End If
 
             Catch ex As Exception
@@ -283,7 +283,7 @@
         Catch ex As Exception
 
             ComboBoxMORTAL.Visible = False
-            MsgBox("Cedula no valida, intente otra vez", , "ERROR EN PRESTAMOS")
+            MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
 
         End Try
 
@@ -293,7 +293,7 @@
 
 
     Private Sub Button2_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
-        Consulta = "select * from prestamo where `fecha_entrada` is null and cedula= '" & Cedula.Text & "';"
+        Consulta = "select * from prestamo where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
         consultar()
         OPA.DataSource = Tabla
         Dim ROWS As DataGridViewRow = OPA.CurrentRow
@@ -310,7 +310,7 @@
         '/////////////////////CASO UNO///////////////////
         If (OPA.RowCount = 1) Then
 
-            MsgBox("Usted pude RETIRAR UN LIBREO")
+            MsgBox("Usted pude RETIRAR UN LIBREO", Title:="PRESTAMO")
 
             While contador < list
                 contador = Val(contador) + 1
@@ -336,7 +336,7 @@
             If Cedula.Text <> "" Then
 
                 If (ROWS.Cells(3).Value.ToString) <> "" Then
-                    MsgBox("Usted pude RETIRAR UN LIBREO")
+                    MsgBox("Usted pude RETIRAR UN LIBREO", Title:="PRESTAMO")
 
                     While contador < list
                         contador = Val(contador) + 1
@@ -356,12 +356,12 @@
                     End While
 
                 Else
-                    MsgBox("Este usuario no puede retirar libros hasta devolver los prestados", "PRESTAMOS")
+                    MsgBox("Este usuario no puede retirar libros hasta devolver los prestados", Title:="PRESTAMOS")
 
                 End If
 
             Else
-                MsgBox("La cedula debe estar ingrezada", "PRESTAMOS")
+                MsgBox("La cedula debe estar ingrezada", Title:="PRESTAMOS")
             End If
 
         Catch ex As Exception
@@ -378,7 +378,7 @@
 
     Private Sub DataGridAGG_CellDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridAGG.CellContentClick
         'Consulta a DATAGRIDVIEW oculto
-        Consulta = "select * from prestamo where `fecha_entrada` is null and cedula= '" & Cedula.Text & "';"
+        Consulta = "select * from prestamo where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
         consultar()
         OPA.DataSource = Tabla
         '////////////////////////////////
@@ -396,7 +396,7 @@
 
             If DataGridAGG.Item(3, DataGridAGG.CurrentRow.Index).Value.ToString = "" Then
                 Dim a As MsgBoxResult
-                a = MsgBox("Desea devolver el libro " & Libro1 & " ?", MsgBoxStyle.YesNo, "PRESTAMOS")
+                a = MsgBox("Desea devolver el libro " & Libro1 & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
 
                 '       1) Si se devuelve el libro y se actualiza la Base da datos 
                 If a = vbYes Then
@@ -413,7 +413,7 @@
 
                 Else
 
-                    MsgBox("Este libro ya fue devuelto")
+                    MsgBox("Este libro ya fue devuelto", Title:="PRESTAMO")
 
                 End If
             End If
@@ -434,11 +434,11 @@
         Dim MSBOX_Consulta As MsgBoxResult
 
         Ga1 = LIBROSAGG.SelectedItem
-        MSBOX_Consulta = MsgBox("Desea cancelar la extracción del libro? " & Ga1 & " ?", MsgBoxStyle.YesNo, "PRESTAMOS")
+        MSBOX_Consulta = MsgBox("Desea cancelar la extracción del libro? " & Ga1 & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
 
         If MSBOX_Consulta = vbYes Then
 
-            a1 = InputBox("Ingrese la id del libro para verificar", "PRESTAMO")
+            a1 = InputBox("Ingrese la id del libro para verificar", Title:="PRESTAMO")
 
             If (IDAGG.Items.Contains(a1)) Then
 
@@ -447,7 +447,7 @@
                 LIBROSAGG.Items.Remove(Ga1)
 
             Else
-                MsgBox("Error al ingresar la id", "PRESTAMO ERROR")
+                MsgBox("Error al ingresar la id", Title:="PRESTAMO ERROR")
             End If
 
         End If
@@ -456,7 +456,7 @@
 
     Private Sub Label12_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label12.Click
         Dim MSBOX_Consulta As MsgBoxResult
-        MSBOX_Consulta = MsgBox("Desea volver al menú de inicio?", MsgBoxStyle.YesNo, "PRESTAMOS")
+        MSBOX_Consulta = MsgBox("Desea volver al menú de inicio?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
 
         If MSBOX_Consulta = vbYes Then
             MENU3.Show()
