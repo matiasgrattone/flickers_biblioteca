@@ -327,7 +327,11 @@
                 MsgBox(IDAGG.Items.Count)
                 MsgBox(contador)
                 libros = libros + 1
+
             End While
+
+            LIBROSAGG.Items.Clear()
+            IDAGG.Items.Clear()
         End If
 
 
@@ -353,8 +357,11 @@
                         MsgBox(IDAGG.Items.Count)
                         MsgBox(contador)
                         libros = libros + 1
+
                     End While
 
+                    LIBROSAGG.Items.Clear()
+                    IDAGG.Items.Clear()
                 Else
                     MsgBox("Este usuario no puede retirar libros hasta devolver los prestados", Title:="PRESTAMOS")
 
