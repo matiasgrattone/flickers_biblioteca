@@ -55,6 +55,8 @@ Partial Class Form4
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -217,6 +219,8 @@ Partial Class Form4
         'devoCOMBO
         '
         Me.devoCOMBO.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.devoCOMBO.Controls.Add(Me.Button5)
+        Me.devoCOMBO.Controls.Add(Me.Button4)
         Me.devoCOMBO.Controls.Add(Me.Label11)
         Me.devoCOMBO.Controls.Add(Me.DataGridAGG)
         Me.devoCOMBO.Controls.Add(Me.ENPODER)
@@ -378,6 +382,24 @@ Partial Class Form4
         Me.Panel3.Size = New System.Drawing.Size(1119, 108)
         Me.Panel3.TabIndex = 75
         '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(634, 27)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(98, 34)
+        Me.Button4.TabIndex = 0
+        Me.Button4.Text = "Ver registro"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'Button5
+        '
+        Me.Button5.Location = New System.Drawing.Point(772, 27)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(98, 34)
+        Me.Button5.TabIndex = 63
+        Me.Button5.Text = "Modo devolucion"
+        Me.Button5.UseVisualStyleBackColor = True
+        '
         'Form4
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -389,9 +411,9 @@ Partial Class Form4
         Me.Controls.Add(Me.ComboBoxMORTAL)
         Me.Controls.Add(Me.NOMBRE)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.ExtCombo)
         Me.Controls.Add(Me.devoCOMBO)
         Me.Controls.Add(Me.Panel3)
+        Me.Controls.Add(Me.ExtCombo)
         Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.Name = "Form4"
         Me.Text = "PRESTAMOS"
@@ -443,4 +465,6 @@ Partial Class Form4
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
+    Friend WithEvents Button5 As System.Windows.Forms.Button
+    Friend WithEvents Button4 As System.Windows.Forms.Button
 End Class
