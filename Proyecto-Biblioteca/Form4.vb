@@ -34,15 +34,49 @@
 
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
 
-        If Consulta = "update usuarios set (tipo = ""libre"") where cedulaU = '" & Cedula.Text & "';" Then
-            consultar()
+        Dim Es_moroso As MsgBoxResult
+
+        'Consulta a DATAGRIDVIEW oculto
+
+        Consulta = "select cedula , nombre from usuarios where cedula like '" & Cedula.Text & "'  "
+        consultar()
+        DataGridView1.DataSource = Tabla
+
+        NOMBRE.Text = DataGridView1.Item(1, DataGridView1.CurrentRow.Index).Value
+
+        '////////////////////////////////
+
+        Es_moroso = MsgBox("Desea que el usuario " & NOMBRE.Text & " deje de ser moroso?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
+
+        Try
+
+            If Cedula.Text <> "" Then
+
+                '////////////////////////////////
+                If Es_moroso = vbYes Then
+
+                    Consulta = "update usuarios set (tipo = ""libre"") where cedulaU = '" & Cedula.Text & "';"
+                    consultar()
+
+                    MsgBox("El usuario " & NOMBRE.Text & " esta libre ahora", Title:="PRESTAMOS")
+                Else
+                    MsgBox("No se encontraron los datos", Title:="PRESTAMOS")
+                End If
+                '////////////////////////////////
+
+            Else
+
+                MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
+
+            End If
+
+        Catch ex As Exception
+
+            MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
+
+        End Try
 
 
-        Else
-
-            MsgBox("No se encontraron los datos", Title:="ERROR")
-
-        End If
 
     End Sub
 
@@ -69,6 +103,8 @@
                 Label5.Visible = True
                 NOMBRE.Text = DataGridView1.Item(1, DataGridView1.CurrentRow.Index).Value
 
+                ExtCombo.Visible = False
+                devoCOMBO.Visible = False
             End If
 
         Catch ex As Exception
@@ -76,6 +112,8 @@
             ComboBoxMORTAL.Visible = False
             MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
 
+            ExtCombo.Visible = False
+            devoCOMBO.Visible = False
         End Try
 
 
@@ -182,9 +220,6 @@
 
 
     Private Sub Cedula_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cedula.TextChanged
-
-
-
 
 
         '  If lista <> 0 Then
@@ -539,5 +574,54 @@
         consultar()
 
         DataGridAGG.DataSource = Tabla
+    End Sub
+
+    Private Sub Panel3_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles Panel3.Paint
+
+    End Sub
+
+    Private Sub Button6_Click(sender As System.Object, e As System.EventArgs) Handles Button6.Click
+
+        Dim Es_moroso2 As MsgBoxResult
+
+        'Consulta a DATAGRIDVIEW oculto
+
+        Consulta = "select cedula , nombre from usuarios where cedula like '" & Cedula.Text & "'  "
+        consultar()
+        DataGridView1.DataSource = Tabla
+
+        NOMBRE.Text = DataGridView1.Item(1, DataGridView1.CurrentRow.Index).Value
+
+        '////////////////////////////////
+
+        Es_moroso2 = MsgBox("Desea volver moroso al usuario " & NOMBRE.Text & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
+        Try
+
+            If Cedula.Text <> "" Then
+
+                '////////////////////////////////
+                If Es_moroso2 = vbYes Then
+
+                    Consulta = "update usuarios set (tipo = ""moroso"") where cedulaU = '" & Cedula.Text & "';"
+                    consultar()
+
+                    MsgBox("El usuario " & NOMBRE.Text & " es moroso ahora", Title:="PRESTAMOS")
+                Else
+                    MsgBox("No se encontraron los datos", Title:="PRESTAMOS")
+                End If
+
+                '////////////////////////////////
+
+            Else
+
+                MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
+            End If
+
+        Catch ex As Exception
+
+            MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
+
+        End Try
+
     End Sub
 End Class

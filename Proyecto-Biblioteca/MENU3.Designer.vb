@@ -66,6 +66,7 @@ Partial Class MENU3
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
+        Me.panel_menu.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -252,7 +253,7 @@ Partial Class MENU3
         Me.Panel3.Controls.Add(Me.Button2)
         Me.Panel3.Controls.Add(Me.Button3)
         Me.Panel3.Controls.Add(Me.WebBrowser1)
-        Me.Panel3.Location = New System.Drawing.Point(129, 44)
+        Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(1003, 646)
         Me.Panel3.TabIndex = 12
@@ -324,6 +325,7 @@ Partial Class MENU3
         '
         'panel_menu
         '
+        Me.panel_menu.Controls.Add(Me.Panel3)
         Me.panel_menu.Location = New System.Drawing.Point(129, 44)
         Me.panel_menu.Name = "panel_menu"
         Me.panel_menu.Size = New System.Drawing.Size(1006, 646)
@@ -335,7 +337,6 @@ Partial Class MENU3
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1134, 688)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.panel_menu)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -359,6 +360,7 @@ Partial Class MENU3
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
+        Me.panel_menu.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
