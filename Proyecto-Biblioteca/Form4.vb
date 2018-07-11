@@ -6,6 +6,7 @@
     Dim a As String
     Dim Libro1 As String
     Dim Libro2 As String
+    Dim cod_libros As String
     Dim Contador As Integer = 0
     Dim VALIDADOR As String
     '/////////////////////////////////////////////////////////
@@ -289,7 +290,7 @@
             If Cedula.Text <> "" Then
                 devoCOMBO.Visible = True
 
-                Consulta = "select * from prestamo p INNER JOIN libro l on p.cod_libro=l.cod_libro where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
+                Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamo p INNER JOIN libro l on p.cod_libro=l.cod_libro where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
                 consultar()
 
                 DataGridAGG.DataSource = Tabla
@@ -412,15 +413,16 @@
 
     Private Sub DataGridAGG_CellContentDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridAGG.CellContentDoubleClick
         'Consulta a DATAGRIDVIEW oculto
-        Consulta = "select * from prestamo p INNER JOIN libro l on p.cod_libro=l.cod_libro where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
+        Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamo p INNER JOIN libro l on p.cod_libro=l.cod_libro where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
+        DataGridAGG.DataSource = Tabla
         consultar()
 
-        DataGridAGG.DataSource = Tabla
+
         '////////////////////////////////
 
         'Para que si o si se tenga que ingresar una cedula para realizar las funciones 
         If Cedula.Text <> "" Then
-            Consulta = "select * from prestamo p INNER JOIN libro l on p.cod_libro=l.cod_libro where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
+            Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamo p INNER JOIN libro l on p.cod_libro=l.cod_libro where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
             DataGridAGG.DataSource = Tabla
 
             consultar()
@@ -428,36 +430,54 @@
             ComboBoxMORTAL.Visible = True
             '////////////////////////////////
 
-            Libro1 = DataGridAGG.Item(1, DataGridAGG.CurrentRow.Index).Value
+            Try
 
+                Libro1 = DataGridAGG.Item(2, DataGridAGG.CurrentRow.Index).Value
+                cod_libros = DataGridAGG.Item(1, DataGridAGG.CurrentRow.Index).Value
 
-            If DataGridAGG.Item(3, DataGridAGG.CurrentRow.Index).Value.ToString = "" Then
-                Dim a As MsgBoxResult
-                a = MsgBox("Desea devolver el libro " & Libro1 & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
+                If DataGridAGG.Item(4, DataGridAGG.CurrentRow.Index).Value.ToString = "" Then
+                    Dim a As MsgBoxResult
+                    a = MsgBox("Desea devolver el libro " & Libro1 & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
 
-                '       1) Si se devuelve el libro y se actualiza la Base da datos 
-                If a = vbYes Then
+                    '       1) Si se devuelve el libro y se actualiza la Base da datos 
+                    If a = vbYes Then
 
-                    Consulta = "update libro set estado = 'disponible' where cod_libro = '" & Libro1 & "';"
-                    consultar()
-                    Consulta = "UPDATE prestamo SET fecha_entrada = '" & Label4.Text & "' WHERE cedula = '" & Cedula.Text & "' and cod_libro ='" & Libro1 & "';"
-                    consultar()
-                    MsgBox("se ha devuelto", Title:="PRESTAMO")
+                        Consulta = "update libro set estado = 'disponible' where cod_libro = '" & cod_libros & "';"
+                        consultar()
+                        Consulta = "UPDATE prestamo SET fecha_entrada = '" & Label4.Text & "' WHERE cedula = '" & Cedula.Text & "' and cod_libro ='" & cod_libros & "';"
+                        consultar()
+                        MsgBox("se ha devuelto", Title:="PRESTAMO")
 
-                    Consulta = "select * from prestamo where cedula = '" & Cedula.Text & " ';"
-                    VERLIBROSAGG.DataSource = Tabla
-                    consultar()
+                        Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamo where cedula = '" & Cedula.Text & " ';"
+                        DataGridAGG.DataSource = Tabla
+                        consultar()
 
-                Else
+                    Else
 
-                    MsgBox("Este libro ya fue devuelto", Title:="PRESTAMOS")
+                        MsgBox("Este libro ya fue devuelto", Title:="PRESTAMOS")
 
+                        Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamo where cedula = '" & Cedula.Text & " ';"
+                        DataGridAGG.DataSource = Tabla
+                        consultar()
+                    End If
                 End If
-            End If
 
-            If a = vbNo Then
-                MsgBox("No", Title:="PRESTAMOS")
-            End If
+                If a = vbNo Then
+                    MsgBox("No", Title:="PRESTAMOS")
+                End If
+
+            Catch ex As Exception
+
+                MsgBox("Este libro ya esta devuelto", Title:="PRESTAMOS")
+
+                Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamo where cedula = '" & Cedula.Text & " ';"
+                DataGridAGG.DataSource = Tabla
+                consultar()
+
+            End Try
+
+
+
             '       1)/////////////////
 
         End If
@@ -509,13 +529,13 @@
     End Sub
 
     Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
-        Consulta = "select * from prestamo p INNER JOIN libro l on p.cod_libro=l.cod_libro where cedula= '" & Cedula.Text & "';"
+        Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamo p INNER JOIN libro l on p.cod_libro=l.cod_libro where cedula= '" & Cedula.Text & "';"
         consultar()
         DataGridAGG.DataSource = Tabla
     End Sub
 
     Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
-        Consulta = "select * from prestamo p INNER JOIN libro l on p.cod_libro=l.cod_libro where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
+        Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamo p INNER JOIN libro l on p.cod_libro=l.cod_libro where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
         consultar()
 
         DataGridAGG.DataSource = Tabla
