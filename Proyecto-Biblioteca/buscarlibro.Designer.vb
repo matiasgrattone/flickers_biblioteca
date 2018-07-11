@@ -30,26 +30,6 @@ Partial Class buscarlibro
         Me.Label2 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.volumen_label = New System.Windows.Forms.Label()
-        Me.titulo_label = New System.Windows.Forms.Label()
-        Me.autor_label = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.estado_label = New System.Windows.Forms.Label()
-        Me.observaciones_label = New System.Windows.Forms.Label()
-        Me.origen_label = New System.Windows.Forms.Label()
-        Me.fecha_label = New System.Windows.Forms.Label()
-        Me.editorial_label = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.cod_libro_label = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.estado_txt = New System.Windows.Forms.TextBox()
@@ -71,14 +51,34 @@ Partial Class buscarlibro
         Me.Label27 = New System.Windows.Forms.Label()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.volumen_label = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.titulo_label = New System.Windows.Forms.Label()
+        Me.cod_libro_label = New System.Windows.Forms.Label()
+        Me.autor_label = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.editorial_label = New System.Windows.Forms.Label()
+        Me.estado_label = New System.Windows.Forms.Label()
+        Me.fecha_label = New System.Windows.Forms.Label()
+        Me.observaciones_label = New System.Windows.Forms.Label()
+        Me.origen_label = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DataGridView2
@@ -113,10 +113,10 @@ Partial Class buscarlibro
         'TextBox1
         '
         Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(2, 48)
+        Me.TextBox1.Location = New System.Drawing.Point(12, 48)
         Me.TextBox1.Multiline = True
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(362, 28)
+        Me.TextBox1.Size = New System.Drawing.Size(352, 28)
         Me.TextBox1.TabIndex = 27
         '
         'Label2
@@ -137,11 +137,11 @@ Partial Class buscarlibro
         Me.DataGridView1.AllowUserToResizeRows = False
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.Lime
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(3, 91)
+        Me.DataGridView1.Location = New System.Drawing.Point(12, 91)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(623, 461)
+        Me.DataGridView1.Size = New System.Drawing.Size(614, 461)
         Me.DataGridView1.TabIndex = 25
         '
         'Panel1
@@ -172,214 +172,6 @@ Partial Class buscarlibro
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(291, 461)
         Me.Panel1.TabIndex = 31
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(94, 424)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(118, 25)
-        Me.Button2.TabIndex = 24
-        Me.Button2.Text = "Modificar"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'volumen_label
-        '
-        Me.volumen_label.AutoSize = True
-        Me.volumen_label.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.volumen_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.volumen_label.Location = New System.Drawing.Point(136, 226)
-        Me.volumen_label.Name = "volumen_label"
-        Me.volumen_label.Size = New System.Drawing.Size(63, 18)
-        Me.volumen_label.TabIndex = 23
-        Me.volumen_label.Text = "Volumen"
-        '
-        'titulo_label
-        '
-        Me.titulo_label.AutoSize = True
-        Me.titulo_label.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.titulo_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.titulo_label.Location = New System.Drawing.Point(136, 192)
-        Me.titulo_label.Name = "titulo_label"
-        Me.titulo_label.Size = New System.Drawing.Size(43, 18)
-        Me.titulo_label.TabIndex = 22
-        Me.titulo_label.Text = "Titulo"
-        '
-        'autor_label
-        '
-        Me.autor_label.AutoSize = True
-        Me.autor_label.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.autor_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.autor_label.Location = New System.Drawing.Point(136, 162)
-        Me.autor_label.Name = "autor_label"
-        Me.autor_label.Size = New System.Drawing.Size(41, 18)
-        Me.autor_label.TabIndex = 21
-        Me.autor_label.Text = "Autor"
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(19, 401)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(54, 16)
-        Me.Label14.TabIndex = 17
-        Me.Label14.Text = "Estado:"
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(19, 366)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(103, 16)
-        Me.Label13.TabIndex = 16
-        Me.Label13.Text = "Observaciones:"
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(20, 336)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(48, 16)
-        Me.Label12.TabIndex = 15
-        Me.Label12.Text = "Origen"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(19, 301)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(49, 16)
-        Me.Label11.TabIndex = 20
-        Me.Label11.Text = "Fecha:"
-        '
-        'estado_label
-        '
-        Me.estado_label.AutoSize = True
-        Me.estado_label.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.estado_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.estado_label.Location = New System.Drawing.Point(137, 399)
-        Me.estado_label.Name = "estado_label"
-        Me.estado_label.Size = New System.Drawing.Size(53, 18)
-        Me.estado_label.TabIndex = 19
-        Me.estado_label.Text = "Estado"
-        '
-        'observaciones_label
-        '
-        Me.observaciones_label.AutoSize = True
-        Me.observaciones_label.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.observaciones_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.observaciones_label.Location = New System.Drawing.Point(137, 364)
-        Me.observaciones_label.Name = "observaciones_label"
-        Me.observaciones_label.Size = New System.Drawing.Size(102, 18)
-        Me.observaciones_label.TabIndex = 18
-        Me.observaciones_label.Text = "Observaciones"
-        '
-        'origen_label
-        '
-        Me.origen_label.AutoSize = True
-        Me.origen_label.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.origen_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.origen_label.Location = New System.Drawing.Point(137, 332)
-        Me.origen_label.Name = "origen_label"
-        Me.origen_label.Size = New System.Drawing.Size(50, 18)
-        Me.origen_label.TabIndex = 14
-        Me.origen_label.Text = "Origen"
-        '
-        'fecha_label
-        '
-        Me.fecha_label.AutoSize = True
-        Me.fecha_label.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.fecha_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.fecha_label.Location = New System.Drawing.Point(137, 299)
-        Me.fecha_label.Name = "fecha_label"
-        Me.fecha_label.Size = New System.Drawing.Size(48, 18)
-        Me.fecha_label.TabIndex = 8
-        Me.fecha_label.Text = "Fecha"
-        '
-        'editorial_label
-        '
-        Me.editorial_label.AutoSize = True
-        Me.editorial_label.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.editorial_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.editorial_label.Location = New System.Drawing.Point(136, 262)
-        Me.editorial_label.Name = "editorial_label"
-        Me.editorial_label.Size = New System.Drawing.Size(59, 18)
-        Me.editorial_label.TabIndex = 9
-        Me.editorial_label.Text = "Editorial"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(19, 264)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(95, 16)
-        Me.Label9.TabIndex = 6
-        Me.Label9.Text = "Casa Editorial:"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(19, 228)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(64, 16)
-        Me.Label8.TabIndex = 7
-        Me.Label8.Text = "Volumen:"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(20, 193)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(44, 16)
-        Me.Label7.TabIndex = 12
-        Me.Label7.Text = "Titulo:"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(19, 161)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(42, 16)
-        Me.Label6.TabIndex = 13
-        Me.Label6.Text = "Autor:"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(19, 136)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(103, 16)
-        Me.Label5.TabIndex = 10
-        Me.Label5.Text = "Codigo de libro:"
-        '
-        'cod_libro_label
-        '
-        Me.cod_libro_label.AutoSize = True
-        Me.cod_libro_label.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.cod_libro_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cod_libro_label.Location = New System.Drawing.Point(136, 136)
-        Me.cod_libro_label.Name = "cod_libro_label"
-        Me.cod_libro_label.Size = New System.Drawing.Size(54, 18)
-        Me.cod_libro_label.TabIndex = 11
-        Me.cod_libro_label.Text = "Codigo"
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(84, 12)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(125, 111)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 5
-        Me.PictureBox1.TabStop = False
         '
         'Panel3
         '
@@ -594,6 +386,214 @@ Partial Class buscarlibro
         Me.PictureBox2.TabIndex = 5
         Me.PictureBox2.TabStop = False
         '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(94, 424)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(118, 25)
+        Me.Button2.TabIndex = 24
+        Me.Button2.Text = "Modificar"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(84, 12)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(125, 111)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 5
+        Me.PictureBox1.TabStop = False
+        '
+        'volumen_label
+        '
+        Me.volumen_label.AutoSize = True
+        Me.volumen_label.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.volumen_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.volumen_label.Location = New System.Drawing.Point(136, 226)
+        Me.volumen_label.Name = "volumen_label"
+        Me.volumen_label.Size = New System.Drawing.Size(63, 18)
+        Me.volumen_label.TabIndex = 23
+        Me.volumen_label.Text = "Volumen"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(19, 228)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(64, 16)
+        Me.Label8.TabIndex = 7
+        Me.Label8.Text = "Volumen:"
+        '
+        'titulo_label
+        '
+        Me.titulo_label.AutoSize = True
+        Me.titulo_label.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.titulo_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.titulo_label.Location = New System.Drawing.Point(136, 192)
+        Me.titulo_label.Name = "titulo_label"
+        Me.titulo_label.Size = New System.Drawing.Size(43, 18)
+        Me.titulo_label.TabIndex = 22
+        Me.titulo_label.Text = "Titulo"
+        '
+        'cod_libro_label
+        '
+        Me.cod_libro_label.AutoSize = True
+        Me.cod_libro_label.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.cod_libro_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cod_libro_label.Location = New System.Drawing.Point(136, 136)
+        Me.cod_libro_label.Name = "cod_libro_label"
+        Me.cod_libro_label.Size = New System.Drawing.Size(54, 18)
+        Me.cod_libro_label.TabIndex = 11
+        Me.cod_libro_label.Text = "Codigo"
+        '
+        'autor_label
+        '
+        Me.autor_label.AutoSize = True
+        Me.autor_label.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.autor_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.autor_label.Location = New System.Drawing.Point(136, 162)
+        Me.autor_label.Name = "autor_label"
+        Me.autor_label.Size = New System.Drawing.Size(41, 18)
+        Me.autor_label.TabIndex = 21
+        Me.autor_label.Text = "Autor"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(19, 136)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(103, 16)
+        Me.Label5.TabIndex = 10
+        Me.Label5.Text = "Codigo de libro:"
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(19, 401)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(54, 16)
+        Me.Label14.TabIndex = 17
+        Me.Label14.Text = "Estado:"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(19, 161)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(42, 16)
+        Me.Label6.TabIndex = 13
+        Me.Label6.Text = "Autor:"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(19, 366)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(103, 16)
+        Me.Label13.TabIndex = 16
+        Me.Label13.Text = "Observaciones:"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(20, 193)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(44, 16)
+        Me.Label7.TabIndex = 12
+        Me.Label7.Text = "Titulo:"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(20, 336)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(48, 16)
+        Me.Label12.TabIndex = 15
+        Me.Label12.Text = "Origen"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(19, 264)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(95, 16)
+        Me.Label9.TabIndex = 6
+        Me.Label9.Text = "Casa Editorial:"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(19, 301)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(49, 16)
+        Me.Label11.TabIndex = 20
+        Me.Label11.Text = "Fecha:"
+        '
+        'editorial_label
+        '
+        Me.editorial_label.AutoSize = True
+        Me.editorial_label.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.editorial_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.editorial_label.Location = New System.Drawing.Point(136, 262)
+        Me.editorial_label.Name = "editorial_label"
+        Me.editorial_label.Size = New System.Drawing.Size(59, 18)
+        Me.editorial_label.TabIndex = 9
+        Me.editorial_label.Text = "Editorial"
+        '
+        'estado_label
+        '
+        Me.estado_label.AutoSize = True
+        Me.estado_label.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.estado_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.estado_label.Location = New System.Drawing.Point(137, 399)
+        Me.estado_label.Name = "estado_label"
+        Me.estado_label.Size = New System.Drawing.Size(53, 18)
+        Me.estado_label.TabIndex = 19
+        Me.estado_label.Text = "Estado"
+        '
+        'fecha_label
+        '
+        Me.fecha_label.AutoSize = True
+        Me.fecha_label.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.fecha_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.fecha_label.Location = New System.Drawing.Point(137, 299)
+        Me.fecha_label.Name = "fecha_label"
+        Me.fecha_label.Size = New System.Drawing.Size(48, 18)
+        Me.fecha_label.TabIndex = 8
+        Me.fecha_label.Text = "Fecha"
+        '
+        'observaciones_label
+        '
+        Me.observaciones_label.AutoSize = True
+        Me.observaciones_label.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.observaciones_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.observaciones_label.Location = New System.Drawing.Point(137, 364)
+        Me.observaciones_label.Name = "observaciones_label"
+        Me.observaciones_label.Size = New System.Drawing.Size(102, 18)
+        Me.observaciones_label.TabIndex = 18
+        Me.observaciones_label.Text = "Observaciones"
+        '
+        'origen_label
+        '
+        Me.origen_label.AutoSize = True
+        Me.origen_label.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.origen_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.origen_label.Location = New System.Drawing.Point(137, 332)
+        Me.origen_label.Name = "origen_label"
+        Me.origen_label.Size = New System.Drawing.Size(50, 18)
+        Me.origen_label.TabIndex = 14
+        Me.origen_label.Text = "Origen"
+        '
         'Panel2
         '
         Me.Panel2.Location = New System.Drawing.Point(13, 6)
@@ -629,16 +629,17 @@ Partial Class buscarlibro
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Panel1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "buscarlibro"
         Me.Text = "Form2"
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

@@ -42,12 +42,11 @@ Partial Class Seleccion_Libro
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Green
-        Me.Panel1.Controls.Add(Me.Panel2)
         Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Location = New System.Drawing.Point(-1, 0)
+        Me.Panel1.Location = New System.Drawing.Point(56, -1)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1011, 651)
+        Me.Panel1.Size = New System.Drawing.Size(951, 651)
         Me.Panel1.TabIndex = 0
         '
         'Panel2
@@ -83,7 +82,7 @@ Partial Class Seleccion_Libro
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.books
-        Me.PictureBox1.Location = New System.Drawing.Point(410, 214)
+        Me.PictureBox1.Location = New System.Drawing.Point(356, 215)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(133, 125)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -121,6 +120,7 @@ Partial Class Seleccion_Libro
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1008, 649)
+        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Seleccion_Libro"

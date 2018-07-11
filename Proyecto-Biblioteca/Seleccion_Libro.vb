@@ -57,11 +57,22 @@
     End Sub
 
     Private Sub Panel2_MouseEnter(sender As Object, e As System.EventArgs) Handles Panel2.MouseEnter
+        If P1 = 1 Then
+            Timer1.Enabled = False
+            Timer2.Enabled = False
+            Timer3.Enabled = True
+            Timer4.Enabled = False
+            buscarlibro.Close()
 
-        Timer1.Enabled = False
-        Timer2.Enabled = False
-        Timer3.Enabled = True
-        Timer4.Enabled = False
+            P1 = 0
+        End If
+        If P1 = 0 Then
+            Timer1.Enabled = False
+            Timer2.Enabled = False
+            Timer3.Enabled = True
+            Timer4.Enabled = False
+            P1 = 1
+        End If
 
     End Sub
 
@@ -84,14 +95,30 @@
     End Sub
 
     Private Sub Panel1_mouseclick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseClick
+
+
+        Dim buscarlibro As New buscarlibro
+
+        buscarlibro.TopLevel = False
+        buscarlibro.Parent = Panel1
         buscarlibro.Show()
+        PictureBox1.Visible = False
+        Label2.Visible = False
+        buscarlibro.Dock = DockStyle.Fill
+        P1 = 1
+
     End Sub
+
 
     Private Sub Panel2_mouseclick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel2.MouseClick
         ingresolibro.Show()
     End Sub
 
     Private Sub Panel1_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Panel1.Paint
+
+    End Sub
+
+    Private Sub Panel2_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Panel2.Paint
 
     End Sub
 End Class
