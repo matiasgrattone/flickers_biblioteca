@@ -46,7 +46,6 @@ Partial Class ingresolibro
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.autor = New System.Windows.Forms.TextBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
@@ -54,63 +53,62 @@ Partial Class ingresolibro
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'observaciones
         '
-        Me.observaciones.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.observaciones.Location = New System.Drawing.Point(181, 327)
+        Me.observaciones.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.observaciones.Location = New System.Drawing.Point(463, 139)
         Me.observaciones.Name = "observaciones"
-        Me.observaciones.Size = New System.Drawing.Size(178, 29)
+        Me.observaciones.Size = New System.Drawing.Size(178, 22)
         Me.observaciones.TabIndex = 33
         '
         'origen
         '
-        Me.origen.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.origen.Location = New System.Drawing.Point(181, 292)
+        Me.origen.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.origen.Location = New System.Drawing.Point(171, 138)
         Me.origen.Name = "origen"
-        Me.origen.Size = New System.Drawing.Size(178, 29)
+        Me.origen.Size = New System.Drawing.Size(178, 22)
         Me.origen.TabIndex = 30
         '
         'fecha
         '
-        Me.fecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.fecha.Location = New System.Drawing.Point(181, 257)
+        Me.fecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.fecha.Location = New System.Drawing.Point(170, 108)
         Me.fecha.Name = "fecha"
-        Me.fecha.Size = New System.Drawing.Size(178, 29)
+        Me.fecha.Size = New System.Drawing.Size(178, 22)
         Me.fecha.TabIndex = 31
         '
         'casa_editorial
         '
-        Me.casa_editorial.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.casa_editorial.Location = New System.Drawing.Point(182, 223)
+        Me.casa_editorial.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.casa_editorial.Location = New System.Drawing.Point(461, 111)
         Me.casa_editorial.Name = "casa_editorial"
-        Me.casa_editorial.Size = New System.Drawing.Size(143, 29)
+        Me.casa_editorial.Size = New System.Drawing.Size(143, 22)
         Me.casa_editorial.TabIndex = 34
         '
         'volumen
         '
-        Me.volumen.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.volumen.Location = New System.Drawing.Point(181, 187)
+        Me.volumen.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.volumen.Location = New System.Drawing.Point(460, 82)
         Me.volumen.Name = "volumen"
-        Me.volumen.Size = New System.Drawing.Size(178, 29)
+        Me.volumen.Size = New System.Drawing.Size(178, 22)
         Me.volumen.TabIndex = 37
         '
         'titulo
         '
-        Me.titulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.titulo.Location = New System.Drawing.Point(181, 152)
+        Me.titulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.titulo.Location = New System.Drawing.Point(170, 81)
         Me.titulo.Name = "titulo"
-        Me.titulo.Size = New System.Drawing.Size(178, 29)
+        Me.titulo.Size = New System.Drawing.Size(178, 22)
         Me.titulo.TabIndex = 38
         '
         'cod_libro
         '
-        Me.cod_libro.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cod_libro.Location = New System.Drawing.Point(181, 85)
+        Me.cod_libro.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cod_libro.Location = New System.Drawing.Point(170, 50)
         Me.cod_libro.Name = "cod_libro"
-        Me.cod_libro.Size = New System.Drawing.Size(178, 29)
+        Me.cod_libro.Size = New System.Drawing.Size(178, 22)
         Me.cod_libro.TabIndex = 36
         '
         'DataGridView1
@@ -120,21 +118,21 @@ Partial Class ingresolibro
         Me.DataGridView1.AllowUserToResizeColumns = False
         Me.DataGridView1.AllowUserToResizeRows = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(417, 46)
+        Me.DataGridView1.Location = New System.Drawing.Point(2, 227)
         Me.DataGridView1.MultiSelect = False
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(944, 430)
+        Me.DataGridView1.Size = New System.Drawing.Size(870, 321)
         Me.DataGridView1.TabIndex = 21
         '
         'ingresar_boton
         '
         Me.ingresar_boton.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ingresar_boton.Location = New System.Drawing.Point(182, 391)
+        Me.ingresar_boton.Location = New System.Drawing.Point(295, 177)
         Me.ingresar_boton.Name = "ingresar_boton"
-        Me.ingresar_boton.Size = New System.Drawing.Size(183, 61)
+        Me.ingresar_boton.Size = New System.Drawing.Size(183, 44)
         Me.ingresar_boton.TabIndex = 20
         Me.ingresar_boton.Text = "Ingresar"
         Me.ingresar_boton.UseVisualStyleBackColor = True
@@ -142,96 +140,97 @@ Partial Class ingresolibro
         'Editorial_label
         '
         Me.Editorial_label.AutoSize = True
-        Me.Editorial_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Editorial_label.Location = New System.Drawing.Point(31, 222)
+        Me.Editorial_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Editorial_label.Location = New System.Drawing.Point(362, 111)
         Me.Editorial_label.Name = "Editorial_label"
-        Me.Editorial_label.Size = New System.Drawing.Size(144, 24)
+        Me.Editorial_label.Size = New System.Drawing.Size(95, 16)
         Me.Editorial_label.TabIndex = 13
         Me.Editorial_label.Text = "Casa Editorial:"
         '
         'observaciones_label
         '
         Me.observaciones_label.AutoSize = True
-        Me.observaciones_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.observaciones_label.Location = New System.Drawing.Point(28, 323)
+        Me.observaciones_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.observaciones_label.Location = New System.Drawing.Point(362, 141)
         Me.observaciones_label.Name = "observaciones_label"
-        Me.observaciones_label.Size = New System.Drawing.Size(156, 24)
+        Me.observaciones_label.Size = New System.Drawing.Size(103, 16)
         Me.observaciones_label.TabIndex = 11
         Me.observaciones_label.Text = "Observaciones:"
         '
         'origen_label
         '
         Me.origen_label.AutoSize = True
-        Me.origen_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.origen_label.Location = New System.Drawing.Point(95, 291)
+        Me.origen_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.origen_label.Location = New System.Drawing.Point(117, 141)
         Me.origen_label.Name = "origen_label"
-        Me.origen_label.Size = New System.Drawing.Size(80, 24)
+        Me.origen_label.Size = New System.Drawing.Size(51, 16)
         Me.origen_label.TabIndex = 17
         Me.origen_label.Text = "Origen:"
         '
         'fecha_label
         '
         Me.fecha_label.AutoSize = True
-        Me.fecha_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.fecha_label.Location = New System.Drawing.Point(100, 257)
+        Me.fecha_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.fecha_label.Location = New System.Drawing.Point(119, 111)
         Me.fecha_label.Name = "fecha_label"
-        Me.fecha_label.Size = New System.Drawing.Size(75, 24)
+        Me.fecha_label.Size = New System.Drawing.Size(49, 16)
         Me.fecha_label.TabIndex = 12
         Me.fecha_label.Text = "Fecha:"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(75, 186)
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(390, 85)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(100, 24)
+        Me.Label5.Size = New System.Drawing.Size(64, 16)
         Me.Label5.TabIndex = 15
         Me.Label5.Text = "Volumen:"
         '
         'titulo_label
         '
         Me.titulo_label.AutoSize = True
-        Me.titulo_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.titulo_label.Location = New System.Drawing.Point(107, 152)
+        Me.titulo_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.titulo_label.Location = New System.Drawing.Point(128, 84)
         Me.titulo_label.Name = "titulo_label"
-        Me.titulo_label.Size = New System.Drawing.Size(68, 24)
+        Me.titulo_label.Size = New System.Drawing.Size(44, 16)
         Me.titulo_label.TabIndex = 19
         Me.titulo_label.Text = "Titulo:"
         '
         'autor_label
         '
         Me.autor_label.AutoSize = True
-        Me.autor_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.autor_label.Location = New System.Drawing.Point(109, 118)
+        Me.autor_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.autor_label.Location = New System.Drawing.Point(412, 56)
         Me.autor_label.Name = "autor_label"
-        Me.autor_label.Size = New System.Drawing.Size(66, 24)
+        Me.autor_label.Size = New System.Drawing.Size(42, 16)
         Me.autor_label.TabIndex = 18
         Me.autor_label.Text = "Autor:"
         '
         'id_label
         '
         Me.id_label.AutoSize = True
-        Me.id_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.id_label.Location = New System.Drawing.Point(140, 85)
+        Me.id_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.id_label.Location = New System.Drawing.Point(149, 54)
         Me.id_label.Name = "id_label"
-        Me.id_label.Size = New System.Drawing.Size(35, 24)
+        Me.id_label.Size = New System.Drawing.Size(24, 16)
         Me.id_label.TabIndex = 16
         Me.id_label.Text = "ID:"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(169, 46)
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(313, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(206, 24)
+        Me.Label1.Size = New System.Drawing.Size(186, 24)
         Me.Label1.TabIndex = 10
         Me.Label1.Text = "Ingresar Nuevo Libro"
         '
         'Button6
         '
-        Me.Button6.Location = New System.Drawing.Point(330, 122)
+        Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.Location = New System.Drawing.Point(608, 51)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(65, 24)
         Me.Button6.TabIndex = 40
@@ -240,8 +239,8 @@ Partial Class ingresolibro
         '
         'Button2
         '
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(334, 225)
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Location = New System.Drawing.Point(610, 109)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(61, 27)
         Me.Button2.TabIndex = 39
@@ -276,45 +275,35 @@ Partial Class ingresolibro
         Me.PictureBox1.TabIndex = 22
         Me.PictureBox1.TabStop = False
         '
-        'PictureBox4
-        '
-        Me.PictureBox4.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.PictureBox4.Image = CType(resources.GetObject("PictureBox4.Image"), System.Drawing.Image)
-        Me.PictureBox4.Location = New System.Drawing.Point(12, -1)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(1325, 31)
-        Me.PictureBox4.TabIndex = 25
-        Me.PictureBox4.TabStop = False
-        '
         'autor
         '
-        Me.autor.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.autor.Location = New System.Drawing.Point(182, 118)
+        Me.autor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.autor.Location = New System.Drawing.Point(460, 52)
         Me.autor.Name = "autor"
-        Me.autor.Size = New System.Drawing.Size(143, 29)
+        Me.autor.Size = New System.Drawing.Size(143, 22)
         Me.autor.TabIndex = 41
         '
         'TextBox1
         '
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(182, 118)
+        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox1.Location = New System.Drawing.Point(460, 52)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(143, 29)
+        Me.TextBox1.Size = New System.Drawing.Size(143, 22)
         Me.TextBox1.TabIndex = 42
         '
         'TextBox2
         '
-        Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(182, 223)
+        Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox2.Location = New System.Drawing.Point(461, 111)
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(143, 29)
+        Me.TextBox2.Size = New System.Drawing.Size(143, 22)
         Me.TextBox2.TabIndex = 43
         '
         'ingresolibro
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1398, 516)
+        Me.ClientSize = New System.Drawing.Size(884, 625)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.observaciones)
@@ -338,7 +327,6 @@ Partial Class ingresolibro
         Me.Controls.Add(Me.autor_label)
         Me.Controls.Add(Me.id_label)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.PictureBox4)
         Me.Controls.Add(Me.autor)
         Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.TextBox1)
@@ -348,7 +336,6 @@ Partial Class ingresolibro
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -374,7 +361,6 @@ Partial Class ingresolibro
     Friend WithEvents autor_label As System.Windows.Forms.Label
     Friend WithEvents id_label As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
     Friend WithEvents Button6 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents autor As System.Windows.Forms.TextBox

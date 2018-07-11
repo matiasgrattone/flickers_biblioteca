@@ -90,4 +90,8 @@
     Private Sub Panel2_mouseclick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel2.MouseClick
         ingresolibro.Show()
     End Sub
+
+    Private Sub Panel1_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Panel1.Paint
+
+    End Sub
 End Class
