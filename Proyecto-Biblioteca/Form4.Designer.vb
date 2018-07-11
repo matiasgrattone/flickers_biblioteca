@@ -27,11 +27,13 @@ Partial Class Form4
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button6 = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Cedula = New System.Windows.Forms.TextBox()
         Me.LIBROSAGG = New System.Windows.Forms.ListBox()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.NOMBRE = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.IDAGG = New System.Windows.Forms.ListBox()
         Me.Button3 = New System.Windows.Forms.Button()
@@ -40,8 +42,11 @@ Partial Class Form4
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.devoCOMBO = New System.Windows.Forms.GroupBox()
-        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Label13 = New System.Windows.Forms.Label()
         Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.DataGridAGG = New System.Windows.Forms.DataGridView()
         Me.ENPODER = New System.Windows.Forms.Label()
@@ -53,14 +58,8 @@ Partial Class Form4
         Me.Label6 = New System.Windows.Forms.Label()
         Me.VERLIBROSAGG = New System.Windows.Forms.DataGridView()
         Me.ComboBoxMORTAL = New System.Windows.Forms.ComboBox()
-        Me.NOMBRE = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.Button6 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -114,6 +113,15 @@ Partial Class Form4
         Me.Panel1.Size = New System.Drawing.Size(268, 676)
         Me.Panel1.TabIndex = 73
         '
+        'Button6
+        '
+        Me.Button6.Location = New System.Drawing.Point(17, 631)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(86, 29)
+        Me.Button6.TabIndex = 80
+        Me.Button6.Text = "Moroso"
+        Me.Button6.UseVisualStyleBackColor = True
+        '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.SystemColors.HighlightText
@@ -153,16 +161,28 @@ Partial Class Form4
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(14, 487)
+        Me.Label4.Location = New System.Drawing.Point(168, 251)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(39, 13)
         Me.Label4.TabIndex = 72
         Me.Label4.Text = "Label4"
         '
+        'NOMBRE
+        '
+        Me.NOMBRE.AutoSize = True
+        Me.NOMBRE.BackColor = System.Drawing.Color.OrangeRed
+        Me.NOMBRE.Font = New System.Drawing.Font("Impact", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NOMBRE.ForeColor = System.Drawing.Color.Black
+        Me.NOMBRE.Location = New System.Drawing.Point(18, 144)
+        Me.NOMBRE.Name = "NOMBRE"
+        Me.NOMBRE.Size = New System.Drawing.Size(90, 29)
+        Me.NOMBRE.TabIndex = 60
+        Me.NOMBRE.Text = "Nombre"
+        '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(17, 533)
+        Me.Label2.Location = New System.Drawing.Point(171, 297)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(39, 13)
         Me.Label2.TabIndex = 71
@@ -241,14 +261,15 @@ Partial Class Form4
         Me.devoCOMBO.TabStop = False
         Me.devoCOMBO.Text = "DEVOLUCION"
         '
-        'Button5
+        'Label13
         '
-        Me.Button5.Location = New System.Drawing.Point(573, 140)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(98, 34)
-        Me.Button5.TabIndex = 63
-        Me.Button5.Text = "Modo devolucion"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!)
+        Me.Label13.Location = New System.Drawing.Point(18, 48)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(21, 15)
+        Me.Label13.TabIndex = 79
+        Me.Label13.Text = "ID"
         '
         'Button4
         '
@@ -258,6 +279,32 @@ Partial Class Form4
         Me.Button4.TabIndex = 0
         Me.Button4.Text = "Ver registro"
         Me.Button4.UseVisualStyleBackColor = True
+        '
+        'Button5
+        '
+        Me.Button5.Location = New System.Drawing.Point(573, 140)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(98, 34)
+        Me.Button5.TabIndex = 63
+        Me.Button5.Text = "Modo devolucion"
+        Me.Button5.UseVisualStyleBackColor = True
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(45, 48)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(156, 20)
+        Me.TextBox1.TabIndex = 78
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!)
+        Me.Label14.Location = New System.Drawing.Point(18, 26)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(106, 15)
+        Me.Label14.TabIndex = 77
+        Me.Label14.Text = "BUSCAR LIBRO"
         '
         'Label11
         '
@@ -365,90 +412,30 @@ Partial Class Form4
         '
         Me.ComboBoxMORTAL.FormattingEnabled = True
         Me.ComboBoxMORTAL.Items.AddRange(New Object() {"Extraccion", "Devolucion"})
-        Me.ComboBoxMORTAL.Location = New System.Drawing.Point(10, 39)
+        Me.ComboBoxMORTAL.Location = New System.Drawing.Point(28, 39)
         Me.ComboBoxMORTAL.Name = "ComboBoxMORTAL"
         Me.ComboBoxMORTAL.Size = New System.Drawing.Size(173, 21)
         Me.ComboBoxMORTAL.TabIndex = 65
-        '
-        'NOMBRE
-        '
-        Me.NOMBRE.AutoSize = True
-        Me.NOMBRE.BackColor = System.Drawing.Color.OrangeRed
-        Me.NOMBRE.Font = New System.Drawing.Font("Impact", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NOMBRE.ForeColor = System.Drawing.Color.Black
-        Me.NOMBRE.Location = New System.Drawing.Point(18, 144)
-        Me.NOMBRE.Name = "NOMBRE"
-        Me.NOMBRE.Size = New System.Drawing.Size(90, 29)
-        Me.NOMBRE.TabIndex = 60
-        Me.NOMBRE.Text = "Nombre"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(10, 14)
+        Me.Label5.Location = New System.Drawing.Point(25, 14)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(176, 15)
         Me.Label5.TabIndex = 66
         Me.Label5.Text = "SELECCION DE FUNCION "
         '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label12.Font = New System.Drawing.Font("Impact", 20.25!)
-        Me.Label12.Location = New System.Drawing.Point(537, 37)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(186, 34)
-        Me.Label12.TabIndex = 74
-        Me.Label12.Text = "Volver al menu "
-        '
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.Panel3.Controls.Add(Me.Label5)
-        Me.Panel3.Controls.Add(Me.Label12)
         Me.Panel3.Controls.Add(Me.ComboBoxMORTAL)
         Me.Panel3.Location = New System.Drawing.Point(259, -2)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(745, 112)
         Me.Panel3.TabIndex = 75
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!)
-        Me.Label13.Location = New System.Drawing.Point(18, 48)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(21, 15)
-        Me.Label13.TabIndex = 79
-        Me.Label13.Text = "ID"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(45, 48)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(156, 20)
-        Me.TextBox1.TabIndex = 78
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!)
-        Me.Label14.Location = New System.Drawing.Point(18, 26)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(106, 15)
-        Me.Label14.TabIndex = 77
-        Me.Label14.Text = "BUSCAR LIBRO"
-        '
-        'Button6
-        '
-        Me.Button6.Location = New System.Drawing.Point(17, 631)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(86, 29)
-        Me.Button6.TabIndex = 80
-        Me.Button6.Text = "Moroso"
-        Me.Button6.UseVisualStyleBackColor = True
         '
         'Form4
         '
@@ -511,7 +498,6 @@ Partial Class Form4
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents Button4 As System.Windows.Forms.Button

@@ -549,7 +549,7 @@
 
 
 
-    Private Sub Label12_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label12.Click
+    Private Sub Label12_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Dim MSBOX_Consulta As MsgBoxResult
         MSBOX_Consulta = MsgBox("Desea volver al menú de inicio?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
 
