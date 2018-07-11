@@ -27,11 +27,13 @@ Partial Class Form4
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button6 = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Cedula = New System.Windows.Forms.TextBox()
         Me.LIBROSAGG = New System.Windows.Forms.ListBox()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.NOMBRE = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.IDAGG = New System.Windows.Forms.ListBox()
         Me.Button3 = New System.Windows.Forms.Button()
@@ -40,6 +42,11 @@ Partial Class Form4
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.devoCOMBO = New System.Windows.Forms.GroupBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.DataGridAGG = New System.Windows.Forms.DataGridView()
         Me.ENPODER = New System.Windows.Forms.Label()
@@ -51,12 +58,8 @@ Partial Class Form4
         Me.Label6 = New System.Windows.Forms.Label()
         Me.VERLIBROSAGG = New System.Windows.Forms.DataGridView()
         Me.ComboBoxMORTAL = New System.Windows.Forms.ComboBox()
-        Me.NOMBRE = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -65,6 +68,7 @@ Partial Class Form4
         CType(Me.DataGridAGG, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ExtCombo.SuspendLayout()
         CType(Me.VERLIBROSAGG, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'Timer1
@@ -73,9 +77,9 @@ Partial Class Form4
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(20, 463)
+        Me.Button2.Location = New System.Drawing.Point(560, 157)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(288, 80)
+        Me.Button2.Size = New System.Drawing.Size(138, 52)
         Me.Button2.TabIndex = 75
         Me.Button2.Text = "EXTRAER"
         Me.Button2.UseVisualStyleBackColor = True
@@ -92,9 +96,11 @@ Partial Class Form4
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.OrangeRed
+        Me.Panel1.Controls.Add(Me.Button6)
         Me.Panel1.Controls.Add(Me.Panel2)
         Me.Panel1.Controls.Add(Me.LIBROSAGG)
         Me.Panel1.Controls.Add(Me.Label4)
+        Me.Panel1.Controls.Add(Me.NOMBRE)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.IDAGG)
         Me.Panel1.Controls.Add(Me.Button3)
@@ -102,10 +108,19 @@ Partial Class Form4
         Me.Panel1.Controls.Add(Me.OPA)
         Me.Panel1.Controls.Add(Me.Label9)
         Me.Panel1.Controls.Add(Me.Label8)
-        Me.Panel1.Location = New System.Drawing.Point(-6, -27)
+        Me.Panel1.Location = New System.Drawing.Point(-5, -26)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(254, 712)
+        Me.Panel1.Size = New System.Drawing.Size(268, 676)
         Me.Panel1.TabIndex = 73
+        '
+        'Button6
+        '
+        Me.Button6.Location = New System.Drawing.Point(17, 631)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(86, 29)
+        Me.Button6.TabIndex = 80
+        Me.Button6.Text = "Moroso"
+        Me.Button6.UseVisualStyleBackColor = True
         '
         'Panel2
         '
@@ -138,24 +153,36 @@ Partial Class Form4
         'LIBROSAGG
         '
         Me.LIBROSAGG.FormattingEnabled = True
-        Me.LIBROSAGG.Location = New System.Drawing.Point(18, 228)
+        Me.LIBROSAGG.Location = New System.Drawing.Point(9, 228)
         Me.LIBROSAGG.Name = "LIBROSAGG"
-        Me.LIBROSAGG.Size = New System.Drawing.Size(227, 238)
+        Me.LIBROSAGG.Size = New System.Drawing.Size(249, 238)
         Me.LIBROSAGG.TabIndex = 68
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(19, 486)
+        Me.Label4.Location = New System.Drawing.Point(168, 251)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(39, 13)
         Me.Label4.TabIndex = 72
         Me.Label4.Text = "Label4"
         '
+        'NOMBRE
+        '
+        Me.NOMBRE.AutoSize = True
+        Me.NOMBRE.BackColor = System.Drawing.Color.OrangeRed
+        Me.NOMBRE.Font = New System.Drawing.Font("Impact", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NOMBRE.ForeColor = System.Drawing.Color.Black
+        Me.NOMBRE.Location = New System.Drawing.Point(18, 144)
+        Me.NOMBRE.Name = "NOMBRE"
+        Me.NOMBRE.Size = New System.Drawing.Size(90, 29)
+        Me.NOMBRE.TabIndex = 60
+        Me.NOMBRE.Text = "Nombre"
+        '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(20, 534)
+        Me.Label2.Location = New System.Drawing.Point(171, 297)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(39, 13)
         Me.Label2.TabIndex = 71
@@ -171,11 +198,11 @@ Partial Class Form4
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(17, 669)
+        Me.Button3.Location = New System.Drawing.Point(171, 631)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(86, 29)
         Me.Button3.TabIndex = 59
-        Me.Button3.Text = "Moroso"
+        Me.Button3.Text = "Liberar"
         Me.Button3.UseVisualStyleBackColor = True
         '
         'DataGridView1
@@ -218,24 +245,72 @@ Partial Class Form4
         '
         'devoCOMBO
         '
-        Me.devoCOMBO.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.devoCOMBO.Controls.Add(Me.Button5)
+        Me.devoCOMBO.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.devoCOMBO.Controls.Add(Me.Label13)
         Me.devoCOMBO.Controls.Add(Me.Button4)
+        Me.devoCOMBO.Controls.Add(Me.Button5)
+        Me.devoCOMBO.Controls.Add(Me.TextBox1)
+        Me.devoCOMBO.Controls.Add(Me.Label14)
         Me.devoCOMBO.Controls.Add(Me.Label11)
         Me.devoCOMBO.Controls.Add(Me.DataGridAGG)
         Me.devoCOMBO.Controls.Add(Me.ENPODER)
-        Me.devoCOMBO.Location = New System.Drawing.Point(261, 117)
+        Me.devoCOMBO.Location = New System.Drawing.Point(266, 112)
         Me.devoCOMBO.Name = "devoCOMBO"
-        Me.devoCOMBO.Size = New System.Drawing.Size(1072, 555)
+        Me.devoCOMBO.Size = New System.Drawing.Size(738, 533)
         Me.devoCOMBO.TabIndex = 67
         Me.devoCOMBO.TabStop = False
         Me.devoCOMBO.Text = "DEVOLUCION"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!)
+        Me.Label13.Location = New System.Drawing.Point(18, 48)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(21, 15)
+        Me.Label13.TabIndex = 79
+        Me.Label13.Text = "ID"
+        '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(573, 195)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(98, 34)
+        Me.Button4.TabIndex = 0
+        Me.Button4.Text = "Ver registro"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'Button5
+        '
+        Me.Button5.Location = New System.Drawing.Point(573, 140)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(98, 34)
+        Me.Button5.TabIndex = 63
+        Me.Button5.Text = "Modo devolucion"
+        Me.Button5.UseVisualStyleBackColor = True
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(45, 48)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(156, 20)
+        Me.TextBox1.TabIndex = 78
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!)
+        Me.Label14.Location = New System.Drawing.Point(18, 26)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(106, 15)
+        Me.Label14.TabIndex = 77
+        Me.Label14.Text = "BUSCAR LIBRO"
         '
         'Label11
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Impact", 20.25!)
-        Me.Label11.Location = New System.Drawing.Point(917, 27)
+        Me.Label11.Location = New System.Drawing.Point(567, 32)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(148, 34)
         Me.Label11.TabIndex = 62
@@ -244,9 +319,9 @@ Partial Class Form4
         'DataGridAGG
         '
         Me.DataGridAGG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridAGG.Location = New System.Drawing.Point(17, 130)
+        Me.DataGridAGG.Location = New System.Drawing.Point(21, 139)
         Me.DataGridAGG.Name = "DataGridAGG"
-        Me.DataGridAGG.Size = New System.Drawing.Size(1048, 314)
+        Me.DataGridAGG.Size = New System.Drawing.Size(489, 314)
         Me.DataGridAGG.TabIndex = 0
         '
         'ENPODER
@@ -254,7 +329,7 @@ Partial Class Form4
         Me.ENPODER.AutoSize = True
         Me.ENPODER.Font = New System.Drawing.Font("Impact", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ENPODER.ForeColor = System.Drawing.Color.DarkViolet
-        Me.ENPODER.Location = New System.Drawing.Point(13, 94)
+        Me.ENPODER.Location = New System.Drawing.Point(15, 92)
         Me.ENPODER.Name = "ENPODER"
         Me.ENPODER.Size = New System.Drawing.Size(187, 34)
         Me.ENPODER.TabIndex = 61
@@ -262,6 +337,7 @@ Partial Class Form4
         '
         'ExtCombo
         '
+        Me.ExtCombo.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ExtCombo.Controls.Add(Me.Label7)
         Me.ExtCombo.Controls.Add(Me.Label3)
         Me.ExtCombo.Controls.Add(Me.Label10)
@@ -269,9 +345,9 @@ Partial Class Form4
         Me.ExtCombo.Controls.Add(Me.LIBROS)
         Me.ExtCombo.Controls.Add(Me.Label6)
         Me.ExtCombo.Controls.Add(Me.VERLIBROSAGG)
-        Me.ExtCombo.Location = New System.Drawing.Point(261, 117)
+        Me.ExtCombo.Location = New System.Drawing.Point(267, 111)
         Me.ExtCombo.Name = "ExtCombo"
-        Me.ExtCombo.Size = New System.Drawing.Size(1089, 555)
+        Me.ExtCombo.Size = New System.Drawing.Size(737, 534)
         Me.ExtCombo.TabIndex = 66
         Me.ExtCombo.TabStop = False
         Me.ExtCombo.Text = "EXTRACCION"
@@ -280,7 +356,7 @@ Partial Class Form4
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Impact", 20.25!)
-        Me.Label7.Location = New System.Drawing.Point(918, 27)
+        Me.Label7.Location = New System.Drawing.Point(566, 33)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(147, 34)
         Me.Label7.TabIndex = 76
@@ -327,94 +403,52 @@ Partial Class Form4
         'VERLIBROSAGG
         '
         Me.VERLIBROSAGG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.VERLIBROSAGG.Location = New System.Drawing.Point(20, 130)
+        Me.VERLIBROSAGG.Location = New System.Drawing.Point(20, 140)
         Me.VERLIBROSAGG.Name = "VERLIBROSAGG"
-        Me.VERLIBROSAGG.Size = New System.Drawing.Size(1045, 314)
+        Me.VERLIBROSAGG.Size = New System.Drawing.Size(489, 314)
         Me.VERLIBROSAGG.TabIndex = 17
         '
         'ComboBoxMORTAL
         '
         Me.ComboBoxMORTAL.FormattingEnabled = True
         Me.ComboBoxMORTAL.Items.AddRange(New Object() {"Extraccion", "Devolucion"})
-        Me.ComboBoxMORTAL.Location = New System.Drawing.Point(264, 35)
+        Me.ComboBoxMORTAL.Location = New System.Drawing.Point(28, 39)
         Me.ComboBoxMORTAL.Name = "ComboBoxMORTAL"
         Me.ComboBoxMORTAL.Size = New System.Drawing.Size(173, 21)
         Me.ComboBoxMORTAL.TabIndex = 65
-        '
-        'NOMBRE
-        '
-        Me.NOMBRE.AutoSize = True
-        Me.NOMBRE.BackColor = System.Drawing.Color.OrangeRed
-        Me.NOMBRE.Font = New System.Drawing.Font("Impact", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NOMBRE.ForeColor = System.Drawing.Color.Black
-        Me.NOMBRE.Location = New System.Drawing.Point(12, 116)
-        Me.NOMBRE.Name = "NOMBRE"
-        Me.NOMBRE.Size = New System.Drawing.Size(90, 29)
-        Me.NOMBRE.TabIndex = 60
-        Me.NOMBRE.Text = "Nombre"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(261, 9)
+        Me.Label5.Location = New System.Drawing.Point(25, 14)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(176, 15)
         Me.Label5.TabIndex = 66
         Me.Label5.Text = "SELECCION DE FUNCION "
         '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label12.Font = New System.Drawing.Font("Impact", 20.25!)
-        Me.Label12.Location = New System.Drawing.Point(1140, 22)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(186, 34)
-        Me.Label12.TabIndex = 74
-        Me.Label12.Text = "Volver al menu "
-        '
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.SystemColors.ScrollBar
-        Me.Panel3.Location = New System.Drawing.Point(254, -2)
+        Me.Panel3.Controls.Add(Me.Label5)
+        Me.Panel3.Controls.Add(Me.ComboBoxMORTAL)
+        Me.Panel3.Location = New System.Drawing.Point(259, -2)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1119, 108)
+        Me.Panel3.Size = New System.Drawing.Size(745, 112)
         Me.Panel3.TabIndex = 75
-        '
-        'Button4
-        '
-        Me.Button4.Location = New System.Drawing.Point(634, 27)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(98, 34)
-        Me.Button4.TabIndex = 0
-        Me.Button4.Text = "Ver registro"
-        Me.Button4.UseVisualStyleBackColor = True
-        '
-        'Button5
-        '
-        Me.Button5.Location = New System.Drawing.Point(772, 27)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(98, 34)
-        Me.Button5.TabIndex = 63
-        Me.Button5.Text = "Modo devolucion"
-        Me.Button5.UseVisualStyleBackColor = True
         '
         'Form4
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.ClientSize = New System.Drawing.Size(1362, 683)
-        Me.Controls.Add(Me.Label12)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.ComboBoxMORTAL)
-        Me.Controls.Add(Me.NOMBRE)
+        Me.ClientSize = New System.Drawing.Size(1006, 646)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.devoCOMBO)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.ExtCombo)
+        Me.Controls.Add(Me.devoCOMBO)
         Me.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Form4"
         Me.Text = "PRESTAMOS"
         Me.Panel1.ResumeLayout(False)
@@ -429,8 +463,9 @@ Partial Class Form4
         Me.ExtCombo.ResumeLayout(False)
         Me.ExtCombo.PerformLayout()
         CType(Me.VERLIBROSAGG, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
@@ -463,8 +498,11 @@ Partial Class Form4
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents Button4 As System.Windows.Forms.Button
+    Friend WithEvents Label13 As System.Windows.Forms.Label
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents Label14 As System.Windows.Forms.Label
+    Friend WithEvents Button6 As System.Windows.Forms.Button
 End Class
