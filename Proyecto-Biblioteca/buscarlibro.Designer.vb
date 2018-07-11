@@ -141,7 +141,7 @@ Partial Class buscarlibro
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(678, 461)
+        Me.DataGridView1.Size = New System.Drawing.Size(623, 461)
         Me.DataGridView1.TabIndex = 25
         '
         'Panel1
@@ -168,7 +168,7 @@ Partial Class buscarlibro
         Me.Panel1.Controls.Add(Me.fecha_label)
         Me.Panel1.Controls.Add(Me.observaciones_label)
         Me.Panel1.Controls.Add(Me.origen_label)
-        Me.Panel1.Location = New System.Drawing.Point(687, 88)
+        Me.Panel1.Location = New System.Drawing.Point(632, 91)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(291, 461)
         Me.Panel1.TabIndex = 31
@@ -619,7 +619,7 @@ Partial Class buscarlibro
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Lime
-        Me.ClientSize = New System.Drawing.Size(990, 607)
+        Me.ClientSize = New System.Drawing.Size(935, 612)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.DataGridView2)
         Me.Controls.Add(Me.ComboBox2)

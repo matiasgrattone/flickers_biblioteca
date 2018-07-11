@@ -92,4 +92,8 @@
         End Try
 
     End Sub
+
+    Private Sub autor_label_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles autor_label.Click
+
+    End Sub
 End Class
