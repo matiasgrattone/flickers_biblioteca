@@ -12,6 +12,9 @@ Module Modulo
     Public Consulta As String
     Public MysqlConexion As MySqlConnection = New MySqlConnection(ubicacion)
     Public opcioncolor As Color
+    Public fecha As String
+
+    Public substring As String
 
     Public Sub consultar()
 
@@ -25,7 +28,61 @@ Module Modulo
         End Try
 
     End Sub
+    Public Sub mes()
 
+
+
+        If substring = "01" Then
+            substring = "enero"
+            fecha = Date.Now.ToString("dd") & " de " & substring & " de " & Date.Now.ToString("yyyy")
+        End If
+        If substring = "02" Then
+            substring = "febrero"
+            fecha = Date.Now.ToString("dd") & " de " & substring & " de " & Date.Now.ToString("yyyy")
+        End If
+        If substring = "03" Then
+            substring = "marzo"
+            fecha = Date.Now.ToString("dd") & " de " & substring & " de " & Date.Now.ToString("yyyy")
+        End If
+        If substring = "04" Then
+            substring = "abril"
+            fecha = Date.Now.ToString("dd") & " de " & substring & " de " & Date.Now.ToString("yyyy")
+        End If
+        If substring = "05" Then
+            substring = "mayo"
+            fecha = Date.Now.ToString("dd") & " de " & substring & " de " & Date.Now.ToString("yyyy")
+        End If
+        If substring = "06" Then
+            substring = "junio"
+            fecha = Date.Now.ToString("dd") & " de " & substring & " de " & Date.Now.ToString("yyyy")
+        End If
+        If substring = "07" Then
+            substring = "julio"
+            fecha = Date.Now.ToString("dd") & " de " & substring & " de " & Date.Now.ToString("yyyy")
+        End If
+        If substring = "08" Then
+            substring = "agosto"
+            fecha = Date.Now.ToString("dd") & " de " & substring & " de " & Date.Now.ToString("yyyy")
+        End If
+
+        If substring = "09" Then
+            substring = "septiembre"
+            fecha = Date.Now.ToString("dd") & " de " & substring & " de " & Date.Now.ToString("yyyy")
+        End If
+        If substring = "10" Then
+            substring = "octubre"
+            fecha = Date.Now.ToString("dd") & " de " & substring & " de " & Date.Now.ToString("yyyy")
+        End If
+        If substring = "11" Then
+            substring = "noviembre"
+            fecha = Date.Now.ToString("dd") & " de " & substring & " de " & Date.Now.ToString("yyyy")
+        End If
+        If substring = "12" Then
+            substring = "diciembre"
+            fecha = Date.Now.ToString("dd") & " de " & substring & " de " & Date.Now.ToString("yyyy")
+        End If
+
+    End Sub
     Public Sub prueba() ' VERIFICAR SI ESTA CERRADA LA CONEXION
 
         Select Case MysqlConexion.State

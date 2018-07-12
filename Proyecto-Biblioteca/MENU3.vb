@@ -347,4 +347,13 @@ Public Class MENU3
     Private Sub Panel1_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Panel1.Paint
 
     End Sub
+
+    Private Sub Timer2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer2.Tick
+
+        substring = Date.Now.ToString("MM")
+        mes()
+        Label1.Text = fecha
+
+
+    End Sub
 End Class

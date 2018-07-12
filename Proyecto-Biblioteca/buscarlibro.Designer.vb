@@ -146,8 +146,7 @@ Partial Class buscarlibro
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.White
-        Me.Panel1.Controls.Add(Me.Panel3)
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.Panel1.Controls.Add(Me.Button2)
         Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Controls.Add(Me.volumen_label)
@@ -170,7 +169,7 @@ Partial Class buscarlibro
         Me.Panel1.Controls.Add(Me.origen_label)
         Me.Panel1.Location = New System.Drawing.Point(632, 91)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(291, 461)
+        Me.Panel1.Size = New System.Drawing.Size(290, 464)
         Me.Panel1.TabIndex = 31
         '
         'Panel3
@@ -196,7 +195,7 @@ Partial Class buscarlibro
         Me.Panel3.Controls.Add(Me.Label27)
         Me.Panel3.Controls.Add(Me.Label28)
         Me.Panel3.Controls.Add(Me.PictureBox2)
-        Me.Panel3.Location = New System.Drawing.Point(1, 0)
+        Me.Panel3.Location = New System.Drawing.Point(632, 91)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(290, 464)
         Me.Panel3.TabIndex = 34
@@ -629,6 +628,7 @@ Partial Class buscarlibro
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.Panel3)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "buscarlibro"
         Me.Text = "Form2"

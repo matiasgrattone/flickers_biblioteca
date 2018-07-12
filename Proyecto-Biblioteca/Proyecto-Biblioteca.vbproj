@@ -270,6 +270,7 @@
     <None Include="Resources\faq.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\right-arrow1.png" />
     <None Include="Resources\reload.png" />
     <None Include="Resources\right-arrow.png" />
     <None Include="Resources\IMG_3252.png" />
@@ -279,6 +280,7 @@
     <None Include="Resources\clock.png" />
     <None Include="Resources\clock %281%29.png" />
     <None Include="Resources\clock %282%29.png" />
+    <None Include="Resources\back.png" />
     <Content Include="Resources\navigator.png" />
     <None Include="Resources\Sin título-1.jpg" />
     <None Include="Resources\reading.png" />

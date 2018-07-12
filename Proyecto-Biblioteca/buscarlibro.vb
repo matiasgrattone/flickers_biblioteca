@@ -223,4 +223,8 @@ Public Class buscarlibro
     Private Sub cod_libro_label_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cod_libro_label.Click
 
     End Sub
+
+    Private Sub Panel3_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Panel3.Paint
+
+    End Sub
 End Class
