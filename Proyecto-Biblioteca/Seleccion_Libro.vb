@@ -1,26 +1,42 @@
 ﻿Public Class Seleccion_Libro
     Dim P1, P2 As Integer
+    Public buscarlibro1 As New buscarlibro
+
     Private Sub Seleccion_Libro_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-     
+
+
+
     End Sub
-    Private Sub Timer1_Tick(sender As System.Object, e As System.EventArgs) Handles Timer1.Tick
+    Private Sub Timer1_Tick(sender As System.Object, e As System.EventArgs) Handles Timer10.Tick
 
 
         If Panel2.Width < 482 Then
             Panel2.Width += 10
         Else
-            Timer1.Enabled = False
+            Timer10.Enabled = False
+
         End If
 
 
     End Sub
 
-    Private Sub Timer2_Tick(sender As System.Object, e As System.EventArgs) Handles Timer2.Tick
+    Private Sub Timer2_Tick(sender As System.Object, e As System.EventArgs) Handles Timer20.Tick
 
         If Panel2.Width > 60 Then
             Panel2.Width -= 10
         Else
-            Timer2.Enabled = False
+
+
+            Timer20.Enabled = False
+
+            buscarlibro1.TopLevel = False
+            buscarlibro1.Parent = Panel1
+            buscarlibro1.Show()
+            PictureBox1.Visible = False
+            Label2.Visible = False
+            buscarlibro1.Dock = DockStyle.Fill
+
+            P2 = 0
         End If
 
 
@@ -30,66 +46,72 @@
 
     Private Sub Panel1_MouseEnter(sender As Object, e As System.EventArgs) Handles Panel1.MouseEnter
 
-        Timer1.Enabled = False
-        Timer2.Enabled = True
-        Timer3.Enabled = False
-        Timer4.Enabled = False
+
+        'Timer1.Enabled = False
+        'Timer2.Enabled = True
+        'Timer3.Enabled = False
+        'Timer4.Enabled = False
 
     End Sub
 
     Private Sub Panel1_MouseLeave(sender As Object, e As System.EventArgs) Handles Panel1.MouseLeave
 
-        Timer1.Enabled = True
-        Timer2.Enabled = False
-        Timer3.Enabled = False
-        Timer4.Enabled = False
+
+        Timer10.Enabled = True
+        Timer20.Enabled = False
+        Timer30.Enabled = False
+        Timer40.Enabled = False
+
+
+
 
     End Sub
 
-    Private Sub Timer3_Tick(sender As System.Object, e As System.EventArgs) Handles Timer3.Tick
+    Private Sub Timer3_Tick(sender As System.Object, e As System.EventArgs) Handles Timer30.Tick
 
         If Panel2.Width < 900 Then
             Panel2.Width += 10
         Else
-            Timer1.Enabled = False
+            Timer10.Enabled = False
         End If
 
     End Sub
 
     Private Sub Panel2_MouseEnter(sender As Object, e As System.EventArgs) Handles Panel2.MouseEnter
-        If P1 = 1 Then
-            Timer1.Enabled = False
-            Timer2.Enabled = False
-            Timer3.Enabled = True
-            Timer4.Enabled = False
-            buscarlibro.Close()
 
-            P1 = 0
-        End If
-        If P1 = 0 Then
-            Timer1.Enabled = False
-            Timer2.Enabled = False
-            Timer3.Enabled = True
-            Timer4.Enabled = False
-            P1 = 1
-        End If
+        buscarlibro1.Hide()
+        PictureBox1.Visible = True
+        Label2.Visible = True
+
+        Timer10.Enabled = False
+        Timer20.Enabled = False
+        Timer30.Enabled = True
+        Timer40.Enabled = False
+
+
+        P2 = 1
+
+
+
+
+
 
     End Sub
 
     Private Sub Panel2_MouseLeave(sender As Object, e As System.EventArgs) Handles Panel2.MouseLeave
 
-        Timer1.Enabled = False
-        Timer2.Enabled = False
-        Timer3.Enabled = False
-        Timer4.Enabled = True
+        Timer10.Enabled = False
+        Timer20.Enabled = False
+        Timer30.Enabled = False
+        Timer40.Enabled = True
 
     End Sub
 
-    Private Sub Timer4_Tick(sender As System.Object, e As System.EventArgs) Handles Timer4.Tick
+    Private Sub Timer4_Tick(sender As System.Object, e As System.EventArgs) Handles Timer40.Tick
         If Panel2.Width > 482 Then
             Panel2.Width -= 10
         Else
-            Timer2.Enabled = False
+            Timer20.Enabled = False
         End If
 
     End Sub
@@ -97,15 +119,7 @@
     Private Sub Panel1_mouseclick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseClick
 
 
-        Dim buscarlibro As New buscarlibro
 
-        buscarlibro.TopLevel = False
-        buscarlibro.Parent = Panel1
-        buscarlibro.Show()
-        PictureBox1.Visible = False
-        Label2.Visible = False
-        buscarlibro.Dock = DockStyle.Fill
-        P1 = 1
 
     End Sub
 
@@ -114,11 +128,22 @@
         ingresolibro.Show()
     End Sub
 
-    Private Sub Panel1_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Panel1.Paint
+
+    Private Sub Label2_Click(sender As System.Object, e As System.EventArgs) Handles Label2.Click
+
+        Timer10.Enabled = False
+        Timer20.Enabled = True
+        Timer30.Enabled = False
+        Timer40.Enabled = False
 
     End Sub
 
-    Private Sub Panel2_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Panel2.Paint
+    Private Sub Label1_Click(sender As System.Object, e As System.EventArgs) Handles Label1.Click
+
+        Timer10.Enabled = False
+        Timer20.Enabled = False
+        Timer30.Enabled = True
+        Timer40.Enabled = False
 
     End Sub
 End Class

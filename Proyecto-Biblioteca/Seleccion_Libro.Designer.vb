@@ -24,19 +24,19 @@ Partial Class Seleccion_Libro
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
-        Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
-        Me.Timer4 = New System.Windows.Forms.Timer(Me.components)
+        Me.Timer10 = New System.Windows.Forms.Timer(Me.components)
+        Me.Timer20 = New System.Windows.Forms.Timer(Me.components)
+        Me.Timer30 = New System.Windows.Forms.Timer(Me.components)
+        Me.Timer40 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -48,36 +48,6 @@ Partial Class Seleccion_Libro
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(951, 651)
         Me.Panel1.TabIndex = 0
-        '
-        'Panel2
-        '
-        Me.Panel2.BackColor = System.Drawing.Color.Teal
-        Me.Panel2.Controls.Add(Me.Label1)
-        Me.Panel2.Controls.Add(Me.PictureBox2)
-        Me.Panel2.Location = New System.Drawing.Point(1, -1)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(482, 664)
-        Me.Panel2.TabIndex = 1
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(550, 267)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(197, 39)
-        Me.Label1.TabIndex = 2
-        Me.Label1.Text = "INGRESAR"
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.books
-        Me.PictureBox2.Location = New System.Drawing.Point(409, 215)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(133, 125)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 1
-        Me.PictureBox2.TabStop = False
         '
         'PictureBox1
         '
@@ -93,27 +63,57 @@ Partial Class Seleccion_Libro
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(179, 257)
+        Me.Label2.Location = New System.Drawing.Point(573, 257)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(161, 39)
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "BUSCAR"
         '
-        'Timer1
+        'Panel2
         '
-        Me.Timer1.Interval = 1
+        Me.Panel2.BackColor = System.Drawing.Color.Teal
+        Me.Panel2.Controls.Add(Me.Label1)
+        Me.Panel2.Controls.Add(Me.PictureBox2)
+        Me.Panel2.Location = New System.Drawing.Point(1, -1)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(482, 664)
+        Me.Panel2.TabIndex = 1
         '
-        'Timer2
+        'Label1
         '
-        Me.Timer2.Interval = 1
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(148, 257)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(197, 39)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Text = "INGRESAR"
         '
-        'Timer3
+        'PictureBox2
         '
-        Me.Timer3.Interval = 1
+        Me.PictureBox2.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.books
+        Me.PictureBox2.Location = New System.Drawing.Point(411, 215)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(133, 125)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 1
+        Me.PictureBox2.TabStop = False
         '
-        'Timer4
+        'Timer10
         '
-        Me.Timer4.Interval = 1
+        Me.Timer10.Interval = 1
+        '
+        'Timer20
+        '
+        Me.Timer20.Interval = 1
+        '
+        'Timer30
+        '
+        Me.Timer30.Interval = 1
+        '
+        'Timer40
+        '
+        Me.Timer40.Interval = 1
         '
         'Seleccion_Libro
         '
@@ -127,10 +127,10 @@ Partial Class Seleccion_Libro
         Me.Text = "Seleccion_Libro"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -139,9 +139,9 @@ Partial Class Seleccion_Libro
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Timer1 As System.Windows.Forms.Timer
-    Friend WithEvents Timer2 As System.Windows.Forms.Timer
-    Friend WithEvents Timer3 As System.Windows.Forms.Timer
-    Friend WithEvents Timer4 As System.Windows.Forms.Timer
+    Friend WithEvents Timer10 As System.Windows.Forms.Timer
+    Friend WithEvents Timer20 As System.Windows.Forms.Timer
+    Friend WithEvents Timer30 As System.Windows.Forms.Timer
+    Friend WithEvents Timer40 As System.Windows.Forms.Timer
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
 End Class
