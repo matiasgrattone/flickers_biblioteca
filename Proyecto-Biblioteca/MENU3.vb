@@ -7,6 +7,11 @@ Public Class MENU3
     Dim xc, yc As Integer
     Dim xf, yf As Integer
     Dim holax, holay As Integer
+    Dim seleccionado As String
+    Dim mouse As Integer
+    Dim mouse2 As Integer
+    Dim mouse3 As Integer
+    Dim mouse4 As Integer
 
 
     Private Sub MENU3_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -17,19 +22,27 @@ Public Class MENU3
 
         '-------------------VERIFICAR SI ESTA CONECTADO A LA BASE , SI DA ERROR APARECE LA IMAGEN DE OK (LA QUE ESTA ADENTRO DEL TRY) , SI DA ERROR APARECE LA IMAGEN DE ERROR (LA QUE ESTA ADENTRO DEL CATCH)
 
-        Try
+        PictureBox8.Image = Image.FromFile("imagenes\cloud-error.png")
 
-            Consulta = "select * from usuarios"
-            consultar()
-            DataGridView1.DataSource = Tabla
+        Consulta = "select * from usuarios"
+        consultar()
+        DataGridView1.DataSource = Tabla
 
-            PictureBox8.Image = Image.FromFile("imagenes\cloud.png")
-
-        Catch ex As Exception
+        If DataGridView1.Rows.Count() = 0 Then
 
             PictureBox8.Image = Image.FromFile("imagenes\cloud-error.png")
 
-        End Try
+        Else
+            PictureBox8.Image = Image.FromFile("imagenes\cloud.png")
+        End If
+
+
+
+
+
+
+
+
 
         '----------------------------------------------------------------------------
 
@@ -102,7 +115,7 @@ Public Class MENU3
         WebBrowser1.GoForward()
     End Sub
 
-    Private Sub Button1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub Button1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         Dim timer As Integer = 0
         Select Case timer
 
@@ -118,6 +131,19 @@ Public Class MENU3
     End Sub
 
     Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox1.Click
+        seleccionado = "usuarios"
+        mouse = 1
+        mouse2 = 0
+        mouse3 = 0
+        mouse4 = 0
+        Timer_LibrosLabel.Enabled = True
+        Timer_NvegadorLabel.Enabled = True
+        Timer_PrestamosLabel.Enabled = True
+        Timer_UsuariosLabel.Enabled = True
+        panel_usuarios.BackColor = Drawing.Color.LightGray
+        panel_libros.BackColor = Drawing.Color.Silver
+        panel_prestamos.BackColor = Drawing.Color.Silver
+        panel_navegador.BackColor = Drawing.Color.Silver
 
         Dim F1 As New inicio_usuarios
         panel_menu.Controls.Clear()
@@ -137,15 +163,19 @@ Public Class MENU3
 
 
 
-        panel_usuarios.BackColor = Drawing.Color.Aqua
-        panel_libros.BackColor = Drawing.Color.Silver
-        panel_prestamos.BackColor = Drawing.Color.Silver
-        panel_navegador.BackColor = Drawing.Color.Silver
 
     End Sub
 
     Private Sub PictureBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox2.Click
-
+        seleccionado = "libros"
+        mouse = 0
+        mouse2 = 1
+        mouse3 = 0
+        mouse4 = 0
+        Timer_LibrosLabel.Enabled = True
+        Timer_NvegadorLabel.Enabled = True
+        Timer_PrestamosLabel.Enabled = True
+        Timer_UsuariosLabel.Enabled = True
         Dim F3 As New Seleccion_Libro
         panel_menu.Controls.Clear()
         F3.TopLevel = False
@@ -164,13 +194,21 @@ Public Class MENU3
         WebBrowser1.Visible = False
 
         panel_usuarios.BackColor = Drawing.Color.Silver
-        panel_libros.BackColor = Drawing.Color.Aqua
+        panel_libros.BackColor = Drawing.Color.LightGray
         panel_prestamos.BackColor = Drawing.Color.Silver
         panel_navegador.BackColor = Drawing.Color.Silver
     End Sub
 
     Private Sub PictureBox3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox3.Click
-
+        seleccionado = "prestamos"
+        mouse = 0
+        mouse2 = 0
+        mouse3 = 1
+        mouse4 = 0
+        Timer_LibrosLabel.Enabled = True
+        Timer_NvegadorLabel.Enabled = True
+        Timer_PrestamosLabel.Enabled = True
+        Timer_UsuariosLabel.Enabled = True
         Dim F4 As New Form4
         panel_menu.Controls.Clear()
         F4.TopLevel = False
@@ -189,18 +227,29 @@ Public Class MENU3
 
         panel_usuarios.BackColor = Drawing.Color.Silver
         panel_libros.BackColor = Drawing.Color.Silver
-        panel_prestamos.BackColor = Drawing.Color.Aqua
+        panel_prestamos.BackColor = Drawing.Color.LightGray
         panel_navegador.BackColor = Drawing.Color.Silver
+
+
     End Sub
     '///////////////////////////////////////////////////////////////////////////////////////////////////////
     '/////////////////////////////////////////// NAVEGADOR /////////////////////////////////////////////////
     '///////////////////////////////////////////////////////////////////////////////////////////////////////
 
     Private Sub PictureBox5_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox5.Click
+        seleccionado = "navegador"
+        mouse = 0
+        mouse2 = 0
+        mouse3 = 0
+        mouse4 = 1
+        Timer_LibrosLabel.Enabled = True
+        Timer_NvegadorLabel.Enabled = True
+        Timer_PrestamosLabel.Enabled = True
+        Timer_UsuariosLabel.Enabled = True
         panel_usuarios.BackColor = Drawing.Color.Silver
         panel_libros.BackColor = Drawing.Color.Silver
         panel_prestamos.BackColor = Drawing.Color.Silver
-        panel_navegador.BackColor = Drawing.Color.Aqua
+        panel_navegador.BackColor = Drawing.Color.LightGray
 
         Try
             Panel3.Visible = True
@@ -222,8 +271,16 @@ Public Class MENU3
     '/////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-    Private Sub panel_libros_Mouseclick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles panel_libros.MouseClick
-
+    Private Sub panel_libros_Mouseclick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles panel_libros.MouseClick
+        seleccionado = "libros"
+        Timer_LibrosLabel.Enabled = True
+        Timer_NvegadorLabel.Enabled = True
+        Timer_PrestamosLabel.Enabled = True
+        Timer_UsuariosLabel.Enabled = True
+        panel_usuarios.BackColor = Drawing.Color.Silver
+        panel_libros.BackColor = Drawing.Color.LightGray
+        panel_prestamos.BackColor = Drawing.Color.Silver
+        panel_navegador.BackColor = Drawing.Color.Silver
 
         Dim F3 As New Seleccion_Libro
         panel_menu.Controls.Clear()
@@ -241,21 +298,21 @@ Public Class MENU3
         Panel3.Visible = False
         WebBrowser1.Visible = False
 
-        panel_usuarios.BackColor = Drawing.Color.Silver
-        panel_libros.BackColor = Drawing.Color.Aqua
-        panel_prestamos.BackColor = Drawing.Color.Silver
-        panel_navegador.BackColor = Drawing.Color.Silver
+
 
     End Sub
 
-    Private Sub panel_prestamos_MouseClick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles panel_prestamos.MouseClick
-
+    Private Sub panel_prestamos_MouseClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles panel_prestamos.MouseClick
+        seleccionado = "prestamos"
         Dim F4 As New Form4
         panel_menu.Controls.Clear()
         F4.TopLevel = False
         F4.Parent = panel_menu
         F4.Show()
-
+        Timer_LibrosLabel.Enabled = True
+        Timer_NvegadorLabel.Enabled = True
+        Timer_PrestamosLabel.Enabled = True
+        Timer_UsuariosLabel.Enabled = True
         panel_menu.Visible = True
         TextBox1.Visible = False
         Button2.Visible = False
@@ -267,8 +324,12 @@ Public Class MENU3
 
         panel_usuarios.BackColor = Drawing.Color.Silver
         panel_libros.BackColor = Drawing.Color.Silver
-        panel_prestamos.BackColor = Drawing.Color.Aqua
+        panel_prestamos.BackColor = Drawing.Color.LightGray
         panel_navegador.BackColor = Drawing.Color.Silver
+
+    End Sub
+
+    Private Sub panel_navegador_MouseCaptureChanged(ByVal sender As Object, ByVal e As System.EventArgs)
 
     End Sub
 
@@ -276,15 +337,18 @@ Public Class MENU3
     '/////////////////////////////////////////// NAVEGADOR /////////////////////////////////////////////////
     '///////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    Private Sub panel_navegador_MouseClick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles panel_navegador.MouseClick
-
+    Private Sub panel_navegador_MouseClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles panel_navegador.MouseClick
+        seleccionado = "navegador"
 
 
         panel_usuarios.BackColor = Drawing.Color.Silver
         panel_libros.BackColor = Drawing.Color.Silver
         panel_prestamos.BackColor = Drawing.Color.Silver
-        panel_navegador.BackColor = Drawing.Color.Silver
-
+        panel_navegador.BackColor = Drawing.Color.LightGray
+        Timer_LibrosLabel.Enabled = True
+        Timer_NvegadorLabel.Enabled = True
+        Timer_PrestamosLabel.Enabled = True
+        Timer_UsuariosLabel.Enabled = True
 
 
         Panel3.Visible = True
@@ -305,13 +369,16 @@ Public Class MENU3
 
 
 
-    Private Sub panel_usuarios_LostFocus(sender As Object, e As System.EventArgs) Handles panel_usuarios.LostFocus
+    Private Sub panel_usuarios_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles panel_usuarios.LostFocus
 
     End Sub
 
-    Private Sub panel_usuarios_MouseClick(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles panel_usuarios.MouseClick
-
-
+    Private Sub panel_usuarios_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles panel_usuarios.MouseClick
+        seleccionado = "usuarios"
+        Timer_LibrosLabel.Enabled = True
+        Timer_NvegadorLabel.Enabled = True
+        Timer_PrestamosLabel.Enabled = True
+        Timer_UsuariosLabel.Enabled = True
         Dim F1 As New inicio_usuarios
         panel_menu.Controls.Clear()
         F1.TopLevel = False
@@ -329,18 +396,18 @@ Public Class MENU3
 
 
 
-        panel_usuarios.BackColor = Drawing.Color.Aqua
+        panel_usuarios.BackColor = Drawing.Color.LightGray
         panel_libros.BackColor = Drawing.Color.Silver
         panel_prestamos.BackColor = Drawing.Color.Silver
         panel_navegador.BackColor = Drawing.Color.Silver
 
     End Sub
 
-    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         WebBrowser1.Navigate("www.ecosia.org")
     End Sub
 
-    Private Sub Button4_Click(sender As System.Object, e As System.EventArgs) Handles Button4.Click
+    Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
         WebBrowser1.Refresh()
     End Sub
 
@@ -354,6 +421,220 @@ Public Class MENU3
         mes()
         Label1.Text = fecha
 
+
+    End Sub
+    Private Sub panel_usuarios_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles panel_usuarios.MouseEnter
+        panel_usuarios.BackColor = Drawing.Color.LightGray
+
+    End Sub
+    Private Sub panel_libros_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles panel_libros.MouseEnter
+        panel_libros.BackColor = Drawing.Color.LightGray
+
+    End Sub
+    Private Sub panel_prestamos_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles panel_prestamos.MouseEnter
+        panel_prestamos.BackColor = Drawing.Color.LightGray
+
+    End Sub
+    Private Sub panel_navegador_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles panel_navegador.MouseEnter
+        panel_navegador.BackColor = Drawing.Color.LightGray
+    End Sub
+
+    Private Sub panel_usuarios_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles panel_usuarios.MouseLeave
+        If seleccionado = "usuarios" Then
+        Else
+            panel_usuarios.BackColor = Drawing.Color.Silver
+        End If
+
+    End Sub
+
+    Private Sub panel_libros_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles panel_libros.MouseLeave
+        If seleccionado = "libros" Then
+        Else
+            panel_libros.BackColor = Drawing.Color.Silver
+        End If
+        mouse = 0
+        label_libros.Enabled = True
+    End Sub
+
+    Private Sub panel_prestamos_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles panel_prestamos.MouseLeave
+        If seleccionado = "prestamos" Then
+        Else
+            panel_prestamos.BackColor = Drawing.Color.Silver
+        End If
+
+    End Sub
+
+    Private Sub panel_navegador_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles panel_navegador.MouseLeave
+        If seleccionado = "navegador" Then
+        Else
+            panel_navegador.BackColor = Drawing.Color.Silver
+        End If
+
+    End Sub
+
+    Private Sub PictureBox1_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox1.MouseEnter
+        If seleccionado = "usuarios" Then
+        Else
+            panel_usuarios.BackColor = Drawing.Color.LightGray
+        End If
+        mouse = 1
+        mouse2 = 0
+        mouse3 = 0
+        mouse4 = 0
+        Timer_UsuariosLabel.Enabled = True
+
+    End Sub
+
+    Private Sub PictureBox1_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox1.MouseLeave
+        If seleccionado = "usuarios" Then
+        Else
+            panel_usuarios.BackColor = Drawing.Color.Silver
+        End If
+        mouse = 0
+        Timer_UsuariosLabel.Enabled = True
+    End Sub
+
+    Private Sub PictureBox2_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox2.MouseEnter
+        If seleccionado = "libros" Then
+        Else
+            panel_libros.BackColor = Drawing.Color.LightGray
+        End If
+        mouse = 0
+        mouse2 = 1
+        mouse3 = 0
+        mouse4 = 0
+        Timer_LibrosLabel.Enabled = True
+    End Sub
+
+    Private Sub PictureBox2_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox2.MouseLeave
+        If seleccionado = "libros" Then
+        Else
+            panel_libros.BackColor = Drawing.Color.Silver
+        End If
+        mouse2 = 0
+        Timer_LibrosLabel.Enabled = True
+    End Sub
+
+    Private Sub PictureBox3_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox3.MouseEnter
+        If seleccionado = "prestamos" Then
+        Else
+            panel_prestamos.BackColor = Drawing.Color.LightGray
+        End If
+        mouse = 0
+        mouse2 = 0
+        mouse3 = 1
+        mouse4 = 0
+        Timer_PrestamosLabel.Enabled = True
+    End Sub
+
+    Private Sub PictureBox3_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox3.MouseLeave
+        If seleccionado = "prestamos" Then
+        Else
+            panel_prestamos.BackColor = Drawing.Color.Silver
+        End If
+        mouse3 = 0
+        Timer_PrestamosLabel.Enabled = True
+    End Sub
+
+    Private Sub PictureBox5_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox5.MouseEnter
+        If seleccionado = "navegador" Then
+        Else
+            panel_navegador.BackColor = Drawing.Color.LightGray
+        End If
+        mouse = 0
+        mouse2 = 0
+        mouse3 = 0
+        mouse4 = 1
+        Timer_NvegadorLabel.Enabled = True
+    End Sub
+
+    Private Sub PictureBox5_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox5.MouseLeave
+        If seleccionado = "navegador" Then
+        Else
+            panel_navegador.BackColor = Drawing.Color.Silver
+        End If
+        mouse4 = 0
+        Timer_NvegadorLabel.Enabled = True
+    End Sub
+
+    Private Sub panel_libros_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs)
+
+    End Sub
+
+    Private Sub Timer_UsuariosLabel_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer_UsuariosLabel.Tick
+
+        Select Case mouse
+            Case 1
+                If label_usuarios.Left < 75 Then
+                    label_usuarios.Left += 10
+                Else
+                    '  Timer_UsuariosLabel.Enabled = False
+                End If
+
+            Case 0
+                If label_usuarios.Left > 11 And seleccionado <> "usuarios" Then
+                    label_usuarios.Left -= 10
+                Else
+                    Timer_UsuariosLabel.Enabled = False
+                End If
+        End Select
+
+
+
+    End Sub
+
+    Private Sub Timer_LibrosLabel_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer_LibrosLabel.Tick
+        Select Case mouse2
+            Case 1
+                If label_libros.Left < 79 Then
+                    label_libros.Left += 10
+                Else
+                    'Timer_LibrosLabel.Enabled = False
+                End If
+            Case 0
+                If label_libros.Left > 20 And seleccionado <> "libros" Then
+                    label_libros.Left -= 10
+                Else
+                    Timer_LibrosLabel.Enabled = False
+                End If
+        End Select
+    End Sub
+
+    Private Sub Timer_PrestamosLabel_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer_PrestamosLabel.Tick
+        Select Case mouse3
+            Case 1
+                If label_prestamos.Left < 71 Then
+                    label_prestamos.Left += 10
+                Else
+                    '  Timer_PrestamosLabel.Enabled = False
+                End If
+            Case 0
+                If label_prestamos.Left > 7 And seleccionado <> "prestamos" Then
+                    label_prestamos.Left -= 10
+                Else
+                    Timer_PrestamosLabel.Enabled = False
+                End If
+        End Select
+    End Sub
+
+    Private Sub Timer_NavgadorLabel_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer_NvegadorLabel.Tick
+        Select Case mouse4
+            Case 1
+                If label_navegador.Left < 70 Then
+                    label_navegador.Left += 10
+                Else
+                    ' Timer_NavgadorLabel.Enabled = False
+                End If
+            Case 0
+                If label_navegador.Left > 12 And seleccionado <> "navegador" Then
+                    label_navegador.Left -= 10
+                Else
+                    Timer_NvegadorLabel.Enabled = False
+                End If
+        End Select
+    End Sub
+
+    Private Sub Panel2_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Panel2.Paint
 
     End Sub
 End Class

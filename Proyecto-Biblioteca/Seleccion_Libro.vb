@@ -3,11 +3,11 @@
     Public buscarlibro1 As New buscarlibro
     Public ingresarlibro1 As New ingresolibro
 
-    Private Sub Seleccion_Libro_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+    Private Sub Seleccion_Libro_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         PictureBox3.Visible = False
         PictureBox4.Visible = False
     End Sub
-    Private Sub Timer1_Tick(sender As System.Object, e As System.EventArgs) Handles Timer10.Tick
+    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer10.Tick
         If Panel2.Width < 482 Then
             Panel2.Width += 10
             PictureBox3.Visible = False
@@ -17,7 +17,7 @@
         End If
     End Sub
 
-    Private Sub Timer2_Tick(sender As System.Object, e As System.EventArgs) Handles Timer20.Tick
+    Private Sub Timer2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer20.Tick
         If Panel2.Width > 60 Then
             Panel2.Width -= 10
         Else
@@ -56,7 +56,7 @@
     End Sub
 
 
-    Private Sub Timer4_Tick(sender As System.Object, e As System.EventArgs) Handles Timer40.Tick
+    Private Sub Timer4_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer40.Tick
         If Panel2.Width > 482 Then
             Panel2.Width -= 10
             PictureBox3.Visible = False
@@ -68,7 +68,7 @@
 
     End Sub
 
-    Private Sub Panel1_mouseclick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseClick
+    Private Sub Panel1_mouseclick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseClick
 
 
 
@@ -76,12 +76,12 @@
     End Sub
 
 
-    Private Sub Panel2_mouseclick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel2.MouseClick
+    Private Sub Panel2_mouseclick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Panel2.MouseClick
 
     End Sub
 
 
-    Private Sub Label2_Click(sender As System.Object, e As System.EventArgs) Handles Label2.Click
+    Private Sub Label2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label2.Click
 
         Timer10.Enabled = False
         Timer20.Enabled = True
@@ -90,7 +90,7 @@
 
     End Sub
 
-    Private Sub Label1_Click(sender As System.Object, e As System.EventArgs) Handles Label1.Click
+    Private Sub Label1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label1.Click
 
         Timer10.Enabled = False
         Timer20.Enabled = False
@@ -130,5 +130,40 @@
 
     Private Sub Panel1_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Panel1.Paint
 
+    End Sub
+
+    Private Sub PictureBox3_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox3.MouseEnter
+        PictureBox3.Image = Image.FromFile("imagenes\right-arrow1.png")
+
+    End Sub
+
+    Private Sub PictureBox4_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox4.MouseEnter
+        PictureBox4.Image = Image.FromFile("imagenes\back1.png")
+
+    End Sub
+
+    Private Sub PictureBox4_MouseLeave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox4.MouseLeave
+        PictureBox4.Image = Image.FromFile("imagenes\back.png")
+    End Sub
+
+    Private Sub PictureBox3_MouseLeave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox3.MouseLeave
+        PictureBox3.Image = Image.FromFile("imagenes\right-arrow.png")
+
+    End Sub
+
+    Private Sub Label1_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label1.MouseEnter
+        Label1.ForeColor = Drawing.Color.LightGray
+    End Sub
+
+    Private Sub Label2_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label2.MouseEnter
+        Label2.ForeColor = Drawing.Color.LightGray
+    End Sub
+
+    Private Sub Label2_MouseLeave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label2.MouseLeave
+        Label2.ForeColor = Drawing.Color.Black
+    End Sub
+
+    Private Sub Label1_MouseLeave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label1.MouseLeave
+        Label1.ForeColor = Drawing.Color.Black
     End Sub
 End Class
