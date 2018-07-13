@@ -237,117 +237,6 @@
     End Sub
 
 
-
-
-
-
-
-    Private Sub ComboBoxMORTAL_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBoxMORTAL.SelectedIndexChanged
-        Consulta = "select * from prestamo where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
-        consultar()
-        OPA.DataSource = Tabla
-
-        Consulta = "select * from libro where estado = 'disponible'"
-        consultar()
-        VERLIBROSAGG.DataSource = Tabla
-        Dim ROWS As DataGridViewRow = OPA.CurrentRow
-
-
-
-
-
-
-
-
-
-
-
-        '////////////////////////////SI EL COMBOBOX = EXTREACCION ----- SE MUESTRA EL GRUPOBOX1///////////////////////  
-
-        If ComboBoxMORTAL.Text = "Extraccion" Then
-
-
-            '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            If Cedula.Text <> "" Then
-
-                If (OPA.RowCount = 1) Then
-
-                    ExtCombo.Visible = True
-                    MsgBox("/////////Usted puede RETIRAR un libro 0//////////")
-
-                    Consulta = "select * from libro where estado = 'disponible'"
-                    consultar()
-                    VERLIBROSAGG.DataSource = Tabla
-
-                End If
-
-            Else
-                MsgBox("La cedula debe estar ingrezada correctamente", Title:="PRESTAMOS")
-            End If
-            '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-            '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            Try
-                If Cedula.Text <> "" Then
-                    If (ROWS.Cells(3).Value.ToString) <> "" Then
-                        ExtCombo.Visible = True
-                        MsgBox("Usted pude RETIRAR UN LIBREO", Title:="CASO DOS")
-
-                        Consulta = "select * from libro where estado = 'disponible'"
-                        consultar()
-                        VERLIBROSAGG.DataSource = Tabla
-                    Else
-                        ExtCombo.Visible = False
-                        MsgBox("Usted NO puede retirar un libro hasta devolver los ya prestados", Title:="ERROR")
-                    End If
-
-                Else
-                    MsgBox("La cedula debe estar ingrezada correctamente", Title:="PRESTAMOS")
-                End If
-            Catch ex As Exception
-            End Try
-            '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-        ElseIf ComboBoxMORTAL.Text <> "Extraccion" Then
-            ExtCombo.Visible = False
-
-        End If
-
-
-
-            '////////////////////////////SI EL COMBOBOX = DEVOLUCION ----- SE MUESTRA EL GRUPOBOX2///////////////////////  
-        If ComboBoxMORTAL.Text = "Devolucion" Then
-
-            If Cedula.Text <> "" Then
-                devoCOMBO.Visible = True
-
-                Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamo p INNER JOIN libro l on p.cod_libro=l.cod_libro where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
-                consultar()
-
-                DataGridAGG.DataSource = Tabla
-            Else
-                MsgBox("La cedula debe estar ingrezada correctamente", Title:="PRESTAMOS")
-            End If
-
-
-        ElseIf ComboBoxMORTAL.Text <> "Devolucion" Then
-            devoCOMBO.Visible = False
-
-        End If
-
-
-            '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-    End Sub
-
-
-
-
     Private Sub Button2_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
 
         Consulta = "select * from prestamo where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
@@ -623,5 +512,112 @@
 
         End Try
 
+    End Sub
+
+    Private Sub PictureBox1_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox1.Click
+        Consulta = "select * from prestamo where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
+        consultar()
+        OPA.DataSource = Tabla
+
+        Consulta = "select * from libro where estado = 'disponible'"
+        consultar()
+        VERLIBROSAGG.DataSource = Tabla
+        Dim ROWS As DataGridViewRow = OPA.CurrentRow
+
+
+        '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        devoCOMBO.Visible = False
+
+
+        '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        If Cedula.Text <> "" Then
+
+            If (OPA.RowCount = 1) Then
+
+                ExtCombo.Visible = True
+                MsgBox("/////////Usted puede RETIRAR un libro 0//////////")
+
+                Consulta = "select * from libro where estado = 'disponible'"
+                consultar()
+                VERLIBROSAGG.DataSource = Tabla
+
+            End If
+
+        Else
+            MsgBox("La cedula debe estar ingrezada correctamente", Title:="PRESTAMOS")
+        End If
+        '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+        '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        Try
+            If Cedula.Text <> "" Then
+                If (ROWS.Cells(3).Value.ToString) <> "" Then
+                    ExtCombo.Visible = True
+                    MsgBox("Usted pude RETIRAR UN LIBREO", Title:="CASO DOS")
+
+                    Consulta = "select * from libro where estado = 'disponible'"
+                    consultar()
+                    VERLIBROSAGG.DataSource = Tabla
+                Else
+                    ExtCombo.Visible = False
+                    MsgBox("Usted NO puede retirar un libro hasta devolver los ya prestados", Title:="ERROR")
+                End If
+
+            Else
+                MsgBox("La cedula debe estar ingrezada correctamente", Title:="PRESTAMOS")
+            End If
+        Catch ex As Exception
+        End Try
+        '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+    End Sub
+
+    Private Sub PictureBox2_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox2.Click
+        Consulta = "select * from prestamo where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
+        consultar()
+        OPA.DataSource = Tabla
+
+        Consulta = "select * from libro where estado = 'disponible'"
+        consultar()
+        VERLIBROSAGG.DataSource = Tabla
+        Dim ROWS As DataGridViewRow = OPA.CurrentRow
+
+
+        '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ExtCombo.Visible = False
+
+
+        '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        If Cedula.Text <> "" Then
+            devoCOMBO.Visible = True
+
+            Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamo p INNER JOIN libro l on p.cod_libro=l.cod_libro where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
+            consultar()
+
+            DataGridAGG.DataSource = Tabla
+        Else
+            MsgBox("La cedula debe estar ingrezada correctamente", Title:="PRESTAMOS")
+        End If
+        '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    End Sub
+
+    Private Sub PictureBox4_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox4.Click
+        '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ExtCombo.Visible = False
+        devoCOMBO.Visible = False
+
+        '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    End Sub
+
+    Private Sub PictureBox3_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox3.Click
+        '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ExtCombo.Visible = False
+        devoCOMBO.Visible = False
+
+        '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     End Sub
 End Class
