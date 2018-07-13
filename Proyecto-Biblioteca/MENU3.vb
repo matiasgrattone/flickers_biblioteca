@@ -12,6 +12,7 @@ Public Class MENU3
     Dim mouse2 As Integer
     Dim mouse3 As Integer
     Dim mouse4 As Integer
+    Public F3 As New Seleccion_Libro
 
 
     Private Sub MENU3_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -166,7 +167,7 @@ Public Class MENU3
 
     End Sub
 
-    Private Sub PictureBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox2.Click
+    Public Sub PictureBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox2.Click
         seleccionado = "libros"
         mouse = 0
         mouse2 = 1
@@ -176,7 +177,7 @@ Public Class MENU3
         Timer_NvegadorLabel.Enabled = True
         Timer_PrestamosLabel.Enabled = True
         Timer_UsuariosLabel.Enabled = True
-        Dim F3 As New Seleccion_Libro
+
         panel_menu.Controls.Clear()
         F3.TopLevel = False
         F3.Parent = panel_menu
@@ -635,6 +636,10 @@ Public Class MENU3
     End Sub
 
     Private Sub Panel2_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Panel2.Paint
+
+    End Sub
+
+    Private Sub panel_libros_Paint_1(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles panel_libros.Paint
 
     End Sub
 End Class

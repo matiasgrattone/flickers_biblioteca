@@ -62,23 +62,26 @@
 
     End Sub
     Private Sub Button6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button6.Click
-        bautor.Show()
+        'bautor.Show()
+        Panel1.Visible = True
         Consulta = "SELECT * FROM autor"
         consultar()
-        bautor.DataGridView1.DataSource = Tabla
+        DataGridView2.DataSource = Tabla
     End Sub
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
-        beditorial.Show()
+        'beditorial.Show()
+        Panel2.Visible = True
         Consulta = "SELECT * FROM editorial"
         consultar()
-        beditorial.DataGridView1.DataSource = Tabla
+        DataGridView3.DataSource = Tabla
     End Sub
 
     Private Sub ingresolibro_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'Carga datos dentro de la tabla Libros en la base de datos en MySql y los muestra en la datagrid
         Try
-
+            Panel1.Visible = False
+            Panel2.Visible = False
             Consulta = " SELECT libro.cod_libro , libro.titulo , autor.nombre , libro.volumen ,editorial.nombre, libro.anio , libro.origen , libro.observaciones , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial;"
             consultar()
             DataGridView1.DataSource = Tabla
@@ -95,5 +98,22 @@
 
     Private Sub autor_label_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles autor_label.Click
 
+    End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+
+    End Sub
+
+    Private Sub DataGridView2_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView2.CellContentClick
+        autor.Text = DataGridView1.Item(2, DataGridView1.CurrentRow.Index).Value
+        TextBox1.Text = DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value
+        Panel1.Visible = False
+
+    End Sub
+
+    Private Sub DataGridView3_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView3.CellContentClick
+        casa_editorial.Text = DataGridView1.Item(1, DataGridView1.CurrentRow.Index).Value
+        TextBox2.Text = DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value
+        Panel2.Visible = False
     End Sub
 End Class

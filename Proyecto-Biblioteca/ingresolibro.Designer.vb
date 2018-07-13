@@ -49,10 +49,22 @@ Partial Class ingresolibro
         Me.autor = New System.Windows.Forms.TextBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.DataGridView3 = New System.Windows.Forms.DataGridView()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'observaciones
@@ -230,7 +242,7 @@ Partial Class ingresolibro
         'Button6
         '
         Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Location = New System.Drawing.Point(608, 51)
+        Me.Button6.Location = New System.Drawing.Point(618, 49)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(65, 24)
         Me.Button6.TabIndex = 40
@@ -240,7 +252,7 @@ Partial Class ingresolibro
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(610, 109)
+        Me.Button2.Location = New System.Drawing.Point(618, 109)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(61, 27)
         Me.Button2.TabIndex = 39
@@ -299,13 +311,86 @@ Partial Class ingresolibro
         Me.TextBox2.Size = New System.Drawing.Size(143, 22)
         Me.TextBox2.TabIndex = 43
         '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.Button1)
+        Me.Panel1.Controls.Add(Me.Label2)
+        Me.Panel1.Controls.Add(Me.DataGridView2)
+        Me.Panel1.Location = New System.Drawing.Point(448, 12)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(383, 356)
+        Me.Panel1.TabIndex = 44
+        '
+        'DataGridView2
+        '
+        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView2.Location = New System.Drawing.Point(15, 69)
+        Me.DataGridView2.Name = "DataGridView2"
+        Me.DataGridView2.Size = New System.Drawing.Size(349, 246)
+        Me.DataGridView2.TabIndex = 1
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(93, 24)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(187, 13)
+        Me.Label2.TabIndex = 2
+        Me.Label2.Text = "Doble Click para Seleccionar un Autor"
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(231, 321)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(133, 23)
+        Me.Button1.TabIndex = 3
+        Me.Button1.Text = "Ingresar nuevo autor"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.Label3)
+        Me.Panel2.Controls.Add(Me.Button3)
+        Me.Panel2.Controls.Add(Me.DataGridView3)
+        Me.Panel2.Location = New System.Drawing.Point(448, 9)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(405, 423)
+        Me.Panel2.TabIndex = 45
+        '
+        'DataGridView3
+        '
+        Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView3.Location = New System.Drawing.Point(13, 63)
+        Me.DataGridView3.Name = "DataGridView3"
+        Me.DataGridView3.Size = New System.Drawing.Size(378, 281)
+        Me.DataGridView3.TabIndex = 1
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(269, 383)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(133, 23)
+        Me.Button3.TabIndex = 4
+        Me.Button3.Text = "Ingresar nueva editorial"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(106, 18)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(204, 13)
+        Me.Label3.TabIndex = 4
+        Me.Label3.Text = "Doble Click para Seleccionar una editorial"
+        '
         'ingresolibro
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(884, 625)
+        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Button6)
-        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.observaciones)
         Me.Controls.Add(Me.origen)
         Me.Controls.Add(Me.fecha)
@@ -330,12 +415,19 @@ Partial Class ingresolibro
         Me.Controls.Add(Me.autor)
         Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.Button2)
         Me.Name = "ingresolibro"
         Me.Text = "Form1"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -366,4 +458,12 @@ Partial Class ingresolibro
     Friend WithEvents autor As System.Windows.Forms.TextBox
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents DataGridView3 As System.Windows.Forms.DataGridView
 End Class
