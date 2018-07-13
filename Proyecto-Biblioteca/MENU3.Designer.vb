@@ -192,7 +192,7 @@ Partial Class MENU3
         '
         Me.panel_navegador.Controls.Add(Me.PictureBox5)
         Me.panel_navegador.Controls.Add(Me.label_navegador)
-        Me.panel_navegador.Location = New System.Drawing.Point(0, 300)
+        Me.panel_navegador.Location = New System.Drawing.Point(0, 313)
         Me.panel_navegador.Name = "panel_navegador"
         Me.panel_navegador.Size = New System.Drawing.Size(135, 94)
         Me.panel_navegador.TabIndex = 10
@@ -222,7 +222,7 @@ Partial Class MENU3
         '
         Me.panel_libros.Controls.Add(Me.PictureBox2)
         Me.panel_libros.Controls.Add(Me.label_libros)
-        Me.panel_libros.Location = New System.Drawing.Point(3, 122)
+        Me.panel_libros.Location = New System.Drawing.Point(3, 135)
         Me.panel_libros.Name = "panel_libros"
         Me.panel_libros.Size = New System.Drawing.Size(132, 83)
         Me.panel_libros.TabIndex = 9
@@ -254,7 +254,7 @@ Partial Class MENU3
         Me.panel_prestamos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.panel_prestamos.Controls.Add(Me.PictureBox3)
         Me.panel_prestamos.Controls.Add(Me.label_prestamos)
-        Me.panel_prestamos.Location = New System.Drawing.Point(0, 211)
+        Me.panel_prestamos.Location = New System.Drawing.Point(0, 224)
         Me.panel_prestamos.Name = "panel_prestamos"
         Me.panel_prestamos.Size = New System.Drawing.Size(135, 83)
         Me.panel_prestamos.TabIndex = 9
@@ -284,7 +284,7 @@ Partial Class MENU3
         '
         Me.panel_usuarios.Controls.Add(Me.PictureBox1)
         Me.panel_usuarios.Controls.Add(Me.label_usuarios)
-        Me.panel_usuarios.Location = New System.Drawing.Point(0, 33)
+        Me.panel_usuarios.Location = New System.Drawing.Point(0, 46)
         Me.panel_usuarios.Name = "panel_usuarios"
         Me.panel_usuarios.Size = New System.Drawing.Size(135, 83)
         Me.panel_usuarios.TabIndex = 8

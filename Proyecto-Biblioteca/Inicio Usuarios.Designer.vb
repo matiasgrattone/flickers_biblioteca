@@ -25,12 +25,16 @@ Partial Class inicio_usuarios
         Me.components = New System.ComponentModel.Container()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.Label22 = New System.Windows.Forms.Label()
         Me.PictureBox7 = New System.Windows.Forms.PictureBox()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Label19 = New System.Windows.Forms.Label()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.Label20 = New System.Windows.Forms.Label()
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.Label21 = New System.Windows.Forms.Label()
         Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
@@ -100,6 +104,10 @@ Partial Class inicio_usuarios
         Me.Panel14 = New System.Windows.Forms.Panel()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.Timer_Ingresar_Usuarios = New System.Windows.Forms.Timer(Me.components)
+        Me.Timer_Buscar_Usuarios = New System.Windows.Forms.Timer(Me.components)
+        Me.Timer_Editar_Usuarios = New System.Windows.Forms.Timer(Me.components)
+        Me.Timer_Borrar_Usuarios = New System.Windows.Forms.Timer(Me.components)
         Me.Panel3.SuspendLayout()
         Me.Panel7.SuspendLayout()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -143,11 +151,21 @@ Partial Class inicio_usuarios
         'Panel7
         '
         Me.Panel7.BackColor = System.Drawing.SystemColors.HighlightText
+        Me.Panel7.Controls.Add(Me.Label22)
         Me.Panel7.Controls.Add(Me.PictureBox7)
-        Me.Panel7.Location = New System.Drawing.Point(544, 3)
+        Me.Panel7.Location = New System.Drawing.Point(544, 13)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(72, 42)
+        Me.Panel7.Size = New System.Drawing.Size(72, 51)
         Me.Panel7.TabIndex = 2
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Location = New System.Drawing.Point(14, 36)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(43, 13)
+        Me.Label22.TabIndex = 10
+        Me.Label22.Text = "Eliminar"
         '
         'PictureBox7
         '
@@ -162,11 +180,21 @@ Partial Class inicio_usuarios
         'Panel4
         '
         Me.Panel4.BackColor = System.Drawing.SystemColors.HighlightText
+        Me.Panel4.Controls.Add(Me.Label19)
         Me.Panel4.Controls.Add(Me.PictureBox4)
-        Me.Panel4.Location = New System.Drawing.Point(325, 3)
+        Me.Panel4.Location = New System.Drawing.Point(325, 13)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(72, 42)
+        Me.Panel4.Size = New System.Drawing.Size(72, 51)
         Me.Panel4.TabIndex = 0
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(14, 37)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(45, 13)
+        Me.Label19.TabIndex = 7
+        Me.Label19.Text = "Ingresar"
         '
         'PictureBox4
         '
@@ -181,11 +209,21 @@ Partial Class inicio_usuarios
         'Panel5
         '
         Me.Panel5.BackColor = System.Drawing.SystemColors.HighlightText
+        Me.Panel5.Controls.Add(Me.Label20)
         Me.Panel5.Controls.Add(Me.PictureBox5)
-        Me.Panel5.Location = New System.Drawing.Point(398, 3)
+        Me.Panel5.Location = New System.Drawing.Point(398, 13)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(72, 42)
+        Me.Panel5.Size = New System.Drawing.Size(72, 51)
         Me.Panel5.TabIndex = 1
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(17, 37)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(40, 13)
+        Me.Label20.TabIndex = 8
+        Me.Label20.Text = "Buscar"
         '
         'PictureBox5
         '
@@ -200,11 +238,21 @@ Partial Class inicio_usuarios
         'Panel6
         '
         Me.Panel6.BackColor = System.Drawing.SystemColors.HighlightText
+        Me.Panel6.Controls.Add(Me.Label21)
         Me.Panel6.Controls.Add(Me.PictureBox6)
-        Me.Panel6.Location = New System.Drawing.Point(471, 3)
+        Me.Panel6.Location = New System.Drawing.Point(471, 13)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(72, 42)
+        Me.Panel6.Size = New System.Drawing.Size(72, 51)
         Me.Panel6.TabIndex = 1
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(22, 36)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(34, 13)
+        Me.Label21.TabIndex = 9
+        Me.Label21.Text = "Editar"
         '
         'PictureBox6
         '
@@ -893,6 +941,22 @@ Partial Class inicio_usuarios
         Me.Label3.Size = New System.Drawing.Size(479, 55)
         Me.Label3.TabIndex = 1
         '
+        'Timer_Ingresar_Usuarios
+        '
+        Me.Timer_Ingresar_Usuarios.Interval = 10
+        '
+        'Timer_Buscar_Usuarios
+        '
+        Me.Timer_Buscar_Usuarios.Interval = 10
+        '
+        'Timer_Editar_Usuarios
+        '
+        Me.Timer_Editar_Usuarios.Interval = 10
+        '
+        'Timer_Borrar_Usuarios
+        '
+        Me.Timer_Borrar_Usuarios.Interval = 10
+        '
         'inicio_usuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -909,12 +973,16 @@ Partial Class inicio_usuarios
         Me.TransparencyKey = System.Drawing.Color.Gray
         Me.Panel3.ResumeLayout(False)
         Me.Panel7.ResumeLayout(False)
+        Me.Panel7.PerformLayout()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel4.ResumeLayout(False)
+        Me.Panel4.PerformLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel5.ResumeLayout(False)
+        Me.Panel5.PerformLayout()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel6.ResumeLayout(False)
+        Me.Panel6.PerformLayout()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.TabControl1.ResumeLayout(False)
@@ -1020,6 +1088,14 @@ Partial Class inicio_usuarios
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Label22 As System.Windows.Forms.Label
+    Friend WithEvents Label19 As System.Windows.Forms.Label
+    Friend WithEvents Label20 As System.Windows.Forms.Label
+    Friend WithEvents Label21 As System.Windows.Forms.Label
+    Friend WithEvents Timer_Ingresar_Usuarios As System.Windows.Forms.Timer
+    Friend WithEvents Timer_Buscar_Usuarios As System.Windows.Forms.Timer
+    Friend WithEvents Timer_Editar_Usuarios As System.Windows.Forms.Timer
+    Friend WithEvents Timer_Borrar_Usuarios As System.Windows.Forms.Timer
 
 
 End Class
