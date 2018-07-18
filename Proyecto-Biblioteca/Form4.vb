@@ -17,7 +17,7 @@
         '/////////////////////////////////////////////GRUPBOX OCULTOS////////////////////
         ExtCombo.Visible = False
         devoCOMBO.Visible = False
-        '  ComboBoxMORTAL.Visible = False
+
         Button2.Visible = False
         Label5.Visible = False
         '//////////////////////////////////////VARIABLES PARA RALIZAR "CONSULTAS Y IFs" SIN ERRORES///////////////////////
@@ -99,7 +99,6 @@
 
                 '////////////////////////////////
 
-                ' ComboBoxMORTAL.Visible = True
                 Label5.Visible = True
                 NOMBRE.Text = DataGridView1.Item(1, DataGridView1.CurrentRow.Index).Value
 
@@ -109,7 +108,7 @@
 
         Catch ex As Exception
 
-            ' ComboBoxMORTAL.Visible = False
+
             MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
 
             ExtCombo.Visible = False
@@ -351,7 +350,6 @@
 
             consultar()
 
-            '  ComboBoxMORTAL.Visible = True
             '////////////////////////////////
 
             Try
