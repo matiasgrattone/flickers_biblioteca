@@ -6,7 +6,9 @@
     Dim a As String
     Dim Libro1 As String
     Dim Libro2 As String
+    Dim libro3 As String
     Dim cod_libros As String
+    Dim cod_libros2 As String
     Dim Contador As Integer = 0
     Dim VALIDADOR As String
     '/////////////////////////////////////////////////////////
@@ -17,7 +19,8 @@
         '/////////////////////////////////////////////GRUPBOX OCULTOS////////////////////
         ExtCombo.Visible = False
         devoCOMBO.Visible = False
-
+        ReservacionComboBox.Visible = False
+        CrearReservacionComboBox.Visible = False
         Button2.Visible = False
         Label5.Visible = False
         '//////////////////////////////////////VARIABLES PARA RALIZAR "CONSULTAS Y IFs" SIN ERRORES///////////////////////
@@ -104,6 +107,7 @@
 
                 ExtCombo.Visible = False
                 devoCOMBO.Visible = False
+                ReservacionComboBox.Visible = False
             End If
 
         Catch ex As Exception
@@ -113,6 +117,7 @@
 
             ExtCombo.Visible = False
             devoCOMBO.Visible = False
+            ReservacionComboBox.Visible = False
         End Try
 
 
@@ -525,8 +530,8 @@
 
         '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         devoCOMBO.Visible = False
-
-
+        ReservacionComboBox.Visible = False
+        CrearReservacionComboBox.Visible = False
         '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         If Cedula.Text <> "" Then
 
@@ -586,8 +591,8 @@
 
         '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ExtCombo.Visible = False
-
-
+        ReservacionComboBox.Visible = False
+        CrearReservacionComboBox.Visible = False
         '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         If Cedula.Text <> "" Then
             devoCOMBO.Visible = True
@@ -604,18 +609,262 @@
     End Sub
 
     Private Sub PictureBox4_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox4.Click
+
         '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ExtCombo.Visible = False
         devoCOMBO.Visible = False
+        CrearReservacionComboBox.Visible = False
+        '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        Consulta = "select * from prestamo where `fecha_entrada` = 'reservado';"
+        consultar()
+        OPA.DataSource = Tabla
+
+        Consulta = "select * from libro where estado = 'reservados'; "
+        consultar()
+        VerLibrosReservados.DataSource = Tabla
+        Dim ROWS As DataGridViewRow = OPA.CurrentRow
 
         '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+        '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        If Cedula.Text <> "" Then
+
+            If (OPA.RowCount = 1) Then
+
+                ReservacionComboBox.Visible = True
+                MsgBox("/////////RESERVADOS 0//////////")
+
+                Consulta = "select * from libro where estado = 'reservados'; "
+                consultar()
+                VerLibrosReservados.DataSource = Tabla
+
+            End If
+
+        Else
+            MsgBox("La cedula debe estar ingrezada correctamente", Title:="PRESTAMOS")
+        End If
+        '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+        '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        Try
+            If Cedula.Text <> "" Then
+                If (ROWS.Cells(3).Value.ToString) <> "" Then
+                    ReservacionComboBox.Visible = True
+                    MsgBox("Usted pude RETIRAR UN LIBREO", Title:="RESERVADO")
+
+                    Consulta = "select * from libro where estado = 'reservados';"
+                    consultar()
+                    VerLibrosReservados.DataSource = Tabla
+                Else
+                    ReservacionComboBox.Visible = False
+                    MsgBox("Usted NO puede retirar un libro hasta devolver los ya prestados", Title:="ERROR")
+                End If
+
+            Else
+                MsgBox("La cedula debe estar ingrezada correctamente", Title:="PRESTAMOS")
+            End If
+        Catch ex As Exception
+        End Try
+        '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
     End Sub
 
     Private Sub PictureBox3_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox3.Click
         '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ExtCombo.Visible = False
         devoCOMBO.Visible = False
+        ReservacionComboBox.Visible = False
+        '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        Consulta = "select * from prestamo where `fecha_entrada` = 'goku' and cedula= '" & Cedula.Text & "';"
+        consultar()
+        OPA.DataSource = Tabla
+
+        Consulta = "select * from libro where estado = 'disponible'"
+        consultar()
+        LibrosParaReservar.DataSource = Tabla
+        Dim ROWS As DataGridViewRow = OPA.CurrentRow
+
 
         '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ExtCombo.Visible = False
+        devoCOMBO.Visible = False
+        ReservacionComboBox.Visible = False
+        '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        If Cedula.Text <> "" Then
+            CrearReservacionComboBox.Visible = True
+
+            Consulta = "select * from libro where estado = 'disponible'"
+            consultar()
+
+            LibrosParaReservar.DataSource = Tabla
+        Else
+            MsgBox("La cedula debe estar ingrezada correctamente", Title:="PRESTAMOS")
+        End If
+        '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     End Sub
+
+    Private Sub VerLibrosReservados_CellContentDoubleClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles VerLibrosReservados.CellContentDoubleClick
+
+        'Para que si o si se tenga que ingresar una cedula para realizar las funciones 
+        If Cedula.Text <> "" Then
+            Consulta = "select * from libro where estado = 'reservado' and cedula ='" & Cedula.Text & "';"
+            VerLibrosReservados.DataSource = Tabla
+            consultar()
+
+
+
+            '////////////////////////////////
+
+            Try
+
+                libro3 = VerLibrosReservados.Item(1, VerLibrosReservados.CurrentRow.Index).Value
+                cod_libros2 = VerLibrosReservados.Item(0, VerLibrosReservados.CurrentRow.Index).Value
+
+                Dim a As MsgBoxResult
+                a = MsgBox("Desea extraer el libro reservado " & Libro1 & " ?", MsgBoxStyle.YesNo, Title:="RESERVACION")
+
+                '       1) Si se devuelve el libro y se actualiza la Base da datos 
+                If a = vbYes Then
+
+                    Consulta = "update libro set estado = 'NoDisponible' where cod_libro = '" & cod_libros2 & "';"
+                    consultar()
+                    Consulta = "UPDATE prestamo SET fecha_salida = '" & Label4.Text & "' WHERE cedula = '" & Cedula.Text & "' and cod_libro ='" & cod_libros2 & "';"
+                    consultar()
+                    MsgBox("se ha extraido", Title:="PRESTAMO")
+
+                    Consulta = "select * from libro where estado = 'reservado';"
+                    VerLibrosReservados.DataSource = Tabla
+                    consultar()
+
+                Else
+
+                    MsgBox("El libro sigue reservado", Title:="RESERVACION")
+
+                    Consulta = "select * from libro where estado = 'reservado';"
+                    VerLibrosReservados.DataSource = Tabla
+                    consultar()
+                End If
+
+
+                If a = vbNo Then
+                    MsgBox("No", Title:="RESERVACION")
+                End If
+
+            Catch ex As Exception
+
+                MsgBox("El libro sigue reservado", Title:="RESERVACION")
+
+
+            End Try
+
+
+
+            '       1)/////////////////
+
+        End If
+
+        Consulta = "select * from libro where estado = 'disponible';"
+        VerLibrosReservados.DataSource = Tabla
+        consultar()
+
+        '/////////////////////////////////////////////////
+    End Sub
+
+    Private Sub Button8_Click(sender As System.Object, e As System.EventArgs) Handles Button8.Click
+        Dim goku As String
+        goku = InputBox("Ingrese la id del libro para eliminar las reservacion", Title:="RESERVACION")
+        Try
+            If goku <> "" Then
+                Consulta = "update libro set estado = 'Disponible' where cod_libro = '" & goku & "';"
+                consultar()
+            Else
+                MsgBox("ID de libro incorrecta", Title:="ERROR RESERVACION")
+            End If
+        Catch ex As Exception
+            MsgBox("Ah ocurrido un error en la eliminación de las reservacion", Title:="ERROR RESERVACION")
+        End Try
+    End Sub
+
+
+    Private Sub LibrosParaReservar_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles LibrosParaReservar.CellContentClick
+        'Consulta a DATAGRIDVIEW oculto
+        Consulta = "select * from libro where estado = 'disponible';"
+        consultar()
+        LibrosParaReservar.DataSource = Tabla
+
+
+        '////////////////////////////////
+
+        'Para que si o si se tenga que ingresar una cedula para realizar las funciones 
+        If Cedula.Text <> "" Then
+            Consulta = "select * from libro where estado = 'disponible';"
+            LibrosParaReservar.DataSource = Tabla
+            consultar()
+
+
+
+            '////////////////////////////////
+
+            Try
+
+                libro3 = LibrosParaReservar.Item(1, LibrosParaReservar.CurrentRow.Index).Value
+                cod_libros2 = LibrosParaReservar.Item(0, LibrosParaReservar.CurrentRow.Index).Value
+
+                Dim a As MsgBoxResult
+                a = MsgBox("Desea extraer el libro reservado " & Libro1 & " ?", MsgBoxStyle.YesNo, Title:="RESERVACION")
+
+                '       1) Si se devuelve el libro y se actualiza la Base da datos 
+                If a = vbYes Then
+
+                    Consulta = "update libro set estado = 'Reservado' where cod_libro = '" & cod_libros2 & "';"
+                    consultar()
+                    Consulta = "UPDATE prestamo SET fecha_salida = 'Reservado' WHERE cedula = '" & Cedula.Text & "' and cod_libro ='" & cod_libros2 & "';"
+                    consultar()
+                    MsgBox("se ha extraido", Title:="PRESTAMO")
+
+                    Consulta = "select * from libro where estado = 'disponible';"
+                    LibrosParaReservar.DataSource = Tabla
+                    consultar()
+
+                Else
+
+                    MsgBox("El libro sigue reservado", Title:="RESERVACION")
+
+                    Consulta = "select * from libro where estado = 'disponible';"
+                    LibrosParaReservar.DataSource = Tabla
+                    consultar()
+                End If
+
+
+                If a = vbNo Then
+                    MsgBox("No", Title:="RESERVACION")
+                End If
+
+            Catch ex As Exception
+
+                MsgBox("El libro sigue reservado", Title:="RESERVACION")
+
+
+            End Try
+
+
+
+            '       1)/////////////////
+
+        End If
+
+        Consulta = "select * from libro where estado = 'disponible';"
+        LibrosParaReservar.DataSource = Tabla
+        consultar()
+
+        '/////////////////////////////////////////////////
+    End Sub
+
 End Class
