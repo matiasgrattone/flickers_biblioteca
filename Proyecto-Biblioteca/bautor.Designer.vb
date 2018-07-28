@@ -43,42 +43,47 @@ Partial Class bautor
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(426, 46)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(117, 13)
+        Me.Label1.Size = New System.Drawing.Size(156, 15)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Ingrese un nuevo autor"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(398, 90)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(47, 13)
+        Me.Label2.Size = New System.Drawing.Size(61, 15)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Nombre:"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(373, 132)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(72, 13)
+        Me.Label3.Size = New System.Drawing.Size(90, 15)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Nacionalidad:"
         '
         'nombrea
         '
-        Me.nombrea.Location = New System.Drawing.Point(452, 87)
+        Me.nombrea.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nombrea.Location = New System.Drawing.Point(465, 87)
         Me.nombrea.Name = "nombrea"
-        Me.nombrea.Size = New System.Drawing.Size(100, 20)
+        Me.nombrea.Size = New System.Drawing.Size(100, 23)
         Me.nombrea.TabIndex = 3
         '
         'nacionalidad
         '
-        Me.nacionalidad.Location = New System.Drawing.Point(452, 129)
+        Me.nacionalidad.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nacionalidad.Location = New System.Drawing.Point(465, 129)
         Me.nacionalidad.Name = "nacionalidad"
-        Me.nacionalidad.Size = New System.Drawing.Size(100, 20)
+        Me.nacionalidad.Size = New System.Drawing.Size(100, 23)
         Me.nacionalidad.TabIndex = 3
         '
         'Button1
@@ -94,6 +99,7 @@ Partial Class bautor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(600, 252)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.nacionalidad)
@@ -102,6 +108,7 @@ Partial Class bautor
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.DataGridView1)
+        Me.ForeColor = System.Drawing.Color.Black
         Me.Name = "bautor"
         Me.Text = "Form5"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()

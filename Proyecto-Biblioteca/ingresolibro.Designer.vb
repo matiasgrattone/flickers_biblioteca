@@ -57,6 +57,8 @@ Partial Class ingresolibro
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.DataGridView3 = New System.Windows.Forms.DataGridView()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -69,58 +71,58 @@ Partial Class ingresolibro
         '
         'observaciones
         '
-        Me.observaciones.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.observaciones.Location = New System.Drawing.Point(487, 157)
+        Me.observaciones.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.observaciones.Location = New System.Drawing.Point(510, 156)
         Me.observaciones.Name = "observaciones"
-        Me.observaciones.Size = New System.Drawing.Size(178, 22)
+        Me.observaciones.Size = New System.Drawing.Size(178, 25)
         Me.observaciones.TabIndex = 33
         '
         'origen
         '
-        Me.origen.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.origen.Location = New System.Drawing.Point(195, 156)
+        Me.origen.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.origen.Location = New System.Drawing.Point(208, 153)
         Me.origen.Name = "origen"
-        Me.origen.Size = New System.Drawing.Size(178, 22)
+        Me.origen.Size = New System.Drawing.Size(178, 25)
         Me.origen.TabIndex = 30
         '
         'fecha
         '
-        Me.fecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.fecha.Location = New System.Drawing.Point(194, 126)
+        Me.fecha.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.fecha.Location = New System.Drawing.Point(207, 123)
         Me.fecha.Name = "fecha"
-        Me.fecha.Size = New System.Drawing.Size(178, 22)
+        Me.fecha.Size = New System.Drawing.Size(178, 25)
         Me.fecha.TabIndex = 31
         '
         'casa_editorial
         '
-        Me.casa_editorial.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.casa_editorial.Location = New System.Drawing.Point(485, 129)
+        Me.casa_editorial.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.casa_editorial.Location = New System.Drawing.Point(508, 128)
         Me.casa_editorial.Name = "casa_editorial"
-        Me.casa_editorial.Size = New System.Drawing.Size(143, 22)
+        Me.casa_editorial.Size = New System.Drawing.Size(143, 25)
         Me.casa_editorial.TabIndex = 34
         '
         'volumen
         '
-        Me.volumen.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.volumen.Location = New System.Drawing.Point(484, 100)
+        Me.volumen.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.volumen.Location = New System.Drawing.Point(507, 99)
         Me.volumen.Name = "volumen"
-        Me.volumen.Size = New System.Drawing.Size(178, 22)
+        Me.volumen.Size = New System.Drawing.Size(178, 25)
         Me.volumen.TabIndex = 37
         '
         'titulo
         '
-        Me.titulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.titulo.Location = New System.Drawing.Point(194, 99)
+        Me.titulo.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.titulo.Location = New System.Drawing.Point(207, 96)
         Me.titulo.Name = "titulo"
-        Me.titulo.Size = New System.Drawing.Size(178, 22)
+        Me.titulo.Size = New System.Drawing.Size(178, 25)
         Me.titulo.TabIndex = 38
         '
         'cod_libro
         '
-        Me.cod_libro.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cod_libro.Location = New System.Drawing.Point(194, 68)
+        Me.cod_libro.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cod_libro.Location = New System.Drawing.Point(207, 65)
         Me.cod_libro.Name = "cod_libro"
-        Me.cod_libro.Size = New System.Drawing.Size(178, 22)
+        Me.cod_libro.Size = New System.Drawing.Size(178, 25)
         Me.cod_libro.TabIndex = 36
         '
         'DataGridView1
@@ -142,7 +144,7 @@ Partial Class ingresolibro
         'ingresar_boton
         '
         Me.ingresar_boton.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ingresar_boton.Location = New System.Drawing.Point(333, 250)
+        Me.ingresar_boton.Location = New System.Drawing.Point(352, 198)
         Me.ingresar_boton.Name = "ingresar_boton"
         Me.ingresar_boton.Size = New System.Drawing.Size(183, 44)
         Me.ingresar_boton.TabIndex = 20
@@ -152,80 +154,80 @@ Partial Class ingresolibro
         'Editorial_label
         '
         Me.Editorial_label.AutoSize = True
-        Me.Editorial_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Editorial_label.Location = New System.Drawing.Point(386, 129)
+        Me.Editorial_label.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Editorial_label.Location = New System.Drawing.Point(398, 129)
         Me.Editorial_label.Name = "Editorial_label"
-        Me.Editorial_label.Size = New System.Drawing.Size(95, 16)
+        Me.Editorial_label.Size = New System.Drawing.Size(110, 17)
         Me.Editorial_label.TabIndex = 13
         Me.Editorial_label.Text = "Casa Editorial:"
         '
         'observaciones_label
         '
         Me.observaciones_label.AutoSize = True
-        Me.observaciones_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.observaciones_label.Location = New System.Drawing.Point(386, 159)
+        Me.observaciones_label.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.observaciones_label.Location = New System.Drawing.Point(395, 159)
         Me.observaciones_label.Name = "observaciones_label"
-        Me.observaciones_label.Size = New System.Drawing.Size(103, 16)
+        Me.observaciones_label.Size = New System.Drawing.Size(119, 17)
         Me.observaciones_label.TabIndex = 11
         Me.observaciones_label.Text = "Observaciones:"
         '
         'origen_label
         '
         Me.origen_label.AutoSize = True
-        Me.origen_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.origen_label.Location = New System.Drawing.Point(141, 159)
+        Me.origen_label.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.origen_label.Location = New System.Drawing.Point(145, 159)
         Me.origen_label.Name = "origen_label"
-        Me.origen_label.Size = New System.Drawing.Size(51, 16)
+        Me.origen_label.Size = New System.Drawing.Size(61, 17)
         Me.origen_label.TabIndex = 17
         Me.origen_label.Text = "Origen:"
         '
         'fecha_label
         '
         Me.fecha_label.AutoSize = True
-        Me.fecha_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.fecha_label.Location = New System.Drawing.Point(143, 129)
+        Me.fecha_label.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.fecha_label.Location = New System.Drawing.Point(150, 128)
         Me.fecha_label.Name = "fecha_label"
-        Me.fecha_label.Size = New System.Drawing.Size(49, 16)
+        Me.fecha_label.Size = New System.Drawing.Size(42, 17)
         Me.fecha_label.TabIndex = 12
-        Me.fecha_label.Text = "Fecha:"
+        Me.fecha_label.Text = "Año:"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(414, 103)
+        Me.Label5.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(424, 102)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(64, 16)
+        Me.Label5.Size = New System.Drawing.Size(78, 17)
         Me.Label5.TabIndex = 15
         Me.Label5.Text = "Volumen:"
         '
         'titulo_label
         '
         Me.titulo_label.AutoSize = True
-        Me.titulo_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.titulo_label.Location = New System.Drawing.Point(152, 102)
+        Me.titulo_label.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.titulo_label.Location = New System.Drawing.Point(152, 100)
         Me.titulo_label.Name = "titulo_label"
-        Me.titulo_label.Size = New System.Drawing.Size(44, 16)
+        Me.titulo_label.Size = New System.Drawing.Size(55, 17)
         Me.titulo_label.TabIndex = 19
         Me.titulo_label.Text = "Titulo:"
         '
         'autor_label
         '
         Me.autor_label.AutoSize = True
-        Me.autor_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.autor_label.Location = New System.Drawing.Point(436, 74)
+        Me.autor_label.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.autor_label.Location = New System.Drawing.Point(450, 73)
         Me.autor_label.Name = "autor_label"
-        Me.autor_label.Size = New System.Drawing.Size(42, 16)
+        Me.autor_label.Size = New System.Drawing.Size(52, 17)
         Me.autor_label.TabIndex = 18
         Me.autor_label.Text = "Autor:"
         '
         'id_label
         '
         Me.id_label.AutoSize = True
-        Me.id_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.id_label.Location = New System.Drawing.Point(173, 72)
+        Me.id_label.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.id_label.Location = New System.Drawing.Point(175, 71)
         Me.id_label.Name = "id_label"
-        Me.id_label.Size = New System.Drawing.Size(24, 16)
+        Me.id_label.Size = New System.Drawing.Size(28, 17)
         Me.id_label.TabIndex = 16
         Me.id_label.Text = "ID:"
         '
@@ -242,7 +244,7 @@ Partial Class ingresolibro
         'Button6
         '
         Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Location = New System.Drawing.Point(642, 67)
+        Me.Button6.Location = New System.Drawing.Point(651, 67)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(65, 24)
         Me.Button6.TabIndex = 40
@@ -252,7 +254,7 @@ Partial Class ingresolibro
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(642, 127)
+        Me.Button2.Location = New System.Drawing.Point(653, 127)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(61, 27)
         Me.Button2.TabIndex = 39
@@ -289,41 +291,42 @@ Partial Class ingresolibro
         '
         'autor
         '
-        Me.autor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.autor.Location = New System.Drawing.Point(484, 70)
+        Me.autor.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.autor.Location = New System.Drawing.Point(507, 69)
         Me.autor.Name = "autor"
-        Me.autor.Size = New System.Drawing.Size(143, 22)
+        Me.autor.Size = New System.Drawing.Size(143, 25)
         Me.autor.TabIndex = 41
         '
         'TextBox1
         '
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(484, 70)
+        Me.TextBox1.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox1.Location = New System.Drawing.Point(507, 69)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(143, 22)
+        Me.TextBox1.Size = New System.Drawing.Size(143, 25)
         Me.TextBox1.TabIndex = 42
         '
         'TextBox2
         '
-        Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(485, 129)
+        Me.TextBox2.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox2.Location = New System.Drawing.Point(508, 128)
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(143, 22)
+        Me.TextBox2.Size = New System.Drawing.Size(143, 25)
         Me.TextBox2.TabIndex = 43
         '
         'Panel1
         '
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.DataGridView2)
-        Me.Panel1.Location = New System.Drawing.Point(434, 10)
+        Me.Panel1.Location = New System.Drawing.Point(448, 269)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(383, 356)
+        Me.Panel1.Size = New System.Drawing.Size(434, 300)
         Me.Panel1.TabIndex = 44
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(231, 321)
+        Me.Button1.Location = New System.Drawing.Point(273, 270)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(133, 23)
         Me.Button1.TabIndex = 3
@@ -333,7 +336,7 @@ Partial Class ingresolibro
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(93, 24)
+        Me.Label2.Location = New System.Drawing.Point(108, 18)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(187, 13)
         Me.Label2.TabIndex = 2
@@ -342,19 +345,20 @@ Partial Class ingresolibro
         'DataGridView2
         '
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(15, 69)
+        Me.DataGridView2.Location = New System.Drawing.Point(3, 34)
         Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.Size = New System.Drawing.Size(349, 246)
+        Me.DataGridView2.Size = New System.Drawing.Size(416, 230)
         Me.DataGridView2.TabIndex = 1
         '
         'Panel2
         '
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.Panel2.Controls.Add(Me.Label3)
         Me.Panel2.Controls.Add(Me.Button3)
         Me.Panel2.Controls.Add(Me.DataGridView3)
-        Me.Panel2.Location = New System.Drawing.Point(435, 10)
+        Me.Panel2.Location = New System.Drawing.Point(11, 269)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(405, 423)
+        Me.Panel2.Size = New System.Drawing.Size(431, 300)
         Me.Panel2.TabIndex = 45
         '
         'Label3
@@ -368,7 +372,7 @@ Partial Class ingresolibro
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(269, 383)
+        Me.Button3.Location = New System.Drawing.Point(286, 270)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(133, 23)
         Me.Button3.TabIndex = 4
@@ -378,18 +382,39 @@ Partial Class ingresolibro
         'DataGridView3
         '
         Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView3.Location = New System.Drawing.Point(13, 63)
+        Me.DataGridView3.Location = New System.Drawing.Point(6, 34)
         Me.DataGridView3.Name = "DataGridView3"
-        Me.DataGridView3.Size = New System.Drawing.Size(378, 281)
+        Me.DataGridView3.Size = New System.Drawing.Size(413, 230)
         Me.DataGridView3.TabIndex = 1
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Lucida Sans", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(160, 71)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(20, 24)
+        Me.Label4.TabIndex = 16
+        Me.Label4.Text = "*"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Lucida Sans", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(140, 99)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(20, 24)
+        Me.Label6.TabIndex = 16
+        Me.Label6.Text = "*"
         '
         'ingresolibro
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(884, 625)
-        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.observaciones)
         Me.Controls.Add(Me.origen)
@@ -410,6 +435,8 @@ Partial Class ingresolibro
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.titulo_label)
         Me.Controls.Add(Me.autor_label)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.id_label)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.autor)
@@ -467,4 +494,6 @@ Partial Class ingresolibro
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents DataGridView3 As System.Windows.Forms.DataGridView
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents Label6 As System.Windows.Forms.Label
 End Class

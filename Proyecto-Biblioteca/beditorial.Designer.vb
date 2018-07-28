@@ -53,58 +53,65 @@ Partial Class beditorial
         '
         'pais
         '
+        Me.pais.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.pais.Location = New System.Drawing.Point(523, 102)
         Me.pais.Name = "pais"
-        Me.pais.Size = New System.Drawing.Size(100, 20)
+        Me.pais.Size = New System.Drawing.Size(100, 23)
         Me.pais.TabIndex = 8
         '
         'nombree
         '
+        Me.nombree.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.nombree.Location = New System.Drawing.Point(524, 70)
         Me.nombree.Name = "nombree"
-        Me.nombree.Size = New System.Drawing.Size(100, 20)
+        Me.nombree.Size = New System.Drawing.Size(100, 23)
         Me.nombree.TabIndex = 9
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(487, 105)
+        Me.Label3.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(480, 102)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(30, 13)
+        Me.Label3.Size = New System.Drawing.Size(35, 15)
         Me.Label3.TabIndex = 6
         Me.Label3.Text = "Pais:"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(470, 73)
+        Me.Label2.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(463, 70)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(47, 13)
+        Me.Label2.Size = New System.Drawing.Size(61, 15)
         Me.Label2.TabIndex = 7
         Me.Label2.Text = "Nombre:"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(509, 37)
+        Me.Label1.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(473, 42)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(114, 13)
+        Me.Label1.Size = New System.Drawing.Size(151, 15)
         Me.Label1.TabIndex = 5
         Me.Label1.Text = "Ingrese nueva editorial"
         '
         'anioe
         '
+        Me.anioe.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.anioe.Location = New System.Drawing.Point(523, 135)
         Me.anioe.Name = "anioe"
-        Me.anioe.Size = New System.Drawing.Size(100, 20)
+        Me.anioe.Size = New System.Drawing.Size(100, 23)
         Me.anioe.TabIndex = 8
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(491, 138)
+        Me.Label4.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(484, 135)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(26, 13)
+        Me.Label4.Size = New System.Drawing.Size(33, 15)
         Me.Label4.TabIndex = 6
         Me.Label4.Text = "Año"
         '
@@ -112,6 +119,7 @@ Partial Class beditorial
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(656, 260)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.anioe)
@@ -122,6 +130,7 @@ Partial Class beditorial
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.DataGridView1)
+        Me.ForeColor = System.Drawing.Color.Black
         Me.Name = "beditorial"
         Me.Text = "Form5"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()

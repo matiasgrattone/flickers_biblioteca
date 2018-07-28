@@ -2,39 +2,47 @@
     Dim idlibro As Integer '//////////////// VARIABLE QUE VA A CONTENER EL ID DE LIBRO ///////////////////////
     Private Sub ingresar_boton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ingresar_boton.Click
 
-        '/// Permite ingresar un nuevo dato a la tabla libros ///'
-        Try
-            Consulta = "INSERT INTO libro VALUES('" + cod_libro.Text + "','" + titulo.Text + "','" + TextBox1.Text + "','" + TextBox2.Text + "','" + volumen.Text + "','" + fecha.Text + " ','" + origen.Text + "','" + observaciones.Text + "', 'disponible')"
+        If Trim(cod_libro.Text) = "" Or (titulo.Text) = "" Then
+            MsgBox(" Ha ocurrido un error. Compruebe que los campos marcados por un * se hallen completos. En caso de estar completos asegurese de no haber ingresado un ID ya existente")
+            'ElseIf Trim(titulo.Text) = "" Then
+            'MsgBox("El campo Titulo se encuentra vacio, por favor completelo")
+        Else
+
+
+
+            '/// Permite ingresar un nuevo dato a la tabla libros ///'
+            Try
+                Consulta = "INSERT INTO libro VALUES('" + cod_libro.Text + "','" + titulo.Text + "','" + TextBox1.Text + "','" + TextBox2.Text + "','" + volumen.Text + "','" + fecha.Text + " ','" + origen.Text + "','" + observaciones.Text + "', 'disponible')"
+                consultar()
+            Catch ex As Exception
+                MsgBox(ex)
+            End Try
+
+            '///////////////////////////////////////////
+            '//// Muestra Los Datos en el DataGrid//////
+            '///////////////////////////////////////////
+
+            Consulta = "SELECT libro.cod_libro as 'Codigo de Libro' , libro.titulo as 'Titulo' , autor.nombre as 'Autor' , libro.volumen as 'Volumen' ,editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen', libro.observaciones as 'Observaciones', libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial;"
             consultar()
-        Catch ex As Exception
-            MsgBox(ex)
-        End Try
+            DataGridView1.DataSource = Tabla
 
-        '///////////////////////////////////////////
-        '//// Muestra Los Datos en el DataGrid//////
-        '///////////////////////////////////////////
+            '///////////////////////////////////////////////////
 
-        Consulta = "SELECT libro.cod_libro , libro.titulo , autor.nombre , libro.volumen ,editorial.nombre, libro.anio , libro.origen , libro.observaciones , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial;"
-        consultar()
-        DataGridView1.DataSource = Tabla
+            '/// Al haberse ingresado un nuevo dato, limpia los textbox del formulario ///
 
-        '///////////////////////////////////////////////////
-
-        '/// Al haberse ingresado un nuevo dato, limpia los textbox del formulario ///
-
-        cod_libro.Clear()
-        autor.Clear()
-        titulo.Clear()
-        volumen.Clear()
-        casa_editorial.Clear()
-        fecha.Clear()
-        origen.Clear()
-        observaciones.Clear()
+            cod_libro.Clear()
+            autor.Clear()
+            titulo.Clear()
+            volumen.Clear()
+            casa_editorial.Clear()
+            fecha.Clear()
+            origen.Clear()
+            observaciones.Clear()
 
 
-        '/////////////////////////////////////////////////////
+            '/////////////////////////////////////////////////////
 
-
+        End If
 
 
     End Sub
@@ -82,7 +90,7 @@
         Try
             Panel1.Visible = False
             Panel2.Visible = False
-            Consulta = " SELECT libro.cod_libro , libro.titulo , autor.nombre , libro.volumen ,editorial.nombre, libro.anio , libro.origen , libro.observaciones , libro.estado from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial;"
+            Consulta = "SELECT libro.cod_libro as 'Codigo de Libro' , libro.titulo as 'Titulo' , autor.nombre as 'Autor' , libro.volumen as 'Volumen' ,editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen', libro.observaciones as 'Observaciones', libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial;"
             consultar()
             DataGridView1.DataSource = Tabla
             DataGridView1.Columns(4).HeaderText = "nombre editorial"
@@ -93,6 +101,15 @@
         Catch ex As Exception
 
         End Try
+
+        'Alinear celdas en el datagridview1'
+        Dim z As Integer
+        z = DataGridView1.Columns.Count - 1 'Obtiene la cantidad de columnas que tiene el datagrid, luego se resta 1 ya que empieza desde 0'
+        For x = 0 To z 'El for recorre cada columna y las va configurando hasta llegar a la columna a'
+            DataGridView1.Columns(x).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+        Next
+        DataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter 'Alinea las cabeceras de cada columena'
+        DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill 'Ajusta las columnas al tamaño del datagrid'
 
     End Sub
 

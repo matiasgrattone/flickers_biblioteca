@@ -190,8 +190,17 @@ Public Class buscarlibro
         DataGridView1.Columns(4).Width = 52
         DataGridView1.Columns(5).Width = 100
         DataGridView1.Columns(6).Width = 100
+        DataGridView1.Columns(4).HeaderText = "Año"
+        'Alinear celdas en el datagridview1'
+        Dim z As Integer
+        z = DataGridView1.Columns.Count - 1 'Obtiene la cantidad de columnas que tiene el datagrid, luego se resta 1 ya que empieza desde 0'
+        For x = 0 To z 'El for recorre cada columna y las va configurando hasta llegar a la columna a'
+            DataGridView1.Columns(x).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+        Next
+        DataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter 'Alinea las cabeceras de cada columena'
+        DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill 'Ajusta las columnas al tamaño del datagrid'
 
-     
+
     End Sub
     Private Sub ComboBox2_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBox2.SelectedIndexChanged
 
@@ -226,4 +235,7 @@ Public Class buscarlibro
 
     End Sub
 
+    Private Sub DataGridView1_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+
+    End Sub
 End Class
