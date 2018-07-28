@@ -42,11 +42,8 @@ Partial Class Form4
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.devoCOMBO = New System.Windows.Forms.GroupBox()
-        Me.Label13 = New System.Windows.Forms.Label()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Label14 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.DataGridAGG = New System.Windows.Forms.DataGridView()
         Me.ENPODER = New System.Windows.Forms.Label()
@@ -57,16 +54,27 @@ Partial Class Form4
         Me.LIBROS = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.VERLIBROSAGG = New System.Windows.Forms.DataGridView()
+        Me.ReservacionComboBox = New System.Windows.Forms.GroupBox()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.VerLibrosReservados = New System.Windows.Forms.DataGridView()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.CrearReservacionComboBox = New System.Windows.Forms.GroupBox()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.LibrosParaReservar = New System.Windows.Forms.DataGridView()
+        Me.Label25 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -75,11 +83,15 @@ Partial Class Form4
         CType(Me.DataGridAGG, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ExtCombo.SuspendLayout()
         CType(Me.VERLIBROSAGG, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ReservacionComboBox.SuspendLayout()
+        CType(Me.VerLibrosReservados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.CrearReservacionComboBox.SuspendLayout()
+        CType(Me.LibrosParaReservar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Timer1
@@ -257,11 +269,8 @@ Partial Class Form4
         'devoCOMBO
         '
         Me.devoCOMBO.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.devoCOMBO.Controls.Add(Me.Label13)
         Me.devoCOMBO.Controls.Add(Me.Button4)
         Me.devoCOMBO.Controls.Add(Me.Button5)
-        Me.devoCOMBO.Controls.Add(Me.TextBox1)
-        Me.devoCOMBO.Controls.Add(Me.Label14)
         Me.devoCOMBO.Controls.Add(Me.Label11)
         Me.devoCOMBO.Controls.Add(Me.DataGridAGG)
         Me.devoCOMBO.Controls.Add(Me.ENPODER)
@@ -271,16 +280,6 @@ Partial Class Form4
         Me.devoCOMBO.TabIndex = 67
         Me.devoCOMBO.TabStop = False
         Me.devoCOMBO.Text = "DEVOLUCION"
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!)
-        Me.Label13.Location = New System.Drawing.Point(18, 48)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(21, 15)
-        Me.Label13.TabIndex = 79
-        Me.Label13.Text = "ID"
         '
         'Button4
         '
@@ -299,23 +298,6 @@ Partial Class Form4
         Me.Button5.TabIndex = 63
         Me.Button5.Text = "Modo devolucion"
         Me.Button5.UseVisualStyleBackColor = True
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(45, 48)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(156, 20)
-        Me.TextBox1.TabIndex = 78
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!)
-        Me.Label14.Location = New System.Drawing.Point(18, 26)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(106, 15)
-        Me.Label14.TabIndex = 77
-        Me.Label14.Text = "BUSCAR LIBRO"
         '
         'Label11
         '
@@ -419,6 +401,68 @@ Partial Class Form4
         Me.VERLIBROSAGG.Size = New System.Drawing.Size(489, 314)
         Me.VERLIBROSAGG.TabIndex = 17
         '
+        'ReservacionComboBox
+        '
+        Me.ReservacionComboBox.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.ReservacionComboBox.Controls.Add(Me.Button8)
+        Me.ReservacionComboBox.Controls.Add(Me.Label18)
+        Me.ReservacionComboBox.Controls.Add(Me.Label19)
+        Me.ReservacionComboBox.Controls.Add(Me.Button7)
+        Me.ReservacionComboBox.Controls.Add(Me.VerLibrosReservados)
+        Me.ReservacionComboBox.Location = New System.Drawing.Point(267, 111)
+        Me.ReservacionComboBox.Name = "ReservacionComboBox"
+        Me.ReservacionComboBox.Size = New System.Drawing.Size(737, 534)
+        Me.ReservacionComboBox.TabIndex = 77
+        Me.ReservacionComboBox.TabStop = False
+        Me.ReservacionComboBox.Text = "RESERVADOS"
+        '
+        'Button8
+        '
+        Me.Button8.Location = New System.Drawing.Point(560, 233)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(138, 44)
+        Me.Button8.TabIndex = 80
+        Me.Button8.Text = "Eliminar Reservacion"
+        Me.Button8.UseVisualStyleBackColor = True
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Font = New System.Drawing.Font("Impact", 20.25!)
+        Me.Label18.Location = New System.Drawing.Point(553, 33)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(153, 34)
+        Me.Label18.TabIndex = 76
+        Me.Label18.Text = "RESERVADOS"
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Font = New System.Drawing.Font("Impact", 20.25!)
+        Me.Label19.ForeColor = System.Drawing.Color.DarkViolet
+        Me.Label19.Location = New System.Drawing.Point(14, 93)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(217, 34)
+        Me.Label19.TabIndex = 74
+        Me.Label19.Text = "Libros reservados"
+        '
+        'Button7
+        '
+        Me.Button7.Location = New System.Drawing.Point(560, 157)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(138, 52)
+        Me.Button7.TabIndex = 75
+        Me.Button7.Text = "EXTRAER"
+        Me.Button7.UseVisualStyleBackColor = True
+        '
+        'VerLibrosReservados
+        '
+        Me.VerLibrosReservados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.VerLibrosReservados.Location = New System.Drawing.Point(20, 140)
+        Me.VerLibrosReservados.Name = "VerLibrosReservados"
+        Me.VerLibrosReservados.Size = New System.Drawing.Size(489, 314)
+        Me.VerLibrosReservados.TabIndex = 17
+        '
         'Label5
         '
         Me.Label5.AutoSize = True
@@ -432,8 +476,6 @@ Partial Class Form4
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.SystemColors.ScrollBar
-        Me.Panel3.Controls.Add(Me.Label17)
-        Me.Panel3.Controls.Add(Me.Label16)
         Me.Panel3.Controls.Add(Me.Label15)
         Me.Panel3.Controls.Add(Me.Label5)
         Me.Panel3.Controls.Add(Me.Label12)
@@ -443,26 +485,8 @@ Partial Class Form4
         Me.Panel3.Controls.Add(Me.PictureBox1)
         Me.Panel3.Location = New System.Drawing.Point(259, -2)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(745, 112)
+        Me.Panel3.Size = New System.Drawing.Size(755, 112)
         Me.Panel3.TabIndex = 75
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(530, 16)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(45, 13)
-        Me.Label17.TabIndex = 7
-        Me.Label17.Text = "Label17"
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(391, 15)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(45, 13)
-        Me.Label16.TabIndex = 6
-        Me.Label16.Text = "Label16"
         '
         'Label15
         '
@@ -522,16 +546,90 @@ Partial Class Form4
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
+        'CrearReservacionComboBox
+        '
+        Me.CrearReservacionComboBox.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.CrearReservacionComboBox.Controls.Add(Me.Label22)
+        Me.CrearReservacionComboBox.Controls.Add(Me.TextBox3)
+        Me.CrearReservacionComboBox.Controls.Add(Me.Label23)
+        Me.CrearReservacionComboBox.Controls.Add(Me.Label24)
+        Me.CrearReservacionComboBox.Controls.Add(Me.LibrosParaReservar)
+        Me.CrearReservacionComboBox.Controls.Add(Me.Label25)
+        Me.CrearReservacionComboBox.Location = New System.Drawing.Point(268, 112)
+        Me.CrearReservacionComboBox.Name = "CrearReservacionComboBox"
+        Me.CrearReservacionComboBox.Size = New System.Drawing.Size(738, 533)
+        Me.CrearReservacionComboBox.TabIndex = 80
+        Me.CrearReservacionComboBox.TabStop = False
+        Me.CrearReservacionComboBox.Text = "CREAR RESERVACION"
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!)
+        Me.Label22.Location = New System.Drawing.Point(18, 48)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(21, 15)
+        Me.Label22.TabIndex = 79
+        Me.Label22.Text = "ID"
+        '
+        'TextBox3
+        '
+        Me.TextBox3.Location = New System.Drawing.Point(45, 48)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(156, 20)
+        Me.TextBox3.TabIndex = 78
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!)
+        Me.Label23.Location = New System.Drawing.Point(18, 26)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(106, 15)
+        Me.Label23.TabIndex = 77
+        Me.Label23.Text = "BUSCAR LIBRO"
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Font = New System.Drawing.Font("Impact", 20.25!)
+        Me.Label24.Location = New System.Drawing.Point(473, 32)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(237, 34)
+        Me.Label24.TabIndex = 62
+        Me.Label24.Text = "CREAR RESERVACION"
+        '
+        'LibrosParaReservar
+        '
+        Me.LibrosParaReservar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.LibrosParaReservar.Location = New System.Drawing.Point(21, 139)
+        Me.LibrosParaReservar.Name = "LibrosParaReservar"
+        Me.LibrosParaReservar.Size = New System.Drawing.Size(694, 314)
+        Me.LibrosParaReservar.TabIndex = 0
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Font = New System.Drawing.Font("Impact", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label25.ForeColor = System.Drawing.Color.DarkViolet
+        Me.Label25.Location = New System.Drawing.Point(15, 92)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(220, 34)
+        Me.Label25.TabIndex = 61
+        Me.Label25.Text = "Libros Disponibles"
+        '
         'Form4
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.ClientSize = New System.Drawing.Size(1006, 646)
+        Me.ClientSize = New System.Drawing.Size(1061, 646)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel3)
+        Me.Controls.Add(Me.ReservacionComboBox)
         Me.Controls.Add(Me.ExtCombo)
         Me.Controls.Add(Me.devoCOMBO)
+        Me.Controls.Add(Me.CrearReservacionComboBox)
         Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Form4"
@@ -548,12 +646,18 @@ Partial Class Form4
         Me.ExtCombo.ResumeLayout(False)
         Me.ExtCombo.PerformLayout()
         CType(Me.VERLIBROSAGG, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ReservacionComboBox.ResumeLayout(False)
+        Me.ReservacionComboBox.PerformLayout()
+        CType(Me.VerLibrosReservados, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.CrearReservacionComboBox.ResumeLayout(False)
+        Me.CrearReservacionComboBox.PerformLayout()
+        CType(Me.LibrosParaReservar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -589,16 +693,24 @@ Partial Class Form4
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents Button4 As System.Windows.Forms.Button
-    Friend WithEvents Label13 As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
-    Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents Button6 As System.Windows.Forms.Button
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
-    Friend WithEvents Label17 As System.Windows.Forms.Label
-    Friend WithEvents Label16 As System.Windows.Forms.Label
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents ReservacionComboBox As System.Windows.Forms.GroupBox
+    Friend WithEvents Label18 As System.Windows.Forms.Label
+    Friend WithEvents Label19 As System.Windows.Forms.Label
+    Friend WithEvents Button7 As System.Windows.Forms.Button
+    Friend WithEvents VerLibrosReservados As System.Windows.Forms.DataGridView
+    Friend WithEvents CrearReservacionComboBox As System.Windows.Forms.GroupBox
+    Friend WithEvents Label22 As System.Windows.Forms.Label
+    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
+    Friend WithEvents Label23 As System.Windows.Forms.Label
+    Friend WithEvents Label24 As System.Windows.Forms.Label
+    Friend WithEvents LibrosParaReservar As System.Windows.Forms.DataGridView
+    Friend WithEvents Label25 As System.Windows.Forms.Label
+    Friend WithEvents Button8 As System.Windows.Forms.Button
 End Class

@@ -426,7 +426,6 @@ Public Class MENU3
     End Sub
     Private Sub panel_usuarios_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles panel_usuarios.MouseEnter
         panel_usuarios.BackColor = Drawing.Color.LightGray
-
     End Sub
     Private Sub panel_libros_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles panel_libros.MouseEnter
         panel_libros.BackColor = Drawing.Color.LightGray
@@ -641,5 +640,18 @@ Public Class MENU3
 
     Private Sub panel_libros_Paint_1(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles panel_libros.Paint
 
+    End Sub
+
+    Private Sub PictureBox4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox4.Click
+        info_usuario.Show()
+        info_usuario.Text = Nombre.Text
+    End Sub
+
+    Private Sub PictureBox4_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox4.MouseEnter
+        Me.Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub PictureBox4_MouseLeave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox4.MouseLeave
+        Me.Cursor = Cursors.Default
     End Sub
 End Class
