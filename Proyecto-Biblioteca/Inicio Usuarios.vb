@@ -305,12 +305,12 @@
         ' Crear Variables
 
         Dim ced1 As Integer
-        Dim nom As String
+        Dim nom As String = Nothing
         Dim ape As String
         Dim tel As Integer
         Dim dir As String
         Dim tipo As Integer
-        Dim contra As String
+        Dim contra As String = Nothing
         Dim i As Integer ' Variable bandera para avisar que existe un error
         i = 0
 
@@ -382,13 +382,13 @@
 
         ' Crear Variables
 
-        Dim ced As Integer
-        Dim nom As String
-        Dim ape As String
-        Dim tel As Integer
-        Dim dir As String
-        Dim tipo As Integer
-        Dim pass As String
+        Dim ced As Integer = Nothing
+        Dim nom As String = Nothing
+        Dim ape As String = Nothing
+        Dim tel As Integer = Nothing
+        Dim dir As String = Nothing
+        Dim tipo As Integer = Nothing
+        Dim pass As String = Nothing
         Dim i As Integer ' Variable bandera para avisar que existe un error
         i = 0
 
@@ -407,7 +407,12 @@
         End If
         If i = 0 Then
             If IsNumeric(cedula_txt.Text) = True Then
-                ced = cedula_txt.Text
+                Modulo.Verificar_Cedula(cedula_txt.Text)
+                If Modulo.Correcto = 0 Then
+                    ced = cedula_txt.Text
+                Else
+                    i = 1
+                End If
             Else
                 errorcedula.Text = "No valido, ingrese solo numeros"
             End If
@@ -445,7 +450,8 @@
             Catch ex As Exception
                 MsgBox(ex.Message)
             End Try
-
+        Else
+            MsgBox("Existen erroresen el formulario, revisar los campos remarcados")
         End If
         Try
             Consulta = "select nombre, apellido, cedula, telefono, direccion, nacimiento from usuarios;"
