@@ -108,6 +108,9 @@ Partial Class inicio_usuarios
         Me.Timer_Buscar_Usuarios = New System.Windows.Forms.Timer(Me.components)
         Me.Timer_Editar_Usuarios = New System.Windows.Forms.Timer(Me.components)
         Me.Timer_Borrar_Usuarios = New System.Windows.Forms.Timer(Me.components)
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         Me.Panel3.SuspendLayout()
         Me.Panel7.SuspendLayout()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -298,6 +301,9 @@ Partial Class inicio_usuarios
         '
         'Panel10
         '
+        Me.Panel10.Controls.Add(Me.ComboBox3)
+        Me.Panel10.Controls.Add(Me.ComboBox2)
+        Me.Panel10.Controls.Add(Me.ComboBox1)
         Me.Panel10.Controls.Add(Me.RadioButton4)
         Me.Panel10.Controls.Add(Me.RadioButton3)
         Me.Panel10.Controls.Add(Me.DateTimePicker1)
@@ -327,7 +333,7 @@ Partial Class inicio_usuarios
         'RadioButton4
         '
         Me.RadioButton4.AutoSize = True
-        Me.RadioButton4.Location = New System.Drawing.Point(252, 356)
+        Me.RadioButton4.Location = New System.Drawing.Point(252, 385)
         Me.RadioButton4.Name = "RadioButton4"
         Me.RadioButton4.Size = New System.Drawing.Size(52, 17)
         Me.RadioButton4.TabIndex = 47
@@ -338,7 +344,7 @@ Partial Class inicio_usuarios
         'RadioButton3
         '
         Me.RadioButton3.AutoSize = True
-        Me.RadioButton3.Location = New System.Drawing.Point(141, 356)
+        Me.RadioButton3.Location = New System.Drawing.Point(141, 385)
         Me.RadioButton3.Name = "RadioButton3"
         Me.RadioButton3.Size = New System.Drawing.Size(80, 17)
         Me.RadioButton3.TabIndex = 46
@@ -408,7 +414,7 @@ Partial Class inicio_usuarios
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(52, 356)
+        Me.Label11.Location = New System.Drawing.Point(52, 385)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(33, 16)
         Me.Label11.TabIndex = 39
@@ -424,7 +430,7 @@ Partial Class inicio_usuarios
         '
         'guardar
         '
-        Me.guardar.Location = New System.Drawing.Point(154, 396)
+        Me.guardar.Location = New System.Drawing.Point(154, 425)
         Me.guardar.Name = "guardar"
         Me.guardar.Size = New System.Drawing.Size(84, 23)
         Me.guardar.TabIndex = 36
@@ -957,6 +963,30 @@ Partial Class inicio_usuarios
         '
         Me.Timer_Borrar_Usuarios.Interval = 10
         '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(143, 349)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(78, 21)
+        Me.ComboBox1.TabIndex = 48
+        '
+        'ComboBox2
+        '
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(263, 349)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(81, 21)
+        Me.ComboBox2.TabIndex = 49
+        '
+        'ComboBox3
+        '
+        Me.ComboBox3.FormattingEnabled = True
+        Me.ComboBox3.Location = New System.Drawing.Point(378, 349)
+        Me.ComboBox3.Name = "ComboBox3"
+        Me.ComboBox3.Size = New System.Drawing.Size(77, 21)
+        Me.ComboBox3.TabIndex = 50
+        '
         'inicio_usuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1096,6 +1126,9 @@ Partial Class inicio_usuarios
     Friend WithEvents Timer_Buscar_Usuarios As System.Windows.Forms.Timer
     Friend WithEvents Timer_Editar_Usuarios As System.Windows.Forms.Timer
     Friend WithEvents Timer_Borrar_Usuarios As System.Windows.Forms.Timer
+    Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
+    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
+    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
 
 
 End Class

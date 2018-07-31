@@ -168,12 +168,6 @@
     <Compile Include="Seleccion_Libro.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Seleccion_usuario.Designer.vb">
-      <DependentUpon>Seleccion_usuario.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Seleccion_usuario.vb">
-      <SubType>Form</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="bautor.resx">
@@ -217,9 +211,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Seleccion_Libro.resx">
       <DependentUpon>Seleccion_Libro.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Seleccion_usuario.resx">
-      <DependentUpon>Seleccion_usuario.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

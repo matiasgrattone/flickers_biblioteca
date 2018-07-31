@@ -21,11 +21,87 @@
 
         '//////////////////
 
+        '///Cargar ComboBox DIA///
 
+        'Como ahorre lineas con este for xdxdxd
 
+        For i As Integer = 0 To 31
+            If i = 0 Then
+                ComboBox1.Items.Add("Dia")
+                ComboBox1.SelectedIndex = 0 ' Setea el item Dia para que aparezca como default
+            Else
+                ComboBox1.Items.Add(i)
+            End If
+        Next
 
+        'ComboBox1.Items.Add("Dia")
+        'ComboBox1.SelectedIndex = 0 ' Setea el item Dia para que aparezca como default
+        'ComboBox1.Items.Add("1")
+        'ComboBox1.Items.Add("2")
+        'ComboBox1.Items.Add("3")
+        'ComboBox1.Items.Add("4")
+        'ComboBox1.Items.Add("5")
+        'ComboBox1.Items.Add("6")
+        'ComboBox1.Items.Add("7")
+        'ComboBox1.Items.Add("8")
+        'ComboBox1.Items.Add("9")
+        'ComboBox1.Items.Add("10")
+        'ComboBox1.Items.Add("11")
+        'ComboBox1.Items.Add("12")
+        'ComboBox1.Items.Add("13")
+        'ComboBox1.Items.Add("14")
+        'ComboBox1.Items.Add("15")
+        'ComboBox1.Items.Add("16")
+        'ComboBox1.Items.Add("17")
+        'ComboBox1.Items.Add("18")
+        'ComboBox1.Items.Add("19")
+        'ComboBox1.Items.Add("20")
+        'ComboBox1.Items.Add("21")
+        'ComboBox1.Items.Add("22")
+        'ComboBox1.Items.Add("23")
+        'ComboBox1.Items.Add("24")
+        'ComboBox1.Items.Add("25")
+        'ComboBox1.Items.Add("26")
+        'ComboBox1.Items.Add("27")
+        'ComboBox1.Items.Add("28")
+        'ComboBox1.Items.Add("29")
+        'ComboBox1.Items.Add("30")
+        'ComboBox1.Items.Add("31")
 
+        '/////////////////
 
+        '///Cargar ComboBox DIA///
+
+        ComboBox2.Items.Add("Mes")
+        ComboBox2.SelectedIndex = 0
+
+        ComboBox2.Items.Add("Enero")
+        ComboBox2.Items.Add("Febrero")
+        ComboBox2.Items.Add("Marzo")
+        ComboBox2.Items.Add("Abril")
+        ComboBox2.Items.Add("Mayo")
+        ComboBox2.Items.Add("Junio")
+        ComboBox2.Items.Add("Julio")
+        ComboBox2.Items.Add("Agosto")
+        ComboBox2.Items.Add("Setiembre")
+        ComboBox2.Items.Add("Octubre")
+        ComboBox2.Items.Add("Noviembre")
+        ComboBox2.Items.Add("Diciembre")
+
+        '/////////////////
+
+        '///Cargar ComboBox DIA///
+
+        For i As Integer = 1899 To 2000
+            If i = 1899 Then
+                ComboBox3.Items.Add("Año")
+                ComboBox3.SelectedIndex = 0 ' Setea el item Dia para que aparezca como default
+            Else
+                ComboBox3.Items.Add(i)
+            End If
+        Next
+
+        '/////////////////
 
     End Sub
 
@@ -655,11 +731,6 @@
 
     Private Sub Label22_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label22.MouseEnter
         mouse4_1 = 1
-    End Sub
-
-    Private Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles DataGridView1.CellMouseDoubleClick
-        Seleccion_usuario.Show()
-
     End Sub
 End Class
 
