@@ -311,6 +311,8 @@ Partial Class Form4
         '
         'DataGridAGG
         '
+        Me.DataGridAGG.AllowUserToAddRows = False
+        Me.DataGridAGG.AllowUserToDeleteRows = False
         Me.DataGridAGG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridAGG.Location = New System.Drawing.Point(21, 139)
         Me.DataGridAGG.Name = "DataGridAGG"
@@ -395,6 +397,8 @@ Partial Class Form4
         '
         'VERLIBROSAGG
         '
+        Me.VERLIBROSAGG.AllowUserToAddRows = False
+        Me.VERLIBROSAGG.AllowUserToDeleteRows = False
         Me.VERLIBROSAGG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.VERLIBROSAGG.Location = New System.Drawing.Point(20, 140)
         Me.VERLIBROSAGG.Name = "VERLIBROSAGG"
@@ -457,7 +461,10 @@ Partial Class Form4
         '
         'VerLibrosReservados
         '
+        Me.VerLibrosReservados.AllowUserToAddRows = False
+        Me.VerLibrosReservados.AllowUserToDeleteRows = False
         Me.VerLibrosReservados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.VerLibrosReservados.Cursor = System.Windows.Forms.Cursors.Arrow
         Me.VerLibrosReservados.Location = New System.Drawing.Point(20, 140)
         Me.VerLibrosReservados.Name = "VerLibrosReservados"
         Me.VerLibrosReservados.Size = New System.Drawing.Size(489, 314)
@@ -601,6 +608,8 @@ Partial Class Form4
         '
         'LibrosParaReservar
         '
+        Me.LibrosParaReservar.AllowUserToAddRows = False
+        Me.LibrosParaReservar.AllowUserToDeleteRows = False
         Me.LibrosParaReservar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.LibrosParaReservar.Location = New System.Drawing.Point(21, 139)
         Me.LibrosParaReservar.Name = "LibrosParaReservar"

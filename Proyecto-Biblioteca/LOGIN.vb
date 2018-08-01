@@ -1,8 +1,8 @@
 ﻿Public Class LOGIN
     Dim i As Integer = 0
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
-        Dim user As String
-        Dim pass As String
+        Dim user As String = Nothing
+        Dim pass As String = Nothing
 
         If LTrim$(usuario.Text) = "" Then ' Verifica si esta vacio nombre
             errorusuario.Text = "Nombre no puede estar vacío"

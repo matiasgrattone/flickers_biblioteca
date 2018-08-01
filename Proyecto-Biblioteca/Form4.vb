@@ -225,21 +225,21 @@
 
     Private Sub Cedula_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cedula.TextChanged
 
+        Cedula.AutoCompleteMode = AutoCompleteMode.Suggest
+        Cedula.AutoCompleteSource = AutoCompleteSource.CustomSource
+        Dim DataCollection As New AutoCompleteStringCollection()
+        getData(DataCollection)
+        Cedula.AutoCompleteCustomSource = DataCollection
 
-        '  If lista <> 0 Then
-        'NOMBRE.Text = datos.Tables("usuarios").Rows(0).Item("Nombre")
-        ' ESTADO.Text = datos.Tables("usuarios").Rows(0).Item("observacion")
-        'End If
-
-        'If ESTADO.Text = "Moroso" Then
-        'ESTADO.BackColor = color.FromArgb(255, 0, 0)
-        '
-        'ElseIf ESTADO.Text <> "Moroso" Then
-        'ESTADO.BackColor = color.FromArgb(0, 255, 33)
-
-        ' End If
     End Sub
 
+    Private Sub getData(ByVal dataCollection As AutoCompleteStringCollection)
+        Consulta = "select cedula from usuarios"
+        consultar()
+        For Each row As DataRow In Tabla.Rows
+            dataCollection.Add(row(0).ToString())
+        Next
+    End Sub
 
     Private Sub Button2_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
 
@@ -464,11 +464,11 @@
         DataGridAGG.DataSource = Tabla
     End Sub
 
-    Private Sub Panel3_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles Panel3.Paint
+    Private Sub Panel3_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Panel3.Paint
 
     End Sub
 
-    Private Sub Button6_Click(sender As System.Object, e As System.EventArgs) Handles Button6.Click
+    Private Sub Button6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button6.Click
 
         Dim Es_moroso2 As MsgBoxResult
 
@@ -513,7 +513,7 @@
 
     End Sub
 
-    Private Sub PictureBox1_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox1.Click
+    Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox1.Click
         Consulta = "select * from prestamo where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
         consultar()
         OPA.DataSource = Tabla
@@ -571,7 +571,7 @@
 
     End Sub
 
-    Private Sub PictureBox2_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox2.Click
+    Private Sub PictureBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox2.Click
         Consulta = "select * from prestamo where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
         consultar()
         OPA.DataSource = Tabla
@@ -601,7 +601,7 @@
 
     End Sub
 
-    Private Sub PictureBox4_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox4.Click
+    Private Sub PictureBox4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox4.Click
 
         '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ExtCombo.Visible = False
@@ -664,7 +664,7 @@
 
     End Sub
 
-    Private Sub PictureBox3_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox3.Click
+    Private Sub PictureBox3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox3.Click
 
         '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ExtCombo.Visible = False
@@ -704,7 +704,7 @@
 
     End Sub
 
-    Private Sub Button8_Click(sender As System.Object, e As System.EventArgs) Handles Button8.Click
+    Private Sub Button8_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button8.Click
 
         Dim goku As String
         goku = InputBox("Ingrese la id del libro para eliminar las reservacion", Title:="RESERVACION")
@@ -730,7 +730,7 @@
     End Sub
 
 
-    Private Sub LibrosParaReservar_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles LibrosParaReservar.CellContentClick
+    Private Sub LibrosParaReservar_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles LibrosParaReservar.CellContentClick
 
         'Consulta a DATAGRIDVIEW para ver los libros disponibles
         Consulta = "select * from libro where estado = 'disponible';"

@@ -14,6 +14,8 @@ Module Modulo
     Public opcioncolor As Color
     Public fecha As String
 
+    Public correcto As Integer = 0 '----------------------Variable para verificar si la cedula es valida---------------------------
+
     Public substring As String
 
     Public Sub consultar()
@@ -156,6 +158,40 @@ Module Modulo
 
 
 
+    End Sub
+
+    Public Sub Verificar_Cedula(ByVal cedu)
+        Dim cedula As String
+        Dim num(7) As Char
+        Dim suma As Integer
+        Dim suma1 As Integer
+        Dim calculo() As Integer = {2, 9, 8, 7, 6, 3, 4}
+
+        cedula = cedu
+        num = cedu.ToCharArray()
+
+        For i = 0 To 6
+            Dim num1 As Integer = Val(num(i))
+            suma = (num1 * calculo(i)) + suma
+        Next
+
+        num = suma.ToString.ToCharArray
+
+        ReDim Preserve num(1)
+        suma1 = Convert.ToInt32(num) + 1
+        num = suma1.ToString.ToCharArray
+        ReDim Preserve num(2)
+        num(2) = "0"
+
+        suma1 = Convert.ToInt32(num)
+        suma = suma1 - suma
+        num = cedula.ToCharArray()
+
+        If Str(suma) = Val(num(7)) Then
+            Correcto = 0
+        Else
+            correcto = 1
+        End If
     End Sub
 
 End Module

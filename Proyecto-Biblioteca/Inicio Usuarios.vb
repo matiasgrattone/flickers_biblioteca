@@ -21,11 +21,87 @@
 
         '//////////////////
 
+        '///Cargar ComboBox DIA///
 
+        'Como ahorre lineas con este for xdxdxd
 
+        For i As Integer = 0 To 31
+            If i = 0 Then
+                ComboBox1.Items.Add("Dia")
+                ComboBox1.SelectedIndex = 0 ' Setea el item Dia para que aparezca como default
+            Else
+                ComboBox1.Items.Add(i)
+            End If
+        Next
 
+        'ComboBox1.Items.Add("Dia")
+        'ComboBox1.SelectedIndex = 0 ' Setea el item Dia para que aparezca como default
+        'ComboBox1.Items.Add("1")
+        'ComboBox1.Items.Add("2")
+        'ComboBox1.Items.Add("3")
+        'ComboBox1.Items.Add("4")
+        'ComboBox1.Items.Add("5")
+        'ComboBox1.Items.Add("6")
+        'ComboBox1.Items.Add("7")
+        'ComboBox1.Items.Add("8")
+        'ComboBox1.Items.Add("9")
+        'ComboBox1.Items.Add("10")
+        'ComboBox1.Items.Add("11")
+        'ComboBox1.Items.Add("12")
+        'ComboBox1.Items.Add("13")
+        'ComboBox1.Items.Add("14")
+        'ComboBox1.Items.Add("15")
+        'ComboBox1.Items.Add("16")
+        'ComboBox1.Items.Add("17")
+        'ComboBox1.Items.Add("18")
+        'ComboBox1.Items.Add("19")
+        'ComboBox1.Items.Add("20")
+        'ComboBox1.Items.Add("21")
+        'ComboBox1.Items.Add("22")
+        'ComboBox1.Items.Add("23")
+        'ComboBox1.Items.Add("24")
+        'ComboBox1.Items.Add("25")
+        'ComboBox1.Items.Add("26")
+        'ComboBox1.Items.Add("27")
+        'ComboBox1.Items.Add("28")
+        'ComboBox1.Items.Add("29")
+        'ComboBox1.Items.Add("30")
+        'ComboBox1.Items.Add("31")
 
+        '/////////////////
 
+        '///Cargar ComboBox DIA///
+
+        ComboBox2.Items.Add("Mes")
+        ComboBox2.SelectedIndex = 0
+
+        ComboBox2.Items.Add("Enero")
+        ComboBox2.Items.Add("Febrero")
+        ComboBox2.Items.Add("Marzo")
+        ComboBox2.Items.Add("Abril")
+        ComboBox2.Items.Add("Mayo")
+        ComboBox2.Items.Add("Junio")
+        ComboBox2.Items.Add("Julio")
+        ComboBox2.Items.Add("Agosto")
+        ComboBox2.Items.Add("Setiembre")
+        ComboBox2.Items.Add("Octubre")
+        ComboBox2.Items.Add("Noviembre")
+        ComboBox2.Items.Add("Diciembre")
+
+        '/////////////////
+
+        '///Cargar ComboBox DIA///
+
+        For i As Integer = 1899 To 2000
+            If i = 1899 Then
+                ComboBox3.Items.Add("Año")
+                ComboBox3.SelectedIndex = 0 ' Setea el item Dia para que aparezca como default
+            Else
+                ComboBox3.Items.Add(i)
+            End If
+        Next
+
+        '/////////////////
 
     End Sub
 
@@ -305,12 +381,12 @@
         ' Crear Variables
 
         Dim ced1 As Integer
-        Dim nom As String
+        Dim nom As String = Nothing
         Dim ape As String
         Dim tel As Integer
         Dim dir As String
         Dim tipo As Integer
-        Dim contra As String
+        Dim contra As String = Nothing
         Dim i As Integer ' Variable bandera para avisar que existe un error
         i = 0
 
@@ -382,13 +458,13 @@
 
         ' Crear Variables
 
-        Dim ced As Integer
-        Dim nom As String
-        Dim ape As String
-        Dim tel As Integer
-        Dim dir As String
-        Dim tipo As Integer
-        Dim pass As String
+        Dim ced As Integer = Nothing
+        Dim nom As String = Nothing
+        Dim ape As String = Nothing
+        Dim tel As Integer = Nothing
+        Dim dir As String = Nothing
+        Dim tipo As Integer = Nothing
+        Dim pass As String = Nothing
         Dim i As Integer ' Variable bandera para avisar que existe un error
         i = 0
 
@@ -407,7 +483,12 @@
         End If
         If i = 0 Then
             If IsNumeric(cedula_txt.Text) = True Then
-                ced = cedula_txt.Text
+                Modulo.Verificar_Cedula(cedula_txt.Text)
+                If Modulo.Correcto = 0 Then
+                    ced = cedula_txt.Text
+                Else
+                    i = 1
+                End If
             Else
                 errorcedula.Text = "No valido, ingrese solo numeros"
             End If
@@ -445,7 +526,8 @@
             Catch ex As Exception
                 MsgBox(ex.Message)
             End Try
-
+        Else
+            MsgBox("Existen erroresen el formulario, revisar los campos remarcados")
         End If
         Try
             Consulta = "select nombre, apellido, cedula, telefono, direccion, nacimiento from usuarios;"
@@ -649,11 +731,6 @@
 
     Private Sub Label22_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label22.MouseEnter
         mouse4_1 = 1
-    End Sub
-
-    Private Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles DataGridView1.CellMouseDoubleClick
-        Seleccion_usuario.Show()
-
     End Sub
 End Class
 
