@@ -40,6 +40,9 @@ Partial Class inicio_usuarios
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Panel10 = New System.Windows.Forms.Panel()
+        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.RadioButton4 = New System.Windows.Forms.RadioButton()
         Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
@@ -108,9 +111,6 @@ Partial Class inicio_usuarios
         Me.Timer_Buscar_Usuarios = New System.Windows.Forms.Timer(Me.components)
         Me.Timer_Editar_Usuarios = New System.Windows.Forms.Timer(Me.components)
         Me.Timer_Borrar_Usuarios = New System.Windows.Forms.Timer(Me.components)
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         Me.Panel3.SuspendLayout()
         Me.Panel7.SuspendLayout()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -146,9 +146,9 @@ Partial Class inicio_usuarios
         Me.Panel3.Controls.Add(Me.Panel4)
         Me.Panel3.Controls.Add(Me.Panel5)
         Me.Panel3.Controls.Add(Me.Panel6)
-        Me.Panel3.Location = New System.Drawing.Point(23, 3)
+        Me.Panel3.Location = New System.Drawing.Point(0, -6)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(935, 50)
+        Me.Panel3.Size = New System.Drawing.Size(1010, 57)
         Me.Panel3.TabIndex = 9
         '
         'Panel7
@@ -156,7 +156,7 @@ Partial Class inicio_usuarios
         Me.Panel7.BackColor = System.Drawing.SystemColors.HighlightText
         Me.Panel7.Controls.Add(Me.Label22)
         Me.Panel7.Controls.Add(Me.PictureBox7)
-        Me.Panel7.Location = New System.Drawing.Point(544, 13)
+        Me.Panel7.Location = New System.Drawing.Point(935, 20)
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(72, 51)
         Me.Panel7.TabIndex = 2
@@ -185,7 +185,7 @@ Partial Class inicio_usuarios
         Me.Panel4.BackColor = System.Drawing.SystemColors.HighlightText
         Me.Panel4.Controls.Add(Me.Label19)
         Me.Panel4.Controls.Add(Me.PictureBox4)
-        Me.Panel4.Location = New System.Drawing.Point(325, 13)
+        Me.Panel4.Location = New System.Drawing.Point(325, 20)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(72, 51)
         Me.Panel4.TabIndex = 0
@@ -214,7 +214,7 @@ Partial Class inicio_usuarios
         Me.Panel5.BackColor = System.Drawing.SystemColors.HighlightText
         Me.Panel5.Controls.Add(Me.Label20)
         Me.Panel5.Controls.Add(Me.PictureBox5)
-        Me.Panel5.Location = New System.Drawing.Point(398, 13)
+        Me.Panel5.Location = New System.Drawing.Point(398, 20)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(72, 51)
         Me.Panel5.TabIndex = 1
@@ -243,7 +243,7 @@ Partial Class inicio_usuarios
         Me.Panel6.BackColor = System.Drawing.SystemColors.HighlightText
         Me.Panel6.Controls.Add(Me.Label21)
         Me.Panel6.Controls.Add(Me.PictureBox6)
-        Me.Panel6.Location = New System.Drawing.Point(471, 13)
+        Me.Panel6.Location = New System.Drawing.Point(471, 20)
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(72, 51)
         Me.Panel6.TabIndex = 1
@@ -271,9 +271,9 @@ Partial Class inicio_usuarios
         '
         Me.Panel2.BackColor = System.Drawing.SystemColors.HighlightText
         Me.Panel2.Controls.Add(Me.TabControl1)
-        Me.Panel2.Location = New System.Drawing.Point(23, 37)
+        Me.Panel2.Location = New System.Drawing.Point(3, 41)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(935, 598)
+        Me.Panel2.Size = New System.Drawing.Size(1014, 610)
         Me.Panel2.TabIndex = 10
         '
         'TabControl1
@@ -282,10 +282,10 @@ Partial Class inicio_usuarios
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.Controls.Add(Me.TabPage4)
-        Me.TabControl1.Location = New System.Drawing.Point(4, -3)
+        Me.TabControl1.Location = New System.Drawing.Point(-12, -13)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(929, 598)
+        Me.TabControl1.Size = New System.Drawing.Size(1023, 629)
         Me.TabControl1.TabIndex = 0
         '
         'TabPage1
@@ -294,7 +294,7 @@ Partial Class inicio_usuarios
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(921, 572)
+        Me.TabPage1.Size = New System.Drawing.Size(1015, 603)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "AGREGAR"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -325,15 +325,39 @@ Partial Class inicio_usuarios
         Me.Panel10.Controls.Add(Me.cedula_txt)
         Me.Panel10.Controls.Add(Me.nombre_txt)
         Me.Panel10.Controls.Add(Me.Label17)
-        Me.Panel10.Location = New System.Drawing.Point(-4, -4)
+        Me.Panel10.Location = New System.Drawing.Point(-4, -3)
         Me.Panel10.Name = "Panel10"
-        Me.Panel10.Size = New System.Drawing.Size(922, 577)
+        Me.Panel10.Size = New System.Drawing.Size(1019, 604)
         Me.Panel10.TabIndex = 2
+        '
+        'ComboBox3
+        '
+        Me.ComboBox3.FormattingEnabled = True
+        Me.ComboBox3.Location = New System.Drawing.Point(384, 293)
+        Me.ComboBox3.Name = "ComboBox3"
+        Me.ComboBox3.Size = New System.Drawing.Size(77, 21)
+        Me.ComboBox3.TabIndex = 50
+        '
+        'ComboBox2
+        '
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(269, 293)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(81, 21)
+        Me.ComboBox2.TabIndex = 49
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(149, 293)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(78, 21)
+        Me.ComboBox1.TabIndex = 48
         '
         'RadioButton4
         '
         Me.RadioButton4.AutoSize = True
-        Me.RadioButton4.Location = New System.Drawing.Point(252, 385)
+        Me.RadioButton4.Location = New System.Drawing.Point(258, 329)
         Me.RadioButton4.Name = "RadioButton4"
         Me.RadioButton4.Size = New System.Drawing.Size(52, 17)
         Me.RadioButton4.TabIndex = 47
@@ -344,7 +368,7 @@ Partial Class inicio_usuarios
         'RadioButton3
         '
         Me.RadioButton3.AutoSize = True
-        Me.RadioButton3.Location = New System.Drawing.Point(141, 385)
+        Me.RadioButton3.Location = New System.Drawing.Point(147, 329)
         Me.RadioButton3.Name = "RadioButton3"
         Me.RadioButton3.Size = New System.Drawing.Size(80, 17)
         Me.RadioButton3.TabIndex = 46
@@ -354,14 +378,14 @@ Partial Class inicio_usuarios
         '
         'DateTimePicker1
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(141, 312)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(147, 256)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(314, 20)
         Me.DateTimePicker1.TabIndex = 45
         '
         'apellido_txt
         '
-        Me.apellido_txt.Location = New System.Drawing.Point(141, 155)
+        Me.apellido_txt.Location = New System.Drawing.Point(147, 99)
         Me.apellido_txt.Name = "apellido_txt"
         Me.apellido_txt.Size = New System.Drawing.Size(314, 20)
         Me.apellido_txt.TabIndex = 44
@@ -370,7 +394,7 @@ Partial Class inicio_usuarios
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(50, 156)
+        Me.Label2.Location = New System.Drawing.Point(56, 100)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(53, 16)
         Me.Label2.TabIndex = 43
@@ -387,17 +411,18 @@ Partial Class inicio_usuarios
         Me.registro.BackgroundColor = System.Drawing.SystemColors.ActiveCaption
         Me.registro.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.registro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.registro.Location = New System.Drawing.Point(518, 6)
+        Me.registro.Location = New System.Drawing.Point(467, 6)
         Me.registro.Name = "registro"
+        Me.registro.ReadOnly = True
         Me.registro.RowHeadersVisible = False
         Me.registro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.registro.Size = New System.Drawing.Size(389, 560)
+        Me.registro.Size = New System.Drawing.Size(552, 598)
         Me.registro.TabIndex = 42
         '
         'errortelefono
         '
         Me.errortelefono.AutoSize = True
-        Me.errortelefono.Location = New System.Drawing.Point(140, 253)
+        Me.errortelefono.Location = New System.Drawing.Point(146, 197)
         Me.errortelefono.Name = "errortelefono"
         Me.errortelefono.Size = New System.Drawing.Size(0, 13)
         Me.errortelefono.TabIndex = 41
@@ -405,7 +430,7 @@ Partial Class inicio_usuarios
         'errornombre
         '
         Me.errornombre.AutoSize = True
-        Me.errornombre.Location = New System.Drawing.Point(140, 142)
+        Me.errornombre.Location = New System.Drawing.Point(146, 86)
         Me.errornombre.Name = "errornombre"
         Me.errornombre.Size = New System.Drawing.Size(0, 13)
         Me.errornombre.TabIndex = 40
@@ -414,7 +439,7 @@ Partial Class inicio_usuarios
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(52, 385)
+        Me.Label11.Location = New System.Drawing.Point(58, 329)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(33, 16)
         Me.Label11.TabIndex = 39
@@ -423,14 +448,14 @@ Partial Class inicio_usuarios
         'errorcedula
         '
         Me.errorcedula.AutoSize = True
-        Me.errorcedula.Location = New System.Drawing.Point(143, 210)
+        Me.errorcedula.Location = New System.Drawing.Point(149, 154)
         Me.errorcedula.Name = "errorcedula"
         Me.errorcedula.Size = New System.Drawing.Size(0, 13)
         Me.errorcedula.TabIndex = 37
         '
         'guardar
         '
-        Me.guardar.Location = New System.Drawing.Point(154, 425)
+        Me.guardar.Location = New System.Drawing.Point(160, 369)
         Me.guardar.Name = "guardar"
         Me.guardar.Size = New System.Drawing.Size(84, 23)
         Me.guardar.TabIndex = 36
@@ -441,7 +466,7 @@ Partial Class inicio_usuarios
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(10, 316)
+        Me.Label12.Location = New System.Drawing.Point(16, 260)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(126, 16)
         Me.Label12.TabIndex = 33
@@ -451,7 +476,7 @@ Partial Class inicio_usuarios
         '
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(50, 275)
+        Me.Label13.Location = New System.Drawing.Point(56, 219)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(60, 16)
         Me.Label13.TabIndex = 31
@@ -459,7 +484,7 @@ Partial Class inicio_usuarios
         '
         'direccion_txt
         '
-        Me.direccion_txt.Location = New System.Drawing.Point(141, 274)
+        Me.direccion_txt.Location = New System.Drawing.Point(147, 218)
         Me.direccion_txt.Name = "direccion_txt"
         Me.direccion_txt.Size = New System.Drawing.Size(314, 20)
         Me.direccion_txt.TabIndex = 30
@@ -468,7 +493,7 @@ Partial Class inicio_usuarios
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(52, 231)
+        Me.Label14.Location = New System.Drawing.Point(58, 175)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(58, 16)
         Me.Label14.TabIndex = 29
@@ -476,7 +501,7 @@ Partial Class inicio_usuarios
         '
         'telefono_txt
         '
-        Me.telefono_txt.Location = New System.Drawing.Point(141, 230)
+        Me.telefono_txt.Location = New System.Drawing.Point(147, 174)
         Me.telefono_txt.Name = "telefono_txt"
         Me.telefono_txt.Size = New System.Drawing.Size(314, 20)
         Me.telefono_txt.TabIndex = 28
@@ -485,7 +510,7 @@ Partial Class inicio_usuarios
         '
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(52, 188)
+        Me.Label15.Location = New System.Drawing.Point(58, 132)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(47, 16)
         Me.Label15.TabIndex = 27
@@ -495,7 +520,7 @@ Partial Class inicio_usuarios
         '
         Me.Label16.AutoSize = True
         Me.Label16.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(50, 121)
+        Me.Label16.Location = New System.Drawing.Point(56, 65)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(53, 16)
         Me.Label16.TabIndex = 26
@@ -503,14 +528,14 @@ Partial Class inicio_usuarios
         '
         'cedula_txt
         '
-        Me.cedula_txt.Location = New System.Drawing.Point(141, 188)
+        Me.cedula_txt.Location = New System.Drawing.Point(147, 132)
         Me.cedula_txt.Name = "cedula_txt"
         Me.cedula_txt.Size = New System.Drawing.Size(314, 20)
         Me.cedula_txt.TabIndex = 25
         '
         'nombre_txt
         '
-        Me.nombre_txt.Location = New System.Drawing.Point(141, 120)
+        Me.nombre_txt.Location = New System.Drawing.Point(147, 64)
         Me.nombre_txt.Name = "nombre_txt"
         Me.nombre_txt.Size = New System.Drawing.Size(314, 20)
         Me.nombre_txt.TabIndex = 24
@@ -519,7 +544,7 @@ Partial Class inicio_usuarios
         '
         Me.Label17.AutoSize = True
         Me.Label17.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(19, 31)
+        Me.Label17.Location = New System.Drawing.Point(12, 9)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(204, 25)
         Me.Label17.TabIndex = 23
@@ -531,7 +556,7 @@ Partial Class inicio_usuarios
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(921, 572)
+        Me.TabPage2.Size = New System.Drawing.Size(1015, 603)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "BUSCAR"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -544,13 +569,13 @@ Partial Class inicio_usuarios
         Me.Panel9.Controls.Add(Me.DataGridView1)
         Me.Panel9.Location = New System.Drawing.Point(-4, 0)
         Me.Panel9.Name = "Panel9"
-        Me.Panel9.Size = New System.Drawing.Size(922, 576)
+        Me.Panel9.Size = New System.Drawing.Size(1019, 576)
         Me.Panel9.TabIndex = 6
         '
         'RadioButton2
         '
         Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(694, 47)
+        Me.RadioButton2.Location = New System.Drawing.Point(927, 29)
         Me.RadioButton2.Name = "RadioButton2"
         Me.RadioButton2.Size = New System.Drawing.Size(57, 17)
         Me.RadioButton2.TabIndex = 6
@@ -560,7 +585,7 @@ Partial Class inicio_usuarios
         'RadioButton1
         '
         Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(565, 47)
+        Me.RadioButton1.Location = New System.Drawing.Point(927, 52)
         Me.RadioButton1.Name = "RadioButton1"
         Me.RadioButton1.Size = New System.Drawing.Size(85, 17)
         Me.RadioButton1.TabIndex = 6
@@ -573,16 +598,16 @@ Partial Class inicio_usuarios
         Me.Panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel8.Controls.Add(Me.PictureBox3)
         Me.Panel8.Controls.Add(Me.TextBox1)
-        Me.Panel8.Location = New System.Drawing.Point(32, 41)
+        Me.Panel8.Location = New System.Drawing.Point(32, 32)
         Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(482, 28)
+        Me.Panel8.Size = New System.Drawing.Size(870, 28)
         Me.Panel8.TabIndex = 5
         '
         'PictureBox3
         '
         Me.PictureBox3.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.busqueda
         Me.PictureBox3.InitialImage = Global.Proyecto_Biblioteca.My.Resources.Resources.busqueda
-        Me.PictureBox3.Location = New System.Drawing.Point(438, 1)
+        Me.PictureBox3.Location = New System.Drawing.Point(840, 1)
         Me.PictureBox3.Name = "PictureBox3"
         Me.PictureBox3.Size = New System.Drawing.Size(25, 24)
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -596,7 +621,7 @@ Partial Class inicio_usuarios
         Me.TextBox1.Location = New System.Drawing.Point(-1, -1)
         Me.TextBox1.Multiline = True
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(424, 29)
+        Me.TextBox1.Size = New System.Drawing.Size(838, 29)
         Me.TextBox1.TabIndex = 6
         '
         'DataGridView1
@@ -608,12 +633,12 @@ Partial Class inicio_usuarios
         Me.DataGridView1.AllowUserToResizeRows = False
         Me.DataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(10, 76)
+        Me.DataGridView1.Location = New System.Drawing.Point(18, 76)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(892, 474)
+        Me.DataGridView1.Size = New System.Drawing.Size(994, 497)
         Me.DataGridView1.TabIndex = 0
         '
         'TabPage3
@@ -622,7 +647,7 @@ Partial Class inicio_usuarios
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(921, 572)
+        Me.TabPage3.Size = New System.Drawing.Size(1015, 603)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "EDITAR"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -656,12 +681,12 @@ Partial Class inicio_usuarios
         Me.Panel11.Controls.Add(Me.TextBox4)
         Me.Panel11.Location = New System.Drawing.Point(-10, -23)
         Me.Panel11.Name = "Panel11"
-        Me.Panel11.Size = New System.Drawing.Size(928, 595)
+        Me.Panel11.Size = New System.Drawing.Size(1029, 623)
         Me.Panel11.TabIndex = 3
         '
         'contrasenia
         '
-        Me.contrasenia.Location = New System.Drawing.Point(299, 342)
+        Me.contrasenia.Location = New System.Drawing.Point(268, 266)
         Me.contrasenia.Name = "contrasenia"
         Me.contrasenia.Size = New System.Drawing.Size(165, 20)
         Me.contrasenia.TabIndex = 39
@@ -670,7 +695,7 @@ Partial Class inicio_usuarios
         '
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(198, 346)
+        Me.Label18.Location = New System.Drawing.Point(167, 270)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(77, 16)
         Me.Label18.TabIndex = 38
@@ -678,7 +703,7 @@ Partial Class inicio_usuarios
         '
         'DateTimePicker2
         '
-        Me.DateTimePicker2.Location = New System.Drawing.Point(303, 390)
+        Me.DateTimePicker2.Location = New System.Drawing.Point(272, 314)
         Me.DateTimePicker2.Name = "DateTimePicker2"
         Me.DateTimePicker2.Size = New System.Drawing.Size(161, 20)
         Me.DateTimePicker2.TabIndex = 37
@@ -687,7 +712,7 @@ Partial Class inicio_usuarios
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(161, 394)
+        Me.Label9.Location = New System.Drawing.Point(130, 318)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(136, 16)
         Me.Label9.TabIndex = 36
@@ -696,7 +721,7 @@ Partial Class inicio_usuarios
         'RadioButton6
         '
         Me.RadioButton6.AutoSize = True
-        Me.RadioButton6.Location = New System.Drawing.Point(473, 292)
+        Me.RadioButton6.Location = New System.Drawing.Point(442, 216)
         Me.RadioButton6.Name = "RadioButton6"
         Me.RadioButton6.Size = New System.Drawing.Size(52, 17)
         Me.RadioButton6.TabIndex = 35
@@ -707,7 +732,7 @@ Partial Class inicio_usuarios
         'RadioButton5
         '
         Me.RadioButton5.AutoSize = True
-        Me.RadioButton5.Location = New System.Drawing.Point(387, 292)
+        Me.RadioButton5.Location = New System.Drawing.Point(356, 216)
         Me.RadioButton5.Name = "RadioButton5"
         Me.RadioButton5.Size = New System.Drawing.Size(80, 17)
         Me.RadioButton5.TabIndex = 34
@@ -719,7 +744,7 @@ Partial Class inicio_usuarios
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(329, 292)
+        Me.Label8.Location = New System.Drawing.Point(298, 216)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(36, 16)
         Me.Label8.TabIndex = 33
@@ -729,7 +754,7 @@ Partial Class inicio_usuarios
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(65, 292)
+        Me.Label7.Location = New System.Drawing.Point(34, 216)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(65, 16)
         Me.Label7.TabIndex = 32
@@ -739,7 +764,7 @@ Partial Class inicio_usuarios
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(329, 241)
+        Me.Label6.Location = New System.Drawing.Point(298, 165)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(62, 16)
         Me.Label6.TabIndex = 31
@@ -749,7 +774,7 @@ Partial Class inicio_usuarios
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(65, 241)
+        Me.Label5.Location = New System.Drawing.Point(34, 165)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(51, 16)
         Me.Label5.TabIndex = 30
@@ -759,7 +784,7 @@ Partial Class inicio_usuarios
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(329, 186)
+        Me.Label4.Location = New System.Drawing.Point(298, 110)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(58, 16)
         Me.Label4.TabIndex = 29
@@ -769,7 +794,7 @@ Partial Class inicio_usuarios
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(65, 188)
+        Me.Label1.Location = New System.Drawing.Point(34, 112)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(57, 16)
         Me.Label1.TabIndex = 28
@@ -778,7 +803,7 @@ Partial Class inicio_usuarios
         'errortelefono1
         '
         Me.errortelefono1.AutoSize = True
-        Me.errortelefono1.Location = New System.Drawing.Point(399, 267)
+        Me.errortelefono1.Location = New System.Drawing.Point(368, 191)
         Me.errortelefono1.Name = "errortelefono1"
         Me.errortelefono1.Size = New System.Drawing.Size(0, 13)
         Me.errortelefono1.TabIndex = 27
@@ -786,7 +811,7 @@ Partial Class inicio_usuarios
         'errornombre1
         '
         Me.errornombre1.AutoSize = True
-        Me.errornombre1.Location = New System.Drawing.Point(139, 212)
+        Me.errornombre1.Location = New System.Drawing.Point(108, 136)
         Me.errornombre1.Name = "errornombre1"
         Me.errornombre1.Size = New System.Drawing.Size(0, 13)
         Me.errornombre1.TabIndex = 26
@@ -794,14 +819,14 @@ Partial Class inicio_usuarios
         'errorcedula1
         '
         Me.errorcedula1.AutoSize = True
-        Me.errorcedula1.Location = New System.Drawing.Point(139, 267)
+        Me.errorcedula1.Location = New System.Drawing.Point(108, 191)
         Me.errorcedula1.Name = "errorcedula1"
         Me.errorcedula1.Size = New System.Drawing.Size(0, 13)
         Me.errorcedula1.TabIndex = 25
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(643, 542)
+        Me.Button3.Location = New System.Drawing.Point(395, 542)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(109, 23)
         Me.Button3.TabIndex = 24
@@ -819,35 +844,35 @@ Partial Class inicio_usuarios
         '
         'apellido
         '
-        Me.apellido.Location = New System.Drawing.Point(400, 185)
+        Me.apellido.Location = New System.Drawing.Point(369, 109)
         Me.apellido.Name = "apellido"
         Me.apellido.Size = New System.Drawing.Size(165, 20)
         Me.apellido.TabIndex = 21
         '
         'direccion
         '
-        Me.direccion.Location = New System.Drawing.Point(139, 291)
+        Me.direccion.Location = New System.Drawing.Point(108, 215)
         Me.direccion.Name = "direccion"
         Me.direccion.Size = New System.Drawing.Size(165, 20)
         Me.direccion.TabIndex = 19
         '
         'nombre
         '
-        Me.nombre.Location = New System.Drawing.Point(139, 185)
+        Me.nombre.Location = New System.Drawing.Point(108, 109)
         Me.nombre.Name = "nombre"
         Me.nombre.Size = New System.Drawing.Size(165, 20)
         Me.nombre.TabIndex = 18
         '
         'telefono
         '
-        Me.telefono.Location = New System.Drawing.Point(400, 240)
+        Me.telefono.Location = New System.Drawing.Point(369, 164)
         Me.telefono.Name = "telefono"
         Me.telefono.Size = New System.Drawing.Size(165, 20)
         Me.telefono.TabIndex = 17
         '
         'cedula
         '
-        Me.cedula.Location = New System.Drawing.Point(139, 240)
+        Me.cedula.Location = New System.Drawing.Point(108, 164)
         Me.cedula.Name = "cedula"
         Me.cedula.Size = New System.Drawing.Size(165, 20)
         Me.cedula.TabIndex = 16
@@ -860,19 +885,19 @@ Partial Class inicio_usuarios
         Me.DataGridView3.AllowUserToResizeRows = False
         Me.DataGridView3.BackgroundColor = System.Drawing.SystemColors.ActiveCaption
         Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView3.Location = New System.Drawing.Point(589, 99)
+        Me.DataGridView3.Location = New System.Drawing.Point(543, 31)
         Me.DataGridView3.Name = "DataGridView3"
         Me.DataGridView3.ReadOnly = True
         Me.DataGridView3.RowHeadersVisible = False
         Me.DataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView3.Size = New System.Drawing.Size(311, 335)
+        Me.DataGridView3.Size = New System.Drawing.Size(481, 591)
         Me.DataGridView3.TabIndex = 15
         '
         'Label10
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(139, 132)
+        Me.Label10.Location = New System.Drawing.Point(29, 40)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(158, 18)
         Me.Label10.TabIndex = 14
@@ -880,7 +905,7 @@ Partial Class inicio_usuarios
         '
         'TextBox4
         '
-        Me.TextBox4.Location = New System.Drawing.Point(332, 133)
+        Me.TextBox4.Location = New System.Drawing.Point(222, 41)
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(198, 20)
         Me.TextBox4.TabIndex = 13
@@ -891,7 +916,7 @@ Partial Class inicio_usuarios
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(921, 572)
+        Me.TabPage4.Size = New System.Drawing.Size(1015, 603)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "BORRAR"
         Me.TabPage4.UseVisualStyleBackColor = True
@@ -902,12 +927,12 @@ Partial Class inicio_usuarios
         Me.Panel12.Controls.Add(Me.borrar)
         Me.Panel12.Location = New System.Drawing.Point(-6, -14)
         Me.Panel12.Name = "Panel12"
-        Me.Panel12.Size = New System.Drawing.Size(924, 590)
+        Me.Panel12.Size = New System.Drawing.Size(1021, 590)
         Me.Panel12.TabIndex = 3
         '
         'TextBox3
         '
-        Me.TextBox3.Location = New System.Drawing.Point(129, 102)
+        Me.TextBox3.Location = New System.Drawing.Point(189, 20)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(595, 20)
         Me.TextBox3.TabIndex = 1
@@ -920,21 +945,21 @@ Partial Class inicio_usuarios
         Me.borrar.AllowUserToResizeRows = False
         Me.borrar.BackgroundColor = System.Drawing.SystemColors.ActiveCaption
         Me.borrar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.borrar.Location = New System.Drawing.Point(24, 147)
+        Me.borrar.Location = New System.Drawing.Point(24, 46)
         Me.borrar.Name = "borrar"
         Me.borrar.ReadOnly = True
         Me.borrar.RowHeadersVisible = False
         Me.borrar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.borrar.Size = New System.Drawing.Size(878, 404)
+        Me.borrar.Size = New System.Drawing.Size(985, 541)
         Me.borrar.TabIndex = 0
         '
         'Panel14
         '
         Me.Panel14.Controls.Add(Me.Panel3)
         Me.Panel14.Controls.Add(Me.Panel2)
-        Me.Panel14.Location = New System.Drawing.Point(2, 2)
+        Me.Panel14.Location = New System.Drawing.Point(-2, -1)
         Me.Panel14.Name = "Panel14"
-        Me.Panel14.Size = New System.Drawing.Size(1008, 650)
+        Me.Panel14.Size = New System.Drawing.Size(1010, 660)
         Me.Panel14.TabIndex = 12
         '
         'Label3
@@ -962,30 +987,6 @@ Partial Class inicio_usuarios
         'Timer_Borrar_Usuarios
         '
         Me.Timer_Borrar_Usuarios.Interval = 10
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(143, 349)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(78, 21)
-        Me.ComboBox1.TabIndex = 48
-        '
-        'ComboBox2
-        '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(263, 349)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(81, 21)
-        Me.ComboBox2.TabIndex = 49
-        '
-        'ComboBox3
-        '
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(378, 349)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(77, 21)
-        Me.ComboBox3.TabIndex = 50
         '
         'inicio_usuarios
         '

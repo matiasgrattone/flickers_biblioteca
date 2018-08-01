@@ -8,13 +8,42 @@
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
+        '//// Datagrid buscar usuarios //////////////
+
+        Dim aas As Integer
+        aas = DataGridView1.Columns.Count - 1 'Obtiene la cantidad de columnas que tiene el datagrid , luego se resta 1 ya que empieza desde 0
+
+        For x = 0 To aas ' luego el for recorre el datagrid , y va configurando cada columna hasta la columna a
+            DataGridView1.Columns(x).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+        Next
+
+        DataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter ' alinea las cabeceras de las columnas
+        DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill ' ajusta las columnas al tamaño del datagrid
+
+
+        '///////////////////////////////////////////
+
+        Dim aas1 As Integer
+        aas1 = borrar.Columns.Count - 1 'Obtiene la cantidad de columnas que tiene el datagrid , luego se resta 1 ya que empieza desde 0
+
+        For x = 0 To aas1 ' luego el for recorre el datagrid , y va configurando cada columna hasta la columna a
+            borrar.Columns(x).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+        Next
+
+        borrar.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter ' alinea las cabeceras de las columnas
+        borrar.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill ' ajusta las columnas al tamaño del datagrid
+
+
+
+
+
         Timer_Ingresar_Usuarios.Enabled = True
         Timer_Buscar_Usuarios.Enabled = True
         Timer_Editar_Usuarios.Enabled = True
         Timer_Borrar_Usuarios.Enabled = True
 
         '//cargar usuarios en registro//
-
+       
         Consulta = "select nombre, apellido, cedula, telefono, direccion, nacimiento from usuarios;"
         consultar()
         registro.DataSource = Tabla
@@ -119,10 +148,10 @@
 
         TabControl1.SelectTab("TabPage2")
 
-        Panel4.Height = 42
-        Panel5.Height = 45
-        Panel6.Height = 42
-        Panel7.Height = 42
+        'Panel4.Height = 42
+        'Panel5.Height = 45
+        'Panel6.Height = 42
+        'Panel7.Height = 42
 
         '//------------------------------------------------//
 
@@ -157,10 +186,10 @@
         TabControl1.SelectTab("TabPage1")
         'Panel10.BackColor = Drawing.Color.LightBlue
 
-        Panel4.Height = 45
-        Panel5.Height = 42
-        Panel6.Height = 42
-        Panel7.Height = 42
+        'Panel4.Height = 45
+        'Panel5.Height = 42
+        'Panel6.Height = 42
+        'Panel7.Height = 42
 
         '//-------------------------------------------------//
 
@@ -179,10 +208,10 @@
         consultar()
         DataGridView3.DataSource = Tabla
 
-        Panel4.Height = 42
-        Panel5.Height = 42
-        Panel6.Height = 45
-        Panel7.Height = 42
+        'Panel4.Height = 42
+        'Panel5.Height = 42
+        'Panel6.Height = 45
+        'Panel7.Height = 42
 
         '//------------------------------------------------//
 
@@ -197,10 +226,10 @@
         TabControl1.SelectTab("TabPage4")
         ' Panel12.BackColor = Drawing.Color.Green
 
-        Panel4.Height = 42
-        Panel5.Height = 42
-        Panel6.Height = 42
-        Panel7.Height = 45
+        'Panel4.Height = 42
+        'Panel5.Height = 42
+        'Panel6.Height = 42
+        'Panel7.Height = 45
 
         Consulta = "select nombre, apellido, cedula, telefono, direccion, nacimiento from usuarios;"
         consultar()
@@ -230,13 +259,12 @@
 
 
     Private Sub PictureBox4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox4.Click
-        seleccionado1 = "Ingresar"
+        seleccionado1 = "ingresar"
         '//-------------AGREGAR USUARIOS PICTUREBOX--------------------//
 
         Consulta = "select nombre, apellido, cedula, telefono, direccion, nacimiento from usuarios;"
         consultar()
         registro.DataSource = Tabla
-
         TabControl1.SelectTab("TabPage1")
 
         'Panel4.Height = 45
@@ -554,24 +582,27 @@
         '////////////////////// ELIMINAR USUARIOS ////////////////////////////////////////////
 
         Dim nombre As String
-        Dim codusuario As Integer
+        Dim codusuario As Double 
         Dim a As MsgBoxStyle = MsgBoxStyle.YesNo + MsgBoxStyle.Critical
-        Dim b As MsgBoxResult
         nombre = borrar.Item(1, borrar.CurrentRow.Index).Value
 
-        b = MsgBox("desea eliminar a " + nombre + "?", a, Title:="Eliminar")
 
 
-        Select Case b
+
+        Select Case MsgBox("desea eliminar a " + nombre + "?", a, Title:="Eliminar")
 
             Case MsgBoxResult.No
 
 
             Case MsgBoxResult.Yes
+                Try
+                    codusuario = borrar.Item(0, borrar.CurrentRow.Index).Value
+                    Consulta = "delete from usuarios where cedula = '" & Str(codusuario) & "'"
+                    consultar()
+                Catch ex As Exception
+                    MsgBox(ex.ToString)
+                End Try
 
-                codusuario = borrar.Item(0, borrar.CurrentRow.Index).Value
-                Consulta = "delete from usuarios where cedula = '" & codusuario & "'"
-                consultar()
 
 
         End Select
@@ -602,14 +633,14 @@
 
     Private Sub Timer_Ingresar_Usuarios_Tick_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer_Ingresar_Usuarios.Tick
         If mouse1_1 = 1 Then
-            If Panel4.Top > 0 Then
+            If Panel4.Top > 7 Then
                 Panel4.Top -= 1
             Else
 
             End If
         End If
         If mouse1_1 = 0 And seleccionado1 <> "ingresar" Then
-            If Panel4.Top < 13 Then
+            If Panel4.Top < 20 Then
                 Panel4.Top += 1
             Else
                 '  Timer_Ingresar_Usuarios.Enabled = False
@@ -635,13 +666,13 @@
 
     Private Sub Timer_Buscar_Usuarios_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer_Buscar_Usuarios.Tick
         If mouse2_1 = 1 Then
-            If Panel5.Top > 0 Then
+            If Panel5.Top > 7 Then
                 Panel5.Top -= 1
             Else
             End If
         End If
         If mouse2_1 = 0 And seleccionado1 <> "buscar" Then
-            If Panel5.Top < 13 Then
+            If Panel5.Top < 20 Then
                 Panel5.Top += 1
             Else
                 ' Timer_Buscar_Usuarios.Enabled = False
@@ -667,13 +698,13 @@
 
     Private Sub Timer_Editar_Usuarios_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer_Editar_Usuarios.Tick
         If mouse3_1 = 1 Then
-            If Panel6.Top > 0 Then
+            If Panel6.Top > 7 Then
                 Panel6.Top -= 1
             Else
             End If
         End If
         If mouse3_1 = 0 And seleccionado1 <> "editar" Then
-            If Panel6.Top < 13 Then
+            If Panel6.Top < 20 Then
                 Panel6.Top += 1
             Else
                 'Timer_Editar_Usuarios.Enabled = False
@@ -698,14 +729,14 @@
 
     Private Sub Timer_Borrar_Usuarios_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer_Borrar_Usuarios.Tick
         If mouse4_1 = 1 Then
-            If Panel7.Top > 0 Then
+            If Panel7.Top > 7 Then
                 Panel7.Top -= 1
             Else
 
             End If
         End If
         If mouse4_1 = 0 And seleccionado1 <> "borrar" Then
-            If Panel7.Top < 13 Then
+            If Panel7.Top < 20 Then
                 Panel7.Top += 1
             Else
                 ' Timer_Buscar_Usuarios.Enabled = False
@@ -731,6 +762,10 @@
 
     Private Sub Label22_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label22.MouseEnter
         mouse4_1 = 1
+    End Sub
+
+    Private Sub Panel9_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles Panel9.Paint
+
     End Sub
 End Class
 

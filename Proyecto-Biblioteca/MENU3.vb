@@ -150,7 +150,6 @@ Public Class MENU3
         panel_menu.Controls.Clear()
         F1.TopLevel = False
         F1.Parent = panel_menu
-
         F1.Show()
 
         panel_menu.Visible = True
@@ -162,7 +161,7 @@ Public Class MENU3
         Panel3.Visible = False
         WebBrowser1.Visible = False
 
-
+    
 
 
     End Sub
