@@ -106,18 +106,6 @@
     <Compile Include="Form4.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="bautor.Designer.vb">
-      <DependentUpon>bautor.vb</DependentUpon>
-    </Compile>
-    <Compile Include="bautor.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="beditorial.Designer.vb">
-      <DependentUpon>beditorial.vb</DependentUpon>
-    </Compile>
-    <Compile Include="beditorial.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Inicio Usuarios.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -176,12 +164,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="bautor.resx">
-      <DependentUpon>bautor.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="beditorial.resx">
-      <DependentUpon>beditorial.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Info_usuario.resx">
       <DependentUpon>Info_usuario.vb</DependentUpon>
     </EmbeddedResource>

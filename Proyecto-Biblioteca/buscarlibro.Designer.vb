@@ -30,7 +30,7 @@ Partial Class buscarlibro
         Me.Label2 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnmodificar = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.volumen_label = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -42,16 +42,18 @@ Partial Class buscarlibro
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.editorial_label = New System.Windows.Forms.Label()
         Me.estado_label = New System.Windows.Forms.Label()
         Me.fecha_label = New System.Windows.Forms.Label()
         Me.observaciones_label = New System.Windows.Forms.Label()
         Me.origen_label = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.btnback = New System.Windows.Forms.Button()
+        Me.btnupdate = New System.Windows.Forms.Button()
         Me.estado_txt = New System.Windows.Forms.TextBox()
         Me.observaciones_txt = New System.Windows.Forms.TextBox()
         Me.origen_txt = New System.Windows.Forms.TextBox()
@@ -63,7 +65,6 @@ Partial Class buscarlibro
         Me.autor_txt = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
-        Me.Label17 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
@@ -150,7 +151,7 @@ Partial Class buscarlibro
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.Button2)
+        Me.Panel1.Controls.Add(Me.btnmodificar)
         Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Controls.Add(Me.volumen_label)
         Me.Panel1.Controls.Add(Me.Label8)
@@ -175,14 +176,14 @@ Partial Class buscarlibro
         Me.Panel1.Size = New System.Drawing.Size(290, 464)
         Me.Panel1.TabIndex = 31
         '
-        'Button2
+        'btnmodificar
         '
-        Me.Button2.Location = New System.Drawing.Point(91, 422)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(118, 25)
-        Me.Button2.TabIndex = 24
-        Me.Button2.Text = "Modificar"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnmodificar.Location = New System.Drawing.Point(91, 422)
+        Me.btnmodificar.Name = "btnmodificar"
+        Me.btnmodificar.Size = New System.Drawing.Size(118, 25)
+        Me.btnmodificar.TabIndex = 24
+        Me.btnmodificar.Text = "Modificar"
+        Me.btnmodificar.UseVisualStyleBackColor = True
         '
         'PictureBox1
         '
@@ -294,16 +295,6 @@ Partial Class buscarlibro
         Me.Label7.TabIndex = 12
         Me.Label7.Text = "Titulo:"
         '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(66, 332)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(61, 17)
-        Me.Label12.TabIndex = 15
-        Me.Label12.Text = "Origen:"
-        '
         'Label9
         '
         Me.Label9.AutoSize = True
@@ -313,6 +304,16 @@ Partial Class buscarlibro
         Me.Label9.Size = New System.Drawing.Size(110, 17)
         Me.Label9.TabIndex = 6
         Me.Label9.Text = "Casa Editorial:"
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.Location = New System.Drawing.Point(75, 332)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(61, 17)
+        Me.Label17.TabIndex = 15
+        Me.Label17.Text = "Origen:"
         '
         'Label11
         '
@@ -374,10 +375,21 @@ Partial Class buscarlibro
         Me.origen_label.TabIndex = 14
         Me.origen_label.Text = "Origen"
         '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(66, 332)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(61, 17)
+        Me.Label12.TabIndex = 15
+        Me.Label12.Text = "Origen:"
+        '
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Panel3.Controls.Add(Me.Button3)
+        Me.Panel3.Controls.Add(Me.btnback)
+        Me.Panel3.Controls.Add(Me.btnupdate)
         Me.Panel3.Controls.Add(Me.estado_txt)
         Me.Panel3.Controls.Add(Me.observaciones_txt)
         Me.Panel3.Controls.Add(Me.origen_txt)
@@ -402,14 +414,23 @@ Partial Class buscarlibro
         Me.Panel3.Size = New System.Drawing.Size(290, 464)
         Me.Panel3.TabIndex = 34
         '
-        'Button3
+        'btnback
         '
-        Me.Button3.Location = New System.Drawing.Point(84, 421)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(119, 26)
-        Me.Button3.TabIndex = 22
-        Me.Button3.Text = "Actualizar"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.btnback.Location = New System.Drawing.Point(151, 421)
+        Me.btnback.Name = "btnback"
+        Me.btnback.Size = New System.Drawing.Size(119, 26)
+        Me.btnback.TabIndex = 23
+        Me.btnback.Text = "Volver"
+        Me.btnback.UseVisualStyleBackColor = True
+        '
+        'btnupdate
+        '
+        Me.btnupdate.Location = New System.Drawing.Point(26, 421)
+        Me.btnupdate.Name = "btnupdate"
+        Me.btnupdate.Size = New System.Drawing.Size(119, 26)
+        Me.btnupdate.TabIndex = 22
+        Me.btnupdate.Text = "Actualizar"
+        Me.btnupdate.UseVisualStyleBackColor = True
         '
         'estado_txt
         '
@@ -519,16 +540,6 @@ Partial Class buscarlibro
         Me.Label16.TabIndex = 16
         Me.Label16.Text = "Observaciones:"
         '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(75, 332)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(61, 17)
-        Me.Label17.TabIndex = 15
-        Me.Label17.Text = "Origen:"
-        '
         'Label18
         '
         Me.Label18.AutoSize = True
@@ -633,8 +644,8 @@ Partial Class buscarlibro
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel3)
+        Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "buscarlibro"
         Me.Text = "Form2"
@@ -656,7 +667,7 @@ Partial Class buscarlibro
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents btnmodificar As System.Windows.Forms.Button
     Friend WithEvents volumen_label As System.Windows.Forms.Label
     Friend WithEvents titulo_label As System.Windows.Forms.Label
     Friend WithEvents autor_label As System.Windows.Forms.Label
@@ -677,7 +688,7 @@ Partial Class buscarlibro
     Friend WithEvents cod_libro_label As System.Windows.Forms.Label
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
-    Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents btnupdate As System.Windows.Forms.Button
     Friend WithEvents estado_txt As System.Windows.Forms.TextBox
     Friend WithEvents observaciones_txt As System.Windows.Forms.TextBox
     Friend WithEvents origen_txt As System.Windows.Forms.TextBox
@@ -700,4 +711,5 @@ Partial Class buscarlibro
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
     Private WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents btnback As System.Windows.Forms.Button
 End Class

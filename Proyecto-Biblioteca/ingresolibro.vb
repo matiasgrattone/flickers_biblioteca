@@ -46,32 +46,9 @@
 
 
     End Sub
-
-    Private Sub DataGridView1_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-
-    End Sub
-
-
-    Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox1.Click
-        'Cerrar
-        Me.Close()
-        Form3.Show()
-
-    End Sub
-
-    Private Sub PictureBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox2.Click
-        'Maximizar
-
-    End Sub
-
-    Private Sub PictureBox3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox3.Click
-        'Minimizar
-        Me.Hide()
-
-    End Sub
     Private Sub Button6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button6.Click
         'bautor.Show()
-        Panel1.Visible = True
+        Panel4.Visible = True
         Consulta = "SELECT * FROM autor"
         consultar()
         DataGridView2.DataSource = Tabla
@@ -87,8 +64,10 @@
 
     Private Sub ingresolibro_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'Carga datos dentro de la tabla Libros en la base de datos en MySql y los muestra en la datagrid
+        Panel3.Visible = False
+        Panel4.Visible = False
         Try
-            Panel1.Visible = False
+            panelautor.Visible = False
             Panel2.Visible = False
             Consulta = "SELECT libro.cod_libro as 'Codigo de Libro' , libro.titulo as 'Titulo' , autor.nombre as 'Autor' , libro.volumen as 'Volumen' ,editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen', libro.observaciones as 'Observaciones', libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial;"
             consultar()
@@ -112,25 +91,73 @@
         DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill 'Ajusta las columnas al tamaño del datagrid'
 
     End Sub
-
-    Private Sub autor_label_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles autor_label.Click
-
-    End Sub
-
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-
-    End Sub
-
-    Private Sub DataGridView2_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView2.CellContentClick
-        autor.Text = DataGridView1.Item(2, DataGridView1.CurrentRow.Index).Value
-        TextBox1.Text = DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value
-        Panel1.Visible = False
-
-    End Sub
-
     Private Sub DataGridView3_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView3.CellContentClick
         casa_editorial.Text = DataGridView1.Item(1, DataGridView1.CurrentRow.Index).Value
         TextBox2.Text = DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value
+        Panel2.Visible = False
+    End Sub
+
+    Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
+        Panel3.Visible = False
+        Button3.BringToFront()
+    End Sub
+
+    Private Sub nwautor_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles nwautor.Click
+        Consulta = "INSERT INTO autor (nombre, nacionalidad) values ('" + aunombre.Text + "', '" + aupais.Text + "')"
+        consultar()
+
+        Consulta = "SELECT * FROM autor"
+        consultar()
+        DataGridView2.DataSource = Tabla
+        panelautor.Visible = False
+        auvolver.SendToBack()
+
+    End Sub
+
+    Private Sub ingautor_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ingautor.Click
+        panelautor.Visible = True
+        panelautor.BringToFront()
+        If panelautor.Visible = True Then
+            ingautor.SendToBack()
+        End If
+    End Sub
+
+    Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
+        Consulta = "INSERT INTO editorial (nombre, pais, anio) values ('" + nombree.Text + "', '" + pais.Text + "','" + anioe.Text + "')"
+        consultar()
+
+        Consulta = "SELECT * FROM editorial"
+        consultar()
+        DataGridView3.DataSource = Tabla
+        Panel3.Visible = False
+        Button4.SendToBack()
+    End Sub
+
+    Private Sub DataGridView2_CellContentClick_1(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView2.CellContentClick
+        autor.Text = DataGridView1.Item(2, DataGridView1.CurrentRow.Index).Value
+        TextBox1.Text = DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value
+        Panel4.Visible = False
+    End Sub
+
+    Private Sub auvolver_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles auvolver.Click
+        panelautor.Visible = False
+        panelautor.SendToBack()
+        auvolver.SendToBack()
+    End Sub
+
+    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
+        Panel3.Visible = True
+        Panel3.BringToFront()
+        If Panel3.Visible = True Then
+            Button3.SendToBack()
+        End If
+    End Sub
+
+    Private Sub Button7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button7.Click
+        Panel4.Visible = False
+    End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         Panel2.Visible = False
     End Sub
 End Class
