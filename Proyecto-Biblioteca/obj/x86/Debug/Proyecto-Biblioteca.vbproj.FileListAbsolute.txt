@@ -41,8 +41,6 @@ C:\Users\Usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\De
 C:\Users\Usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\Proyecto-Biblioteca.pdb
 C:\Users\Usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\Proyecto-Biblioteca.xml
 C:\Users\Usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.vbprojResolveAssemblyReference.cache
-C:\Users\Usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.bautor.resources
-C:\Users\Usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.beditorial.resources
 C:\Users\Usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.ingresolibro.resources
 C:\Users\Usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.buscarlibro.resources
 C:\Users\Usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Form3.resources
@@ -141,5 +139,4 @@ C:\Users\Cristina.DESKTOP-QPL135E\Documents\GitHub\flickers_biblioteca\Proyecto-
 C:\Users\guill\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.info_usuario.resources
 C:\Users\guill\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Seleccion_Libro.resources
 C:\Users\Usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.info_usuario.resources
-C:\Users\Usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Seleccion_usuario.resources
 C:\Users\rex\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.info_usuario.resources

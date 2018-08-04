@@ -23,6 +23,11 @@
         CrearReservacionComboBox.Visible = False
         Button2.Visible = False
         Label5.Visible = False
+        PictureExtraccion1.Visible = False
+        PictureDevolucion2.Visible = False
+        PictureCrearRes3.Visible = False
+        PictureReservacion4.Visible = False
+        Label5.Visible = False
         '//////////////////////////////////////VARIABLES PARA RALIZAR "CONSULTAS Y IFs" SIN ERRORES///////////////////////
         Dim Contador As Integer = 0
         If z = vbYes Then
@@ -108,6 +113,12 @@
                 ExtCombo.Visible = False
                 devoCOMBO.Visible = False
                 ReservacionComboBox.Visible = False
+
+                PictureExtraccion1.Visible = True
+                PictureDevolucion2.Visible = True
+                PictureCrearRes3.Visible = True
+                PictureReservacion4.Visible = True
+                Label5.Visible = True
             End If
 
         Catch ex As Exception
@@ -118,6 +129,11 @@
             ExtCombo.Visible = False
             devoCOMBO.Visible = False
             ReservacionComboBox.Visible = False
+            PictureExtraccion1.Visible = False
+            PictureDevolucion2.Visible = False
+            PictureCrearRes3.Visible = False
+            PictureReservacion4.Visible = False
+            Label5.Visible = False
         End Try
 
 
@@ -513,7 +529,7 @@
 
     End Sub
 
-    Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox1.Click
+    Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureExtraccion1.Click
         Consulta = "select * from prestamo where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
         consultar()
         OPA.DataSource = Tabla
@@ -571,7 +587,7 @@
 
     End Sub
 
-    Private Sub PictureBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox2.Click
+    Private Sub PictureBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureDevolucion2.Click
         Consulta = "select * from prestamo where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
         consultar()
         OPA.DataSource = Tabla
@@ -601,7 +617,7 @@
 
     End Sub
 
-    Private Sub PictureBox4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox4.Click
+    Private Sub PictureBox4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureReservacion4.Click
 
         '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ExtCombo.Visible = False
@@ -664,7 +680,7 @@
 
     End Sub
 
-    Private Sub PictureBox3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox3.Click
+    Private Sub PictureBox3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureCrearRes3.Click
 
         '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ExtCombo.Visible = False

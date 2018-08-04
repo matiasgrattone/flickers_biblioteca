@@ -62,12 +62,10 @@ Partial Class Form4
         Me.VerLibrosReservados = New System.Windows.Forms.DataGridView()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.PictureCrearRes3 = New System.Windows.Forms.PictureBox()
+        Me.PictureReservacion4 = New System.Windows.Forms.PictureBox()
+        Me.PictureDevolucion2 = New System.Windows.Forms.PictureBox()
+        Me.PictureExtraccion1 = New System.Windows.Forms.PictureBox()
         Me.CrearReservacionComboBox = New System.Windows.Forms.GroupBox()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
@@ -86,10 +84,10 @@ Partial Class Form4
         Me.ReservacionComboBox.SuspendLayout()
         CType(Me.VerLibrosReservados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureCrearRes3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureReservacion4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureDevolucion2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureExtraccion1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.CrearReservacionComboBox.SuspendLayout()
         CType(Me.LibrosParaReservar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -483,75 +481,55 @@ Partial Class Form4
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.SystemColors.ScrollBar
-        Me.Panel3.Controls.Add(Me.Label15)
         Me.Panel3.Controls.Add(Me.Label5)
-        Me.Panel3.Controls.Add(Me.Label12)
-        Me.Panel3.Controls.Add(Me.PictureBox3)
-        Me.Panel3.Controls.Add(Me.PictureBox4)
-        Me.Panel3.Controls.Add(Me.PictureBox2)
-        Me.Panel3.Controls.Add(Me.PictureBox1)
+        Me.Panel3.Controls.Add(Me.PictureCrearRes3)
+        Me.Panel3.Controls.Add(Me.PictureReservacion4)
+        Me.Panel3.Controls.Add(Me.PictureDevolucion2)
+        Me.Panel3.Controls.Add(Me.PictureExtraccion1)
         Me.Panel3.Location = New System.Drawing.Point(259, -2)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(755, 112)
         Me.Panel3.TabIndex = 75
         '
-        'Label15
+        'PictureCrearRes3
         '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(252, 15)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(45, 13)
-        Me.Label15.TabIndex = 5
-        Me.Label15.Text = "Label15"
+        Me.PictureCrearRes3.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.crear_reserva
+        Me.PictureCrearRes3.Location = New System.Drawing.Point(442, 14)
+        Me.PictureCrearRes3.Name = "PictureCrearRes3"
+        Me.PictureCrearRes3.Size = New System.Drawing.Size(82, 85)
+        Me.PictureCrearRes3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureCrearRes3.TabIndex = 3
+        Me.PictureCrearRes3.TabStop = False
         '
-        'Label12
+        'PictureReservacion4
         '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(113, 15)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(45, 13)
-        Me.Label12.TabIndex = 4
-        Me.Label12.Text = "Label12"
+        Me.PictureReservacion4.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.reservar
+        Me.PictureReservacion4.Location = New System.Drawing.Point(303, 14)
+        Me.PictureReservacion4.Name = "PictureReservacion4"
+        Me.PictureReservacion4.Size = New System.Drawing.Size(82, 85)
+        Me.PictureReservacion4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureReservacion4.TabIndex = 2
+        Me.PictureReservacion4.TabStop = False
         '
-        'PictureBox3
+        'PictureDevolucion2
         '
-        Me.PictureBox3.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.crear_reserva
-        Me.PictureBox3.Location = New System.Drawing.Point(442, 14)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(82, 85)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox3.TabIndex = 3
-        Me.PictureBox3.TabStop = False
+        Me.PictureDevolucion2.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.devolcion
+        Me.PictureDevolucion2.Location = New System.Drawing.Point(164, 14)
+        Me.PictureDevolucion2.Name = "PictureDevolucion2"
+        Me.PictureDevolucion2.Size = New System.Drawing.Size(82, 85)
+        Me.PictureDevolucion2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureDevolucion2.TabIndex = 1
+        Me.PictureDevolucion2.TabStop = False
         '
-        'PictureBox4
+        'PictureExtraccion1
         '
-        Me.PictureBox4.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.reservar
-        Me.PictureBox4.Location = New System.Drawing.Point(303, 14)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(82, 85)
-        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox4.TabIndex = 2
-        Me.PictureBox4.TabStop = False
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.devolcion
-        Me.PictureBox2.Location = New System.Drawing.Point(164, 14)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(82, 85)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 1
-        Me.PictureBox2.TabStop = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.extraccion
-        Me.PictureBox1.Location = New System.Drawing.Point(25, 14)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(82, 85)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
+        Me.PictureExtraccion1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.extraccion
+        Me.PictureExtraccion1.Location = New System.Drawing.Point(25, 14)
+        Me.PictureExtraccion1.Name = "PictureExtraccion1"
+        Me.PictureExtraccion1.Size = New System.Drawing.Size(82, 85)
+        Me.PictureExtraccion1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureExtraccion1.TabIndex = 0
+        Me.PictureExtraccion1.TabStop = False
         '
         'CrearReservacionComboBox
         '
@@ -660,10 +638,10 @@ Partial Class Form4
         CType(Me.VerLibrosReservados, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureCrearRes3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureReservacion4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureDevolucion2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureExtraccion1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.CrearReservacionComboBox.ResumeLayout(False)
         Me.CrearReservacionComboBox.PerformLayout()
         CType(Me.LibrosParaReservar, System.ComponentModel.ISupportInitialize).EndInit()
@@ -703,12 +681,10 @@ Partial Class Form4
     Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents Button6 As System.Windows.Forms.Button
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
-    Friend WithEvents Label15 As System.Windows.Forms.Label
-    Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents PictureExtraccion1 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureDevolucion2 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureCrearRes3 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureReservacion4 As System.Windows.Forms.PictureBox
     Friend WithEvents ReservacionComboBox As System.Windows.Forms.GroupBox
     Friend WithEvents Label18 As System.Windows.Forms.Label
     Friend WithEvents Label19 As System.Windows.Forms.Label
