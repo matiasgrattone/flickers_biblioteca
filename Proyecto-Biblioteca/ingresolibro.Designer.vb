@@ -50,6 +50,7 @@ Partial Class ingresolibro
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.DataGridView3 = New System.Windows.Forms.DataGridView()
         Me.Panel3 = New System.Windows.Forms.Panel()
@@ -66,6 +67,7 @@ Partial Class ingresolibro
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Button7 = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.panelautor = New System.Windows.Forms.Panel()
@@ -77,8 +79,6 @@ Partial Class ingresolibro
         Me.Label15 = New System.Windows.Forms.Label()
         Me.ingautor = New System.Windows.Forms.Button()
         Me.auvolver = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -207,7 +207,7 @@ Partial Class ingresolibro
         '
         Me.fecha_label.AutoSize = True
         Me.fecha_label.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.fecha_label.Location = New System.Drawing.Point(150, 128)
+        Me.fecha_label.Location = New System.Drawing.Point(165, 127)
         Me.fecha_label.Name = "fecha_label"
         Me.fecha_label.Size = New System.Drawing.Size(42, 17)
         Me.fecha_label.TabIndex = 12
@@ -247,11 +247,11 @@ Partial Class ingresolibro
         '
         Me.id_label.AutoSize = True
         Me.id_label.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.id_label.Location = New System.Drawing.Point(175, 71)
+        Me.id_label.Location = New System.Drawing.Point(35, 70)
         Me.id_label.Name = "id_label"
-        Me.id_label.Size = New System.Drawing.Size(28, 17)
+        Me.id_label.Size = New System.Drawing.Size(172, 17)
         Me.id_label.TabIndex = 16
-        Me.id_label.Text = "ID:"
+        Me.id_label.Text = "Numero de Inventario:"
         '
         'Label1
         '
@@ -337,7 +337,7 @@ Partial Class ingresolibro
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Panel2.BackColor = System.Drawing.Color.Teal
         Me.Panel2.Controls.Add(Me.Button1)
         Me.Panel2.Controls.Add(Me.Label3)
         Me.Panel2.Controls.Add(Me.DataGridView3)
@@ -348,6 +348,15 @@ Partial Class ingresolibro
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(431, 285)
         Me.Panel2.TabIndex = 45
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(11, 262)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 18)
+        Me.Button1.TabIndex = 47
+        Me.Button1.Text = "Volver"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'Label3
         '
@@ -363,12 +372,12 @@ Partial Class ingresolibro
         Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView3.Location = New System.Drawing.Point(4, 28)
         Me.DataGridView3.Name = "DataGridView3"
-        Me.DataGridView3.Size = New System.Drawing.Size(422, 231)
+        Me.DataGridView3.Size = New System.Drawing.Size(415, 231)
         Me.DataGridView3.TabIndex = 1
         '
         'Panel3
         '
-        Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Panel3.BackColor = System.Drawing.Color.Teal
         Me.Panel3.Controls.Add(Me.Button5)
         Me.Panel3.Controls.Add(Me.anioe)
         Me.Panel3.Controls.Add(Me.pais)
@@ -477,7 +486,7 @@ Partial Class ingresolibro
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Lucida Sans", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(160, 71)
+        Me.Label4.Location = New System.Drawing.Point(20, 70)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(20, 24)
         Me.Label4.TabIndex = 16
@@ -495,7 +504,7 @@ Partial Class ingresolibro
         '
         'Panel4
         '
-        Me.Panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Panel4.BackColor = System.Drawing.Color.Teal
         Me.Panel4.Controls.Add(Me.Button7)
         Me.Panel4.Controls.Add(Me.Label11)
         Me.Panel4.Controls.Add(Me.DataGridView2)
@@ -506,6 +515,15 @@ Partial Class ingresolibro
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(431, 285)
         Me.Panel4.TabIndex = 46
+        '
+        'Button7
+        '
+        Me.Button7.Location = New System.Drawing.Point(8, 260)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(75, 18)
+        Me.Button7.TabIndex = 48
+        Me.Button7.Text = "Volver"
+        Me.Button7.UseVisualStyleBackColor = True
         '
         'Label11
         '
@@ -526,7 +544,7 @@ Partial Class ingresolibro
         '
         'panelautor
         '
-        Me.panelautor.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.panelautor.BackColor = System.Drawing.Color.Teal
         Me.panelautor.Controls.Add(Me.nwautor)
         Me.panelautor.Controls.Add(Me.aupais)
         Me.panelautor.Controls.Add(Me.aunombre)
@@ -611,29 +629,11 @@ Partial Class ingresolibro
         Me.auvolver.Text = "Cancelar"
         Me.auvolver.UseVisualStyleBackColor = True
         '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(11, 262)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 18)
-        Me.Button1.TabIndex = 47
-        Me.Button1.Text = "Volver"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Button7
-        '
-        Me.Button7.Location = New System.Drawing.Point(8, 260)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(75, 18)
-        Me.Button7.TabIndex = 48
-        Me.Button7.Text = "Volver"
-        Me.Button7.UseVisualStyleBackColor = True
-        '
         'ingresolibro
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.BackColor = System.Drawing.Color.Teal
         Me.ClientSize = New System.Drawing.Size(884, 625)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel2)

@@ -52,9 +52,9 @@ Partial Class buscarlibro
         Me.origen_label = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         Me.btnback = New System.Windows.Forms.Button()
         Me.btnupdate = New System.Windows.Forms.Button()
-        Me.estado_txt = New System.Windows.Forms.TextBox()
         Me.observaciones_txt = New System.Windows.Forms.TextBox()
         Me.origen_txt = New System.Windows.Forms.TextBox()
         Me.anio_txt = New System.Windows.Forms.TextBox()
@@ -72,8 +72,10 @@ Partial Class buscarlibro
         Me.Label27 = New System.Windows.Forms.Label()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.estado_txt = New System.Windows.Forms.TextBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.vestado = New System.Windows.Forms.Label()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -150,7 +152,7 @@ Partial Class buscarlibro
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Panel1.BackColor = System.Drawing.Color.Lime
         Me.Panel1.Controls.Add(Me.btnmodificar)
         Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Controls.Add(Me.volumen_label)
@@ -171,7 +173,7 @@ Partial Class buscarlibro
         Me.Panel1.Controls.Add(Me.fecha_label)
         Me.Panel1.Controls.Add(Me.observaciones_label)
         Me.Panel1.Controls.Add(Me.origen_label)
-        Me.Panel1.Location = New System.Drawing.Point(633, 91)
+        Me.Panel1.Location = New System.Drawing.Point(636, 91)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(290, 464)
         Me.Panel1.TabIndex = 31
@@ -387,10 +389,10 @@ Partial Class buscarlibro
         '
         'Panel3
         '
-        Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Panel3.BackColor = System.Drawing.Color.Lime
+        Me.Panel3.Controls.Add(Me.ComboBox3)
         Me.Panel3.Controls.Add(Me.btnback)
         Me.Panel3.Controls.Add(Me.btnupdate)
-        Me.Panel3.Controls.Add(Me.estado_txt)
         Me.Panel3.Controls.Add(Me.observaciones_txt)
         Me.Panel3.Controls.Add(Me.origen_txt)
         Me.Panel3.Controls.Add(Me.anio_txt)
@@ -409,10 +411,20 @@ Partial Class buscarlibro
         Me.Panel3.Controls.Add(Me.Label27)
         Me.Panel3.Controls.Add(Me.Label28)
         Me.Panel3.Controls.Add(Me.PictureBox2)
-        Me.Panel3.Location = New System.Drawing.Point(633, 91)
+        Me.Panel3.Controls.Add(Me.estado_txt)
+        Me.Panel3.Location = New System.Drawing.Point(636, 91)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(290, 464)
         Me.Panel3.TabIndex = 34
+        '
+        'ComboBox3
+        '
+        Me.ComboBox3.FormattingEnabled = True
+        Me.ComboBox3.Items.AddRange(New Object() {"disponible", "descontinuado"})
+        Me.ComboBox3.Location = New System.Drawing.Point(3, 394)
+        Me.ComboBox3.Name = "ComboBox3"
+        Me.ComboBox3.Size = New System.Drawing.Size(139, 21)
+        Me.ComboBox3.TabIndex = 24
         '
         'btnback
         '
@@ -431,16 +443,6 @@ Partial Class buscarlibro
         Me.btnupdate.TabIndex = 22
         Me.btnupdate.Text = "Actualizar"
         Me.btnupdate.UseVisualStyleBackColor = True
-        '
-        'estado_txt
-        '
-        Me.estado_txt.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.estado_txt.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.estado_txt.Location = New System.Drawing.Point(137, 397)
-        Me.estado_txt.Name = "estado_txt"
-        Me.estado_txt.ReadOnly = True
-        Me.estado_txt.Size = New System.Drawing.Size(136, 18)
-        Me.estado_txt.TabIndex = 21
         '
         'observaciones_txt
         '
@@ -610,6 +612,16 @@ Partial Class buscarlibro
         Me.PictureBox2.TabIndex = 5
         Me.PictureBox2.TabStop = False
         '
+        'estado_txt
+        '
+        Me.estado_txt.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.estado_txt.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.estado_txt.Location = New System.Drawing.Point(137, 398)
+        Me.estado_txt.Name = "estado_txt"
+        Me.estado_txt.ReadOnly = True
+        Me.estado_txt.Size = New System.Drawing.Size(136, 18)
+        Me.estado_txt.TabIndex = 21
+        '
         'Panel2
         '
         Me.Panel2.Location = New System.Drawing.Point(13, 6)
@@ -630,12 +642,22 @@ Partial Class buscarlibro
         Me.ComboBox2.Size = New System.Drawing.Size(191, 28)
         Me.ComboBox2.TabIndex = 30
         '
+        'vestado
+        '
+        Me.vestado.AutoSize = True
+        Me.vestado.Location = New System.Drawing.Point(813, 20)
+        Me.vestado.Name = "vestado"
+        Me.vestado.Size = New System.Drawing.Size(44, 13)
+        Me.vestado.TabIndex = 35
+        Me.vestado.Text = "estados"
+        '
         'buscarlibro
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.BackColor = System.Drawing.Color.Green
         Me.ClientSize = New System.Drawing.Size(935, 612)
+        Me.Controls.Add(Me.vestado)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.DataGridView2)
         Me.Controls.Add(Me.ComboBox2)
@@ -712,4 +734,6 @@ Partial Class buscarlibro
     Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
     Private WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents btnback As System.Windows.Forms.Button
+    Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
+    Friend WithEvents vestado As System.Windows.Forms.Label
 End Class

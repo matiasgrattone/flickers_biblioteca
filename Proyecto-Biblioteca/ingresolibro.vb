@@ -72,9 +72,9 @@
             Consulta = "SELECT libro.cod_libro as 'Codigo de Libro' , libro.titulo as 'Titulo' , autor.nombre as 'Autor' , libro.volumen as 'Volumen' ,editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen', libro.observaciones as 'Observaciones', libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial;"
             consultar()
             DataGridView1.DataSource = Tabla
-            DataGridView1.Columns(4).HeaderText = "nombre editorial"
-            DataGridView1.Columns(2).HeaderText = "nombre autor"
-            DataGridView1.Columns(0).HeaderText = "nº libro"
+            DataGridView1.Columns(4).HeaderText = "Nombre Editorial"
+            DataGridView1.Columns(2).HeaderText = "Nombre Autor"
+            DataGridView1.Columns(0).HeaderText = "Nº de Inventario"
             DataGridView1.Columns(5).HeaderText = "Año"
 
         Catch ex As Exception

@@ -147,14 +147,16 @@ Public Class buscarlibro
         Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial;"
         consultar()
         DataGridView1.DataSource = Tabla
-        DataGridView1.Columns(0).Width = 50
+        DataGridView1.Columns(0).Width = 45
         DataGridView1.Columns(1).Width = 100
         DataGridView1.Columns(2).Width = 100
         DataGridView1.Columns(3).Width = 100
         DataGridView1.Columns(4).Width = 52
         DataGridView1.Columns(5).Width = 100
         DataGridView1.Columns(6).Width = 100
+
         DataGridView1.Columns(4).HeaderText = "Año"
+
         ComboBox2.SelectedIndex = 0
         ComboBox1.SelectedIndex = 0
         'Alinear celdas en el datagridview1'
@@ -202,13 +204,28 @@ Public Class buscarlibro
     End Sub
 
     Private Sub btnupdate_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnupdate.Click
+       
         'Consulta Update Para la Tabla Libros en la Base'
-        'Realiza la consulta, se actualizan los datos por los que el usuario indica y al momento el Datagrid se actualiza'
+        'Realiza la consulta, se actualizan los datos por los que el usuario indica y al momento el Datagrid se actualiza
         Consulta = "UPDATE libro SET titulo=('" + titulo_txt.Text + "'), volumen=('" + volumen_txt.Text + "'), anio=('" + anio_txt.Text + "'), origen=('" + origen_txt.Text + "'), observaciones=('" + observaciones_txt.Text + "') WHERE cod_libro=('" + cod_libro_txt.Text + "')"
         consultar()
+        If vestado.Text = 0 Then
+            Consulta = "UPDATE libro set estado=('" + ComboBox3.Text + "') WHERE cod_libro=('" + cod_libro_txt.Text + "')"
+            consultar()
+
+            Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial"
+            consultar()
+            DataGridView1.DataSource = Tabla
+        ElseIf vestado.Text = 1 Then
+            Consulta = "UPDATE libro set estado=('" + ComboBox3.Text + "') WHERE cod_libro=('" + cod_libro_txt.Text + "')"
+            consultar()
+
+            Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial"
+            consultar()
+            DataGridView1.DataSource = Tabla
+        End If
         Panel3.SendToBack()
-
-
+        
         Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial"
         consultar()
         DataGridView1.DataSource = Tabla
@@ -216,8 +233,11 @@ Public Class buscarlibro
 
     Private Sub btnmodificar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnmodificar.Click
 
+        Dim estado As Integer
+
         'Los datos que el usuario selecciono del DataGrid y que luego fueron mostrados en el Panel'
         'Son copiados a un segundo panel donde luego podran ser modificados'
+
         cod_libro_txt.Text = cod_libro_label.Text
         titulo_txt.Text = titulo_label.Text
         autor_txt.Text = autor_label.Text
@@ -225,11 +245,18 @@ Public Class buscarlibro
         anio_txt.Text = fecha_label.Text
         origen_txt.Text = origen_label.Text
         estado_txt.Text = estado_label.Text
-
         volumen_txt.Text = volumen_label.Text
         observaciones_txt.Text = observaciones_label.Text
 
 
+        If estado_label.Text = "disponible" Then
+            ComboBox3.SelectedIndex = 0
+            estado = 0
+        ElseIf estado_label.Text = "descontinuado" Then
+            ComboBox3.SelectedIndex = 1
+            estado = 1
+        End If
+        vestado.Text = estado
         'Envia el primer panel al fondo, mostrando el que contiene la consulta update'
         Panel1.SendToBack()
 
@@ -247,6 +274,10 @@ Public Class buscarlibro
         origen_txt.Clear()
         observaciones_txt.Clear()
         Panel3.SendToBack()
+
+    End Sub
+
+    Private Sub DataGridView1_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
 
     End Sub
 End Class
