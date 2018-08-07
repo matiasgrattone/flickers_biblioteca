@@ -28,9 +28,6 @@ Partial Class Form4
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Button6 = New System.Windows.Forms.Button()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Cedula = New System.Windows.Forms.TextBox()
         Me.LIBROSAGG = New System.Windows.Forms.ListBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.NOMBRE = New System.Windows.Forms.Label()
@@ -41,6 +38,8 @@ Partial Class Form4
         Me.OPA = New System.Windows.Forms.DataGridView()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Cedula = New System.Windows.Forms.TextBox()
         Me.devoCOMBO = New System.Windows.Forms.GroupBox()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
@@ -73,8 +72,8 @@ Partial Class Form4
         Me.Label24 = New System.Windows.Forms.Label()
         Me.LibrosParaReservar = New System.Windows.Forms.DataGridView()
         Me.Label25 = New System.Windows.Forms.Label()
+        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1.SuspendLayout()
-        Me.Panel2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.OPA, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.devoCOMBO.SuspendLayout()
@@ -98,16 +97,16 @@ Partial Class Form4
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(560, 157)
+        Me.Button2.Location = New System.Drawing.Point(614, 235)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(138, 52)
+        Me.Button2.Size = New System.Drawing.Size(106, 52)
         Me.Button2.TabIndex = 75
         Me.Button2.Text = "EXTRAER"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(14, 60)
+        Me.Button1.Location = New System.Drawing.Point(235, 53)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(57, 21)
         Me.Button1.TabIndex = 74
@@ -116,9 +115,8 @@ Partial Class Form4
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.OrangeRed
+        Me.Panel1.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.Panel1.Controls.Add(Me.Button6)
-        Me.Panel1.Controls.Add(Me.Panel2)
         Me.Panel1.Controls.Add(Me.LIBROSAGG)
         Me.Panel1.Controls.Add(Me.Label4)
         Me.Panel1.Controls.Add(Me.NOMBRE)
@@ -129,7 +127,7 @@ Partial Class Form4
         Me.Panel1.Controls.Add(Me.OPA)
         Me.Panel1.Controls.Add(Me.Label9)
         Me.Panel1.Controls.Add(Me.Label8)
-        Me.Panel1.Location = New System.Drawing.Point(-5, -26)
+        Me.Panel1.Location = New System.Drawing.Point(-265, -28)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(268, 676)
         Me.Panel1.TabIndex = 73
@@ -143,40 +141,12 @@ Partial Class Form4
         Me.Button6.Text = "Moroso"
         Me.Button6.UseVisualStyleBackColor = True
         '
-        'Panel2
-        '
-        Me.Panel2.BackColor = System.Drawing.SystemColors.HighlightText
-        Me.Panel2.Controls.Add(Me.Label1)
-        Me.Panel2.Controls.Add(Me.Cedula)
-        Me.Panel2.Controls.Add(Me.Button1)
-        Me.Panel2.Location = New System.Drawing.Point(9, 30)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(249, 93)
-        Me.Panel2.TabIndex = 79
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(5, 8)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(243, 15)
-        Me.Label1.TabIndex = 58
-        Me.Label1.Text = "INGRESE LA CEDULA DEL USUARIO "
-        '
-        'Cedula
-        '
-        Me.Cedula.Location = New System.Drawing.Point(13, 33)
-        Me.Cedula.Name = "Cedula"
-        Me.Cedula.Size = New System.Drawing.Size(223, 20)
-        Me.Cedula.TabIndex = 57
-        '
         'LIBROSAGG
         '
         Me.LIBROSAGG.FormattingEnabled = True
         Me.LIBROSAGG.Location = New System.Drawing.Point(9, 228)
         Me.LIBROSAGG.Name = "LIBROSAGG"
-        Me.LIBROSAGG.Size = New System.Drawing.Size(249, 238)
+        Me.LIBROSAGG.Size = New System.Drawing.Size(249, 381)
         Me.LIBROSAGG.TabIndex = 68
         '
         'Label4
@@ -191,7 +161,7 @@ Partial Class Form4
         'NOMBRE
         '
         Me.NOMBRE.AutoSize = True
-        Me.NOMBRE.BackColor = System.Drawing.Color.OrangeRed
+        Me.NOMBRE.BackColor = System.Drawing.Color.Transparent
         Me.NOMBRE.Font = New System.Drawing.Font("Impact", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NOMBRE.ForeColor = System.Drawing.Color.Black
         Me.NOMBRE.Location = New System.Drawing.Point(18, 144)
@@ -245,7 +215,7 @@ Partial Class Form4
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.BackColor = System.Drawing.Color.OrangeRed
+        Me.Label9.BackColor = System.Drawing.Color.Transparent
         Me.Label9.Font = New System.Drawing.Font("Impact", 12.0!)
         Me.Label9.Location = New System.Drawing.Point(124, 205)
         Me.Label9.Name = "Label9"
@@ -256,13 +226,30 @@ Partial Class Form4
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.BackColor = System.Drawing.Color.OrangeRed
+        Me.Label8.BackColor = System.Drawing.Color.Transparent
         Me.Label8.Font = New System.Drawing.Font("Impact", 12.0!)
         Me.Label8.Location = New System.Drawing.Point(19, 205)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(26, 20)
         Me.Label8.TabIndex = 69
         Me.Label8.Text = "ID "
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(3, 11)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(243, 15)
+        Me.Label1.TabIndex = 58
+        Me.Label1.Text = "INGRESE LA CEDULA DEL USUARIO "
+        '
+        'Cedula
+        '
+        Me.Cedula.Location = New System.Drawing.Point(6, 53)
+        Me.Cedula.Name = "Cedula"
+        Me.Cedula.Size = New System.Drawing.Size(223, 20)
+        Me.Cedula.TabIndex = 57
         '
         'devoCOMBO
         '
@@ -272,16 +259,16 @@ Partial Class Form4
         Me.devoCOMBO.Controls.Add(Me.Label11)
         Me.devoCOMBO.Controls.Add(Me.DataGridAGG)
         Me.devoCOMBO.Controls.Add(Me.ENPODER)
-        Me.devoCOMBO.Location = New System.Drawing.Point(266, 112)
+        Me.devoCOMBO.Location = New System.Drawing.Point(263, 98)
         Me.devoCOMBO.Name = "devoCOMBO"
-        Me.devoCOMBO.Size = New System.Drawing.Size(738, 533)
+        Me.devoCOMBO.Size = New System.Drawing.Size(738, 547)
         Me.devoCOMBO.TabIndex = 67
         Me.devoCOMBO.TabStop = False
         Me.devoCOMBO.Text = "DEVOLUCION"
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(573, 195)
+        Me.Button4.Location = New System.Drawing.Point(622, 290)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(98, 34)
         Me.Button4.TabIndex = 0
@@ -290,7 +277,7 @@ Partial Class Form4
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(573, 140)
+        Me.Button5.Location = New System.Drawing.Point(622, 235)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(98, 34)
         Me.Button5.TabIndex = 63
@@ -312,9 +299,12 @@ Partial Class Form4
         Me.DataGridAGG.AllowUserToAddRows = False
         Me.DataGridAGG.AllowUserToDeleteRows = False
         Me.DataGridAGG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridAGG.Location = New System.Drawing.Point(21, 139)
+        Me.DataGridAGG.Location = New System.Drawing.Point(5, 75)
         Me.DataGridAGG.Name = "DataGridAGG"
-        Me.DataGridAGG.Size = New System.Drawing.Size(489, 314)
+        Me.DataGridAGG.ReadOnly = True
+        Me.DataGridAGG.RowHeadersVisible = False
+        Me.DataGridAGG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridAGG.Size = New System.Drawing.Size(603, 466)
         Me.DataGridAGG.TabIndex = 0
         '
         'ENPODER
@@ -322,7 +312,7 @@ Partial Class Form4
         Me.ENPODER.AutoSize = True
         Me.ENPODER.Font = New System.Drawing.Font("Impact", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ENPODER.ForeColor = System.Drawing.Color.DarkViolet
-        Me.ENPODER.Location = New System.Drawing.Point(15, 92)
+        Me.ENPODER.Location = New System.Drawing.Point(12, 20)
         Me.ENPODER.Name = "ENPODER"
         Me.ENPODER.Size = New System.Drawing.Size(187, 34)
         Me.ENPODER.TabIndex = 61
@@ -338,9 +328,9 @@ Partial Class Form4
         Me.ExtCombo.Controls.Add(Me.LIBROS)
         Me.ExtCombo.Controls.Add(Me.Label6)
         Me.ExtCombo.Controls.Add(Me.VERLIBROSAGG)
-        Me.ExtCombo.Location = New System.Drawing.Point(267, 111)
+        Me.ExtCombo.Location = New System.Drawing.Point(263, 98)
         Me.ExtCombo.Name = "ExtCombo"
-        Me.ExtCombo.Size = New System.Drawing.Size(737, 534)
+        Me.ExtCombo.Size = New System.Drawing.Size(737, 550)
         Me.ExtCombo.TabIndex = 66
         Me.ExtCombo.TabStop = False
         Me.ExtCombo.Text = "EXTRACCION"
@@ -380,7 +370,7 @@ Partial Class Form4
         '
         Me.LIBROS.Location = New System.Drawing.Point(44, 49)
         Me.LIBROS.Name = "LIBROS"
-        Me.LIBROS.Size = New System.Drawing.Size(156, 20)
+        Me.LIBROS.Size = New System.Drawing.Size(413, 20)
         Me.LIBROS.TabIndex = 20
         '
         'Label6
@@ -398,9 +388,12 @@ Partial Class Form4
         Me.VERLIBROSAGG.AllowUserToAddRows = False
         Me.VERLIBROSAGG.AllowUserToDeleteRows = False
         Me.VERLIBROSAGG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.VERLIBROSAGG.Location = New System.Drawing.Point(20, 140)
+        Me.VERLIBROSAGG.Location = New System.Drawing.Point(4, 140)
         Me.VERLIBROSAGG.Name = "VERLIBROSAGG"
-        Me.VERLIBROSAGG.Size = New System.Drawing.Size(489, 314)
+        Me.VERLIBROSAGG.ReadOnly = True
+        Me.VERLIBROSAGG.RowHeadersVisible = False
+        Me.VERLIBROSAGG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.VERLIBROSAGG.Size = New System.Drawing.Size(604, 401)
         Me.VERLIBROSAGG.TabIndex = 17
         '
         'ReservacionComboBox
@@ -411,16 +404,16 @@ Partial Class Form4
         Me.ReservacionComboBox.Controls.Add(Me.Label19)
         Me.ReservacionComboBox.Controls.Add(Me.Button7)
         Me.ReservacionComboBox.Controls.Add(Me.VerLibrosReservados)
-        Me.ReservacionComboBox.Location = New System.Drawing.Point(267, 111)
+        Me.ReservacionComboBox.Location = New System.Drawing.Point(263, 99)
         Me.ReservacionComboBox.Name = "ReservacionComboBox"
-        Me.ReservacionComboBox.Size = New System.Drawing.Size(737, 534)
+        Me.ReservacionComboBox.Size = New System.Drawing.Size(737, 546)
         Me.ReservacionComboBox.TabIndex = 77
         Me.ReservacionComboBox.TabStop = False
         Me.ReservacionComboBox.Text = "RESERVADOS"
         '
         'Button8
         '
-        Me.Button8.Location = New System.Drawing.Point(560, 233)
+        Me.Button8.Location = New System.Drawing.Point(590, 233)
         Me.Button8.Name = "Button8"
         Me.Button8.Size = New System.Drawing.Size(138, 44)
         Me.Button8.TabIndex = 80
@@ -450,7 +443,7 @@ Partial Class Form4
         '
         'Button7
         '
-        Me.Button7.Location = New System.Drawing.Point(560, 157)
+        Me.Button7.Location = New System.Drawing.Point(590, 157)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(138, 52)
         Me.Button7.TabIndex = 75
@@ -463,16 +456,19 @@ Partial Class Form4
         Me.VerLibrosReservados.AllowUserToDeleteRows = False
         Me.VerLibrosReservados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.VerLibrosReservados.Cursor = System.Windows.Forms.Cursors.Arrow
-        Me.VerLibrosReservados.Location = New System.Drawing.Point(20, 140)
+        Me.VerLibrosReservados.Location = New System.Drawing.Point(4, 140)
         Me.VerLibrosReservados.Name = "VerLibrosReservados"
-        Me.VerLibrosReservados.Size = New System.Drawing.Size(489, 314)
+        Me.VerLibrosReservados.ReadOnly = True
+        Me.VerLibrosReservados.RowHeadersVisible = False
+        Me.VerLibrosReservados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.VerLibrosReservados.Size = New System.Drawing.Size(576, 400)
         Me.VerLibrosReservados.TabIndex = 17
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(603, 39)
+        Me.Label5.Location = New System.Drawing.Point(924, 39)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(89, 45)
         Me.Label5.TabIndex = 66
@@ -481,20 +477,23 @@ Partial Class Form4
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.SystemColors.ScrollBar
+        Me.Panel3.Controls.Add(Me.Label1)
         Me.Panel3.Controls.Add(Me.Label5)
+        Me.Panel3.Controls.Add(Me.Cedula)
+        Me.Panel3.Controls.Add(Me.Button1)
         Me.Panel3.Controls.Add(Me.PictureCrearRes3)
         Me.Panel3.Controls.Add(Me.PictureReservacion4)
         Me.Panel3.Controls.Add(Me.PictureDevolucion2)
         Me.Panel3.Controls.Add(Me.PictureExtraccion1)
-        Me.Panel3.Location = New System.Drawing.Point(259, -2)
+        Me.Panel3.Location = New System.Drawing.Point(-2, -2)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(755, 112)
+        Me.Panel3.Size = New System.Drawing.Size(1016, 112)
         Me.Panel3.TabIndex = 75
         '
         'PictureCrearRes3
         '
         Me.PictureCrearRes3.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.crear_reserva
-        Me.PictureCrearRes3.Location = New System.Drawing.Point(442, 14)
+        Me.PictureCrearRes3.Location = New System.Drawing.Point(763, 14)
         Me.PictureCrearRes3.Name = "PictureCrearRes3"
         Me.PictureCrearRes3.Size = New System.Drawing.Size(82, 85)
         Me.PictureCrearRes3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -504,7 +503,7 @@ Partial Class Form4
         'PictureReservacion4
         '
         Me.PictureReservacion4.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.reservar
-        Me.PictureReservacion4.Location = New System.Drawing.Point(303, 14)
+        Me.PictureReservacion4.Location = New System.Drawing.Point(624, 14)
         Me.PictureReservacion4.Name = "PictureReservacion4"
         Me.PictureReservacion4.Size = New System.Drawing.Size(82, 85)
         Me.PictureReservacion4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -514,7 +513,7 @@ Partial Class Form4
         'PictureDevolucion2
         '
         Me.PictureDevolucion2.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.devolcion
-        Me.PictureDevolucion2.Location = New System.Drawing.Point(164, 14)
+        Me.PictureDevolucion2.Location = New System.Drawing.Point(485, 14)
         Me.PictureDevolucion2.Name = "PictureDevolucion2"
         Me.PictureDevolucion2.Size = New System.Drawing.Size(82, 85)
         Me.PictureDevolucion2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -524,7 +523,7 @@ Partial Class Form4
         'PictureExtraccion1
         '
         Me.PictureExtraccion1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.extraccion
-        Me.PictureExtraccion1.Location = New System.Drawing.Point(25, 14)
+        Me.PictureExtraccion1.Location = New System.Drawing.Point(346, 14)
         Me.PictureExtraccion1.Name = "PictureExtraccion1"
         Me.PictureExtraccion1.Size = New System.Drawing.Size(82, 85)
         Me.PictureExtraccion1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -540,9 +539,9 @@ Partial Class Form4
         Me.CrearReservacionComboBox.Controls.Add(Me.Label24)
         Me.CrearReservacionComboBox.Controls.Add(Me.LibrosParaReservar)
         Me.CrearReservacionComboBox.Controls.Add(Me.Label25)
-        Me.CrearReservacionComboBox.Location = New System.Drawing.Point(268, 112)
+        Me.CrearReservacionComboBox.Location = New System.Drawing.Point(263, 99)
         Me.CrearReservacionComboBox.Name = "CrearReservacionComboBox"
-        Me.CrearReservacionComboBox.Size = New System.Drawing.Size(738, 533)
+        Me.CrearReservacionComboBox.Size = New System.Drawing.Size(738, 549)
         Me.CrearReservacionComboBox.TabIndex = 80
         Me.CrearReservacionComboBox.TabStop = False
         Me.CrearReservacionComboBox.Text = "CREAR RESERVACION"
@@ -589,9 +588,12 @@ Partial Class Form4
         Me.LibrosParaReservar.AllowUserToAddRows = False
         Me.LibrosParaReservar.AllowUserToDeleteRows = False
         Me.LibrosParaReservar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.LibrosParaReservar.Location = New System.Drawing.Point(21, 139)
+        Me.LibrosParaReservar.Location = New System.Drawing.Point(5, 139)
         Me.LibrosParaReservar.Name = "LibrosParaReservar"
-        Me.LibrosParaReservar.Size = New System.Drawing.Size(694, 314)
+        Me.LibrosParaReservar.ReadOnly = True
+        Me.LibrosParaReservar.RowHeadersVisible = False
+        Me.LibrosParaReservar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.LibrosParaReservar.Size = New System.Drawing.Size(726, 401)
         Me.LibrosParaReservar.TabIndex = 0
         '
         'Label25
@@ -605,26 +607,28 @@ Partial Class Form4
         Me.Label25.TabIndex = 61
         Me.Label25.Text = "Libros Disponibles"
         '
+        'Timer2
+        '
+        Me.Timer2.Interval = 5
+        '
         'Form4
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.ClientSize = New System.Drawing.Size(1061, 646)
-        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel3)
-        Me.Controls.Add(Me.ReservacionComboBox)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.ExtCombo)
         Me.Controls.Add(Me.devoCOMBO)
         Me.Controls.Add(Me.CrearReservacionComboBox)
+        Me.Controls.Add(Me.ReservacionComboBox)
         Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Form4"
         Me.Text = "PRESTAMOS"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.OPA, System.ComponentModel.ISupportInitialize).EndInit()
         Me.devoCOMBO.ResumeLayout(False)
@@ -672,7 +676,6 @@ Partial Class Form4
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents OPA As System.Windows.Forms.DataGridView
     Friend WithEvents Button3 As System.Windows.Forms.Button
-    Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
@@ -698,4 +701,5 @@ Partial Class Form4
     Friend WithEvents LibrosParaReservar As System.Windows.Forms.DataGridView
     Friend WithEvents Label25 As System.Windows.Forms.Label
     Friend WithEvents Button8 As System.Windows.Forms.Button
+    Friend WithEvents Timer2 As System.Windows.Forms.Timer
 End Class
