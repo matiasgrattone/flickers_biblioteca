@@ -44,7 +44,7 @@
 
         '//cargar usuarios en registro//
        
-        Consulta = "select nombre, apellido, cedula, telefono, direccion, nacimiento from usuarios;"
+        Consulta = "select nombre, apellido, cedula, telefono, direccion, nacimiento from usuarios where estado='Activo';"
         consultar()
         registro.DataSource = Tabla
 
@@ -142,7 +142,7 @@
 
         '//-------------BUSCAR USUARIOS PANEL-------------------//
 
-        Consulta = "select cedula, nombre, apellido, telefono, direccion, nacimiento from usuarios;"
+        Consulta = "select cedula, nombre, apellido, telefono, direccion, nacimiento from usuarios where estado='Activo';"
         consultar()
         DataGridView1.DataSource = Tabla
 
@@ -178,7 +178,7 @@
     Private Sub Panel4_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Panel4.MouseClick
 
         '//-------------AGREGAR USUARIOS--------------------//
-        Consulta = "select nombre, apellido, cedula, telefono, direccion, nacimiento from usuarios;"
+        Consulta = "select nombre, apellido, cedula, telefono, direccion, nacimiento from usuarios where estado='Activo';"
         consultar()
         registro.DataSource = Tabla
 
@@ -204,7 +204,7 @@
         TabControl1.SelectTab("TabPage3")
         'Panel11.BackColor = Drawing.Color.Red
 
-        Consulta = "select nombre, apellido, cedula, telefono, direccion, nacimiento from usuarios;"
+        Consulta = "select nombre, apellido, cedula, telefono, direccion, nacimiento from usuarios where estado='Activo';"
         consultar()
         DataGridView3.DataSource = Tabla
 
@@ -231,7 +231,7 @@
         'Panel6.Height = 42
         'Panel7.Height = 45
 
-        Consulta = "select nombre, apellido, cedula, telefono, direccion, nacimiento from usuarios;"
+        Consulta = "select nombre, apellido, cedula, telefono, direccion, nacimiento from usuarios where estado='Activo';"
         consultar()
         borrar.DataSource = Tabla
 
@@ -262,7 +262,7 @@
         seleccionado1 = "ingresar"
         '//-------------AGREGAR USUARIOS PICTUREBOX--------------------//
 
-        Consulta = "select nombre, apellido, cedula, telefono, direccion, nacimiento from usuarios;"
+        Consulta = "select nombre, apellido, cedula, telefono, direccion, nacimiento from usuarios where estado='Activo';"
         consultar()
         registro.DataSource = Tabla
         TabControl1.SelectTab("TabPage1")
@@ -301,7 +301,7 @@
         '//-------------EDITAR USUARIOS PICTUREBOX--------------------//
 
         TabControl1.SelectTab("TabPage3")
-        Consulta = "select nombre, apellido, cedula, telefono, direccion, nacimiento from usuarios;"
+        Consulta = "select nombre, apellido, cedula, telefono, direccion, nacimiento from usuarios where estado='Activo';"
         consultar()
         DataGridView3.DataSource = Tabla
 
@@ -327,7 +327,7 @@
         'Panel6.Height = 42
         'Panel7.Height = 45
 
-        Consulta = "select cedula, nombre, apellido, telefono, direccion, nacimiento from usuarios;"
+        Consulta = "select cedula, nombre, apellido, telefono, direccion, nacimiento from usuarios where estado='Activo';"
         consultar()
         borrar.DataSource = Tabla
 
@@ -390,7 +390,7 @@
     Private Sub TextBox4_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox4.TextChanged
         '//////////////////////////////editar usuarios boton cargar //////////////////////
         Try
-            Consulta = "select nombre, apellido, cedula, telefono, direccion, nacimiento from usuarios;"
+            Consulta = "select nombre, apellido, cedula, telefono, direccion, nacimiento from usuarios where estado='Activo';"
             consultar()
             DataGridView3.DataSource = Tabla
         Catch ex As Exception
@@ -460,7 +460,7 @@
 
             '//////////////////Mostrar los datos actualizados en el datagrid///////////////////////
             Try
-                Consulta = "select nombre, apellido, cedula, telefono, direccion, nacimiento from usuarios;"
+                Consulta = "select nombre, apellido, cedula, telefono, direccion, nacimiento from usuarios where estado='Activo';"
                 consultar()
                 DataGridView3.DataSource = Tabla
             Catch ex As Exception
@@ -543,7 +543,7 @@
 
                 'concat(upper(left('" + nom + "',1)), lower(substr('" + nom + "',2)))
 
-                Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo , nacimiento, contrasenia) values (concat(upper(left('" + nom + "',1)), lower(substr('" + nom + "',2))), concat(upper(left('" + ape + "',1)), lower(substr('" + ape + "',2))), '" + Str(ced) + "', '" + Str(tel) + "', '" + dir + "', '" + Str(tipo) + "', '" + nacimiento + "', '" + pass + "');"
+                Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo , nacimiento, estado, contrasenia) values (concat(upper(left('" + nom + "',1)), lower(substr('" + nom + "',2))), concat(upper(left('" + ape + "',1)), lower(substr('" + ape + "',2))), '" + Str(ced) + "', '" + Str(tel) + "', '" + dir + "', '" + Str(tipo) + "', '" + nacimiento + "', 'Activo', '" + pass + "');"
                 consultar()
                 MsgBox("Usuario agregado con exito")
 
@@ -560,7 +560,7 @@
             MsgBox("Existen erroresen el formulario, revisar los campos remarcados")
         End If
         Try
-            Consulta = "select nombre, apellido, cedula, telefono, direccion, nacimiento from usuarios;"
+            Consulta = "select nombre, apellido, cedula, telefono, direccion, nacimiento from usuarios where estado='Activo';"
             consultar()
             registro.DataSource = Tabla
         Catch ex As Exception
@@ -588,9 +588,6 @@
         Dim a As MsgBoxStyle = MsgBoxStyle.YesNo + MsgBoxStyle.Critical
         nombre = borrar.Item(1, borrar.CurrentRow.Index).Value
 
-
-
-
         Select Case MsgBox("desea eliminar a " + nombre + "?", a, Title:="Eliminar")
 
             Case MsgBoxResult.No
@@ -599,7 +596,7 @@
             Case MsgBoxResult.Yes
                 Try
                     codusuario = borrar.Item(0, borrar.CurrentRow.Index).Value
-                    Consulta = "delete from usuarios where cedula = '" & Str(codusuario) & "'"
+                    Consulta = "update usuarios set estado='Inactivo' where cedula = '" & Str(codusuario) & "'"
                     consultar()
                 Catch ex As Exception
                     MsgBox(ex.ToString)
@@ -609,7 +606,7 @@
 
         End Select
 
-        Consulta = "select cedula, nombre, apellido, telefono, direccion, nacimiento from usuarios;"
+        Consulta = "select cedula, nombre, apellido, telefono, direccion, nacimiento from usuarios where estado='Activo';"
         consultar()
         borrar.DataSource = Tabla
 
