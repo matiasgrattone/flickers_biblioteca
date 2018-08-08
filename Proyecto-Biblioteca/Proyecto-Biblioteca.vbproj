@@ -150,6 +150,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="PlaceHolder.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Seleccion_Libro.Designer.vb">
       <DependentUpon>Seleccion_Libro.vb</DependentUpon>
     </Compile>
