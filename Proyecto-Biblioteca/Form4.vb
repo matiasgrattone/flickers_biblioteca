@@ -111,7 +111,7 @@
                 '////////////////////////////////
 
                 Label5.Visible = True
-                NOMBRE.Text = DataGridView1.Item(1, DataGridView1.CurrentRow.Index).Value
+
 
                 ExtCombo.Visible = False
                 devoCOMBO.Visible = False
@@ -154,77 +154,16 @@
         Aparecer.Enabled = True
     End Sub
 
+    Private Sub VERLIBROSAGG_CellClick(sender As Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles VERLIBROSAGG.CellClick
+       
+    End Sub
+
 
 
     Private Sub VERLIBROSAGG_CellContentDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles VERLIBROSAGG.CellContentDoubleClick
 
 
-        'Se iguala una variable a un valor de la base de datos
-        Dim TransoformarDBSDaVariable As DataGridViewRow = VERLIBROSAGG.CurrentRow
-        Dim NOMBREdelLIBRO As String
-        NOMBREdelLIBRO = CStr(TransoformarDBSDaVariable.Cells(1).Value)
-
-
-        '////////////////////////////SI CEDULA.TEXT TIENE LA CEDULA PUESTA AHI SI SE PODRA AGREGAR LIBROS O REALIZAR OTRAS FUNCIONES  /////////////////////// 
-
-        Dim list1 As Integer
-        list1 = IDAGG.Items.Count
-
-
-
-        If VERLIBROSAGG.Item(0, VERLIBROSAGG.CurrentRow.Index).Value <> list1 Then
-            Dim goku As String
-            Dim vegeta As String
-            goku = VERLIBROSAGG.Item(0, VERLIBROSAGG.CurrentRow.Index).Value
-            vegeta = VERLIBROSAGG.Item(1, VERLIBROSAGG.CurrentRow.Index).Value
-
-
-
-            If (IDAGG.Items.Contains(goku)) Then
-
-                MsgBox("Este libro " & goku & " ya se encuentra en el carrito de extracción ", Title:="PRESTAMOS")
-
-
-            Else
-
-                z = MsgBox("Desea llevar al carrito el libro " & NOMBREdelLIBRO & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
-
-                If z = vbYes Then
-
-
-                    IDAGG.Items.Add(goku)
-                    LIBROSAGG.Items.Add(goku & "                          " & vegeta)
-
-                    For Each item As String In IDAGG.Items
-                        For Each Row As DataGridViewRow In VERLIBROSAGG.Rows
-                            If Row.Cells("cod_libro").Value = Val(item) Then
-                                Row.DefaultCellStyle.BackColor = Drawing.Color.BlueViolet
-                            End If
-                        Next
-                    Next
-
-
-                End If
-
-
-            End If
-
-        End If
-
-        If LIBROSAGG.Items.Count <> 0 Then
-
-            Button2.Visible = True
-
-        Else
-
-            Button2.Visible = False
-
-        End If
-
-
-
-
-
+      
     End Sub
 
 
@@ -325,7 +264,6 @@
                         '/////////////////////////////////////////////////////////////////////////////////////////////
 
 
-                        NOMBRE.Text = DataGridView1.Item(1, DataGridView1.CurrentRow.Index).Value
                         Label5.Visible = True
                         ExtCombo.Visible = False
                         devoCOMBO.Visible = False
@@ -505,78 +443,6 @@
 
     Private Sub DataGridAGG_CellContentDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridAGG.CellContentDoubleClick
 
-
-
-        '////////////////////////////////
-        If modo = "devolucion" Then
-            'Consulta a DATAGRIDVIEW oculto
-            Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamo p INNER JOIN libro l on p.cod_libro=l.cod_libro where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
-            DataGridAGG.DataSource = Tabla
-            consultar()
-            'Para que si o si se tenga que ingresar una cedula para realizar las funciones 
-            If Cedula.Text <> "" Then
-                Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamo p INNER JOIN libro l on p.cod_libro=l.cod_libro where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
-                DataGridAGG.DataSource = Tabla
-
-                consultar()
-
-                '////////////////////////////////
-
-                Try
-
-                    Libro1 = DataGridAGG.Item(2, DataGridAGG.CurrentRow.Index).Value
-                    cod_libros = DataGridAGG.Item(1, DataGridAGG.CurrentRow.Index).Value
-
-                    If DataGridAGG.Item(4, DataGridAGG.CurrentRow.Index).Value.ToString = "" Then
-                        Dim a As MsgBoxResult
-                        a = MsgBox("Desea devolver el libro " & Libro1 & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
-
-                        '       1) Si se devuelve el libro y se actualiza la Base da datos 
-                        If a = vbYes Then
-
-                            Consulta = "update libro set estado = 'disponible' where cod_libro = '" & cod_libros & "';"
-                            consultar()
-                            Consulta = "UPDATE prestamo SET fecha_entrada = '" & Label4.Text & "' WHERE cedula = '" & Cedula.Text & "' and cod_libro ='" & cod_libros & "';"
-                            consultar()
-                            MsgBox("se ha devuelto", Title:="PRESTAMO")
-
-                            Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamo p INNER JOIN libro l on p.cod_libro=l.cod_libro where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
-                            consultar()
-                            DataGridAGG.DataSource = Tabla
-
-                        Else
-
-                            MsgBox("Este libro no se devolvio", Title:="PRESTAMOS")
-
-                            Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamo p INNER JOIN libro l on p.cod_libro=l.cod_libro where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
-                            consultar()
-                            DataGridAGG.DataSource = Tabla
-
-                        End If
-                    End If
-
-                    If a = vbNo Then
-                        MsgBox("No", Title:="PRESTAMOS")
-                    End If
-
-                Catch ex As Exception
-
-                    MsgBox("Este libro no se devolvio", Title:="PRESTAMOS")
-
-                    Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamo p INNER JOIN libro l on p.cod_libro=l.cod_libro where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
-                    consultar()
-                    DataGridAGG.DataSource = Tabla
-
-
-                End Try
-
-
-
-                '       1)/////////////////
-
-            End If
-            '/////////////////////////////////////////////////
-        End If
 
     End Sub
 
@@ -906,71 +772,6 @@
 
     Private Sub LibrosParaReservar_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles LibrosParaReservar.CellContentClick
 
-        'Consulta a DATAGRIDVIEW para ver los libros disponibles
-        Consulta = "select * from libro where estado = 'disponible';"
-        consultar()
-        LibrosParaReservar.DataSource = Tabla
-
-
-        '////////////////////////////////
-
-        'Para que si o si se tenga que ingresar una cedula para realizar las funciones 
-        If Cedula.Text <> "" Then
-            Consulta = "select * from libro where estado = 'disponible';"
-            LibrosParaReservar.DataSource = Tabla
-            consultar()
-
-
-
-            '////////////////////////////////
-
-            Try
-
-                libro3 = LibrosParaReservar.Item(1, LibrosParaReservar.CurrentRow.Index).Value
-                cod_libros2 = LibrosParaReservar.Item(0, LibrosParaReservar.CurrentRow.Index).Value
-
-                Dim a As MsgBoxResult
-                a = MsgBox("Desea reservar el libro " & libro3 & " ?", MsgBoxStyle.YesNo, Title:="RESERVACION")
-
-                '       1) Si se devuelve el libro y se actualiza la Base da datos 
-                If a = vbYes Then
-
-                    Consulta = "update libro set estado = 'Reservado' where cod_libro = '" & cod_libros2 & "';"
-                    consultar()
-                    Consulta = "UPDATE prestamo SET reservacion = 'Reservado' WHERE cedula = '" & Cedula.Text & "' and cod_libro ='" & cod_libros2 & "';"
-                    consultar()
-                    MsgBox("se ha creador la reservacion", Title:="PRESTAMO")
-
-                    Consulta = "select * from libro where estado = 'disponible';"
-                    LibrosParaReservar.DataSource = Tabla
-                    consultar()
-
-                Else
-
-                    MsgBox("El libro sigue reservado", Title:="RESERVACION")
-
-                    Consulta = "select * from libro where estado = 'disponible';"
-                    LibrosParaReservar.DataSource = Tabla
-                    consultar()
-                End If
-
-
-                If a = vbNo Then
-                    MsgBox("No", Title:="RESERVACION")
-                End If
-
-            Catch ex As Exception
-
-                MsgBox("El libro sigue reservado", Title:="RESERVACION")
-
-            End Try
-        End If
-
-        Consulta = "select * from libro where estado = 'disponible';"
-        LibrosParaReservar.DataSource = Tabla
-        consultar()
-
-        '/////////////////////////////////////////////////
     End Sub
 
     Private Sub Button7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button7.Click
@@ -1199,13 +1000,28 @@
     End Sub
 
     Private Sub Timer2_Tick(sender As System.Object, e As System.EventArgs) Handles Aparecer.Tick
-
-        If Panel1.Left < -5 Then
-            Panel1.Left += 10
-        Else
+        Try
+            If Panel1.Left < -5 Then
+                Panel1.Left += 10
+            Else
+                NOMBRE.Text = DataGridView1.Item(1, DataGridView1.CurrentRow.Index).Value
+                Aparecer.Enabled = False
+                panelnombre = 1
+            End If
+        Catch ex As Exception
             Aparecer.Enabled = False
-            panelnombre = 1
-        End If
+            Ocultar.Enabled = True
+            ExtCombo.Visible = False
+            devoCOMBO.Visible = False
+            ReservacionComboBox.Visible = False
+            PictureExtraccion1.Visible = False
+            PictureDevolucion2.Visible = False
+            PictureCrearRes3.Visible = False
+            PictureReservacion4.Visible = False
+            Label5.Visible = False
+            MsgBox("La cedula ingresada no es correcta", Title:="Error")
+        End Try
+
 
     End Sub
 
@@ -1219,12 +1035,254 @@
     End Sub
 
     Private Sub Timer4_Tick(sender As System.Object, e As System.EventArgs) Handles Ocultar_Aparecer.Tick
-        If Panel1.Left > -265 Then
-            Panel1.Left -= 10
-        Else
-            Aparecer.Enabled = True
+        Try
+            If Panel1.Left > -265 Then
+                Panel1.Left -= 10
+            Else
+                NOMBRE.Text = DataGridView1.Item(1, DataGridView1.CurrentRow.Index).Value
+                Aparecer.Enabled = True
+                Ocultar_Aparecer.Enabled = False
+
+            End If
+        Catch ex As Exception
+            Ocultar.Enabled = True
             Ocultar_Aparecer.Enabled = False
+            ExtCombo.Visible = False
+            devoCOMBO.Visible = False
+            ReservacionComboBox.Visible = False
+            PictureExtraccion1.Visible = False
+            PictureDevolucion2.Visible = False
+            PictureCrearRes3.Visible = False
+            PictureReservacion4.Visible = False
+            Label5.Visible = False
+            MsgBox("Error en el ingreso de cedula", Title:="Error")
+        End Try
+
+    End Sub
+
+    Private Sub VERLIBROSAGG_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles VERLIBROSAGG.CellContentClick
+
+    End Sub
+
+    Private Sub VERLIBROSAGG_CellDoubleClick(sender As Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles VERLIBROSAGG.CellDoubleClick
+        'Se iguala una variable a un valor de la base de datos
+        Dim TransoformarDBSDaVariable As DataGridViewRow = VERLIBROSAGG.CurrentRow
+        Dim NOMBREdelLIBRO As String
+        NOMBREdelLIBRO = CStr(TransoformarDBSDaVariable.Cells(1).Value)
+
+
+        '////////////////////////////SI CEDULA.TEXT TIENE LA CEDULA PUESTA AHI SI SE PODRA AGREGAR LIBROS O REALIZAR OTRAS FUNCIONES  /////////////////////// 
+
+        Dim list1 As Integer
+        list1 = IDAGG.Items.Count
+
+
+
+        If VERLIBROSAGG.Item(0, VERLIBROSAGG.CurrentRow.Index).Value <> list1 Then
+            Dim goku As String
+            Dim vegeta As String
+            goku = VERLIBROSAGG.Item(0, VERLIBROSAGG.CurrentRow.Index).Value
+            vegeta = VERLIBROSAGG.Item(1, VERLIBROSAGG.CurrentRow.Index).Value
+
+
+
+            If (IDAGG.Items.Contains(goku)) Then
+
+                MsgBox("Este libro " & goku & " ya se encuentra en el carrito de extracción ", Title:="PRESTAMOS")
+
+
+            Else
+
+                z = MsgBox("Desea llevar al carrito el libro " & NOMBREdelLIBRO & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
+
+                If z = vbYes Then
+
+
+                    IDAGG.Items.Add(goku)
+                    LIBROSAGG.Items.Add(goku & "                          " & vegeta)
+
+                    For Each item As String In IDAGG.Items
+                        For Each Row As DataGridViewRow In VERLIBROSAGG.Rows
+                            If Row.Cells("cod_libro").Value = Val(item) Then
+                                Row.DefaultCellStyle.BackColor = Drawing.Color.BlueViolet
+                            End If
+                        Next
+                    Next
+
+
+                End If
+
+
+            End If
 
         End If
+
+        If LIBROSAGG.Items.Count <> 0 Then
+
+            Button2.Visible = True
+
+        Else
+
+            Button2.Visible = False
+
+        End If
+
+
+
+
+
+    End Sub
+
+    Private Sub DataGridAGG_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridAGG.CellContentClick
+
+    End Sub
+
+    Private Sub DataGridAGG_CellDoubleClick(sender As Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridAGG.CellDoubleClick
+
+
+        '////////////////////////////////
+        If modo = "devolucion" Then
+            'Consulta a DATAGRIDVIEW oculto
+            Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamo p INNER JOIN libro l on p.cod_libro=l.cod_libro where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
+            DataGridAGG.DataSource = Tabla
+            consultar()
+            'Para que si o si se tenga que ingresar una cedula para realizar las funciones 
+            If Cedula.Text <> "" Then
+                Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamo p INNER JOIN libro l on p.cod_libro=l.cod_libro where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
+                DataGridAGG.DataSource = Tabla
+
+                consultar()
+
+                '////////////////////////////////
+
+                Try
+
+                    Libro1 = DataGridAGG.Item(2, DataGridAGG.CurrentRow.Index).Value
+                    cod_libros = DataGridAGG.Item(1, DataGridAGG.CurrentRow.Index).Value
+
+                    If DataGridAGG.Item(4, DataGridAGG.CurrentRow.Index).Value.ToString = "" Then
+                        Dim a As MsgBoxResult
+                        a = MsgBox("Desea devolver el libro " & Libro1 & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
+
+                        '       1) Si se devuelve el libro y se actualiza la Base da datos 
+                        If a = vbYes Then
+
+                            Consulta = "update libro set estado = 'disponible' where cod_libro = '" & cod_libros & "';"
+                            consultar()
+                            Consulta = "UPDATE prestamo SET fecha_entrada = '" & Label4.Text & "' WHERE cedula = '" & Cedula.Text & "' and cod_libro ='" & cod_libros & "';"
+                            consultar()
+                            MsgBox("se ha devuelto", Title:="PRESTAMO")
+
+                            Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamo p INNER JOIN libro l on p.cod_libro=l.cod_libro where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
+                            consultar()
+                            DataGridAGG.DataSource = Tabla
+
+                        Else
+
+                            MsgBox("Este libro no se devolvio", Title:="PRESTAMOS")
+
+                            Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamo p INNER JOIN libro l on p.cod_libro=l.cod_libro where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
+                            consultar()
+                            DataGridAGG.DataSource = Tabla
+
+                        End If
+                    End If
+
+                    If a = vbNo Then
+                        MsgBox("No", Title:="PRESTAMOS")
+                    End If
+
+                Catch ex As Exception
+
+                    MsgBox("Este libro no se devolvio", Title:="PRESTAMOS")
+
+                    Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamo p INNER JOIN libro l on p.cod_libro=l.cod_libro where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
+                    consultar()
+                    DataGridAGG.DataSource = Tabla
+
+
+                End Try
+
+
+
+                '       1)/////////////////
+
+            End If
+            '/////////////////////////////////////////////////
+        End If
+
+    End Sub
+
+    Private Sub LibrosParaReservar_CellDoubleClick(sender As Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles LibrosParaReservar.CellDoubleClick
+
+        'Consulta a DATAGRIDVIEW para ver los libros disponibles
+        Consulta = "select * from libro where estado = 'disponible';"
+        consultar()
+        LibrosParaReservar.DataSource = Tabla
+
+
+        '////////////////////////////////
+
+        'Para que si o si se tenga que ingresar una cedula para realizar las funciones 
+        If Cedula.Text <> "" Then
+            Consulta = "select * from libro where estado = 'disponible';"
+            LibrosParaReservar.DataSource = Tabla
+            consultar()
+
+
+
+            '////////////////////////////////
+
+            Try
+
+                libro3 = LibrosParaReservar.Item(1, LibrosParaReservar.CurrentRow.Index).Value
+                cod_libros2 = LibrosParaReservar.Item(0, LibrosParaReservar.CurrentRow.Index).Value
+
+                Dim a As MsgBoxResult
+                a = MsgBox("Desea reservar el libro " & libro3 & " ?", MsgBoxStyle.YesNo, Title:="RESERVACION")
+
+                '       1) Si se devuelve el libro y se actualiza la Base da datos 
+                If a = vbYes Then
+
+                    Consulta = "update libro set estado = 'Reservado' where cod_libro = '" & cod_libros2 & "';"
+                    consultar()
+                    Consulta = "UPDATE prestamo SET reservacion = 'Reservado' WHERE cedula = '" & Cedula.Text & "' and cod_libro ='" & cod_libros2 & "';"
+                    consultar()
+                    MsgBox("se ha creador la reservacion", Title:="PRESTAMO")
+
+                    Consulta = "select * from libro where estado = 'disponible';"
+                    LibrosParaReservar.DataSource = Tabla
+                    consultar()
+
+                Else
+
+                    MsgBox("El libro sigue reservado", Title:="RESERVACION")
+
+                    Consulta = "select * from libro where estado = 'disponible';"
+                    LibrosParaReservar.DataSource = Tabla
+                    consultar()
+                End If
+
+
+                If a = vbNo Then
+                    MsgBox("No", Title:="RESERVACION")
+                End If
+
+            Catch ex As Exception
+
+                MsgBox("El libro sigue reservado", Title:="RESERVACION")
+
+            End Try
+        End If
+
+        Consulta = "select * from libro where estado = 'disponible';"
+        LibrosParaReservar.DataSource = Tabla
+        consultar()
+
+        '/////////////////////////////////////////////////
+    End Sub
+
+    Private Sub VerLibrosReservados_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles VerLibrosReservados.CellContentClick
+
     End Sub
 End Class
