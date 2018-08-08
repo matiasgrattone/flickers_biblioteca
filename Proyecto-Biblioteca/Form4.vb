@@ -1102,12 +1102,17 @@
                     LIBROSAGG.Items.Add(goku & "                          " & vegeta)
 
                     For Each item As String In IDAGG.Items
+
                         For Each Row As DataGridViewRow In VERLIBROSAGG.Rows
                             If Row.Cells("cod_libro").Value = Val(item) Then
                                 Row.DefaultCellStyle.BackColor = Drawing.Color.BlueViolet
                             End If
                         Next
+
+
                     Next
+
+
 
 
                 End If
