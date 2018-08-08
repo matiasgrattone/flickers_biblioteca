@@ -143,6 +143,7 @@ Public Class buscarlibro
 
 
     Private Sub buscarlibro_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Public estado As Integer
         'Invocamos al modulo para conectar el programa con la base de datos llamada Libros, y luego lo mostramos en el DataGrid'
         Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial;"
         consultar()
@@ -209,14 +210,14 @@ Public Class buscarlibro
         'Realiza la consulta, se actualizan los datos por los que el usuario indica y al momento el Datagrid se actualiza
         Consulta = "UPDATE libro SET titulo=('" + titulo_txt.Text + "'), volumen=('" + volumen_txt.Text + "'), anio=('" + anio_txt.Text + "'), origen=('" + origen_txt.Text + "'), observaciones=('" + observaciones_txt.Text + "') WHERE cod_libro=('" + cod_libro_txt.Text + "')"
         consultar()
-        If vestado.Text = 0 Then
+        If estado = 0 Then
             Consulta = "UPDATE libro set estado=('" + ComboBox3.Text + "') WHERE cod_libro=('" + cod_libro_txt.Text + "')"
             consultar()
 
             Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial"
             consultar()
             DataGridView1.DataSource = Tabla
-        ElseIf vestado.Text = 1 Then
+        ElseIf estado = 1 Then
             Consulta = "UPDATE libro set estado=('" + ComboBox3.Text + "') WHERE cod_libro=('" + cod_libro_txt.Text + "')"
             consultar()
 
@@ -233,7 +234,7 @@ Public Class buscarlibro
 
     Private Sub btnmodificar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnmodificar.Click
 
-        Dim estado As Integer
+
 
         'Los datos que el usuario selecciono del DataGrid y que luego fueron mostrados en el Panel'
         'Son copiados a un segundo panel donde luego podran ser modificados'
