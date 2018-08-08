@@ -141,9 +141,9 @@ Public Class buscarlibro
 
     End Sub
 
-
+    Public estado As Integer
     Private Sub buscarlibro_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Public estado As Integer
+
         'Invocamos al modulo para conectar el programa con la base de datos llamada Libros, y luego lo mostramos en el DataGrid'
         Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial;"
         consultar()
@@ -214,22 +214,25 @@ Public Class buscarlibro
             Consulta = "UPDATE libro set estado=('" + ComboBox3.Text + "') WHERE cod_libro=('" + cod_libro_txt.Text + "')"
             consultar()
 
-            Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial"
+            Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado like 'disponible'"
             consultar()
             DataGridView1.DataSource = Tabla
         ElseIf estado = 1 Then
             Consulta = "UPDATE libro set estado=('" + ComboBox3.Text + "') WHERE cod_libro=('" + cod_libro_txt.Text + "')"
             consultar()
 
+            Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado like 'descontinuado'"
+            consultar()
+            DataGridView1.DataSource = Tabla
+
+        Else
             Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial"
             consultar()
             DataGridView1.DataSource = Tabla
         End If
         Panel3.SendToBack()
         
-        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial"
-        consultar()
-        DataGridView1.DataSource = Tabla
+        
     End Sub
 
     Private Sub btnmodificar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnmodificar.Click
