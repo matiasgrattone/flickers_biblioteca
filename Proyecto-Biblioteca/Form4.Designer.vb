@@ -72,7 +72,9 @@ Partial Class Form4
         Me.Label24 = New System.Windows.Forms.Label()
         Me.LibrosParaReservar = New System.Windows.Forms.DataGridView()
         Me.Label25 = New System.Windows.Forms.Label()
-        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
+        Me.Aparecer = New System.Windows.Forms.Timer(Me.components)
+        Me.Ocultar = New System.Windows.Forms.Timer(Me.components)
+        Me.Ocultar_Aparecer = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.OPA, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -106,7 +108,7 @@ Partial Class Form4
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(235, 53)
+        Me.Button1.Location = New System.Drawing.Point(271, 54)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(57, 21)
         Me.Button1.TabIndex = 74
@@ -248,7 +250,7 @@ Partial Class Form4
         '
         Me.Cedula.Location = New System.Drawing.Point(6, 53)
         Me.Cedula.Name = "Cedula"
-        Me.Cedula.Size = New System.Drawing.Size(223, 20)
+        Me.Cedula.Size = New System.Drawing.Size(259, 20)
         Me.Cedula.TabIndex = 57
         '
         'devoCOMBO
@@ -607,9 +609,17 @@ Partial Class Form4
         Me.Label25.TabIndex = 61
         Me.Label25.Text = "Libros Disponibles"
         '
-        'Timer2
+        'Aparecer
         '
-        Me.Timer2.Interval = 5
+        Me.Aparecer.Interval = 5
+        '
+        'Ocultar
+        '
+        Me.Ocultar.Interval = 5
+        '
+        'Ocultar_Aparecer
+        '
+        Me.Ocultar_Aparecer.Interval = 5
         '
         'Form4
         '
@@ -701,5 +711,7 @@ Partial Class Form4
     Friend WithEvents LibrosParaReservar As System.Windows.Forms.DataGridView
     Friend WithEvents Label25 As System.Windows.Forms.Label
     Friend WithEvents Button8 As System.Windows.Forms.Button
-    Friend WithEvents Timer2 As System.Windows.Forms.Timer
+    Friend WithEvents Aparecer As System.Windows.Forms.Timer
+    Friend WithEvents Ocultar As System.Windows.Forms.Timer
+    Friend WithEvents Ocultar_Aparecer As System.Windows.Forms.Timer
 End Class

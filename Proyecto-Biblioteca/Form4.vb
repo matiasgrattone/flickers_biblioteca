@@ -13,6 +13,7 @@
     Dim VALIDADOR As String
     Dim modo As String = "devolucion"
     Dim panelnombre As Integer = 0
+    Dim error1 As Integer = 0
     '/////////////////////////////////////////////////////////
 
 
@@ -150,7 +151,7 @@
 
         'Se iguala una variable a un valor de la base de datos para hacer consulta luego
 
-        Timer2.Enabled = True
+        Aparecer.Enabled = True
     End Sub
 
 
@@ -176,10 +177,6 @@
             Dim vegeta As String
             goku = VERLIBROSAGG.Item(0, VERLIBROSAGG.CurrentRow.Index).Value
             vegeta = VERLIBROSAGG.Item(1, VERLIBROSAGG.CurrentRow.Index).Value
-
-
-
-
 
 
 
@@ -240,80 +237,148 @@
 
     End Sub
 
-    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
-    End Sub
-
     Private Sub Cedula_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles Cedula.KeyDown
-        If e.KeyCode = Keys.Enter Then
+        If panelnombre = 0 Then
+            If e.KeyCode = Keys.Enter Then
 
-            'Se cambia el label solo cuando haya un valor en el textbox CEDULA
+                'Se cambia el label solo cuando haya un valor en el textbox CEDULA
 
-            Try
+                Try
 
-                If Cedula.Text <> "" Then
+                    If Cedula.Text <> "" Then
 
-                    'Consulta a DATAGRIDVIEW oculto
+                        '/////////////////////////Consulta a DATAGRIDVIEW oculto////////////////////////////////////
+                        Consulta = "select cedula , nombre from usuarios where cedula like '" & Cedula.Text & "'  "
+                        consultar()
+                        DataGridView1.DataSource = Tabla
+                        '///////////////////////////////////////////////////////////////////////////////////////////
 
-                    Consulta = "select cedula , nombre from usuarios where cedula like '" & Cedula.Text & "'  "
-                    consultar()
-                    DataGridView1.DataSource = Tabla
+                        '/////////////////////////////////////////////////////////////////////////////////////////////
+                        '////////////////////////////////prepara la interfaz para las funciones///////////////////////
+                        '/////////////////////////////////////////////////////////////////////////////////////////////
 
-                    '////////////////////////////////
+                        NOMBRE.Text = DataGridView1.Item(1, DataGridView1.CurrentRow.Index).Value
+                        Label5.Visible = True
+                        ExtCombo.Visible = False
+                        devoCOMBO.Visible = False
+                        ReservacionComboBox.Visible = False
+                        PictureExtraccion1.Visible = True
+                        PictureDevolucion2.Visible = True
+                        PictureCrearRes3.Visible = True
+                        PictureReservacion4.Visible = True
+                        Label5.Visible = True
+                        Aparecer.Enabled = True
+                        '/////////////////////////////////////////////////////////////////////////////////////////////
 
-                    Label5.Visible = True
-                    NOMBRE.Text = DataGridView1.Item(1, DataGridView1.CurrentRow.Index).Value
+                    End If
+
+                Catch ex As Exception
+
+
+
+
+                    '//////////////////////oculta los picturebox y la interfaz de las funciones///////////////////////////////
+                    Ocultar.Enabled = True
+                    MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
 
                     ExtCombo.Visible = False
                     devoCOMBO.Visible = False
                     ReservacionComboBox.Visible = False
-
-                    PictureExtraccion1.Visible = True
-                    PictureDevolucion2.Visible = True
-                    PictureCrearRes3.Visible = True
-                    PictureReservacion4.Visible = True
-                    Label5.Visible = True
-                End If
-
-            Catch ex As Exception
+                    PictureExtraccion1.Visible = False
+                    PictureDevolucion2.Visible = False
+                    PictureCrearRes3.Visible = False
+                    PictureReservacion4.Visible = False
+                    Label5.Visible = False
+                    '/////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-                MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
-
-                ExtCombo.Visible = False
-                devoCOMBO.Visible = False
-                ReservacionComboBox.Visible = False
-                PictureExtraccion1.Visible = False
-                PictureDevolucion2.Visible = False
-                PictureCrearRes3.Visible = False
-                PictureReservacion4.Visible = False
-                Label5.Visible = False
-            End Try
+                End Try
 
 
-
-            'Consulta a DATAGRIDVIEW oculto
-
-            Consulta = "select * from prestamo where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
-            consultar()
-            OPA.DataSource = Tabla
-
-            '////////////////////////////////
-
-            'Se iguala una variable a un valor de la base de datos para hacer consulta luego
-
-            Timer2.Enabled = True
+                '//////////////////////////Consulta a DATAGRIDVIEW oculto////////////////////////////////////////
+                Consulta = "select * from prestamo where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
+                consultar()
+                OPA.DataSource = Tabla
+                '////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+            End If
         End If
+
+        If panelnombre = 1 Then
+            If e.KeyCode = Keys.Enter Then
+
+                'Se cambia el label solo cuando haya un valor en el textbox CEDULA
+
+                Try
+
+                    If Cedula.Text <> "" Then
+
+                        '/////////////////////////Consulta a DATAGRIDVIEW oculto////////////////////////////////////
+                        Consulta = "select cedula , nombre from usuarios where cedula like '" & Cedula.Text & "'  "
+                        consultar()
+                        DataGridView1.DataSource = Tabla
+                        '///////////////////////////////////////////////////////////////////////////////////////////
+
+                        '/////////////////////////////////////////////////////////////////////////////////////////////
+                        '////////////////////////////////prepara la interfaz para las funciones///////////////////////
+                        '/////////////////////////////////////////////////////////////////////////////////////////////
+
+
+                        NOMBRE.Text = DataGridView1.Item(1, DataGridView1.CurrentRow.Index).Value
+                        Label5.Visible = True
+                        ExtCombo.Visible = False
+                        devoCOMBO.Visible = False
+                        ReservacionComboBox.Visible = False
+                        PictureExtraccion1.Visible = True
+                        PictureDevolucion2.Visible = True
+                        PictureCrearRes3.Visible = True
+                        PictureReservacion4.Visible = True
+                        Label5.Visible = True
+                        Ocultar_Aparecer.Enabled = True
+
+
+                        '/////////////////////////////////////////////////////////////////////////////////////////////
+
+                    End If
+
+                Catch ex As Exception
+
+
+
+
+                    '//////////////////////oculta los picturebox y la interfaz de las funciones///////////////////////////////
+                    Ocultar.Enabled = True
+                    ExtCombo.Visible = False
+                    devoCOMBO.Visible = False
+                    ReservacionComboBox.Visible = False
+                    PictureExtraccion1.Visible = False
+                    PictureDevolucion2.Visible = False
+                    PictureCrearRes3.Visible = False
+                    PictureReservacion4.Visible = False
+                    Label5.Visible = False
+                    MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
+
+
+
+                    '/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+                End Try
+
+
+                '//////////////////////////Consulta a DATAGRIDVIEW oculto////////////////////////////////////////
+                Consulta = "select * from prestamo where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
+                consultar()
+                OPA.DataSource = Tabla
+                '////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+            End If
+        End If
+
+
     End Sub
-
-
-
-
-
-
-
 
     Private Sub Cedula_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cedula.TextChanged
         Try
@@ -512,7 +577,7 @@
             End If
             '/////////////////////////////////////////////////
         End If
-        
+
     End Sub
 
     Private Sub LIBROSAGG_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles LIBROSAGG.MouseClick
@@ -898,13 +963,7 @@
 
                 MsgBox("El libro sigue reservado", Title:="RESERVACION")
 
-
             End Try
-
-
-
-            '       1)/////////////////
-
         End If
 
         Consulta = "select * from libro where estado = 'disponible';"
@@ -931,6 +990,7 @@
 
         '1) El usario que puede extraer un libro SI ESTE NO TIENE NINGUN LIBROS EN PODER AHORA
         '/////////////////////CASO UNO///////////////////
+
         If Cedula.Text <> "" Then
             If (OPA.RowCount = 1) Then
 
@@ -973,10 +1033,8 @@
                     While contador < list
                         contador = Val(contador) + 1
 
-
                         Consulta = "insert into prestamo (cedula, cod_libro, fecha_salida, fecha_entrada) values ('" & Cedula.Text & "','" & IDAGG.Items(libros) & "','" & Label4.Text & "','')"
                         consultar()
-
 
                         Consulta = "update libro set estado = 'ocupado' where cod_libro = '" & IDAGG.Items(libros) & "';"
                         consultar()
@@ -1019,19 +1077,12 @@
         Dim list1 As Integer
         list1 = IDAGG.Items.Count
 
-
-
         If VerLibrosReservados.Item(0, VerLibrosReservados.CurrentRow.Index).Value <> list1 Then
             Dim goku As String
             Dim vegeta As String
+
             goku = VerLibrosReservados.Item(0, VerLibrosReservados.CurrentRow.Index).Value
             vegeta = VerLibrosReservados.Item(1, VerLibrosReservados.CurrentRow.Index).Value
-
-
-
-
-
-
 
             If (IDAGG.Items.Contains(goku)) Then
 
@@ -1044,59 +1095,17 @@
 
                 If z = vbYes Then
 
-
                     IDAGG.Items.Add(goku)
                     LIBROSAGG.Items.Add(goku & "                          " & vegeta)
 
-
                 End If
-
-
             End If
-
         End If
-
         If LIBROSAGG.Items.Count <> 0 Then
-
             Button2.Visible = True
-
         Else
-
             Button2.Visible = False
-
         End If
-    End Sub
-
-    Private Sub DataGridAGG_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridAGG.CellContentClick
-
-    End Sub
-
-    Private Sub NOMBRE_Click(sender As System.Object, e As System.EventArgs) Handles NOMBRE.Click
-
-    End Sub
-
-    Private Sub ExtCombo_Enter(sender As System.Object, e As System.EventArgs) Handles ExtCombo.Enter
-
-    End Sub
-
-    Private Sub Timer2_Tick(sender As System.Object, e As System.EventArgs) Handles Timer2.Tick
-
-        If Panel1.Left < -5 Then
-            Panel1.Left += 10
-        End If
-
-        If Panel1.Left = -5 Then
-            panelnombre = 1
-            Timer2.Enabled = False
-        End If
-
-    End Sub
-
-    Private Sub VERLIBROSAGG_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs)
-
-    End Sub
-
-    Private Sub VERLIBROSAGG_CellContentClick_1(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles VERLIBROSAGG.CellContentClick
 
     End Sub
 
@@ -1187,5 +1196,35 @@
                 End If
             Next
         Next
+    End Sub
+
+    Private Sub Timer2_Tick(sender As System.Object, e As System.EventArgs) Handles Aparecer.Tick
+
+        If Panel1.Left < -5 Then
+            Panel1.Left += 10
+        Else
+            Aparecer.Enabled = False
+            panelnombre = 1
+        End If
+
+    End Sub
+
+    Private Sub Timer3_Tick(sender As System.Object, e As System.EventArgs) Handles Ocultar.Tick
+        If Panel1.Left > -265 Then
+            Panel1.Left -= 10
+        Else
+            Ocultar.Enabled = False
+
+        End If
+    End Sub
+
+    Private Sub Timer4_Tick(sender As System.Object, e As System.EventArgs) Handles Ocultar_Aparecer.Tick
+        If Panel1.Left > -265 Then
+            Panel1.Left -= 10
+        Else
+            Aparecer.Enabled = True
+            Ocultar_Aparecer.Enabled = False
+
+        End If
     End Sub
 End Class
