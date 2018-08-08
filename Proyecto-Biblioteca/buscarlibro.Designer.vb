@@ -75,7 +75,6 @@ Partial Class buscarlibro
         Me.estado_txt = New System.Windows.Forms.TextBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.vestado = New System.Windows.Forms.Label()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -94,7 +93,7 @@ Partial Class buscarlibro
         '
         'ComboBox1
         '
-        Me.ComboBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.ComboBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox1.ForeColor = System.Drawing.Color.Black
@@ -152,7 +151,7 @@ Partial Class buscarlibro
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.Lime
+        Me.Panel1.BackColor = System.Drawing.Color.Teal
         Me.Panel1.Controls.Add(Me.btnmodificar)
         Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Controls.Add(Me.volumen_label)
@@ -389,7 +388,7 @@ Partial Class buscarlibro
         '
         'Panel3
         '
-        Me.Panel3.BackColor = System.Drawing.Color.Lime
+        Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Panel3.Controls.Add(Me.ComboBox3)
         Me.Panel3.Controls.Add(Me.btnback)
         Me.Panel3.Controls.Add(Me.btnupdate)
@@ -421,9 +420,9 @@ Partial Class buscarlibro
         '
         Me.ComboBox3.FormattingEnabled = True
         Me.ComboBox3.Items.AddRange(New Object() {"disponible", "descontinuado"})
-        Me.ComboBox3.Location = New System.Drawing.Point(3, 394)
+        Me.ComboBox3.Location = New System.Drawing.Point(137, 395)
         Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(139, 21)
+        Me.ComboBox3.Size = New System.Drawing.Size(136, 21)
         Me.ComboBox3.TabIndex = 24
         '
         'btnback
@@ -618,7 +617,6 @@ Partial Class buscarlibro
         Me.estado_txt.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.estado_txt.Location = New System.Drawing.Point(137, 398)
         Me.estado_txt.Name = "estado_txt"
-        Me.estado_txt.ReadOnly = True
         Me.estado_txt.Size = New System.Drawing.Size(136, 18)
         Me.estado_txt.TabIndex = 21
         '
@@ -631,7 +629,7 @@ Partial Class buscarlibro
         '
         'ComboBox2
         '
-        Me.ComboBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.ComboBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox2.ForeColor = System.Drawing.Color.Black
@@ -642,22 +640,12 @@ Partial Class buscarlibro
         Me.ComboBox2.Size = New System.Drawing.Size(191, 28)
         Me.ComboBox2.TabIndex = 30
         '
-        'vestado
-        '
-        Me.vestado.AutoSize = True
-        Me.vestado.Location = New System.Drawing.Point(813, 20)
-        Me.vestado.Name = "vestado"
-        Me.vestado.Size = New System.Drawing.Size(44, 13)
-        Me.vestado.TabIndex = 35
-        Me.vestado.Text = "estados"
-        '
         'buscarlibro
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Green
         Me.ClientSize = New System.Drawing.Size(935, 612)
-        Me.Controls.Add(Me.vestado)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.DataGridView2)
         Me.Controls.Add(Me.ComboBox2)
@@ -735,5 +723,4 @@ Partial Class buscarlibro
     Private WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents btnback As System.Windows.Forms.Button
     Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
-    Friend WithEvents vestado As System.Windows.Forms.Label
 End Class

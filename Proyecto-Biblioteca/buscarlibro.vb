@@ -231,7 +231,8 @@ Public Class buscarlibro
             DataGridView1.DataSource = Tabla
         End If
         Panel3.SendToBack()
-        
+        estado_txt.SendToBack()
+        ComboBox3.BringToFront()
         
     End Sub
 
@@ -253,14 +254,26 @@ Public Class buscarlibro
         observaciones_txt.Text = observaciones_label.Text
 
 
+        'Permite seleccionar el estado predeterminado del combobox al momento de modificar los datos'
+        '1-disponible, 2-descontinuado, 3-ocupado, 4-reservado'
         If estado_label.Text = "disponible" Then
             ComboBox3.SelectedIndex = 0
             estado = 0
         ElseIf estado_label.Text = "descontinuado" Then
             ComboBox3.SelectedIndex = 1
             estado = 1
+        ElseIf estado_label.Text = "ocupado" Then
+            estado = 2
+            ComboBox3.SendToBack()
+            estado_txt.BringToFront()
+        ElseIf estado_label.Text = "reservado" Then
+            estado = 3
+            ComboBox3.SendToBack()
+            estado_txt.BringToFront()
         End If
-        vestado.Text = estado
+
+
+
         'Envia el primer panel al fondo, mostrando el que contiene la consulta update'
         Panel1.SendToBack()
 
@@ -277,11 +290,17 @@ Public Class buscarlibro
         anio_txt.Clear()
         origen_txt.Clear()
         observaciones_txt.Clear()
+        estado_txt.SendToBack()
+        ComboBox3.BringToFront()
         Panel3.SendToBack()
 
     End Sub
 
     Private Sub DataGridView1_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+
+    End Sub
+
+    Private Sub ComboBox3_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBox3.SelectedIndexChanged
 
     End Sub
 End Class
