@@ -46,7 +46,6 @@ Partial Class inicio_usuarios
         Me.RadioButton4 = New System.Windows.Forms.RadioButton()
         Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.apellido_txt = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.registro = New System.Windows.Forms.DataGridView()
         Me.errortelefono = New System.Windows.Forms.Label()
@@ -56,13 +55,9 @@ Partial Class inicio_usuarios
         Me.guardar = New System.Windows.Forms.Button()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.direccion_txt = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.telefono_txt = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
-        Me.cedula_txt = New System.Windows.Forms.TextBox()
-        Me.nombre_txt = New System.Windows.Forms.TextBox()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.Panel9 = New System.Windows.Forms.Panel()
@@ -101,7 +96,6 @@ Partial Class inicio_usuarios
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.Panel12 = New System.Windows.Forms.Panel()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.borrar = New System.Windows.Forms.DataGridView()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel14 = New System.Windows.Forms.Panel()
@@ -111,6 +105,12 @@ Partial Class inicio_usuarios
         Me.Timer_Buscar_Usuarios = New System.Windows.Forms.Timer(Me.components)
         Me.Timer_Editar_Usuarios = New System.Windows.Forms.Timer(Me.components)
         Me.Timer_Borrar_Usuarios = New System.Windows.Forms.Timer(Me.components)
+        Me.direccion_txt = New Proyecto_Biblioteca.PlaceHolder()
+        Me.telefono_txt = New Proyecto_Biblioteca.PlaceHolder()
+        Me.cedula_txt = New Proyecto_Biblioteca.PlaceHolder()
+        Me.apellido_txt = New Proyecto_Biblioteca.PlaceHolder()
+        Me.nombre_txt = New Proyecto_Biblioteca.PlaceHolder()
+        Me.TextBox3 = New Proyecto_Biblioteca.PlaceHolder()
         Me.Panel3.SuspendLayout()
         Me.Panel7.SuspendLayout()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -301,13 +301,17 @@ Partial Class inicio_usuarios
         '
         'Panel10
         '
+        Me.Panel10.Controls.Add(Me.direccion_txt)
+        Me.Panel10.Controls.Add(Me.telefono_txt)
+        Me.Panel10.Controls.Add(Me.cedula_txt)
+        Me.Panel10.Controls.Add(Me.apellido_txt)
+        Me.Panel10.Controls.Add(Me.nombre_txt)
         Me.Panel10.Controls.Add(Me.ComboBox3)
         Me.Panel10.Controls.Add(Me.ComboBox2)
         Me.Panel10.Controls.Add(Me.ComboBox1)
         Me.Panel10.Controls.Add(Me.RadioButton4)
         Me.Panel10.Controls.Add(Me.RadioButton3)
         Me.Panel10.Controls.Add(Me.DateTimePicker1)
-        Me.Panel10.Controls.Add(Me.apellido_txt)
         Me.Panel10.Controls.Add(Me.Label2)
         Me.Panel10.Controls.Add(Me.registro)
         Me.Panel10.Controls.Add(Me.errortelefono)
@@ -317,13 +321,9 @@ Partial Class inicio_usuarios
         Me.Panel10.Controls.Add(Me.guardar)
         Me.Panel10.Controls.Add(Me.Label12)
         Me.Panel10.Controls.Add(Me.Label13)
-        Me.Panel10.Controls.Add(Me.direccion_txt)
         Me.Panel10.Controls.Add(Me.Label14)
-        Me.Panel10.Controls.Add(Me.telefono_txt)
         Me.Panel10.Controls.Add(Me.Label15)
         Me.Panel10.Controls.Add(Me.Label16)
-        Me.Panel10.Controls.Add(Me.cedula_txt)
-        Me.Panel10.Controls.Add(Me.nombre_txt)
         Me.Panel10.Controls.Add(Me.Label17)
         Me.Panel10.Location = New System.Drawing.Point(-4, -3)
         Me.Panel10.Name = "Panel10"
@@ -332,34 +332,38 @@ Partial Class inicio_usuarios
         '
         'ComboBox3
         '
+        Me.ComboBox3.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox3.FormattingEnabled = True
         Me.ComboBox3.Location = New System.Drawing.Point(384, 293)
         Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(77, 21)
+        Me.ComboBox3.Size = New System.Drawing.Size(77, 27)
         Me.ComboBox3.TabIndex = 50
         '
         'ComboBox2
         '
+        Me.ComboBox2.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox2.FormattingEnabled = True
         Me.ComboBox2.Location = New System.Drawing.Point(269, 293)
         Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(81, 21)
+        Me.ComboBox2.Size = New System.Drawing.Size(81, 27)
         Me.ComboBox2.TabIndex = 49
         '
         'ComboBox1
         '
+        Me.ComboBox1.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Location = New System.Drawing.Point(149, 293)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(78, 21)
+        Me.ComboBox1.Size = New System.Drawing.Size(78, 27)
         Me.ComboBox1.TabIndex = 48
         '
         'RadioButton4
         '
         Me.RadioButton4.AutoSize = True
+        Me.RadioButton4.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RadioButton4.Location = New System.Drawing.Point(258, 329)
         Me.RadioButton4.Name = "RadioButton4"
-        Me.RadioButton4.Size = New System.Drawing.Size(52, 17)
+        Me.RadioButton4.Size = New System.Drawing.Size(61, 23)
         Me.RadioButton4.TabIndex = 47
         Me.RadioButton4.TabStop = True
         Me.RadioButton4.Text = "Socio"
@@ -368,9 +372,10 @@ Partial Class inicio_usuarios
         'RadioButton3
         '
         Me.RadioButton3.AutoSize = True
+        Me.RadioButton3.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RadioButton3.Location = New System.Drawing.Point(147, 329)
         Me.RadioButton3.Name = "RadioButton3"
-        Me.RadioButton3.Size = New System.Drawing.Size(80, 17)
+        Me.RadioButton3.Size = New System.Drawing.Size(102, 23)
         Me.RadioButton3.TabIndex = 46
         Me.RadioButton3.TabStop = True
         Me.RadioButton3.Text = "Funcionario"
@@ -378,25 +383,19 @@ Partial Class inicio_usuarios
         '
         'DateTimePicker1
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(147, 256)
+        Me.DateTimePicker1.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePicker1.Location = New System.Drawing.Point(177, 252)
         Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(314, 20)
+        Me.DateTimePicker1.Size = New System.Drawing.Size(284, 27)
         Me.DateTimePicker1.TabIndex = 45
-        '
-        'apellido_txt
-        '
-        Me.apellido_txt.Location = New System.Drawing.Point(147, 99)
-        Me.apellido_txt.Name = "apellido_txt"
-        Me.apellido_txt.Size = New System.Drawing.Size(314, 20)
-        Me.apellido_txt.TabIndex = 44
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(56, 100)
+        Me.Label2.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(52, 100)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(53, 16)
+        Me.Label2.Size = New System.Drawing.Size(62, 19)
         Me.Label2.TabIndex = 43
         Me.Label2.Text = "Apellido"
         '
@@ -438,10 +437,10 @@ Partial Class inicio_usuarios
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.Location = New System.Drawing.Point(58, 329)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(33, 16)
+        Me.Label11.Size = New System.Drawing.Size(37, 19)
         Me.Label11.TabIndex = 39
         Me.Label11.Text = "Tipo"
         '
@@ -455,9 +454,10 @@ Partial Class inicio_usuarios
         '
         'guardar
         '
-        Me.guardar.Location = New System.Drawing.Point(160, 369)
+        Me.guardar.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.guardar.Location = New System.Drawing.Point(177, 377)
         Me.guardar.Name = "guardar"
-        Me.guardar.Size = New System.Drawing.Size(84, 23)
+        Me.guardar.Size = New System.Drawing.Size(89, 28)
         Me.guardar.TabIndex = 36
         Me.guardar.Text = "Guardar"
         Me.guardar.UseVisualStyleBackColor = True
@@ -465,80 +465,52 @@ Partial Class inicio_usuarios
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(16, 260)
+        Me.Label12.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(15, 258)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(126, 16)
+        Me.Label12.Size = New System.Drawing.Size(143, 19)
         Me.Label12.TabIndex = 33
         Me.Label12.Text = "Fecha de nacimiento"
         '
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(56, 219)
+        Me.Label13.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(44, 209)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(60, 16)
+        Me.Label13.Size = New System.Drawing.Size(70, 19)
         Me.Label13.TabIndex = 31
         Me.Label13.Text = "Dirección"
-        '
-        'direccion_txt
-        '
-        Me.direccion_txt.Location = New System.Drawing.Point(147, 218)
-        Me.direccion_txt.Name = "direccion_txt"
-        Me.direccion_txt.Size = New System.Drawing.Size(314, 20)
-        Me.direccion_txt.TabIndex = 30
         '
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(58, 175)
+        Me.Label14.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(47, 171)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(58, 16)
+        Me.Label14.Size = New System.Drawing.Size(65, 19)
         Me.Label14.TabIndex = 29
         Me.Label14.Text = "Teléfono"
-        '
-        'telefono_txt
-        '
-        Me.telefono_txt.Location = New System.Drawing.Point(147, 174)
-        Me.telefono_txt.Name = "telefono_txt"
-        Me.telefono_txt.Size = New System.Drawing.Size(314, 20)
-        Me.telefono_txt.TabIndex = 28
         '
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(58, 132)
+        Me.Label15.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Location = New System.Drawing.Point(58, 134)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(47, 16)
+        Me.Label15.Size = New System.Drawing.Size(54, 19)
         Me.Label15.TabIndex = 27
         Me.Label15.Text = "Cédula"
         '
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(56, 65)
+        Me.Label16.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Location = New System.Drawing.Point(52, 65)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(53, 16)
+        Me.Label16.Size = New System.Drawing.Size(60, 19)
         Me.Label16.TabIndex = 26
         Me.Label16.Text = "Nombre"
-        '
-        'cedula_txt
-        '
-        Me.cedula_txt.Location = New System.Drawing.Point(147, 132)
-        Me.cedula_txt.Name = "cedula_txt"
-        Me.cedula_txt.Size = New System.Drawing.Size(314, 20)
-        Me.cedula_txt.TabIndex = 25
-        '
-        'nombre_txt
-        '
-        Me.nombre_txt.Location = New System.Drawing.Point(147, 64)
-        Me.nombre_txt.Name = "nombre_txt"
-        Me.nombre_txt.Size = New System.Drawing.Size(314, 20)
-        Me.nombre_txt.TabIndex = 24
         '
         'Label17
         '
@@ -930,13 +902,6 @@ Partial Class inicio_usuarios
         Me.Panel12.Size = New System.Drawing.Size(1021, 590)
         Me.Panel12.TabIndex = 3
         '
-        'TextBox3
-        '
-        Me.TextBox3.Location = New System.Drawing.Point(189, 20)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(595, 20)
-        Me.TextBox3.TabIndex = 1
-        '
         'borrar
         '
         Me.borrar.AllowUserToAddRows = False
@@ -987,6 +952,66 @@ Partial Class inicio_usuarios
         'Timer_Borrar_Usuarios
         '
         Me.Timer_Borrar_Usuarios.Interval = 10
+        '
+        'direccion_txt
+        '
+        Me.direccion_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.direccion_txt.Location = New System.Drawing.Point(147, 206)
+        Me.direccion_txt.Name = "direccion_txt"
+        Me.direccion_txt.Size = New System.Drawing.Size(314, 27)
+        Me.direccion_txt.TabIndex = 55
+        Me.direccion_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.direccion_txt.WaterMarkText = "Dirección"
+        '
+        'telefono_txt
+        '
+        Me.telefono_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.telefono_txt.Location = New System.Drawing.Point(147, 170)
+        Me.telefono_txt.Name = "telefono_txt"
+        Me.telefono_txt.Size = New System.Drawing.Size(314, 27)
+        Me.telefono_txt.TabIndex = 54
+        Me.telefono_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.telefono_txt.WaterMarkText = "Teléfono"
+        '
+        'cedula_txt
+        '
+        Me.cedula_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cedula_txt.Location = New System.Drawing.Point(147, 133)
+        Me.cedula_txt.Name = "cedula_txt"
+        Me.cedula_txt.Size = New System.Drawing.Size(314, 27)
+        Me.cedula_txt.TabIndex = 53
+        Me.cedula_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.cedula_txt.WaterMarkText = "Cédula"
+        '
+        'apellido_txt
+        '
+        Me.apellido_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.apellido_txt.Location = New System.Drawing.Point(147, 99)
+        Me.apellido_txt.Name = "apellido_txt"
+        Me.apellido_txt.Size = New System.Drawing.Size(314, 27)
+        Me.apellido_txt.TabIndex = 52
+        Me.apellido_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.apellido_txt.WaterMarkText = "Apellido"
+        '
+        'nombre_txt
+        '
+        Me.nombre_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nombre_txt.Location = New System.Drawing.Point(147, 64)
+        Me.nombre_txt.Name = "nombre_txt"
+        Me.nombre_txt.Size = New System.Drawing.Size(314, 27)
+        Me.nombre_txt.TabIndex = 51
+        Me.nombre_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.nombre_txt.WaterMarkText = "Nombre"
+        '
+        'TextBox3
+        '
+        Me.TextBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.TextBox3.Location = New System.Drawing.Point(303, 20)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(414, 20)
+        Me.TextBox3.TabIndex = 1
+        Me.TextBox3.WaterMarkColor = System.Drawing.Color.Gray
+        Me.TextBox3.WaterMarkText = "Buscar por nombre"
         '
         'inicio_usuarios
         '
@@ -1067,7 +1092,6 @@ Partial Class inicio_usuarios
     Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
     Friend WithEvents Panel11 As System.Windows.Forms.Panel
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
     Friend WithEvents borrar As System.Windows.Forms.DataGridView
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents Button4 As System.Windows.Forms.Button
@@ -1079,7 +1103,6 @@ Partial Class inicio_usuarios
     Friend WithEvents DataGridView3 As System.Windows.Forms.DataGridView
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
-    Friend WithEvents apellido_txt As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents registro As System.Windows.Forms.DataGridView
     Friend WithEvents errortelefono As System.Windows.Forms.Label
@@ -1089,13 +1112,9 @@ Partial Class inicio_usuarios
     Friend WithEvents guardar As System.Windows.Forms.Button
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents Label13 As System.Windows.Forms.Label
-    Friend WithEvents direccion_txt As System.Windows.Forms.TextBox
     Friend WithEvents Label14 As System.Windows.Forms.Label
-    Friend WithEvents telefono_txt As System.Windows.Forms.TextBox
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents Label16 As System.Windows.Forms.Label
-    Friend WithEvents cedula_txt As System.Windows.Forms.TextBox
-    Friend WithEvents nombre_txt As System.Windows.Forms.TextBox
     Friend WithEvents Label17 As System.Windows.Forms.Label
 
 
@@ -1130,6 +1149,12 @@ Partial Class inicio_usuarios
     Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
     Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents nombre_txt As Proyecto_Biblioteca.PlaceHolder
+    Friend WithEvents direccion_txt As Proyecto_Biblioteca.PlaceHolder
+    Friend WithEvents telefono_txt As Proyecto_Biblioteca.PlaceHolder
+    Friend WithEvents cedula_txt As Proyecto_Biblioteca.PlaceHolder
+    Friend WithEvents apellido_txt As Proyecto_Biblioteca.PlaceHolder
+    Friend WithEvents TextBox3 As Proyecto_Biblioteca.PlaceHolder
 
 
 End Class

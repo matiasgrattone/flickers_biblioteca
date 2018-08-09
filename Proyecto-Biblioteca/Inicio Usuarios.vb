@@ -570,7 +570,7 @@
         '///////////////////////////////////////////////////////////////////
     End Sub
 
-    Private Sub TextBox3_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox3.TextChanged
+    Private Sub TextBox3_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
         Consulta = "select cedula, nombre, apellido, telefono, direccion, nacimiento from usuarios where nombre like '" & TextBox3.Text & "%'"
         consultar()
@@ -578,13 +578,12 @@
 
     End Sub
 
-
-    Private Sub borrar_CellContentDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles borrar.CellContentDoubleClick
+    Private Sub borrar_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles borrar.CellDoubleClick
 
         '////////////////////// ELIMINAR USUARIOS ////////////////////////////////////////////
 
         Dim nombre As String
-        Dim codusuario As Double 
+        Dim codusuario As Double
         Dim a As MsgBoxStyle = MsgBoxStyle.YesNo + MsgBoxStyle.Critical
         nombre = borrar.Item(1, borrar.CurrentRow.Index).Value
 
@@ -766,5 +765,6 @@
     Private Sub Panel9_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles Panel9.Paint
 
     End Sub
+    
 End Class
 
