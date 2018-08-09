@@ -6,9 +6,6 @@
 
    
 
-
-
-
         If Trim(cod_libro.Text) = "" Or (titulo.Text) = "" Then
             MsgBox(" Ha ocurrido un error. Compruebe que los campos marcados por un * se hallen completos.")
 
@@ -35,8 +32,9 @@
                     Consulta = "SELECT libro.cod_libro as 'Codigo de Libro' , libro.titulo as 'Titulo' , autor.nombre as 'Autor' , libro.volumen as 'Volumen' ,editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen', libro.observaciones as 'Observaciones', libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial;"
                     consultar()
                     DataGridView1.DataSource = Tabla
-                    '/////////////////////////////////////////////////// 
+                    '///////////////////////////////////////////////////////////////////////////// 
                     '/// Al haberse ingresado un nuevo dato, limpia los textbox del formulario ///
+                    '/////////////////////////////////////////////////////////////////////////////
                     cod_libro.Clear()
                     autor.Clear()
                     titulo.Clear()

@@ -32,7 +32,6 @@ Partial Class MENU3
         Me.Nombre = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.PictureBox7 = New System.Windows.Forms.PictureBox()
-        Me.Labels_transparentes1 = New Proyecto_Biblioteca.labels_transparentes()
         Me.PictureBox8 = New System.Windows.Forms.PictureBox()
         Me.panel_navegador = New System.Windows.Forms.Panel()
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
@@ -61,6 +60,7 @@ Partial Class MENU3
         Me.Timer_LibrosLabel = New System.Windows.Forms.Timer(Me.components)
         Me.Timer_PrestamosLabel = New System.Windows.Forms.Timer(Me.components)
         Me.Timer_NvegadorLabel = New System.Windows.Forms.Timer(Me.components)
+        Me.Labels_transparentes1 = New Proyecto_Biblioteca.labels_transparentes()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -170,14 +170,6 @@ Partial Class MENU3
         Me.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox7.TabIndex = 15
         Me.PictureBox7.TabStop = False
-        '
-        'Labels_transparentes1
-        '
-        Me.Labels_transparentes1.Location = New System.Drawing.Point(99, 632)
-        Me.Labels_transparentes1.Name = "Labels_transparentes1"
-        Me.Labels_transparentes1.Size = New System.Drawing.Size(30, 23)
-        Me.Labels_transparentes1.TabIndex = 14
-        Me.Labels_transparentes1.Text = "V.2.0"
         '
         'PictureBox8
         '
@@ -420,6 +412,14 @@ Partial Class MENU3
         '
         Me.Timer_NvegadorLabel.Interval = 10
         '
+        'Labels_transparentes1
+        '
+        Me.Labels_transparentes1.Location = New System.Drawing.Point(99, 632)
+        Me.Labels_transparentes1.Name = "Labels_transparentes1"
+        Me.Labels_transparentes1.Size = New System.Drawing.Size(30, 23)
+        Me.Labels_transparentes1.TabIndex = 14
+        Me.Labels_transparentes1.Text = "V.2.0"
+        '
         'MENU3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -432,6 +432,7 @@ Partial Class MENU3
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "MENU3"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Biblioteca Municipal"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()

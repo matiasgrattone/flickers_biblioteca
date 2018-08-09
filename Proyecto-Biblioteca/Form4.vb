@@ -206,6 +206,8 @@
                         PictureCrearRes3.Visible = True
                         PictureReservacion4.Visible = True
                         Label5.Visible = True
+                        LIBROSAGG.Items.Clear()
+                        IDAGG.Items.Clear()
                         Aparecer.Enabled = True
                         '/////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -217,7 +219,7 @@
 
 
                     '//////////////////////oculta los picturebox y la interfaz de las funciones///////////////////////////////
-                    Ocultar.Enabled = True
+
                     MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
 
                     ExtCombo.Visible = False
@@ -228,6 +230,9 @@
                     PictureCrearRes3.Visible = False
                     PictureReservacion4.Visible = False
                     Label5.Visible = False
+                    LIBROSAGG.Items.Clear()
+                    IDAGG.Items.Clear()
+                    Ocultar.Enabled = True
                     '/////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -273,6 +278,8 @@
                         PictureCrearRes3.Visible = True
                         PictureReservacion4.Visible = True
                         Label5.Visible = True
+                        LIBROSAGG.Items.Clear()
+                        IDAGG.Items.Clear()
                         Ocultar_Aparecer.Enabled = True
 
 
@@ -286,7 +293,7 @@
 
 
                     '//////////////////////oculta los picturebox y la interfaz de las funciones///////////////////////////////
-                    Ocultar.Enabled = True
+
                     ExtCombo.Visible = False
                     devoCOMBO.Visible = False
                     ReservacionComboBox.Visible = False
@@ -295,6 +302,9 @@
                     PictureCrearRes3.Visible = False
                     PictureReservacion4.Visible = False
                     Label5.Visible = False
+                    Ocultar.Enabled = True
+                    LIBROSAGG.Items.Clear()
+                    IDAGG.Items.Clear()
                     MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
 
 
@@ -325,7 +335,7 @@
             Dim DataCollection As New AutoCompleteStringCollection()
             getData(DataCollection)
             Cedula.AutoCompleteCustomSource = DataCollection
-        Catch ex As Exception
+        Catch ex As OutOfMemoryException
 
         End Try
 
@@ -769,11 +779,6 @@
         VerLibrosReservados.DataSource = Tabla
     End Sub
 
-
-    Private Sub LibrosParaReservar_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles LibrosParaReservar.CellContentClick
-
-    End Sub
-
     Private Sub Button7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button7.Click
 
         Consulta = "select * from prestamo where `fecha_entrada` = '' and cedula= '" & Cedula.Text & "';"
@@ -987,16 +992,22 @@
     End Sub
 
     Private Sub LIBROS_TextChanged(sender As System.Object, e As System.EventArgs) Handles LIBROS.TextChanged
-        Consulta = "select * from libro where estado = 'disponible' and cod_libro like '" & LIBROS.Text & "%'"
-        consultar()
-        VERLIBROSAGG.DataSource = Tabla
-        For Each item As String In IDAGG.Items
-            For Each Row As DataGridViewRow In VERLIBROSAGG.Rows
-                If Row.Cells("cod_libro").Value = Val(item) Then
-                    Row.DefaultCellStyle.BackColor = Drawing.Color.BlueViolet
-                End If
+        Try
+            Consulta = "select * from libro where estado = 'disponible' and cod_libro like '" & LIBROS.Text & "%'"
+            consultar()
+            VERLIBROSAGG.DataSource = Tabla
+            For Each item As String In IDAGG.Items
+                For Each Row As DataGridViewRow In VERLIBROSAGG.Rows
+                    If Row.Cells("cod_libro").Value = Val(item) Then
+                        Row.DefaultCellStyle.BackColor = Drawing.Color.BlueViolet
+                    End If
+                Next
             Next
-        Next
+
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 
     Private Sub Timer2_Tick(sender As System.Object, e As System.EventArgs) Handles Aparecer.Tick
@@ -1010,7 +1021,7 @@
             End If
         Catch ex As Exception
             Aparecer.Enabled = False
-            Ocultar.Enabled = True
+
             ExtCombo.Visible = False
             devoCOMBO.Visible = False
             ReservacionComboBox.Visible = False
@@ -1019,7 +1030,9 @@
             PictureCrearRes3.Visible = False
             PictureReservacion4.Visible = False
             Label5.Visible = False
+            Ocultar.Enabled = True
             MsgBox("La cedula ingresada no es correcta", Title:="Error")
+
         End Try
 
 
@@ -1288,6 +1301,18 @@
     End Sub
 
     Private Sub VerLibrosReservados_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles VerLibrosReservados.CellContentClick
+
+    End Sub
+
+    Private Sub TextBox3_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextBox3.TextChanged
+
+        Consulta = "select * from libro where estado = 'disponible' and cod_libro like '" & TextBox3.Text & "%'"
+        consultar()
+        LibrosParaReservar.DataSource = Tabla
+        Dim ROWS As DataGridViewRow = OPA.CurrentRow
+    End Sub
+
+    Private Sub LibrosParaReservar_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles LibrosParaReservar.CellContentClick
 
     End Sub
 End Class

@@ -40,7 +40,8 @@ Partial Class LOGIN
         'errorpass
         '
         Me.errorpass.AutoSize = True
-        Me.errorpass.ForeColor = System.Drawing.Color.Snow
+        Me.errorpass.BackColor = System.Drawing.Color.Black
+        Me.errorpass.ForeColor = System.Drawing.Color.White
         Me.errorpass.Location = New System.Drawing.Point(534, 318)
         Me.errorpass.Name = "errorpass"
         Me.errorpass.Size = New System.Drawing.Size(0, 13)
@@ -49,7 +50,8 @@ Partial Class LOGIN
         'errorusuario
         '
         Me.errorusuario.AutoSize = True
-        Me.errorusuario.ForeColor = System.Drawing.Color.Snow
+        Me.errorusuario.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.errorusuario.ForeColor = System.Drawing.Color.White
         Me.errorusuario.Location = New System.Drawing.Point(534, 262)
         Me.errorusuario.Name = "errorusuario"
         Me.errorusuario.Size = New System.Drawing.Size(0, 13)

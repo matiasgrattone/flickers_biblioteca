@@ -75,6 +75,9 @@ Partial Class Form4
         Me.Aparecer = New System.Windows.Forms.Timer(Me.components)
         Me.Ocultar = New System.Windows.Forms.Timer(Me.components)
         Me.Ocultar_Aparecer = New System.Windows.Forms.Timer(Me.components)
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.OPA, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -91,6 +94,8 @@ Partial Class Form4
         CType(Me.PictureExtraccion1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.CrearReservacionComboBox.SuspendLayout()
         CType(Me.LibrosParaReservar, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Timer1
@@ -99,7 +104,7 @@ Partial Class Form4
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(614, 235)
+        Me.Button2.Location = New System.Drawing.Point(628, 235)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(106, 52)
         Me.Button2.TabIndex = 75
@@ -323,6 +328,7 @@ Partial Class Form4
         'ExtCombo
         '
         Me.ExtCombo.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.ExtCombo.Controls.Add(Me.PictureBox1)
         Me.ExtCombo.Controls.Add(Me.Label7)
         Me.ExtCombo.Controls.Add(Me.Label3)
         Me.ExtCombo.Controls.Add(Me.Label10)
@@ -395,7 +401,7 @@ Partial Class Form4
         Me.VERLIBROSAGG.ReadOnly = True
         Me.VERLIBROSAGG.RowHeadersVisible = False
         Me.VERLIBROSAGG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.VERLIBROSAGG.Size = New System.Drawing.Size(604, 401)
+        Me.VERLIBROSAGG.Size = New System.Drawing.Size(618, 401)
         Me.VERLIBROSAGG.TabIndex = 17
         '
         'ReservacionComboBox
@@ -426,7 +432,7 @@ Partial Class Form4
         '
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Impact", 20.25!)
-        Me.Label18.Location = New System.Drawing.Point(553, 33)
+        Me.Label18.Location = New System.Drawing.Point(582, 22)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(153, 34)
         Me.Label18.TabIndex = 76
@@ -437,7 +443,7 @@ Partial Class Form4
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Impact", 20.25!)
         Me.Label19.ForeColor = System.Drawing.Color.DarkViolet
-        Me.Label19.Location = New System.Drawing.Point(14, 93)
+        Me.Label19.Location = New System.Drawing.Point(14, 20)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(217, 34)
         Me.Label19.TabIndex = 74
@@ -458,12 +464,12 @@ Partial Class Form4
         Me.VerLibrosReservados.AllowUserToDeleteRows = False
         Me.VerLibrosReservados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.VerLibrosReservados.Cursor = System.Windows.Forms.Cursors.Arrow
-        Me.VerLibrosReservados.Location = New System.Drawing.Point(4, 140)
+        Me.VerLibrosReservados.Location = New System.Drawing.Point(4, 57)
         Me.VerLibrosReservados.Name = "VerLibrosReservados"
         Me.VerLibrosReservados.ReadOnly = True
         Me.VerLibrosReservados.RowHeadersVisible = False
         Me.VerLibrosReservados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.VerLibrosReservados.Size = New System.Drawing.Size(576, 400)
+        Me.VerLibrosReservados.Size = New System.Drawing.Size(576, 483)
         Me.VerLibrosReservados.TabIndex = 17
         '
         'Label5
@@ -535,6 +541,7 @@ Partial Class Form4
         'CrearReservacionComboBox
         '
         Me.CrearReservacionComboBox.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.CrearReservacionComboBox.Controls.Add(Me.PictureBox2)
         Me.CrearReservacionComboBox.Controls.Add(Me.Label22)
         Me.CrearReservacionComboBox.Controls.Add(Me.TextBox3)
         Me.CrearReservacionComboBox.Controls.Add(Me.Label23)
@@ -562,7 +569,7 @@ Partial Class Form4
         '
         Me.TextBox3.Location = New System.Drawing.Point(45, 48)
         Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(156, 20)
+        Me.TextBox3.Size = New System.Drawing.Size(323, 20)
         Me.TextBox3.TabIndex = 78
         '
         'Label23
@@ -621,6 +628,34 @@ Partial Class Form4
         '
         Me.Ocultar_Aparecer.Interval = 5
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.busqueda
+        Me.PictureBox1.Location = New System.Drawing.Point(458, 49)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(21, 20)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 77
+        Me.PictureBox1.TabStop = False
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Panel2.Location = New System.Drawing.Point(-5, 74)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(1016, 38)
+        Me.Panel2.TabIndex = 78
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.busqueda
+        Me.PictureBox2.Location = New System.Drawing.Point(369, 48)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(21, 20)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 81
+        Me.PictureBox2.TabStop = False
+        '
         'Form4
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -628,11 +663,12 @@ Partial Class Form4
         Me.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.ClientSize = New System.Drawing.Size(1061, 646)
         Me.Controls.Add(Me.Panel3)
+        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.ExtCombo)
-        Me.Controls.Add(Me.devoCOMBO)
         Me.Controls.Add(Me.CrearReservacionComboBox)
         Me.Controls.Add(Me.ReservacionComboBox)
+        Me.Controls.Add(Me.ExtCombo)
+        Me.Controls.Add(Me.devoCOMBO)
         Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Form4"
@@ -659,6 +695,8 @@ Partial Class Form4
         Me.CrearReservacionComboBox.ResumeLayout(False)
         Me.CrearReservacionComboBox.PerformLayout()
         CType(Me.LibrosParaReservar, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -714,4 +752,7 @@ Partial Class Form4
     Friend WithEvents Aparecer As System.Windows.Forms.Timer
     Friend WithEvents Ocultar As System.Windows.Forms.Timer
     Friend WithEvents Ocultar_Aparecer As System.Windows.Forms.Timer
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
 End Class
