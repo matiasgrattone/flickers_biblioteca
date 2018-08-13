@@ -333,6 +333,8 @@
             Cedula.AutoCompleteMode = AutoCompleteMode.Suggest
             Cedula.AutoCompleteSource = AutoCompleteSource.CustomSource
             Dim DataCollection As New AutoCompleteStringCollection()
+            Consulta = "select cedula from usuarios"
+            consultar()
             getData(DataCollection)
             Cedula.AutoCompleteCustomSource = DataCollection
         Catch ex As OutOfMemoryException
@@ -344,8 +346,6 @@
 
     Private Sub getData(ByVal dataCollection As AutoCompleteStringCollection)
         Try
-            Consulta = "select cedula from usuarios"
-            consultar()
             For Each row As DataRow In Tabla.Rows
                 dataCollection.Add(row(0).ToString())
             Next
