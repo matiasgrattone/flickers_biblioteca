@@ -26,121 +26,6 @@ Public Class buscarlibro
 
 
     End Sub
-    Private Sub TextBox1_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox1.TextChanged
-
-        'Consultas usando Case para la busqueda mediante un textbox relacionado a un combobox'
-
-        Select Case cmbdatos.SelectedItem
-
-            Case "Autor"
-                Select Case cmbestado.SelectedItem
-                    Case "ocupado"
-                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where autor.nombre like '" & TextBox1.Text & "%' and libro.estado like 'ocupado'"
-                        consultar()
-                        dgvlibros.DataSource = Tabla
-                    Case "disponible"
-                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where autor.nombre like '" & TextBox1.Text & "%' and libro.estado like 'disponible'"
-                        consultar()
-                        dgvlibros.DataSource = Tabla
-                    Case "descontinuado"
-                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where autor.nombre like '" & TextBox1.Text & "%' and libro.estado like 'descontinuado'"
-                        consultar()
-                        dgvlibros.DataSource = Tabla
-                End Select
-
-            Case "Editorial"
-                Select Case cmbestado.SelectedItem
-                    Case "ocupado"
-                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where editorial.nombre like '" & TextBox1.Text & "%' and libro.estado like 'ocupado'"
-                        consultar()
-                        dgvlibros.DataSource = Tabla
-                    Case "disponible"
-                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where editorial.nombre like '" & TextBox1.Text & "%' and libro.estado like 'disponible'"
-                        consultar()
-                        dgvlibros.DataSource = Tabla
-                    Case "descontinuado"
-                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where editorial.nombre like '" & TextBox1.Text & "%' and libro.estado like 'descontinuado'"
-                        consultar()
-                        dgvlibros.DataSource = Tabla
-                End Select
-
-            Case "Año"
-                Select Case cmbestado.SelectedItem
-                    Case "ocupado"
-                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.anio like '" & TextBox1.Text & "%' and libro.estado like 'ocupado'"
-                        consultar()
-                        dgvlibros.DataSource = Tabla
-                    Case "disponible"
-                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.anio like '" & TextBox1.Text & "%' and libro.estado like 'disponible'"
-                        consultar()
-                        dgvlibros.DataSource = Tabla
-                    Case "descontinuado"
-                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.anio like '" & TextBox1.Text & "%' and libro.estado like 'descontinuado'"
-                        consultar()
-                        dgvlibros.DataSource = Tabla
-                End Select
-
-            Case "Titulo"
-                Select Case cmbestado.SelectedItem
-                    Case "ocupado"
-                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.titulo like '" & TextBox1.Text & "%' and libro.estado like 'ocupado'"
-                        consultar()
-                        dgvlibros.DataSource = Tabla
-                    Case "disponible"
-                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.titulo like '" & TextBox1.Text & "%' and libro.estado like 'disponible'"
-                        consultar()
-                        dgvlibros.DataSource = Tabla
-                    Case "descontinuado"
-                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.titulo like '" & TextBox1.Text & "%' and libro.estado like 'descontinuado'"
-                        consultar()
-                        dgvlibros.DataSource = Tabla
-                End Select
-
-            Case "Codigo"
-                Select Case cmbestado.SelectedItem
-                    Case "ocupado"
-                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.cod_libro like '" & TextBox1.Text & "%' and libro.estado like 'ocupado'"
-                        consultar()
-                        dgvlibros.DataSource = Tabla
-                    Case "disponible"
-                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.cod_libro like '" & TextBox1.Text & "%' and libro.estado like 'disponible'"
-                        consultar()
-                        dgvlibros.DataSource = Tabla
-                    Case "descontinuado"
-                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.cod_libro like '" & TextBox1.Text & "%' and libro.estado like 'descontinuado'"
-                        consultar()
-                        dgvlibros.DataSource = Tabla
-                End Select
-
-            Case "Origen"
-                Select Case cmbestado.SelectedItem
-                    Case "ocupado"
-                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.origen like '" & TextBox1.Text & "%' and libro.estado like 'ocupado'"
-                        consultar()
-                        dgvlibros.DataSource = Tabla
-                    Case "disponible"
-                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.origen like '" & TextBox1.Text & "%' and libro.estado like 'disponible'"
-                        consultar()
-                        dgvlibros.DataSource = Tabla
-                    Case "descontinuado"
-                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.origen like '" & TextBox1.Text & "%' and libro.estado like 'descontinuado'"
-                        consultar()
-                        dgvlibros.DataSource = Tabla
-                End Select
-
-
-
-
-
-
-
-
-        End Select
-
-
-
-    End Sub
-
     Public estado As Integer
     Private Sub buscarlibro_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
@@ -171,7 +56,7 @@ Public Class buscarlibro
 
 
     End Sub
-    Private Sub ComboBox2_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbestado.SelectedIndexChanged
+    Private Sub cmbestado_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbestado.SelectedIndexChanged
 
         Select Case cmbestado.SelectedItem
 
@@ -205,7 +90,6 @@ Public Class buscarlibro
     End Sub
 
     Private Sub btnupdate_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnupdate.Click
-
         'Consulta Update Para la Tabla Libros en la Base'
         'Realiza la consulta, se actualizan los datos por los que el usuario indica y al momento el Datagrid se actualiza
         Consulta = "UPDATE libro SET titulo=('" + titulo_txt.Text + "'), volumen=('" + volumen_txt.Text + "'), anio=('" + anio_txt.Text + "'), origen=('" + origen_txt.Text + "'), observaciones=('" + observaciones_txt.Text + "') WHERE cod_libro=('" + cod_libro_txt.Text + "')"
@@ -237,9 +121,6 @@ Public Class buscarlibro
     End Sub
 
     Private Sub btnmodificar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnmodificar.Click
-
-
-
         'Los datos que el usuario selecciono del DataGrid y que luego fueron mostrados en el Panel'
         'Son copiados a un segundo panel donde luego podran ser modificados'
 
@@ -295,16 +176,107 @@ Public Class buscarlibro
         Pactualizar.SendToBack()
 
     End Sub
+    Private Sub txtbusqueda_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtbusqueda.TextChanged
 
-    Private Sub DataGridView1_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvlibros.CellContentClick
+        'Consultas usando Case para la busqueda mediante un textbox relacionado a un combobox'
 
-    End Sub
+        Select Case cmbdatos.SelectedItem
 
-    Private Sub ComboBox3_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbupdate.SelectedIndexChanged
+            Case "Autor"
+                Select Case cmbestado.SelectedItem
+                    Case "ocupado"
+                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where autor.nombre like '" & txtbusqueda.Text & "%' and libro.estado like 'ocupado'"
+                        consultar()
+                        dgvlibros.DataSource = Tabla
+                    Case "disponible"
+                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where autor.nombre like '" & txtbusqueda.Text & "%' and libro.estado like 'disponible'"
+                        consultar()
+                        dgvlibros.DataSource = Tabla
+                    Case "descontinuado"
+                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where autor.nombre like '" & txtbusqueda.Text & "%' and libro.estado like 'descontinuado'"
+                        consultar()
+                        dgvlibros.DataSource = Tabla
+                End Select
 
-    End Sub
+            Case "Editorial"
+                Select Case cmbestado.SelectedItem
+                    Case "ocupado"
+                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where editorial.nombre like '" & txtbusqueda.Text & "%' and libro.estado like 'ocupado'"
+                        consultar()
+                        dgvlibros.DataSource = Tabla
+                    Case "disponible"
+                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where editorial.nombre like '" & txtbusqueda.Text & "%' and libro.estado like 'disponible'"
+                        consultar()
+                        dgvlibros.DataSource = Tabla
+                    Case "descontinuado"
+                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where editorial.nombre like '" & txtbusqueda.Text & "%' and libro.estado like 'descontinuado'"
+                        consultar()
+                        dgvlibros.DataSource = Tabla
+                End Select
 
-    Private Sub Pmostrar_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Pmostrar.Paint
+            Case "Año"
+                Select Case cmbestado.SelectedItem
+                    Case "ocupado"
+                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.anio like '" & txtbusqueda.Text & "%' and libro.estado like 'ocupado'"
+                        consultar()
+                        dgvlibros.DataSource = Tabla
+                    Case "disponible"
+                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.anio like '" & txtbusqueda.Text & "%' and libro.estado like 'disponible'"
+                        consultar()
+                        dgvlibros.DataSource = Tabla
+                    Case "descontinuado"
+                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.anio like '" & txtbusqueda.Text & "%' and libro.estado like 'descontinuado'"
+                        consultar()
+                        dgvlibros.DataSource = Tabla
+                End Select
 
+            Case "Titulo"
+                Select Case cmbestado.SelectedItem
+                    Case "ocupado"
+                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.titulo like '" & txtbusqueda.Text & "%' and libro.estado like 'ocupado'"
+                        consultar()
+                        dgvlibros.DataSource = Tabla
+                    Case "disponible"
+                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.titulo like '" & txtbusqueda.Text & "%' and libro.estado like 'disponible'"
+                        consultar()
+                        dgvlibros.DataSource = Tabla
+                    Case "descontinuado"
+                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.titulo like '" & txtbusqueda.Text & "%' and libro.estado like 'descontinuado'"
+                        consultar()
+                        dgvlibros.DataSource = Tabla
+                End Select
+
+            Case "Codigo"
+                Select Case cmbestado.SelectedItem
+                    Case "ocupado"
+                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.cod_libro like '" & txtbusqueda.Text & "%' and libro.estado like 'ocupado'"
+                        consultar()
+                        dgvlibros.DataSource = Tabla
+                    Case "disponible"
+                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.cod_libro like '" & txtbusqueda.Text & "%' and libro.estado like 'disponible'"
+                        consultar()
+                        dgvlibros.DataSource = Tabla
+                    Case "descontinuado"
+                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.cod_libro like '" & txtbusqueda.Text & "%' and libro.estado like 'descontinuado'"
+                        consultar()
+                        dgvlibros.DataSource = Tabla
+                End Select
+
+            Case "Origen"
+                Select Case cmbestado.SelectedItem
+                    Case "ocupado"
+                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.origen like '" & txtbusqueda.Text & "%' and libro.estado like 'ocupado'"
+                        consultar()
+                        dgvlibros.DataSource = Tabla
+                    Case "disponible"
+                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.origen like '" & txtbusqueda.Text & "%' and libro.estado like 'disponible'"
+                        consultar()
+                        dgvlibros.DataSource = Tabla
+                    Case "descontinuado"
+                        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.origen like '" & txtbusqueda.Text & "%' and libro.estado like 'descontinuado'"
+                        consultar()
+                        dgvlibros.DataSource = Tabla
+                End Select
+        End Select
     End Sub
 End Class

@@ -4,7 +4,7 @@
     Private Sub ingresar_boton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ingresar_boton.Click
 
 
-   
+
 
         If Trim(txtcod_libro.Text) = "" Or (txttitulo.Text) = "" Then
             MsgBox(" Ha ocurrido un error. Compruebe que los campos marcados por un * se hallen completos.")
@@ -59,7 +59,7 @@
 
 
     End Sub
-    Private Sub Button6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button6.Click
+    Private Sub btnselectautor_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnselectautor.Click
         'bautor.Show()
         Pautor.Visible = True
         Consulta = "SELECT * FROM autor"
@@ -67,7 +67,7 @@
         dgvautor.DataSource = Tabla
     End Sub
 
-    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+    Private Sub btnselecteditorial_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnselecteditorial.Click
         'beditorial.Show()
         Peditorial.Visible = True
         Consulta = "SELECT * FROM editorial"
@@ -104,13 +104,9 @@
         dgvlibro.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill 'Ajusta las columnas al tamaño del datagrid'
 
     End Sub
-    Private Sub DataGridView3_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgveditorial.CellContentClick
-
-    End Sub
-
-    Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
+    Private Sub btncancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btncancelar.Click
         Paneleditorial.Visible = False
-        ingeditorial.BringToFront()
+        btningeditorial.BringToFront()
     End Sub
 
     Private Sub nwautor_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnnwautor.Click
@@ -133,7 +129,7 @@
         End If
     End Sub
 
-    Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnnweditorial.Click
+    Private Sub btnnweditorial_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnnweditorial.Click
         Consulta = "INSERT INTO editorial (nombre, pais, anio) values ('" + nombree.Text + "', '" + pais.Text + "','" + anioe.Text + "')"
         consultar()
 
@@ -141,43 +137,51 @@
         consultar()
         dgveditorial.DataSource = Tabla
         Paneleditorial.Visible = False
-        Button4.SendToBack()
+        btncancelar.SendToBack()
     End Sub
-
-    Private Sub DataGridView2_CellContentClick_1(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvautor.CellContentClick
-
-    End Sub
-
     Private Sub auvolver_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles auvolver.Click
         panelautor.Visible = False
         panelautor.SendToBack()
         auvolver.SendToBack()
     End Sub
 
-    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ingeditorial.Click
+    Private Sub btningeditorial_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btningeditorial.Click
         Paneleditorial.Visible = True
         Paneleditorial.BringToFront()
         If Paneleditorial.Visible = True Then
-            ingeditorial.SendToBack()
+            btningeditorial.SendToBack()
         End If
     End Sub
 
-    Private Sub Button7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnvolver2.Click
+    Private Sub btnvolver2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnvolver2.Click
         Pautor.Visible = False
     End Sub
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnvolver.Click
+    Private Sub btnvolver_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnvolver.Click
         Peditorial.Visible = False
     End Sub
 
-    Private Sub DataGridView2_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvautor.CellDoubleClick
+    Private Sub dgvautor_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvautor.CellDoubleClick
         txtautor.Text = dgvlibro.Item(2, dgvlibro.CurrentRow.Index).Value
         txtautoroculto.Text = dgvlibro.Item(0, dgvlibro.CurrentRow.Index).Value
         Pautor.Visible = False
     End Sub
 
-    Private Sub DataGridView3_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgveditorial.CellDoubleClick
+    Private Sub dgveditorial_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgveditorial.CellDoubleClick
         txtcasa_editorial.Text = dgvlibro.Item(1, dgvlibro.CurrentRow.Index).Value
         txteditorialoculto.Text = dgvlibro.Item(0, dgvlibro.CurrentRow.Index).Value
         Peditorial.Visible = False
     End Sub
+
+    Private Sub txtbuscarautor_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtbuscarautor.TextChanged
+        Consulta = "SELECT * from autor where autor.nombre like '" & txtbuscarautor.Text & "%'"
+        consultar()
+        dgvautor.DataSource = Tabla
+    End Sub
+
+    Private Sub txtbuscareditorial_TextChanged_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtbuscareditorial.TextChanged
+        Consulta = "SELECT * from editorial where editorial.nombre like '" & txtbuscareditorial.Text & "%'"
+        consultar()
+        dgveditorial.DataSource = Tabla
+    End Sub
+End Class

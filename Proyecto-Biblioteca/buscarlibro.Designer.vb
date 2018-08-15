@@ -26,7 +26,6 @@ Partial Class buscarlibro
         Me.dgvdatos2 = New System.Windows.Forms.DataGridView()
         Me.cmbdatos = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.dgvlibros = New System.Windows.Forms.DataGridView()
         Me.Pmostrar = New System.Windows.Forms.Panel()
@@ -75,6 +74,7 @@ Partial Class buscarlibro
         Me.estado_txt = New System.Windows.Forms.TextBox()
         Me.Poculto = New System.Windows.Forms.Panel()
         Me.cmbestado = New System.Windows.Forms.ComboBox()
+        Me.txtbusqueda = New Proyecto_Biblioteca.PlaceHolder()
         CType(Me.dgvdatos2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvlibros, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Pmostrar.SuspendLayout()
@@ -111,15 +111,6 @@ Partial Class buscarlibro
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(0, 13)
         Me.Label1.TabIndex = 28
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(12, 88)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(258, 28)
-        Me.TextBox1.TabIndex = 27
         '
         'Label2
         '
@@ -640,18 +631,28 @@ Partial Class buscarlibro
         Me.cmbestado.Size = New System.Drawing.Size(172, 28)
         Me.cmbestado.TabIndex = 30
         '
+        'txtbusqueda
+        '
+        Me.txtbusqueda.Font = New System.Drawing.Font("Lucida Sans", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbusqueda.Location = New System.Drawing.Point(13, 87)
+        Me.txtbusqueda.Name = "txtbusqueda"
+        Me.txtbusqueda.Size = New System.Drawing.Size(257, 30)
+        Me.txtbusqueda.TabIndex = 48
+        Me.txtbusqueda.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txtbusqueda.WaterMarkText = "Buscar"
+        '
         'buscarlibro
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LimeGreen
         Me.ClientSize = New System.Drawing.Size(935, 612)
+        Me.Controls.Add(Me.txtbusqueda)
         Me.Controls.Add(Me.Poculto)
         Me.Controls.Add(Me.dgvdatos2)
         Me.Controls.Add(Me.cmbestado)
         Me.Controls.Add(Me.cmbdatos)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.dgvlibros)
         Me.Controls.Add(Me.Pmostrar)
@@ -673,7 +674,6 @@ Partial Class buscarlibro
     End Sub
     Friend WithEvents dgvdatos2 As System.Windows.Forms.DataGridView
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents dgvlibros As System.Windows.Forms.DataGridView
     Friend WithEvents Pmostrar As System.Windows.Forms.Panel
@@ -723,4 +723,5 @@ Partial Class buscarlibro
     Private WithEvents cmbdatos As System.Windows.Forms.ComboBox
     Friend WithEvents btnback As System.Windows.Forms.Button
     Friend WithEvents cmbupdate As System.Windows.Forms.ComboBox
+    Friend WithEvents txtbusqueda As Proyecto_Biblioteca.PlaceHolder
 End Class
