@@ -18,12 +18,12 @@ Public Class MENU3
     Private Sub MENU3_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         xf = Me.Location.X
         yf = Me.Location.Y
-        WebBrowser1.Visible = False
-        Panel3.Visible = False
+        Wbnavegador.Visible = False
+        Pnavegador.Visible = False
 
         '-------------------VERIFICAR SI ESTA CONECTADO A LA BASE , SI DA ERROR APARECE LA IMAGEN DE OK (LA QUE ESTA ADENTRO DEL TRY) , SI DA ERROR APARECE LA IMAGEN DE ERROR (LA QUE ESTA ADENTRO DEL CATCH)
 
-        PictureBox8.Image = Image.FromFile("imagenes\cloud-error.png")
+        Pbnube.Image = Image.FromFile("imagenes\cloud-error.png")
 
         Consulta = "select * from usuarios"
         consultar()
@@ -31,10 +31,10 @@ Public Class MENU3
 
         If DataGridView1.Rows.Count() = 0 Then
 
-            PictureBox8.Image = Image.FromFile("imagenes\cloud-error.png")
+            Pbnube.Image = Image.FromFile("imagenes\cloud-error.png")
 
         Else
-            PictureBox8.Image = Image.FromFile("imagenes\cloud.png")
+            Pbnube.Image = Image.FromFile("imagenes\cloud.png")
         End If
 
 
@@ -50,11 +50,11 @@ Public Class MENU3
 
     End Sub
 
-    Private Sub Panel1_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseDown
+    Private Sub Panel1_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Phoraencabezado.MouseDown
         a = 1
     End Sub
 
-    Private Sub Panel1_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseMove
+    Private Sub Panel1_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Phoraencabezado.MouseMove
         If a = 1 Then
             xc = Cursor.Position.X
             yc = Cursor.Position.Y
@@ -70,7 +70,7 @@ Public Class MENU3
         End If
     End Sub
 
-    Private Sub Panel1_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseUp
+    Private Sub Panel1_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Phoraencabezado.MouseUp
         xf = Me.Location.X
         yf = Me.Location.Y
         a = 0
@@ -78,11 +78,11 @@ Public Class MENU3
     End Sub
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
-        Label2.Text = Date.Now.ToString("hh:mm:ss")
+        lblhora.Text = Date.Now.ToString("hh:mm:ss")
     End Sub
 
-    Private Sub WebBrowser1_DocumentCompleted(ByVal sender As System.Object, ByVal e As System.Windows.Forms.WebBrowserDocumentCompletedEventArgs) Handles WebBrowser1.DocumentCompleted
-        TextBox1.Text = WebBrowser1.Document.Url.ToString()
+    Private Sub WebBrowser1_DocumentCompleted(ByVal sender As System.Object, ByVal e As System.Windows.Forms.WebBrowserDocumentCompletedEventArgs) Handles Wbnavegador.DocumentCompleted
+        txtbuscar.Text = Wbnavegador.Document.Url.ToString()
     End Sub
     Public Function ValidarURL(ByVal url As String) As Boolean
         Dim re As Regex = New Regex("^(https?|ftp|file)://[-A-Z0-9+&@#/%?=~_|!:,.;]*[-A-Z0-9+&@#/%=~_|]", RegexOptions.IgnoreCase)
@@ -95,28 +95,28 @@ Public Class MENU3
     End Function
     Public Sub Navegar(ByVal url As String)
         Try
-            WebBrowser1.Navigate(url)
+            Wbnavegador.Navigate(url)
         Catch ex As Exception
             MessageBox.Show("Lo siento. Si has llegado hasta este mensaje ocurrió un error, pero tranquilo que no pasa nada", "Genesis Navigator")
         End Try
     End Sub
-    Private Sub TextBox1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TextBox1.KeyDown
+    Private Sub TextBox1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtbuscar.KeyDown
         If e.KeyCode = Keys.Enter Then
-            If (ValidarURL(TextBox1.Text) = True) Then
-                Navegar(TextBox1.Text)
+            If (ValidarURL(txtbuscar.Text) = True) Then
+                Navegar(txtbuscar.Text)
             Else
-                Navegar("http://" & TextBox1.Text)
+                Navegar("http://" & txtbuscar.Text)
             End If
         End If
     End Sub
-    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
-        WebBrowser1.GoBack()
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnatras.Click
+        Wbnavegador.GoBack()
     End Sub
-    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
-        WebBrowser1.GoForward()
+    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnadelante.Click
+        Wbnavegador.GoForward()
     End Sub
 
-    Private Sub Button1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+    Private Sub Button1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnpaginainicio.Click
         Dim timer As Integer = 0
         Select Case timer
 
@@ -131,7 +131,7 @@ Public Class MENU3
 
     End Sub
 
-    Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox1.Click
+    Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbusuarios.Click
         seleccionado = "usuarios"
         mouse = 1
         mouse2 = 0
@@ -153,20 +153,20 @@ Public Class MENU3
         F1.Show()
 
         panel_menu.Visible = True
-        TextBox1.Visible = False
-        Button2.Visible = False
-        Button3.Visible = False
-        Button1.Visible = False
-        Button4.Visible = False
-        Panel3.Visible = False
-        WebBrowser1.Visible = False
+        txtbuscar.Visible = False
+        btnatras.Visible = False
+        btnadelante.Visible = False
+        btnpaginainicio.Visible = False
+        btnrecargar.Visible = False
+        Pnavegador.Visible = False
+        Wbnavegador.Visible = False
 
-    
+
 
 
     End Sub
 
-    Public Sub PictureBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox2.Click
+    Public Sub PictureBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pblibros.Click
         seleccionado = "libros"
         mouse = 0
         mouse2 = 1
@@ -185,13 +185,13 @@ Public Class MENU3
         F3.Show()
 
         panel_menu.Visible = True
-        TextBox1.Visible = False
-        Button2.Visible = False
-        Button3.Visible = False
-        Button1.Visible = False
-        Button4.Visible = False
-        Panel3.Visible = False
-        WebBrowser1.Visible = False
+        txtbuscar.Visible = False
+        btnatras.Visible = False
+        btnadelante.Visible = False
+        btnpaginainicio.Visible = False
+        btnrecargar.Visible = False
+        Pnavegador.Visible = False
+        Wbnavegador.Visible = False
 
         panel_usuarios.BackColor = Drawing.Color.Silver
         panel_libros.BackColor = Drawing.Color.LightGray
@@ -199,7 +199,7 @@ Public Class MENU3
         panel_navegador.BackColor = Drawing.Color.Silver
     End Sub
 
-    Private Sub PictureBox3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox3.Click
+    Private Sub PictureBox3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbprestamos.Click
         seleccionado = "prestamos"
         mouse = 0
         mouse2 = 0
@@ -209,7 +209,7 @@ Public Class MENU3
         Timer_NvegadorLabel.Enabled = True
         Timer_PrestamosLabel.Enabled = True
         Timer_UsuariosLabel.Enabled = True
-        Dim F4 As New Form4
+        Dim F4 As New Prestamos
         panel_menu.Controls.Clear()
         F4.TopLevel = False
         F4.Parent = panel_menu
@@ -217,13 +217,13 @@ Public Class MENU3
         F4.Show()
 
         panel_menu.Visible = True
-        TextBox1.Visible = False
-        Button2.Visible = False
-        Button3.Visible = False
-        Button1.Visible = False
-        Button4.Visible = False
-        Panel3.Visible = False
-        WebBrowser1.Visible = False
+        txtbuscar.Visible = False
+        btnatras.Visible = False
+        btnadelante.Visible = False
+        btnpaginainicio.Visible = False
+        btnrecargar.Visible = False
+        Pnavegador.Visible = False
+        Wbnavegador.Visible = False
 
         panel_usuarios.BackColor = Drawing.Color.Silver
         panel_libros.BackColor = Drawing.Color.Silver
@@ -236,7 +236,7 @@ Public Class MENU3
     '/////////////////////////////////////////// NAVEGADOR /////////////////////////////////////////////////
     '///////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    Private Sub PictureBox5_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox5.Click
+    Private Sub PictureBox5_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbnavegador.Click
         seleccionado = "navegador"
         mouse = 0
         mouse2 = 0
@@ -252,15 +252,15 @@ Public Class MENU3
         panel_navegador.BackColor = Drawing.Color.LightGray
 
         Try
-            Panel3.Visible = True
+            Pnavegador.Visible = True
             panel_menu.Visible = False
-            TextBox1.Visible = True
-            Button2.Visible = True
-            Button3.Visible = True
-            Button1.Visible = True
-            Button4.Visible = True
-            WebBrowser1.Visible = True
-            WebBrowser1.Navigate("www.ecosia.org")
+            txtbuscar.Visible = True
+            btnatras.Visible = True
+            btnadelante.Visible = True
+            btnpaginainicio.Visible = True
+            btnrecargar.Visible = True
+            Wbnavegador.Visible = True
+            Wbnavegador.Navigate("www.ecosia.org")
 
         Catch ex As Exception
 
@@ -290,13 +290,13 @@ Public Class MENU3
         F3.Show()
 
         panel_menu.Visible = True
-        TextBox1.Visible = False
-        Button2.Visible = False
-        Button3.Visible = False
-        Button1.Visible = False
-        Button4.Visible = False
-        Panel3.Visible = False
-        WebBrowser1.Visible = False
+        txtbuscar.Visible = False
+        btnatras.Visible = False
+        btnadelante.Visible = False
+        btnpaginainicio.Visible = False
+        btnrecargar.Visible = False
+        Pnavegador.Visible = False
+        Wbnavegador.Visible = False
 
 
 
@@ -304,7 +304,7 @@ Public Class MENU3
 
     Private Sub panel_prestamos_MouseClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles panel_prestamos.MouseClick
         seleccionado = "prestamos"
-        Dim F4 As New Form4
+        Dim F4 As New Prestamos
         panel_menu.Controls.Clear()
         F4.TopLevel = False
         F4.Parent = panel_menu
@@ -314,13 +314,13 @@ Public Class MENU3
         Timer_PrestamosLabel.Enabled = True
         Timer_UsuariosLabel.Enabled = True
         panel_menu.Visible = True
-        TextBox1.Visible = False
-        Button2.Visible = False
-        Button3.Visible = False
-        Button1.Visible = False
-        Button4.Visible = False
-        Panel3.Visible = False
-        WebBrowser1.Visible = False
+        txtbuscar.Visible = False
+        btnatras.Visible = False
+        btnadelante.Visible = False
+        btnpaginainicio.Visible = False
+        btnrecargar.Visible = False
+        Pnavegador.Visible = False
+        Wbnavegador.Visible = False
 
         panel_usuarios.BackColor = Drawing.Color.Silver
         panel_libros.BackColor = Drawing.Color.Silver
@@ -351,15 +351,15 @@ Public Class MENU3
         Timer_UsuariosLabel.Enabled = True
 
 
-        Panel3.Visible = True
+        Pnavegador.Visible = True
         panel_menu.Visible = False
-        TextBox1.Visible = True
-        Button2.Visible = True
-        Button3.Visible = True
-        Button1.Visible = True
-        Button4.Visible = True
-        WebBrowser1.Visible = True
-        WebBrowser1.Navigate("www.ecosia.org")
+        txtbuscar.Visible = True
+        btnatras.Visible = True
+        btnadelante.Visible = True
+        btnpaginainicio.Visible = True
+        btnrecargar.Visible = True
+        Wbnavegador.Visible = True
+        Wbnavegador.Navigate("www.ecosia.org")
 
     End Sub
 
@@ -386,13 +386,13 @@ Public Class MENU3
         F1.Show()
 
         panel_menu.Visible = True
-        TextBox1.Visible = False
-        Button2.Visible = False
-        Button3.Visible = False
-        Button1.Visible = False
-        Button4.Visible = False
-        Panel3.Visible = False
-        WebBrowser1.Visible = False
+        txtbuscar.Visible = False
+        btnatras.Visible = False
+        btnadelante.Visible = False
+        btnpaginainicio.Visible = False
+        btnrecargar.Visible = False
+        Pnavegador.Visible = False
+        Wbnavegador.Visible = False
 
 
 
@@ -403,15 +403,15 @@ Public Class MENU3
 
     End Sub
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        WebBrowser1.Navigate("www.ecosia.org")
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnpaginainicio.Click
+        Wbnavegador.Navigate("www.ecosia.org")
     End Sub
 
-    Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
-        WebBrowser1.Refresh()
+    Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnrecargar.Click
+        Wbnavegador.Refresh()
     End Sub
 
-    Private Sub Panel1_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Panel1.Paint
+    Private Sub Panel1_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Phoraencabezado.Paint
 
     End Sub
 
@@ -419,7 +419,7 @@ Public Class MENU3
 
         substring = Date.Now.ToString("MM")
         mes()
-        Label1.Text = fecha
+        lblfecha.Text = fecha
 
 
     End Sub
@@ -471,7 +471,7 @@ Public Class MENU3
 
     End Sub
 
-    Private Sub PictureBox1_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox1.MouseEnter
+    Private Sub PictureBox1_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles Pbusuarios.MouseEnter
         If seleccionado = "usuarios" Then
         Else
             panel_usuarios.BackColor = Drawing.Color.LightGray
@@ -484,7 +484,7 @@ Public Class MENU3
 
     End Sub
 
-    Private Sub PictureBox1_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox1.MouseLeave
+    Private Sub PictureBox1_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Pbusuarios.MouseLeave
         If seleccionado = "usuarios" Then
         Else
             panel_usuarios.BackColor = Drawing.Color.Silver
@@ -493,7 +493,7 @@ Public Class MENU3
         Timer_UsuariosLabel.Enabled = True
     End Sub
 
-    Private Sub PictureBox2_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox2.MouseEnter
+    Private Sub PictureBox2_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles Pblibros.MouseEnter
         If seleccionado = "libros" Then
         Else
             panel_libros.BackColor = Drawing.Color.LightGray
@@ -505,7 +505,7 @@ Public Class MENU3
         Timer_LibrosLabel.Enabled = True
     End Sub
 
-    Private Sub PictureBox2_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox2.MouseLeave
+    Private Sub PictureBox2_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Pblibros.MouseLeave
         If seleccionado = "libros" Then
         Else
             panel_libros.BackColor = Drawing.Color.Silver
@@ -514,7 +514,7 @@ Public Class MENU3
         Timer_LibrosLabel.Enabled = True
     End Sub
 
-    Private Sub PictureBox3_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox3.MouseEnter
+    Private Sub PictureBox3_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles Pbprestamos.MouseEnter
         If seleccionado = "prestamos" Then
         Else
             panel_prestamos.BackColor = Drawing.Color.LightGray
@@ -526,7 +526,7 @@ Public Class MENU3
         Timer_PrestamosLabel.Enabled = True
     End Sub
 
-    Private Sub PictureBox3_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox3.MouseLeave
+    Private Sub PictureBox3_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Pbprestamos.MouseLeave
         If seleccionado = "prestamos" Then
         Else
             panel_prestamos.BackColor = Drawing.Color.Silver
@@ -535,7 +535,7 @@ Public Class MENU3
         Timer_PrestamosLabel.Enabled = True
     End Sub
 
-    Private Sub PictureBox5_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox5.MouseEnter
+    Private Sub PictureBox5_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles Pbnavegador.MouseEnter
         If seleccionado = "navegador" Then
         Else
             panel_navegador.BackColor = Drawing.Color.LightGray
@@ -547,7 +547,7 @@ Public Class MENU3
         Timer_NvegadorLabel.Enabled = True
     End Sub
 
-    Private Sub PictureBox5_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox5.MouseLeave
+    Private Sub PictureBox5_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Pbnavegador.MouseLeave
         If seleccionado = "navegador" Then
         Else
             panel_navegador.BackColor = Drawing.Color.Silver
@@ -633,7 +633,7 @@ Public Class MENU3
         End Select
     End Sub
 
-    Private Sub Panel2_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Panel2.Paint
+    Private Sub Panel2_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Pmenu.Paint
 
     End Sub
 
@@ -641,16 +641,16 @@ Public Class MENU3
 
     End Sub
 
-    Private Sub PictureBox4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox4.Click
+    Private Sub PictureBox4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbusuario.Click
         info_usuario.Show()
         info_usuario.Text = Nombre.Text
     End Sub
 
-    Private Sub PictureBox4_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox4.MouseEnter
+    Private Sub PictureBox4_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbusuario.MouseEnter
         Me.Cursor = Cursors.Hand
     End Sub
 
-    Private Sub PictureBox4_MouseLeave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox4.MouseLeave
+    Private Sub PictureBox4_MouseLeave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbusuario.MouseLeave
         Me.Cursor = Cursors.Default
     End Sub
 End Class

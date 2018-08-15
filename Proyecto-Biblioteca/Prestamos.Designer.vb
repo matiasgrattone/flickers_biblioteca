@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form4
+Partial Class Prestamos
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -47,6 +47,7 @@ Partial Class Form4
         Me.DataGridAGG = New System.Windows.Forms.DataGridView()
         Me.ENPODER = New System.Windows.Forms.Label()
         Me.ExtCombo = New System.Windows.Forms.GroupBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -66,6 +67,7 @@ Partial Class Form4
         Me.PictureDevolucion2 = New System.Windows.Forms.PictureBox()
         Me.PictureExtraccion1 = New System.Windows.Forms.PictureBox()
         Me.CrearReservacionComboBox = New System.Windows.Forms.GroupBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.Label23 = New System.Windows.Forms.Label()
@@ -75,15 +77,14 @@ Partial Class Form4
         Me.Aparecer = New System.Windows.Forms.Timer(Me.components)
         Me.Ocultar = New System.Windows.Forms.Timer(Me.components)
         Me.Ocultar_Aparecer = New System.Windows.Forms.Timer(Me.components)
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.OPA, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.devoCOMBO.SuspendLayout()
         CType(Me.DataGridAGG, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ExtCombo.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VERLIBROSAGG, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ReservacionComboBox.SuspendLayout()
         CType(Me.VerLibrosReservados, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -93,9 +94,8 @@ Partial Class Form4
         CType(Me.PictureDevolucion2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureExtraccion1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.CrearReservacionComboBox.SuspendLayout()
-        CType(Me.LibrosParaReservar, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LibrosParaReservar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Timer1
@@ -343,6 +343,16 @@ Partial Class Form4
         Me.ExtCombo.TabStop = False
         Me.ExtCombo.Text = "EXTRACCION"
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.busqueda
+        Me.PictureBox1.Location = New System.Drawing.Point(458, 49)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(21, 20)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 77
+        Me.PictureBox1.TabStop = False
+        '
         'Label7
         '
         Me.Label7.AutoSize = True
@@ -555,6 +565,16 @@ Partial Class Form4
         Me.CrearReservacionComboBox.TabStop = False
         Me.CrearReservacionComboBox.Text = "CREAR RESERVACION"
         '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.busqueda
+        Me.PictureBox2.Location = New System.Drawing.Point(369, 48)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(21, 20)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 81
+        Me.PictureBox2.TabStop = False
+        '
         'Label22
         '
         Me.Label22.AutoSize = True
@@ -628,16 +648,6 @@ Partial Class Form4
         '
         Me.Ocultar_Aparecer.Interval = 5
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.busqueda
-        Me.PictureBox1.Location = New System.Drawing.Point(458, 49)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(21, 20)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 77
-        Me.PictureBox1.TabStop = False
-        '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.SystemColors.ControlDarkDark
@@ -646,17 +656,7 @@ Partial Class Form4
         Me.Panel2.Size = New System.Drawing.Size(1016, 38)
         Me.Panel2.TabIndex = 78
         '
-        'PictureBox2
-        '
-        Me.PictureBox2.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.busqueda
-        Me.PictureBox2.Location = New System.Drawing.Point(369, 48)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(21, 20)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 81
-        Me.PictureBox2.TabStop = False
-        '
-        'Form4
+        'Prestamos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -671,7 +671,7 @@ Partial Class Form4
         Me.Controls.Add(Me.devoCOMBO)
         Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "Form4"
+        Me.Name = "Prestamos"
         Me.Text = "PRESTAMOS"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
@@ -682,6 +682,7 @@ Partial Class Form4
         CType(Me.DataGridAGG, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ExtCombo.ResumeLayout(False)
         Me.ExtCombo.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VERLIBROSAGG, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ReservacionComboBox.ResumeLayout(False)
         Me.ReservacionComboBox.PerformLayout()
@@ -694,9 +695,8 @@ Partial Class Form4
         CType(Me.PictureExtraccion1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.CrearReservacionComboBox.ResumeLayout(False)
         Me.CrearReservacionComboBox.PerformLayout()
-        CType(Me.LibrosParaReservar, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LibrosParaReservar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

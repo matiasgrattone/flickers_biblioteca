@@ -23,13 +23,13 @@ Partial Class buscarlibro
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(buscarlibro))
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.dgvdatos2 = New System.Windows.Forms.DataGridView()
+        Me.cmbdatos = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.dgvlibros = New System.Windows.Forms.DataGridView()
+        Me.Pmostrar = New System.Windows.Forms.Panel()
         Me.btnmodificar = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.volumen_label = New System.Windows.Forms.Label()
@@ -51,8 +51,8 @@ Partial Class buscarlibro
         Me.observaciones_label = New System.Windows.Forms.Label()
         Me.origen_label = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
+        Me.Pactualizar = New System.Windows.Forms.Panel()
+        Me.cmbupdate = New System.Windows.Forms.ComboBox()
         Me.btnback = New System.Windows.Forms.Button()
         Me.btnupdate = New System.Windows.Forms.Button()
         Me.observaciones_txt = New System.Windows.Forms.TextBox()
@@ -73,36 +73,36 @@ Partial Class buscarlibro
         Me.Label28 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.estado_txt = New System.Windows.Forms.TextBox()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel1.SuspendLayout()
+        Me.Poculto = New System.Windows.Forms.Panel()
+        Me.cmbestado = New System.Windows.Forms.ComboBox()
+        CType(Me.dgvdatos2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvlibros, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Pmostrar.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel3.SuspendLayout()
+        Me.Pactualizar.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'DataGridView2
+        'dgvdatos2
         '
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(13, 6)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.Size = New System.Drawing.Size(129, 28)
-        Me.DataGridView2.TabIndex = 32
+        Me.dgvdatos2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvdatos2.Location = New System.Drawing.Point(13, 6)
+        Me.dgvdatos2.Name = "dgvdatos2"
+        Me.dgvdatos2.Size = New System.Drawing.Size(129, 28)
+        Me.dgvdatos2.TabIndex = 32
         '
-        'ComboBox1
+        'cmbdatos
         '
-        Me.ComboBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox1.ForeColor = System.Drawing.Color.Black
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Codigo", "Autor", "Titulo", "Editorial", "Año", "Origen"})
-        Me.ComboBox1.Location = New System.Drawing.Point(370, 48)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(191, 28)
-        Me.ComboBox1.TabIndex = 30
+        Me.cmbdatos.BackColor = System.Drawing.Color.LimeGreen
+        Me.cmbdatos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbdatos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbdatos.ForeColor = System.Drawing.Color.Black
+        Me.cmbdatos.FormattingEnabled = True
+        Me.cmbdatos.Items.AddRange(New Object() {"Codigo", "Autor", "Titulo", "Editorial", "Año", "Origen"})
+        Me.cmbdatos.Location = New System.Drawing.Point(276, 88)
+        Me.cmbdatos.Name = "cmbdatos"
+        Me.cmbdatos.Size = New System.Drawing.Size(172, 28)
+        Me.cmbdatos.TabIndex = 30
         '
         'Label1
         '
@@ -115,10 +115,10 @@ Partial Class buscarlibro
         'TextBox1
         '
         Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(12, 48)
+        Me.TextBox1.Location = New System.Drawing.Point(12, 88)
         Me.TextBox1.Multiline = True
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(352, 28)
+        Me.TextBox1.Size = New System.Drawing.Size(258, 28)
         Me.TextBox1.TabIndex = 27
         '
         'Label2
@@ -131,51 +131,51 @@ Partial Class buscarlibro
         Me.Label2.TabIndex = 26
         Me.Label2.Text = "Buscar un libro"
         '
-        'DataGridView1
+        'dgvlibros
         '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToDeleteRows = False
-        Me.DataGridView1.AllowUserToResizeColumns = False
-        Me.DataGridView1.AllowUserToResizeRows = False
-        Me.DataGridView1.BackgroundColor = System.Drawing.Color.Silver
-        Me.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 91)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.RowHeadersVisible = False
-        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(614, 461)
-        Me.DataGridView1.TabIndex = 25
+        Me.dgvlibros.AllowUserToAddRows = False
+        Me.dgvlibros.AllowUserToDeleteRows = False
+        Me.dgvlibros.AllowUserToResizeColumns = False
+        Me.dgvlibros.AllowUserToResizeRows = False
+        Me.dgvlibros.BackgroundColor = System.Drawing.Color.Silver
+        Me.dgvlibros.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.dgvlibros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvlibros.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.dgvlibros.Location = New System.Drawing.Point(12, 123)
+        Me.dgvlibros.Name = "dgvlibros"
+        Me.dgvlibros.ReadOnly = True
+        Me.dgvlibros.RowHeadersVisible = False
+        Me.dgvlibros.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvlibros.Size = New System.Drawing.Size(614, 461)
+        Me.dgvlibros.TabIndex = 25
         '
-        'Panel1
+        'Pmostrar
         '
-        Me.Panel1.BackColor = System.Drawing.Color.Teal
-        Me.Panel1.Controls.Add(Me.btnmodificar)
-        Me.Panel1.Controls.Add(Me.PictureBox1)
-        Me.Panel1.Controls.Add(Me.volumen_label)
-        Me.Panel1.Controls.Add(Me.Label8)
-        Me.Panel1.Controls.Add(Me.titulo_label)
-        Me.Panel1.Controls.Add(Me.cod_libro_label)
-        Me.Panel1.Controls.Add(Me.autor_label)
-        Me.Panel1.Controls.Add(Me.Label5)
-        Me.Panel1.Controls.Add(Me.Label14)
-        Me.Panel1.Controls.Add(Me.Label6)
-        Me.Panel1.Controls.Add(Me.Label13)
-        Me.Panel1.Controls.Add(Me.Label7)
-        Me.Panel1.Controls.Add(Me.Label9)
-        Me.Panel1.Controls.Add(Me.Label17)
-        Me.Panel1.Controls.Add(Me.Label11)
-        Me.Panel1.Controls.Add(Me.editorial_label)
-        Me.Panel1.Controls.Add(Me.estado_label)
-        Me.Panel1.Controls.Add(Me.fecha_label)
-        Me.Panel1.Controls.Add(Me.observaciones_label)
-        Me.Panel1.Controls.Add(Me.origen_label)
-        Me.Panel1.Location = New System.Drawing.Point(636, 91)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(290, 464)
-        Me.Panel1.TabIndex = 31
+        Me.Pmostrar.BackColor = System.Drawing.Color.LimeGreen
+        Me.Pmostrar.Controls.Add(Me.btnmodificar)
+        Me.Pmostrar.Controls.Add(Me.PictureBox1)
+        Me.Pmostrar.Controls.Add(Me.volumen_label)
+        Me.Pmostrar.Controls.Add(Me.Label8)
+        Me.Pmostrar.Controls.Add(Me.titulo_label)
+        Me.Pmostrar.Controls.Add(Me.cod_libro_label)
+        Me.Pmostrar.Controls.Add(Me.autor_label)
+        Me.Pmostrar.Controls.Add(Me.Label5)
+        Me.Pmostrar.Controls.Add(Me.Label14)
+        Me.Pmostrar.Controls.Add(Me.Label6)
+        Me.Pmostrar.Controls.Add(Me.Label13)
+        Me.Pmostrar.Controls.Add(Me.Label7)
+        Me.Pmostrar.Controls.Add(Me.Label9)
+        Me.Pmostrar.Controls.Add(Me.Label17)
+        Me.Pmostrar.Controls.Add(Me.Label11)
+        Me.Pmostrar.Controls.Add(Me.editorial_label)
+        Me.Pmostrar.Controls.Add(Me.estado_label)
+        Me.Pmostrar.Controls.Add(Me.fecha_label)
+        Me.Pmostrar.Controls.Add(Me.observaciones_label)
+        Me.Pmostrar.Controls.Add(Me.origen_label)
+        Me.Pmostrar.Location = New System.Drawing.Point(636, 91)
+        Me.Pmostrar.Name = "Pmostrar"
+        Me.Pmostrar.Size = New System.Drawing.Size(290, 464)
+        Me.Pmostrar.TabIndex = 31
         '
         'btnmodificar
         '
@@ -386,44 +386,44 @@ Partial Class buscarlibro
         Me.Label12.TabIndex = 15
         Me.Label12.Text = "Origen:"
         '
-        'Panel3
+        'Pactualizar
         '
-        Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Panel3.Controls.Add(Me.ComboBox3)
-        Me.Panel3.Controls.Add(Me.btnback)
-        Me.Panel3.Controls.Add(Me.btnupdate)
-        Me.Panel3.Controls.Add(Me.observaciones_txt)
-        Me.Panel3.Controls.Add(Me.origen_txt)
-        Me.Panel3.Controls.Add(Me.anio_txt)
-        Me.Panel3.Controls.Add(Me.editorial_txt)
-        Me.Panel3.Controls.Add(Me.volumen_txt)
-        Me.Panel3.Controls.Add(Me.titulo_txt)
-        Me.Panel3.Controls.Add(Me.cod_libro_txt)
-        Me.Panel3.Controls.Add(Me.autor_txt)
-        Me.Panel3.Controls.Add(Me.Label15)
-        Me.Panel3.Controls.Add(Me.Label16)
-        Me.Panel3.Controls.Add(Me.Label12)
-        Me.Panel3.Controls.Add(Me.Label18)
-        Me.Panel3.Controls.Add(Me.Label24)
-        Me.Panel3.Controls.Add(Me.Label25)
-        Me.Panel3.Controls.Add(Me.Label26)
-        Me.Panel3.Controls.Add(Me.Label27)
-        Me.Panel3.Controls.Add(Me.Label28)
-        Me.Panel3.Controls.Add(Me.PictureBox2)
-        Me.Panel3.Controls.Add(Me.estado_txt)
-        Me.Panel3.Location = New System.Drawing.Point(636, 91)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(290, 464)
-        Me.Panel3.TabIndex = 34
+        Me.Pactualizar.BackColor = System.Drawing.Color.LimeGreen
+        Me.Pactualizar.Controls.Add(Me.cmbupdate)
+        Me.Pactualizar.Controls.Add(Me.btnback)
+        Me.Pactualizar.Controls.Add(Me.btnupdate)
+        Me.Pactualizar.Controls.Add(Me.observaciones_txt)
+        Me.Pactualizar.Controls.Add(Me.origen_txt)
+        Me.Pactualizar.Controls.Add(Me.anio_txt)
+        Me.Pactualizar.Controls.Add(Me.editorial_txt)
+        Me.Pactualizar.Controls.Add(Me.volumen_txt)
+        Me.Pactualizar.Controls.Add(Me.titulo_txt)
+        Me.Pactualizar.Controls.Add(Me.cod_libro_txt)
+        Me.Pactualizar.Controls.Add(Me.autor_txt)
+        Me.Pactualizar.Controls.Add(Me.Label15)
+        Me.Pactualizar.Controls.Add(Me.Label16)
+        Me.Pactualizar.Controls.Add(Me.Label12)
+        Me.Pactualizar.Controls.Add(Me.Label18)
+        Me.Pactualizar.Controls.Add(Me.Label24)
+        Me.Pactualizar.Controls.Add(Me.Label25)
+        Me.Pactualizar.Controls.Add(Me.Label26)
+        Me.Pactualizar.Controls.Add(Me.Label27)
+        Me.Pactualizar.Controls.Add(Me.Label28)
+        Me.Pactualizar.Controls.Add(Me.PictureBox2)
+        Me.Pactualizar.Controls.Add(Me.estado_txt)
+        Me.Pactualizar.Location = New System.Drawing.Point(636, 91)
+        Me.Pactualizar.Name = "Pactualizar"
+        Me.Pactualizar.Size = New System.Drawing.Size(290, 464)
+        Me.Pactualizar.TabIndex = 34
         '
-        'ComboBox3
+        'cmbupdate
         '
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Items.AddRange(New Object() {"disponible", "descontinuado"})
-        Me.ComboBox3.Location = New System.Drawing.Point(137, 395)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(136, 21)
-        Me.ComboBox3.TabIndex = 24
+        Me.cmbupdate.FormattingEnabled = True
+        Me.cmbupdate.Items.AddRange(New Object() {"disponible", "descontinuado"})
+        Me.cmbupdate.Location = New System.Drawing.Point(137, 395)
+        Me.cmbupdate.Name = "cmbupdate"
+        Me.cmbupdate.Size = New System.Drawing.Size(136, 21)
+        Me.cmbupdate.TabIndex = 24
         '
         'btnback
         '
@@ -620,63 +620,63 @@ Partial Class buscarlibro
         Me.estado_txt.Size = New System.Drawing.Size(136, 18)
         Me.estado_txt.TabIndex = 21
         '
-        'Panel2
+        'Poculto
         '
-        Me.Panel2.Location = New System.Drawing.Point(13, 6)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(149, 28)
-        Me.Panel2.TabIndex = 33
+        Me.Poculto.Location = New System.Drawing.Point(12, 6)
+        Me.Poculto.Name = "Poculto"
+        Me.Poculto.Size = New System.Drawing.Size(149, 28)
+        Me.Poculto.TabIndex = 33
         '
-        'ComboBox2
+        'cmbestado
         '
-        Me.ComboBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox2.ForeColor = System.Drawing.Color.Black
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Items.AddRange(New Object() {"disponible", "descontinuado", "ocupado", "reservado"})
-        Me.ComboBox2.Location = New System.Drawing.Point(567, 48)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(191, 28)
-        Me.ComboBox2.TabIndex = 30
+        Me.cmbestado.BackColor = System.Drawing.Color.LimeGreen
+        Me.cmbestado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbestado.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbestado.ForeColor = System.Drawing.Color.Black
+        Me.cmbestado.FormattingEnabled = True
+        Me.cmbestado.Items.AddRange(New Object() {"disponible", "descontinuado", "ocupado", "reservado"})
+        Me.cmbestado.Location = New System.Drawing.Point(454, 88)
+        Me.cmbestado.Name = "cmbestado"
+        Me.cmbestado.Size = New System.Drawing.Size(172, 28)
+        Me.cmbestado.TabIndex = 30
         '
         'buscarlibro
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.Green
+        Me.BackColor = System.Drawing.Color.LimeGreen
         Me.ClientSize = New System.Drawing.Size(935, 612)
-        Me.Controls.Add(Me.Panel2)
-        Me.Controls.Add(Me.DataGridView2)
-        Me.Controls.Add(Me.ComboBox2)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.Poculto)
+        Me.Controls.Add(Me.dgvdatos2)
+        Me.Controls.Add(Me.cmbestado)
+        Me.Controls.Add(Me.cmbdatos)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.Panel3)
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.dgvlibros)
+        Me.Controls.Add(Me.Pmostrar)
+        Me.Controls.Add(Me.Pactualizar)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "buscarlibro"
         Me.Text = "Form2"
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
+        CType(Me.dgvdatos2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvlibros, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Pmostrar.ResumeLayout(False)
+        Me.Pmostrar.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel3.ResumeLayout(False)
-        Me.Panel3.PerformLayout()
+        Me.Pactualizar.ResumeLayout(False)
+        Me.Pactualizar.PerformLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
+    Friend WithEvents dgvdatos2 As System.Windows.Forms.DataGridView
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
-    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents dgvlibros As System.Windows.Forms.DataGridView
+    Friend WithEvents Pmostrar As System.Windows.Forms.Panel
     Friend WithEvents btnmodificar As System.Windows.Forms.Button
     Friend WithEvents volumen_label As System.Windows.Forms.Label
     Friend WithEvents titulo_label As System.Windows.Forms.Label
@@ -697,7 +697,7 @@ Partial Class buscarlibro
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents cod_libro_label As System.Windows.Forms.Label
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-    Friend WithEvents Panel3 As System.Windows.Forms.Panel
+    Friend WithEvents Pactualizar As System.Windows.Forms.Panel
     Friend WithEvents btnupdate As System.Windows.Forms.Button
     Friend WithEvents estado_txt As System.Windows.Forms.TextBox
     Friend WithEvents observaciones_txt As System.Windows.Forms.TextBox
@@ -718,9 +718,9 @@ Partial Class buscarlibro
     Friend WithEvents Label28 As System.Windows.Forms.Label
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
     Friend WithEvents cod_libro_txt As System.Windows.Forms.TextBox
-    Friend WithEvents Panel2 As System.Windows.Forms.Panel
-    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
-    Private WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents Poculto As System.Windows.Forms.Panel
+    Friend WithEvents cmbestado As System.Windows.Forms.ComboBox
+    Private WithEvents cmbdatos As System.Windows.Forms.ComboBox
     Friend WithEvents btnback As System.Windows.Forms.Button
-    Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
+    Friend WithEvents cmbupdate As System.Windows.Forms.ComboBox
 End Class

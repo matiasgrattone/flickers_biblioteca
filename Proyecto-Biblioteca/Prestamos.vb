@@ -1,4 +1,4 @@
-﻿Public Class Form4
+﻿Public Class Prestamos
 
     '//////////////VARIABLE ESPECIAL PARA REALIZAR CONSULTAS (preguntarle a Gastesi su función)//////////
     Dim z As MsgBoxResult
@@ -154,8 +154,8 @@
         Aparecer.Enabled = True
     End Sub
 
-    Private Sub VERLIBROSAGG_CellClick(sender As Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles VERLIBROSAGG.CellClick
-       
+    Private Sub VERLIBROSAGG_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles VERLIBROSAGG.CellClick
+
     End Sub
 
 
@@ -163,7 +163,7 @@
     Private Sub VERLIBROSAGG_CellContentDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles VERLIBROSAGG.CellContentDoubleClick
 
 
-      
+
     End Sub
 
 
@@ -176,7 +176,7 @@
 
     End Sub
 
-    Private Sub Cedula_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles Cedula.KeyDown
+    Private Sub Cedula_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Cedula.KeyDown
         If panelnombre = 0 Then
             If e.KeyCode = Keys.Enter Then
 
@@ -915,7 +915,7 @@
 
     End Sub
 
-    Private Sub LIBROS_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles LIBROS.KeyDown
+    Private Sub LIBROS_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles LIBROS.KeyDown
         If e.KeyCode = Keys.Enter Then
 
             'Se iguala una variable a un valor de la base de datos
@@ -991,7 +991,7 @@
         End If
     End Sub
 
-    Private Sub LIBROS_TextChanged(sender As System.Object, e As System.EventArgs) Handles LIBROS.TextChanged
+    Private Sub LIBROS_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LIBROS.TextChanged
         Try
             Consulta = "select * from libro where estado = 'disponible' and cod_libro like '" & LIBROS.Text & "%'"
             consultar()
@@ -1010,7 +1010,7 @@
 
     End Sub
 
-    Private Sub Timer2_Tick(sender As System.Object, e As System.EventArgs) Handles Aparecer.Tick
+    Private Sub Timer2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Aparecer.Tick
         Try
             If Panel1.Left < -5 Then
                 Panel1.Left += 10
@@ -1038,7 +1038,7 @@
 
     End Sub
 
-    Private Sub Timer3_Tick(sender As System.Object, e As System.EventArgs) Handles Ocultar.Tick
+    Private Sub Timer3_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Ocultar.Tick
         If Panel1.Left > -265 Then
             Panel1.Left -= 10
         Else
@@ -1047,7 +1047,7 @@
         End If
     End Sub
 
-    Private Sub Timer4_Tick(sender As System.Object, e As System.EventArgs) Handles Ocultar_Aparecer.Tick
+    Private Sub Timer4_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Ocultar_Aparecer.Tick
         Try
             If Panel1.Left > -265 Then
                 Panel1.Left -= 10
@@ -1073,11 +1073,11 @@
 
     End Sub
 
-    Private Sub VERLIBROSAGG_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles VERLIBROSAGG.CellContentClick
+    Private Sub VERLIBROSAGG_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles VERLIBROSAGG.CellContentClick
 
     End Sub
 
-    Private Sub VERLIBROSAGG_CellDoubleClick(sender As Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles VERLIBROSAGG.CellDoubleClick
+    Private Sub VERLIBROSAGG_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles VERLIBROSAGG.CellDoubleClick
         'Se iguala una variable a un valor de la base de datos
         Dim TransoformarDBSDaVariable As DataGridViewRow = VERLIBROSAGG.CurrentRow
         Dim NOMBREdelLIBRO As String
@@ -1151,11 +1151,11 @@
 
     End Sub
 
-    Private Sub DataGridAGG_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridAGG.CellContentClick
+    Private Sub DataGridAGG_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridAGG.CellContentClick
 
     End Sub
 
-    Private Sub DataGridAGG_CellDoubleClick(sender As Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridAGG.CellDoubleClick
+    Private Sub DataGridAGG_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridAGG.CellDoubleClick
 
 
         '////////////////////////////////
@@ -1231,7 +1231,7 @@
 
     End Sub
 
-    Private Sub LibrosParaReservar_CellDoubleClick(sender As Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles LibrosParaReservar.CellDoubleClick
+    Private Sub LibrosParaReservar_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles LibrosParaReservar.CellDoubleClick
 
         'Consulta a DATAGRIDVIEW para ver los libros disponibles
         Consulta = "select * from libro where estado = 'disponible';"
@@ -1300,11 +1300,11 @@
         '/////////////////////////////////////////////////
     End Sub
 
-    Private Sub VerLibrosReservados_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles VerLibrosReservados.CellContentClick
+    Private Sub VerLibrosReservados_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles VerLibrosReservados.CellContentClick
 
     End Sub
 
-    Private Sub TextBox3_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextBox3.TextChanged
+    Private Sub TextBox3_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox3.TextChanged
 
         Consulta = "select * from libro where estado = 'disponible' and cod_libro like '" & TextBox3.Text & "%'"
         consultar()
@@ -1312,7 +1312,7 @@
         Dim ROWS As DataGridViewRow = OPA.CurrentRow
     End Sub
 
-    Private Sub LibrosParaReservar_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles LibrosParaReservar.CellContentClick
+    Private Sub LibrosParaReservar_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles LibrosParaReservar.CellContentClick
 
     End Sub
 End Class

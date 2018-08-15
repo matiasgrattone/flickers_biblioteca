@@ -94,16 +94,10 @@
     <Compile Include="buscarlibro.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form3.Designer.vb">
-      <DependentUpon>Form3.vb</DependentUpon>
+    <Compile Include="Prestamos.Designer.vb">
+      <DependentUpon>Prestamos.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form3.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form4.Designer.vb">
-      <DependentUpon>Form4.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Form4.vb">
+    <Compile Include="Prestamos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Inicio Usuarios.vb">
@@ -170,11 +164,8 @@
     <EmbeddedResource Include="buscarlibro.resx">
       <DependentUpon>buscarlibro.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form4.resx">
-      <DependentUpon>Form4.vb</DependentUpon>
+    <EmbeddedResource Include="Prestamos.resx">
+      <DependentUpon>Prestamos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio Usuarios.resx">
       <DependentUpon>Inicio Usuarios.vb</DependentUpon>

@@ -45,13 +45,13 @@ Partial Class Seleccion_Libro
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.Green
+        Me.Panel1.BackColor = System.Drawing.Color.LimeGreen
         Me.Panel1.Controls.Add(Me.PictureBox4)
         Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Location = New System.Drawing.Point(56, -1)
+        Me.Panel1.Location = New System.Drawing.Point(54, -1)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(951, 651)
+        Me.Panel1.Size = New System.Drawing.Size(954, 651)
         Me.Panel1.TabIndex = 0
         '
         'PictureBox4
