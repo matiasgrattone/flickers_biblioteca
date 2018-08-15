@@ -60,19 +60,32 @@
 
     End Sub
     Private Sub btnselectautor_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnselectautor.Click
-        'bautor.Show()
         Pautor.Visible = True
         Consulta = "SELECT * FROM autor"
         consultar()
         dgvautor.DataSource = Tabla
+        dgvautor.Columns(0).HeaderText = "Codigo de Autor"
+        dgvautor.Columns(1).HeaderText = "Nombre de Autor"
+        dgvautor.Columns(2).HeaderText = "Nacionalidad"
+        dgvautor.Columns(0).Width = 45
+        dgvautor.Columns(1).Width = 100
+        dgvautor.Columns(2).Width = 100
+       
     End Sub
 
     Private Sub btnselecteditorial_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnselecteditorial.Click
-        'beditorial.Show()
         Peditorial.Visible = True
         Consulta = "SELECT * FROM editorial"
         consultar()
         dgveditorial.DataSource = Tabla
+        dgveditorial.Columns(0).HeaderText = "Codigo de Editorial"
+        dgveditorial.Columns(1).HeaderText = "Nombre de Editorial"
+        dgveditorial.Columns(2).HeaderText = "Pais de Origen"
+        dgveditorial.Columns(2).HeaderText = "Año"
+        dgveditorial.Columns(0).Width = 45
+        dgveditorial.Columns(1).Width = 100
+        dgveditorial.Columns(2).Width = 100
+        dgveditorial.Columns(2).Width = 100
     End Sub
 
     Private Sub ingresolibro_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -183,5 +196,11 @@
         Consulta = "SELECT * from editorial where editorial.nombre like '" & txtbuscareditorial.Text & "%'"
         consultar()
         dgveditorial.DataSource = Tabla
+    End Sub
+
+    Private Sub Pautor_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Pautor.Paint
+
+        
+
     End Sub
 End Class

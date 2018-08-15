@@ -279,4 +279,8 @@ Public Class buscarlibro
                 End Select
         End Select
     End Sub
+
+    Private Sub dgvlibros_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvlibros.CellContentClick
+
+    End Sub
 End Class
