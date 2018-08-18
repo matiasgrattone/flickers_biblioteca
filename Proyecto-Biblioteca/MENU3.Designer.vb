@@ -37,7 +37,9 @@ Partial Class MENU3
         Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MENU3))
         Me.Phoraencabezado = New System.Windows.Forms.Panel()
+        Me.Bt_LogOut = New System.Windows.Forms.Button()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.Pbusuario = New Proyecto_Biblioteca.PictureboxBordesRedondos()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.lbl_cedula = New System.Windows.Forms.Label()
         Me.Pbadvertenciaprestamos = New System.Windows.Forms.PictureBox()
@@ -49,6 +51,7 @@ Partial Class MENU3
         Me.Panel_PrestamosRevistas = New System.Windows.Forms.Panel()
         Me.pb_PrestamosRevistas = New System.Windows.Forms.PictureBox()
         Me.Label_Prestamos_Revistas = New System.Windows.Forms.Label()
+        Me.Rueda_de_carga1 = New Proyecto_Biblioteca.OptProgressControl.Rueda_de_carga()
         Me.Panel_Inicio = New System.Windows.Forms.Panel()
         Me.PbInicio = New System.Windows.Forms.PictureBox()
         Me.LabelInicio = New System.Windows.Forms.Label()
@@ -56,6 +59,7 @@ Partial Class MENU3
         Me.Pbrevistas = New System.Windows.Forms.PictureBox()
         Me.LabelRevistas = New System.Windows.Forms.Label()
         Me.Pbconfig = New System.Windows.Forms.PictureBox()
+        Me.Labels_transparentes1 = New Proyecto_Biblioteca.labels_transparentes()
         Me.Pbnube = New System.Windows.Forms.PictureBox()
         Me.panel_navegador = New System.Windows.Forms.Panel()
         Me.Pbnavegador = New System.Windows.Forms.PictureBox()
@@ -101,11 +105,10 @@ Partial Class MENU3
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Timer_BD = New System.Windows.Forms.Timer(Me.components)
         Me.Timer_RuedaDeCarga = New System.Windows.Forms.Timer(Me.components)
-        Me.Pbusuario = New Proyecto_Biblioteca.PictureboxBordesRedondos()
-        Me.Rueda_de_carga1 = New Proyecto_Biblioteca.OptProgressControl.Rueda_de_carga()
-        Me.Labels_transparentes1 = New Proyecto_Biblioteca.labels_transparentes()
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.Phoraencabezado.SuspendLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Pbusuario, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Pbadvertenciaprestamos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -138,12 +141,12 @@ Partial Class MENU3
         CType(Me.ChartPrestamosDia, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.Chart_Prestamos, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Pbusuario, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Phoraencabezado
         '
         Me.Phoraencabezado.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Phoraencabezado.Controls.Add(Me.Bt_LogOut)
         Me.Phoraencabezado.Controls.Add(Me.PictureBox3)
         Me.Phoraencabezado.Controls.Add(Me.Pbusuario)
         Me.Phoraencabezado.Controls.Add(Me.PictureBox2)
@@ -158,6 +161,15 @@ Partial Class MENU3
         Me.Phoraencabezado.Size = New System.Drawing.Size(1140, 46)
         Me.Phoraencabezado.TabIndex = 0
         '
+        'Bt_LogOut
+        '
+        Me.Bt_LogOut.Location = New System.Drawing.Point(468, 11)
+        Me.Bt_LogOut.Name = "Bt_LogOut"
+        Me.Bt_LogOut.Size = New System.Drawing.Size(223, 23)
+        Me.Bt_LogOut.TabIndex = 12
+        Me.Bt_LogOut.Text = "Cerrar Sesion"
+        Me.Bt_LogOut.UseVisualStyleBackColor = True
+        '
         'PictureBox3
         '
         Me.PictureBox3.BackColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(67, Byte), Integer), CType(CType(67, Byte), Integer))
@@ -169,6 +181,18 @@ Partial Class MENU3
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox3.TabIndex = 11
         Me.PictureBox3.TabStop = False
+        '
+        'Pbusuario
+        '
+        Me.Pbusuario.BackColor = System.Drawing.Color.DarkGray
+        Me.Pbusuario.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Pbusuario.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.boss
+        Me.Pbusuario.Location = New System.Drawing.Point(977, 3)
+        Me.Pbusuario.Name = "Pbusuario"
+        Me.Pbusuario.Size = New System.Drawing.Size(42, 40)
+        Me.Pbusuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.Pbusuario.TabIndex = 10
+        Me.Pbusuario.TabStop = False
         '
         'PictureBox2
         '
@@ -296,6 +320,19 @@ Partial Class MENU3
         Me.Label_Prestamos_Revistas.TabIndex = 7
         Me.Label_Prestamos_Revistas.Text = "Prestamo Revistas"
         '
+        'Rueda_de_carga1
+        '
+        Me.Rueda_de_carga1.BackColor = System.Drawing.Color.Transparent
+        Me.Rueda_de_carga1.Interval = 60
+        Me.Rueda_de_carga1.Location = New System.Drawing.Point(57, 622)
+        Me.Rueda_de_carga1.MinimumSize = New System.Drawing.Size(28, 28)
+        Me.Rueda_de_carga1.Name = "Rueda_de_carga1"
+        Me.Rueda_de_carga1.Rotation = Proyecto_Biblioteca.OptProgressControl.Rueda_de_carga.Direction.CLOCKWISE
+        Me.Rueda_de_carga1.Size = New System.Drawing.Size(28, 28)
+        Me.Rueda_de_carga1.StartAngle = 270
+        Me.Rueda_de_carga1.TabIndex = 11
+        Me.Rueda_de_carga1.TickColor = System.Drawing.Color.FromArgb(CType(CType(58, Byte), Integer), CType(CType(58, Byte), Integer), CType(CType(58, Byte), Integer))
+        '
         'Panel_Inicio
         '
         Me.Panel_Inicio.Controls.Add(Me.PbInicio)
@@ -368,6 +405,14 @@ Partial Class MENU3
         Me.Pbconfig.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.Pbconfig.TabIndex = 15
         Me.Pbconfig.TabStop = False
+        '
+        'Labels_transparentes1
+        '
+        Me.Labels_transparentes1.Location = New System.Drawing.Point(99, 632)
+        Me.Labels_transparentes1.Name = "Labels_transparentes1"
+        Me.Labels_transparentes1.Size = New System.Drawing.Size(30, 23)
+        Me.Labels_transparentes1.TabIndex = 14
+        Me.Labels_transparentes1.Text = "V.3.0"
         '
         'Pbnube
         '
@@ -844,39 +889,6 @@ Partial Class MENU3
         '
         Me.Timer_RuedaDeCarga.Interval = 500
         '
-        'Pbusuario
-        '
-        Me.Pbusuario.BackColor = System.Drawing.Color.DarkGray
-        Me.Pbusuario.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Pbusuario.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.boss
-        Me.Pbusuario.Location = New System.Drawing.Point(977, 3)
-        Me.Pbusuario.Name = "Pbusuario"
-        Me.Pbusuario.Size = New System.Drawing.Size(42, 40)
-        Me.Pbusuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.Pbusuario.TabIndex = 10
-        Me.Pbusuario.TabStop = False
-        '
-        'Rueda_de_carga1
-        '
-        Me.Rueda_de_carga1.BackColor = System.Drawing.Color.Transparent
-        Me.Rueda_de_carga1.Interval = 60
-        Me.Rueda_de_carga1.Location = New System.Drawing.Point(57, 622)
-        Me.Rueda_de_carga1.MinimumSize = New System.Drawing.Size(28, 28)
-        Me.Rueda_de_carga1.Name = "Rueda_de_carga1"
-        Me.Rueda_de_carga1.Rotation = Proyecto_Biblioteca.OptProgressControl.Rueda_de_carga.Direction.CLOCKWISE
-        Me.Rueda_de_carga1.Size = New System.Drawing.Size(28, 28)
-        Me.Rueda_de_carga1.StartAngle = 270
-        Me.Rueda_de_carga1.TabIndex = 11
-        Me.Rueda_de_carga1.TickColor = System.Drawing.Color.FromArgb(CType(CType(58, Byte), Integer), CType(CType(58, Byte), Integer), CType(CType(58, Byte), Integer))
-        '
-        'Labels_transparentes1
-        '
-        Me.Labels_transparentes1.Location = New System.Drawing.Point(99, 632)
-        Me.Labels_transparentes1.Name = "Labels_transparentes1"
-        Me.Labels_transparentes1.Size = New System.Drawing.Size(30, 23)
-        Me.Labels_transparentes1.TabIndex = 14
-        Me.Labels_transparentes1.Text = "V.3.0"
-        '
         'MENU3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -897,6 +909,7 @@ Partial Class MENU3
         Me.Phoraencabezado.ResumeLayout(False)
         Me.Phoraencabezado.PerformLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Pbusuario, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Pbadvertenciaprestamos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
@@ -940,7 +953,6 @@ Partial Class MENU3
         CType(Me.ChartPrestamosDia, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         CType(Me.Chart_Prestamos, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Pbusuario, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1012,4 +1024,6 @@ Partial Class MENU3
     Friend WithEvents Panel_PrestamosRevistas As System.Windows.Forms.Panel
     Friend WithEvents pb_PrestamosRevistas As System.Windows.Forms.PictureBox
     Friend WithEvents Label_Prestamos_Revistas As System.Windows.Forms.Label
+    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents Bt_LogOut As System.Windows.Forms.Button
 End Class

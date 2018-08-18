@@ -19,6 +19,7 @@ Public Class MENU3
 
     Public cedulaIngre As String ' Variable para actualizar foto de perfil, se carga en el load
     Public cedulaAdmin As String ' Variable para cargar foto de perfil en admin, se carga al abrir config admin
+
     Private Sub inicio() 'metodo para verificar si hay un libro que se tiene que entregar en el dia
         If ERROR1 = 0 Then
             Try
@@ -55,16 +56,15 @@ Public Class MENU3
 
             cedulaIngre = lbl_cedula.Text ' Variable para actualizar foto de perfil
 
-            Try
-                Consulta = "select rutaperfil from usuarios where cedula ='" + cedulaIngre + "'"
-                consultar()
+            Consulta = "select rutaperfil from usuarios where cedula ='" + cedulaIngre + "'"
+            consultar()
+            For Each row As DataRow In Tabla.Rows
+                Pbusuario.ImageLocation = (Convert.ToString(row("rutaperfil"))) 'iguala el picturebox de MENU3 con la ubicacion de la imagen guardada en la base
+            Next
 
-                For Each row As DataRow In Tabla.Rows
-                    Pbusuario.ImageLocation = Convert.ToString(row("rutaperfil")) 'iguala el picturebox de MENU3 con la ubicacion de la imagen guardada en la base
-                Next
-            Catch ex As Exception
-                MsgBox(ex.Message)
-            End Try
+
+
+
         End If
 
         If ERROR1 = 0 Then 'si no hay error , llama al metodo chart para cargar las graficas , activa el timer_Prestamos  y llama al metodo inicio para verificar si hay libros para devolver en el dia
@@ -1174,5 +1174,11 @@ Public Class MENU3
     Private Sub ComboBox1_MouseLeave(sender As System.Object, e As System.EventArgs) Handles ComboBox1.MouseLeave
         Timer_Prestamos_LIVE.Enabled = True
         Timer_BD.Enabled = True
+    End Sub
+
+  
+    Private Sub Button2_Click_1(sender As System.Object, e As System.EventArgs) Handles Bt_LogOut.Click
+        Me.Close()
+        LOGIN.Show()
     End Sub
 End Class
