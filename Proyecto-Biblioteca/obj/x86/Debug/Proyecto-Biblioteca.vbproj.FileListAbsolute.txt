@@ -120,8 +120,6 @@ C:\Users\PC Guille\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\
 C:\Users\PC Guille\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.vbprojResolveAssemblyReference.cache
 C:\Users\PC Guille\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.ingresolibro.resources
 C:\Users\PC Guille\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.buscarlibro.resources
-C:\Users\PC Guille\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Form3.resources
-C:\Users\PC Guille\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Form4.resources
 C:\Users\PC Guille\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.inicio_usuarios.resources
 C:\Users\PC Guille\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Carga.resources
 C:\Users\PC Guille\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.LOGIN.resources
@@ -136,3 +134,4 @@ C:\Users\Usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x8
 C:\Users\rex\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.info_usuario.resources
 C:\Users\PC Guille\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.info_usuario.resources
 C:\Users\Cristina.DESKTOP-QPL135E\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Prestamos.resources
+C:\Users\PC Guille\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Prestamos.resources

@@ -181,3 +181,6 @@
         txteditorialoculto.Text = dgvlibro.Item(0, dgvlibro.CurrentRow.Index).Value
         Peditorial.Visible = False
     End Sub
+
+End Class
+
