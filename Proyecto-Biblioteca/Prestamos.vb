@@ -804,7 +804,7 @@
                     contador = Val(contador) + 1
 
 
-                    Consulta = "insert into prestamo (cedula, cod_libro, fecha_salida, fecha_entrada, reservacion) values ('" & Cedula.Text & "','" & IDAGG.Items(libros) & "','" & Label4.Text & "','','')"
+                    Consulta = "insert into prestamo (cedula, cod_libro, fecha_salida, fecha_entrada) values ('" & Cedula.Text & "','" & IDAGG.Items(libros) & "','" & Label4.Text & "','')"
                     consultar()
 
 
