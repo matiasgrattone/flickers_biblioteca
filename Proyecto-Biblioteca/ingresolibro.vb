@@ -1,10 +1,10 @@
 ﻿Public Class ingresolibro
     Dim idlibro As Integer '//////////////// VARIABLE QUE VA A CONTENER EL ID DE LIBRO ///////////////////////
     Dim cod As Integer = 0
-    Private Sub ingresar_boton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ingresar_boton.Click
+    Private Sub ingresar_boton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
 
-   
+
 
         If Trim(txtcod_libro.Text) = "" Or (txttitulo.Text) = "" Then
             MsgBox(" Ha ocurrido un error. Compruebe que los campos marcados por un * se hallen completos.")
@@ -59,7 +59,8 @@
 
 
     End Sub
-    Private Sub Button6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button6.Click
+
+    Private Sub btnselectautor_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnselectautor.Click
         'bautor.Show()
         Pautor.Visible = True
         Consulta = "SELECT * FROM autor"
@@ -67,7 +68,7 @@
         dgvautor.DataSource = Tabla
     End Sub
 
-    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+    Private Sub btnselecteditorial_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnselecteditorial.Click
         'beditorial.Show()
         Peditorial.Visible = True
         Consulta = "SELECT * FROM editorial"
@@ -75,7 +76,7 @@
         dgveditorial.DataSource = Tabla
     End Sub
 
-    Private Sub ingresolibro_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub ingresolibro_Load(ByVal sender As System.Object, ByVal e As System.EventArgs)
         'Carga datos dentro de la tabla Libros en la base de datos en MySql y los muestra en la datagrid
         Paneleditorial.Visible = False
         Pautor.Visible = False
@@ -104,13 +105,13 @@
         dgvlibro.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill 'Ajusta las columnas al tamaño del datagrid'
 
     End Sub
-    Private Sub DataGridView3_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgveditorial.CellContentClick
+    Private Sub DataGridView3_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs)
 
     End Sub
 
-    Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
+    Private Sub btnvolver_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnvolver.Click
         Paneleditorial.Visible = False
-        ingeditorial.BringToFront()
+        btningeditorial.BringToFront()
     End Sub
 
     Private Sub nwautor_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnnwautor.Click
@@ -141,7 +142,7 @@
         consultar()
         dgveditorial.DataSource = Tabla
         Paneleditorial.Visible = False
-        Button4.SendToBack()
+        btnvolver.SendToBack()
     End Sub
 
     Private Sub DataGridView2_CellContentClick_1(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvautor.CellContentClick
@@ -154,11 +155,11 @@
         auvolver.SendToBack()
     End Sub
 
-    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ingeditorial.Click
+    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btningeditorial.Click
         Paneleditorial.Visible = True
         Paneleditorial.BringToFront()
         If Paneleditorial.Visible = True Then
-            ingeditorial.SendToBack()
+            btningeditorial.SendToBack()
         End If
     End Sub
 
@@ -182,5 +183,8 @@
         Peditorial.Visible = False
     End Sub
 
+    Private Sub btnvolver2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnvolver2.Click
+
+    End Sub
 End Class
 

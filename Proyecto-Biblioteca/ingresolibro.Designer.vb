@@ -122,80 +122,80 @@ Partial Class ingresolibro
         'Editorial_label
         '
         Me.Editorial_label.AutoSize = True
-        Me.Editorial_label.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Editorial_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Editorial_label.Location = New System.Drawing.Point(398, 129)
         Me.Editorial_label.Name = "Editorial_label"
-        Me.Editorial_label.Size = New System.Drawing.Size(110, 17)
+        Me.Editorial_label.Size = New System.Drawing.Size(104, 18)
         Me.Editorial_label.TabIndex = 13
         Me.Editorial_label.Text = "Casa Editorial:"
         '
         'observaciones_label
         '
         Me.observaciones_label.AutoSize = True
-        Me.observaciones_label.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.observaciones_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.observaciones_label.Location = New System.Drawing.Point(395, 159)
         Me.observaciones_label.Name = "observaciones_label"
-        Me.observaciones_label.Size = New System.Drawing.Size(119, 17)
+        Me.observaciones_label.Size = New System.Drawing.Size(112, 18)
         Me.observaciones_label.TabIndex = 11
         Me.observaciones_label.Text = "Observaciones:"
         '
         'origen_label
         '
         Me.origen_label.AutoSize = True
-        Me.origen_label.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.origen_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.origen_label.Location = New System.Drawing.Point(145, 159)
         Me.origen_label.Name = "origen_label"
-        Me.origen_label.Size = New System.Drawing.Size(61, 17)
+        Me.origen_label.Size = New System.Drawing.Size(56, 18)
         Me.origen_label.TabIndex = 17
         Me.origen_label.Text = "Origen:"
         '
         'anio_label
         '
         Me.anio_label.AutoSize = True
-        Me.anio_label.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.anio_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.anio_label.Location = New System.Drawing.Point(165, 127)
         Me.anio_label.Name = "anio_label"
-        Me.anio_label.Size = New System.Drawing.Size(42, 17)
+        Me.anio_label.Size = New System.Drawing.Size(38, 18)
         Me.anio_label.TabIndex = 12
         Me.anio_label.Text = "Año:"
         '
         'volumen_label
         '
         Me.volumen_label.AutoSize = True
-        Me.volumen_label.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.volumen_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.volumen_label.Location = New System.Drawing.Point(424, 102)
         Me.volumen_label.Name = "volumen_label"
-        Me.volumen_label.Size = New System.Drawing.Size(78, 17)
+        Me.volumen_label.Size = New System.Drawing.Size(70, 18)
         Me.volumen_label.TabIndex = 15
         Me.volumen_label.Text = "Volumen:"
         '
         'titulo_label
         '
         Me.titulo_label.AutoSize = True
-        Me.titulo_label.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.titulo_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.titulo_label.Location = New System.Drawing.Point(152, 100)
         Me.titulo_label.Name = "titulo_label"
-        Me.titulo_label.Size = New System.Drawing.Size(55, 17)
+        Me.titulo_label.Size = New System.Drawing.Size(48, 18)
         Me.titulo_label.TabIndex = 19
         Me.titulo_label.Text = "Titulo:"
         '
         'autor_label
         '
         Me.autor_label.AutoSize = True
-        Me.autor_label.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.autor_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.autor_label.Location = New System.Drawing.Point(450, 73)
         Me.autor_label.Name = "autor_label"
-        Me.autor_label.Size = New System.Drawing.Size(52, 17)
+        Me.autor_label.Size = New System.Drawing.Size(47, 18)
         Me.autor_label.TabIndex = 18
         Me.autor_label.Text = "Autor:"
         '
         'id_label
         '
         Me.id_label.AutoSize = True
-        Me.id_label.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.id_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.id_label.Location = New System.Drawing.Point(35, 70)
         Me.id_label.Name = "id_label"
-        Me.id_label.Size = New System.Drawing.Size(172, 17)
+        Me.id_label.Size = New System.Drawing.Size(153, 18)
         Me.id_label.TabIndex = 16
         Me.id_label.Text = "Numero de Inventario:"
         '
@@ -259,18 +259,18 @@ Partial Class ingresolibro
         '
         'txtautoroculto
         '
-        Me.txtautoroculto.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtautoroculto.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtautoroculto.Location = New System.Drawing.Point(507, 69)
         Me.txtautoroculto.Name = "txtautoroculto"
-        Me.txtautoroculto.Size = New System.Drawing.Size(143, 25)
+        Me.txtautoroculto.Size = New System.Drawing.Size(143, 24)
         Me.txtautoroculto.TabIndex = 42
         '
         'txteditorialoculto
         '
-        Me.txteditorialoculto.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txteditorialoculto.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txteditorialoculto.Location = New System.Drawing.Point(508, 128)
         Me.txteditorialoculto.Name = "txteditorialoculto"
-        Me.txteditorialoculto.Size = New System.Drawing.Size(143, 25)
+        Me.txteditorialoculto.Size = New System.Drawing.Size(143, 24)
         Me.txteditorialoculto.TabIndex = 43
         '
         'Peditorial
@@ -290,10 +290,10 @@ Partial Class ingresolibro
         '
         'txtbuscareditorial
         '
-        Me.txtbuscareditorial.Font = New System.Drawing.Font("Lucida Sans", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbuscareditorial.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbuscareditorial.Location = New System.Drawing.Point(246, 4)
         Me.txtbuscareditorial.Name = "txtbuscareditorial"
-        Me.txtbuscareditorial.Size = New System.Drawing.Size(178, 22)
+        Me.txtbuscareditorial.Size = New System.Drawing.Size(178, 21)
         Me.txtbuscareditorial.TabIndex = 56
         Me.txtbuscareditorial.WaterMarkColor = System.Drawing.Color.Gray
         Me.txtbuscareditorial.WaterMarkText = "Buscar Editorial"
@@ -353,65 +353,65 @@ Partial Class ingresolibro
         '
         'anioe
         '
-        Me.anioe.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.anioe.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.anioe.Location = New System.Drawing.Point(64, 99)
         Me.anioe.Name = "anioe"
-        Me.anioe.Size = New System.Drawing.Size(100, 23)
+        Me.anioe.Size = New System.Drawing.Size(100, 22)
         Me.anioe.TabIndex = 16
         '
         'pais
         '
-        Me.pais.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.pais.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.pais.Location = New System.Drawing.Point(64, 66)
         Me.pais.Name = "pais"
-        Me.pais.Size = New System.Drawing.Size(100, 23)
+        Me.pais.Size = New System.Drawing.Size(100, 22)
         Me.pais.TabIndex = 15
         '
         'nombree
         '
-        Me.nombree.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nombree.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.nombree.Location = New System.Drawing.Point(64, 37)
         Me.nombree.Name = "nombree"
-        Me.nombree.Size = New System.Drawing.Size(100, 23)
+        Me.nombree.Size = New System.Drawing.Size(100, 22)
         Me.nombree.TabIndex = 17
         '
         'lblanio
         '
         Me.lblanio.AutoSize = True
-        Me.lblanio.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblanio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblanio.Location = New System.Drawing.Point(25, 99)
         Me.lblanio.Name = "lblanio"
-        Me.lblanio.Size = New System.Drawing.Size(33, 15)
+        Me.lblanio.Size = New System.Drawing.Size(32, 16)
         Me.lblanio.TabIndex = 12
         Me.lblanio.Text = "Año"
         '
         'lblpais
         '
         Me.lblpais.AutoSize = True
-        Me.lblpais.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblpais.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblpais.Location = New System.Drawing.Point(21, 66)
         Me.lblpais.Name = "lblpais"
-        Me.lblpais.Size = New System.Drawing.Size(35, 15)
+        Me.lblpais.Size = New System.Drawing.Size(38, 16)
         Me.lblpais.TabIndex = 13
         Me.lblpais.Text = "Pais:"
         '
         'lblnombreeditorial
         '
         Me.lblnombreeditorial.AutoSize = True
-        Me.lblnombreeditorial.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblnombreeditorial.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblnombreeditorial.Location = New System.Drawing.Point(4, 34)
         Me.lblnombreeditorial.Name = "lblnombreeditorial"
-        Me.lblnombreeditorial.Size = New System.Drawing.Size(61, 15)
+        Me.lblnombreeditorial.Size = New System.Drawing.Size(60, 16)
         Me.lblnombreeditorial.TabIndex = 14
         Me.lblnombreeditorial.Text = "Nombre:"
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.Location = New System.Drawing.Point(13, 4)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(151, 15)
+        Me.Label10.Size = New System.Drawing.Size(144, 16)
         Me.Label10.TabIndex = 11
         Me.Label10.Text = "Ingrese nueva editorial"
         '
@@ -436,20 +436,20 @@ Partial Class ingresolibro
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Lucida Sans", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(20, 70)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(20, 24)
+        Me.Label4.Size = New System.Drawing.Size(20, 25)
         Me.Label4.TabIndex = 16
         Me.Label4.Text = "*"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Lucida Sans", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(140, 99)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(20, 24)
+        Me.Label6.Size = New System.Drawing.Size(20, 25)
         Me.Label6.TabIndex = 16
         Me.Label6.Text = "*"
         '
@@ -470,10 +470,10 @@ Partial Class ingresolibro
         '
         'txtbuscarautor
         '
-        Me.txtbuscarautor.Font = New System.Drawing.Font("Lucida Sans", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbuscarautor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbuscarautor.Location = New System.Drawing.Point(250, 5)
         Me.txtbuscarautor.Name = "txtbuscarautor"
-        Me.txtbuscarautor.Size = New System.Drawing.Size(178, 22)
+        Me.txtbuscarautor.Size = New System.Drawing.Size(178, 21)
         Me.txtbuscarautor.TabIndex = 55
         Me.txtbuscarautor.WaterMarkColor = System.Drawing.Color.Gray
         Me.txtbuscarautor.WaterMarkText = "Buscar Autor"
@@ -531,47 +531,47 @@ Partial Class ingresolibro
         '
         'aupais
         '
-        Me.aupais.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.aupais.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.aupais.Location = New System.Drawing.Point(30, 99)
         Me.aupais.Name = "aupais"
-        Me.aupais.Size = New System.Drawing.Size(100, 23)
+        Me.aupais.Size = New System.Drawing.Size(100, 22)
         Me.aupais.TabIndex = 15
         '
         'aunombre
         '
-        Me.aunombre.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.aunombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.aunombre.Location = New System.Drawing.Point(30, 53)
         Me.aunombre.Name = "aunombre"
-        Me.aunombre.Size = New System.Drawing.Size(100, 23)
+        Me.aunombre.Size = New System.Drawing.Size(100, 22)
         Me.aunombre.TabIndex = 17
         '
         'lblnacionalidad
         '
         Me.lblnacionalidad.AutoSize = True
-        Me.lblnacionalidad.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblnacionalidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblnacionalidad.Location = New System.Drawing.Point(37, 81)
         Me.lblnacionalidad.Name = "lblnacionalidad"
-        Me.lblnacionalidad.Size = New System.Drawing.Size(90, 15)
+        Me.lblnacionalidad.Size = New System.Drawing.Size(92, 16)
         Me.lblnacionalidad.TabIndex = 13
         Me.lblnacionalidad.Text = "Nacionalidad:"
         '
         'lblnombre
         '
         Me.lblnombre.AutoSize = True
-        Me.lblnombre.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblnombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblnombre.Location = New System.Drawing.Point(54, 35)
         Me.lblnombre.Name = "lblnombre"
-        Me.lblnombre.Size = New System.Drawing.Size(61, 15)
+        Me.lblnombre.Size = New System.Drawing.Size(60, 16)
         Me.lblnombre.TabIndex = 14
         Me.lblnombre.Text = "Nombre:"
         '
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label15.Location = New System.Drawing.Point(3, 10)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(139, 15)
+        Me.Label15.Size = New System.Drawing.Size(130, 16)
         Me.Label15.TabIndex = 11
         Me.Label15.Text = "Ingrese Nuevo Autor"
         '
@@ -595,80 +595,80 @@ Partial Class ingresolibro
         '
         'txttitulo
         '
-        Me.txttitulo.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txttitulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txttitulo.Location = New System.Drawing.Point(208, 96)
         Me.txttitulo.Name = "txttitulo"
-        Me.txttitulo.Size = New System.Drawing.Size(178, 25)
+        Me.txttitulo.Size = New System.Drawing.Size(178, 24)
         Me.txttitulo.TabIndex = 54
         Me.txttitulo.WaterMarkColor = System.Drawing.Color.Gray
         Me.txttitulo.WaterMarkText = "Titulo"
         '
         'txtanio
         '
-        Me.txtanio.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtanio.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtanio.Location = New System.Drawing.Point(208, 125)
         Me.txtanio.Name = "txtanio"
-        Me.txtanio.Size = New System.Drawing.Size(178, 25)
+        Me.txtanio.Size = New System.Drawing.Size(178, 24)
         Me.txtanio.TabIndex = 53
         Me.txtanio.WaterMarkColor = System.Drawing.Color.Gray
         Me.txtanio.WaterMarkText = "Año"
         '
         'txtorigen
         '
-        Me.txtorigen.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtorigen.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtorigen.Location = New System.Drawing.Point(208, 153)
         Me.txtorigen.Name = "txtorigen"
-        Me.txtorigen.Size = New System.Drawing.Size(178, 25)
+        Me.txtorigen.Size = New System.Drawing.Size(178, 24)
         Me.txtorigen.TabIndex = 52
         Me.txtorigen.WaterMarkColor = System.Drawing.Color.Gray
         Me.txtorigen.WaterMarkText = "Origen"
         '
         'txtobservaciones
         '
-        Me.txtobservaciones.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtobservaciones.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtobservaciones.Location = New System.Drawing.Point(509, 157)
         Me.txtobservaciones.Name = "txtobservaciones"
-        Me.txtobservaciones.Size = New System.Drawing.Size(178, 25)
+        Me.txtobservaciones.Size = New System.Drawing.Size(178, 24)
         Me.txtobservaciones.TabIndex = 51
         Me.txtobservaciones.WaterMarkColor = System.Drawing.Color.Gray
         Me.txtobservaciones.WaterMarkText = "Observaciones"
         '
         'txtcasa_editorial
         '
-        Me.txtcasa_editorial.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtcasa_editorial.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtcasa_editorial.Location = New System.Drawing.Point(509, 128)
         Me.txtcasa_editorial.Name = "txtcasa_editorial"
-        Me.txtcasa_editorial.Size = New System.Drawing.Size(141, 25)
+        Me.txtcasa_editorial.Size = New System.Drawing.Size(141, 24)
         Me.txtcasa_editorial.TabIndex = 50
         Me.txtcasa_editorial.WaterMarkColor = System.Drawing.Color.Gray
         Me.txtcasa_editorial.WaterMarkText = "Editorial"
         '
         'txtvolumen
         '
-        Me.txtvolumen.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtvolumen.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtvolumen.Location = New System.Drawing.Point(508, 99)
         Me.txtvolumen.Name = "txtvolumen"
-        Me.txtvolumen.Size = New System.Drawing.Size(178, 25)
+        Me.txtvolumen.Size = New System.Drawing.Size(178, 24)
         Me.txtvolumen.TabIndex = 49
         Me.txtvolumen.WaterMarkColor = System.Drawing.Color.Gray
         Me.txtvolumen.WaterMarkText = "Volumen"
         '
         'txtautor
         '
-        Me.txtautor.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtautor.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtautor.Location = New System.Drawing.Point(507, 69)
         Me.txtautor.Name = "txtautor"
-        Me.txtautor.Size = New System.Drawing.Size(143, 25)
+        Me.txtautor.Size = New System.Drawing.Size(143, 24)
         Me.txtautor.TabIndex = 48
         Me.txtautor.WaterMarkColor = System.Drawing.Color.Gray
         Me.txtautor.WaterMarkText = "Autor"
         '
         'txtcod_libro
         '
-        Me.txtcod_libro.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtcod_libro.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtcod_libro.Location = New System.Drawing.Point(207, 68)
         Me.txtcod_libro.Name = "txtcod_libro"
-        Me.txtcod_libro.Size = New System.Drawing.Size(178, 25)
+        Me.txtcod_libro.Size = New System.Drawing.Size(178, 24)
         Me.txtcod_libro.TabIndex = 47
         Me.txtcod_libro.WaterMarkColor = System.Drawing.Color.Gray
         Me.txtcod_libro.WaterMarkText = "Cod. Libro"
