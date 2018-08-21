@@ -1,10 +1,12 @@
 ﻿Public Class ingresolibro
     Dim idlibro As Integer '//////////////// VARIABLE QUE VA A CONTENER EL ID DE LIBRO ///////////////////////
     Dim cod As Integer = 0
-    Private Sub ingresar_boton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Dim activadoE As Integer = 0
+    Dim activadoA As Integer = 0
+    Dim dvgeditorialW As Integer
+    Dim dvgautorW As Integer
 
-
-
+     Private Sub ingresar_boton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ingresar_boton.Click
 
         If Trim(txtcod_libro.Text) = "" Or (txttitulo.Text) = "" Then
             MsgBox(" Ha ocurrido un error. Compruebe que los campos marcados por un * se hallen completos.")
@@ -66,6 +68,8 @@
         Consulta = "SELECT * FROM autor"
         consultar()
         dgvautor.DataSource = Tabla
+        dgvautor.Columns(0).Visible = False
+        dgvautor.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill 'Ajusta las columnas al tamaño del datagrid'
     End Sub
 
     Private Sub btnselecteditorial_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnselecteditorial.Click
@@ -74,14 +78,15 @@
         Consulta = "SELECT * FROM editorial"
         consultar()
         dgveditorial.DataSource = Tabla
+        dgveditorial.Columns(0).Visible = False
+        dgveditorial.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill 'Ajusta las columnas al tamaño del datagrid'
     End Sub
 
-    Private Sub ingresolibro_Load(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub ingresolibro_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'Carga datos dentro de la tabla Libros en la base de datos en MySql y los muestra en la datagrid
-        Paneleditorial.Visible = False
-        Pautor.Visible = False
+
         Try
-            panelautor.Visible = False
+            Pautor.Visible = False
             Peditorial.Visible = False
             Consulta = "SELECT libro.cod_libro as 'Codigo de Libro' , libro.titulo as 'Titulo' , autor.nombre as 'Autor' , libro.volumen as 'Volumen' ,editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen', libro.observaciones as 'Observaciones', libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial;"
             consultar()
@@ -92,7 +97,7 @@
             dgvlibro.Columns(5).HeaderText = "Año"
 
         Catch ex As Exception
-
+            MsgBox(ex.ToString)
         End Try
 
         'Alinear celdas en el datagridview1'
@@ -103,72 +108,46 @@
         Next
         dgvlibro.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter 'Alinea las cabeceras de cada columena'
         dgvlibro.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill 'Ajusta las columnas al tamaño del datagrid'
-
-    End Sub
-    Private Sub DataGridView3_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs)
-
+        dvgeditorialW = dgveditorial.Width
+        dvgautorW = dgvautor.Width
     End Sub
 
-    Private Sub btnvolver_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnvolver.Click
-        Paneleditorial.Visible = False
-        btningeditorial.BringToFront()
-    End Sub
-
-    Private Sub nwautor_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnnwautor.Click
-        Consulta = "INSERT INTO autor (nombre, nacionalidad) values ('" + aunombre.Text + "', '" + aupais.Text + "')"
+    Private Sub btnnwautor_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnnwautor.Click
+        Consulta = "INSERT INTO autor (nombre, nacionalidad) values ('" + txtnombreau.Text + "', '" + txtpaisau.Text + "')"
         consultar()
 
         Consulta = "SELECT * FROM autor"
         consultar()
         dgvautor.DataSource = Tabla
-        panelautor.Visible = False
-        auvolver.SendToBack()
+        btncancelar2.SendToBack()
+
+        txtnombreau.Clear()
+        txtpaisau.Clear()
 
     End Sub
 
-    Private Sub ingautor_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ingautor.Click
-        panelautor.Visible = True
-        panelautor.BringToFront()
-        If panelautor.Visible = True Then
-            ingautor.SendToBack()
-        End If
+    Private Sub btningautor_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btningautor.Click
+
+        btningautor.SendToBack()
+        Timer2.Enabled = True
+    End Sub
+    Private Sub btncancelar2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btncancelar2.Click
+
+        btncancelar2.SendToBack()
+        Timer2.Enabled = True
     End Sub
 
-    Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnnweditorial.Click
-        Consulta = "INSERT INTO editorial (nombre, pais, anio) values ('" + nombree.Text + "', '" + pais.Text + "','" + anioe.Text + "')"
-        consultar()
+    Private Sub btningeditorial_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btningeditorial.Click
 
-        Consulta = "SELECT * FROM editorial"
-        consultar()
-        dgveditorial.DataSource = Tabla
-        Paneleditorial.Visible = False
-        btnvolver.SendToBack()
-    End Sub
-
-    Private Sub DataGridView2_CellContentClick_1(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvautor.CellContentClick
-
-    End Sub
-
-    Private Sub auvolver_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles auvolver.Click
-        panelautor.Visible = False
-        panelautor.SendToBack()
-        auvolver.SendToBack()
-    End Sub
-
-    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btningeditorial.Click
-        Paneleditorial.Visible = True
         Paneleditorial.BringToFront()
-        If Paneleditorial.Visible = True Then
-            btningeditorial.SendToBack()
-        End If
-    End Sub
+        Timer1.Enabled = True
 
-    Private Sub Button7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnvolver2.Click
-        Pautor.Visible = False
-    End Sub
+        btningeditorial.SendToBack()
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnvolver.Click
+    End Sub
+    Private Sub btnvolver_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnvolver.Click
         Peditorial.Visible = False
+        btncancelar.SendToBack()
     End Sub
 
     Private Sub DataGridView2_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvautor.CellDoubleClick
@@ -182,9 +161,92 @@
         txteditorialoculto.Text = dgvlibro.Item(0, dgvlibro.CurrentRow.Index).Value
         Peditorial.Visible = False
     End Sub
-
     Private Sub btnvolver2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnvolver2.Click
+        Pautor.Visible = False
+        btncancelar2.SendToBack()
+    End Sub
+    Private Sub btnnweditorial_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnnweditorial.Click
+        Consulta = "INSERT INTO editorial (nombre, pais, anio) values ('" + txtnombree.Text + "', '" + txtpais.Text + "','" + txtanioe.Text + "')"
+        consultar()
+
+        Consulta = "SELECT * FROM editorial"
+        consultar()
+        dgveditorial.DataSource = Tabla
+        btncancelar.SendToBack()
+
+        txtnombree.Clear()
+        txtpais.Clear()
+        txtanioe.Clear()
+    End Sub
+    Private Sub txtbuscarautor_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtbuscarautor.TextChanged
+        'Busuqeda de autor
+        Consulta = "select * from autor where nombre like '" & txtbuscarautor.Text & "%'"
+        consultar()
+        dgvautor.DataSource = Tabla
 
     End Sub
-End Class
+    Private Sub btncancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btncancelar.Click
+        'Ocultar paneles y boton
 
+        btncancelar.SendToBack()
+        btningeditorial.BringToFront()
+        Timer1.Enabled = True
+    End Sub
+
+    Private Sub txtbuscareditorial_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtbuscareditorial.TextChanged
+        'Busqueda de editoriales
+        Consulta = "select * from editorial where nombre like '" & txtbuscareditorial.Text & "%'"
+        consultar()
+        dgveditorial.DataSource = Tabla
+    End Sub
+
+    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
+
+        Select Case activadoE
+            Case 0
+                If Paneleditorial.Left > 249 Then
+                    Paneleditorial.Left -= 5
+
+                Else
+                    dgveditorial.Width = dgveditorial.Width - Paneleditorial.Width
+                    activadoE = 1
+                    Timer1.Enabled = False
+                End If
+            Case 1
+                If Paneleditorial.Left < 434 Then
+                    Paneleditorial.Left += 5
+
+                Else
+                    dgveditorial.Width = dvgeditorialW
+                    activadoE = 0
+                    Timer1.Enabled = False
+                End If
+        End Select
+
+
+
+    End Sub
+
+    Private Sub Timer2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer2.Tick
+        Select Case activadoE
+            Case 0
+                If panelautor.Left > 251 Then
+                    panelautor.Left -= 5
+
+                Else
+                    dgvautor.Width = dgvautor.Width - panelautor.Width
+                    activadoE = 1
+                    Timer2.Enabled = False
+                End If
+            Case 1
+                If panelautor.Left < 419 Then
+                    panelautor.Left += 5
+
+                Else
+                    dgvautor.Width = dvgautorW
+                    activadoE = 0
+                    Timer2.Enabled = False
+                End If
+        End Select
+    End Sub
+End Class

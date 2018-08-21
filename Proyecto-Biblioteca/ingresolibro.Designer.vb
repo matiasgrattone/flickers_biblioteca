@@ -22,6 +22,7 @@ Partial Class ingresolibro
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ingresolibro))
         Me.dgvlibro = New System.Windows.Forms.DataGridView()
         Me.ingresar_boton = New System.Windows.Forms.Button()
@@ -48,9 +49,6 @@ Partial Class ingresolibro
         Me.dgveditorial = New System.Windows.Forms.DataGridView()
         Me.Paneleditorial = New System.Windows.Forms.Panel()
         Me.btnnweditorial = New System.Windows.Forms.Button()
-        Me.anioe = New System.Windows.Forms.TextBox()
-        Me.pais = New System.Windows.Forms.TextBox()
-        Me.nombree = New System.Windows.Forms.TextBox()
         Me.lblanio = New System.Windows.Forms.Label()
         Me.lblpais = New System.Windows.Forms.Label()
         Me.lblnombreeditorial = New System.Windows.Forms.Label()
@@ -66,13 +64,11 @@ Partial Class ingresolibro
         Me.dgvautor = New System.Windows.Forms.DataGridView()
         Me.panelautor = New System.Windows.Forms.Panel()
         Me.btnnwautor = New System.Windows.Forms.Button()
-        Me.aupais = New System.Windows.Forms.TextBox()
-        Me.aunombre = New System.Windows.Forms.TextBox()
         Me.lblnacionalidad = New System.Windows.Forms.Label()
         Me.lblnombre = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.ingautor = New System.Windows.Forms.Button()
-        Me.auvolver = New System.Windows.Forms.Button()
+        Me.btningautor = New System.Windows.Forms.Button()
+        Me.btncancelar2 = New System.Windows.Forms.Button()
         Me.txttitulo = New Proyecto_Biblioteca.PlaceHolder()
         Me.txtanio = New Proyecto_Biblioteca.PlaceHolder()
         Me.txtorigen = New Proyecto_Biblioteca.PlaceHolder()
@@ -81,6 +77,13 @@ Partial Class ingresolibro
         Me.txtvolumen = New Proyecto_Biblioteca.PlaceHolder()
         Me.txtautor = New Proyecto_Biblioteca.PlaceHolder()
         Me.txtcod_libro = New Proyecto_Biblioteca.PlaceHolder()
+        Me.txtnombree = New Proyecto_Biblioteca.PlaceHolder()
+        Me.txtpais = New Proyecto_Biblioteca.PlaceHolder()
+        Me.txtanioe = New Proyecto_Biblioteca.PlaceHolder()
+        Me.txtnombreau = New Proyecto_Biblioteca.PlaceHolder()
+        Me.txtpaisau = New Proyecto_Biblioteca.PlaceHolder()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.dgvlibro, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -193,7 +196,7 @@ Partial Class ingresolibro
         '
         Me.id_label.AutoSize = True
         Me.id_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.id_label.Location = New System.Drawing.Point(35, 70)
+        Me.id_label.Location = New System.Drawing.Point(46, 70)
         Me.id_label.Name = "id_label"
         Me.id_label.Size = New System.Drawing.Size(153, 18)
         Me.id_label.TabIndex = 16
@@ -276,11 +279,11 @@ Partial Class ingresolibro
         'Peditorial
         '
         Me.Peditorial.BackColor = System.Drawing.Color.Teal
+        Me.Peditorial.Controls.Add(Me.Paneleditorial)
         Me.Peditorial.Controls.Add(Me.txtbuscareditorial)
         Me.Peditorial.Controls.Add(Me.btnvolver)
         Me.Peditorial.Controls.Add(Me.Label3)
         Me.Peditorial.Controls.Add(Me.dgveditorial)
-        Me.Peditorial.Controls.Add(Me.Paneleditorial)
         Me.Peditorial.Controls.Add(Me.btningeditorial)
         Me.Peditorial.Controls.Add(Me.btncancelar)
         Me.Peditorial.Location = New System.Drawing.Point(2, 339)
@@ -322,6 +325,7 @@ Partial Class ingresolibro
         Me.dgveditorial.Location = New System.Drawing.Point(3, 28)
         Me.dgveditorial.Name = "dgveditorial"
         Me.dgveditorial.ReadOnly = True
+        Me.dgveditorial.RowHeadersVisible = False
         Me.dgveditorial.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgveditorial.Size = New System.Drawing.Size(425, 231)
         Me.dgveditorial.TabIndex = 1
@@ -329,17 +333,17 @@ Partial Class ingresolibro
         'Paneleditorial
         '
         Me.Paneleditorial.BackColor = System.Drawing.Color.Teal
+        Me.Paneleditorial.Controls.Add(Me.txtanioe)
+        Me.Paneleditorial.Controls.Add(Me.txtpais)
+        Me.Paneleditorial.Controls.Add(Me.txtnombree)
         Me.Paneleditorial.Controls.Add(Me.btnnweditorial)
-        Me.Paneleditorial.Controls.Add(Me.anioe)
-        Me.Paneleditorial.Controls.Add(Me.pais)
-        Me.Paneleditorial.Controls.Add(Me.nombree)
         Me.Paneleditorial.Controls.Add(Me.lblanio)
         Me.Paneleditorial.Controls.Add(Me.lblpais)
         Me.Paneleditorial.Controls.Add(Me.lblnombreeditorial)
         Me.Paneleditorial.Controls.Add(Me.Label10)
-        Me.Paneleditorial.Location = New System.Drawing.Point(239, 90)
+        Me.Paneleditorial.Location = New System.Drawing.Point(434, 28)
         Me.Paneleditorial.Name = "Paneleditorial"
-        Me.Paneleditorial.Size = New System.Drawing.Size(180, 167)
+        Me.Paneleditorial.Size = New System.Drawing.Size(180, 231)
         Me.Paneleditorial.TabIndex = 46
         '
         'btnnweditorial
@@ -350,30 +354,6 @@ Partial Class ingresolibro
         Me.btnnweditorial.TabIndex = 18
         Me.btnnweditorial.Text = "Ingreso"
         Me.btnnweditorial.UseVisualStyleBackColor = True
-        '
-        'anioe
-        '
-        Me.anioe.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.anioe.Location = New System.Drawing.Point(64, 99)
-        Me.anioe.Name = "anioe"
-        Me.anioe.Size = New System.Drawing.Size(100, 22)
-        Me.anioe.TabIndex = 16
-        '
-        'pais
-        '
-        Me.pais.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.pais.Location = New System.Drawing.Point(64, 66)
-        Me.pais.Name = "pais"
-        Me.pais.Size = New System.Drawing.Size(100, 22)
-        Me.pais.TabIndex = 15
-        '
-        'nombree
-        '
-        Me.nombree.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nombree.Location = New System.Drawing.Point(64, 37)
-        Me.nombree.Name = "nombree"
-        Me.nombree.Size = New System.Drawing.Size(100, 22)
-        Me.nombree.TabIndex = 17
         '
         'lblanio
         '
@@ -417,9 +397,9 @@ Partial Class ingresolibro
         '
         'btningeditorial
         '
-        Me.btningeditorial.Location = New System.Drawing.Point(137, 261)
+        Me.btningeditorial.Location = New System.Drawing.Point(136, 261)
         Me.btningeditorial.Name = "btningeditorial"
-        Me.btningeditorial.Size = New System.Drawing.Size(133, 23)
+        Me.btningeditorial.Size = New System.Drawing.Size(132, 23)
         Me.btningeditorial.TabIndex = 4
         Me.btningeditorial.Text = "Ingresar nueva editorial"
         Me.btningeditorial.UseVisualStyleBackColor = True
@@ -437,7 +417,7 @@ Partial Class ingresolibro
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(20, 70)
+        Me.Label4.Location = New System.Drawing.Point(27, 70)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(20, 25)
         Me.Label4.TabIndex = 16
@@ -456,16 +436,16 @@ Partial Class ingresolibro
         'Pautor
         '
         Me.Pautor.BackColor = System.Drawing.Color.Teal
+        Me.Pautor.Controls.Add(Me.panelautor)
         Me.Pautor.Controls.Add(Me.txtbuscarautor)
         Me.Pautor.Controls.Add(Me.btnvolver2)
         Me.Pautor.Controls.Add(Me.Label11)
         Me.Pautor.Controls.Add(Me.dgvautor)
-        Me.Pautor.Controls.Add(Me.panelautor)
-        Me.Pautor.Controls.Add(Me.ingautor)
-        Me.Pautor.Controls.Add(Me.auvolver)
-        Me.Pautor.Location = New System.Drawing.Point(452, 339)
+        Me.Pautor.Controls.Add(Me.btningautor)
+        Me.Pautor.Controls.Add(Me.btncancelar2)
+        Me.Pautor.Location = New System.Drawing.Point(467, 339)
         Me.Pautor.Name = "Pautor"
-        Me.Pautor.Size = New System.Drawing.Size(431, 285)
+        Me.Pautor.Size = New System.Drawing.Size(416, 285)
         Me.Pautor.TabIndex = 46
         '
         'txtbuscarautor
@@ -502,22 +482,23 @@ Partial Class ingresolibro
         Me.dgvautor.Location = New System.Drawing.Point(5, 30)
         Me.dgvautor.Name = "dgvautor"
         Me.dgvautor.ReadOnly = True
+        Me.dgvautor.RowHeadersVisible = False
         Me.dgvautor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvautor.Size = New System.Drawing.Size(423, 227)
+        Me.dgvautor.Size = New System.Drawing.Size(408, 227)
         Me.dgvautor.TabIndex = 1
         '
         'panelautor
         '
         Me.panelautor.BackColor = System.Drawing.Color.Teal
+        Me.panelautor.Controls.Add(Me.txtpaisau)
+        Me.panelautor.Controls.Add(Me.txtnombreau)
         Me.panelautor.Controls.Add(Me.btnnwautor)
-        Me.panelautor.Controls.Add(Me.aupais)
-        Me.panelautor.Controls.Add(Me.aunombre)
         Me.panelautor.Controls.Add(Me.lblnacionalidad)
         Me.panelautor.Controls.Add(Me.lblnombre)
         Me.panelautor.Controls.Add(Me.Label15)
-        Me.panelautor.Location = New System.Drawing.Point(273, 90)
+        Me.panelautor.Location = New System.Drawing.Point(419, 30)
         Me.panelautor.Name = "panelautor"
-        Me.panelautor.Size = New System.Drawing.Size(146, 167)
+        Me.panelautor.Size = New System.Drawing.Size(162, 227)
         Me.panelautor.TabIndex = 46
         '
         'btnnwautor
@@ -528,22 +509,6 @@ Partial Class ingresolibro
         Me.btnnwautor.TabIndex = 18
         Me.btnnwautor.Text = "Ingreso"
         Me.btnnwautor.UseVisualStyleBackColor = True
-        '
-        'aupais
-        '
-        Me.aupais.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.aupais.Location = New System.Drawing.Point(30, 99)
-        Me.aupais.Name = "aupais"
-        Me.aupais.Size = New System.Drawing.Size(100, 22)
-        Me.aupais.TabIndex = 15
-        '
-        'aunombre
-        '
-        Me.aunombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.aunombre.Location = New System.Drawing.Point(30, 53)
-        Me.aunombre.Name = "aunombre"
-        Me.aunombre.Size = New System.Drawing.Size(100, 22)
-        Me.aunombre.TabIndex = 17
         '
         'lblnacionalidad
         '
@@ -575,23 +540,23 @@ Partial Class ingresolibro
         Me.Label15.TabIndex = 11
         Me.Label15.Text = "Ingrese Nuevo Autor"
         '
-        'ingautor
+        'btningautor
         '
-        Me.ingautor.Location = New System.Drawing.Point(139, 259)
-        Me.ingautor.Name = "ingautor"
-        Me.ingautor.Size = New System.Drawing.Size(133, 23)
-        Me.ingautor.TabIndex = 4
-        Me.ingautor.Text = "Ingrese Nuevo Autor"
-        Me.ingautor.UseVisualStyleBackColor = True
+        Me.btningautor.Location = New System.Drawing.Point(118, 259)
+        Me.btningautor.Name = "btningautor"
+        Me.btningautor.Size = New System.Drawing.Size(133, 23)
+        Me.btningautor.TabIndex = 4
+        Me.btningautor.Text = "Ingrese Nuevo Autor"
+        Me.btningautor.UseVisualStyleBackColor = True
         '
-        'auvolver
+        'btncancelar2
         '
-        Me.auvolver.Location = New System.Drawing.Point(139, 258)
-        Me.auvolver.Name = "auvolver"
-        Me.auvolver.Size = New System.Drawing.Size(133, 23)
-        Me.auvolver.TabIndex = 4
-        Me.auvolver.Text = "Cancelar"
-        Me.auvolver.UseVisualStyleBackColor = True
+        Me.btncancelar2.Location = New System.Drawing.Point(118, 259)
+        Me.btncancelar2.Name = "btncancelar2"
+        Me.btncancelar2.Size = New System.Drawing.Size(133, 23)
+        Me.btncancelar2.TabIndex = 4
+        Me.btncancelar2.Text = "Cancelar"
+        Me.btncancelar2.UseVisualStyleBackColor = True
         '
         'txttitulo
         '
@@ -672,6 +637,64 @@ Partial Class ingresolibro
         Me.txtcod_libro.TabIndex = 47
         Me.txtcod_libro.WaterMarkColor = System.Drawing.Color.Gray
         Me.txtcod_libro.WaterMarkText = "Cod. Libro"
+        '
+        'txtnombree
+        '
+        Me.txtnombree.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.txtnombree.Location = New System.Drawing.Point(64, 35)
+        Me.txtnombree.Name = "txtnombree"
+        Me.txtnombree.Size = New System.Drawing.Size(100, 20)
+        Me.txtnombree.TabIndex = 57
+        Me.txtnombree.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txtnombree.WaterMarkText = "Nombre"
+        '
+        'txtpais
+        '
+        Me.txtpais.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.txtpais.Location = New System.Drawing.Point(65, 67)
+        Me.txtpais.Name = "txtpais"
+        Me.txtpais.Size = New System.Drawing.Size(100, 20)
+        Me.txtpais.TabIndex = 58
+        Me.txtpais.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txtpais.WaterMarkText = "Pais"
+        '
+        'txtanioe
+        '
+        Me.txtanioe.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.txtanioe.Location = New System.Drawing.Point(64, 96)
+        Me.txtanioe.Name = "txtanioe"
+        Me.txtanioe.Size = New System.Drawing.Size(100, 20)
+        Me.txtanioe.TabIndex = 59
+        Me.txtanioe.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txtanioe.WaterMarkText = "Año"
+        '
+        'txtnombreau
+        '
+        Me.txtnombreau.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.txtnombreau.Location = New System.Drawing.Point(31, 58)
+        Me.txtnombreau.Name = "txtnombreau"
+        Me.txtnombreau.Size = New System.Drawing.Size(100, 20)
+        Me.txtnombreau.TabIndex = 58
+        Me.txtnombreau.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txtnombreau.WaterMarkText = "Nombre"
+        '
+        'txtpaisau
+        '
+        Me.txtpaisau.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.txtpaisau.Location = New System.Drawing.Point(31, 100)
+        Me.txtpaisau.Name = "txtpaisau"
+        Me.txtpaisau.Size = New System.Drawing.Size(100, 20)
+        Me.txtpaisau.TabIndex = 59
+        Me.txtpaisau.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txtpaisau.WaterMarkText = "Nacionalidad"
+        '
+        'Timer1
+        '
+        Me.Timer1.Interval = 1
+        '
+        'Timer2
+        '
+        Me.Timer2.Interval = 1
         '
         'ingresolibro
         '
@@ -757,9 +780,6 @@ Partial Class ingresolibro
     Friend WithEvents Paneleditorial As System.Windows.Forms.Panel
     Friend WithEvents btncancelar As System.Windows.Forms.Button
     Friend WithEvents btnnweditorial As System.Windows.Forms.Button
-    Friend WithEvents anioe As System.Windows.Forms.TextBox
-    Friend WithEvents pais As System.Windows.Forms.TextBox
-    Friend WithEvents nombree As System.Windows.Forms.TextBox
     Friend WithEvents lblanio As System.Windows.Forms.Label
     Friend WithEvents lblpais As System.Windows.Forms.Label
     Friend WithEvents lblnombreeditorial As System.Windows.Forms.Label
@@ -769,13 +789,11 @@ Partial Class ingresolibro
     Friend WithEvents dgvautor As System.Windows.Forms.DataGridView
     Friend WithEvents panelautor As System.Windows.Forms.Panel
     Friend WithEvents btnnwautor As System.Windows.Forms.Button
-    Friend WithEvents aupais As System.Windows.Forms.TextBox
-    Friend WithEvents aunombre As System.Windows.Forms.TextBox
     Friend WithEvents lblnacionalidad As System.Windows.Forms.Label
     Friend WithEvents lblnombre As System.Windows.Forms.Label
     Friend WithEvents Label15 As System.Windows.Forms.Label
-    Friend WithEvents ingautor As System.Windows.Forms.Button
-    Friend WithEvents auvolver As System.Windows.Forms.Button
+    Friend WithEvents btningautor As System.Windows.Forms.Button
+    Friend WithEvents btncancelar2 As System.Windows.Forms.Button
     Friend WithEvents btnvolver As System.Windows.Forms.Button
     Friend WithEvents btnvolver2 As System.Windows.Forms.Button
     Friend WithEvents txtcod_libro As Proyecto_Biblioteca.PlaceHolder
@@ -788,4 +806,11 @@ Partial Class ingresolibro
     Friend WithEvents txttitulo As Proyecto_Biblioteca.PlaceHolder
     Friend WithEvents txtbuscarautor As Proyecto_Biblioteca.PlaceHolder
     Friend WithEvents txtbuscareditorial As Proyecto_Biblioteca.PlaceHolder
+    Friend WithEvents txtnombree As Proyecto_Biblioteca.PlaceHolder
+    Friend WithEvents txtpais As Proyecto_Biblioteca.PlaceHolder
+    Friend WithEvents txtanioe As Proyecto_Biblioteca.PlaceHolder
+    Friend WithEvents txtpaisau As Proyecto_Biblioteca.PlaceHolder
+    Friend WithEvents txtnombreau As Proyecto_Biblioteca.PlaceHolder
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents Timer2 As System.Windows.Forms.Timer
 End Class

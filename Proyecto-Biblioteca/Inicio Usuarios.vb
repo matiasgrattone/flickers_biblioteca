@@ -511,12 +511,12 @@
         End If
         If i = 0 Then
             If IsNumeric(cedula_txt.Text) = True Then
-                Modulo.Verificar_Cedula(cedula_txt.Text)
-                If Modulo.Correcto = 0 Then
-                    ced = cedula_txt.Text
-                Else
-                    i = 1
-                End If
+                'Modulo.Verificar_Cedula(cedula_txt.Text)
+                'If Modulo.Correcto = 0 Then
+                ced = cedula_txt.Text
+                'Else
+                '    i = 1
+                'End If
             Else
                 errorcedula.Text = "No valido, ingrese solo numeros"
             End If
