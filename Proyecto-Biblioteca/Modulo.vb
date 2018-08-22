@@ -5,7 +5,7 @@ Imports MySql.Data.MySqlClient
 Module Modulo
 
     Public nombre As String 'Variable para cambiar mostrar nombre en inicio usuario
-
+    Public fechaMesNum As String ' variable para obtener el mes de texto a numero
     Dim ubicacion As String = "server=localhost; user id=root; password=''; database=biblioteca"
     Public Conexion As MySqlDataAdapter
     Public Tabla As DataTable
@@ -30,6 +30,61 @@ Module Modulo
         End Try
 
     End Sub
+
+    Public Sub MesNum()
+
+
+        If fechaMesNum = "Enero" Then
+            fechaMesNum = "01"
+        End If
+        If fechaMesNum = "Febrero" Then
+            fechaMesNum = "02"
+
+        End If
+        If fechaMesNum = "Marzo" Then
+            fechaMesNum = "03"
+
+        End If
+        If fechaMesNum = "Abril" Then
+            fechaMesNum = "04"
+
+        End If
+        If fechaMesNum = "Mayo" Then
+            fechaMesNum = "05"
+
+        End If
+        If fechaMesNum = "Junio" Then
+            fechaMesNum = "06"
+
+        End If
+        If fechaMesNum = "Julio" Then
+            fechaMesNum = "07"
+
+        End If
+        If fechaMesNum = "Agosto" Then
+            fechaMesNum = "08"
+
+        End If
+
+        If fechaMesNum = "Septiembre" Then
+            fechaMesNum = "09"
+
+        End If
+        If fechaMesNum = "Octubre" Then
+            fechaMesNum = "10"
+
+        End If
+        If fechaMesNum = "Noviembre" Then
+            fechaMesNum = "11"
+
+        End If
+        If fechaMesNum = "Diciembre" Then
+            fechaMesNum = "12"
+
+        End If
+
+    End Sub
+
     Public Sub mes()
 
 
