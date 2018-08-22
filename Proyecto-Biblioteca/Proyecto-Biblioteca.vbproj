@@ -94,6 +94,12 @@
     <Compile Include="buscarlibro.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Pruebas\Inicio_UsuariosV2.Designer.vb">
+      <DependentUpon>Inicio_UsuariosV2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Pruebas\Inicio_UsuariosV2.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Prestamos.Designer.vb">
       <DependentUpon>Prestamos.vb</DependentUpon>
     </Compile>
@@ -184,6 +190,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pruebas\Inicio_UsuariosV2.resx">
+      <DependentUpon>Inicio_UsuariosV2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Seleccion_Libro.resx">
       <DependentUpon>Seleccion_Libro.vb</DependentUpon>
