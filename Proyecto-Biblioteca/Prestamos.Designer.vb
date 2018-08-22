@@ -39,7 +39,6 @@ Partial Class Prestamos
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Cedula = New System.Windows.Forms.TextBox()
         Me.devoCOMBO = New System.Windows.Forms.GroupBox()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
@@ -78,6 +77,7 @@ Partial Class Prestamos
         Me.Ocultar = New System.Windows.Forms.Timer(Me.components)
         Me.Ocultar_Aparecer = New System.Windows.Forms.Timer(Me.components)
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Cedula_Txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.OPA, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -250,13 +250,6 @@ Partial Class Prestamos
         Me.Label1.Size = New System.Drawing.Size(243, 15)
         Me.Label1.TabIndex = 58
         Me.Label1.Text = "INGRESE LA CEDULA DEL USUARIO "
-        '
-        'Cedula
-        '
-        Me.Cedula.Location = New System.Drawing.Point(6, 53)
-        Me.Cedula.Name = "Cedula"
-        Me.Cedula.Size = New System.Drawing.Size(259, 20)
-        Me.Cedula.TabIndex = 57
         '
         'devoCOMBO
         '
@@ -495,9 +488,9 @@ Partial Class Prestamos
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.SystemColors.ScrollBar
+        Me.Panel3.Controls.Add(Me.Cedula_Txt)
         Me.Panel3.Controls.Add(Me.Label1)
         Me.Panel3.Controls.Add(Me.Label5)
-        Me.Panel3.Controls.Add(Me.Cedula)
         Me.Panel3.Controls.Add(Me.Button1)
         Me.Panel3.Controls.Add(Me.PictureCrearRes3)
         Me.Panel3.Controls.Add(Me.PictureReservacion4)
@@ -656,6 +649,16 @@ Partial Class Prestamos
         Me.Panel2.Size = New System.Drawing.Size(1016, 38)
         Me.Panel2.TabIndex = 78
         '
+        'Cedula_Txt
+        '
+        Me.Cedula_Txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.Cedula_Txt.Location = New System.Drawing.Point(6, 55)
+        Me.Cedula_Txt.Name = "Cedula_Txt"
+        Me.Cedula_Txt.Size = New System.Drawing.Size(259, 20)
+        Me.Cedula_Txt.TabIndex = 75
+        Me.Cedula_Txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.Cedula_Txt.WaterMarkText = "Buscar Cedula"
+        '
         'Prestamos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -720,7 +723,6 @@ Partial Class Prestamos
     Friend WithEvents ENPODER As System.Windows.Forms.Label
     Friend WithEvents NOMBRE As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Cedula As System.Windows.Forms.TextBox
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents OPA As System.Windows.Forms.DataGridView
     Friend WithEvents Button3 As System.Windows.Forms.Button
@@ -755,4 +757,5 @@ Partial Class Prestamos
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
+    Friend WithEvents Cedula_Txt As Proyecto_Biblioteca.PlaceHolder
 End Class
