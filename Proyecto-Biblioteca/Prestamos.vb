@@ -176,7 +176,7 @@
 
     End Sub
 
-    Private Sub Cedula_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs)
+    Private Sub Cedula_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Cedula.KeyDown
         If panelnombre = 0 Then
             If e.KeyCode = Keys.Enter Then
 
@@ -328,7 +328,7 @@
 
     End Sub
 
-    Private Sub Cedula_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub Cedula_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cedula.TextChanged
         Try
             Cedula.AutoCompleteMode = AutoCompleteMode.Suggest
             Cedula.AutoCompleteSource = AutoCompleteSource.CustomSource
