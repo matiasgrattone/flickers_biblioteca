@@ -230,20 +230,23 @@ Module Modulo
             suma = (num1 * calculo(i)) + suma
         Next
 
-        num = suma.ToString.ToCharArray
+        'num = suma.ToString.ToCharArray
 
-        ReDim Preserve num(1)
-        suma1 = Convert.ToInt32(num) + 1
-        num = suma1.ToString.ToCharArray
-        ReDim Preserve num(2)
-        num(2) = "0"
+        'ReDim Preserve num(1)
+        'suma1 = Convert.ToInt32(num) + 1
+        'num = suma1.ToString.ToCharArray
+        'ReDim Preserve num(2)
+        'num(2) = "0"
 
-        suma1 = Convert.ToInt32(num)
-        suma = suma1 - suma
+        'suma1 = Convert.ToInt32(num)
+        'suma = suma1 - suma
+
         num = cedula.ToCharArray()
 
-        If Str(suma) = Val(num(7)) Then
-            Correcto = 0
+        Dim resto As Integer = 10 - (suma Mod 10)
+
+        If resto = Val(num(7)) Then
+            correcto = 0
         Else
             correcto = 1
         End If
