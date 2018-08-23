@@ -146,7 +146,7 @@ Partial Class inicio_usuarios
         Me.Panel3.Controls.Add(Me.Panel4)
         Me.Panel3.Controls.Add(Me.Panel5)
         Me.Panel3.Controls.Add(Me.Panel6)
-        Me.Panel3.Location = New System.Drawing.Point(0, -23)
+        Me.Panel3.Location = New System.Drawing.Point(0, -6)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(1010, 57)
         Me.Panel3.TabIndex = 9
@@ -640,7 +640,7 @@ Partial Class inicio_usuarios
         '
         Me.TextBox1.Cursor = System.Windows.Forms.Cursors.Default
         Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(-1, -3)
+        Me.TextBox1.Location = New System.Drawing.Point(-1, -1)
         Me.TextBox1.Multiline = True
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(838, 29)

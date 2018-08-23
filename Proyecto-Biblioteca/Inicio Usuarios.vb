@@ -766,12 +766,5 @@
 
     End Sub
     
-    Private Sub Panel14_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles Panel14.Paint
-
-    End Sub
-
-    Private Sub Panel3_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles Panel3.Paint
-
-    End Sub
 End Class
 
