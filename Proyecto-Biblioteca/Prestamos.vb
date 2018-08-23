@@ -176,7 +176,7 @@
 
     End Sub
 
-    Private Sub Cedula_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Cedula.KeyDown
+    Private Sub Cedula_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs)
         If panelnombre = 0 Then
             If e.KeyCode = Keys.Enter Then
 
@@ -328,7 +328,7 @@
 
     End Sub
 
-    Private Sub Cedula_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cedula.TextChanged
+    Private Sub Cedula_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Try
             Cedula.AutoCompleteMode = AutoCompleteMode.Suggest
             Cedula.AutoCompleteSource = AutoCompleteSource.CustomSource
@@ -1313,6 +1313,11 @@
     End Sub
 
     Private Sub LibrosParaReservar_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles LibrosParaReservar.CellContentClick
+
+    End Sub
+
+    Private Sub PictureExtraccion1_MouseHover(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureExtraccion1.MouseHover
+        PictureExtraccion1.Image = Image.FromFile("C:\Users\Cristina.DESKTOP-QPL135E\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\Resources\devolcion.png")
 
     End Sub
 End Class
