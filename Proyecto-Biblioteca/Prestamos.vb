@@ -1315,4 +1315,9 @@
     Private Sub LibrosParaReservar_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles LibrosParaReservar.CellContentClick
 
     End Sub
+
+    Private Sub PictureExtraccion1_MouseHover(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureExtraccion1.MouseHover
+        PictureExtraccion1.Image = Image.FromFile("C:\Users\Cristina.DESKTOP-QPL135E\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\Resources\devolcion.png")
+
+    End Sub
 End Class

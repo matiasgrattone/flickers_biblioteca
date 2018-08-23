@@ -653,4 +653,8 @@ Public Class MENU3
     Private Sub PictureBox4_MouseLeave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbusuario.MouseLeave
         Me.Cursor = Cursors.Default
     End Sub
+
+    Private Sub panel_prestamos_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles panel_prestamos.Paint
+
+    End Sub
 End Class
