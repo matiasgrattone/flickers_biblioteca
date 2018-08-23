@@ -76,6 +76,18 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PruebaDeNotas.Designer.vb">
+      <DependentUpon>PruebaDeNotas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PruebaDeNotas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Info_usuario.Designer.vb">
       <DependentUpon>Info_usuario.vb</DependentUpon>
     </Compile>
@@ -155,6 +167,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PruebaDeNotas.resx">
+      <DependentUpon>PruebaDeNotas.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Info_usuario.resx">
       <DependentUpon>Info_usuario.vb</DependentUpon>
     </EmbeddedResource>

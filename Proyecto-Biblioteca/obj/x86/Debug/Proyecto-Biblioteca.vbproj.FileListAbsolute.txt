@@ -134,3 +134,5 @@ C:\Users\PC Guille\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\
 C:\Users\Cristina.DESKTOP-QPL135E\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Prestamos.resources
 C:\Users\PC Guille\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Prestamos.resources
 C:\Users\usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Prestamos.resources
+C:\Users\usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.NOTAS.resources
+C:\Users\usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Form1.resources
