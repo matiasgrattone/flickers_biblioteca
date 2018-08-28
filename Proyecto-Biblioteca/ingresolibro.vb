@@ -1,5 +1,5 @@
 ﻿Public Class ingresolibro
-    Dim idlibro As Integer '//////////////// VARIABLE QUE VA A CONTENER EL ID DE LIBRO ///////////////////////
+    Dim idlibro As Integer '//////////////// VARIABLE QUE VA A CONTENER EL ID DE LIBRO /////////////////////// Esto no se esta utiizando
     Dim cod As Integer = 0
     Dim activadoE As Integer = 0
     Dim activadoA As Integer = 0
@@ -63,32 +63,45 @@
     End Sub
 
     Private Sub btnselectautor_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnselectautor.Click
-        'bautor.Show()
-        Pautor.Visible = True
-        Consulta = "SELECT * FROM autor"
-        consultar()
-        dgvautor.DataSource = Tabla
-        dgvautor.Columns(0).Visible = False
+        'Este boton muestra un panel donde podremos seleccionar un autor o ingresar uno nuevo.
+        Try
+
+            Pautor.Visible = True
+            Consulta = "SELECT * FROM autor"
+            consultar()
+            dgvautor.DataSource = Tabla
+            dgvautor.Columns(0).Visible = False
+
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
+
         dgvautor.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill 'Ajusta las columnas al tamaño del datagrid'
+
     End Sub
 
     Private Sub btnselecteditorial_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnselecteditorial.Click
-        'beditorial.Show()
-        Peditorial.Visible = True
-        Consulta = "SELECT * FROM editorial"
-        consultar()
-        dgveditorial.DataSource = Tabla
-        dgveditorial.Columns(0).Visible = False
+        'Este boton muestra un panel donde podremos seleccionar una editorial o ingresar una nueva.
+        Try
+            Peditorial.Visible = True
+            Consulta = "SELECT * FROM editorial"
+            consultar()
+            dgveditorial.DataSource = Tabla
+            dgveditorial.Columns(0).Visible = False
+
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
+
         dgveditorial.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill 'Ajusta las columnas al tamaño del datagrid'
     End Sub
 
     Private Sub ingresolibro_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'Carga datos dentro de la tabla Libros en la base de datos en MySql y los muestra en la datagrid
-
         Try
             Pautor.Visible = False
             Peditorial.Visible = False
-            Consulta = "SELECT libro.cod_libro as 'Codigo de Libro' , libro.titulo as 'Titulo' , autor.nombre as 'Autor' , libro.volumen as 'Volumen' ,editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen', libro.observaciones as 'Observaciones', libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial;"
+            Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo' , autor.nombre, libro.volumen as 'Volumen' ,editorial.nombre, libro.anio, libro.origen as 'Origen', libro.observaciones as 'Observaciones', libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial;"
             consultar()
             dgvlibro.DataSource = Tabla
             dgvlibro.Columns(4).HeaderText = "Nombre Editorial"
@@ -168,11 +181,15 @@
     Private Sub btnnweditorial_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnnweditorial.Click
         Consulta = "INSERT INTO editorial (nombre, pais, anio) values ('" + txtnombree.Text + "', '" + txtpais.Text + "','" + txtanioe.Text + "')"
         consultar()
+        Try
+            Consulta = "SELECT * FROM editorial"
+            consultar()
+            dgveditorial.DataSource = Tabla
+            btncancelar.SendToBack()
 
-        Consulta = "SELECT * FROM editorial"
-        consultar()
-        dgveditorial.DataSource = Tabla
-        btncancelar.SendToBack()
+        Catch ex As Exception
+            MsgBox(ex)
+        End Try
 
         txtnombree.Clear()
         txtpais.Clear()
@@ -180,9 +197,13 @@
     End Sub
     Private Sub txtbuscarautor_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtbuscarautor.TextChanged
         'Busuqeda de autor
-        Consulta = "select * from autor where nombre like '" & txtbuscarautor.Text & "%'"
-        consultar()
-        dgvautor.DataSource = Tabla
+        Try
+            Consulta = "select * from autor where nombre like '" & txtbuscarautor.Text & "%'"
+            consultar()
+            dgvautor.DataSource = Tabla
+        Catch ex As Exception
+
+        End Try
 
     End Sub
     Private Sub btncancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btncancelar.Click

@@ -30,21 +30,27 @@ Public Class buscarlibro
     Private Sub buscarlibro_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
         'Invocamos al modulo para conectar el programa con la base de datos llamada Libros, y luego lo mostramos en el DataGrid'
-        Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial;"
-        consultar()
-        dgvlibros.DataSource = Tabla
-        dgvlibros.Columns(0).Width = 45
-        dgvlibros.Columns(1).Width = 100
-        dgvlibros.Columns(2).Width = 100
-        dgvlibros.Columns(3).Width = 100
-        dgvlibros.Columns(4).Width = 52
-        dgvlibros.Columns(5).Width = 100
-        dgvlibros.Columns(6).Width = 100
+        Try
+            Consulta = "SELECT libro.cod_libro as 'Codigo de Libro', libro.titulo as 'Titulo', autor.nombre as 'Autor' , editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial;"
+            consultar()
+            dgvlibros.DataSource = Tabla
+            dgvlibros.Columns(0).Width = 45
+            dgvlibros.Columns(1).Width = 100
+            dgvlibros.Columns(2).Width = 100
+            dgvlibros.Columns(3).Width = 100
+            dgvlibros.Columns(4).Width = 52
+            dgvlibros.Columns(5).Width = 100
+            dgvlibros.Columns(6).Width = 100
 
-        dgvlibros.Columns(4).HeaderText = "Año"
+            dgvlibros.Columns(4).HeaderText = "Año"
 
-        cmbestado.SelectedIndex = 0
-        cmbdatos.SelectedIndex = 0
+            cmbestado.SelectedIndex = 0
+            cmbdatos.SelectedIndex = 0
+
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
+
         'Alinear celdas en el datagridview1'
         Dim z As Integer
         z = dgvlibros.Columns.Count - 1 'Obtiene la cantidad de columnas que tiene el datagrid, luego se resta 1 ya que empieza desde 0'
