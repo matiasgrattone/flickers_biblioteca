@@ -14,7 +14,7 @@
         Else
 
             For Each Row As DataGridViewRow In dgvlibro.Rows
-                If Row.Cells("Codigo de Libro").Value = txtcod_libro.Text Then
+                If Row.Cells("cod_libro").Value = txtcod_libro.Text Then
                     cod = 1
                 End If
             Next
@@ -26,12 +26,12 @@
 
                 Try
                     '/// Permite ingresar un nuevo dato a la tabla libros ///'
-                    Consulta = "INSERT INTO libro VALUES('" + txtcod_libro.Text + "','" + txttitulo.Text + "','" + txtautoroculto.Text + "','" + txteditorialoculto.Text + "','" + txtvolumen.Text + "','" + txtanio.Text + " ','" + txtorigen.Text + "','" + txtobservaciones.Text + "', 'disponible')"
+                    Consulta = "INSERT INTO libro VALUES('" + txtcod_libro.Text + "','" + txttitulo.Text + "','" + txtautoroculto.Text + "','" + txteditorialoculto.Text + "','" + txtvolumen.Text + "','" + txtanio.Text + " ','" + txtorigen.Text + "','" + txtobservaciones.Text + "', '0')"
                     consultar()
                     '///////////////////////////////////////////
                     '//// Muestra Los Datos en el DataGrid//////
                     '///////////////////////////////////////////
-                    Consulta = "SELECT libro.cod_libro as 'Codigo de Libro' , libro.titulo as 'Titulo' , autor.nombre as 'Autor' , libro.volumen as 'Volumen' ,editorial.nombre as 'Editorial', libro.anio, libro.origen as 'Origen', libro.observaciones as 'Observaciones', libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial;"
+                    Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo' , autor.nombre, libro.volumen as 'Volumen' ,editorial.nombre, libro.anio, libro.origen as 'Origen', libro.observaciones as 'Observaciones', libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial;"
                     consultar()
                     dgvlibro.DataSource = Tabla
                     '///////////////////////////////////////////////////////////////////////////// 
@@ -128,10 +128,15 @@
     Private Sub btnnwautor_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnnwautor.Click
         Consulta = "INSERT INTO autor (nombre, nacionalidad) values ('" + txtnombreau.Text + "', '" + txtpaisau.Text + "')"
         consultar()
+        Try
+            Consulta = "SELECT * FROM autor"
+            consultar()
+            dgvautor.DataSource = Tabla
 
-        Consulta = "SELECT * FROM autor"
-        consultar()
-        dgvautor.DataSource = Tabla
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
+
         btncancelar2.SendToBack()
 
         txtnombreau.Clear()
