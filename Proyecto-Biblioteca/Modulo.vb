@@ -6,7 +6,7 @@ Module Modulo
 
     Public nombre As String 'Variable para cambiar mostrar nombre en inicio usuario
 
-    Dim ubicacion As String = "server=localhost; user id=root; password=''; database=biblioteca"
+    Dim ubicacion As String = "server=localhost; user id=root; password=''; database=pruebabiblioteca"
     Public Conexion As MySqlDataAdapter
     Public Tabla As DataTable
     Public Consulta As String

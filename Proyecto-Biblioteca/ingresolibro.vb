@@ -63,37 +63,43 @@
     End Sub
 
     Private Sub btnselectautor_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnselectautor.Click
+
         'Este boton muestra un panel donde podremos seleccionar un autor o ingresar uno nuevo.
         Try
-
             Pautor.Visible = True
             Consulta = "SELECT * FROM autor"
             consultar()
             dgvautor.DataSource = Tabla
             dgvautor.Columns(0).Visible = False
-
+            dgvautor.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill 'Ajusta las columnas al tamaño del datagrid'
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
 
-        dgvautor.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill 'Ajusta las columnas al tamaño del datagrid'
+        btningeditorial.Visible = True
+        btncancelar.Visible = False
+
+
 
     End Sub
 
     Private Sub btnselecteditorial_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnselecteditorial.Click
         'Este boton muestra un panel donde podremos seleccionar una editorial o ingresar una nueva.
+
         Try
             Peditorial.Visible = True
             Consulta = "SELECT * FROM editorial"
             consultar()
             dgveditorial.DataSource = Tabla
             dgveditorial.Columns(0).Visible = False
-
+            dgveditorial.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill 'Ajusta las columnas al tamaño del datagrid'
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
 
-        dgveditorial.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill 'Ajusta las columnas al tamaño del datagrid'
+        btningeditorial.Visible = True
+        btncancelar.Visible = False
+
     End Sub
 
     Private Sub ingresolibro_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -145,43 +151,60 @@
     End Sub
 
     Private Sub btningautor_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btningautor.Click
-
-        btningautor.SendToBack()
+        'El Datagrid se redimensiona y a su vez aparece un panel donde puede ingresarse un nuevo autor.
         Timer2.Enabled = True
+        'El boton se esconde
+        btningautor.Visible = False
+        'El boton se muestra
+        btncancelar2.Visible = True
+
     End Sub
     Private Sub btncancelar2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btncancelar2.Click
 
-        btncancelar2.SendToBack()
+        'El boton se esconde.
+        btncancelar2.Visible = False
+        'El boton se muestra
+        btncancelar2.Visible = True
+
+        'El Datagrid se redimensiona y a su vez el panel se mueve a su posicion inicial.
         Timer2.Enabled = True
+
     End Sub
 
     Private Sub btningeditorial_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btningeditorial.Click
-
-        Paneleditorial.BringToFront()
+        'El Datagrid se redimensiona y a su vez aparece un panel donde puede ingresarse una nueva editorial.
         Timer1.Enabled = True
-
-        btningeditorial.SendToBack()
+        'El boton se esconde
+        btningeditorial.Visible = False
+        'El boton se muestra
+        btncancelar.Visible = True
 
     End Sub
     Private Sub btnvolver_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnvolver.Click
+        'El panel editorial se oculta.
         Peditorial.Visible = False
+        'El boton es enviado al fondo.
         btncancelar.SendToBack()
+        'El Datagrid se redimensiona y a su vez el panel vuelve a su posicion original.
+        Timer1.Enabled = True
     End Sub
 
-    Private Sub DataGridView2_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvautor.CellDoubleClick
-        txtautor.Text = dgvlibro.Item(2, dgvlibro.CurrentRow.Index).Value
-        txtautoroculto.Text = dgvlibro.Item(0, dgvlibro.CurrentRow.Index).Value
+    Private Sub dgvautor_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvautor.CellDoubleClick
+        txtautor.Text = dgvautor.Item(1, dgvautor.CurrentRow.Index).Value
+        txtautoroculto.Text = dgvautor.Item(0, dgvautor.CurrentRow.Index).Value
         Pautor.Visible = False
     End Sub
 
-    Private Sub DataGridView3_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgveditorial.CellDoubleClick
-        txtcasa_editorial.Text = dgvlibro.Item(1, dgvlibro.CurrentRow.Index).Value
-        txteditorialoculto.Text = dgvlibro.Item(0, dgvlibro.CurrentRow.Index).Value
+    Private Sub dgveditorial_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgveditorial.CellDoubleClick
+        txtcasa_editorial.Text = dgveditorial.Item(1, dgveditorial.CurrentRow.Index).Value
+        txteditorialoculto.Text = dgveditorial.Item(0, dgveditorial.CurrentRow.Index).Value
         Peditorial.Visible = False
     End Sub
     Private Sub btnvolver2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnvolver2.Click
         Pautor.Visible = False
-        btncancelar2.SendToBack()
+
+        btncancelar2.Visible = False
+        btningautor.Visible = True
     End Sub
     Private Sub btnnweditorial_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnnweditorial.Click
         Consulta = "INSERT INTO editorial (nombre, pais, anio) values ('" + txtnombree.Text + "', '" + txtpais.Text + "','" + txtanioe.Text + "')"
@@ -212,11 +235,15 @@
 
     End Sub
     Private Sub btncancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btncancelar.Click
-        'Ocultar paneles y boton
 
-        btncancelar.SendToBack()
-        btningeditorial.BringToFront()
+        'El boton se esconde
+        btncancelar.Visible = False
+        'El boton se muestra
+        btningeditorial.Visible = True
+
+        'El Datagrid se redimensiona y a su vez el panel vuelve a su posicion inicial.
         Timer1.Enabled = True
+
     End Sub
 
     Private Sub txtbuscareditorial_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtbuscareditorial.TextChanged
@@ -275,4 +302,5 @@
                 End If
         End Select
     End Sub
+
 End Class
