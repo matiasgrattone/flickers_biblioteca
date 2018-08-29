@@ -668,10 +668,10 @@ Partial Class Prestamos
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.ReservacionComboBox)
-        Me.Controls.Add(Me.ExtCombo)
         Me.Controls.Add(Me.devoCOMBO)
         Me.Controls.Add(Me.CrearReservacionComboBox)
+        Me.Controls.Add(Me.ReservacionComboBox)
+        Me.Controls.Add(Me.ExtCombo)
         Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Prestamos"
