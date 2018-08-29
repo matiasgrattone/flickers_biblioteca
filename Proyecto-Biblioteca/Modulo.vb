@@ -164,7 +164,7 @@ Module Modulo
         Dim cedula As String
         Dim num(7) As Char
         Dim suma As Integer
-        'Dim suma1 As Integer
+        Dim suma1 As Integer
         Dim calculo() As Integer = {2, 9, 8, 7, 6, 3, 4}
 
         cedula = cedu

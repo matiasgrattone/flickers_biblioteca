@@ -335,11 +335,10 @@
 
     Private Sub Button2_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
 
-        Consulta = "select * from prestamolibro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
+        Consulta = "select * from prestamolibro where fecha_entrada is NULL and cedula= '" + Cedula.Text + "'"
         consultar()
         OPA.DataSource = Tabla
         Dim ROWS As DataGridViewRow = OPA.CurrentRow
-
 
         Dim list, contador, libros As Integer
         contador = 0
@@ -353,15 +352,15 @@
         If Cedula.Text <> "" Then
             If (OPA.RowCount = 1) Then
 
-                MsgBox("Usted pude RETIRAR UN LIBREO", Title:="PRESTAMO")
+                MsgBox("Usted puede retirar un libro ", Title:="PRESTAMO")
 
                 While contador < list
                     contador = Val(contador) + 1
 
                     'REVISAR ESTO'
-                    Consulta = "insert into prestamolibro (cedula, cod_libro, fecha_salida) values ('" & Cedula.Text & "','" & IDAGG.Items(libros) & "','" & Label4.Text & "')"
+                    Consulta = "insert into prestamolibro(cedula,cod_libro,fecha_salida) values('" + Cedula.Text + "','" + IDAGG.Items(libros) + "','" + Label4.Text + "')"
+                    MsgBox(Consulta)
                     consultar()
-
 
                     Consulta = "update libro set estado = 1 where cod_libro = '" & IDAGG.Items(libros) & "';"
                     consultar()
@@ -393,7 +392,7 @@
                         contador = Val(contador) + 1
 
 
-                        Consulta = "insert into prestamolibro (cedula, cod_libro, fecha_salida, fecha_entrada) values ('" & Cedula.Text & "','" & IDAGG.Items(libros) & "','" & Label4.Text & "')"
+                        Consulta = "insert into prestamolibro (cedula, cod_libro, fecha_salida) values ('" & Cedula.Text & "','" & IDAGG.Items(libros) & "','" & Label4.Text & "')"
                         consultar()
 
 
