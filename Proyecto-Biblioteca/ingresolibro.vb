@@ -175,13 +175,14 @@
     End Sub
 
     Private Sub btningautor_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btningautor.Click
-        'El Datagrid se redimensiona y a su vez aparece un panel donde puede ingresarse un nuevo autor.
-        Timer2.Enabled = True
+        
         'El boton se esconde
         btningautor.Visible = False
         'El boton se muestra
         btncancelar2.Visible = True
 
+        'El Datagrid se redimensiona y a su vez aparece un panel donde puede ingresarse un nuevo autor.
+        Timer2.Enabled = True
     End Sub
     Private Sub btncancelar2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btncancelar2.Click
 
@@ -213,9 +214,9 @@
         Peditorial.Visible = False
 
         'El boton se esconde
-        btncancelar2.Visible = False
+        btncancelar.Visible = False
         'El boton se muestra
-        btningautor.Visible = True
+        btningeditorial.Visible = True
 
         'Limpia los campos de texto'
         txtnombree.Clear()

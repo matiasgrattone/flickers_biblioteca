@@ -71,7 +71,6 @@ Partial Class buscarlibro
         Me.Label27 = New System.Windows.Forms.Label()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.estado_txt = New System.Windows.Forms.TextBox()
         Me.Poculto = New System.Windows.Forms.Panel()
         Me.cmbestado = New System.Windows.Forms.ComboBox()
         Me.txtbusqueda = New Proyecto_Biblioteca.PlaceHolder()
@@ -401,7 +400,6 @@ Partial Class buscarlibro
         Me.Pactualizar.Controls.Add(Me.Label27)
         Me.Pactualizar.Controls.Add(Me.Label28)
         Me.Pactualizar.Controls.Add(Me.PictureBox2)
-        Me.Pactualizar.Controls.Add(Me.estado_txt)
         Me.Pactualizar.Location = New System.Drawing.Point(636, 91)
         Me.Pactualizar.Name = "Pactualizar"
         Me.Pactualizar.Size = New System.Drawing.Size(290, 464)
@@ -411,7 +409,7 @@ Partial Class buscarlibro
         '
         Me.cmbupdate.FormattingEnabled = True
         Me.cmbupdate.Items.AddRange(New Object() {"disponible", "descontinuado"})
-        Me.cmbupdate.Location = New System.Drawing.Point(137, 395)
+        Me.cmbupdate.Location = New System.Drawing.Point(137, 390)
         Me.cmbupdate.Name = "cmbupdate"
         Me.cmbupdate.Size = New System.Drawing.Size(136, 21)
         Me.cmbupdate.TabIndex = 24
@@ -602,15 +600,6 @@ Partial Class buscarlibro
         Me.PictureBox2.TabIndex = 5
         Me.PictureBox2.TabStop = False
         '
-        'estado_txt
-        '
-        Me.estado_txt.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.estado_txt.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.estado_txt.Location = New System.Drawing.Point(137, 398)
-        Me.estado_txt.Name = "estado_txt"
-        Me.estado_txt.Size = New System.Drawing.Size(136, 18)
-        Me.estado_txt.TabIndex = 21
-        '
         'Poculto
         '
         Me.Poculto.Location = New System.Drawing.Point(12, 6)
@@ -655,8 +644,8 @@ Partial Class buscarlibro
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.dgvlibros)
-        Me.Controls.Add(Me.Pmostrar)
         Me.Controls.Add(Me.Pactualizar)
+        Me.Controls.Add(Me.Pmostrar)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "buscarlibro"
         Me.Text = "Form2"
@@ -699,7 +688,6 @@ Partial Class buscarlibro
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Pactualizar As System.Windows.Forms.Panel
     Friend WithEvents btnupdate As System.Windows.Forms.Button
-    Friend WithEvents estado_txt As System.Windows.Forms.TextBox
     Friend WithEvents observaciones_txt As System.Windows.Forms.TextBox
     Friend WithEvents origen_txt As System.Windows.Forms.TextBox
     Friend WithEvents anio_txt As System.Windows.Forms.TextBox

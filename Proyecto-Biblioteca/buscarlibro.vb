@@ -104,28 +104,31 @@ Public Class buscarlibro
         'Realiza la consulta, se actualizan los datos por los que el usuario indica y al momento el Datagrid se actualiza
         Consulta = "UPDATE libro SET titulo=('" + titulo_txt.Text + "'), volumen=('" + volumen_txt.Text + "'), anio=('" + anio_txt.Text + "'), origen=('" + origen_txt.Text + "'), observaciones=('" + observaciones_txt.Text + "') WHERE cod_libro=('" + cod_libro_txt.Text + "')"
         consultar()
-        If estado = 0 Then
-            Consulta = "UPDATE libro set estado=('" + cmbupdate.Text + "') WHERE cod_libro=('" + cod_libro_txt.Text + "')"
-            consultar()
 
-            Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre , editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado like '0'"
-            consultar()
-            dgvlibros.DataSource = Tabla
-        ElseIf estado = 1 Then
-            Consulta = "UPDATE libro set estado=('" + cmbupdate.Text + "') WHERE cod_libro=('" + cod_libro_txt.Text + "')"
-            consultar()
+        Select Case cmbupdate.SelectedItem
+            Case "disponible"
+                Consulta = "UPDATE libro set estado= 0 WHERE cod_libro=('" + cod_libro_txt.Text + "')"
+                consultar()
 
-            Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre, editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado like '3'"
-            consultar()
-            dgvlibros.DataSource = Tabla
+                Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre , editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado like '0'"
+                consultar()
+                dgvlibros.DataSource = Tabla
 
-        Else
-            Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre , editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial"
-            consultar()
-            dgvlibros.DataSource = Tabla
-        End If
+            Case "descontinuado"
+                Consulta = "UPDATE libro set estado= 3 WHERE cod_libro=('" + cod_libro_txt.Text + "')"
+                consultar()
+
+                Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre, editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado like '3'"
+                consultar()
+                dgvlibros.DataSource = Tabla
+            Case Else
+                Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre , editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial"
+                consultar()
+                dgvlibros.DataSource = Tabla
+        End Select
+
         Pactualizar.SendToBack()
-        estado_txt.SendToBack()
+        'estado_txt.SendToBack()
         cmbupdate.BringToFront()
 
     End Sub
@@ -140,7 +143,7 @@ Public Class buscarlibro
         editorial_txt.Text = editorial_label.Text
         anio_txt.Text = fecha_label.Text
         origen_txt.Text = origen_label.Text
-        estado_txt.Text = estado_label.Text
+        'estado_txt.Text = estado_label.Text
         volumen_txt.Text = volumen_label.Text
         observaciones_txt.Text = observaciones_label.Text
 
@@ -156,11 +159,11 @@ Public Class buscarlibro
         ElseIf estado_label.Text = "ocupado" Then
             estado = 2
             cmbupdate.SendToBack()
-            estado_txt.BringToFront()
+            'estado_txt.BringToFront()
         ElseIf estado_label.Text = "reservado" Then
             estado = 3
             cmbupdate.SendToBack()
-            estado_txt.BringToFront()
+            'estado_txt.BringToFront()
         End If
 
 
@@ -181,7 +184,7 @@ Public Class buscarlibro
         anio_txt.Clear()
         origen_txt.Clear()
         observaciones_txt.Clear()
-        estado_txt.SendToBack()
+        'estado_txt.SendToBack()
         cmbupdate.BringToFront()
         Pactualizar.SendToBack()
 
@@ -314,7 +317,4 @@ Public Class buscarlibro
         End Select
     End Sub
 
-    Private Sub dgvlibros_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvlibros.CellContentClick
-
-    End Sub
 End Class
