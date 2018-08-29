@@ -146,7 +146,7 @@ Partial Class inicio_usuarios
         Me.Panel3.Controls.Add(Me.Panel4)
         Me.Panel3.Controls.Add(Me.Panel5)
         Me.Panel3.Controls.Add(Me.Panel6)
-        Me.Panel3.Location = New System.Drawing.Point(0, -6)
+        Me.Panel3.Location = New System.Drawing.Point(0, -8)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(1010, 57)
         Me.Panel3.TabIndex = 9
