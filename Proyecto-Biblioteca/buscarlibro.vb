@@ -64,13 +64,10 @@ Public Class buscarlibro
         dgvlibros.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter 'Alinea las cabeceras de cada columena'
         dgvlibros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill 'Ajusta las columnas al tamaño del datagrid'
 
-        For Each row As DataGridViewRow In dgvlibros.Rows
-            If row.Cells("estado").Value = 0 Then
-                dgvlibros.DefaultCellStyle.Tag = "Disponible"
-            End If
+       
 
 
-        Next
+
     End Sub
     Private Sub cmbestado_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbestado.SelectedIndexChanged
 

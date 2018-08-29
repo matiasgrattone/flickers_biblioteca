@@ -5,6 +5,9 @@
     Dim activadoA As Integer = 0
     Dim dvgeditorialW As Integer
     Dim dvgautorW As Integer
+    Dim bandera As Integer
+
+
 
      Private Sub ingresar_boton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ingresar_boton.Click
         'El if se encarga de comprobar que los campos de cod_libro y titulo no se encuentren vacios.
@@ -111,32 +114,46 @@
     End Sub
 
     Private Sub ingresolibro_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'Carga datos dentro de la tabla Libros en la base de datos en MySql y los muestra en la datagrid
-        Try
-            Pautor.Visible = False
-            Peditorial.Visible = False
-            Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo' , autor.nombre, libro.volumen as 'Volumen' ,editorial.nombre, libro.anio, libro.origen as 'Origen', libro.observaciones as 'Observaciones', libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial;"
-            consultar()
-            dgvlibro.DataSource = Tabla
-            dgvlibro.Columns(4).HeaderText = "Nombre Editorial"
-            dgvlibro.Columns(2).HeaderText = "Nombre Autor"
-            dgvlibro.Columns(0).HeaderText = "Nº de Inventario"
-            dgvlibro.Columns(5).HeaderText = "Año"
+        'Comprobacion'
+        Consulta = "select * from usuarios"
+        consultar()
+        dgvcomprobar.DataSource = Tabla
+        If dgvcomprobar.Item(0, dgvcomprobar.CurrentRow.Index).Value <> 0 Then
+            bandera = 1
+        End If
 
-        Catch ex As Exception
-            MsgBox(ex.ToString)
-        End Try
+        If bandera = 1 Then
 
-        'Alinear celdas en el datagridview1'
-        Dim z As Integer
-        z = dgvlibro.Columns.Count - 1 'Obtiene la cantidad de columnas que tiene el datagrid, luego se resta 1 ya que empieza desde 0'
-        For x = 0 To z 'El for recorre cada columna y las va configurando hasta llegar a la columna a'
-            dgvlibro.Columns(x).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
-        Next
-        dgvlibro.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter 'Alinea las cabeceras de cada columena'
-        dgvlibro.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill 'Ajusta las columnas al tamaño del datagrid'
-        dvgeditorialW = dgveditorial.Width
-        dvgautorW = dgvautor.Width
+            'Carga datos dentro de la tabla Libros en la base de datos en MySql y los muestra en la datagrid
+            Try
+                Pautor.Visible = False
+                Peditorial.Visible = False
+                Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo' , autor.nombre, libro.volumen as 'Volumen' ,editorial.nombre, libro.anio, libro.origen as 'Origen', libro.observaciones as 'Observaciones', libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial;"
+                consultar()
+                dgvlibro.DataSource = Tabla
+                dgvlibro.Columns(4).HeaderText = "Nombre Editorial"
+                dgvlibro.Columns(2).HeaderText = "Nombre Autor"
+                dgvlibro.Columns(0).HeaderText = "Nº de Inventario"
+                dgvlibro.Columns(5).HeaderText = "Año"
+            Catch ex As Exception
+                MsgBox(ex.ToString)
+            End Try
+
+            'Alinear celdas en el datagridview1'
+            Dim z As Integer
+            z = dgvlibro.Columns.Count - 1 'Obtiene la cantidad de columnas que tiene el datagrid, luego se resta 1 ya que empieza desde 0'
+            For x = 0 To z 'El for recorre cada columna y las va configurando hasta llegar a la columna a'
+                dgvlibro.Columns(x).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+            Next
+            dgvlibro.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter 'Alinea las cabeceras de cada columena'
+            dgvlibro.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill 'Ajusta las columnas al tamaño del datagrid'
+            dvgeditorialW = dgveditorial.Width
+            dvgautorW = dgvautor.Width
+
+
+            ' For Each row As DataGridViewRow In dgvlibro.Rows
+            dgvlibro.Rows(1).Cells(8).Value = "disponible"
+        End If
     End Sub
 
     Private Sub btnnwautor_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnnwautor.Click
