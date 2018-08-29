@@ -7,27 +7,32 @@
     Dim dvgautorW As Integer
 
      Private Sub ingresar_boton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ingresar_boton.Click
-
+        'El if se encarga de comprobar que los campos de cod_libro y titulo no se encuentren vacios.
+        'En caso de esto no permitira avanzar la consulta y se lanzara un mensaje de error.
         If Trim(txtcod_libro.Text) = "" Or (txttitulo.Text) = "" Then
             MsgBox(" Ha ocurrido un error. Compruebe que los campos marcados por un * se hallen completos.")
 
         Else
 
             For Each Row As DataGridViewRow In dgvlibro.Rows
+                'El if se encarga de preguntar si el cod_libro ingresado no se encuentra ya en la tabla libro.
+                'Si no lo esta permite avanzar la consulta.
                 If Row.Cells("cod_libro").Value = txtcod_libro.Text Then
                     cod = 1
                 End If
             Next
 
             If cod = 1 Then
+                'En caso de estarlo envia un mensaje de error.
                 MsgBox("este codigo ya existe en el inventario")
                 cod = 0
             Else
 
                 Try
                     '/// Permite ingresar un nuevo dato a la tabla libros ///'
-                    Consulta = "INSERT INTO libro VALUES('" + txtcod_libro.Text + "','" + txttitulo.Text + "','" + txtautoroculto.Text + "','" + txteditorialoculto.Text + "','" + txtvolumen.Text + "','" + txtanio.Text + " ','" + txtorigen.Text + "','" + txtobservaciones.Text + "', '0')"
+                    Consulta = "INSERT INTO libro VALUES('" + txtcod_libro.Text + "',concat(upper(left('" + txttitulo.Text + "',1)),lower(substr('" + txttitulo.Text + "',2))),'" + txtautoroculto.Text + "','" + txteditorialoculto.Text + "','" + txtvolumen.Text + "','" + txtanio.Text + " ',concat(upper(left('" + txtorigen.Text + "',1)),lower(substr('" + txtorigen.Text + "',2))),concat(upper(left('" + txtobservaciones.Text + "',1)),lower(substr('" + txtobservaciones.Text + "',2))), '0')"
                     consultar()
+
                     '///////////////////////////////////////////
                     '//// Muestra Los Datos en el DataGrid//////
                     '///////////////////////////////////////////
@@ -75,8 +80,9 @@
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
-
+        'El boton se muestra
         btningeditorial.Visible = True
+        'El boton se esconde
         btncancelar.Visible = False
 
 
@@ -97,7 +103,9 @@
             MsgBox(ex.ToString)
         End Try
 
+        'El Boton se muestra
         btningeditorial.Visible = True
+        'El boton se esconde
         btncancelar.Visible = False
 
     End Sub
@@ -132,21 +140,37 @@
     End Sub
 
     Private Sub btnnwautor_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnnwautor.Click
-        Consulta = "INSERT INTO autor (nombre, nacionalidad) values ('" + txtnombreau.Text + "', '" + txtpaisau.Text + "')"
-        consultar()
-        Try
-            Consulta = "SELECT * FROM autor"
+        If Trim(txtnombreau.Text) = "" Or (txtpaisau.Text) = "" Then
+            MsgBox(" Ha ocurrido un error. Uno de los campos necesarios se encuentra vacio")
+
+        Else
+            'Ingresa un nuevo autor a la Base de Datos.
+            Consulta = "INSERT INTO autor (nombre, nacionalidad) values (concat(upper(left('" + txtnombreau.Text + "',1)),lower(substr('" + txtnombreau.Text + "',2))), concat(upper(left('" + txtpaisau.Text + "',1)),lower(substr('" + txtpaisau.Text + "',2))))"
             consultar()
-            dgvautor.DataSource = Tabla
 
-        Catch ex As Exception
-            MsgBox(ex.ToString)
-        End Try
 
-        btncancelar2.SendToBack()
+            'El boton se esconde
+            btncancelar2.Visible = False
+            'El boton se muestra
+            btningautor.Visible = True
 
-        txtnombreau.Clear()
-        txtpaisau.Clear()
+
+            Try
+                Consulta = "SELECT * FROM autor"
+                consultar()
+                dgvautor.DataSource = Tabla
+
+            Catch ex As Exception
+                MsgBox(ex.ToString)
+            End Try
+
+
+            'Limpia los campos de texto'
+            txtnombreau.Clear()
+            txtpaisau.Clear()
+
+            Timer2.Enabled = True
+        End If
 
     End Sub
 
@@ -164,7 +188,11 @@
         'El boton se esconde.
         btncancelar2.Visible = False
         'El boton se muestra
-        btncancelar2.Visible = True
+        btningautor.Visible = True
+
+        'Limpia los campos de texto'
+        txtnombreau.Clear()
+        txtpaisau.Clear()
 
         'El Datagrid se redimensiona y a su vez el panel se mueve a su posicion inicial.
         Timer2.Enabled = True
@@ -183,45 +211,83 @@
     Private Sub btnvolver_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnvolver.Click
         'El panel editorial se oculta.
         Peditorial.Visible = False
-        'El boton es enviado al fondo.
-        btncancelar.SendToBack()
+
+        'El boton se esconde
+        btncancelar2.Visible = False
+        'El boton se muestra
+        btningautor.Visible = True
+
+        'Limpia los campos de texto'
+        txtnombree.Clear()
+        txtpais.Clear()
+        txtanioe.Clear()
+
         'El Datagrid se redimensiona y a su vez el panel vuelve a su posicion original.
         Timer1.Enabled = True
     End Sub
 
     Private Sub dgvautor_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvautor.CellDoubleClick
+        'Al dar doble click sobre la celda del datagrid el campo de texto recibe el dato del nombre del autor.
         txtautor.Text = dgvautor.Item(1, dgvautor.CurrentRow.Index).Value
         txtautoroculto.Text = dgvautor.Item(0, dgvautor.CurrentRow.Index).Value
+        'El panel que contiene el datagrid se esconde.
         Pautor.Visible = False
     End Sub
 
     Private Sub dgveditorial_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgveditorial.CellDoubleClick
+        'Al dar doble click sobre la celda del datagrid el campo de texto recibe el dato del nombre de la editorial.
         txtcasa_editorial.Text = dgveditorial.Item(1, dgveditorial.CurrentRow.Index).Value
         txteditorialoculto.Text = dgveditorial.Item(0, dgveditorial.CurrentRow.Index).Value
+        'El panel que contiene el datagrid se esconde.
         Peditorial.Visible = False
     End Sub
     Private Sub btnvolver2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnvolver2.Click
+        'El panel autor se oculta.
         Pautor.Visible = False
 
+        'El boton se esconde
         btncancelar2.Visible = False
+        'El boton se muestra
         btningautor.Visible = True
+
+        'El contenido de los textbox es eliminado.
+        txtnombreau.Clear()
+        txtpaisau.Clear()
+
+        'El datagrid se redimensiona y a su vez el panel vuelve a su posicion original.
+        Timer2.Enabled = True
     End Sub
     Private Sub btnnweditorial_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnnweditorial.Click
-        Consulta = "INSERT INTO editorial (nombre, pais, anio) values ('" + txtnombree.Text + "', '" + txtpais.Text + "','" + txtanioe.Text + "')"
-        consultar()
-        Try
-            Consulta = "SELECT * FROM editorial"
+
+        If Trim(txtnombree.Text) = "" Or (txtpais.Text) = "" Or (txtanioe.Text) = "" Then
+            MsgBox(" Ha ocurrido un error. Uno de los campos necesarios se encuentra vacio")
+
+        Else
+            'Ingresa una nueva editorial a la Base de datos.
+            Consulta = "INSERT INTO editorial (nombre, pais, anio) values (concat(upper(left('" + txtnombree.Text + "',1)),lower(substr('" + txtnombree.Text + "',2))),concat(upper(left('" + txtpais.Text + "',1)),lower(substr('" + txtpais.Text + "',2))),'" + txtanioe.Text + "')"
             consultar()
-            dgveditorial.DataSource = Tabla
-            btncancelar.SendToBack()
 
-        Catch ex As Exception
-            MsgBox(ex)
-        End Try
+            Try
+                Consulta = "SELECT * FROM editorial"
+                consultar()
+                dgveditorial.DataSource = Tabla
 
-        txtnombree.Clear()
-        txtpais.Clear()
-        txtanioe.Clear()
+            Catch ex As Exception
+                MsgBox(ex)
+            End Try
+
+            'El boton se esconde
+            btncancelar.Visible = False
+            btningeditorial.Visible = True
+
+            'Limpia los campos de texto'
+            txtnombree.Clear()
+            txtpais.Clear()
+            txtanioe.Clear()
+
+            Timer1.Enabled = True
+
+        End If
     End Sub
     Private Sub txtbuscarautor_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtbuscarautor.TextChanged
         'Busuqeda de autor
@@ -241,6 +307,11 @@
         'El boton se muestra
         btningeditorial.Visible = True
 
+        'Limpia los campos de texto'
+        txtnombree.Clear()
+        txtpais.Clear()
+        txtanioe.Clear()
+
         'El Datagrid se redimensiona y a su vez el panel vuelve a su posicion inicial.
         Timer1.Enabled = True
 
@@ -257,7 +328,7 @@
 
         Select Case activadoE
             Case 0
-                If Paneleditorial.Left > 249 Then
+                If Paneleditorial.Left > 245 Then
                     Paneleditorial.Left -= 5
 
                 Else
@@ -266,7 +337,7 @@
                     Timer1.Enabled = False
                 End If
             Case 1
-                If Paneleditorial.Left < 434 Then
+                If Paneleditorial.Left < 429 Then
                     Paneleditorial.Left += 5
 
                 Else
@@ -283,7 +354,7 @@
     Private Sub Timer2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer2.Tick
         Select Case activadoE
             Case 0
-                If panelautor.Left > 251 Then
+                If panelautor.Left > 255 Then
                     panelautor.Left -= 5
 
                 Else
@@ -303,4 +374,7 @@
         End Select
     End Sub
 
+    Private Sub Peditorial_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Peditorial.Paint
+
+    End Sub
 End Class
