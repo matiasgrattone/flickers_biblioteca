@@ -110,7 +110,7 @@ Public Class buscarlibro
                 Consulta = "UPDATE libro set estado= 0 WHERE cod_libro=('" + cod_libro_txt.Text + "')"
                 consultar()
 
-                Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre , editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado like '0'"
+                Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre , editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado like '3'"
                 consultar()
                 dgvlibros.DataSource = Tabla
 
@@ -118,7 +118,7 @@ Public Class buscarlibro
                 Consulta = "UPDATE libro set estado= 3 WHERE cod_libro=('" + cod_libro_txt.Text + "')"
                 consultar()
 
-                Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre, editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado like '3'"
+                Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre, editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado like '0'"
                 consultar()
                 dgvlibros.DataSource = Tabla
             Case Else
