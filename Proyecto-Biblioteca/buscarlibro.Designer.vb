@@ -408,7 +408,7 @@ Partial Class buscarlibro
         'cmbupdate
         '
         Me.cmbupdate.FormattingEnabled = True
-        Me.cmbupdate.Items.AddRange(New Object() {"disponible", "descontinuado"})
+        Me.cmbupdate.Items.AddRange(New Object() {"disponible", "ocupado", "reservado", "descontinuado"})
         Me.cmbupdate.Location = New System.Drawing.Point(137, 390)
         Me.cmbupdate.Name = "cmbupdate"
         Me.cmbupdate.Size = New System.Drawing.Size(136, 21)
@@ -614,7 +614,7 @@ Partial Class buscarlibro
         Me.cmbestado.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbestado.ForeColor = System.Drawing.Color.Black
         Me.cmbestado.FormattingEnabled = True
-        Me.cmbestado.Items.AddRange(New Object() {"disponible", "descontinuado", "ocupado", "reservado"})
+        Me.cmbestado.Items.AddRange(New Object() {"disponible", "ocupado", "reservado", "descontinuado"})
         Me.cmbestado.Location = New System.Drawing.Point(454, 88)
         Me.cmbestado.Name = "cmbestado"
         Me.cmbestado.Size = New System.Drawing.Size(172, 28)

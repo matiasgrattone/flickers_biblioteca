@@ -150,7 +150,7 @@
 
         Label2.Text = Date.Now.ToString("hh:mm:ss")
 
-        Label4.Text = Date.Now.ToString("yyyy-mm-dd")
+        Label4.Text = Date.Now.ToString("yyyy-MM-dd")
 
     End Sub
 
@@ -1097,7 +1097,6 @@
                 '////////////////////////////////
 
                 Try
-
                     Libro1 = DataGridAGG.Item(2, DataGridAGG.CurrentRow.Index).Value
                     cod_libros = DataGridAGG.Item(1, DataGridAGG.CurrentRow.Index).Value
 
@@ -1111,7 +1110,6 @@
 
                             Consulta = "update libro set estado = 0 where cod_libro = '" & cod_libros & "'"
                             consultar()
-                            MsgBox(Consulta)
                             Consulta = "UPDATE prestamolibro SET fecha_entrada = '" & Label4.Text & "' WHERE cedula = '" & Cedula.Text & "' and cod_libro ='" & cod_libros & "'"
                             consultar()
                             MsgBox("se ha devuelto", Title:="PRESTAMO")
@@ -1227,6 +1225,10 @@
     Private Sub PictureExtraccion1_MouseHover(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureExtraccion1.MouseHover
         '////A Revisar///////////////
         'PictureExtraccion1.Image = Image.FromFile("C:\Users\Cristina.DESKTOP-QPL135E\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\Resources\devolcion.png")
+
+    End Sub
+
+    Private Sub DataGridAGG_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridAGG.CellContentClick
 
     End Sub
 End Class
