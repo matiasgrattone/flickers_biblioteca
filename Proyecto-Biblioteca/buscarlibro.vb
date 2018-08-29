@@ -64,33 +64,34 @@ Public Class buscarlibro
         dgvlibros.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter 'Alinea las cabeceras de cada columena'
         dgvlibros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill 'Ajusta las columnas al tamaño del datagrid'
 
+        For Each row As DataGridViewRow In dgvlibros.Rows
+            If row.Cells("estado").Value = 0 Then
+                dgvlibros.DefaultCellStyle.Tag = "Disponible"
+            End If
 
+
+        Next
     End Sub
     Private Sub cmbestado_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbestado.SelectedIndexChanged
 
         Select Case cmbestado.SelectedItem
-
             Case "ocupado"
-
                 Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre , editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado like '1'"
                 consultar()
                 dgvlibros.DataSource = Tabla
 
             Case "disponible"
-
                 Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre , editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado like '0'"
                 consultar()
                 dgvlibros.DataSource = Tabla
 
-            Case "descontinuado"
-
-                Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre , editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado like '3'"
+            Case "reservado"
+                Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre , editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado like '2'"
                 consultar()
                 dgvlibros.DataSource = Tabla
 
-            Case "reservado"
-
-                Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre , editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado like '2'"
+            Case "descontinuado"
+                Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre , editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado like '3'"
                 consultar()
                 dgvlibros.DataSource = Tabla
         End Select
@@ -110,7 +111,23 @@ Public Class buscarlibro
                 Consulta = "UPDATE libro set estado= 0 WHERE cod_libro=('" + cod_libro_txt.Text + "')"
                 consultar()
 
-                Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre , editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado like '3'"
+                Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre , editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado like '" + cmbestado.SelectedItem + "'"
+                consultar()
+                dgvlibros.DataSource = Tabla
+
+            Case "ocupado"
+                Consulta = "UPDATE libro set estado= 1 WHERE cod_libro=('" + cod_libro_txt.Text + "')"
+                consultar()
+
+                Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre , editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado like '" + cmbestado.SelectedItem + "'"
+                consultar()
+                dgvlibros.DataSource = Tabla
+
+            Case "reservado"
+                Consulta = "UPDATE libro set estado= 2 WHERE cod_libro=('" + cod_libro_txt.Text + "')"
+                consultar()
+
+                Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre , editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado like '" + cmbestado.SelectedItem + "'"
                 consultar()
                 dgvlibros.DataSource = Tabla
 
@@ -118,11 +135,7 @@ Public Class buscarlibro
                 Consulta = "UPDATE libro set estado= 3 WHERE cod_libro=('" + cod_libro_txt.Text + "')"
                 consultar()
 
-                Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre, editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado like '0'"
-                consultar()
-                dgvlibros.DataSource = Tabla
-            Case Else
-                Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre , editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial"
+                Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre, editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado like '" + cmbestado.SelectedItem + "'"
                 consultar()
                 dgvlibros.DataSource = Tabla
         End Select
@@ -150,22 +163,31 @@ Public Class buscarlibro
 
         'Permite seleccionar el estado predeterminado del combobox al momento de modificar los datos'
         '1-disponible, 2-descontinuado, 3-ocupado, 4-reservado'
-        If estado_label.Text = "disponible" Then
-            cmbupdate.SelectedIndex = 0
-            estado = 0
-        ElseIf estado_label.Text = "descontinuado" Then
-            cmbupdate.SelectedIndex = 1
-            estado = 1
-        ElseIf estado_label.Text = "ocupado" Then
-            estado = 2
-            cmbupdate.SendToBack()
-            'estado_txt.BringToFront()
-        ElseIf estado_label.Text = "reservado" Then
-            estado = 3
-            cmbupdate.SendToBack()
-            'estado_txt.BringToFront()
-        End If
+        For Each row In dgvlibros.Rows
+            If dgvlibros.Item(6, dgvlibros.CurrentRow.Index).Value = 0 Then
+                cmbupdate.SelectedIndex = 0
+            ElseIf dgvlibros.Item(6, dgvlibros.CurrentRow.Index).Value = 1 Then
+                cmbupdate.SelectedIndex = 1
+            ElseIf dgvlibros.Item(6, dgvlibros.CurrentRow.Index).Value = 2 Then
+                cmbupdate.SelectedIndex = 2
+            ElseIf dgvlibros.Item(6, dgvlibros.CurrentRow.Index).Value = 3 Then
+                cmbupdate.SelectedIndex = 3
+            End If
 
+
+            'ElseIf estado_label.Text = "descontinuado" Then
+            'cmbupdate.SelectedIndex = 1
+            'estado = 1
+            'ElseIf estado_label.Text = "ocupado" Then
+            'estado = 2
+            'cmbupdate.SendToBack()
+            ''estado_txt.BringToFront()
+            'ElseIf estado_label.Text = "reservado" Then
+            'estado = 3
+            'cmbupdate.SendToBack()
+            ''estado_txt.BringToFront()
+            'End If
+        Next
 
 
         'Envia el primer panel al fondo, mostrando el que contiene la consulta update'
