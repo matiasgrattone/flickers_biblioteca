@@ -140,33 +140,78 @@ Public Class buscarlibro
                 Consulta = "UPDATE libro set estado= 0 WHERE cod_libro=('" + cod_libro_txt.Text + "')"
                 consultar()
 
-                Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre , editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado like '" + cmbestado.SelectedItem + "'"
-                consultar()
-                dgvlibros.DataSource = Tabla
+                If cmbestado.Text = "descontinuado" Then
+                    Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre , editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado = 3"
+                    consultar()
+                    dgvlibros.DataSource = Tabla
+
+                ElseIf cmbestado.Text = "ocupado" Then
+                    Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre , editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado = 1"
+                    consultar()
+                    dgvlibros.DataSource = Tabla
+                ElseIf cmbestado.Text = "reservado" Then
+                    Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre , editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado = 2"
+                    consultar()
+                    dgvlibros.DataSource = Tabla
+                End If
 
             Case "ocupado"
                 Consulta = "UPDATE libro set estado= 1 WHERE cod_libro=('" + cod_libro_txt.Text + "')"
                 consultar()
 
-                Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre , editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado like '" + cmbestado.SelectedItem + "'"
-                consultar()
-                dgvlibros.DataSource = Tabla
+                If cmbestado.Text = "disponible" Then
+                    Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre , editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado = 0"
+                    consultar()
+                    dgvlibros.DataSource = Tabla
+
+                ElseIf cmbestado.Text = "descontinuado" Then
+                    Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre , editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado = 3"
+                    consultar()
+                    dgvlibros.DataSource = Tabla
+                ElseIf cmbestado.Text = "reservado" Then
+                    Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre , editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado = 2"
+                    consultar()
+                    dgvlibros.DataSource = Tabla
+                End If
+
 
             Case "reservado"
                 Consulta = "UPDATE libro set estado= 2 WHERE cod_libro=('" + cod_libro_txt.Text + "')"
                 consultar()
 
-                Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre , editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado like '" + cmbestado.SelectedItem + "'"
-                consultar()
-                dgvlibros.DataSource = Tabla
+                If cmbestado.Text = "disponible" Then
+                    Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre , editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado = 0"
+                    consultar()
+                    dgvlibros.DataSource = Tabla
+
+                ElseIf cmbestado.Text = "ocupado" Then
+                    Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre , editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado = 1"
+                    consultar()
+                    dgvlibros.DataSource = Tabla
+                ElseIf cmbestado.Text = "descontinuado" Then
+                    Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre , editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado = 3"
+                    consultar()
+                    dgvlibros.DataSource = Tabla
+                End If
 
             Case "descontinuado"
                 Consulta = "UPDATE libro set estado= 3 WHERE cod_libro=('" + cod_libro_txt.Text + "')"
                 consultar()
 
-                Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre, editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado like '" + cmbestado.SelectedItem + "'"
-                consultar()
-                dgvlibros.DataSource = Tabla
+                If cmbestado.Text = "disponible" Then
+                    Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre , editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado = 0"
+                    consultar()
+                    dgvlibros.DataSource = Tabla
+
+                ElseIf cmbestado.Text = "ocupado" Then
+                    Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre , editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado = 1"
+                    consultar()
+                    dgvlibros.DataSource = Tabla
+                ElseIf cmbestado.Text = "reservado" Then
+                    Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre , editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado' from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial where libro.estado = 2"
+                    consultar()
+                    dgvlibros.DataSource = Tabla
+                End If
         End Select
 
         Pactualizar.SendToBack()
