@@ -1,8 +1,8 @@
 ﻿Public Class ingresolibro
     Dim idlibro As Integer '//////////////// VARIABLE QUE VA A CONTENER EL ID DE LIBRO /////////////////////// Esto no se esta utiizando
     Dim cod As Integer = 0
-    Dim activadoE As Integer = 0
-    Dim activadoA As Integer = 0
+    Dim activadoEdi As Integer = 0
+    Dim activadoAut As Integer = 0
     Dim dvgeditorialW As Integer
     Dim dvgautorW As Integer
     Dim bandera As Integer
@@ -84,7 +84,7 @@
                     MsgBox("No es posible acceder a la tabla Autor")
                 End Try
                 'El boton se muestra
-                btningeditorial.Visible = True
+                btningautor.Visible = True
                 'El boton se esconde
                 btncancelar.Visible = False
             Catch ex As Exception
@@ -259,9 +259,12 @@
 
     End Sub
     Private Sub btnvolver_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnvolver.Click
-        'El panel editorial se oculta.
-        Peditorial.Visible = False
 
+        If activadoEdi = 1 Then
+            'El Datagrid se redimensiona y a su vez el panel vuelve a su posicion original.
+            Timer1.Enabled = True
+        End If
+        
         'El boton se esconde
         btncancelar.Visible = False
         'El boton se muestra
@@ -272,8 +275,10 @@
         txtpais.Clear()
         txtanioe.Clear()
 
-        'El Datagrid se redimensiona y a su vez el panel vuelve a su posicion original.
-        Timer1.Enabled = True
+        'El panel editorial se oculta.
+        Peditorial.Visible = False
+
+        
     End Sub
 
     Private Sub dgvautor_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvautor.CellDoubleClick
@@ -292,8 +297,10 @@
         Peditorial.Visible = False
     End Sub
     Private Sub btnvolver2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnvolver2.Click
-        'El panel autor se oculta.
-        Pautor.Visible = False
+        If activadoAut = 1 Then
+            'El datagrid se redimensiona y a su vez el panel vuelve a su posicion original.
+            Timer2.Enabled = True
+        End If
 
         'El boton se esconde
         btncancelar2.Visible = False
@@ -304,8 +311,8 @@
         txtnombreau.Clear()
         txtpaisau.Clear()
 
-        'El datagrid se redimensiona y a su vez el panel vuelve a su posicion original.
-        Timer2.Enabled = True
+        'El panel autor se oculta.
+        Pautor.Visible = False
     End Sub
     Private Sub btnnweditorial_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnnweditorial.Click
 
@@ -376,14 +383,14 @@
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
 
-        Select Case activadoE
+        Select Case activadoEdi
             Case 0
                 If Paneleditorial.Left > 245 Then
                     Paneleditorial.Left -= 5
 
                 Else
                     dgveditorial.Width = dgveditorial.Width - Paneleditorial.Width
-                    activadoE = 1
+                    activadoEdi = 1
                     Timer1.Enabled = False
                 End If
             Case 1
@@ -392,7 +399,7 @@
 
                 Else
                     dgveditorial.Width = dvgeditorialW
-                    activadoE = 0
+                    activadoEdi = 0
                     Timer1.Enabled = False
                 End If
         End Select
@@ -402,14 +409,14 @@
     End Sub
 
     Private Sub Timer2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer2.Tick
-        Select Case activadoE
+        Select Case activadoAut
             Case 0
                 If panelautor.Left > 255 Then
                     panelautor.Left -= 5
 
                 Else
                     dgvautor.Width = dgvautor.Width - panelautor.Width
-                    activadoE = 1
+                    activadoAut = 1
                     Timer2.Enabled = False
                 End If
             Case 1
@@ -418,13 +425,9 @@
 
                 Else
                     dgvautor.Width = dvgautorW
-                    activadoE = 0
+                    activadoAut = 0
                     Timer2.Enabled = False
                 End If
         End Select
-    End Sub
-
-    Private Sub Peditorial_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Peditorial.Paint
-
     End Sub
 End Class
