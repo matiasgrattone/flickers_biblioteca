@@ -171,6 +171,14 @@
             dvgautorW = dgvautor.Width
 
         Else
+            txtcod_libro.ReadOnly = True
+            txttitulo.ReadOnly = True
+            txtanio.ReadOnly = True
+            txtorigen.ReadOnly = True
+            txtautor.ReadOnly = True
+            txtvolumen.ReadOnly = True
+            txtcasa_editorial.ReadOnly = True
+            txtobservaciones.ReadOnly = True
 
         End If
     End Sub

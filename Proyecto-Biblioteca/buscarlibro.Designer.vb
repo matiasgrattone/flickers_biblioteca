@@ -73,6 +73,8 @@ Partial Class buscarlibro
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Poculto = New System.Windows.Forms.Panel()
         Me.cmbestado = New System.Windows.Forms.ComboBox()
+        Me.dgvcomprobar = New System.Windows.Forms.DataGridView()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.txtbusqueda = New Proyecto_Biblioteca.PlaceHolder()
         CType(Me.dgvdatos2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvlibros, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -80,6 +82,7 @@ Partial Class buscarlibro
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Pactualizar.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvcomprobar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dgvdatos2
@@ -620,6 +623,21 @@ Partial Class buscarlibro
         Me.cmbestado.Size = New System.Drawing.Size(172, 28)
         Me.cmbestado.TabIndex = 30
         '
+        'dgvcomprobar
+        '
+        Me.dgvcomprobar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvcomprobar.Location = New System.Drawing.Point(773, 12)
+        Me.dgvcomprobar.Name = "dgvcomprobar"
+        Me.dgvcomprobar.Size = New System.Drawing.Size(143, 26)
+        Me.dgvcomprobar.TabIndex = 49
+        '
+        'Panel1
+        '
+        Me.Panel1.Location = New System.Drawing.Point(767, 10)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(149, 28)
+        Me.Panel1.TabIndex = 50
+        '
         'txtbusqueda
         '
         Me.txtbusqueda.Font = New System.Drawing.Font("Lucida Sans", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -636,6 +654,8 @@ Partial Class buscarlibro
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LimeGreen
         Me.ClientSize = New System.Drawing.Size(935, 612)
+        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.dgvcomprobar)
         Me.Controls.Add(Me.txtbusqueda)
         Me.Controls.Add(Me.Poculto)
         Me.Controls.Add(Me.dgvdatos2)
@@ -644,8 +664,8 @@ Partial Class buscarlibro
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.dgvlibros)
-        Me.Controls.Add(Me.Pactualizar)
         Me.Controls.Add(Me.Pmostrar)
+        Me.Controls.Add(Me.Pactualizar)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "buscarlibro"
         Me.Text = "Form2"
@@ -657,6 +677,7 @@ Partial Class buscarlibro
         Me.Pactualizar.ResumeLayout(False)
         Me.Pactualizar.PerformLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvcomprobar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -712,4 +733,6 @@ Partial Class buscarlibro
     Friend WithEvents btnback As System.Windows.Forms.Button
     Friend WithEvents cmbupdate As System.Windows.Forms.ComboBox
     Friend WithEvents txtbusqueda As Proyecto_Biblioteca.PlaceHolder
+    Friend WithEvents dgvcomprobar As System.Windows.Forms.DataGridView
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
 End Class
