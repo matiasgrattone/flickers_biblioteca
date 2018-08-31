@@ -24,12 +24,12 @@
         devoCOMBO.Visible = False
         ReservacionComboBox.Visible = False
         CrearReservacionComboBox.Visible = False
-        Button2.Visible = False
+        ButonParaExtreaer.Visible = False
         Label5.Visible = False
-        PictureExtraccion1.Visible = False
-        PictureDevolucion2.Visible = False
-        PictureCrearRes3.Visible = False
-        PictureReservacion4.Visible = False
+        PictureExtraccion.Visible = False
+        PictureDevolucion.Visible = False
+        PictureCrearReservacion.Visible = False
+        PictureReservacion.Visible = False
         Label5.Visible = False
         '//////////////////////////////////////VARIABLES PARA RALIZAR "CONSULTAS Y IFs" SIN ERRORES///////////////////////
         Dim Contador As Integer = 0
@@ -39,7 +39,7 @@
         '/////////////////////////////////////////////VARIABLES CON DIA Y HORA////////////////////
 
     End Sub
-    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
+    Private Sub ButonLiberar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonLiberar.Click
 
         Dim Es_moroso As MsgBoxResult
 
@@ -117,10 +117,10 @@
                     ExtCombo.Visible = False
                     devoCOMBO.Visible = False
                     ReservacionComboBox.Visible = False
-                    PictureExtraccion1.Visible = True
-                    PictureDevolucion2.Visible = True
-                    PictureCrearRes3.Visible = True
-                    PictureReservacion4.Visible = True
+                    PictureExtraccion.Visible = True
+                    PictureDevolucion.Visible = True
+                    PictureCrearReservacion.Visible = True
+                    PictureReservacion.Visible = True
                     Label5.Visible = True
                     CarritoDeLibros.Items.Clear()
                     ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
@@ -141,10 +141,10 @@
                 ExtCombo.Visible = False
                 devoCOMBO.Visible = False
                 ReservacionComboBox.Visible = False
-                PictureExtraccion1.Visible = False
-                PictureDevolucion2.Visible = False
-                PictureCrearRes3.Visible = False
-                PictureReservacion4.Visible = False
+                PictureExtraccion.Visible = False
+                PictureDevolucion.Visible = False
+                PictureCrearReservacion.Visible = False
+                PictureReservacion.Visible = False
                 Label5.Visible = False
                 CarritoDeLibros.Items.Clear()
                 ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
@@ -184,10 +184,10 @@
                     ExtCombo.Visible = False
                     devoCOMBO.Visible = False
                     ReservacionComboBox.Visible = False
-                    PictureExtraccion1.Visible = True
-                    PictureDevolucion2.Visible = True
-                    PictureCrearRes3.Visible = True
-                    PictureReservacion4.Visible = True
+                    PictureExtraccion.Visible = True
+                    PictureDevolucion.Visible = True
+                    PictureCrearReservacion.Visible = True
+                    PictureReservacion.Visible = True
                     Label5.Visible = True
                     CarritoDeLibros.Items.Clear()
                     ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
@@ -208,10 +208,10 @@
                 ExtCombo.Visible = False
                 devoCOMBO.Visible = False
                 ReservacionComboBox.Visible = False
-                PictureExtraccion1.Visible = False
-                PictureDevolucion2.Visible = False
-                PictureCrearRes3.Visible = False
-                PictureReservacion4.Visible = False
+                PictureExtraccion.Visible = False
+                PictureDevolucion.Visible = False
+                PictureCrearReservacion.Visible = False
+                PictureReservacion.Visible = False
                 Label5.Visible = False
                 Ocultar.Enabled = True
                 CarritoDeLibros.Items.Clear()
@@ -270,10 +270,10 @@
                         ExtCombo.Visible = False
                         devoCOMBO.Visible = False
                         ReservacionComboBox.Visible = False
-                        PictureExtraccion1.Visible = True
-                        PictureDevolucion2.Visible = True
-                        PictureCrearRes3.Visible = True
-                        PictureReservacion4.Visible = True
+                        PictureExtraccion.Visible = True
+                        PictureDevolucion.Visible = True
+                        PictureCrearReservacion.Visible = True
+                        PictureReservacion.Visible = True
                         Label5.Visible = True
                         CarritoDeLibros.Items.Clear()
                         ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
@@ -294,10 +294,10 @@
                     ExtCombo.Visible = False
                     devoCOMBO.Visible = False
                     ReservacionComboBox.Visible = False
-                    PictureExtraccion1.Visible = False
-                    PictureDevolucion2.Visible = False
-                    PictureCrearRes3.Visible = False
-                    PictureReservacion4.Visible = False
+                    PictureExtraccion.Visible = False
+                    PictureDevolucion.Visible = False
+                    PictureCrearReservacion.Visible = False
+                    PictureReservacion.Visible = False
                     Label5.Visible = False
                     CarritoDeLibros.Items.Clear()
                     ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
@@ -339,10 +339,10 @@
                         ExtCombo.Visible = False
                         devoCOMBO.Visible = False
                         ReservacionComboBox.Visible = False
-                        PictureExtraccion1.Visible = True
-                        PictureDevolucion2.Visible = True
-                        PictureCrearRes3.Visible = True
-                        PictureReservacion4.Visible = True
+                        PictureExtraccion.Visible = True
+                        PictureDevolucion.Visible = True
+                        PictureCrearReservacion.Visible = True
+                        PictureReservacion.Visible = True
                         Label5.Visible = True
                         CarritoDeLibros.Items.Clear()
                         ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
@@ -363,10 +363,10 @@
                     ExtCombo.Visible = False
                     devoCOMBO.Visible = False
                     ReservacionComboBox.Visible = False
-                    PictureExtraccion1.Visible = False
-                    PictureDevolucion2.Visible = False
-                    PictureCrearRes3.Visible = False
-                    PictureReservacion4.Visible = False
+                    PictureExtraccion.Visible = False
+                    PictureDevolucion.Visible = False
+                    PictureCrearReservacion.Visible = False
+                    PictureReservacion.Visible = False
                     Label5.Visible = False
                     Ocultar.Enabled = True
                     CarritoDeLibros.Items.Clear()
@@ -413,11 +413,8 @@
 
     End Sub
 
-    Private Sub Button2_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
-
-        Consulta = "select * from prestamolibro where fecha_entrada is NULL and cedula= '" + Cedula.Text + "'"
-        consultar()
-        DatagridviewOcultolllllParaFuncionesPrestmolllll.DataSource = Tabla
+    Private Sub ButonParaExtreaer_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButonParaExtreaer.Click
+        'Igualamos una variable al valor de la fecha de la tabla, del datagridview oculto
         Dim ROWS As DataGridViewRow = DatagridviewOcultolllllParaFuncionesPrestmolllll.CurrentRow
 
         Dim list, contador, libros As Integer
@@ -603,7 +600,7 @@
 
     End Sub
 
-    Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureExtraccion1.Click
+    Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureExtraccion.Click
         Consulta = "select * from prestamolibro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
         consultar()
         DatagridviewOcultolllllParaFuncionesPrestmolllll.DataSource = Tabla
@@ -661,16 +658,10 @@
 
     End Sub
 
-    Private Sub PictureBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureDevolucion2.Click
+    Private Sub PictureBoxParaDevolucion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureDevolucion.Click
 
-        Consulta = "select * from prestamolibro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
-        consultar()
-        DatagridviewOcultolllllParaFuncionesPrestmolllll.DataSource = Tabla
 
-        'Consulta = "select * from libro where estado = '0'"
-        'consultar()
-        'VERLIBROSAGG.DataSource = Tabla
-        'Dim ROWS As DataGridViewRow = OPA.CurrentRow
+        'Dim ROWS As DataGridView = DatagridviewOcultolllllParaFuncionesPrestmolllll.CurrentRow
 
         Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
         consultar()
@@ -681,6 +672,9 @@
         ExtCombo.Visible = False
         ReservacionComboBox.Visible = False
         CrearReservacionComboBox.Visible = False
+
+
+
         '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         If Cedula.Text <> "" Then
             devoCOMBO.Visible = True
@@ -694,7 +688,7 @@
 
     End Sub
 
-    Private Sub PictureBox4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureReservacion4.Click
+    Private Sub PictureBoxParaReservacion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureReservacion.Click
 
         '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ExtCombo.Visible = False
@@ -702,52 +696,42 @@
         CrearReservacionComboBox.Visible = False
         '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        Consulta = "select * from prestamolibro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
-        consultar()
-        DatagridviewOcultolllllParaFuncionesPrestmolllll.DataSource = Tabla
+        Dim ROWS As DataGridViewRow = DatagridviewOcultolllllParaFuncionesPrestmolllll.CurrentRow
 
         Consulta = "select * from libro where estado = 2"
         consultar()
         VerLibrosReservados.DataSource = Tabla
-        Dim ROWS As DataGridViewRow = DatagridviewOcultolllllParaFuncionesPrestmolllll.CurrentRow
-
-        '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
         '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        If Cedula.Text <> "" Then
 
-            If (DatagridviewOcultolllllParaFuncionesPrestmolllll.RowCount = 1) Then
 
-                ReservacionComboBox.Visible = True
+        '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-                Consulta = "select * from libro where estado = 2"
-                consultar()
-                VerLibrosReservados.DataSource = Tabla
+        If (DatagridviewOcultolllllParaFuncionesPrestmolllll.RowCount = 1) Then
 
-            End If
+            ReservacionComboBox.Visible = True
 
-        Else
+            Consulta = "select * from libro where estado = 2"
+            consultar()
+            VerLibrosReservados.DataSource = Tabla
+
         End If
         '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
         '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Try
-            If Cedula.Text <> "" Then
-                If (ROWS.Cells(3).Value.ToString) <> "" Then
-                    ReservacionComboBox.Visible = True
+            If (ROWS.Cells(3).Value.ToString) <> "" Then
+                ReservacionComboBox.Visible = True
 
-                    Consulta = "select * from libro where estado = 2"
-                    consultar()
-                    VerLibrosReservados.DataSource = Tabla
-                Else
-                    ReservacionComboBox.Visible = False
-                    MsgBox("Este socio NO puede retirar un libro hasta devolver los ya prestados", Title:="ERROR")
-                End If
-
+                Consulta = "select * from libro where estado = 2"
+                consultar()
+                VerLibrosReservados.DataSource = Tabla
             Else
-                MsgBox("La cedula debe estar ingrezada correctamente", Title:="PRESTAMOS")
+                ReservacionComboBox.Visible = False
+                MsgBox("Este socio NO puede retirar un libro hasta devolver los ya prestados", Title:="ERROR")
+
             End If
         Catch ex As Exception
         End Try
@@ -757,22 +741,22 @@
 
     End Sub
 
-    Private Sub PictureBox3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureCrearRes3.Click
+
+
+    Private Sub PictureBoxCrearReservacion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureCrearReservacion.Click
 
         '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ExtCombo.Visible = False
         devoCOMBO.Visible = False
         ReservacionComboBox.Visible = False
         '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        'Variable que se iguala al valor del datagridview oculto para hacer ocnsultas
+        Dim ROWS As DataGridViewRow = DatagridviewOcultolllllParaFuncionesPrestmolllll.CurrentRow
 
-        Consulta = "select * from prestamolibro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
-        consultar()
-        DatagridviewOcultolllllParaFuncionesPrestmolllll.DataSource = Tabla
 
         Consulta = "select * from libro where estado = '0'"
         consultar()
         LibrosParaReservar.DataSource = Tabla
-        Dim ROWS As DataGridViewRow = DatagridviewOcultolllllParaFuncionesPrestmolllll.CurrentRow
 
 
         '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -781,29 +765,26 @@
         ReservacionComboBox.Visible = False
         '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        If Cedula.Text <> "" Then
             CrearReservacionComboBox.Visible = True
 
             Consulta = "select * from libro where estado = '0'"
             consultar()
 
             LibrosParaReservar.DataSource = Tabla
-        Else
-            MsgBox("La cedula debe estar ingrezada correctamente", Title:="PRESTAMOS")
-        End If
+
         '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
     End Sub
 
-    Private Sub Button8_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button8.Click
+    Private Sub ButonEliminarReservacion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonEliminarReservacion.Click
 
-        Dim goku As String
-        goku = InputBox("Ingrese la id del libro para eliminar las reservacion", Title:="RESERVACION")
+        Dim Consulta As String
+        Consulta = InputBox("Ingrese la id del libro para eliminar las reservacion", Title:="RESERVACION")
         Try
-            If goku <> "" Then
-                Consulta = "update libro set estado = 0 where cod_libro = '" & goku & "'"
+            If Consulta <> "" Then
+                Consulta = "update libro set estado = 0 where cod_libro = '" & Consulta & "'"
                 consultar()
                 MsgBox("Se a cancelado la reservacion", Title:="PRESTAMO")
 
@@ -822,34 +803,31 @@
         VerLibrosReservados.DataSource = Tabla
     End Sub
 
-    Private Sub Button7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button7.Click
+    Private Sub BotonExtrearReservados_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BotonExtrearReservados.Click
 
-        Consulta = "select * from prestamolibro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
-        consultar()
-        DatagridviewOcultolllllParaFuncionesPrestmolllll.DataSource = Tabla
+        'Igualamos una variable al valor de la tabla, del datagridview oculto
         Dim ROWS As DataGridViewRow = DatagridviewOcultolllllParaFuncionesPrestmolllll.CurrentRow
 
-
-        Dim list, contador, libros As Integer
+        Dim list, contador, libros As String
         contador = 0
 
         list = 0
-        list = ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Count
+        list = ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Count 1
         list = list
 
         '1) El usario que puede extraer un libro SI ESTE NO TIENE NINGUN LIBROS EN PODER AHORA
         '/////////////////////CASO UNO///////////////////
-
         If Cedula.Text <> "" Then
             If (DatagridviewOcultolllllParaFuncionesPrestmolllll.RowCount = 1) Then
+
+                MsgBox("Este usuario puede retirar un libro", Title:="PRESTAMO")
 
                 While contador < list
                     contador = Val(contador) + 1
 
-
-                    Consulta = "insert into prestamolibro (cedula, cod_libro, fecha_salida) values ('" & Cedula.Text & "','" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) & "','" & Label4.Text & "')"
+                    Consulta = "insert into prestamolibro(cedula,cod:libro,fecha_salida) values ('" + Cedula.Text + "','" + ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) + "','" + Label4.Text + "')"
+                    MsgBox(Consulta)
                     consultar()
-
 
                     Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) & "';"
                     consultar()
@@ -861,11 +839,7 @@
                 CarritoDeLibros.Items.Clear()
                 ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
                 MsgBox("Se extrajo correctamente los libros", Title:="PRESTAMO")
-
-                Consulta = "select * from libro where estado = 2"
-                consultar()
-                VerLibrosReservados.DataSource = Tabla
-
+                ExtCombo.Visible = False
 
             End If
 
@@ -873,20 +847,21 @@
             MsgBox("La cedula debe estar ingrezada correctamente", Title:="PRESTAMOS")
         End If
 
-
         '/////////////////////CASO DOS///////////////////
         Try
             If Cedula.Text <> "" Then
 
                 If (ROWS.Cells(3).Value.ToString) <> "" Then
+                    MsgBox("Usted pude RETIRAR UN LIBREO", Title:="PRESTAMO")
 
                     While contador < list
                         contador = Val(contador) + 1
 
+
                         Consulta = "insert into prestamolibro (cedula, cod_libro, fecha_salida) values ('" & Cedula.Text & "','" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) & "','" & Label4.Text & "')"
                         consultar()
 
-                        Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) & "'"
+                        Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) & "';"
                         consultar()
 
                         libros = libros + 1
@@ -896,7 +871,7 @@
                     CarritoDeLibros.Items.Clear()
                     ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
                     MsgBox("Se extrajo correctamente los libros", Title:="PRESTAMO")
-
+                    ExtCombo.Visible = False
                 Else
                     MsgBox("Este usuario no puede retirar libros hasta devolver los prestados", Title:="PRESTAMOS")
 
@@ -910,7 +885,6 @@
         End Try
 
 
-        '    1)////////////////////
     End Sub
 
 
@@ -952,9 +926,9 @@
             End If
         End If
         If CarritoDeLibros.Items.Count <> 0 Then
-            Button2.Visible = True
+            ButonParaExtreaer.Visible = True
         Else
-            Button2.Visible = False
+            ButonParaExtreaer.Visible = False
         End If
 
     End Sub
@@ -1003,11 +977,11 @@
             End If
             If CarritoDeLibros.Items.Count <> 0 Then
 
-                Button2.Visible = True
+                ButonParaExtreaer.Visible = True
 
             Else
 
-                Button2.Visible = False
+                ButonParaExtreaer.Visible = False
 
             End If
         End If
@@ -1047,10 +1021,10 @@
             ExtCombo.Visible = False
             devoCOMBO.Visible = False
             ReservacionComboBox.Visible = False
-            PictureExtraccion1.Visible = False
-            PictureDevolucion2.Visible = False
-            PictureCrearRes3.Visible = False
-            PictureReservacion4.Visible = False
+            PictureExtraccion.Visible = False
+            PictureDevolucion.Visible = False
+            PictureCrearReservacion.Visible = False
+            PictureReservacion.Visible = False
             Label5.Visible = False
             Ocultar.Enabled = True
             MsgBox("La cedula ingresada no es correcta", Title:="Error")
@@ -1085,10 +1059,10 @@
             ExtCombo.Visible = False
             devoCOMBO.Visible = False
             ReservacionComboBox.Visible = False
-            PictureExtraccion1.Visible = False
-            PictureDevolucion2.Visible = False
-            PictureCrearRes3.Visible = False
-            PictureReservacion4.Visible = False
+            PictureExtraccion.Visible = False
+            PictureDevolucion.Visible = False
+            PictureCrearReservacion.Visible = False
+            PictureReservacion.Visible = False
             Label5.Visible = False
             MsgBox("Error en el ingreso de cedula", Title:="Error")
         End Try
@@ -1148,9 +1122,9 @@
 
         If CarritoDeLibros.Items.Count <> 0 Then
 
-            Button2.Visible = True
+            ButonParaExtreaer.Visible = True
         Else
-            Button2.Visible = False
+            ButonParaExtreaer.Visible = False
 
         End If
     End Sub
@@ -1302,7 +1276,7 @@
         Dim ROWS As DataGridViewRow = DatagridviewOcultolllllParaFuncionesPrestmolllll.CurrentRow
     End Sub
 
-    Private Sub PictureExtraccion1_MouseHover(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureExtraccion1.MouseHover
+    Private Sub PictureExtraccion1_MouseHover(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureExtraccion.MouseHover
         '////A Revisar///////////////
         'PictureExtraccion1.Image = Image.FromFile("C:\Users\Cristina.DESKTOP-QPL135E\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\Resources\devolcion.png")
 
