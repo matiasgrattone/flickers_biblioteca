@@ -111,8 +111,8 @@ Partial Class buscarlibro
         Me.Label10 = New System.Windows.Forms.Label()
         Me.txtbuscareditorial = New Proyecto_Biblioteca.PlaceHolder()
         Me.btnvolver = New System.Windows.Forms.Button()
-        Me.btncancelar = New System.Windows.Forms.Button()
         Me.btningeditorial = New System.Windows.Forms.Button()
+        Me.btncancelar = New System.Windows.Forms.Button()
         CType(Me.dgvdatos2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvlibros, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Pmostrar.SuspendLayout()
@@ -745,11 +745,11 @@ Partial Class buscarlibro
         Me.Pautor.Controls.Add(Me.btnvolver2)
         Me.Pautor.Controls.Add(Me.Label4)
         Me.Pautor.Controls.Add(Me.dgvautor)
-        Me.Pautor.Controls.Add(Me.btningautor)
         Me.Pautor.Controls.Add(Me.btncancelar2)
+        Me.Pautor.Controls.Add(Me.btningautor)
         Me.Pautor.Location = New System.Drawing.Point(13, 123)
         Me.Pautor.Name = "Pautor"
-        Me.Pautor.Size = New System.Drawing.Size(420, 285)
+        Me.Pautor.Size = New System.Drawing.Size(430, 285)
         Me.Pautor.TabIndex = 51
         '
         'panelautor
@@ -761,7 +761,7 @@ Partial Class buscarlibro
         Me.panelautor.Controls.Add(Me.lblnacionalidad)
         Me.panelautor.Controls.Add(Me.lblnombre)
         Me.panelautor.Controls.Add(Me.Label3)
-        Me.panelautor.Location = New System.Drawing.Point(419, 30)
+        Me.panelautor.Location = New System.Drawing.Point(428, 30)
         Me.panelautor.Name = "panelautor"
         Me.panelautor.Size = New System.Drawing.Size(162, 227)
         Me.panelautor.TabIndex = 46
@@ -828,9 +828,9 @@ Partial Class buscarlibro
         'txtbuscarautor
         '
         Me.txtbuscarautor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbuscarautor.Location = New System.Drawing.Point(250, 5)
+        Me.txtbuscarautor.Location = New System.Drawing.Point(261, 5)
         Me.txtbuscarautor.Name = "txtbuscarautor"
-        Me.txtbuscarautor.Size = New System.Drawing.Size(163, 21)
+        Me.txtbuscarautor.Size = New System.Drawing.Size(165, 21)
         Me.txtbuscarautor.TabIndex = 55
         Me.txtbuscarautor.WaterMarkColor = System.Drawing.Color.Gray
         Me.txtbuscarautor.WaterMarkText = "Buscar Autor"
@@ -839,7 +839,7 @@ Partial Class buscarlibro
         '
         Me.btnvolver2.Location = New System.Drawing.Point(8, 260)
         Me.btnvolver2.Name = "btnvolver2"
-        Me.btnvolver2.Size = New System.Drawing.Size(75, 21)
+        Me.btnvolver2.Size = New System.Drawing.Size(75, 20)
         Me.btnvolver2.TabIndex = 48
         Me.btnvolver2.Text = "Volver"
         Me.btnvolver2.UseVisualStyleBackColor = True
@@ -865,14 +865,14 @@ Partial Class buscarlibro
         Me.dgvautor.ReadOnly = True
         Me.dgvautor.RowHeadersVisible = False
         Me.dgvautor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvautor.Size = New System.Drawing.Size(408, 227)
+        Me.dgvautor.Size = New System.Drawing.Size(421, 231)
         Me.dgvautor.TabIndex = 1
         '
         'btningautor
         '
         Me.btningautor.Location = New System.Drawing.Point(118, 259)
         Me.btningautor.Name = "btningautor"
-        Me.btningautor.Size = New System.Drawing.Size(133, 23)
+        Me.btningautor.Size = New System.Drawing.Size(132, 23)
         Me.btningautor.TabIndex = 4
         Me.btningautor.Text = "Ingrese Nuevo Autor"
         Me.btningautor.UseVisualStyleBackColor = True
@@ -881,7 +881,7 @@ Partial Class buscarlibro
         '
         Me.btncancelar2.Location = New System.Drawing.Point(118, 259)
         Me.btncancelar2.Name = "btncancelar2"
-        Me.btncancelar2.Size = New System.Drawing.Size(133, 23)
+        Me.btncancelar2.Size = New System.Drawing.Size(132, 23)
         Me.btncancelar2.TabIndex = 4
         Me.btncancelar2.Text = "Cancelar"
         Me.btncancelar2.UseVisualStyleBackColor = True
@@ -900,9 +900,9 @@ Partial Class buscarlibro
         Me.Peditorial.Controls.Add(Me.Paneleditorial)
         Me.Peditorial.Controls.Add(Me.txtbuscareditorial)
         Me.Peditorial.Controls.Add(Me.btnvolver)
-        Me.Peditorial.Controls.Add(Me.btningeditorial)
         Me.Peditorial.Controls.Add(Me.btncancelar)
-        Me.Peditorial.Location = New System.Drawing.Point(317, 27)
+        Me.Peditorial.Controls.Add(Me.btningeditorial)
+        Me.Peditorial.Location = New System.Drawing.Point(13, 123)
         Me.Peditorial.Name = "Peditorial"
         Me.Peditorial.Size = New System.Drawing.Size(430, 285)
         Me.Peditorial.TabIndex = 52
@@ -910,7 +910,7 @@ Partial Class buscarlibro
         'Label19
         '
         Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(7, 9)
+        Me.Label19.Location = New System.Drawing.Point(12, 11)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(204, 13)
         Me.Label19.TabIndex = 4
@@ -923,7 +923,7 @@ Partial Class buscarlibro
         Me.dgveditorial.AllowUserToResizeColumns = False
         Me.dgveditorial.AllowUserToResizeRows = False
         Me.dgveditorial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgveditorial.Location = New System.Drawing.Point(3, 28)
+        Me.dgveditorial.Location = New System.Drawing.Point(5, 30)
         Me.dgveditorial.Name = "dgveditorial"
         Me.dgveditorial.ReadOnly = True
         Me.dgveditorial.RowHeadersVisible = False
@@ -1029,7 +1029,7 @@ Partial Class buscarlibro
         'txtbuscareditorial
         '
         Me.txtbuscareditorial.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbuscareditorial.Location = New System.Drawing.Point(246, 4)
+        Me.txtbuscareditorial.Location = New System.Drawing.Point(261, 5)
         Me.txtbuscareditorial.Name = "txtbuscareditorial"
         Me.txtbuscareditorial.Size = New System.Drawing.Size(165, 21)
         Me.txtbuscareditorial.TabIndex = 56
@@ -1045,15 +1045,6 @@ Partial Class buscarlibro
         Me.btnvolver.Text = "Volver"
         Me.btnvolver.UseVisualStyleBackColor = True
         '
-        'btncancelar
-        '
-        Me.btncancelar.Location = New System.Drawing.Point(136, 261)
-        Me.btncancelar.Name = "btncancelar"
-        Me.btncancelar.Size = New System.Drawing.Size(133, 23)
-        Me.btncancelar.TabIndex = 4
-        Me.btncancelar.Text = "Cancelar"
-        Me.btncancelar.UseVisualStyleBackColor = True
-        '
         'btningeditorial
         '
         Me.btningeditorial.Location = New System.Drawing.Point(136, 261)
@@ -1063,14 +1054,21 @@ Partial Class buscarlibro
         Me.btningeditorial.Text = "Ingresar nueva editorial"
         Me.btningeditorial.UseVisualStyleBackColor = True
         '
+        'btncancelar
+        '
+        Me.btncancelar.Location = New System.Drawing.Point(136, 261)
+        Me.btncancelar.Name = "btncancelar"
+        Me.btncancelar.Size = New System.Drawing.Size(132, 23)
+        Me.btncancelar.TabIndex = 4
+        Me.btncancelar.Text = "Cancelar"
+        Me.btncancelar.UseVisualStyleBackColor = True
+        '
         'buscarlibro
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LimeGreen
         Me.ClientSize = New System.Drawing.Size(935, 612)
-        Me.Controls.Add(Me.Peditorial)
-        Me.Controls.Add(Me.Pautor)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.dgvcomprobar)
         Me.Controls.Add(Me.txtbusqueda)
@@ -1078,11 +1076,13 @@ Partial Class buscarlibro
         Me.Controls.Add(Me.dgvdatos2)
         Me.Controls.Add(Me.cmbestado)
         Me.Controls.Add(Me.cmbdatos)
+        Me.Controls.Add(Me.Peditorial)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.dgvlibros)
         Me.Controls.Add(Me.Pactualizar)
         Me.Controls.Add(Me.Pmostrar)
+        Me.Controls.Add(Me.Pautor)
+        Me.Controls.Add(Me.dgvlibros)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "buscarlibro"
         Me.Text = "Form2"
