@@ -454,6 +454,24 @@ Public Class buscarlibro
             Try
                 'Este boton muestra un panel donde podremos seleccionar un autor o ingresar uno nuevo.
                 Try
+                    If activadoEdi = 1 Then
+                        'El Datagrid se redimensiona y a su vez el panel vuelve a su posicion original.
+                        Timer1.Enabled = True
+                    End If
+
+                    'El boton se esconde
+                    btncancelar.Visible = False
+                    'El boton se muestra
+                    btningeditorial.Visible = True
+
+                    'Limpia los campos de texto'
+                    txtnombree.Clear()
+                    txtpais.Clear()
+                    txtanioe.Clear()
+
+                    'El panel editorial se oculta.
+                    Peditorial.Visible = False
+
                     Pautor.Visible = True
                     Consulta = "SELECT * FROM autor"
                     consultar()
@@ -623,7 +641,6 @@ Public Class buscarlibro
     End Sub
 
     Private Sub btnvolver_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnvolver.Click
-
         If activadoEdi = 1 Then
             'El Datagrid se redimensiona y a su vez el panel vuelve a su posicion original.
             Timer1.Enabled = True
@@ -725,6 +742,23 @@ Public Class buscarlibro
             Try
                 'Este boton muestra un panel donde podremos seleccionar una editorial o ingresar una nueva.
                 Try
+                    If activadoAut = 1 Then
+                        'El datagrid se redimensiona y a su vez el panel vuelve a su posicion original.
+                        Timer2.Enabled = True
+                    End If
+
+                    'El boton se esconde
+                    btncancelar2.Visible = False
+                    'El boton se muestra
+                    btningautor.Visible = True
+
+                    'El contenido de los textbox es eliminado.
+                    txtnombreau.Clear()
+                    txtpaisau.Clear()
+
+                    'El panel autor se oculta.
+                    Pautor.Visible = False
+
                     Peditorial.Visible = True
                     Consulta = "SELECT * FROM editorial"
                     consultar()
@@ -745,5 +779,13 @@ Public Class buscarlibro
         Else
             MsgBox("Base de datos no disponible")
         End If
+    End Sub
+
+    Private Sub Pactualizar_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Pactualizar.Paint
+
+    End Sub
+
+    Private Sub Peditorial_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Peditorial.Paint
+
     End Sub
 End Class
