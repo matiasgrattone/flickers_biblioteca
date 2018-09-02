@@ -812,7 +812,7 @@
         contador = 0
 
         list = 0
-        list = ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Count 1
+        list = ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Count - 1
         list = list
 
         '1) El usario que puede extraer un libro SI ESTE NO TIENE NINGUN LIBROS EN PODER AHORA
