@@ -11,8 +11,9 @@
             Try
                 'El if se encarga de comprobar que los campos de cod_libro y titulo no se encuentren vacios.
                 'En caso de esto no permitira avanzar la consulta y se lanzara un mensaje de error.
-                If Trim(txtcod_libro.Text) = "" Or (txttitulo.Text) = "" Then
-                    MsgBox(" Ha ocurrido un error. Compruebe que los campos marcados por un * se hallen completos.")
+
+                If Trim(txtcod_libro.Text) = "" Or (txttitulo.Text) = "" Or (txtanio.Text) = "" Or (txtorigen.Text) = "" Or (txtautoroculto.Text) = "" Or (txtvolumen.Text) = "" Or (txteditorialoculto.Text) = "" Or (txtobservaciones.Text) = "" Then
+                    MsgBox(" Ha ocurrido un error. Compruebe que los campos contengan datos correctos.")
 
                 Else
 
@@ -62,7 +63,8 @@
                 End If
 
             Catch ex As Exception
-                MsgBox("Base de datos no disponible")
+
+                MsgBox("Error 01234: Imposible Ingresar el libro. Reintente")
             End Try
         Else
             MsgBox("Base de datos no disponible")
