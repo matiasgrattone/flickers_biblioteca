@@ -6,15 +6,44 @@
     Dim dvgeditorialW As Integer
     Dim dvgautorW As Integer
     Dim bandera As Integer
+    Dim primeringreso As Integer = 0
+    Dim contadoringreso As Integer = 0
     Private Sub ingresar_boton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ingresar_boton.Click
         If bandera = 1 Then
             Try
-                'El if se encarga de comprobar que los campos de cod_libro y titulo no se encuentren vacios.
-                'En caso de esto no permitira avanzar la consulta y se lanzara un mensaje de error.
 
-                If Trim(txtcod_libro.Text) = "" Or (txttitulo.Text) = "" Or (txtanio.Text) = "" Or (txtorigen.Text) = "" Or (txtautoroculto.Text) = "" Or (txtvolumen.Text) = "" Or (txteditorialoculto.Text) = "" Or (txtobservaciones.Text) = "" Then
-                    MsgBox(" Ha ocurrido un error. Compruebe que los campos contengan datos correctos.")
+                If Trim(txtcod_libro.Text) = "" Then
+                    ErrorProvider1.SetError(txtcod_libro, "El campo se encuentra vacio")
+                    contadoringreso = contadoringreso + 1
+                End If
+                If Trim(txttitulo.Text) = "" Then
+                    ErrorProvider1.SetError(txttitulo, "El campo se encuentra vacio")
+                    contadoringreso = contadoringreso + 1
+                End If
+                If Trim(txtanio.Text) = "" Then
+                    ErrorProvider1.SetError(txtanio, "El campo se encuentra vacio")
+                    contadoringreso = contadoringreso + 1
+                End If
+                If Trim(txtorigen.Text) = "" Then
+                    ErrorProvider1.SetError(txtorigen, "El campo se encuentra vacio")
+                    contadoringreso = contadoringreso + 1
+                End If
+                If Trim(txtautoroculto.Text) = "" Then
+                    ErrorProvider1.SetError(txtautoroculto, "El campo se encuentra vacio")
+                    contadoringreso = contadoringreso + 1
+                End If
+                If Trim(txtvolumen.Text) = "" Then
+                    ErrorProvider1.SetError(txtvolumen, "El campo se encuentra vacio")
+                    contadoringreso = contadoringreso + 1
+                End If
+                If Trim(txteditorialoculto.Text) = "" Then
+                    ErrorProvider1.SetError(txteditorialoculto, "El campo se encuentra vacio")
+                    contadoringreso = contadoringreso + 1
+                End If
 
+                If contadoringreso <> 0 Then
+                    contadoringreso = 0
+                    primeringreso = 1
                 Else
 
                     For Each Row As DataGridViewRow In dgvlibro.Rows
@@ -54,6 +83,16 @@
                             txtorigen.Clear()
                             txtobservaciones.Clear()
                             '/////////////////////////////////////////////////////
+
+                            primeringreso = 0
+                            ErrorProvider1.SetError(txtcod_libro, "")
+                            ErrorProvider1.SetError(txttitulo, "")
+                            ErrorProvider1.SetError(txtanio, "")
+                            ErrorProvider1.SetError(txtorigen, "")
+                            ErrorProvider1.SetError(txtautoroculto, "")
+                            ErrorProvider1.SetError(txtvolumen, "")
+                            ErrorProvider1.SetError(txteditorialoculto, "")
+
                             MsgBox("se ha ingresado el libro en el inventario")
                         Catch ex As Exception
                             MsgBox(ex)
@@ -127,6 +166,7 @@
     End Sub
 
     Private Sub ingresolibro_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Dim contadoringreso As Integer = 0
         Pautor.Visible = False
         Peditorial.Visible = False
         'Comprobacion'
@@ -431,5 +471,100 @@
                     Timer2.Enabled = False
                 End If
         End Select
+    End Sub
+    Private Sub txtcod_libro_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtcod_libro.TextChanged
+        'Activa el mensaje de error al fallar el ingreso.
+        If primeringreso = 1 Then
+            If txtcod_libro.Text = "" Then
+                ErrorProvider1.SetError(txtcod_libro, "El campo se encuentra vacio")
+            Else
+                'En caso de escribir algo en el textbox este se desactiva
+                ErrorProvider1.SetError(txtcod_libro, "")
+            End If
+        End If
+    End Sub
+
+    Private Sub txttitulo_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txttitulo.TextChanged
+        'Activa el mensaje de error al fallar el ingreso.
+        If primeringreso = 1 Then
+            If txttitulo.Text = "" Then
+                ErrorProvider1.SetError(txttitulo, "El campo se encuentra vacio")
+            Else
+                'En caso de escribir algo en el textbox este se desactiva
+                ErrorProvider1.SetError(txttitulo, "")
+            End If
+        End If
+    End Sub
+
+    Private Sub txtanio_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtanio.TextChanged
+        'Activa el mensaje de error al fallar el ingreso.
+        If primeringreso = 1 Then
+            If txtanio.Text = "" Then
+                ErrorProvider1.SetError(txtanio, "El campo se encuentra vacio")
+            Else
+                'En caso de escribir algo en el textbox este se desactiva
+                ErrorProvider1.SetError(txtanio, "")
+            End If
+        End If
+    End Sub
+
+    Private Sub txtorigen_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtorigen.TextChanged
+        'Activa el mensaje de error al fallar el ingreso.
+        If primeringreso = 1 Then
+            If txtorigen.Text = "" Then
+                ErrorProvider1.SetError(txtorigen, "El campo se encuentra vacio")
+            Else
+                'En caso de escribir algo en el textbox este se desactiva
+                ErrorProvider1.SetError(txtorigen, "")
+            End If
+        End If
+    End Sub
+
+    Private Sub txtvolumen_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtvolumen.TextChanged
+        'Activa el mensaje de error al fallar el ingreso.
+        If primeringreso = 1 Then
+            If txtvolumen.Text = "" Then
+                ErrorProvider1.SetError(txtvolumen, "El campo se encuentra vacio")
+            Else
+                'En caso de escribir algo en el textbox este se desactiva
+                ErrorProvider1.SetError(txtvolumen, "")
+            End If
+        End If
+    End Sub
+
+    Private Sub txtobservaciones_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtobservaciones.TextChanged
+        'Activa el mensaje de error al fallar el ingreso.
+        If primeringreso = 1 Then
+            If txtvolumen.Text = "" Then
+                ErrorProvider1.SetError(txtvolumen, "El campo se encuentra vacio")
+            Else
+                'En caso de escribir algo en el textbox este se desactiva
+                ErrorProvider1.SetError(txtvolumen, "")
+            End If
+        End If
+    End Sub
+
+    Private Sub txtautoroculto_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtautoroculto.TextChanged
+        'Activa el mensaje de error al fallar el ingreso.
+        If primeringreso = 1 Then
+            If txtautoroculto.Text = "" Then
+                ErrorProvider1.SetError(txtautoroculto, "El campo se encuentra vacio")
+            Else
+                'En caso de escribir algo en el textbox este se desactiva
+                ErrorProvider1.SetError(txtautoroculto, "")
+            End If
+        End If
+    End Sub
+
+    Private Sub txteditorialoculto_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txteditorialoculto.TextChanged
+        'Activa el mensaje de error al fallar el ingreso.
+        If primeringreso = 1 Then
+            If txteditorialoculto.Text = "" Then
+                ErrorProvider1.SetError(txteditorialoculto, "El campo se encuentra vacio")
+            Else
+                'En caso de escribir algo en el textbox este se desactiva
+                ErrorProvider1.SetError(txteditorialoculto, "")
+            End If
+        End If
     End Sub
 End Class
