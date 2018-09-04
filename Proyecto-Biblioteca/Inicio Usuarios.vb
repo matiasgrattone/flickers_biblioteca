@@ -766,5 +766,8 @@
 
     End Sub
     
+    Private Sub Panel10_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles Panel10.Paint
+
+    End Sub
 End Class
 
