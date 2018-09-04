@@ -27,7 +27,7 @@ Partial Class Prestamos
         Me.ButonParaExtreaer = New System.Windows.Forms.Button()
         Me.BotonParaBuscarCedula = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Button6 = New System.Windows.Forms.Button()
+        Me.ButtonMoroso = New System.Windows.Forms.Button()
         Me.CarritoDeLibros = New System.Windows.Forms.ListBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.NOMBRE = New System.Windows.Forms.Label()
@@ -38,30 +38,29 @@ Partial Class Prestamos
         Me.DatagridviewOcultolllllParaFuncionesPrestmolllll = New System.Windows.Forms.DataGridView()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.devoCOMBO = New System.Windows.Forms.GroupBox()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.DataGridAGG = New System.Windows.Forms.DataGridView()
+        Me.DataGridParaDevolucion = New System.Windows.Forms.DataGridView()
         Me.ENPODER = New System.Windows.Forms.Label()
         Me.ExtCombo = New System.Windows.Forms.GroupBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.LIBROS = New System.Windows.Forms.TextBox()
+        Me.TextboxBuscador = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.VERLIBROSAGG = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewlllllVerLibrosEnExtraccionlllll = New System.Windows.Forms.DataGridView()
         Me.ReservacionComboBox = New System.Windows.Forms.GroupBox()
+        Me.VerLibrosReservados2 = New System.Windows.Forms.DataGridView()
         Me.ButtonEliminarReservacion = New System.Windows.Forms.Button()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.BotonExtrearReservados = New System.Windows.Forms.Button()
-        Me.VerLibrosReservados = New System.Windows.Forms.DataGridView()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.PictureCrearReservacion = New System.Windows.Forms.PictureBox()
         Me.PictureReservacion = New System.Windows.Forms.PictureBox()
         Me.PictureDevolucion = New System.Windows.Forms.PictureBox()
@@ -78,16 +77,20 @@ Partial Class Prestamos
         Me.Ocultar = New System.Windows.Forms.Timer(Me.components)
         Me.Ocultar_Aparecer = New System.Windows.Forms.Timer(Me.components)
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
+        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DatagridviewOcultolllllParaFuncionesPrestmolllll, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.devoCOMBO.SuspendLayout()
-        CType(Me.DataGridAGG, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridParaDevolucion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ExtCombo.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.VERLIBROSAGG, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridViewlllllVerLibrosEnExtraccionlllll, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ReservacionComboBox.SuspendLayout()
-        CType(Me.VerLibrosReservados, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.VerLibrosReservados2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureCrearReservacion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureReservacion, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -96,6 +99,7 @@ Partial Class Prestamos
         Me.CrearReservacionComboBox.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LibrosParaReservar, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel4.SuspendLayout()
         Me.SuspendLayout()
         '
         'Timer1
@@ -123,7 +127,7 @@ Partial Class Prestamos
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.ScrollBar
-        Me.Panel1.Controls.Add(Me.Button6)
+        Me.Panel1.Controls.Add(Me.ButtonMoroso)
         Me.Panel1.Controls.Add(Me.CarritoDeLibros)
         Me.Panel1.Controls.Add(Me.Label4)
         Me.Panel1.Controls.Add(Me.NOMBRE)
@@ -134,26 +138,27 @@ Partial Class Prestamos
         Me.Panel1.Controls.Add(Me.DatagridviewOcultolllllParaFuncionesPrestmolllll)
         Me.Panel1.Controls.Add(Me.Label9)
         Me.Panel1.Controls.Add(Me.Label8)
-        Me.Panel1.Location = New System.Drawing.Point(-6, -28)
+        Me.Panel1.Controls.Add(Me.Label12)
+        Me.Panel1.Location = New System.Drawing.Point(-270, -28)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(268, 676)
         Me.Panel1.TabIndex = 73
         '
-        'Button6
+        'ButtonMoroso
         '
-        Me.Button6.Location = New System.Drawing.Point(17, 631)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(86, 29)
-        Me.Button6.TabIndex = 80
-        Me.Button6.Text = "Moroso"
-        Me.Button6.UseVisualStyleBackColor = True
+        Me.ButtonMoroso.Location = New System.Drawing.Point(17, 631)
+        Me.ButtonMoroso.Name = "ButtonMoroso"
+        Me.ButtonMoroso.Size = New System.Drawing.Size(86, 29)
+        Me.ButtonMoroso.TabIndex = 80
+        Me.ButtonMoroso.Text = "Moroso"
+        Me.ButtonMoroso.UseVisualStyleBackColor = True
         '
         'CarritoDeLibros
         '
         Me.CarritoDeLibros.FormattingEnabled = True
         Me.CarritoDeLibros.Location = New System.Drawing.Point(9, 228)
         Me.CarritoDeLibros.Name = "CarritoDeLibros"
-        Me.CarritoDeLibros.Size = New System.Drawing.Size(249, 342)
+        Me.CarritoDeLibros.Size = New System.Drawing.Size(254, 329)
         Me.CarritoDeLibros.TabIndex = 68
         '
         'Label4
@@ -208,7 +213,7 @@ Partial Class Prestamos
         Me.DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.Location = New System.Drawing.Point(212, 381)
         Me.DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.Name = "DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll"
-        Me.DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.Size = New System.Drawing.Size(23, 32)
+        Me.DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.Size = New System.Drawing.Size(23, 23)
         Me.DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.TabIndex = 56
         '
         'DatagridviewOcultolllllParaFuncionesPrestmolllll
@@ -241,6 +246,15 @@ Partial Class Prestamos
         Me.Label8.TabIndex = 69
         Me.Label8.Text = "ID "
         '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(171, 342)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(45, 13)
+        Me.Label12.TabIndex = 76
+        Me.Label12.Text = "Label12"
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -257,7 +271,7 @@ Partial Class Prestamos
         Me.devoCOMBO.Controls.Add(Me.Button4)
         Me.devoCOMBO.Controls.Add(Me.Button5)
         Me.devoCOMBO.Controls.Add(Me.Label11)
-        Me.devoCOMBO.Controls.Add(Me.DataGridAGG)
+        Me.devoCOMBO.Controls.Add(Me.DataGridParaDevolucion)
         Me.devoCOMBO.Controls.Add(Me.ENPODER)
         Me.devoCOMBO.Location = New System.Drawing.Point(263, 98)
         Me.devoCOMBO.Name = "devoCOMBO"
@@ -294,18 +308,18 @@ Partial Class Prestamos
         Me.Label11.TabIndex = 62
         Me.Label11.Text = "DEVOLUCION"
         '
-        'DataGridAGG
+        'DataGridParaDevolucion
         '
-        Me.DataGridAGG.AllowUserToAddRows = False
-        Me.DataGridAGG.AllowUserToDeleteRows = False
-        Me.DataGridAGG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridAGG.Location = New System.Drawing.Point(5, 75)
-        Me.DataGridAGG.Name = "DataGridAGG"
-        Me.DataGridAGG.ReadOnly = True
-        Me.DataGridAGG.RowHeadersVisible = False
-        Me.DataGridAGG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridAGG.Size = New System.Drawing.Size(603, 466)
-        Me.DataGridAGG.TabIndex = 0
+        Me.DataGridParaDevolucion.AllowUserToAddRows = False
+        Me.DataGridParaDevolucion.AllowUserToDeleteRows = False
+        Me.DataGridParaDevolucion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridParaDevolucion.Location = New System.Drawing.Point(5, 75)
+        Me.DataGridParaDevolucion.Name = "DataGridParaDevolucion"
+        Me.DataGridParaDevolucion.ReadOnly = True
+        Me.DataGridParaDevolucion.RowHeadersVisible = False
+        Me.DataGridParaDevolucion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridParaDevolucion.Size = New System.Drawing.Size(603, 466)
+        Me.DataGridParaDevolucion.TabIndex = 0
         '
         'ENPODER
         '
@@ -326,9 +340,9 @@ Partial Class Prestamos
         Me.ExtCombo.Controls.Add(Me.Label3)
         Me.ExtCombo.Controls.Add(Me.Label10)
         Me.ExtCombo.Controls.Add(Me.ButonParaExtreaer)
-        Me.ExtCombo.Controls.Add(Me.LIBROS)
+        Me.ExtCombo.Controls.Add(Me.TextboxBuscador)
         Me.ExtCombo.Controls.Add(Me.Label6)
-        Me.ExtCombo.Controls.Add(Me.VERLIBROSAGG)
+        Me.ExtCombo.Controls.Add(Me.DataGridViewlllllVerLibrosEnExtraccionlllll)
         Me.ExtCombo.Location = New System.Drawing.Point(263, 98)
         Me.ExtCombo.Name = "ExtCombo"
         Me.ExtCombo.Size = New System.Drawing.Size(737, 550)
@@ -377,12 +391,12 @@ Partial Class Prestamos
         Me.Label10.TabIndex = 21
         Me.Label10.Text = "ID"
         '
-        'LIBROS
+        'TextboxBuscador
         '
-        Me.LIBROS.Location = New System.Drawing.Point(44, 49)
-        Me.LIBROS.Name = "LIBROS"
-        Me.LIBROS.Size = New System.Drawing.Size(413, 20)
-        Me.LIBROS.TabIndex = 20
+        Me.TextboxBuscador.Location = New System.Drawing.Point(44, 49)
+        Me.TextboxBuscador.Name = "TextboxBuscador"
+        Me.TextboxBuscador.Size = New System.Drawing.Size(413, 20)
+        Me.TextboxBuscador.TabIndex = 20
         '
         'Label6
         '
@@ -394,33 +408,41 @@ Partial Class Prestamos
         Me.Label6.TabIndex = 19
         Me.Label6.Text = "BUSCAR LIBRO"
         '
-        'VERLIBROSAGG
+        'DataGridViewlllllVerLibrosEnExtraccionlllll
         '
-        Me.VERLIBROSAGG.AllowUserToAddRows = False
-        Me.VERLIBROSAGG.AllowUserToDeleteRows = False
-        Me.VERLIBROSAGG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.VERLIBROSAGG.Location = New System.Drawing.Point(4, 140)
-        Me.VERLIBROSAGG.Name = "VERLIBROSAGG"
-        Me.VERLIBROSAGG.ReadOnly = True
-        Me.VERLIBROSAGG.RowHeadersVisible = False
-        Me.VERLIBROSAGG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.VERLIBROSAGG.Size = New System.Drawing.Size(618, 401)
-        Me.VERLIBROSAGG.TabIndex = 17
+        Me.DataGridViewlllllVerLibrosEnExtraccionlllll.AllowUserToAddRows = False
+        Me.DataGridViewlllllVerLibrosEnExtraccionlllll.AllowUserToDeleteRows = False
+        Me.DataGridViewlllllVerLibrosEnExtraccionlllll.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridViewlllllVerLibrosEnExtraccionlllll.Location = New System.Drawing.Point(4, 140)
+        Me.DataGridViewlllllVerLibrosEnExtraccionlllll.Name = "DataGridViewlllllVerLibrosEnExtraccionlllll"
+        Me.DataGridViewlllllVerLibrosEnExtraccionlllll.ReadOnly = True
+        Me.DataGridViewlllllVerLibrosEnExtraccionlllll.RowHeadersVisible = False
+        Me.DataGridViewlllllVerLibrosEnExtraccionlllll.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridViewlllllVerLibrosEnExtraccionlllll.Size = New System.Drawing.Size(618, 401)
+        Me.DataGridViewlllllVerLibrosEnExtraccionlllll.TabIndex = 17
         '
         'ReservacionComboBox
         '
         Me.ReservacionComboBox.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.ReservacionComboBox.Controls.Add(Me.VerLibrosReservados2)
         Me.ReservacionComboBox.Controls.Add(Me.ButtonEliminarReservacion)
         Me.ReservacionComboBox.Controls.Add(Me.Label18)
         Me.ReservacionComboBox.Controls.Add(Me.Label19)
         Me.ReservacionComboBox.Controls.Add(Me.BotonExtrearReservados)
-        Me.ReservacionComboBox.Controls.Add(Me.VerLibrosReservados)
         Me.ReservacionComboBox.Location = New System.Drawing.Point(263, 99)
         Me.ReservacionComboBox.Name = "ReservacionComboBox"
         Me.ReservacionComboBox.Size = New System.Drawing.Size(737, 546)
         Me.ReservacionComboBox.TabIndex = 77
         Me.ReservacionComboBox.TabStop = False
         Me.ReservacionComboBox.Text = "RESERVADOS"
+        '
+        'VerLibrosReservados2
+        '
+        Me.VerLibrosReservados2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.VerLibrosReservados2.Location = New System.Drawing.Point(6, 78)
+        Me.VerLibrosReservados2.Name = "VerLibrosReservados2"
+        Me.VerLibrosReservados2.Size = New System.Drawing.Size(578, 455)
+        Me.VerLibrosReservados2.TabIndex = 81
         '
         'ButtonEliminarReservacion
         '
@@ -461,36 +483,12 @@ Partial Class Prestamos
         Me.BotonExtrearReservados.Text = "EXTRAER"
         Me.BotonExtrearReservados.UseVisualStyleBackColor = True
         '
-        'VerLibrosReservados
-        '
-        Me.VerLibrosReservados.AllowUserToAddRows = False
-        Me.VerLibrosReservados.AllowUserToDeleteRows = False
-        Me.VerLibrosReservados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.VerLibrosReservados.Cursor = System.Windows.Forms.Cursors.Arrow
-        Me.VerLibrosReservados.Location = New System.Drawing.Point(4, 57)
-        Me.VerLibrosReservados.Name = "VerLibrosReservados"
-        Me.VerLibrosReservados.ReadOnly = True
-        Me.VerLibrosReservados.RowHeadersVisible = False
-        Me.VerLibrosReservados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.VerLibrosReservados.Size = New System.Drawing.Size(576, 483)
-        Me.VerLibrosReservados.TabIndex = 17
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(924, 39)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(89, 45)
-        Me.Label5.TabIndex = 66
-        Me.Label5.Text = "SELECCION " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      DE " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FUNCION "
-        '
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.SystemColors.ScrollBar
+        Me.Panel3.Controls.Add(Me.Panel4)
         Me.Panel3.Controls.Add(Me.Cedula)
         Me.Panel3.Controls.Add(Me.Label1)
-        Me.Panel3.Controls.Add(Me.Label5)
         Me.Panel3.Controls.Add(Me.BotonParaBuscarCedula)
         Me.Panel3.Controls.Add(Me.PictureCrearReservacion)
         Me.Panel3.Controls.Add(Me.PictureReservacion)
@@ -500,16 +498,6 @@ Partial Class Prestamos
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(1016, 112)
         Me.Panel3.TabIndex = 75
-        '
-        'Cedula
-        '
-        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Cedula.Location = New System.Drawing.Point(6, 54)
-        Me.Cedula.Name = "Cedula"
-        Me.Cedula.Size = New System.Drawing.Size(259, 20)
-        Me.Cedula.TabIndex = 75
-        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
-        Me.Cedula.WaterMarkText = "Cedula"
         '
         'PictureCrearReservacion
         '
@@ -659,6 +647,38 @@ Partial Class Prestamos
         Me.Panel2.Size = New System.Drawing.Size(1016, 38)
         Me.Panel2.TabIndex = 78
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(23, 16)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(89, 45)
+        Me.Label5.TabIndex = 66
+        Me.Label5.Text = "SELECCION " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      DE " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FUNCION "
+        '
+        'Panel4
+        '
+        Me.Panel4.BackColor = System.Drawing.SystemColors.ScrollBar
+        Me.Panel4.Controls.Add(Me.Label5)
+        Me.Panel4.Location = New System.Drawing.Point(880, 14)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(135, 87)
+        Me.Panel4.TabIndex = 76
+        '
+        'Timer2
+        '
+        '
+        'Cedula
+        '
+        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.Cedula.Location = New System.Drawing.Point(6, 54)
+        Me.Cedula.Name = "Cedula"
+        Me.Cedula.Size = New System.Drawing.Size(259, 20)
+        Me.Cedula.TabIndex = 75
+        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
+        Me.Cedula.WaterMarkText = "Cedula"
+        '
         'Prestamos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -682,14 +702,14 @@ Partial Class Prestamos
         CType(Me.DatagridviewOcultolllllParaFuncionesPrestmolllll, System.ComponentModel.ISupportInitialize).EndInit()
         Me.devoCOMBO.ResumeLayout(False)
         Me.devoCOMBO.PerformLayout()
-        CType(Me.DataGridAGG, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridParaDevolucion, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ExtCombo.ResumeLayout(False)
         Me.ExtCombo.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.VERLIBROSAGG, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridViewlllllVerLibrosEnExtraccionlllll, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ReservacionComboBox.ResumeLayout(False)
         Me.ReservacionComboBox.PerformLayout()
-        CType(Me.VerLibrosReservados, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.VerLibrosReservados2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         CType(Me.PictureCrearReservacion, System.ComponentModel.ISupportInitialize).EndInit()
@@ -700,6 +720,8 @@ Partial Class Prestamos
         Me.CrearReservacionComboBox.PerformLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LibrosParaReservar, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel4.ResumeLayout(False)
+        Me.Panel4.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -713,12 +735,12 @@ Partial Class Prestamos
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents CarritoDeLibros As System.Windows.Forms.ListBox
     Friend WithEvents devoCOMBO As System.Windows.Forms.GroupBox
-    Friend WithEvents DataGridAGG As System.Windows.Forms.DataGridView
+    Friend WithEvents DataGridParaDevolucion As System.Windows.Forms.DataGridView
     Friend WithEvents ExtCombo As System.Windows.Forms.GroupBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents LIBROS As System.Windows.Forms.TextBox
+    Friend WithEvents TextboxBuscador As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents VERLIBROSAGG As System.Windows.Forms.DataGridView
+    Friend WithEvents DataGridViewlllllVerLibrosEnExtraccionlllll As System.Windows.Forms.DataGridView
     Friend WithEvents ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll As System.Windows.Forms.ListBox
     Friend WithEvents ENPODER As System.Windows.Forms.Label
     Friend WithEvents NOMBRE As System.Windows.Forms.Label
@@ -729,20 +751,17 @@ Partial Class Prestamos
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents Button4 As System.Windows.Forms.Button
-    Friend WithEvents Button6 As System.Windows.Forms.Button
+    Friend WithEvents ButtonMoroso As System.Windows.Forms.Button
     Friend WithEvents PictureExtraccion As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureDevolucion As System.Windows.Forms.PictureBox
     Friend WithEvents PictureCrearReservacion As System.Windows.Forms.PictureBox
     Friend WithEvents PictureReservacion As System.Windows.Forms.PictureBox
     Friend WithEvents ReservacionComboBox As System.Windows.Forms.GroupBox
     Friend WithEvents Label18 As System.Windows.Forms.Label
     Friend WithEvents Label19 As System.Windows.Forms.Label
     Friend WithEvents BotonExtrearReservados As System.Windows.Forms.Button
-    Friend WithEvents VerLibrosReservados As System.Windows.Forms.DataGridView
     Friend WithEvents CrearReservacionComboBox As System.Windows.Forms.GroupBox
     Friend WithEvents Label22 As System.Windows.Forms.Label
     Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
@@ -758,4 +777,10 @@ Partial Class Prestamos
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
     Friend WithEvents Cedula As Proyecto_Biblioteca.PlaceHolder
+    Friend WithEvents VerLibrosReservados2 As System.Windows.Forms.DataGridView
+    Friend WithEvents Label12 As System.Windows.Forms.Label
+    Private WithEvents PictureDevolucion As System.Windows.Forms.PictureBox
+    Friend WithEvents Panel4 As System.Windows.Forms.Panel
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents Timer2 As System.Windows.Forms.Timer
 End Class
