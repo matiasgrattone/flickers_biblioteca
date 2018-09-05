@@ -7,7 +7,7 @@ Module Modulo
     Public nombre As String 'Variable para cambiar mostrar nombre en inicio usuario
 
     Dim ubicacion As String = "server=localhost; user id=root; password=''; database=biblioteca"
-    'Dim ubicacion As String = "server=bibliotecadb.ddns.net; user id=admin; password=admin; database=biblioteca"
+    'Dim ubicacion As String = "server=192.168.1.49; user id=admin; password=admin; database=biblioteca"
     Public Conexion As MySqlDataAdapter
     Public Tabla As DataTable
     Public Consulta As String
@@ -43,7 +43,38 @@ Module Modulo
 
 
     End Sub
+    Public Sub mestonum()
 
+        Select Case substring
+
+            Case "Enero"
+                substring = "01"
+            Case "Febrero"
+                substring = "02"
+            Case "Marzo"
+                substring = "03"
+            Case "Abril"
+                substring = "04"
+            Case "Mayo"
+                substring = "05"
+            Case "Junio"
+                substring = "06"
+            Case "Julio"
+                substring = "07"
+            Case "Agosto"
+                substring = "08"
+            Case "Septiembre"
+                substring = "09"
+            Case "Octubre"
+                substring = "10"
+            Case "Noviembre"
+                substring = "11"
+            Case "Diciembre"
+                substring = "12"
+
+        End Select
+
+    End Sub
 
     Public Sub mes()
 
@@ -119,7 +150,6 @@ Module Modulo
         Dim cedula As String
         Dim num(7) As Char
         Dim suma As Integer
-        Dim suma1 As Integer
         Dim calculo() As Integer = {2, 9, 8, 7, 6, 3, 4}
 
         cedula = cedu
@@ -144,7 +174,9 @@ Module Modulo
         num = cedula.ToCharArray()
 
         Dim resto As Integer = 10 - (suma Mod 10)
-
+        If resto = 10 Then
+            resto = 0
+        End If
         If resto = Val(num(7)) Then
             correcto = 0
         Else

@@ -27,21 +27,10 @@ Partial Class Inicio_UsuariosV2
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Ingresar_Panel = New System.Windows.Forms.Panel()
-        Me.RadioButton4 = New System.Windows.Forms.RadioButton()
-        Me.guardar = New System.Windows.Forms.Button()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.Label15 = New System.Windows.Forms.Label()
         Me.Editar_Panel = New System.Windows.Forms.Panel()
+        Me.ComboBox4 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox5 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox6 = New System.Windows.Forms.ComboBox()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
@@ -59,11 +48,23 @@ Partial Class Inicio_UsuariosV2
         Me.Label6 = New System.Windows.Forms.Label()
         Me.telefono = New System.Windows.Forms.TextBox()
         Me.direccion = New System.Windows.Forms.TextBox()
+        Me.Ingresar_Panel = New System.Windows.Forms.Panel()
+        Me.RadioButton4 = New System.Windows.Forms.RadioButton()
+        Me.guardar = New System.Windows.Forms.Button()
+        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
+        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.TimerMenu = New System.Windows.Forms.Timer(Me.components)
-        Me.ComboBox4 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox5 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox6 = New System.Windows.Forms.ComboBox()
+        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.direccion_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.telefono_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.cedula_txt = New Proyecto_Biblioteca.PlaceHolder()
@@ -74,9 +75,10 @@ Partial Class Inicio_UsuariosV2
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Ingresar_Panel.SuspendLayout()
         Me.Editar_Panel.SuspendLayout()
+        Me.Ingresar_Panel.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Menu_Panel
@@ -87,9 +89,9 @@ Partial Class Inicio_UsuariosV2
         Me.Menu_Panel.Controls.Add(Me.PictureBox1)
         Me.Menu_Panel.Controls.Add(Me.Editar_Panel)
         Me.Menu_Panel.Controls.Add(Me.Ingresar_Panel)
-        Me.Menu_Panel.Location = New System.Drawing.Point(940, -2)
+        Me.Menu_Panel.Location = New System.Drawing.Point(955, -2)
         Me.Menu_Panel.Name = "Menu_Panel"
-        Me.Menu_Panel.Size = New System.Drawing.Size(350, 610)
+        Me.Menu_Panel.Size = New System.Drawing.Size(360, 651)
         Me.Menu_Panel.TabIndex = 0
         '
         'PictureBox3
@@ -122,162 +124,6 @@ Partial Class Inicio_UsuariosV2
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
-        'Ingresar_Panel
-        '
-        Me.Ingresar_Panel.Controls.Add(Me.RadioButton4)
-        Me.Ingresar_Panel.Controls.Add(Me.guardar)
-        Me.Ingresar_Panel.Controls.Add(Me.ComboBox3)
-        Me.Ingresar_Panel.Controls.Add(Me.RadioButton3)
-        Me.Ingresar_Panel.Controls.Add(Me.ComboBox2)
-        Me.Ingresar_Panel.Controls.Add(Me.direccion_txt)
-        Me.Ingresar_Panel.Controls.Add(Me.Label11)
-        Me.Ingresar_Panel.Controls.Add(Me.ComboBox1)
-        Me.Ingresar_Panel.Controls.Add(Me.telefono_txt)
-        Me.Ingresar_Panel.Controls.Add(Me.cedula_txt)
-        Me.Ingresar_Panel.Controls.Add(Me.Label2)
-        Me.Ingresar_Panel.Controls.Add(Me.apellido_txt)
-        Me.Ingresar_Panel.Controls.Add(Me.Label12)
-        Me.Ingresar_Panel.Controls.Add(Me.Label16)
-        Me.Ingresar_Panel.Controls.Add(Me.Label13)
-        Me.Ingresar_Panel.Controls.Add(Me.nombre_txt)
-        Me.Ingresar_Panel.Controls.Add(Me.Label14)
-        Me.Ingresar_Panel.Controls.Add(Me.Label15)
-        Me.Ingresar_Panel.Location = New System.Drawing.Point(51, 18)
-        Me.Ingresar_Panel.Name = "Ingresar_Panel"
-        Me.Ingresar_Panel.Size = New System.Drawing.Size(290, 592)
-        Me.Ingresar_Panel.TabIndex = 75
-        '
-        'RadioButton4
-        '
-        Me.RadioButton4.AutoSize = True
-        Me.RadioButton4.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton4.Location = New System.Drawing.Point(52, 400)
-        Me.RadioButton4.Name = "RadioButton4"
-        Me.RadioButton4.Size = New System.Drawing.Size(61, 23)
-        Me.RadioButton4.TabIndex = 66
-        Me.RadioButton4.TabStop = True
-        Me.RadioButton4.Text = "Socio"
-        Me.RadioButton4.UseVisualStyleBackColor = True
-        '
-        'guardar
-        '
-        Me.guardar.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.guardar.Location = New System.Drawing.Point(107, 550)
-        Me.guardar.Name = "guardar"
-        Me.guardar.Size = New System.Drawing.Size(89, 28)
-        Me.guardar.TabIndex = 61
-        Me.guardar.Text = "Guardar"
-        Me.guardar.UseVisualStyleBackColor = True
-        '
-        'ComboBox3
-        '
-        Me.ComboBox3.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(195, 284)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(77, 27)
-        Me.ComboBox3.TabIndex = 69
-        '
-        'RadioButton3
-        '
-        Me.RadioButton3.AutoSize = True
-        Me.RadioButton3.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton3.Location = New System.Drawing.Point(164, 400)
-        Me.RadioButton3.Name = "RadioButton3"
-        Me.RadioButton3.Size = New System.Drawing.Size(102, 23)
-        Me.RadioButton3.TabIndex = 65
-        Me.RadioButton3.TabStop = True
-        Me.RadioButton3.Text = "Funcionario"
-        Me.RadioButton3.UseVisualStyleBackColor = True
-        '
-        'ComboBox2
-        '
-        Me.ComboBox2.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(108, 284)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(81, 27)
-        Me.ComboBox2.TabIndex = 68
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(128, 358)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(37, 19)
-        Me.Label11.TabIndex = 62
-        Me.Label11.Text = "Tipo"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(19, 284)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(78, 27)
-        Me.ComboBox1.TabIndex = 67
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(15, 67)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(62, 19)
-        Me.Label2.TabIndex = 63
-        Me.Label2.Text = "Apellido"
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(75, 256)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(143, 19)
-        Me.Label12.TabIndex = 60
-        Me.Label12.Text = "Fecha de nacimiento"
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(15, 26)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(60, 19)
-        Me.Label16.TabIndex = 56
-        Me.Label16.Text = "Nombre"
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(15, 175)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(70, 19)
-        Me.Label13.TabIndex = 59
-        Me.Label13.Text = "Dirección"
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(15, 137)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(65, 19)
-        Me.Label14.TabIndex = 58
-        Me.Label14.Text = "Teléfono"
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(15, 103)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(54, 19)
-        Me.Label15.TabIndex = 57
-        Me.Label15.Text = "Cédula"
-        '
         'Editar_Panel
         '
         Me.Editar_Panel.Controls.Add(Me.ComboBox4)
@@ -304,6 +150,33 @@ Partial Class Inicio_UsuariosV2
         Me.Editar_Panel.Name = "Editar_Panel"
         Me.Editar_Panel.Size = New System.Drawing.Size(290, 592)
         Me.Editar_Panel.TabIndex = 3
+        '
+        'ComboBox4
+        '
+        Me.ComboBox4.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox4.FormattingEnabled = True
+        Me.ComboBox4.Location = New System.Drawing.Point(20, 256)
+        Me.ComboBox4.Name = "ComboBox4"
+        Me.ComboBox4.Size = New System.Drawing.Size(77, 27)
+        Me.ComboBox4.TabIndex = 72
+        '
+        'ComboBox5
+        '
+        Me.ComboBox5.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox5.FormattingEnabled = True
+        Me.ComboBox5.Location = New System.Drawing.Point(108, 256)
+        Me.ComboBox5.Name = "ComboBox5"
+        Me.ComboBox5.Size = New System.Drawing.Size(81, 27)
+        Me.ComboBox5.TabIndex = 71
+        '
+        'ComboBox6
+        '
+        Me.ComboBox6.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox6.FormattingEnabled = True
+        Me.ComboBox6.Location = New System.Drawing.Point(201, 256)
+        Me.ComboBox6.Name = "ComboBox6"
+        Me.ComboBox6.Size = New System.Drawing.Size(78, 27)
+        Me.ComboBox6.TabIndex = 70
         '
         'Button4
         '
@@ -458,6 +331,162 @@ Partial Class Inicio_UsuariosV2
         Me.direccion.Size = New System.Drawing.Size(165, 20)
         Me.direccion.TabIndex = 43
         '
+        'Ingresar_Panel
+        '
+        Me.Ingresar_Panel.Controls.Add(Me.RadioButton4)
+        Me.Ingresar_Panel.Controls.Add(Me.guardar)
+        Me.Ingresar_Panel.Controls.Add(Me.ComboBox3)
+        Me.Ingresar_Panel.Controls.Add(Me.RadioButton3)
+        Me.Ingresar_Panel.Controls.Add(Me.ComboBox2)
+        Me.Ingresar_Panel.Controls.Add(Me.direccion_txt)
+        Me.Ingresar_Panel.Controls.Add(Me.Label11)
+        Me.Ingresar_Panel.Controls.Add(Me.ComboBox1)
+        Me.Ingresar_Panel.Controls.Add(Me.telefono_txt)
+        Me.Ingresar_Panel.Controls.Add(Me.cedula_txt)
+        Me.Ingresar_Panel.Controls.Add(Me.Label2)
+        Me.Ingresar_Panel.Controls.Add(Me.apellido_txt)
+        Me.Ingresar_Panel.Controls.Add(Me.Label12)
+        Me.Ingresar_Panel.Controls.Add(Me.Label16)
+        Me.Ingresar_Panel.Controls.Add(Me.Label13)
+        Me.Ingresar_Panel.Controls.Add(Me.nombre_txt)
+        Me.Ingresar_Panel.Controls.Add(Me.Label14)
+        Me.Ingresar_Panel.Controls.Add(Me.Label15)
+        Me.Ingresar_Panel.Location = New System.Drawing.Point(51, 18)
+        Me.Ingresar_Panel.Name = "Ingresar_Panel"
+        Me.Ingresar_Panel.Size = New System.Drawing.Size(290, 592)
+        Me.Ingresar_Panel.TabIndex = 75
+        '
+        'RadioButton4
+        '
+        Me.RadioButton4.AutoSize = True
+        Me.RadioButton4.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RadioButton4.Location = New System.Drawing.Point(52, 400)
+        Me.RadioButton4.Name = "RadioButton4"
+        Me.RadioButton4.Size = New System.Drawing.Size(61, 23)
+        Me.RadioButton4.TabIndex = 66
+        Me.RadioButton4.TabStop = True
+        Me.RadioButton4.Text = "Socio"
+        Me.RadioButton4.UseVisualStyleBackColor = True
+        '
+        'guardar
+        '
+        Me.guardar.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.guardar.Location = New System.Drawing.Point(107, 550)
+        Me.guardar.Name = "guardar"
+        Me.guardar.Size = New System.Drawing.Size(89, 28)
+        Me.guardar.TabIndex = 61
+        Me.guardar.Text = "Guardar"
+        Me.guardar.UseVisualStyleBackColor = True
+        '
+        'ComboBox3
+        '
+        Me.ComboBox3.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox3.FormattingEnabled = True
+        Me.ComboBox3.Location = New System.Drawing.Point(195, 284)
+        Me.ComboBox3.Name = "ComboBox3"
+        Me.ComboBox3.Size = New System.Drawing.Size(77, 27)
+        Me.ComboBox3.TabIndex = 69
+        '
+        'RadioButton3
+        '
+        Me.RadioButton3.AutoSize = True
+        Me.RadioButton3.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RadioButton3.Location = New System.Drawing.Point(164, 400)
+        Me.RadioButton3.Name = "RadioButton3"
+        Me.RadioButton3.Size = New System.Drawing.Size(102, 23)
+        Me.RadioButton3.TabIndex = 65
+        Me.RadioButton3.TabStop = True
+        Me.RadioButton3.Text = "Funcionario"
+        Me.RadioButton3.UseVisualStyleBackColor = True
+        '
+        'ComboBox2
+        '
+        Me.ComboBox2.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(108, 284)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(81, 27)
+        Me.ComboBox2.TabIndex = 68
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(128, 358)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(37, 19)
+        Me.Label11.TabIndex = 62
+        Me.Label11.Text = "Tipo"
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(19, 284)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(78, 27)
+        Me.ComboBox1.TabIndex = 67
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(15, 67)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(62, 19)
+        Me.Label2.TabIndex = 63
+        Me.Label2.Text = "Apellido"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(75, 256)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(143, 19)
+        Me.Label12.TabIndex = 60
+        Me.Label12.Text = "Fecha de nacimiento"
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Location = New System.Drawing.Point(15, 26)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(60, 19)
+        Me.Label16.TabIndex = 56
+        Me.Label16.Text = "Nombre"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(3, 174)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(70, 19)
+        Me.Label13.TabIndex = 59
+        Me.Label13.Text = "Dirección"
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(8, 137)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(65, 19)
+        Me.Label14.TabIndex = 58
+        Me.Label14.Text = "Teléfono"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Location = New System.Drawing.Point(11, 103)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(54, 19)
+        Me.Label15.TabIndex = 57
+        Me.Label15.Text = "Cédula"
+        '
         'DataGridView1
         '
         Me.DataGridView1.AllowUserToAddRows = False
@@ -465,7 +494,7 @@ Partial Class Inicio_UsuariosV2
         Me.DataGridView1.AllowUserToResizeColumns = False
         Me.DataGridView1.AllowUserToResizeRows = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 41)
+        Me.DataGridView1.Location = New System.Drawing.Point(12, 86)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersVisible = False
@@ -477,37 +506,15 @@ Partial Class Inicio_UsuariosV2
         '
         Me.TimerMenu.Interval = 1
         '
-        'ComboBox4
+        'ErrorProvider1
         '
-        Me.ComboBox4.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox4.FormattingEnabled = True
-        Me.ComboBox4.Location = New System.Drawing.Point(20, 256)
-        Me.ComboBox4.Name = "ComboBox4"
-        Me.ComboBox4.Size = New System.Drawing.Size(77, 27)
-        Me.ComboBox4.TabIndex = 72
-        '
-        'ComboBox5
-        '
-        Me.ComboBox5.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox5.FormattingEnabled = True
-        Me.ComboBox5.Location = New System.Drawing.Point(108, 256)
-        Me.ComboBox5.Name = "ComboBox5"
-        Me.ComboBox5.Size = New System.Drawing.Size(81, 27)
-        Me.ComboBox5.TabIndex = 71
-        '
-        'ComboBox6
-        '
-        Me.ComboBox6.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox6.FormattingEnabled = True
-        Me.ComboBox6.Location = New System.Drawing.Point(201, 256)
-        Me.ComboBox6.Name = "ComboBox6"
-        Me.ComboBox6.Size = New System.Drawing.Size(78, 27)
-        Me.ComboBox6.TabIndex = 70
+        Me.ErrorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
+        Me.ErrorProvider1.ContainerControl = Me
         '
         'direccion_txt
         '
         Me.direccion_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.direccion_txt.Location = New System.Drawing.Point(90, 171)
+        Me.direccion_txt.Location = New System.Drawing.Point(78, 171)
         Me.direccion_txt.Name = "direccion_txt"
         Me.direccion_txt.Size = New System.Drawing.Size(189, 27)
         Me.direccion_txt.TabIndex = 74
@@ -517,7 +524,7 @@ Partial Class Inicio_UsuariosV2
         'telefono_txt
         '
         Me.telefono_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.telefono_txt.Location = New System.Drawing.Point(90, 133)
+        Me.telefono_txt.Location = New System.Drawing.Point(77, 134)
         Me.telefono_txt.Name = "telefono_txt"
         Me.telefono_txt.Size = New System.Drawing.Size(189, 27)
         Me.telefono_txt.TabIndex = 73
@@ -527,7 +534,7 @@ Partial Class Inicio_UsuariosV2
         'cedula_txt
         '
         Me.cedula_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cedula_txt.Location = New System.Drawing.Point(90, 97)
+        Me.cedula_txt.Location = New System.Drawing.Point(77, 95)
         Me.cedula_txt.Name = "cedula_txt"
         Me.cedula_txt.Size = New System.Drawing.Size(189, 27)
         Me.cedula_txt.TabIndex = 72
@@ -537,7 +544,7 @@ Partial Class Inicio_UsuariosV2
         'apellido_txt
         '
         Me.apellido_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.apellido_txt.Location = New System.Drawing.Point(90, 62)
+        Me.apellido_txt.Location = New System.Drawing.Point(78, 62)
         Me.apellido_txt.Name = "apellido_txt"
         Me.apellido_txt.Size = New System.Drawing.Size(189, 27)
         Me.apellido_txt.TabIndex = 71
@@ -547,7 +554,7 @@ Partial Class Inicio_UsuariosV2
         'nombre_txt
         '
         Me.nombre_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nombre_txt.Location = New System.Drawing.Point(90, 23)
+        Me.nombre_txt.Location = New System.Drawing.Point(77, 23)
         Me.nombre_txt.Name = "nombre_txt"
         Me.nombre_txt.Size = New System.Drawing.Size(189, 27)
         Me.nombre_txt.TabIndex = 70
@@ -568,10 +575,11 @@ Partial Class Inicio_UsuariosV2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(987, 607)
+        Me.ClientSize = New System.Drawing.Size(1006, 646)
         Me.Controls.Add(Me.Menu_Panel)
         Me.Controls.Add(Me.PlaceHolder1)
         Me.Controls.Add(Me.DataGridView1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Inicio_UsuariosV2"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Inicio_UsuariosV2"
@@ -579,11 +587,12 @@ Partial Class Inicio_UsuariosV2
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Ingresar_Panel.ResumeLayout(False)
-        Me.Ingresar_Panel.PerformLayout()
         Me.Editar_Panel.ResumeLayout(False)
         Me.Editar_Panel.PerformLayout()
+        Me.Ingresar_Panel.ResumeLayout(False)
+        Me.Ingresar_Panel.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -635,4 +644,5 @@ Partial Class Inicio_UsuariosV2
     Friend WithEvents ComboBox4 As System.Windows.Forms.ComboBox
     Friend WithEvents ComboBox5 As System.Windows.Forms.ComboBox
     Friend WithEvents ComboBox6 As System.Windows.Forms.ComboBox
+    Friend WithEvents ErrorProvider1 As System.Windows.Forms.ErrorProvider
 End Class

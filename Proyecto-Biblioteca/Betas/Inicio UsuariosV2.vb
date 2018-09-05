@@ -6,8 +6,10 @@
 
 
     Private Sub Inicio_UsuariosV2_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        Label18.Visible = False 'label conytraseña funcionario
+        contrasenia.Visible = False 'textbox contraseña funcionario
 
-        Consulta = "select * from usuarios"
+        Consulta = "select * from usuarios where estado = 1"
         consultar()
         DataGridView1.DataSource = Tabla
 
@@ -15,12 +17,10 @@
         Datagrid_Align()
 
 
-
-
     End Sub
 
     Private Sub PlaceHolder1_TextChanged(sender As System.Object, e As System.EventArgs) Handles PlaceHolder1.TextChanged
-        Consulta = "select * from usuarios where cedula like '" & PlaceHolder1.Text & "%' "
+        Consulta = "select * from usuarios where cedula like '" & PlaceHolder1.Text & "%' and estado = 1"
         consultar()
         DataGridView1.DataSource = Tabla
     End Sub
@@ -64,7 +64,7 @@
 
 
 
-                    If Menu_Panel.Left < 940 Then
+                    If Menu_Panel.Left < 955 Then
                         Menu_Panel.Left += 10
                     Else
                         activo = 0
@@ -175,7 +175,7 @@
                     Case 3
 
                         ComboClear()
-                        Menu_Panel.Left = 940
+                        Menu_Panel.Left = 955
                         Editar_Panel.Visible = False
                         Ingresar_Panel.Visible = False
                         DataGridView1.Width = 920
@@ -197,7 +197,7 @@
                         ComboClear()
 
                         Menu_Panel.BackColor = Color.Silver
-                        Menu_Panel.Left = 940
+                        Menu_Panel.Left = 955
                         Editar_Panel.Visible = False
                         Ingresar_Panel.Visible = False
                         DataGridView1.Width = 920
@@ -209,7 +209,7 @@
                         ComboClear()
 
                         Menu_Panel.BackColor = Color.Silver
-                        Menu_Panel.Left = 940
+                        Menu_Panel.Left = 955
                         Editar_Panel.Visible = False
                         Ingresar_Panel.Visible = False
                         DataGridView1.Width = 920
@@ -219,7 +219,7 @@
                     Case 3
 
                         ComboClear()
-                        Menu_Panel.Left = 940
+                        Menu_Panel.Left = 955
                         Editar_Panel.Visible = False
                         Ingresar_Panel.Visible = False
                         DataGridView1.Width = 920
@@ -243,6 +243,309 @@
         ComboBox4.Text = ""
         ComboBox5.Text = ""
         ComboBox6.Text = ""
+
+    End Sub
+
+    Private Sub DataGridView1_CellDoubleClick(sender As Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellDoubleClick
+        Dim styleMSG As MsgBoxStyle = MsgBoxStyle.YesNo + MsgBoxStyle.Question
+        Dim styleMSGOK As MsgBoxStyle = MsgBoxStyle.OkOnly + MsgBoxStyle.Question
+        Dim confirmacion As String = 0
+        Dim cedulaAdmin As String
+        Dim cedulaUser As String = DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value
+
+
+
+        Select Case seleccionado
+
+            Case 2
+
+                Consulta = "select * from usuarios where cedula = '" & DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value & "'"
+                consultar()
+
+                For Each row As DataRow In Tabla.Rows
+
+                    nombre.Text = row("nombre").ToString
+                    apellido.Text = row("apellido").ToString
+                    cedula.Text = row("cedula").ToString
+                    telefono.Text = row("telefono").ToString
+                    direccion.Text = row("direccion").ToString
+                    ComboBox4.Text = row("nacimiento").ToString.Substring(0, 2)
+                    ComboBox5.Text = row("nacimiento").ToString.Substring(3, 2)
+                    ComboBox6.Text = row("nacimiento").ToString.Substring(6, 4)
+                    Select Case row("tipo").ToString
+                        Case 0 'funcionario
+
+                            RadioButton5.Select()
+                            Label18.Visible = True
+                            contrasenia.Visible = True
+                            contrasenia.Text = row("contrasenia").ToString
+
+                        Case 1 'socio
+
+                            RadioButton6.Select()
+                            Label18.Visible = False
+                            contrasenia.Visible = False
+
+                    End Select
+                Next
+
+
+
+
+
+            Case 3
+
+                If MsgBox("desea borrar este usuario", styleMSG, Title:="desea borrar?") = MsgBoxResult.Yes Then
+
+                    cedulaAdmin = InputBox("ingrese una cedula de un administrador", Title:=" ")
+
+                    Consulta = "select cedula from usuarios where tipo = 1 and cedula = '" & cedulaAdmin & "'"
+                    consultar()
+
+
+                    For Each row As DataRow In Tabla.Rows
+
+                        confirmacion = row("cedula").ToString
+
+                    Next
+
+                    If confirmacion = cedulaAdmin Then
+
+                        Consulta = "update usuarios set estado = 0 where cedula = '" & cedulaUser & "'"
+                        consultar()
+                        Consulta = "select * from usuarios where estado = 1"
+                        consultar()
+                        DataGridView1.DataSource = Tabla
+                    Else
+                        MsgBox("la cedula ingresada no coincide con ningun administrador", styleMSGOK, Title:="Error")
+                    End If
+
+
+                End If
+
+
+        End Select
+    End Sub
+
+    Private Sub Button4_Click(sender As System.Object, e As System.EventArgs) Handles Button4.Click
+
+
+
+        ' Crear Variables
+
+        Dim ced1 As Integer = Nothing
+        Dim nom As String = Nothing
+        Dim ape As String = Nothing
+        Dim tel As Integer = Nothing
+        Dim dir As String = Nothing
+        Dim tipo As Integer = Nothing
+        Dim contra As String = Nothing
+        Dim i As Integer ' Variable bandera para avisar que existe un error
+
+        i = 0
+
+
+
+        ' Verificar campos
+        If LTrim$(nombre.Text) = "" Then ' Verifica si esta vacio nombre
+            ErrorProvider1.SetError(nombre, "Nombre no puede estar vacío") 'Label invisible debajo de nombre
+            i = 1
+        Else
+            nom = nombre.Text
+        End If
+
+
+        ape = apellido.Text
+
+
+        If LTrim$(cedula.Text) = "" Then ' Verifica si esta vacio cedula
+            ErrorProvider1.SetError(cedula, "Cedula no puede estar vacío") 'Label invisible debajo de cedula
+            i = 1
+        End If
+
+        If i = 0 Then
+            If IsNumeric(cedula.Text) = True Then
+                ced1 = cedula.Text
+            Else
+                ErrorProvider1.SetError(cedula, "No valido, ingrese solo numeros")  'Label invisible debajo de cedula
+            End If
+        End If
+        If IsNumeric(telefono.Text) = True Then
+            tel = telefono.Text
+        Else
+            ErrorProvider1.SetError(telefono, "No valido, ingrese solo numeros")
+        End If
+
+        dir = direccion.Text
+
+        If RadioButton5.Checked Then
+            tipo = 0
+        Else
+            tipo = 1
+        End If
+
+        substring = ComboBox5.Text
+        mestonum()
+
+        Dim nacimiento As String = Str(ComboBox4.Text).Substring(1, 2) + "-" + Str(substring) + "-" + Str(ComboBox6.Text).Substring(1, 4)
+
+
+
+        Try
+            Consulta = "update usuarios set cedula='" & Str(ced1) & "' , nombre='" & nom & "', apellido='" & ape & "', direccion='" & dir & "', telefono='" & Str(tel) & "', nacimiento='" & nacimiento & "' , tipo='" & Str(tipo) & "' where cedula = '" & Str(ced1) & "'"
+            consultar()
+
+            MsgBox("Edición guardada satisfactoriamente")
+
+            '//////////////////Mostrar los datos actualizados en el datagrid///////////////////////
+            Try
+                Consulta = "select * from usuarios where estado = 1;"
+                consultar()
+                DataGridView1.DataSource = Tabla
+
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+        '//////////////////////////////////////////////////////////////////////////////////////
+
+
+
+    End Sub
+
+    Private Sub guardar_Click(sender As System.Object, e As System.EventArgs) Handles guardar.Click
+        '//////////////////// AGREGAR USUARIOS /////////////////////////////
+
+        ' Crear Variables
+
+        Dim ced As Integer = Nothing
+        Dim nom As String = Nothing
+        Dim ape As String = Nothing
+        Dim tel As Integer = Nothing
+        Dim dir As String = Nothing
+        Dim tipo As Integer = Nothing
+        Dim pass As String = Nothing
+        Dim i As Integer = 0 ' Variable bandera para avisar que existe un error
+
+
+
+
+        ' Verificar campos
+        If LTrim$(nombre_txt.Text) = "" Then ' Verifica si esta vacio nombre
+            ErrorProvider1.SetError(nombre_txt, "Nombre no puede estar vacío")
+            i = 1
+        Else
+            nom = nombre_txt.Text
+        End If
+
+
+
+        If LTrim$(apellido_txt.Text) = "" Then ' Verifica si esta vacio nombre
+            ErrorProvider1.SetError(apellido_txt, "Apellido no puede estar vacío")
+            i = 1
+        Else
+            ape = apellido_txt.Text
+        End If
+
+
+
+
+
+        If LTrim$(cedula_txt.Text) = "" Then ' Verifica si esta vacio cedula
+            ErrorProvider1.SetError(cedula_txt, "Cedula no puede estar vacío")
+            i = 1
+        End If
+
+
+        If i = 0 Then
+            If IsNumeric(cedula_txt.Text) = True Then
+                ced = cedula_txt.Text
+
+                'Modulo.Verificar_Cedula(cedula_txt.Text)
+                'If Modulo.correcto = 0 Then
+                '    ced = cedula_txt.Text
+                'Else
+                '    i = 1
+                '    ErrorProvider1.SetError(cedula_txt, "Cedula no puede estar vacío modnulo" & correcto)
+                'End If
+            Else
+                ErrorProvider1.SetError(cedula_txt, "No valido, ingrese solo numeros")
+            End If
+        End If
+
+
+
+        If IsNumeric(telefono_txt.Text) = True Then
+            tel = telefono_txt.Text
+        Else
+            ErrorProvider1.SetError(telefono_txt, "No valido, ingrese solo numeros")
+        End If
+
+
+
+        dir = direccion_txt.Text
+
+
+
+
+        If RadioButton3.Checked Then
+            tipo = 0
+            pass = InputBox("Ingrese una Contraseña", "Contraseña")
+        Else
+            tipo = 1
+        End If
+
+
+
+        If i = 0 Then ' Si no hay errores se pasan los datos la base de datos
+            Try
+                'Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo) values ('" + nom + "', " + ape + "', '" + Str(ced) + "', '" + Str(tel) + "', '" + dir + "', '" + Str(tipo) + "');
+
+                substring = ComboBox2.SelectedItem
+                mestonum()
+
+                Dim nacimiento As String = Str(ComboBox3.SelectedItem).Substring(1, 4) + "-" + substring + "-" + Str(ComboBox1.SelectedItem).Substring(1, 2) '//GUARDA LOS DATOS DEL COMBO A LA VARIABLE NACIMIENTO PARA LUEGO USARLA EN LA CONSULTA INSERT
+                MsgBox(nacimiento)
+
+                'concat(upper(left('" + nom + "',1)), lower(substr('" + nom + "',2)))
+
+
+                Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo , nacimiento, estado, contrasenia) values (concat(upper(left('" + nom + "',1)), lower(substr('" + nom + "',2))), concat(upper(left('" + ape + "',1)), lower(substr('" + ape + "',2))), '" + Str(ced) + "', '" + Str(tel) + "', '" + dir + "', '" + Str(tipo) + "', '" + nacimiento + "','1', '" + pass + "');"
+                consultar()
+                MsgBox("Usuario agregado con exito")
+
+
+
+                nombre_txt.Clear()
+                apellido_txt.Clear()
+                cedula_txt.Clear()
+                telefono_txt.Clear()
+                direccion_txt.Clear()
+
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        Else
+            MsgBox("Existen erroresen el formulario, revisar los campos remarcados")
+        End If
+
+
+
+                Try
+                    Consulta = "select * from usuarios where estado=1;"
+                    consultar()
+                    DataGridView1.DataSource = Tabla
+                Catch ex As Exception
+                    MsgBox(ex.Message)
+                End Try
+
+                '///////////////////////////////////////////////////////////////////
+    End Sub
+
+    Private Sub DataGridView1_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
 
     End Sub
 End Class

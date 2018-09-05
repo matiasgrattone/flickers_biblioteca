@@ -146,7 +146,7 @@ Public Class MENU3
         panel_prestamos.BackColor = Drawing.Color.Silver
         panel_navegador.BackColor = Drawing.Color.Silver
 
-        Dim F1 As New inicio_usuarios
+        Dim F1 As New Inicio_UsuariosV2
         panel_menu.Controls.Clear()
         F1.TopLevel = False
         F1.Parent = panel_menu
