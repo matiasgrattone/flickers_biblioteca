@@ -82,6 +82,12 @@
     <Compile Include="Betas\Inicio UsuariosV2.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Betas\Registroprestamos.Designer.vb">
+      <DependentUpon>Registroprestamos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Betas\Registroprestamos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Clases\PanelOpacity.vb">
       <SubType>Component</SubType>
     </Compile>
@@ -178,6 +184,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Betas\Inicio UsuariosV2.resx">
       <DependentUpon>Inicio UsuariosV2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Betas\Registroprestamos.resx">
+      <DependentUpon>Registroprestamos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
