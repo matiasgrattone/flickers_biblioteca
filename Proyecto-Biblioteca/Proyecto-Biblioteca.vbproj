@@ -53,6 +53,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 6.10.6\Assemblies\v4.5.2\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="Proyecto-Biblioteca, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <ExecutableExtension>.exe</ExecutableExtension>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -76,6 +79,18 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Betas\BusquedaRevistas.Designer.vb">
+      <DependentUpon>BusquedaRevistas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Betas\BusquedaRevistas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Betas\IngresoRevistas.Designer.vb">
+      <DependentUpon>IngresoRevistas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Betas\IngresoRevistas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Betas\Inicio UsuariosV2.Designer.vb">
       <DependentUpon>Inicio UsuariosV2.vb</DependentUpon>
     </Compile>
@@ -88,6 +103,18 @@
     <Compile Include="Betas\Registroprestamos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Betas\Seleccion_Registro.Designer.vb">
+      <DependentUpon>Seleccion_Registro.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Betas\Seleccion_Registro.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Betas\Seleccion_Revistas.Designer.vb">
+      <DependentUpon>Seleccion_Revistas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Betas\Seleccion_Revistas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Clases\PanelOpacity.vb">
       <SubType>Component</SubType>
     </Compile>
@@ -95,12 +122,6 @@
       <DependentUpon>Form1.vb</DependentUpon>
     </Compile>
     <Compile Include="Form1.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PruebaDeNotas.Designer.vb">
-      <DependentUpon>PruebaDeNotas.vb</DependentUpon>
-    </Compile>
-    <Compile Include="PruebaDeNotas.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Info_usuario.Designer.vb">
@@ -182,17 +203,23 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Betas\BusquedaRevistas.resx">
+      <DependentUpon>BusquedaRevistas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Betas\IngresoRevistas.resx">
+      <DependentUpon>IngresoRevistas.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Betas\Inicio UsuariosV2.resx">
       <DependentUpon>Inicio UsuariosV2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Betas\Registroprestamos.resx">
       <DependentUpon>Registroprestamos.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Betas\Seleccion_Revistas.resx">
+      <DependentUpon>Seleccion_Revistas.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PruebaDeNotas.resx">
-      <DependentUpon>PruebaDeNotas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Info_usuario.resx">
       <DependentUpon>Info_usuario.vb</DependentUpon>

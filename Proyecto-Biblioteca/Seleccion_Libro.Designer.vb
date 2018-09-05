@@ -24,55 +24,55 @@ Partial Class Seleccion_Libro
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.pcbox4 = New System.Windows.Forms.PictureBox()
+        Me.pcbox1 = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.pcbox3 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.pcbox2 = New System.Windows.Forms.PictureBox()
         Me.Timer10 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer20 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer30 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer40 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1.SuspendLayout()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pcbox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pcbox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pcbox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pcbox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.LimeGreen
-        Me.Panel1.Controls.Add(Me.PictureBox4)
-        Me.Panel1.Controls.Add(Me.PictureBox1)
+        Me.Panel1.Controls.Add(Me.pcbox4)
+        Me.Panel1.Controls.Add(Me.pcbox1)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Location = New System.Drawing.Point(54, -1)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(954, 651)
         Me.Panel1.TabIndex = 0
         '
-        'PictureBox4
+        'pcbox4
         '
-        Me.PictureBox4.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.back
-        Me.PictureBox4.Location = New System.Drawing.Point(905, 225)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(35, 50)
-        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox4.TabIndex = 4
-        Me.PictureBox4.TabStop = False
+        Me.pcbox4.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.back
+        Me.pcbox4.Location = New System.Drawing.Point(907, 246)
+        Me.pcbox4.Name = "pcbox4"
+        Me.pcbox4.Size = New System.Drawing.Size(35, 50)
+        Me.pcbox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pcbox4.TabIndex = 4
+        Me.pcbox4.TabStop = False
         '
-        'PictureBox1
+        'pcbox1
         '
-        Me.PictureBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.books
-        Me.PictureBox1.Location = New System.Drawing.Point(356, 215)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(133, 125)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 3
-        Me.PictureBox1.TabStop = False
+        Me.pcbox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.books
+        Me.pcbox1.Location = New System.Drawing.Point(356, 215)
+        Me.pcbox1.Name = "pcbox1"
+        Me.pcbox1.Size = New System.Drawing.Size(133, 125)
+        Me.pcbox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pcbox1.TabIndex = 3
+        Me.pcbox1.TabStop = False
         '
         'Label2
         '
@@ -87,23 +87,23 @@ Partial Class Seleccion_Libro
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.Teal
-        Me.Panel2.Controls.Add(Me.PictureBox3)
+        Me.Panel2.Controls.Add(Me.pcbox3)
         Me.Panel2.Controls.Add(Me.Label1)
-        Me.Panel2.Controls.Add(Me.PictureBox2)
+        Me.Panel2.Controls.Add(Me.pcbox2)
         Me.Panel2.Location = New System.Drawing.Point(1, -1)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(482, 664)
         Me.Panel2.TabIndex = 1
         '
-        'PictureBox3
+        'pcbox3
         '
-        Me.PictureBox3.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.right_arrow1
-        Me.PictureBox3.Location = New System.Drawing.Point(3, 225)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(38, 50)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox3.TabIndex = 3
-        Me.PictureBox3.TabStop = False
+        Me.pcbox3.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.right_arrow1
+        Me.pcbox3.Location = New System.Drawing.Point(3, 225)
+        Me.pcbox3.Name = "pcbox3"
+        Me.pcbox3.Size = New System.Drawing.Size(38, 50)
+        Me.pcbox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pcbox3.TabIndex = 3
+        Me.pcbox3.TabStop = False
         '
         'Label1
         '
@@ -115,15 +115,15 @@ Partial Class Seleccion_Libro
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "INGRESAR"
         '
-        'PictureBox2
+        'pcbox2
         '
-        Me.PictureBox2.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.books
-        Me.PictureBox2.Location = New System.Drawing.Point(411, 215)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(133, 125)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 1
-        Me.PictureBox2.TabStop = False
+        Me.pcbox2.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.books
+        Me.pcbox2.Location = New System.Drawing.Point(411, 215)
+        Me.pcbox2.Name = "pcbox2"
+        Me.pcbox2.Size = New System.Drawing.Size(133, 125)
+        Me.pcbox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pcbox2.TabIndex = 1
+        Me.pcbox2.TabStop = False
         '
         'Timer10
         '
@@ -153,25 +153,25 @@ Partial Class Seleccion_Libro
         Me.Text = "Seleccion_Libro"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pcbox4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pcbox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pcbox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pcbox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
-    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
+    Friend WithEvents pcbox2 As System.Windows.Forms.PictureBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Timer10 As System.Windows.Forms.Timer
     Friend WithEvents Timer20 As System.Windows.Forms.Timer
     Friend WithEvents Timer30 As System.Windows.Forms.Timer
     Friend WithEvents Timer40 As System.Windows.Forms.Timer
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
+    Friend WithEvents pcbox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents pcbox4 As System.Windows.Forms.PictureBox
+    Friend WithEvents pcbox3 As System.Windows.Forms.PictureBox
 End Class

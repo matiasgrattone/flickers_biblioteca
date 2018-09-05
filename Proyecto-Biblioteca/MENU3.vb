@@ -657,4 +657,13 @@ Public Class MENU3
     Private Sub panel_prestamos_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles panel_prestamos.Paint
 
     End Sub
+
+    Private Sub PictureBox1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox1.Click
+        Registroprestamos.Show()
+    End Sub
+
+    Private Sub Button1_Click_2(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        NOTAS.Show()
+
+    End Sub
 End Class
