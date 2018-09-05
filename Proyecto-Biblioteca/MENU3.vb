@@ -329,10 +329,6 @@ Public Class MENU3
 
     End Sub
 
-    Private Sub panel_navegador_MouseCaptureChanged(ByVal sender As Object, ByVal e As System.EventArgs)
-
-    End Sub
-
     '///////////////////////////////////////////////////////////////////////////////////////////////////////
     '/////////////////////////////////////////// NAVEGADOR /////////////////////////////////////////////////
     '///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -556,9 +552,6 @@ Public Class MENU3
         Timer_NvegadorLabel.Enabled = True
     End Sub
 
-    Private Sub panel_libros_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs)
-
-    End Sub
 
     Private Sub Timer_UsuariosLabel_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer_UsuariosLabel.Tick
 
@@ -658,12 +651,9 @@ Public Class MENU3
 
     End Sub
 
-    Private Sub PictureBox1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox1.Click
+    Private Sub PictureBox1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbprestamos.Click
         Registroprestamos.Show()
     End Sub
 
-    Private Sub Button1_Click_2(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        NOTAS.Show()
 
-    End Sub
 End Class
