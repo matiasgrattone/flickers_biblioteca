@@ -764,11 +764,11 @@
 
     Private Sub ButonEliminarReservacion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonEliminarReservacion.Click
 
-        Dim Consulta As String
-        Consulta = InputBox("Ingrese la id del libro para eliminar las reservación", Title:="RESERVACIÓN")
+        Dim IdLibro As String
+        IdLibro = InputBox("Ingrese la id del libro para eliminar las reservación", Title:="RESERVACIÓN")
         Try
             If Consulta <> "" Then
-                Consulta = "update libro set estado = 0 where cod_libro ='" & Consulta & "'"
+                Consulta = "update libro set estado = 0 where cod_libro ='" & IdLibro & "'"
                 consultar()
                 MsgBox("Se a cancelado la reservacion", Title:="PRESTAMO")
 
