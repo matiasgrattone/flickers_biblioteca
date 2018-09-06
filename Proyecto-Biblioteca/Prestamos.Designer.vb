@@ -63,6 +63,7 @@ Partial Class Prestamos
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.PictureCrearReservacion = New System.Windows.Forms.PictureBox()
         Me.PictureReservacion = New System.Windows.Forms.PictureBox()
         Me.PictureDevolucion = New System.Windows.Forms.PictureBox()
@@ -80,7 +81,6 @@ Partial Class Prestamos
         Me.Ocultar_Aparecer = New System.Windows.Forms.Timer(Me.components)
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
-        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DatagridviewOcultolllllParaFuncionesPrestmolllll, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -139,7 +139,7 @@ Partial Class Prestamos
         Me.Panel1.Controls.Add(Me.Label9)
         Me.Panel1.Controls.Add(Me.Label8)
         Me.Panel1.Controls.Add(Me.Label12)
-        Me.Panel1.Location = New System.Drawing.Point(-274, -28)
+        Me.Panel1.Location = New System.Drawing.Point(-273, -28)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(268, 676)
         Me.Panel1.TabIndex = 73
@@ -158,7 +158,7 @@ Partial Class Prestamos
         Me.CarritoDeLibros.FormattingEnabled = True
         Me.CarritoDeLibros.Location = New System.Drawing.Point(9, 228)
         Me.CarritoDeLibros.Name = "CarritoDeLibros"
-        Me.CarritoDeLibros.Size = New System.Drawing.Size(254, 186)
+        Me.CarritoDeLibros.Size = New System.Drawing.Size(254, 342)
         Me.CarritoDeLibros.TabIndex = 68
         '
         'Label4
@@ -522,6 +522,16 @@ Partial Class Prestamos
         Me.Label5.TabIndex = 66
         Me.Label5.Text = "SELECCION " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      DE " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FUNCION "
         '
+        'Cedula
+        '
+        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.Cedula.Location = New System.Drawing.Point(6, 54)
+        Me.Cedula.Name = "Cedula"
+        Me.Cedula.Size = New System.Drawing.Size(259, 20)
+        Me.Cedula.TabIndex = 75
+        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
+        Me.Cedula.WaterMarkText = "Cedula"
+        '
         'PictureCrearReservacion
         '
         Me.PictureCrearReservacion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.crear_reserva
@@ -672,16 +682,6 @@ Partial Class Prestamos
         '
         'Timer2
         '
-        '
-        'Cedula
-        '
-        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Cedula.Location = New System.Drawing.Point(6, 54)
-        Me.Cedula.Name = "Cedula"
-        Me.Cedula.Size = New System.Drawing.Size(259, 20)
-        Me.Cedula.TabIndex = 75
-        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
-        Me.Cedula.WaterMarkText = "Cedula"
         '
         'Prestamos
         '
