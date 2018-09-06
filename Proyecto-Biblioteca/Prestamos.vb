@@ -449,7 +449,6 @@
 
                     'REVISAR ESTO'
                     Consulta = "insert into prestamolibro(cedula,cod_libro,fecha_salida) values('" + Cedula.Text + "','" + ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) + "','" + Label4.Text + "')"
-                    MsgBox(Consulta)
                     consultar()
 
                     Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) & "';"
@@ -657,14 +656,9 @@
 
 
             '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            If Cedula.Text <> "" Then
-                devoCOMBO.Visible = True
-                Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
-                consultar()
-                DataGridParaDevolucion.DataSource = Tabla
-            Else
-                MsgBox("La cedula debe estar ingrezada correctamente", Title:="PRESTAMOS")
-            End If
+
+            devoCOMBO.Visible = True
+
             '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Else
             MsgBox("Para cambiar de tarea debe tener el carrito vacio", Title:="Error")
@@ -771,10 +765,10 @@
     Private Sub ButonEliminarReservacion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonEliminarReservacion.Click
 
         Dim Consulta As String
-        Consulta = InputBox("Ingrese la id del libro para eliminar las reservacion", Title:="RESERVACION")
+        Consulta = InputBox("Ingrese la id del libro para eliminar las reservación", Title:="RESERVACIÓN")
         Try
             If Consulta <> "" Then
-                Consulta = "update libro set estado = 0 where cod_libro = '" & Consulta & "'"
+                Consulta = "update libro set estado = 0 where cod_libro ='" & Consulta & "'"
                 consultar()
                 MsgBox("Se a cancelado la reservacion", Title:="PRESTAMO")
 
@@ -782,10 +776,10 @@
                 consultar()
                 VerLibrosReservados2.DataSource = Tabla
             Else
-                MsgBox("No se cancelo la reservacion del libro", Title:="ERROR RESERVACION")
+                MsgBox("No se canceló la reservación del libro", Title:="ERROR RESERVACIÓN")
             End If
         Catch ex As Exception
-            MsgBox("Ah ocurrido un error en la eliminación de las reservacion", Title:="ERROR RESERVACION")
+            MsgBox("Ha ocurrido un error en la eliminación de las reservación", Title:="ERROR RESERVACIÓN")
         End Try
 
         Consulta = "select * from libro where estado = 2"
@@ -795,10 +789,10 @@
 
     Private Sub BotonExtrearReservados_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BotonExtrearReservados.Click
 
-        'Igualamos una variable al valor de la tabla, del datagridview oculto
+        'Igualamos una variable al valor de la fecha de la tabla, del datagridview oculto
         Dim ROWS As DataGridViewRow = DatagridviewOcultolllllParaFuncionesPrestmolllll.CurrentRow
 
-        Dim list, contador, libros As String
+        Dim list, contador, libros As Integer
         contador = 0
 
         list = 0
@@ -810,14 +804,12 @@
         If Cedula.Text <> "" Then
             If (DatagridviewOcultolllllParaFuncionesPrestmolllll.RowCount = 1) Then
 
-                MsgBox("Usted puede retirar un libro ", Title:="PRESTAMO")
 
                 While contador < list
                     contador = Val(contador) + 1
 
                     'REVISAR ESTO'
                     Consulta = "insert into prestamolibro(cedula,cod_libro,fecha_salida) values('" + Cedula.Text + "','" + ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) + "','" + Label4.Text + "')"
-                    MsgBox(Consulta)
                     consultar()
 
                     Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) & "';"
@@ -830,19 +822,20 @@
                 CarritoDeLibros.Items.Clear()
                 ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
                 MsgBox("Se extrajo correctamente los libros", Title:="PRESTAMO")
-                ExtCombo.Visible = False
-
-                Consulta = "select * from libro where estado = 2"
-                consultar()
-                VerLibrosReservados2.DataSource = Tabla
+                ReservacionComboBox.Visible = False
             End If
+
+
+        Else
+            MsgBox("La cedula debe estar ingrezada correctamente", Title:="PRESTAMOS")
         End If
+
 
         '/////////////////////CASO DOS///////////////////
         Try
+            If Cedula.Text <> "" Then
 
                 If (ROWS.Cells(3).Value.ToString) <> "" Then
-                    MsgBox("Usted pude RETIRAR UN LIBREO", Title:="PRESTAMO")
 
                     While contador < list
                         contador = Val(contador) + 1
@@ -850,6 +843,7 @@
 
                         Consulta = "insert into prestamolibro (cedula, cod_libro, fecha_salida) values ('" & Cedula.Text & "','" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) & "','" & Label4.Text & "')"
                         consultar()
+
 
                         Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) & "';"
                         consultar()
@@ -861,20 +855,21 @@
                     CarritoDeLibros.Items.Clear()
                     ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
                     MsgBox("Se extrajo correctamente los libros", Title:="PRESTAMO")
-                    ExtCombo.Visible = False
-
-                    Consulta = "select * from libro where estado = 2"
-                    consultar()
-                VerLibrosReservados2.DataSource = Tabla
+                    ReservacionComboBox.Visible = False
                 Else
                     MsgBox("Este usuario no puede retirar libros hasta devolver los prestados", Title:="PRESTAMOS")
 
                 End If
 
+            Else
+                MsgBox("La cedula debe estar ingresada", Title:="PRESTAMOS")
+            End If
+
         Catch ex As Exception
         End Try
 
 
+        '    1)////////////////////
     End Sub
 
 
@@ -1020,6 +1015,10 @@
         End Try
 
     End Sub
+
+    Private Sub DataGridViewlllllVerLibrosEnExtraccionlllll_CellContentDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridViewlllllVerLibrosEnExtraccionlllll.CellContentDoubleClick
+
+    End Sub
     '/////////////////////////////////////////////////////////////////////////////////
     Private Sub DataGridViewlllllVerLibrosEnExtraccionlllll_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridViewlllllVerLibrosEnExtraccionlllll.CellDoubleClick
         'Se iguala una variable a un valor de la base de datos
@@ -1081,22 +1080,14 @@
         End If
     End Sub
 
+    Private Sub DataGridParaDevolucion_CellContentDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridParaDevolucion.CellContentDoubleClick
+
+    End Sub
+
     Private Sub DataGridParaDevolucion_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridParaDevolucion.CellDoubleClick
 
 
-        '////////////////////////////////
-        '///////No tiene sentido'//////
-        '//////////////////////////////
         Try
-            If modo = "devolucion" Then
-                '////////////////////////////////
-
-                Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
-                consultar()
-                DataGridParaDevolucion.DataSource = Tabla
-
-                '////////////////////////////////
-
 
                 Libro1 = DataGridParaDevolucion.Item(2, DataGridParaDevolucion.CurrentRow.Index).Value
 
@@ -1130,19 +1121,15 @@
                     DataGridParaDevolucion.DataSource = Tabla
 
                 End If
-            End If
-
+          
             If a = vbNo Then
-                MsgBox("No", Title:="PRESTAMOS")
+
             End If
 
         Catch ex As Exception
 
             MsgBox("Este libro no se devolvio", Title:="PRESTAMOS")
 
-            Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
-            consultar()
-            DataGridParaDevolucion.DataSource = Tabla
         End Try
 
 
@@ -1152,77 +1139,7 @@
 
 
     Private Sub LibrosParaReservar_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles LibrosParaReservar.CellClick
-
-        'Consulta a DATAGRIDVIEW para ver los libros disponibles
-        Consulta = "select * from libro where estado = 0"
-        consultar()
-        LibrosParaReservar.DataSource = Tabla
-
-        '////////////////////////////////
-
-        'Para que si o si se tenga que ingresar una cedula para realizar las funciones 
-        If Cedula.Text <> "" Then
-            Consulta = "select * from libro where estado = 0"
-            LibrosParaReservar.DataSource = Tabla
-            consultar()
-
-            '////////////////////////////////
-
-            Try
-
-
-                Dim NomLibros As String
-                Dim IdLibros As String
-
-                NomLibros = LibrosParaReservar.Item(1, LibrosParaReservar.CurrentRow.Index).Value
-                IdLibros = LibrosParaReservar.Item(0, LibrosParaReservar.CurrentRow.Index).Value
-
-
-                Dim a As MsgBoxResult
-                a = MsgBox("Desea reservar el libro " & NomLibros & " ?", MsgBoxStyle.YesNo, Title:="RESERVACION")
-
-                '       1) Si se devuelve el libro y se actualiza la Base da datos 
-                If a = vbYes Then
-
-                    Consulta = "update libro set estado = 2 where cod_libro = '" & IdLibros & "'"
-                    consultar()
-
-                    '///A REVISAR////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                    Consulta = "UPDATE prestamolibro SET reservacion = 'Reservado' WHERE cedula = '" & Cedula.Text & "' and cod_libro ='" & IdLibros & "'"
-                    consultar()
-                    MsgBox("se ha creador la reservacion", Title:="PRESTAMO")
-                    '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-                    Consulta = "select * from libro where estado = 0"
-                    LibrosParaReservar.DataSource = Tabla
-                    consultar()
-
-                Else
-
-
-
-                    Consulta = "select * from libro where estado = 0"
-                    LibrosParaReservar.DataSource = Tabla
-                    consultar()
-                End If
-
-
-                If a = vbNo Then
-
-                End If
-
-            Catch ex As Exception
-
-                MsgBox("El libro sigue reservado", Title:="RESERVACION")
-
-            End Try
-        End If
-
-        Consulta = "select * from libro where estado = 0"
-        LibrosParaReservar.DataSource = Tabla
-        consultar()
-
-        '/////////////////////////////////////////////////
+     
     End Sub
 
     Private Sub TextBox3_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox3.TextChanged
@@ -1260,77 +1177,6 @@
                 MsgBox("La id del libro no es correcta", Title:="PRESTAMO ERROR")
             End If
         End If
-
-    End Sub
-
-
-    Private Sub LibrosParaReservar_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles LibrosParaReservar.CellContentClick
-
-    End Sub
-
-    Private Sub VerLibrosReservados2_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles VerLibrosReservados2.CellClick
-
-    End Sub
-
-
-
-    Private Sub VerLibrosReservados2_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles VerLibrosReservados2.CellContentClick
-
-        'Se iguala una variable a un valor de la base de datos
-        Dim TransoformarDBSDaVariable As DataGridViewRow = DataGridViewlllllVerLibrosEnExtraccionlllll.CurrentRow
-        Dim NOMBREdelLIBRO As String
-        NOMBREdelLIBRO = CStr(TransoformarDBSDaVariable.Cells(1).Value)
-
-        '////////////////////////////SI CEDULA.TEXT TIENE LA CEDULA PUESTA AHI SI SE PODRA AGREGAR LIBROS O REALIZAR OTRAS FUNCIONES  /////////////////////// 
-
-        Dim list1 As Integer
-        list1 = ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Count
-
-        If VerLibrosReservados2.Item(0, VerLibrosReservados2.CurrentRow.Index).Value <> list1 Then
-
-            Dim NomLibro As String
-            Dim IdLibro As String
-
-            NomLibro = VerLibrosReservados2.Item(0, VerLibrosReservados2.CurrentRow.Index).Value
-            IdLibro = VerLibrosReservados2.Item(1, VerLibrosReservados2.CurrentRow.Index).Value
-
-
-
-            If (ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Contains(NomLibro)) Then
-
-                MsgBox("El libro " & NomLibro & " ya se encuentra en el carrito de extracción ", Title:="PRESTAMOS")
-            Else
-                z = MsgBox("Desea llevar al carrito el libro " & NOMBREdelLIBRO & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
-
-                If z = vbYes Then
-
-                    ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Add(NomLibro)
-                    CarritoDeLibros.Items.Add(NomLibro & "                          " & IdLibro)
-
-                    For Each item As String In ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items
-                        For Each Row As DataGridViewRow In VerLibrosReservados2.Rows
-                            If Row.Cells("cod_libro").Value = Val(item) Then
-                                Row.DefaultCellStyle.BackColor = Drawing.Color.BlueViolet
-                            End If
-
-                        Next
-                    Next
-
-                End If
-            End If
-        End If
-        If CarritoDeLibros.Items.Count <> 0 Then
-
-            ButonParaExtreaer.Visible = True
-
-        Else
-
-            ButonParaExtreaer.Visible = False
-
-        End If
-    End Sub
-
-    Private Sub CarritoDeLibros_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CarritoDeLibros.SelectedIndexChanged
 
     End Sub
 
@@ -1372,7 +1218,153 @@
         End If
     End Sub
 
-    Private Sub Panel4_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Panel4.Paint
+
+    Private Sub Panel4_MouseHover(ByVal sender As Object, ByVal e As System.EventArgs) Handles Panel4.MouseHover
+        Label5.Text = "SELECCION " + vbCrLf + "DE" + vbCrLf + "FUNCION"
+    End Sub
+
+
+
+    Private Sub VerLibrosReservados2_CellContentDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles VerLibrosReservados2.CellContentDoubleClick
+
+        'Se iguala una variable a un valor de la base de datos
+        Dim list1 As Integer
+
+        list1 = ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Count - 1
+        '////////////////////////////SI CEDULA.TEXT TIENE LA CEDULA PUESTA AHI SI SE PODRA AGREGAR LIBROS O REALIZAR OTRAS FUNCIONES  /////////////////////// 
+
+
+
+
+
+        If VerLibrosReservados2.Item(0, VerLibrosReservados2.CurrentRow.Index).Value <> list1 Then
+
+            Dim NomLibro As String
+            Dim IdLibro As String
+            NomLibro = VerLibrosReservados2.Item(1, VerLibrosReservados2.CurrentRow.Index).Value
+            IdLibro = VerLibrosReservados2.Item(0, VerLibrosReservados2.CurrentRow.Index).Value
+
+
+
+            If (ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Contains(NomLibro)) Then
+
+                MsgBox("El libro " & NomLibro & " ya se encuentra en el carrito de extracción ", Title:="PRESTAMOS")
+            Else
+                z = MsgBox("Desea llevar al carrito el libro " & NomLibro & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
+
+                If z = vbYes Then
+
+                    ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Add(IdLibro)
+                    CarritoDeLibros.Items.Add(IdLibro & "                          " & NomLibro)
+
+                    For Each item As String In ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items
+                        For Each Row As DataGridViewRow In VerLibrosReservados2.Rows
+                            If Row.Cells("cod_libro").Value = Val(item) Then
+                                Row.DefaultCellStyle.BackColor = Drawing.Color.BlueViolet
+                            End If
+
+                        Next
+                    Next
+
+                End If
+            End If
+        End If
+        If CarritoDeLibros.Items.Count <> 0 Then
+
+            ButonParaExtreaer.Visible = True
+
+        Else
+
+            ButonParaExtreaer.Visible = False
+
+        End If
+    End Sub
+
+    Public Sub LibrosParaReservar_CellContentDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles LibrosParaReservar.CellContentDoubleClick
+
+        'Se iguala una variable a un valor de la base de datos
+        Dim list1 As Integer
+
+        list1 = ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Count - 1
+        '////////////////////////////SI CEDULA.TEXT TIENE LA CEDULA PUESTA AHI SI SE PODRA AGREGAR LIBROS O REALIZAR OTRAS FUNCIONES  /////////////////////// 
+
+
+
+
+        Try
+
+            If LibrosParaReservar.Item(0, LibrosParaReservar.CurrentRow.Index).Value <> list1 Then
+
+                Dim NomLibro As String
+                Dim IdLibro As String
+                NomLibro = LibrosParaReservar.Item(1, LibrosParaReservar.CurrentRow.Index).Value
+                IdLibro = LibrosParaReservar.Item(0, LibrosParaReservar.CurrentRow.Index).Value
+
+
+                a = MsgBox("Desea reservar el libro " & NomLibro & " ?", MsgBoxStyle.YesNoCancel, Title:="PRESTAMOS")
+                If a = vbYes Then
+
+                    Consulta = "update libro set estado = 2 where cod_libro = '" & IdLibro & "'"
+                    consultar()
+
+                    '///A REVISAR////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    Consulta = "UPDATE prestamolibro SET reservacion = 'Reservado' WHERE cedula = '" & Cedula.Text & "' and cod_libro ='" & IdLibro & "'"
+                    consultar()
+                    MsgBox("se ha creador la reservacion", Title:="PRESTAMO")
+                    Consulta = "select * from libro where estado = 0"
+                    LibrosParaReservar.DataSource = Tabla
+                    consultar()
+                    '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                    Consulta = "select * from libro where estado = 0"
+                    LibrosParaReservar.DataSource = Tabla
+                    consultar()
+
+                Else
+
+
+
+                    Consulta = "select * from libro where estado = 0"
+                    LibrosParaReservar.DataSource = Tabla
+                    consultar()
+                End If
+
+
+                If a = vbNo Then
+
+                End If
+            End If
+
+        Catch ex As Exception
+
+            MsgBox("El libro sigue reservado", Title:="RESERVACION")
+
+        End Try
+
+        '/////////////////////////////////////////////////
+    End Sub
+
+    Private Sub LibrosParaReservar_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles LibrosParaReservar.CellContentClick
+
+    End Sub
+
+    Private Sub DataGridViewlllllVerLibrosEnExtraccionlllll_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridViewlllllVerLibrosEnExtraccionlllll.CellContentClick
+
+    End Sub
+
+    Private Sub CrearReservacionComboBox_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CrearReservacionComboBox.Enter
+
+    End Sub
+
+    Private Sub VerLibrosReservados2_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles VerLibrosReservados2.CellContentClick
+
+    End Sub
+
+    Private Sub DataGridParaDevolucion_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridParaDevolucion.CellContentClick
+
+    End Sub
+
+    Private Sub devoCOMBO_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles devoCOMBO.Enter
 
     End Sub
 End Class

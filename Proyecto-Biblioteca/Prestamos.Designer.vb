@@ -61,6 +61,8 @@ Partial Class Prestamos
         Me.Label19 = New System.Windows.Forms.Label()
         Me.BotonExtrearReservados = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.PictureCrearReservacion = New System.Windows.Forms.PictureBox()
         Me.PictureReservacion = New System.Windows.Forms.PictureBox()
         Me.PictureDevolucion = New System.Windows.Forms.PictureBox()
@@ -77,8 +79,6 @@ Partial Class Prestamos
         Me.Ocultar = New System.Windows.Forms.Timer(Me.components)
         Me.Ocultar_Aparecer = New System.Windows.Forms.Timer(Me.components)
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.Panel1.SuspendLayout()
@@ -92,6 +92,7 @@ Partial Class Prestamos
         Me.ReservacionComboBox.SuspendLayout()
         CType(Me.VerLibrosReservados2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
+        Me.Panel4.SuspendLayout()
         CType(Me.PictureCrearReservacion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureReservacion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureDevolucion, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -99,7 +100,6 @@ Partial Class Prestamos
         Me.CrearReservacionComboBox.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LibrosParaReservar, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel4.SuspendLayout()
         Me.SuspendLayout()
         '
         'Timer1
@@ -139,7 +139,7 @@ Partial Class Prestamos
         Me.Panel1.Controls.Add(Me.Label9)
         Me.Panel1.Controls.Add(Me.Label8)
         Me.Panel1.Controls.Add(Me.Label12)
-        Me.Panel1.Location = New System.Drawing.Point(-270, -28)
+        Me.Panel1.Location = New System.Drawing.Point(-274, -28)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(268, 676)
         Me.Panel1.TabIndex = 73
@@ -158,7 +158,7 @@ Partial Class Prestamos
         Me.CarritoDeLibros.FormattingEnabled = True
         Me.CarritoDeLibros.Location = New System.Drawing.Point(9, 228)
         Me.CarritoDeLibros.Name = "CarritoDeLibros"
-        Me.CarritoDeLibros.Size = New System.Drawing.Size(254, 329)
+        Me.CarritoDeLibros.Size = New System.Drawing.Size(254, 186)
         Me.CarritoDeLibros.TabIndex = 68
         '
         'Label4
@@ -194,7 +194,7 @@ Partial Class Prestamos
         'ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll
         '
         Me.ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.FormattingEnabled = True
-        Me.ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Location = New System.Drawing.Point(75, 434)
+        Me.ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Location = New System.Drawing.Point(141, 434)
         Me.ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Name = "ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll"
         Me.ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Size = New System.Drawing.Size(116, 30)
         Me.ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.TabIndex = 64
@@ -438,9 +438,13 @@ Partial Class Prestamos
         '
         'VerLibrosReservados2
         '
+        Me.VerLibrosReservados2.AllowUserToAddRows = False
+        Me.VerLibrosReservados2.AllowUserToDeleteRows = False
         Me.VerLibrosReservados2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.VerLibrosReservados2.Location = New System.Drawing.Point(6, 78)
         Me.VerLibrosReservados2.Name = "VerLibrosReservados2"
+        Me.VerLibrosReservados2.ReadOnly = True
+        Me.VerLibrosReservados2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.VerLibrosReservados2.Size = New System.Drawing.Size(578, 455)
         Me.VerLibrosReservados2.TabIndex = 81
         '
@@ -498,6 +502,25 @@ Partial Class Prestamos
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(1016, 112)
         Me.Panel3.TabIndex = 75
+        '
+        'Panel4
+        '
+        Me.Panel4.BackColor = System.Drawing.SystemColors.ScrollBar
+        Me.Panel4.Controls.Add(Me.Label5)
+        Me.Panel4.Location = New System.Drawing.Point(880, 14)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(135, 87)
+        Me.Panel4.TabIndex = 76
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(23, 16)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(89, 45)
+        Me.Label5.TabIndex = 66
+        Me.Label5.Text = "SELECCION " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      DE " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FUNCION "
         '
         'PictureCrearReservacion
         '
@@ -647,25 +670,6 @@ Partial Class Prestamos
         Me.Panel2.Size = New System.Drawing.Size(1016, 38)
         Me.Panel2.TabIndex = 78
         '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(23, 16)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(89, 45)
-        Me.Label5.TabIndex = 66
-        Me.Label5.Text = "SELECCION " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      DE " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FUNCION "
-        '
-        'Panel4
-        '
-        Me.Panel4.BackColor = System.Drawing.SystemColors.ScrollBar
-        Me.Panel4.Controls.Add(Me.Label5)
-        Me.Panel4.Location = New System.Drawing.Point(880, 14)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(135, 87)
-        Me.Panel4.TabIndex = 76
-        '
         'Timer2
         '
         '
@@ -712,6 +716,8 @@ Partial Class Prestamos
         CType(Me.VerLibrosReservados2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
+        Me.Panel4.ResumeLayout(False)
+        Me.Panel4.PerformLayout()
         CType(Me.PictureCrearReservacion, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureReservacion, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureDevolucion, System.ComponentModel.ISupportInitialize).EndInit()
@@ -720,8 +726,6 @@ Partial Class Prestamos
         Me.CrearReservacionComboBox.PerformLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LibrosParaReservar, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel4.ResumeLayout(False)
-        Me.Panel4.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
