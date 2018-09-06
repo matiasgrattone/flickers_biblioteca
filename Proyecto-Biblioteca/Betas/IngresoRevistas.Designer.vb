@@ -22,17 +22,26 @@ Partial Class IngresoRevistas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.dgvrevistas = New System.Windows.Forms.DataGridView()
         Me.btningresarrevista = New System.Windows.Forms.Button()
         Me.lbltitulo = New System.Windows.Forms.Label()
         Me.lblanio = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.dgvcomprobar = New System.Windows.Forms.DataGridView()
+        Me.ErrorProvider2 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.txtdescripcion = New Proyecto_Biblioteca.PlaceHolder()
         Me.txtorigenr = New Proyecto_Biblioteca.PlaceHolder()
         Me.txtanior = New Proyecto_Biblioteca.PlaceHolder()
         Me.txttitulo = New Proyecto_Biblioteca.PlaceHolder()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label3 = New System.Windows.Forms.Label()
         CType(Me.dgvrevistas, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvcomprobar, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ErrorProvider2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dgvrevistas
@@ -51,7 +60,7 @@ Partial Class IngresoRevistas
         '
         'btningresarrevista
         '
-        Me.btningresarrevista.Location = New System.Drawing.Point(349, 195)
+        Me.btningresarrevista.Location = New System.Drawing.Point(359, 195)
         Me.btningresarrevista.Name = "btningresarrevista"
         Me.btningresarrevista.Size = New System.Drawing.Size(122, 42)
         Me.btningresarrevista.TabIndex = 1
@@ -62,7 +71,7 @@ Partial Class IngresoRevistas
         '
         Me.lbltitulo.AutoSize = True
         Me.lbltitulo.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbltitulo.Location = New System.Drawing.Point(96, 63)
+        Me.lbltitulo.Location = New System.Drawing.Point(137, 68)
         Me.lbltitulo.Name = "lbltitulo"
         Me.lbltitulo.Size = New System.Drawing.Size(46, 15)
         Me.lbltitulo.TabIndex = 6
@@ -72,7 +81,7 @@ Partial Class IngresoRevistas
         '
         Me.lblanio.AutoSize = True
         Me.lblanio.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblanio.Location = New System.Drawing.Point(105, 111)
+        Me.lblanio.Location = New System.Drawing.Point(146, 114)
         Me.lblanio.Name = "lblanio"
         Me.lblanio.Size = New System.Drawing.Size(37, 15)
         Me.lblanio.TabIndex = 7
@@ -82,7 +91,7 @@ Partial Class IngresoRevistas
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(442, 109)
+        Me.Label1.Location = New System.Drawing.Point(423, 111)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(86, 15)
         Me.Label1.TabIndex = 8
@@ -92,16 +101,34 @@ Partial Class IngresoRevistas
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(428, 63)
+        Me.Label2.Location = New System.Drawing.Point(409, 65)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(100, 15)
         Me.Label2.TabIndex = 9
         Me.Label2.Text = "Pais de origen:"
         '
+        'ErrorProvider1
+        '
+        Me.ErrorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
+        Me.ErrorProvider1.ContainerControl = Me
+        '
+        'dgvcomprobar
+        '
+        Me.dgvcomprobar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvcomprobar.Location = New System.Drawing.Point(762, 12)
+        Me.dgvcomprobar.Name = "dgvcomprobar"
+        Me.dgvcomprobar.Size = New System.Drawing.Size(94, 27)
+        Me.dgvcomprobar.TabIndex = 10
+        '
+        'ErrorProvider2
+        '
+        Me.ErrorProvider2.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
+        Me.ErrorProvider2.ContainerControl = Me
+        '
         'txtdescripcion
         '
         Me.txtdescripcion.Font = New System.Drawing.Font("Lucida Sans", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtdescripcion.Location = New System.Drawing.Point(534, 107)
+        Me.txtdescripcion.Location = New System.Drawing.Point(515, 109)
         Me.txtdescripcion.Multiline = True
         Me.txtdescripcion.Name = "txtdescripcion"
         Me.txtdescripcion.Size = New System.Drawing.Size(294, 76)
@@ -112,7 +139,7 @@ Partial Class IngresoRevistas
         'txtorigenr
         '
         Me.txtorigenr.Font = New System.Drawing.Font("Lucida Sans", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtorigenr.Location = New System.Drawing.Point(534, 61)
+        Me.txtorigenr.Location = New System.Drawing.Point(515, 63)
         Me.txtorigenr.Name = "txtorigenr"
         Me.txtorigenr.Size = New System.Drawing.Size(173, 20)
         Me.txtorigenr.TabIndex = 4
@@ -122,7 +149,7 @@ Partial Class IngresoRevistas
         'txtanior
         '
         Me.txtanior.Font = New System.Drawing.Font("Lucida Sans", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtanior.Location = New System.Drawing.Point(150, 109)
+        Me.txtanior.Location = New System.Drawing.Point(191, 109)
         Me.txtanior.Name = "txtanior"
         Me.txtanior.Size = New System.Drawing.Size(173, 20)
         Me.txtanior.TabIndex = 3
@@ -132,12 +159,29 @@ Partial Class IngresoRevistas
         'txttitulo
         '
         Me.txttitulo.Font = New System.Drawing.Font("Lucida Sans", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txttitulo.Location = New System.Drawing.Point(150, 61)
+        Me.txttitulo.Location = New System.Drawing.Point(191, 66)
         Me.txttitulo.Name = "txttitulo"
         Me.txttitulo.Size = New System.Drawing.Size(173, 20)
         Me.txttitulo.TabIndex = 2
         Me.txttitulo.WaterMarkColor = System.Drawing.Color.Gray
         Me.txttitulo.WaterMarkText = "Ingrese Titulo"
+        '
+        'Panel1
+        '
+        Me.Panel1.Location = New System.Drawing.Point(762, 12)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(94, 27)
+        Me.Panel1.TabIndex = 11
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Lucida Sans", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(257, 9)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(381, 42)
+        Me.Label3.TabIndex = 12
+        Me.Label3.Text = "Ingreso de Revistas:"
         '
         'IngresoRevistas
         '
@@ -145,6 +189,9 @@ Partial Class IngresoRevistas
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Chocolate
         Me.ClientSize = New System.Drawing.Size(868, 586)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.dgvcomprobar)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lblanio)
@@ -159,6 +206,9 @@ Partial Class IngresoRevistas
         Me.Name = "IngresoRevistas"
         Me.Text = "IngresoRevistas"
         CType(Me.dgvrevistas, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvcomprobar, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorProvider2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -173,4 +223,9 @@ Partial Class IngresoRevistas
     Friend WithEvents lblanio As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents ErrorProvider1 As System.Windows.Forms.ErrorProvider
+    Friend WithEvents dgvcomprobar As System.Windows.Forms.DataGridView
+    Friend WithEvents ErrorProvider2 As System.Windows.Forms.ErrorProvider
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
 End Class
