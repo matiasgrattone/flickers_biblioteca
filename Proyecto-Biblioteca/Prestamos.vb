@@ -1367,4 +1367,26 @@
     Private Sub devoCOMBO_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles devoCOMBO.Enter
 
     End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        Dim a As String
+        a = MsgBox("Desea vaciar el carrito ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
+
+        If a = vbYes Then
+            MsgBox("Carrito vaciado", Title:="PRESTAMO")
+            CarritoDeLibros.Items.Clear()
+            ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
+
+            Consulta = "select * from libro where estado = '0'"
+            consultar()
+            DataGridViewlllllVerLibrosEnExtraccionlllll.DataSource = Tabla
+
+            Consulta = "select * from libro where estado = 2"
+            consultar()
+            VerLibrosReservados2.DataSource = Tabla
+
+        Else
+
+        End If
+    End Sub
 End Class
