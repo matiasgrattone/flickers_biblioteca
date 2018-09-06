@@ -79,6 +79,12 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Betas\Form2.Designer.vb">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Betas\Form2.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Betas\Inicio UsuariosV2.Designer.vb">
       <DependentUpon>Inicio UsuariosV2.vb</DependentUpon>
     </Compile>
@@ -100,10 +106,10 @@
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PruebaDeNotas.Designer.vb">
+    <Compile Include="Betas\PruebaDeNotas.Designer.vb">
       <DependentUpon>PruebaDeNotas.vb</DependentUpon>
     </Compile>
-    <Compile Include="PruebaDeNotas.vb">
+    <Compile Include="Betas\PruebaDeNotas.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Info_usuario.Designer.vb">
@@ -185,6 +191,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Betas\Form2.resx">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Betas\Inicio UsuariosV2.resx">
       <DependentUpon>Inicio UsuariosV2.vb</DependentUpon>
     </EmbeddedResource>
@@ -194,7 +203,7 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PruebaDeNotas.resx">
+    <EmbeddedResource Include="Betas\PruebaDeNotas.resx">
       <DependentUpon>PruebaDeNotas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Info_usuario.resx">

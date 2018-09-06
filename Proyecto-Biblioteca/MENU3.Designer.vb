@@ -31,6 +31,7 @@ Partial Class MENU3
         Me.Pbusuario = New System.Windows.Forms.PictureBox()
         Me.Nombre = New System.Windows.Forms.Label()
         Me.Pmenu = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Pbconfig = New System.Windows.Forms.PictureBox()
         Me.Labels_transparentes1 = New Proyecto_Biblioteca.labels_transparentes()
         Me.Pbnube = New System.Windows.Forms.PictureBox()
@@ -61,11 +62,12 @@ Partial Class MENU3
         Me.Timer_LibrosLabel = New System.Windows.Forms.Timer(Me.components)
         Me.Timer_PrestamosLabel = New System.Windows.Forms.Timer(Me.components)
         Me.Timer_NvegadorLabel = New System.Windows.Forms.Timer(Me.components)
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Phoraencabezado.SuspendLayout()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Pbusuario, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Pmenu.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Pbconfig, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Pbnube, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panel_navegador.SuspendLayout()
@@ -78,7 +80,6 @@ Partial Class MENU3
         CType(Me.Pbusuarios, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Pnavegador.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Phoraencabezado
@@ -150,6 +151,7 @@ Partial Class MENU3
         'Pmenu
         '
         Me.Pmenu.BackColor = System.Drawing.Color.Silver
+        Me.Pmenu.Controls.Add(Me.Button1)
         Me.Pmenu.Controls.Add(Me.PictureBox1)
         Me.Pmenu.Controls.Add(Me.Pbconfig)
         Me.Pmenu.Controls.Add(Me.Labels_transparentes1)
@@ -163,6 +165,18 @@ Partial Class MENU3
         Me.Pmenu.Name = "Pmenu"
         Me.Pmenu.Size = New System.Drawing.Size(135, 665)
         Me.Pmenu.TabIndex = 1
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.navigator
+        Me.PictureBox1.Location = New System.Drawing.Point(8, 413)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(64, 63)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 16
+        Me.PictureBox1.TabStop = False
         '
         'Pbconfig
         '
@@ -423,17 +437,14 @@ Partial Class MENU3
         '
         Me.Timer_NvegadorLabel.Interval = 10
         '
-        'PictureBox1
+        'Button1
         '
-        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.navigator
-        Me.PictureBox1.Location = New System.Drawing.Point(8, 413)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(64, 63)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 16
-        Me.PictureBox1.TabStop = False
+        Me.Button1.Location = New System.Drawing.Point(11, 557)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(92, 23)
+        Me.Button1.TabIndex = 17
+        Me.Button1.Text = "BotonDeNotas"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'MENU3
         '
@@ -454,6 +465,7 @@ Partial Class MENU3
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Pbusuario, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Pmenu.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Pbconfig, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Pbnube, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panel_navegador.ResumeLayout(False)
@@ -471,7 +483,6 @@ Partial Class MENU3
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Pnavegador.ResumeLayout(False)
         Me.Pnavegador.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -513,4 +524,5 @@ Partial Class MENU3
     Friend WithEvents Timer_PrestamosLabel As System.Windows.Forms.Timer
     Friend WithEvents Timer_NvegadorLabel As System.Windows.Forms.Timer
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class
