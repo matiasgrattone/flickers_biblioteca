@@ -6,8 +6,8 @@ Module Modulo
 
     Public nombre As String 'Variable para cambiar mostrar nombre en inicio usuario
 
-    Dim ubicacion As String = "server=localhost; user id=root; password=''; database=biblioteca"
-    'Dim ubicacion As String = "server=192.168.1.49; user id=admin; password=admin; database=biblioteca"
+    'Dim ubicacion As String = "server=localhost; user id=root; password=''; database=biblioteca"
+    Dim ubicacion As String = "server=bibliotecadb.ddns.net; user id=admin; password=admin; database=biblioteca"
     Public Conexion As MySqlDataAdapter
     Public Tabla As DataTable
     Public Consulta As String
@@ -147,41 +147,47 @@ Module Modulo
     End Sub
 
     Public Sub Verificar_Cedula(ByVal cedu)
-        Dim cedula As String
-        Dim num(7) As Char
-        Dim suma As Integer
-        Dim calculo() As Integer = {2, 9, 8, 7, 6, 3, 4}
+        Try
+            Dim cedula As String
+            Dim num(7) As Char
+            Dim suma As Integer
+            Dim calculo() As Integer = {2, 9, 8, 7, 6, 3, 4}
 
-        cedula = cedu
-        num = cedu.ToCharArray()
+            cedula = cedu
+            num = cedu.ToCharArray()
 
-        For i = 0 To 6
-            Dim num1 As Integer = Val(num(i))
-            suma = (num1 * calculo(i)) + suma
-        Next
+            For i = 0 To 6
+                Dim num1 As Integer = Val(num(i))
+                suma = (num1 * calculo(i)) + suma
+            Next
 
-        'num = suma.ToString.ToCharArray
+            'num = suma.ToString.ToCharArray
 
-        'ReDim Preserve num(1)
-        'suma1 = Convert.ToInt32(num) + 1
-        'num = suma1.ToString.ToCharArray
-        'ReDim Preserve num(2)
-        'num(2) = "0"
+            'ReDim Preserve num(1)
+            'suma1 = Convert.ToInt32(num) + 1
+            'num = suma1.ToString.ToCharArray
+            'ReDim Preserve num(2)
+            'num(2) = "0"
 
-        'suma1 = Convert.ToInt32(num)
-        'suma = suma1 - suma
+            'suma1 = Convert.ToInt32(num)
+            'suma = suma1 - suma
 
-        num = cedula.ToCharArray()
+            num = cedula.ToCharArray()
 
-        Dim resto As Integer = 10 - (suma Mod 10)
-        If resto = 10 Then
-            resto = 0
-        End If
-        If resto = Val(num(7)) Then
-            correcto = 0
-        Else
+            Dim resto As Integer = 10 - (suma Mod 10)
+            If resto = 10 Then
+                resto = 0
+            End If
+            If resto = Val(num(7)) Then
+                correcto = 0
+            Else
+                correcto = 1
+            End If
+
+        Catch ex As Exception
             correcto = 1
-        End If
+        End Try
+
     End Sub
 
 End Module
