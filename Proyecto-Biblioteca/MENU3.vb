@@ -794,4 +794,15 @@ Public Class MENU3
         LabelRevistas.Enabled = True
     End Sub
 
+    Private Sub Pbconfig_Click(sender As System.Object, e As System.EventArgs) Handles Pbconfig.Click
+        ConfiguraciònAdmin.Show()
+    End Sub
+
+    Private Sub Pbconfig_MouseEnter(sender As System.Object, e As System.EventArgs) Handles Pbconfig.MouseEnter
+        Me.Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub Pbconfig_MouseLeave(sender As System.Object, e As System.EventArgs) Handles Pbconfig.MouseLeave
+        Me.Cursor = Cursors.Default
+    End Sub
 End Class

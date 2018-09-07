@@ -61,6 +61,7 @@
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -83,6 +84,12 @@
       <DependentUpon>BusquedaRevistas.vb</DependentUpon>
     </Compile>
     <Compile Include="Betas\BusquedaRevistas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Betas\ConfiguraciònAdmin.Designer.vb">
+      <DependentUpon>ConfiguraciònAdmin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Betas\ConfiguraciònAdmin.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Betas\IngresoRevistas.Designer.vb">
@@ -206,6 +213,9 @@
     <EmbeddedResource Include="Betas\BusquedaRevistas.resx">
       <DependentUpon>BusquedaRevistas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Betas\ConfiguraciònAdmin.resx">
+      <DependentUpon>ConfiguraciònAdmin.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Betas\IngresoRevistas.resx">
       <DependentUpon>IngresoRevistas.vb</DependentUpon>
     </EmbeddedResource>
@@ -214,6 +224,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Betas\Registroprestamos.resx">
       <DependentUpon>Registroprestamos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Betas\Seleccion_Registro.resx">
+      <DependentUpon>Seleccion_Registro.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Betas\Seleccion_Revistas.resx">
       <DependentUpon>Seleccion_Revistas.vb</DependentUpon>
@@ -330,6 +343,7 @@
     <None Include="Resources\devolcion.png" />
     <None Include="Resources\crear_reserva.png" />
     <None Include="Resources\magazine.png" />
+    <None Include="Resources\3132.jpg" />
     <Content Include="Resources\navigator.png" />
     <None Include="Resources\Sin título-1.jpg" />
     <None Include="Resources\reading.png" />
