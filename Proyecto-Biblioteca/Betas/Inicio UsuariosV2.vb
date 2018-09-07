@@ -738,7 +738,7 @@
             For Each row As DataRow In Tabla.Rows
 
                 dianum = row("nacimiento").ToString.Substring(0, 2)
-                If ComboBox4.SelectedItem.ToString.Length = 1 Then
+                If ComboBox4.SelectedItem.ToString.Length = 1 Then '----------------BUG------------------
                     If dianum = row("nacimiento").ToString.Substring(0, 2) Then
                         dia2 = "0"
                     Else

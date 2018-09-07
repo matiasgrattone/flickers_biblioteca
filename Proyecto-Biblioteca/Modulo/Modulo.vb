@@ -5,9 +5,16 @@ Imports MySql.Data.MySqlClient
 Module Modulo
 
     Public nombre As String 'Variable para cambiar mostrar nombre en inicio usuario
+    Dim ubicacion As String
+    Public invitado As Integer = 0
 
-    'Dim ubicacion As String = "server=localhost; user id=root; password=''; database=biblioteca"
-    Dim ubicacion As String = "server=bibliotecadb.ddns.net; user id=admin; password=admin; database=biblioteca"
+    '#If invitado = 0 Then
+    '    Dim ubicacion As String = "server=localhost; user id=root; password=''; database=biblioteca"
+    '    ubicacion = "server=bibliotecadb.ddns.net; user id=admin; password=admin; database=biblioteca"
+    '#Else
+    '    ubicacion = "server=bibliotecadb.ddns.net; user id=invitado; password=invitado; database=biblioteca"
+    '#End If
+
     Public Conexion As MySqlDataAdapter
     Public Tabla As DataTable
     Public Consulta As String
@@ -20,6 +27,14 @@ Module Modulo
     Public substring As String
 
     Public Sub consultar()
+
+        If invitado = 0 Then
+            'Dim ubicacion As String = "server=localhost; user id=root; password=''; database=biblioteca"
+            ubicacion = "server=bibliotecadb.ddns.net; user id=admin; password=admin; database=biblioteca"
+        Else
+            ubicacion = "server=192.168.1.12; user id=invitado; password=invitado; database=biblioteca"
+            'ubicacion = "server=bibliotecadb.ddns.net; user id=invitado; password=invitado; database=biblioteca"
+        End If
 
         Try
             Conexion = New MySqlDataAdapter(Consulta, ubicacion)

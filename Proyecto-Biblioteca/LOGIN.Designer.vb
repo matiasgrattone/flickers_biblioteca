@@ -33,6 +33,7 @@ Partial Class LOGIN
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Labels_transparentes2 = New Proyecto_Biblioteca.labels_transparentes()
         Me.Labels_transparentes1 = New Proyecto_Biblioteca.labels_transparentes()
+        Me.Labels_transparentes3 = New Proyecto_Biblioteca.labels_transparentes()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -131,6 +132,15 @@ Partial Class LOGIN
         Me.Labels_transparentes1.TabIndex = 11
         Me.Labels_transparentes1.Text = "Cedula"
         '
+        'Labels_transparentes3
+        '
+        Me.Labels_transparentes3.ForeColor = System.Drawing.Color.LightSeaGreen
+        Me.Labels_transparentes3.Location = New System.Drawing.Point(540, 318)
+        Me.Labels_transparentes3.Name = "Labels_transparentes3"
+        Me.Labels_transparentes3.Size = New System.Drawing.Size(140, 23)
+        Me.Labels_transparentes3.TabIndex = 15
+        Me.Labels_transparentes3.Text = "Ingresar como invitado"
+        '
         'LOGIN
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -138,6 +148,7 @@ Partial Class LOGIN
         Me.BackgroundImage = Global.Proyecto_Biblioteca.My.Resources.Resources.Sin_título_1
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(973, 562)
+        Me.Controls.Add(Me.Labels_transparentes3)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.Labels_transparentes2)
         Me.Controls.Add(Me.Labels_transparentes1)
@@ -169,4 +180,5 @@ Partial Class LOGIN
     Friend WithEvents Labels_transparentes1 As Proyecto_Biblioteca.labels_transparentes
     Friend WithEvents Labels_transparentes2 As Proyecto_Biblioteca.labels_transparentes
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
+    Friend WithEvents Labels_transparentes3 As Proyecto_Biblioteca.labels_transparentes
 End Class
