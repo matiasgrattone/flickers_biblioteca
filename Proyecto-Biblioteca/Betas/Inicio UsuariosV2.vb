@@ -4,6 +4,8 @@
     Dim animacion As Integer = 0
     Dim dia As String
     Dim mes1 As String
+    Dim mouse As Integer = 0
+    Dim mouse1 As Integer
 
     Private Sub Inicio_UsuariosV2_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         'Button4.Visible = False
@@ -260,6 +262,7 @@
         Dim mes1 As String = ""
         Dim año As String = ""
 
+        mouse = 0
 
         Select Case seleccionado
 
@@ -669,13 +672,13 @@
     Private Sub ComboBox2_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBox2.SelectedIndexChanged
         ErrorProvider1.SetError(ComboBox2, "")
     End Sub
-
     Private Sub ComboBox3_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBox3.SelectedIndexChanged
         ErrorProvider1.SetError(ComboBox3, "")
     End Sub
 
     Private Sub nombre_txt_TextChanged(sender As System.Object, e As System.EventArgs) Handles nombre_txt.TextChanged
         ErrorProvider1.SetError(nombre_txt, "")
+        VerificarModificacion()
     End Sub
 
     Private Sub apellido_txt_TextChanged(sender As System.Object, e As System.EventArgs) Handles apellido_txt.TextChanged
@@ -704,118 +707,180 @@
 
     Private Sub cedula_TextChanged(sender As System.Object, e As System.EventArgs) Handles cedula.TextChanged
         ErrorProvider1.SetError(cedula, "")
-        ErrorProvider1.SetError(cedula, "")
+        mouse1 = 1
+        contador = 0
+        Inactivo.Enabled = True
     End Sub
 
     Private Sub nombre_TextChanged(sender As System.Object, e As System.EventArgs) Handles nombre.TextChanged
-        VerificarModificacion()
         ErrorProvider1.SetError(nombre, "")
+        mouse1 = 1
+        contador = 0
+        Inactivo.Enabled = True
+
     End Sub
     Private Sub VerificarModificacion()
-        'Dim nombre1 As String
-        'Dim apellido1 As String
-        'Dim cedula1 As String
-        'Dim telefono1 As String
-        'Dim direccion1 As String
-        'Dim dia2 As String
-        'Dim mes2 As String
-        'Dim año2 As String
 
-        'Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento , tipo from usuarios where cedula = '" & DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value & "'"
-        'consultar()
+        If mouse = 0 Then
 
-        'For Each row As DataRow In Tabla.Rows
+            Dim nombre1 As String = ""
+            Dim apellido1 As String = ""
+            Dim cedula1 As String = ""
+            Dim telefono1 As String = ""
+            Dim direccion1 As String = ""
+            Dim dia2 As String = ""
+            Dim mes2 As String = ""
+            Dim año2 As String = ""
+            Dim dianum As String
+            Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento , tipo from usuarios where cedula = '" & DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value & "'"
+            consultar()
 
-        '    nombre1 = row("nombre").ToString
-        '    apellido1 = row("apellido").ToString
-        '    cedula1 = row("cedula").ToString
-        '    telefono1 = row("telefono").ToString
-        '    direccion1 = row("direccion").ToString
+            For Each row As DataRow In Tabla.Rows
 
-        'If ComboBox4.SelectedItem <> row("nacimiento").ToString.Substring(0, 2) Then
-        '    dia2 = 1
-        'Else
-        '    dia2 = 1
-        'End If
-        'substring = ComboBox5.SelectedItem
-        'mestonum()
-        'If substring <> row("nacimiento").ToString.Substring(3, 2) Then
-        '    mes1 = 1
-        'Else
-        '    mes1 = 0
-        'End If
-        'If ComboBox6.SelectedItem <> row("nacimiento").ToString.Substring(6, 4) Then
-        '    año2 = 1
-        'Else
-        '    año2 = 0
-        'End If
+                dianum = row("nacimiento").ToString.Substring(0, 2)
+                If ComboBox4.SelectedItem.ToString.Length = 1 Then
+                    If dianum = row("nacimiento").ToString.Substring(0, 2) Then
+                        dia2 = "0"
+                    Else
+                        dia2 = "1"
+                    End If
 
-        'Next
+                Else
+                    If dianum = row("nacimiento").ToString.Substring(0, 2) Then
+                        dia2 = "0"
+                        dianum = "0"
+                    Else
+                        dia2 = "1"
+                        dianum = "0"
+                    End If
+                End If
 
-        'If nombre1 = nombre.Text Then
-        '    nombre1 = 0
-        'Else
-        '    nombre1 = 1
-        'End If
 
-        'If apellido1 = apellido.Text Then
-        '    apellido1 = 0
-        'Else
-        '    apellido1 = 1
-        'End If
+                substring = ComboBox5.SelectedItem
+                mestonum()
 
-        'If cedula1 = cedula.Text Then
-        '    cedula1 = 0
-        'Else
-        '    cedula1 = 1
-        'End If
+                If substring = row("nacimiento").ToString.Substring(3, 2) Then
+                    mes2 = "0"
+                Else
+                    mes2 = "1"
+                End If
 
-        'If telefono1 = telefono.Text Then
-        '    telefono1 = 0
-        'Else
-        '    telefono1 = 1
-        'End If
+                If ComboBox6.SelectedItem = row("nacimiento").ToString.Substring(6, 4) Then
+                    año2 = "0"
+                Else
+                    año2 = "1"
+                End If
+                If nombre.Text = row("nombre").ToString Then
+                    nombre1 = "0"
+                Else
+                    nombre1 = "1"
+                End If
+                If apellido.Text = row("apellido").ToString Then
+                    apellido1 = "0"
+                Else
+                    apellido1 = "1"
+                End If
+                If cedula.Text = row("cedula").ToString Then
+                    cedula1 = "0"
+                Else
+                    cedula1 = "1"
+                End If
+                If telefono.Text = row("telefono").ToString Then
+                    telefono1 = "0"
+                Else
+                    telefono1 = "1"
+                End If
+                If direccion.Text = row("direccion").ToString Then
+                    direccion1 = "0"
+                Else
+                    direccion1 = "1"
+                End If
+            Next
 
-        'If direccion1 = direccion.Text Then
-        '    direccion1 = 0
-        'Else
-        '    direccion1 = 1
-        'End If
+            
+            If nombre1 = "0" And apellido1 = "0" And cedula1 = "0" And telefono1 = "0" And direccion1 = "0" And dia2 = "0" And mes2 = "0" And año2 = "0" Then
+                Button4.Visible = False
+            Else
+                Button4.Visible = True
+            End If
 
-        'If nombre1 = 0 And apellido1 = 0 And cedula1 = 0 And telefono1 = 0 And direccion1 = 0 And dia2 = 0 And mes2 = 0 And año2 = 0 Then
-        '    Button4.Visible = False
-        'Else
-        '    Button4.Visible = True
-        'End If
+        End If
 
     End Sub
 
     Private Sub apellido_TextChanged(sender As System.Object, e As System.EventArgs) Handles apellido.TextChanged
-        VerificarModificacion()
         ErrorProvider1.SetError(apellido, "")
+        mouse1 = 1
+        contador = 0
+        Inactivo.Enabled = True
     End Sub
 
     Private Sub telefono_TextChanged(sender As System.Object, e As System.EventArgs) Handles telefono.TextChanged
         ErrorProvider1.SetError(telefono, "")
+        mouse1 = 1
+        contador = 0
+        Inactivo.Enabled = True
     End Sub
 
     Private Sub direccion_TextChanged(sender As System.Object, e As System.EventArgs) Handles direccion.TextChanged
         ErrorProvider1.SetError(direccion, "")
+        mouse1 = 1
+        contador = 0
+        Inactivo.Enabled = True
     End Sub
 
     Private Sub ComboBox4_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBox4.SelectedIndexChanged
         ErrorProvider1.SetError(ComboBox4, "")
+        mouse1 = 1
+        contador = 0
+        Inactivo.Enabled = True
     End Sub
 
     Private Sub ComboBox5_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBox5.SelectedIndexChanged
         ErrorProvider1.SetError(ComboBox5, "")
+        mouse1 = 1
+        contador = 0
+        Inactivo.Enabled = True
     End Sub
 
     Private Sub ComboBox6_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBox6.SelectedIndexChanged
         ErrorProvider1.SetError(ComboBox6, "")
+        mouse1 = 1
+        contador = 0
+        Inactivo.Enabled = True
+    End Sub
+    Dim contador = 0
+    Private Sub Inactivo_Tick(sender As System.Object, e As System.EventArgs) Handles Inactivo.Tick
+
+        contador = contador + 1
+
+        If contador > 1 Then
+            contador = 0
+            Inactivo.Enabled = False
+            mouse = 0
+            VerificarModificacion()
+        End If
     End Sub
 
     Private Sub DataGridView1_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+
+    End Sub
+
+    Private Sub RadioButton6_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton6.CheckedChanged
+        ErrorProvider1.SetError(Label11, "")
+        mouse1 = 1
+        contador = 0
+        Inactivo.Enabled = True
+    End Sub
+
+    Private Sub RadioButton5_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton5.CheckedChanged
+        ErrorProvider1.SetError(Label11, "")
+        mouse1 = 1
+        contador = 0
+        Inactivo.Enabled = True
+    End Sub
+
+    Private Sub contrasenia_TextChanged(sender As System.Object, e As System.EventArgs) Handles contrasenia.TextChanged
 
     End Sub
 End Class

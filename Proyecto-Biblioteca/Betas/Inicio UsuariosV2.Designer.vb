@@ -71,6 +71,7 @@ Partial Class Inicio_UsuariosV2
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Inactivo = New System.Windows.Forms.Timer(Me.components)
         Me.direccion_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.telefono_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.cedula_txt = New Proyecto_Biblioteca.PlaceHolder()
@@ -96,7 +97,7 @@ Partial Class Inicio_UsuariosV2
         Me.Menu_Panel.Controls.Add(Me.Panel2)
         Me.Menu_Panel.Controls.Add(Me.Editar_Panel)
         Me.Menu_Panel.Controls.Add(Me.Ingresar_Panel)
-        Me.Menu_Panel.Location = New System.Drawing.Point(955, -2)
+        Me.Menu_Panel.Location = New System.Drawing.Point(640, -2)
         Me.Menu_Panel.Name = "Menu_Panel"
         Me.Menu_Panel.Size = New System.Drawing.Size(360, 651)
         Me.Menu_Panel.TabIndex = 0
@@ -583,6 +584,9 @@ Partial Class Inicio_UsuariosV2
         Me.Panel4.Size = New System.Drawing.Size(981, 56)
         Me.Panel4.TabIndex = 4
         '
+        'Inactivo
+        '
+        '
         'direccion_txt
         '
         Me.direccion_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -726,4 +730,5 @@ Partial Class Inicio_UsuariosV2
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents Panel4 As System.Windows.Forms.Panel
     Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents Inactivo As System.Windows.Forms.Timer
 End Class
