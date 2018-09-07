@@ -31,8 +31,10 @@ Partial Class MENU3
         Me.Pbusuario = New System.Windows.Forms.PictureBox()
         Me.Nombre = New System.Windows.Forms.Label()
         Me.Pmenu = New System.Windows.Forms.Panel()
+        Me.Panel_Revistas = New System.Windows.Forms.Panel()
+        Me.Pbrevistas = New System.Windows.Forms.PictureBox()
+        Me.LabelRevistas = New System.Windows.Forms.Label()
         Me.Pbconfig = New System.Windows.Forms.PictureBox()
-        Me.Labels_transparentes1 = New Proyecto_Biblioteca.labels_transparentes()
         Me.Pbnube = New System.Windows.Forms.PictureBox()
         Me.panel_navegador = New System.Windows.Forms.Panel()
         Me.Pbnavegador = New System.Windows.Forms.PictureBox()
@@ -61,10 +63,14 @@ Partial Class MENU3
         Me.Timer_LibrosLabel = New System.Windows.Forms.Timer(Me.components)
         Me.Timer_PrestamosLabel = New System.Windows.Forms.Timer(Me.components)
         Me.Timer_NvegadorLabel = New System.Windows.Forms.Timer(Me.components)
+        Me.Timer_RevistasLabel = New System.Windows.Forms.Timer(Me.components)
+        Me.Labels_transparentes1 = New Proyecto_Biblioteca.labels_transparentes()
         Me.Phoraencabezado.SuspendLayout()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Pbusuario, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Pmenu.SuspendLayout()
+        Me.Panel_Revistas.SuspendLayout()
+        CType(Me.Pbrevistas, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Pbconfig, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Pbnube, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panel_navegador.SuspendLayout()
@@ -148,6 +154,7 @@ Partial Class MENU3
         'Pmenu
         '
         Me.Pmenu.BackColor = System.Drawing.Color.Silver
+        Me.Pmenu.Controls.Add(Me.Panel_Revistas)
         Me.Pmenu.Controls.Add(Me.Pbconfig)
         Me.Pmenu.Controls.Add(Me.Labels_transparentes1)
         Me.Pmenu.Controls.Add(Me.Pbnube)
@@ -161,6 +168,36 @@ Partial Class MENU3
         Me.Pmenu.Size = New System.Drawing.Size(135, 665)
         Me.Pmenu.TabIndex = 1
         '
+        'Panel_Revistas
+        '
+        Me.Panel_Revistas.Controls.Add(Me.Pbrevistas)
+        Me.Panel_Revistas.Controls.Add(Me.LabelRevistas)
+        Me.Panel_Revistas.Location = New System.Drawing.Point(0, 388)
+        Me.Panel_Revistas.Name = "Panel_Revistas"
+        Me.Panel_Revistas.Size = New System.Drawing.Size(135, 94)
+        Me.Panel_Revistas.TabIndex = 11
+        '
+        'Pbrevistas
+        '
+        Me.Pbrevistas.BackColor = System.Drawing.Color.Transparent
+        Me.Pbrevistas.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Pbrevistas.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.magazine
+        Me.Pbrevistas.Location = New System.Drawing.Point(7, 16)
+        Me.Pbrevistas.Name = "Pbrevistas"
+        Me.Pbrevistas.Size = New System.Drawing.Size(64, 63)
+        Me.Pbrevistas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.Pbrevistas.TabIndex = 6
+        Me.Pbrevistas.TabStop = False
+        '
+        'LabelRevistas
+        '
+        Me.LabelRevistas.AutoSize = True
+        Me.LabelRevistas.Location = New System.Drawing.Point(10, 50)
+        Me.LabelRevistas.Name = "LabelRevistas"
+        Me.LabelRevistas.Size = New System.Drawing.Size(48, 13)
+        Me.LabelRevistas.TabIndex = 7
+        Me.LabelRevistas.Text = "Revistas"
+        '
         'Pbconfig
         '
         Me.Pbconfig.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.ios7_gear
@@ -170,14 +207,6 @@ Partial Class MENU3
         Me.Pbconfig.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.Pbconfig.TabIndex = 15
         Me.Pbconfig.TabStop = False
-        '
-        'Labels_transparentes1
-        '
-        Me.Labels_transparentes1.Location = New System.Drawing.Point(99, 632)
-        Me.Labels_transparentes1.Name = "Labels_transparentes1"
-        Me.Labels_transparentes1.Size = New System.Drawing.Size(30, 23)
-        Me.Labels_transparentes1.TabIndex = 14
-        Me.Labels_transparentes1.Text = "V.2.0"
         '
         'Pbnube
         '
@@ -192,7 +221,7 @@ Partial Class MENU3
         '
         Me.panel_navegador.Controls.Add(Me.Pbnavegador)
         Me.panel_navegador.Controls.Add(Me.label_navegador)
-        Me.panel_navegador.Location = New System.Drawing.Point(0, 313)
+        Me.panel_navegador.Location = New System.Drawing.Point(0, 288)
         Me.panel_navegador.Name = "panel_navegador"
         Me.panel_navegador.Size = New System.Drawing.Size(135, 94)
         Me.panel_navegador.TabIndex = 10
@@ -222,7 +251,7 @@ Partial Class MENU3
         '
         Me.panel_libros.Controls.Add(Me.Pblibros)
         Me.panel_libros.Controls.Add(Me.label_libros)
-        Me.panel_libros.Location = New System.Drawing.Point(3, 135)
+        Me.panel_libros.Location = New System.Drawing.Point(3, 110)
         Me.panel_libros.Name = "panel_libros"
         Me.panel_libros.Size = New System.Drawing.Size(132, 83)
         Me.panel_libros.TabIndex = 9
@@ -254,7 +283,7 @@ Partial Class MENU3
         Me.panel_prestamos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.panel_prestamos.Controls.Add(Me.Pbprestamos)
         Me.panel_prestamos.Controls.Add(Me.label_prestamos)
-        Me.panel_prestamos.Location = New System.Drawing.Point(0, 224)
+        Me.panel_prestamos.Location = New System.Drawing.Point(0, 199)
         Me.panel_prestamos.Name = "panel_prestamos"
         Me.panel_prestamos.Size = New System.Drawing.Size(135, 83)
         Me.panel_prestamos.TabIndex = 9
@@ -284,7 +313,7 @@ Partial Class MENU3
         '
         Me.panel_usuarios.Controls.Add(Me.Pbusuarios)
         Me.panel_usuarios.Controls.Add(Me.label_usuarios)
-        Me.panel_usuarios.Location = New System.Drawing.Point(0, 46)
+        Me.panel_usuarios.Location = New System.Drawing.Point(0, 21)
         Me.panel_usuarios.Name = "panel_usuarios"
         Me.panel_usuarios.Size = New System.Drawing.Size(135, 83)
         Me.panel_usuarios.TabIndex = 8
@@ -420,6 +449,18 @@ Partial Class MENU3
         '
         Me.Timer_NvegadorLabel.Interval = 10
         '
+        'Timer_RevistasLabel
+        '
+        Me.Timer_RevistasLabel.Interval = 10
+        '
+        'Labels_transparentes1
+        '
+        Me.Labels_transparentes1.Location = New System.Drawing.Point(99, 632)
+        Me.Labels_transparentes1.Name = "Labels_transparentes1"
+        Me.Labels_transparentes1.Size = New System.Drawing.Size(30, 23)
+        Me.Labels_transparentes1.TabIndex = 14
+        Me.Labels_transparentes1.Text = "V.2.0"
+        '
         'MENU3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -439,6 +480,9 @@ Partial Class MENU3
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Pbusuario, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Pmenu.ResumeLayout(False)
+        Me.Panel_Revistas.ResumeLayout(False)
+        Me.Panel_Revistas.PerformLayout()
+        CType(Me.Pbrevistas, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Pbconfig, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Pbnube, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panel_navegador.ResumeLayout(False)
@@ -496,4 +540,8 @@ Partial Class MENU3
     Friend WithEvents Timer_LibrosLabel As System.Windows.Forms.Timer
     Friend WithEvents Timer_PrestamosLabel As System.Windows.Forms.Timer
     Friend WithEvents Timer_NvegadorLabel As System.Windows.Forms.Timer
+    Friend WithEvents Panel_Revistas As System.Windows.Forms.Panel
+    Friend WithEvents Pbrevistas As System.Windows.Forms.PictureBox
+    Friend WithEvents LabelRevistas As System.Windows.Forms.Label
+    Friend WithEvents Timer_RevistasLabel As System.Windows.Forms.Timer
 End Class

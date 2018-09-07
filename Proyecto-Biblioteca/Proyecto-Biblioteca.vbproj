@@ -329,6 +329,7 @@
     <None Include="Resources\extraccion.png" />
     <None Include="Resources\devolcion.png" />
     <None Include="Resources\crear_reserva.png" />
+    <None Include="Resources\magazine.png" />
     <Content Include="Resources\navigator.png" />
     <None Include="Resources\Sin título-1.jpg" />
     <None Include="Resources\reading.png" />

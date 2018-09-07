@@ -586,6 +586,7 @@ Partial Class Inicio_UsuariosV2
         '
         'Inactivo
         '
+        Me.Inactivo.Interval = 1
         '
         'direccion_txt
         '

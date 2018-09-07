@@ -12,6 +12,7 @@ Public Class MENU3
     Dim mouse2 As Integer
     Dim mouse3 As Integer
     Dim mouse4 As Integer
+    Dim mouse5 As Integer
     Public F3 As New Seleccion_Libro
 
 
@@ -137,15 +138,17 @@ Public Class MENU3
         mouse2 = 0
         mouse3 = 0
         mouse4 = 0
+        mouse5 = 0
         Timer_LibrosLabel.Enabled = True
         Timer_NvegadorLabel.Enabled = True
         Timer_PrestamosLabel.Enabled = True
         Timer_UsuariosLabel.Enabled = True
+        Timer_RevistasLabel.Enabled = True
         panel_usuarios.BackColor = Drawing.Color.LightGray
         panel_libros.BackColor = Drawing.Color.Silver
         panel_prestamos.BackColor = Drawing.Color.Silver
         panel_navegador.BackColor = Drawing.Color.Silver
-
+        Panel_Revistas.BackColor = Drawing.Color.Silver
         Dim F1 As New Inicio_UsuariosV2
         panel_menu.Controls.Clear()
         F1.TopLevel = False
@@ -172,10 +175,12 @@ Public Class MENU3
         mouse2 = 1
         mouse3 = 0
         mouse4 = 0
+        mouse5 = 0
         Timer_LibrosLabel.Enabled = True
         Timer_NvegadorLabel.Enabled = True
         Timer_PrestamosLabel.Enabled = True
         Timer_UsuariosLabel.Enabled = True
+        Timer_RevistasLabel.Enabled = True
 
         panel_menu.Controls.Clear()
         F3.TopLevel = False
@@ -197,6 +202,7 @@ Public Class MENU3
         panel_libros.BackColor = Drawing.Color.LightGray
         panel_prestamos.BackColor = Drawing.Color.Silver
         panel_navegador.BackColor = Drawing.Color.Silver
+        Panel_Revistas.BackColor = Drawing.Color.Silver
     End Sub
 
     Private Sub PictureBox3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbprestamos.Click
@@ -205,10 +211,12 @@ Public Class MENU3
         mouse2 = 0
         mouse3 = 1
         mouse4 = 0
+        mouse5 = 0
         Timer_LibrosLabel.Enabled = True
         Timer_NvegadorLabel.Enabled = True
         Timer_PrestamosLabel.Enabled = True
         Timer_UsuariosLabel.Enabled = True
+        Timer_RevistasLabel.Enabled = True
         Dim F4 As New Prestamos
         panel_menu.Controls.Clear()
         F4.TopLevel = False
@@ -229,7 +237,7 @@ Public Class MENU3
         panel_libros.BackColor = Drawing.Color.Silver
         panel_prestamos.BackColor = Drawing.Color.LightGray
         panel_navegador.BackColor = Drawing.Color.Silver
-
+        Panel_Revistas.BackColor = Drawing.Color.Silver
 
     End Sub
     '///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -242,15 +250,17 @@ Public Class MENU3
         mouse2 = 0
         mouse3 = 0
         mouse4 = 1
+        mouse5 = 0
         Timer_LibrosLabel.Enabled = True
         Timer_NvegadorLabel.Enabled = True
         Timer_PrestamosLabel.Enabled = True
         Timer_UsuariosLabel.Enabled = True
+        Timer_RevistasLabel.Enabled = True
         panel_usuarios.BackColor = Drawing.Color.Silver
         panel_libros.BackColor = Drawing.Color.Silver
         panel_prestamos.BackColor = Drawing.Color.Silver
         panel_navegador.BackColor = Drawing.Color.LightGray
-
+        Panel_Revistas.BackColor = Drawing.Color.Silver
         Try
             Pnavegador.Visible = True
             panel_menu.Visible = False
@@ -652,11 +662,136 @@ Public Class MENU3
     End Sub
 
     Private Sub PictureBox1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbprestamos.Click
-        Registroprestamos.Show()
+
     End Sub
 
 
     Private Sub panel_usuarios_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles panel_usuarios.Paint
 
     End Sub
+
+    Private Sub Timer_RevistasLabel_Tick(sender As System.Object, e As System.EventArgs) Handles Timer_RevistasLabel.Tick
+        Select Case mouse5
+            Case 1
+                If LabelRevistas.Left < 70 Then
+                    LabelRevistas.Left += 10
+                Else
+                    ' Timer_NavgadorLabel.Enabled = False
+                End If
+            Case 0
+                If LabelRevistas.Left > 12 And seleccionado <> "Revistas" Then
+                    LabelRevistas.Left -= 10
+                Else
+                    Timer_RevistasLabel.Enabled = False
+                End If
+        End Select
+    End Sub
+
+    Private Sub PictureBox1_Click_2(sender As System.Object, e As System.EventArgs) Handles Pbrevistas.Click
+        seleccionado = "Revistas"
+        mouse = 0
+        mouse2 = 0
+        mouse3 = 0
+        mouse4 = 0
+        mouse5 = 1
+        Timer_LibrosLabel.Enabled = True
+        Timer_NvegadorLabel.Enabled = True
+        Timer_PrestamosLabel.Enabled = True
+        Timer_UsuariosLabel.Enabled = True
+        Timer_RevistasLabel.Enabled = True
+        Dim F5 As New Seleccion_Revistas
+        panel_menu.Controls.Clear()
+        F5.TopLevel = False
+        F5.Parent = panel_menu
+
+        F5.Show()
+
+        panel_menu.Visible = True
+        txtbuscar.Visible = False
+        btnatras.Visible = False
+        btnadelante.Visible = False
+        btnpaginainicio.Visible = False
+        btnrecargar.Visible = False
+        Pnavegador.Visible = False
+        Wbnavegador.Visible = False
+
+        panel_usuarios.BackColor = Drawing.Color.Silver
+        panel_libros.BackColor = Drawing.Color.Silver
+        panel_prestamos.BackColor = Drawing.Color.Silver
+        panel_navegador.BackColor = Drawing.Color.Silver
+        Panel_Revistas.BackColor = Drawing.Color.LightGray
+
+
+    End Sub
+
+    Private Sub PictureBox1_MouseEnter1(sender As Object, e As System.EventArgs) Handles Pbrevistas.MouseEnter
+        If seleccionado = "Rev" Then
+        Else
+            Panel_Revistas.BackColor = Drawing.Color.LightGray
+        End If
+        mouse = 0
+        mouse2 = 0
+        mouse3 = 0
+        mouse4 = 0
+        mouse5 = 1
+        Timer_RevistasLabel.Enabled = True
+    End Sub
+
+    Private Sub PictureBox1_MouseLeave_1(sender As System.Object, e As System.EventArgs) Handles Pbrevistas.MouseLeave
+        If seleccionado = "Revistas" Then
+        Else
+            Panel_Revistas.BackColor = Drawing.Color.Silver
+        End If
+        mouse5 = 0
+        Timer_RevistasLabel.Enabled = True
+    End Sub
+
+    Private Sub PanelRevistas_Click(sender As System.Object, e As System.EventArgs)
+        seleccionado = "Revistas"
+        mouse = 0
+        mouse2 = 0
+        mouse3 = 0
+        mouse4 = 0
+        mouse5 = 1
+        Timer_LibrosLabel.Enabled = True
+        Timer_NvegadorLabel.Enabled = True
+        Timer_PrestamosLabel.Enabled = True
+        Timer_UsuariosLabel.Enabled = True
+        Timer_RevistasLabel.Enabled = True
+        Dim F5 As New Seleccion_Revistas
+        panel_menu.Controls.Clear()
+        F5.TopLevel = False
+        F5.Parent = panel_menu
+
+        F5.Show()
+
+        panel_menu.Visible = True
+        txtbuscar.Visible = False
+        btnatras.Visible = False
+        btnadelante.Visible = False
+        btnpaginainicio.Visible = False
+        btnrecargar.Visible = False
+        Pnavegador.Visible = False
+        Wbnavegador.Visible = False
+
+        panel_usuarios.BackColor = Drawing.Color.Silver
+        panel_libros.BackColor = Drawing.Color.Silver
+        panel_prestamos.BackColor = Drawing.Color.LightGray
+        panel_navegador.BackColor = Drawing.Color.Silver
+
+    End Sub
+
+    Private Sub PanelRevistas_MouseEnter(sender As System.Object, e As System.EventArgs) Handles Panel_Revistas.MouseEnter
+        Panel_Revistas.BackColor = Drawing.Color.LightGray
+    End Sub
+
+    Private Sub PanelRevistas_MouseLeave(sender As System.Object, e As System.EventArgs) Handles Panel_Revistas.MouseLeave
+        If seleccionado = "Revistas" Then
+        Else
+            Panel_Revistas.BackColor = Drawing.Color.Silver
+        End If
+        mouse5 = 0
+        LabelRevistas.Enabled = True
+    End Sub
+
 End Class

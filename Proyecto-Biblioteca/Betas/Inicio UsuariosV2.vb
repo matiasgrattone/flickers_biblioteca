@@ -8,6 +8,7 @@
     Dim mouse1 As Integer
 
     Private Sub Inicio_UsuariosV2_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+
         'Button4.Visible = False
         Label18.Visible = False 'label conytraseña funcionario
         contrasenia.Visible = False 'textbox contraseña funcionario
@@ -737,8 +738,11 @@
 
             For Each row As DataRow In Tabla.Rows
 
-                dianum = row("nacimiento").ToString.Substring(0, 2)
+
+
+
                 If ComboBox4.SelectedItem.ToString.Length = 1 Then
+                    dianum = "0" & ComboBox4.SelectedItem
                     If dianum = row("nacimiento").ToString.Substring(0, 2) Then
                         dia2 = "0"
                     Else
@@ -748,10 +752,8 @@
                 Else
                     If dianum = row("nacimiento").ToString.Substring(0, 2) Then
                         dia2 = "0"
-                        dianum = "0"
                     Else
                         dia2 = "1"
-                        dianum = "0"
                     End If
                 End If
 
@@ -854,7 +856,7 @@
 
         contador = contador + 1
 
-        If contador > 1 Then
+        If contador > 10 Then
             contador = 0
             Inactivo.Enabled = False
             mouse = 0
