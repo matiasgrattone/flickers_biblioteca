@@ -375,7 +375,7 @@ Public Class MENU3
         Timer_NvegadorLabel.Enabled = True
         Timer_PrestamosLabel.Enabled = True
         Timer_UsuariosLabel.Enabled = True
-        Dim F1 As New inicio_usuarios
+        Dim F1 As New Inicio_UsuariosV2
         panel_menu.Controls.Clear()
         F1.TopLevel = False
         F1.Parent = panel_menu
@@ -656,4 +656,7 @@ Public Class MENU3
     End Sub
 
 
+    Private Sub panel_usuarios_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles panel_usuarios.Paint
+
+    End Sub
 End Class

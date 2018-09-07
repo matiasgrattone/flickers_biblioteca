@@ -96,7 +96,7 @@ Partial Class Inicio_UsuariosV2
         Me.Menu_Panel.Controls.Add(Me.Panel2)
         Me.Menu_Panel.Controls.Add(Me.Editar_Panel)
         Me.Menu_Panel.Controls.Add(Me.Ingresar_Panel)
-        Me.Menu_Panel.Location = New System.Drawing.Point(640, -2)
+        Me.Menu_Panel.Location = New System.Drawing.Point(955, -2)
         Me.Menu_Panel.Name = "Menu_Panel"
         Me.Menu_Panel.Size = New System.Drawing.Size(360, 651)
         Me.Menu_Panel.TabIndex = 0
