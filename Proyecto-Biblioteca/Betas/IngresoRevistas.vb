@@ -8,8 +8,8 @@
         'Comprobacion'
         Consulta = "select * from usuarios"
         consultar()
-        dgvcomprobar.DataSource = Tabla
         Try
+            dgvcomprobar.DataSource = Tabla
             If dgvcomprobar.Item(0, dgvcomprobar.CurrentRow.Index).Value <> 0 Then
                 bandera = 1
             Else
@@ -34,6 +34,7 @@
             dgvrevistas.Columns(3).HeaderText = "Descripcion"
 
         Else
+
             txttitulo.ReadOnly = True
             txtorigenr.ReadOnly = True
             txtanior.ReadOnly = True
@@ -104,7 +105,7 @@
 
         Else
 
-            
+
 
             MsgBox("Accion Imposible de Realizar, No se ha encontrado la base de datos")
         End If
