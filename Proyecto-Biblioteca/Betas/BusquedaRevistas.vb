@@ -63,6 +63,8 @@
             dgvrevistas.Columns(2).HeaderText = "Pais de Origen"
             dgvrevistas.Columns(3).HeaderText = "Descripcion"
             dgvrevistas.Columns(4).HeaderText = "Estado"
+            cmbestado.SelectedIndex = 0
+            cmbdatos.SelectedIndex = 0
 
         Else
             titulo_txt.ReadOnly = True
@@ -116,6 +118,7 @@
             lblaniomostrar.Text = dgvrevistas.Item(1, dgvrevistas.CurrentRow.Index).Value
             lblorigenmostrar.Text = dgvrevistas.Item(2, dgvrevistas.CurrentRow.Index).Value
             txtdescmostrar.Text = dgvrevistas.Item(3, dgvrevistas.CurrentRow.Index).Value
+
             estado_label.Text = dgvrevistas.Item(4, dgvrevistas.CurrentRow.Index).Value
         Catch ex As Exception
 
@@ -216,5 +219,14 @@
 
             MsgBox("Base de datos no disponible")
         End If
+    End Sub
+
+    Private Sub btnback_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnback.Click
+        titulo_txt.Clear()
+        anio_txt.Clear()
+        origen_txt.Clear()
+        desc_txt.Clear()
+        cmbupdate.BringToFront()
+        Pactualizar.SendToBack()
     End Sub
 End Class

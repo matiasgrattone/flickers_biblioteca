@@ -49,13 +49,13 @@ Partial Class BusquedaRevistas
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnmodificar = New System.Windows.Forms.Button()
         Me.Pmostrar = New System.Windows.Forms.Panel()
+        Me.estado_label = New System.Windows.Forms.Label()
         Me.txtdescmostrar = New System.Windows.Forms.TextBox()
         Me.lblaniomostrar = New System.Windows.Forms.Label()
         Me.lbltitulomostrar = New System.Windows.Forms.Label()
         Me.desclabel = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.dgvcomprobar = New System.Windows.Forms.DataGridView()
-        Me.estado_label = New System.Windows.Forms.Label()
         Me.txtbusqueda = New Proyecto_Biblioteca.PlaceHolder()
         CType(Me.dgvrevistas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Pactualizar.SuspendLayout()
@@ -353,6 +353,16 @@ Partial Class BusquedaRevistas
         Me.Pmostrar.Size = New System.Drawing.Size(275, 458)
         Me.Pmostrar.TabIndex = 53
         '
+        'estado_label
+        '
+        Me.estado_label.AutoSize = True
+        Me.estado_label.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.estado_label.Location = New System.Drawing.Point(109, 377)
+        Me.estado_label.Name = "estado_label"
+        Me.estado_label.Size = New System.Drawing.Size(55, 17)
+        Me.estado_label.TabIndex = 32
+        Me.estado_label.Text = "Estado"
+        '
         'txtdescmostrar
         '
         Me.txtdescmostrar.BorderStyle = System.Windows.Forms.BorderStyle.None
@@ -409,16 +419,6 @@ Partial Class BusquedaRevistas
         Me.dgvcomprobar.Size = New System.Drawing.Size(82, 30)
         Me.dgvcomprobar.TabIndex = 54
         '
-        'estado_label
-        '
-        Me.estado_label.AutoSize = True
-        Me.estado_label.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.estado_label.Location = New System.Drawing.Point(109, 377)
-        Me.estado_label.Name = "estado_label"
-        Me.estado_label.Size = New System.Drawing.Size(55, 17)
-        Me.estado_label.TabIndex = 32
-        Me.estado_label.Text = "Estado"
-        '
         'txtbusqueda
         '
         Me.txtbusqueda.Font = New System.Drawing.Font("Lucida Sans", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -442,8 +442,8 @@ Partial Class BusquedaRevistas
         Me.Controls.Add(Me.cmbestado)
         Me.Controls.Add(Me.cmbdatos)
         Me.Controls.Add(Me.dgvrevistas)
-        Me.Controls.Add(Me.Pmostrar)
         Me.Controls.Add(Me.Pactualizar)
+        Me.Controls.Add(Me.Pmostrar)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "BusquedaRevistas"
         Me.Text = "BusquedaRevistas"
