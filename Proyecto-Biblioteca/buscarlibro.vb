@@ -780,24 +780,4 @@ Public Class buscarlibro
             MsgBox("Base de datos no disponible")
         End If
     End Sub
-
-    Private Sub Pactualizar_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Pactualizar.Paint
-
-    End Sub
-
-    Private Sub Peditorial_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Peditorial.Paint
-
-    End Sub
-
-    Private Sub cmbdatos_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbdatos.SelectedIndexChanged
-
-    End Sub
-
-    Private Sub dgvlibros_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvlibros.CellContentClick
-
-    End Sub
-
-    Private Sub dgvautor_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvautor.CellContentClick
-
-    End Sub
 End Class
