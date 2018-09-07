@@ -6,8 +6,8 @@ Module Modulo
 
     Public nombre As String 'Variable para cambiar mostrar nombre en inicio usuario
 
-    Dim ubicacion As String = "server=localhost; user id=root; password=''; database=biblioteca"
-    'Dim ubicacion As String = "server=bibliotecadb.ddns.net; user id=admin; password=admin; database=biblioteca"
+    'Dim ubicacion As String = "server=localhost; user id=root; password=''; database=biblioteca"
+    Dim ubicacion As String = "server=bibliotecadb.ddns.net; user id=admin; password=admin; database=biblioteca"
     Public Conexion As MySqlDataAdapter
     Public Tabla As DataTable
     Public Consulta As String
@@ -27,7 +27,7 @@ Module Modulo
             Conexion.Fill(Tabla)
             MysqlConexion.Close()
         Catch ex As Exception
-
+            MsgBox(ex.ToString)
         End Try
 
     End Sub
@@ -76,55 +76,56 @@ Module Modulo
 
     End Sub
 
+
     Public Sub mes()
 
         If substring = "01" Then
-            substring = "enero"
+            substring = "Enero"
             fecha = Date.Now.ToString("dd") & " de " & substring & " de " & Date.Now.ToString("yyyy")
         End If
         If substring = "02" Then
-            substring = "febrero"
+            substring = "Febrero"
             fecha = Date.Now.ToString("dd") & " de " & substring & " de " & Date.Now.ToString("yyyy")
         End If
         If substring = "03" Then
-            substring = "marzo"
+            substring = "Marzo"
             fecha = Date.Now.ToString("dd") & " de " & substring & " de " & Date.Now.ToString("yyyy")
         End If
         If substring = "04" Then
-            substring = "abril"
+            substring = "Abril"
             fecha = Date.Now.ToString("dd") & " de " & substring & " de " & Date.Now.ToString("yyyy")
         End If
         If substring = "05" Then
-            substring = "mayo"
+            substring = "Mayo"
             fecha = Date.Now.ToString("dd") & " de " & substring & " de " & Date.Now.ToString("yyyy")
         End If
         If substring = "06" Then
-            substring = "junio"
+            substring = "Junio"
             fecha = Date.Now.ToString("dd") & " de " & substring & " de " & Date.Now.ToString("yyyy")
         End If
         If substring = "07" Then
-            substring = "julio"
+            substring = "Julio"
             fecha = Date.Now.ToString("dd") & " de " & substring & " de " & Date.Now.ToString("yyyy")
         End If
         If substring = "08" Then
-            substring = "agosto"
+            substring = "Agosto"
             fecha = Date.Now.ToString("dd") & " de " & substring & " de " & Date.Now.ToString("yyyy")
         End If
 
         If substring = "09" Then
-            substring = "septiembre"
+            substring = "Septiembre"
             fecha = Date.Now.ToString("dd") & " de " & substring & " de " & Date.Now.ToString("yyyy")
         End If
         If substring = "10" Then
-            substring = "octubre"
+            substring = "Octubre"
             fecha = Date.Now.ToString("dd") & " de " & substring & " de " & Date.Now.ToString("yyyy")
         End If
         If substring = "11" Then
-            substring = "noviembre"
+            substring = "Noviembre"
             fecha = Date.Now.ToString("dd") & " de " & substring & " de " & Date.Now.ToString("yyyy")
         End If
         If substring = "12" Then
-            substring = "diciembre"
+            substring = "Diciembre"
             fecha = Date.Now.ToString("dd") & " de " & substring & " de " & Date.Now.ToString("yyyy")
         End If
 
