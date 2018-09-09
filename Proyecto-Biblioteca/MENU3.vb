@@ -22,7 +22,7 @@ Public Class MENU3
         Wbnavegador.Visible = False
         Pnavegador.Visible = False
 
-        '-------------------VERIFICAR SI ESTA CONECTADO A LA BASE , SI DA ERROR APARECE LA IMAGEN DE OK (LA QUE ESTA ADENTRO DEL TRY) , SI DA ERROR APARECE LA IMAGEN DE ERROR (LA QUE ESTA ADENTRO DEL CATCH)
+        '////////////////////VERIFICAR SI ESTA CONECTADO A LA BASE //////////////////////////////////
 
         Pbnube.Image = Image.FromFile("imagenes\cloud-error.png")
 
@@ -37,16 +37,24 @@ Public Class MENU3
         Else
             Pbnube.Image = Image.FromFile("imagenes\cloud.png")
         End If
+        '////////////////////////////////////////////////////////////////////////////////////////////////
+
+        '/////////////////////////////// CHART DE PRESTAMOS Y USUARIOS //////////////////////////////////
+        Consulta = "select count(prestamolibro.cod_libro) , prestamolibro.fecha_salida from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro group by fecha_salida"
+        consultar()
+
+        Chart_Prestamos.Series.Add("Prestamos")
+        Chart_Prestamos.Series.RemoveAt(0)
+        For Each row As DataRow In Tabla.Rows
+            If row("fecha_salida").ToString.Substring(6, 4) = "2018" Then
+                Chart_Prestamos.Series("Prestamos").Points.AddXY(row("count(prestamolibro.cod_libro)"), row("fecha_salida"))
+                else
+
+            End If
 
 
-
-
-
-
-
-
-
-        '----------------------------------------------------------------------------
+        Next
+        '////////////////////////////////////////////////////////////////////////////////////////////////
 
 
     End Sub
@@ -149,6 +157,9 @@ Public Class MENU3
         panel_prestamos.BackColor = Drawing.Color.Silver
         panel_navegador.BackColor = Drawing.Color.Silver
         Panel_Revistas.BackColor = Drawing.Color.Silver
+
+        Panel_Graficos.Visible = False
+
         Dim F1 As New Inicio_UsuariosV2
         panel_menu.Controls.Clear()
         F1.TopLevel = False
@@ -203,6 +214,8 @@ Public Class MENU3
         panel_prestamos.BackColor = Drawing.Color.Silver
         panel_navegador.BackColor = Drawing.Color.Silver
         Panel_Revistas.BackColor = Drawing.Color.Silver
+
+        Panel_Graficos.Visible = False
     End Sub
 
     Private Sub PictureBox3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbprestamos.Click
@@ -238,6 +251,8 @@ Public Class MENU3
         panel_prestamos.BackColor = Drawing.Color.LightGray
         panel_navegador.BackColor = Drawing.Color.Silver
         Panel_Revistas.BackColor = Drawing.Color.Silver
+
+        Panel_Graficos.Visible = False
 
     End Sub
     '///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -275,6 +290,10 @@ Public Class MENU3
         Catch ex As Exception
 
         End Try
+
+        Panel_Graficos.Visible = False
+
+
     End Sub
     '/////////////////////////////////////////////////////////////////////////////////////////////////////
     '/////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -308,7 +327,7 @@ Public Class MENU3
         Pnavegador.Visible = False
         Wbnavegador.Visible = False
 
-
+        Panel_Graficos.Visible = False
 
     End Sub
 
@@ -336,6 +355,8 @@ Public Class MENU3
         panel_libros.BackColor = Drawing.Color.Silver
         panel_prestamos.BackColor = Drawing.Color.LightGray
         panel_navegador.BackColor = Drawing.Color.Silver
+
+        Panel_Graficos.Visible = False
 
     End Sub
 
@@ -367,17 +388,15 @@ Public Class MENU3
         Wbnavegador.Visible = True
         Wbnavegador.Navigate("www.ecosia.org")
 
+
+        Panel_Graficos.Visible = False
+
+
     End Sub
 
     '/////////////////////////////////////////////////////////////////////////////////////////////////////
     '/////////////////////////////////////////////////////////////////////////////////////////////////////
     '///////////////////////////////////////////////////////////////////////////////////////////////////// 
-
-
-
-    Private Sub panel_usuarios_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles panel_usuarios.LostFocus
-
-    End Sub
 
     Private Sub panel_usuarios_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles panel_usuarios.MouseClick
         seleccionado = "usuarios"
@@ -406,6 +425,8 @@ Public Class MENU3
         panel_libros.BackColor = Drawing.Color.Silver
         panel_prestamos.BackColor = Drawing.Color.Silver
         panel_navegador.BackColor = Drawing.Color.Silver
+
+        Panel_Graficos.Visible = False
 
     End Sub
 
@@ -636,14 +657,6 @@ Public Class MENU3
         End Select
     End Sub
 
-    Private Sub Panel2_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Pmenu.Paint
-
-    End Sub
-
-    Private Sub panel_libros_Paint_1(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles panel_libros.Paint
-
-    End Sub
-
     Private Sub PictureBox4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbusuario.Click
         info_usuario.Show()
         info_usuario.Text = Nombre.Text
@@ -655,19 +668,6 @@ Public Class MENU3
 
     Private Sub PictureBox4_MouseLeave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbusuario.MouseLeave
         Me.Cursor = Cursors.Default
-    End Sub
-
-    Private Sub panel_prestamos_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles panel_prestamos.Paint
-
-    End Sub
-
-    Private Sub PictureBox1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbprestamos.Click
-
-    End Sub
-
-
-    Private Sub panel_usuarios_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles panel_usuarios.Paint
-
     End Sub
 
     Private Sub Timer_RevistasLabel_Tick(sender As System.Object, e As System.EventArgs) Handles Timer_RevistasLabel.Tick
@@ -721,6 +721,7 @@ Public Class MENU3
         panel_navegador.BackColor = Drawing.Color.Silver
         Panel_Revistas.BackColor = Drawing.Color.LightGray
 
+        Panel_Graficos.Visible = False
 
     End Sub
 
@@ -804,5 +805,43 @@ Public Class MENU3
 
     Private Sub Pbconfig_MouseLeave(sender As System.Object, e As System.EventArgs) Handles Pbconfig.MouseLeave
         Me.Cursor = Cursors.Default
+    End Sub
+
+    Private Sub Panel_Revistas_MouseClick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel_Revistas.MouseClick
+        seleccionado = "Revistas"
+        mouse = 0
+        mouse2 = 0
+        mouse3 = 0
+        mouse4 = 0
+        mouse5 = 1
+        Timer_LibrosLabel.Enabled = True
+        Timer_NvegadorLabel.Enabled = True
+        Timer_PrestamosLabel.Enabled = True
+        Timer_UsuariosLabel.Enabled = True
+        Timer_RevistasLabel.Enabled = True
+        Dim F5 As New Seleccion_Revistas
+        panel_menu.Controls.Clear()
+        F5.TopLevel = False
+        F5.Parent = panel_menu
+
+        F5.Show()
+
+        panel_menu.Visible = True
+        txtbuscar.Visible = False
+        btnatras.Visible = False
+        btnadelante.Visible = False
+        btnpaginainicio.Visible = False
+        btnrecargar.Visible = False
+        Pnavegador.Visible = False
+        Wbnavegador.Visible = False
+
+        panel_usuarios.BackColor = Drawing.Color.Silver
+        panel_libros.BackColor = Drawing.Color.Silver
+        panel_prestamos.BackColor = Drawing.Color.Silver
+        panel_navegador.BackColor = Drawing.Color.Silver
+        Panel_Revistas.BackColor = Drawing.Color.LightGray
+
+        Panel_Graficos.Visible = False
+
     End Sub
 End Class

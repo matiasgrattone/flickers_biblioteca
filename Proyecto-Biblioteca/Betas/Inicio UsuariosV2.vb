@@ -5,10 +5,9 @@
     Dim dia As String
     Dim mes1 As String
     Dim mouse As Integer = 0
-    Dim mouse1 As Integer
 
     Private Sub Inicio_UsuariosV2_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-        'Button4.Visible = False
+        RadioButton3.Visible = False
         Label18.Visible = False 'label conytraseña funcionario
         contrasenia.Visible = False 'textbox contraseña funcionario
 
@@ -59,12 +58,7 @@
                         TimerMenu.Enabled = False
                     End If
 
-
-
-
                 Case 1
-
-
 
 
                     If Menu_Panel.Left < 954 Then
@@ -122,7 +116,7 @@
                         ComboBox2.Items.Add("Noviembre")
                         ComboBox2.Items.Add("Diciembre")
 
-                        For i As Integer = 1899 To 2000
+                        For i As Integer = 1899 To 2018
                             If i = 1899 Then
                                 ComboBox3.Items.Add("Año")
                             Else
@@ -169,7 +163,7 @@
                         ComboBox5.Items.Add("Diciembre")
 
 
-                        For i As Integer = 1899 To 2000
+                        For i As Integer = 1899 To 2018
                             If i = 1899 Then
                                 ComboBox6.Items.Add("Año")
                             Else
@@ -249,10 +243,16 @@
 
     Private Sub ComboClear()
 
+        ComboBox1.Items.Clear()
+        ComboBox2.Items.Clear()
+        ComboBox3.Items.Clear()
+        ComboBox4.Items.Clear()
+        ComboBox5.Items.Clear()
+        ComboBox6.Items.Clear()
 
     End Sub
 
-    Private Sub DataGridView1_CellDoubleClick(sender As Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellDoubleClick
+    Private Sub DataGridView1_CellClick(sender As Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellClick
         Dim styleMSG As MsgBoxStyle = MsgBoxStyle.YesNo + MsgBoxStyle.Question
         Dim styleMSGOK As MsgBoxStyle = MsgBoxStyle.OkOnly + MsgBoxStyle.Question
         Dim confirmacion As String = 0
@@ -678,7 +678,6 @@
 
     Private Sub nombre_txt_TextChanged(sender As System.Object, e As System.EventArgs) Handles nombre_txt.TextChanged
         ErrorProvider1.SetError(nombre_txt, "")
-        VerificarModificacion()
     End Sub
 
     Private Sub apellido_txt_TextChanged(sender As System.Object, e As System.EventArgs) Handles apellido_txt.TextChanged
@@ -706,17 +705,27 @@
     End Sub
 
     Private Sub cedula_TextChanged(sender As System.Object, e As System.EventArgs) Handles cedula.TextChanged
-        ErrorProvider1.SetError(cedula, "")
-        mouse1 = 1
-        contador = 0
-        Inactivo.Enabled = True
+        Select Case seleccionado
+            Case 1
+                ErrorProvider1.SetError(cedula, "")
+            Case 2
+                ErrorProvider1.SetError(cedula, "")
+                contador = 0
+                Inactivo.Enabled = True
+        End Select
+       
     End Sub
 
     Private Sub nombre_TextChanged(sender As System.Object, e As System.EventArgs) Handles nombre.TextChanged
-        ErrorProvider1.SetError(nombre, "")
-        mouse1 = 1
-        contador = 0
-        Inactivo.Enabled = True
+        Select Case seleccionado
+            Case 1
+                ErrorProvider1.SetError(nombre, "")
+            Case 2
+                ErrorProvider1.SetError(nombre, "")
+                contador = 0
+                Inactivo.Enabled = True
+        End Select
+
 
     End Sub
     Private Sub VerificarModificacion()
@@ -737,8 +746,16 @@
 
             For Each row As DataRow In Tabla.Rows
 
-                dianum = row("nacimiento").ToString.Substring(0, 2)
+                ' //////////////////FECHA NACIMIENTO////////////////////
+
+                '/////////////////DIA//////////////////////////
+
+
                 If ComboBox4.SelectedItem.ToString.Length = 1 Then '----------------BUG------------------
+
+                    dianum = "0" & ComboBox4.SelectedItem
+
+
                     If dianum = row("nacimiento").ToString.Substring(0, 2) Then
                         dia2 = "0"
                     Else
@@ -746,16 +763,17 @@
                     End If
 
                 Else
+                    dianum = ComboBox4.SelectedItem
+
                     If dianum = row("nacimiento").ToString.Substring(0, 2) Then
                         dia2 = "0"
-                        dianum = "0"
                     Else
                         dia2 = "1"
-                        dianum = "0"
                     End If
                 End If
+                '///////////////////////////////////////////////
 
-
+                '/////////////////MES//////////////////////////
                 substring = ComboBox5.SelectedItem
                 mestonum()
 
@@ -764,12 +782,18 @@
                 Else
                     mes2 = "1"
                 End If
+                '/////////////////////////////////////////////
 
+                '//////////////////AÑO////////////////////////
                 If ComboBox6.SelectedItem = row("nacimiento").ToString.Substring(6, 4) Then
                     año2 = "0"
                 Else
                     año2 = "1"
                 End If
+                '/////////////////////////////////////////////
+
+                '/////////////////////////////////////////////////////////////////
+
                 If nombre.Text = row("nombre").ToString Then
                     nombre1 = "0"
                 Else
@@ -809,78 +833,117 @@
     End Sub
 
     Private Sub apellido_TextChanged(sender As System.Object, e As System.EventArgs) Handles apellido.TextChanged
-        ErrorProvider1.SetError(apellido, "")
-        mouse1 = 1
-        contador = 0
-        Inactivo.Enabled = True
+        Select Case seleccionado
+            Case 1
+                ErrorProvider1.SetError(apellido, "")
+            Case 2
+                ErrorProvider1.SetError(apellido, "")
+                contador = 0
+                Inactivo.Enabled = True
+        End Select
+
     End Sub
 
     Private Sub telefono_TextChanged(sender As System.Object, e As System.EventArgs) Handles telefono.TextChanged
-        ErrorProvider1.SetError(telefono, "")
-        mouse1 = 1
-        contador = 0
-        Inactivo.Enabled = True
+        Select Case seleccionado
+            Case 1
+                ErrorProvider1.SetError(telefono, "")
+            Case 2
+                ErrorProvider1.SetError(telefono, "")
+                contador = 0
+                Inactivo.Enabled = True
+        End Select
+
     End Sub
 
     Private Sub direccion_TextChanged(sender As System.Object, e As System.EventArgs) Handles direccion.TextChanged
-        ErrorProvider1.SetError(direccion, "")
-        mouse1 = 1
-        contador = 0
-        Inactivo.Enabled = True
+        Select Case seleccionado
+            Case 1
+                ErrorProvider1.SetError(direccion, "")
+            Case 2
+                ErrorProvider1.SetError(direccion, "")
+                contador = 0
+                Inactivo.Enabled = True
+        End Select
+
     End Sub
 
     Private Sub ComboBox4_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBox4.SelectedIndexChanged
-        ErrorProvider1.SetError(ComboBox4, "")
-        mouse1 = 1
-        contador = 0
-        Inactivo.Enabled = True
+        Select Case seleccionado
+            Case 1
+                ErrorProvider1.SetError(ComboBox4, "")
+            Case 2
+                ErrorProvider1.SetError(ComboBox4, "")
+                contador = 0
+                Inactivo.Enabled = True
+        End Select
+
     End Sub
 
     Private Sub ComboBox5_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBox5.SelectedIndexChanged
-        ErrorProvider1.SetError(ComboBox5, "")
-        mouse1 = 1
-        contador = 0
-        Inactivo.Enabled = True
+        Select Case seleccionado
+            Case 1
+                ErrorProvider1.SetError(ComboBox5, "")
+
+            Case 2
+                ErrorProvider1.SetError(ComboBox5, "")
+                contador = 0
+                Inactivo.Enabled = True
+        End Select
+
     End Sub
 
     Private Sub ComboBox6_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBox6.SelectedIndexChanged
-        ErrorProvider1.SetError(ComboBox6, "")
-        mouse1 = 1
-        contador = 0
-        Inactivo.Enabled = True
+        Select Case seleccionado
+            Case 1
+                ErrorProvider1.SetError(ComboBox6, "")
+            Case 2
+                ErrorProvider1.SetError(ComboBox6, "")
+                contador = 0
+                Inactivo.Enabled = True
+        End Select
+
     End Sub
     Dim contador = 0
     Private Sub Inactivo_Tick(sender As System.Object, e As System.EventArgs) Handles Inactivo.Tick
+        If seleccionado = 2 Then
+            contador = contador + 1
 
-        contador = contador + 1
-
-        If contador > 1 Then
-            contador = 0
+            If contador > 1 Then
+                contador = 0
+                Inactivo.Enabled = False
+                mouse = 0
+                VerificarModificacion()
+            End If
+        Else
             Inactivo.Enabled = False
-            mouse = 0
-            VerificarModificacion()
         End If
-    End Sub
-
-    Private Sub DataGridView1_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
 
     End Sub
-
     Private Sub RadioButton6_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton6.CheckedChanged
-        ErrorProvider1.SetError(Label11, "")
-        mouse1 = 1
-        contador = 0
-        Inactivo.Enabled = True
+        Select Case seleccionado
+            Case 1
+                ErrorProvider1.SetError(Label11, "")
+            Case 2
+                ErrorProvider1.SetError(Label11, "")
+                contador = 0
+                Inactivo.Enabled = True
+        End Select
+        
     End Sub
-
     Private Sub RadioButton5_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton5.CheckedChanged
-        ErrorProvider1.SetError(Label11, "")
-        mouse1 = 1
-        contador = 0
-        Inactivo.Enabled = True
+        Select Case seleccionado
+            Case 1
+                ErrorProvider1.SetError(Label11, "")
+            Case 2
+                ErrorProvider1.SetError(Label11, "")
+                contador = 0
+                Inactivo.Enabled = True
+        End Select
+
     End Sub
 
-    Private Sub contrasenia_TextChanged(sender As System.Object, e As System.EventArgs) Handles contrasenia.TextChanged
+    Private Sub ComboBox1_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBox1.SelectedIndexChanged
 
     End Sub
 End Class
