@@ -252,7 +252,7 @@
 
     End Sub
 
-    Private Sub Cedula_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs)
+    Private Sub Cedula_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Cedula.KeyDown
         If panelnombre = 0 Then
             If e.KeyCode = Keys.Enter Then
 
@@ -373,6 +373,7 @@
 
                     '//////////////////////Oculta los picturebox y la interfaz de las funciones///////////////////////////////
 
+
                     ExtCombo.Visible = False
                     devoCOMBO.Visible = False
                     ReservacionComboBox.Visible = False
@@ -394,12 +395,14 @@
                 End Try
 
             End If
+
         End If
 
 
     End Sub
 
-    Private Sub Cedula_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub Cedula_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cedula.TextChanged
+
         Try
             Cedula.AutoCompleteMode = AutoCompleteMode.Suggest
             Cedula.AutoCompleteSource = AutoCompleteSource.CustomSource
@@ -408,6 +411,7 @@
             consultar()
             getData(DataCollection)
             Cedula.AutoCompleteCustomSource = DataCollection
+
         Catch ex As OutOfMemoryException
 
         End Try
@@ -1080,48 +1084,44 @@
         End If
     End Sub
 
-    Private Sub DataGridParaDevolucion_CellContentDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridParaDevolucion.CellContentDoubleClick
-
-    End Sub
-
     Private Sub DataGridParaDevolucion_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridParaDevolucion.CellDoubleClick
 
 
         Try
 
-                Libro1 = DataGridParaDevolucion.Item(2, DataGridParaDevolucion.CurrentRow.Index).Value
+            Libro1 = DataGridParaDevolucion.Item(2, DataGridParaDevolucion.CurrentRow.Index).Value
 
-                cod_libros = DataGridParaDevolucion.Item(1, DataGridParaDevolucion.CurrentRow.Index).Value
-
-
-
-                Dim a As MsgBoxResult
-                a = MsgBox("Desea devolver el libro " & Libro1 & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
+            cod_libros = DataGridParaDevolucion.Item(1, DataGridParaDevolucion.CurrentRow.Index).Value
 
 
-                '       1) Si se devuelve el libro y se actualiza la Base da datos 
-                If a = vbYes Then
 
-                    Consulta = "update libro set estado = 0 where cod_libro = '" & cod_libros & "'"
-                    consultar()
-                    Consulta = "UPDATE prestamolibro SET fecha_entrada = '" & Label4.Text & "' WHERE cedula = '" & Cedula.Text & "' and cod_libro ='" & cod_libros & "'"
-                    consultar()
-                    MsgBox("se ha devuelto", Title:="PRESTAMO")
+            Dim a As MsgBoxResult
+            a = MsgBox("Desea devolver el libro " & Libro1 & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
 
-                    Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
-                    consultar()
-                    DataGridParaDevolucion.DataSource = Tabla
 
-                Else
+            '       1) Si se devuelve el libro y se actualiza la Base da datos 
+            If a = vbYes Then
 
-                    MsgBox("Este libro no se devolvio", Title:="PRESTAMOS")
+                Consulta = "update libro set estado = 0 where cod_libro = '" & cod_libros & "'"
+                consultar()
+                Consulta = "UPDATE prestamolibro SET fecha_entrada = '" & Label4.Text & "' WHERE cedula = '" & Cedula.Text & "' and cod_libro ='" & cod_libros & "'"
+                consultar()
+                MsgBox("se ha devuelto", Title:="PRESTAMO")
 
-                    Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
-                    consultar()
-                    DataGridParaDevolucion.DataSource = Tabla
+                Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
+                consultar()
+                DataGridParaDevolucion.DataSource = Tabla
 
-                End If
-          
+            Else
+
+                MsgBox("Este libro no se devolvio", Title:="PRESTAMOS")
+
+                Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
+                consultar()
+                DataGridParaDevolucion.DataSource = Tabla
+
+            End If
+
             If a = vbNo Then
 
             End If
@@ -1133,13 +1133,6 @@
         End Try
 
 
-    End Sub
-
-
-
-
-    Private Sub LibrosParaReservar_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles LibrosParaReservar.CellClick
-     
     End Sub
 
     Private Sub TextBox3_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox3.TextChanged
@@ -1200,15 +1193,6 @@
         Label5.Text = "SELECCION " + vbCrLf + "DE" + vbCrLf + "FUNCION"
 
     End Sub
-
-    Private Sub Panel3_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Panel3.Paint
-
-    End Sub
-
-    Private Sub Label5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label5.Click
-
-    End Sub
-
 
     Private Sub Timer2_Tick_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer2.Tick
         If Panel4.Left = 1018 Then
@@ -1344,32 +1328,10 @@
         '/////////////////////////////////////////////////
     End Sub
 
-    Private Sub LibrosParaReservar_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles LibrosParaReservar.CellContentClick
-
-    End Sub
-
-    Private Sub DataGridViewlllllVerLibrosEnExtraccionlllll_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridViewlllllVerLibrosEnExtraccionlllll.CellContentClick
-
-    End Sub
-
-    Private Sub CrearReservacionComboBox_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CrearReservacionComboBox.Enter
-
-    End Sub
-
-    Private Sub VerLibrosReservados2_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles VerLibrosReservados2.CellContentClick
-
-    End Sub
-
-    Private Sub DataGridParaDevolucion_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridParaDevolucion.CellContentClick
-
-    End Sub
-
-    Private Sub devoCOMBO_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles devoCOMBO.Enter
-
-    End Sub
-
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+
         Dim a As String
+
         a = MsgBox("Desea vaciar el carrito ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
 
         If a = vbYes Then
@@ -1389,4 +1351,9 @@
 
         End If
     End Sub
+
+    Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
+        Registroprestamos.Show()
+    End Sub
+
 End Class

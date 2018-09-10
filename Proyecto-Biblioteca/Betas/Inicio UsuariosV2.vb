@@ -1,14 +1,74 @@
 ﻿Public Class Inicio_UsuariosV2
+    '////////////////////////////////////////////////////////////////////////////////
+    '////////////////////////////////////////////////////////////////////////////////
+    '////////////////////////////////////////////////////////////////////////////////
+
     Dim seleccionado As Integer = 0
     Dim activo As Integer = 0
+
+
     Dim animacion As Integer = 0
-    Dim dia As String
-    Dim mes1 As String
     Dim mouse As Integer = 0
 
+
+
+    '/////////////////////variables para editar usuarios//////////////
+
+    Dim ced_editar As Integer = Nothing
+    Dim nom_editar As String = Nothing
+    Dim ape_editar As String = Nothing
+    Dim tel_editar As Integer = Nothing
+    Dim dir_editar As String = Nothing
+    Dim tipo_editar As Integer = Nothing
+    Dim contra_editar As String = Nothing
+    Dim i_editar As Integer ' Variable bandera para avisar que existe un error
+
+    Dim dia_editar As String
+    Dim mes_editar As String
+    Dim año_editar As String
+
+    '//////////////////////////////////////////////////////////////////
+
+
+    '//////////////////////////// variables para ingresar usuarios ////////////////
+
+    Dim ced_ingresar As Integer = Nothing
+    Dim nom_ingresar As String = Nothing
+    Dim ape_ingresar As String = Nothing
+    Dim tel_ingresar As Integer = Nothing
+    Dim dir_ingresar As String = Nothing
+    Dim tipo_ingresar As Integer = Nothing
+    Dim pass_ingresar As String = Nothing
+    Dim i_ingresar As Integer = 0 ' Variable bandera para avisar que existe un error
+    Dim MsgStyle As MsgBoxStyle
+
+    Dim dia_ingresar As String
+    Dim mes_ingresar As String
+    Dim año_ingresar As String
+    '////////////////////////////////////////////////////////////////////////////////
+
+
+
+    '////////////////////////////// variables para el datagrid //////////////////////
+
+    Dim styleMSG_datagrid As MsgBoxStyle = MsgBoxStyle.YesNo + MsgBoxStyle.Question
+    Dim styleMSGOK_datagrid As MsgBoxStyle = MsgBoxStyle.OkOnly + MsgBoxStyle.Question
+    Dim confirmacion As String = 0
+    Dim cedulaAdmin As String
+    Dim cedulaUser As String
+    Dim dia_datagrid As String = ""
+    Dim mes_datagrid As String = ""
+    Dim año_datagrid As String = ""
+
+    '////////////////////////////////////////////////////////////////////////////////
+    '////////////////////////////////////////////////////////////////////////////////
+    '////////////////////////////////////////////////////////////////////////////////
+
     Private Sub Inicio_UsuariosV2_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+
+        Button4.Visible = False
         RadioButton3.Visible = False
-        Label18.Visible = False 'label conytraseña funcionario
+        Label18.Visible = False 'label contraseña funcionario
         contrasenia.Visible = False 'textbox contraseña funcionario
 
         Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento from usuarios where estado = 1 and tipo = 1;"
@@ -49,8 +109,6 @@
 
                 Case 0
 
-
-
                     If Menu_Panel.Left > 650 Then
                         Menu_Panel.Left -= 10
                     Else
@@ -67,8 +125,6 @@
                         activo = 0
                         TimerMenu.Enabled = False
                     End If
-
-
 
 
             End Select
@@ -111,7 +167,7 @@
                         ComboBox2.Items.Add("Junio")
                         ComboBox2.Items.Add("Julio")
                         ComboBox2.Items.Add("Agosto")
-                        ComboBox2.Items.Add("Setiembre")
+                        ComboBox2.Items.Add("Septiembre")
                         ComboBox2.Items.Add("Octubre")
                         ComboBox2.Items.Add("Noviembre")
                         ComboBox2.Items.Add("Diciembre")
@@ -136,10 +192,14 @@
 
                         Menu_Panel.BackColor = Color.Silver
                         Menu_Panel.Left = 650
+
                         Editar_Panel.Visible = True
                         Ingresar_Panel.Visible = False
+
                         DataGridView1.Width = 631
 
+                        '///////////////////////////////////RELLENAR COMBOBOX//////////////////////////////////
+                        '///////////////////////////////////////DIA////////////////////////////////////////////
                         For i As Integer = 0 To 31
                             If i = 0 Then
                                 ComboBox4.Items.Add("Dia")
@@ -147,7 +207,8 @@
                                 ComboBox4.Items.Add(i)
                             End If
                         Next
-
+                        '//////////////////////////////////////////////////////////////////////////////////////////
+                        '////////////////////////////////MES///////////////////////////////////////////////////////
                         ComboBox5.Items.Add("Mes")
                         ComboBox5.Items.Add("Enero")
                         ComboBox5.Items.Add("Febrero")
@@ -157,12 +218,12 @@
                         ComboBox5.Items.Add("Junio")
                         ComboBox5.Items.Add("Julio")
                         ComboBox5.Items.Add("Agosto")
-                        ComboBox5.Items.Add("Setiembre")
+                        ComboBox5.Items.Add("Septiembre")
                         ComboBox5.Items.Add("Octubre")
                         ComboBox5.Items.Add("Noviembre")
                         ComboBox5.Items.Add("Diciembre")
-
-
+                        '//////////////////////////////////////////////////////////////////////////////////////////
+                        '///////////////////////////////AÑO////////////////////////////////////////////////////////
                         For i As Integer = 1899 To 2018
                             If i = 1899 Then
                                 ComboBox6.Items.Add("Año")
@@ -170,16 +231,20 @@
                                 ComboBox6.Items.Add(i)
                             End If
                         Next
+                        '//////////////////////////////////////////////////////////////////////////////////////////
 
                         activo = 1
 
+                        '//////////////////SELECCIONAR EL PRIMER ITEM DE CADA COMBOBOX OSEA EL TEXTO CORRESPONDIENTE EJ: DIA , MES , AÑO
                         ComboBox4.SelectedIndex = 0
                         ComboBox5.SelectedIndex = 0
                         ComboBox6.SelectedIndex = 0
-
+                        '////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     Case 3
-
+                        '//////LLAMA A COMBOCLEAR PARA LIMPIAR TODOS LOS COMBOBOX///////
                         ComboClear()
+                        '///////////////////////////////////////////////////////////////
+
                         Menu_Panel.Left = 955
                         Editar_Panel.Visible = False
                         Ingresar_Panel.Visible = False
@@ -253,14 +318,11 @@
     End Sub
 
     Private Sub DataGridView1_CellClick(sender As Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellClick
-        Dim styleMSG As MsgBoxStyle = MsgBoxStyle.YesNo + MsgBoxStyle.Question
-        Dim styleMSGOK As MsgBoxStyle = MsgBoxStyle.OkOnly + MsgBoxStyle.Question
-        Dim confirmacion As String = 0
-        Dim cedulaAdmin As String
-        Dim cedulaUser As String = DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value
-        Dim dia As String = ""
-        Dim mes1 As String = ""
-        Dim año As String = ""
+        '///////////////////////////////////////////////////////////////////////////////////////////////////
+        '///////////////////////////////////////////////////////////////////////////////////////////////////
+        '///////////////////////////////////////////////////////////////////////////////////////////////////
+
+        cedulaUser = DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value
 
         mouse = 0
 
@@ -279,12 +341,13 @@
                     telefono.Text = row("telefono").ToString
                     direccion.Text = row("direccion").ToString
 
-                    dia = row("nacimiento").ToString.Substring(0, 2)
-                    mes1 = row("nacimiento").ToString.Substring(3, 2)
-                    año = row("nacimiento").ToString.Substring(6, 4)
+                    dia_datagrid = row("nacimiento").ToString.Substring(0, 2)
+                    mes_datagrid = row("nacimiento").ToString.Substring(3, 2)
+                    año_datagrid = row("nacimiento").ToString.Substring(6, 4)
 
 
                     Select Case row("tipo").ToString
+
                         Case 0 'funcionario
 
                             RadioButton5.Select()
@@ -300,55 +363,49 @@
 
                     End Select
                 Next
+
                 Dim x = 1
 
-                substring = mes1
+                substring = mes_datagrid
                 mes()
-                mes1 = substring
-
-
+                mes_datagrid = substring
 
                 For Each item In ComboBox4.Items
-
-                    If item = dia Then
+                    If item = dia_datagrid Then
                         ComboBox4.SelectedIndex = x - 1
                     End If
                     x = x + 1
                 Next
-                x = 1
-                For Each item In ComboBox5.Items
 
-                    If item = mes1 Then
+                x = 1
+
+                For Each item In ComboBox5.Items
+                    If item = mes_datagrid Then
                         ComboBox5.SelectedIndex = x - 1
                     End If
                     x = x + 1
                 Next
-                x = 1
-                For Each item In ComboBox6.Items
 
-                    If item = año Then
+                x = 1
+
+                For Each item In ComboBox6.Items
+                    If item = año_datagrid Then
                         ComboBox6.SelectedIndex = x - 1
                     End If
                     x = x + 1
                 Next
 
-
             Case 3
 
-                If MsgBox("desea borrar este usuario", styleMSG, Title:="desea borrar?") = MsgBoxResult.Yes Then
+                If MsgBox("desea borrar este usuario", styleMSG_datagrid, Title:="desea borrar?") = MsgBoxResult.Yes Then
 
                     cedulaAdmin = InputBox("ingrese una cedula de un administrador", Title:=" ")
-
-                    Consulta = "select cedula from usuarios where tipo = 1 and cedula = '" & cedulaAdmin & "' and tipo = 1"
+                    Consulta = "select cedula from usuarios where tipo = 0 and cedula = '" & cedulaAdmin & "'"
                     consultar()
 
-
                     For Each row As DataRow In Tabla.Rows
-
                         confirmacion = row("cedula").ToString
-
                     Next
-
                     If confirmacion = cedulaAdmin Then
 
                         Consulta = "update usuarios set estado = 0 where cedula = '" & cedulaUser & "'"
@@ -357,122 +414,98 @@
                         consultar()
                         DataGridView1.DataSource = Tabla
                     Else
-                        MsgBox("la cedula ingresada no coincide con ningun administrador", styleMSGOK, Title:="Error")
+                        MsgBox("la cedula ingresada no coincide con ningun administrador", styleMSGOK_datagrid, Title:="Error")
                     End If
-
-
                 End If
-
-
         End Select
+
+        '///////////////////////////////////////////////////////////////////////////////////////////////////
+        '///////////////////////////////////////////////////////////////////////////////////////////////////
+        '///////////////////////////////////////////////////////////////////////////////////////////////////
     End Sub
 
     Private Sub Button4_Click(sender As System.Object, e As System.EventArgs) Handles Button4.Click
 
+        '///////////////////////////////////////////////////////////////////
+        '//////////////////// EDITAR USUARIOS //////////////////////////////
+        '///////////////////////////////////////////////////////////////////
 
-
-
-        ' Crear Variables
-
-        Dim ced1 As Integer = Nothing
-        Dim nom As String = Nothing
-        Dim ape As String = Nothing
-        Dim tel As Integer = Nothing
-        Dim dir As String = Nothing
-        Dim tipo As Integer = Nothing
-        Dim contra As String = Nothing
-        Dim i As Integer ' Variable bandera para avisar que existe un error
-
-        i = 0
-
-
+        i_editar = 0
 
         ' Verificar campos
         If LTrim$(nombre.Text) = "" Then ' Verifica si esta vacio nombre
             ErrorProvider1.SetError(nombre, "Nombre no puede estar vacío") 'Label invisible debajo de nombre
-            i = 1
+            i_editar = 1
         Else
-            nom = nombre.Text
+            nom_editar = nombre.Text
         End If
 
-
-        ape = apellido.Text
-
-
-
+        ape_editar = apellido.Text
 
         ' Verifica si esta vacio cedula
         If LTrim$(cedula.Text) <> "" Then
             If IsNumeric(cedula.Text) = True Then
                 Modulo.Verificar_Cedula(cedula.Text)
                 If Modulo.correcto = 0 Then
-                    ced1 = cedula.Text
+                    ced_editar = cedula.Text
                 Else
-                    i = 1
+                    i_editar = 1
                     ErrorProvider1.SetError(cedula, "Cedula no valida")
                 End If
             Else
-                i = 1
+                i_editar = 1
                 ErrorProvider1.SetError(cedula, "No valido, ingrese solo numeros")
             End If
         End If
 
 
-
-
         If IsNumeric(telefono.Text) = True Then
-            tel = telefono.Text
+            tel_editar = telefono.Text
         Else
-            i = 1
+            i_editar = 1
             ErrorProvider1.SetError(telefono, "No valido, ingrese solo numeros")
         End If
 
-        dir = direccion.Text
+        dir_editar = direccion.Text
 
         If RadioButton5.Checked Then
-            tipo = 0
+            tipo_editar = 0
         Else
-            tipo = 1
+            tipo_editar = 1
         End If
 
 
         If ComboBox4.Text = "Dia" Then
             ErrorProvider1.SetError(ComboBox4, "seleccione un dia")
-            i = 1
+            i_editar = 1
         Else
-            dia = ""
+            dia_editar = ""
             If ComboBox4.SelectedItem.ToString.Length = 1 Then
-                dia = "0" & ComboBox4.SelectedItem
+                dia_editar = "0" & ComboBox4.SelectedItem
             End If
         End If
         If ComboBox5.Text = "Mes" Then
             ErrorProvider1.SetError(ComboBox5, "seleccione un mes")
-            i = 1
+            i_editar = 1
         Else
 
-            substring = ComboBox5.SelectedItem
-            mestonum()
+
 
         End If
         If ComboBox6.Text = "Año" Then
             ErrorProvider1.SetError(ComboBox6, "seleccione un año")
-            i = 1
+            i_editar = 1
         Else
 
         End If
 
+        substring = ComboBox5.SelectedItem
+        mestonum()
 
-
-
-
-       
-
-        If i = 0 Then
-            Dim nacimiento As String = Str(ComboBox6.SelectedItem).Substring(1, 4) + "-" + substring + "-" + dia
+        If i_editar = 0 Then
+            Dim nacimiento_editar As String = Str(ComboBox6.SelectedItem).Substring(1, 4) + "-" + substring + "-" + dia_editar
             Try
-                Consulta = "update usuarios set cedula='" & Str(ced1) & "' , nombre='" & nom & "', apellido='" & ape & "', direccion='" & dir & "', telefono='" & Str(tel) & "', nacimiento='" & nacimiento & "' , tipo='" & Str(tipo) & "' where cedula = '" & Str(ced1) & "'"
-                'Consulta = "update usuarios set nacimiento = '" & nacimiento & "' where cedula = '" & Str(ced1) & "'"
-                'Consulta = "update usuarios (cedula,nombre,apellido,direccion,telefono,)"
+                Consulta = "update usuarios set cedula='" & Str(ced_editar) & "' , nombre='" & nom_editar & "', apellido='" & ape_editar & "', direccion='" & dir_editar & "', telefono='" & Str(tel_editar) & "', nacimiento='" & nacimiento_editar & "' , tipo='" & Str(tipo_editar) & "' where cedula = '" & Str(ced_editar) & "'"
                 consultar()
 
                 MsgBox("Edición guardada satisfactoriamente")
@@ -490,144 +523,129 @@
                 MsgBox(ex.Message)
             End Try
         Else
-
         End If
 
-
         '//////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
 
     End Sub
 
     Private Sub guardar_Click(sender As System.Object, e As System.EventArgs) Handles guardar.Click
+        '///////////////////////////////////////////////////////////////////
         '//////////////////// AGREGAR USUARIOS /////////////////////////////
-
-        ' Crear Variables
-
-        Dim ced As Integer = Nothing
-        Dim nom As String = Nothing
-        Dim ape As String = Nothing
-        Dim tel As Integer = Nothing
-        Dim dir As String = Nothing
-        Dim tipo As Integer = Nothing
-        Dim pass As String = Nothing
-        Dim i As Integer = 0 ' Variable bandera para avisar que existe un error
-        Dim MsgStyle As MsgBoxStyle
-
-
+        '///////////////////////////////////////////////////////////////////
 
         ' Verificar campos
         If LTrim$(nombre_txt.Text) = "" Then ' Verifica si esta vacio nombre
             ErrorProvider1.SetError(nombre_txt, "Nombre no puede estar vacío")
-            i = 1
+            i_ingresar = 1
         Else
-            nom = nombre_txt.Text
+            nom_ingresar = nombre_txt.Text
         End If
 
 
 
         If LTrim$(apellido_txt.Text) = "" Then ' Verifica si esta vacio nombre
             ErrorProvider1.SetError(apellido_txt, "Apellido no puede estar vacío")
-            i = 1
+            i_ingresar = 1
         Else
-            ape = apellido_txt.Text
+            ape_ingresar = apellido_txt.Text
         End If
-
-
-
-
 
         If LTrim$(cedula_txt.Text) = "" Then ' Verifica si esta vacio cedula
             ErrorProvider1.SetError(cedula_txt, "Cedula no puede estar vacío")
-            i = 1
+            i_ingresar = 1
         End If
 
 
-        If i = 0 Then
+        If i_ingresar = 0 Then
             If IsNumeric(cedula_txt.Text) = True Then
 
 
                 Modulo.Verificar_Cedula(cedula_txt.Text)
                 If Modulo.correcto = 0 Then
-                    ced = cedula_txt.Text
+                    ced_ingresar = cedula_txt.Text
                 Else
-                    i = 1
+                    i_ingresar = 1
                     ErrorProvider1.SetError(cedula_txt, "Cedula no valida")
                 End If
             Else
-                i = 1
+                i_ingresar = 1
                 ErrorProvider1.SetError(cedula_txt, "No valido, ingrese solo numeros")
             End If
-            End If
+        End If
 
 
 
         If IsNumeric(telefono_txt.Text) = True Then
-            tel = telefono_txt.Text
+            tel_ingresar = telefono_txt.Text
         Else
-            i = 1
+            i_ingresar = 1
             ErrorProvider1.SetError(telefono_txt, "No valido, ingrese solo numeros")
         End If
 
-
-
-        dir = direccion_txt.Text
-
+        dir_ingresar = direccion_txt.Text
 
         If RadioButton3.Checked = False And RadioButton4.Checked = False Then
             ErrorProvider1.SetError(Label11, "seleccione un tipo de usuario")
-            i = 1
+            i_ingresar = 1
         End If
-
-
-
 
         If ComboBox1.Text = "Dia" Then
             ErrorProvider1.SetError(ComboBox1, "selecione el dia de nacimiento")
-            i = 1
+            i_ingresar = 1
         End If
 
         If ComboBox2.Text = "Mes" Then
             ErrorProvider1.SetError(ComboBox2, "seleccione el mes de nacimiento")
-            i = 1
+            i_ingresar = 1
         End If
 
 
         If ComboBox3.Text = "Año" Then
             ErrorProvider1.SetError(ComboBox3, "seleccione el año de nacimiento")
-            i = 1
+            i_ingresar = 1
         End If
 
-        If i = 0 Then
+        If i_ingresar = 0 Then
             If RadioButton3.Checked Then
-                tipo = 0
-                pass = InputBox("Ingrese una Contraseña").ToString
+                tipo_ingresar = 0
+                pass_ingresar = InputBox("Ingrese una Contraseña").ToString
             Else
-                tipo = 1
+                tipo_ingresar = 1
             End If
         End If
 
-        If i = 0 Then ' Si no hay errores se pasan los datos la base de datos
+        If i_ingresar = 0 Then ' Si no hay errores se pasan los datos la base de datos
             Try
 
                 If ComboBox1.SelectedItem.ToString.Length = 1 Then
-                    dia = "0" + ComboBox1.SelectedItem.ToString
+                    dia_ingresar = "0" + ComboBox1.SelectedItem.ToString
                 Else
-                    dia = ComboBox1.Text
+                    dia_ingresar = ComboBox1.Text
                 End If
 
                 substring = ComboBox2.SelectedItem
                 mestonum()
 
-                Dim nacimiento As String = Str(ComboBox3.SelectedItem).Substring(1, 4) + "-" + substring + "-" + dia '//GUARDA LOS DATOS DEL COMBO A LA VARIABLE NACIMIENTO PARA LUEGO USARLA EN LA CONSULTA INSERT
+                Dim nacimiento_ingresar As String = Str(ComboBox3.SelectedItem).Substring(1, 4) + "-" + substring + "-" + dia_ingresar '//GUARDA LOS DATOS DEL COMBO A LA VARIABLE NACIMIENTO PARA LUEGO USARLA EN LA CONSULTA INSERT
 
-                Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo , nacimiento, estado, contrasenia) values (concat(upper(left('" + nom + "',1)), lower(substr('" + nom + "',2))), concat(upper(left('" + ape + "',1)), lower(substr('" + ape + "',2))), '" + Str(ced) + "', '" + Str(tel) + "', '" + dir + "', '" + Str(tipo) + "', '" + nacimiento + "','1', '" + pass + "');"
+                Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo , nacimiento, estado, contrasenia) values (concat(upper(left('" + nom_ingresar + "',1)), lower(substr('" + nom_ingresar + "',2))), concat(upper(left('" + ape_ingresar + "',1)), lower(substr('" + ape_ingresar + "',2))), '" + Str(ced_ingresar) + "', '" + Str(tel_ingresar) + "', '" + dir_ingresar + "', '" + Str(tipo_ingresar) + "', '" + nacimiento_ingresar + "','1', '" + pass_ingresar + "');"
                 consultar()
-                MsgStyle = MsgBoxStyle.Information + MsgBoxStyle.OkOnly
-                MsgBox("Usuario agregado con exito", MsgStyle, Title:="Biblioteca")
+
+                If ERROR1 = 1 Then
+
+                    MsgStyle = MsgBoxStyle.Information + MsgBoxStyle.OkOnly
+                    MsgBox("Error al agregar usuario", MsgStyle, Title:="Biblioteca")
+                    ERROR1 = 0
+
+                Else
+
+                    MsgStyle = MsgBoxStyle.Information + MsgBoxStyle.OkOnly
+                    MsgBox("Usuario agregado con exito", MsgStyle, Title:="Biblioteca")
+                    ERROR1 = 0
+
+                End If
+
 
 
 
@@ -637,13 +655,9 @@
                 telefono_txt.Clear()
                 direccion_txt.Clear()
 
-                ComboBox1.Text = ""
-                ComboBox2.Text = ""
-                ComboBox3.Text = ""
-                ComboBox4.Text = ""
-                ComboBox5.Text = ""
-                ComboBox6.Text = ""
-
+                ComboBox1.SelectedIndex = 0
+                ComboBox2.SelectedIndex = 0
+                ComboBox3.SelectedIndex = 0
 
             Catch ex As Exception
                 MsgBox(ex.Message)
@@ -651,9 +665,6 @@
         Else
             ' MsgBox("Existen errores en el formulario, revisar los campos remarcados")
         End If
-
-
-
         Try
             Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento from usuarios where estado = 1 and tipo = 1;"
             consultar()
@@ -713,7 +724,6 @@
                 contador = 0
                 Inactivo.Enabled = True
         End Select
-       
     End Sub
 
     Private Sub nombre_TextChanged(sender As System.Object, e As System.EventArgs) Handles nombre.TextChanged
@@ -725,8 +735,6 @@
                 contador = 0
                 Inactivo.Enabled = True
         End Select
-
-
     End Sub
     Private Sub VerificarModificacion()
 
@@ -751,7 +759,7 @@
                 '/////////////////DIA//////////////////////////
 
 
-                If ComboBox4.SelectedItem.ToString.Length = 1 Then '----------------BUG------------------
+                If ComboBox4.SelectedItem.ToString.Length = 1 Then
 
                     dianum = "0" & ComboBox4.SelectedItem
 
@@ -821,7 +829,7 @@
                 End If
             Next
 
-            
+
             If nombre1 = "0" And apellido1 = "0" And cedula1 = "0" And telefono1 = "0" And direccion1 = "0" And dia2 = "0" And mes2 = "0" And año2 = "0" Then
                 Button4.Visible = False
             Else
@@ -841,7 +849,6 @@
                 contador = 0
                 Inactivo.Enabled = True
         End Select
-
     End Sub
 
     Private Sub telefono_TextChanged(sender As System.Object, e As System.EventArgs) Handles telefono.TextChanged
@@ -853,7 +860,6 @@
                 contador = 0
                 Inactivo.Enabled = True
         End Select
-
     End Sub
 
     Private Sub direccion_TextChanged(sender As System.Object, e As System.EventArgs) Handles direccion.TextChanged
@@ -865,7 +871,6 @@
                 contador = 0
                 Inactivo.Enabled = True
         End Select
-
     End Sub
 
     Private Sub ComboBox4_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBox4.SelectedIndexChanged
@@ -877,7 +882,6 @@
                 contador = 0
                 Inactivo.Enabled = True
         End Select
-
     End Sub
 
     Private Sub ComboBox5_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBox5.SelectedIndexChanged
@@ -890,7 +894,6 @@
                 contador = 0
                 Inactivo.Enabled = True
         End Select
-
     End Sub
 
     Private Sub ComboBox6_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBox6.SelectedIndexChanged
@@ -902,7 +905,6 @@
                 contador = 0
                 Inactivo.Enabled = True
         End Select
-
     End Sub
     Dim contador = 0
     Private Sub Inactivo_Tick(sender As System.Object, e As System.EventArgs) Handles Inactivo.Tick
@@ -918,7 +920,6 @@
         Else
             Inactivo.Enabled = False
         End If
-
     End Sub
     Private Sub RadioButton6_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton6.CheckedChanged
         Select Case seleccionado
@@ -929,7 +930,6 @@
                 contador = 0
                 Inactivo.Enabled = True
         End Select
-        
     End Sub
     Private Sub RadioButton5_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton5.CheckedChanged
         Select Case seleccionado
@@ -940,10 +940,9 @@
                 contador = 0
                 Inactivo.Enabled = True
         End Select
-
     End Sub
 
-    Private Sub ComboBox1_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBox1.SelectedIndexChanged
+    Private Sub DataGridView1_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
 
     End Sub
 End Class

@@ -7,7 +7,7 @@ Module Modulo
     Public nombre As String 'Variable para cambiar mostrar nombre en inicio usuario
     Dim ubicacion As String
     Public invitado As Integer = 0
-
+    Public ERROR1 As Integer
     '#If invitado = 0 Then
     '    Dim ubicacion As String = "server=localhost; user id=root; password=''; database=biblioteca"
     '    ubicacion = "server=bibliotecadb.ddns.net; user id=admin; password=admin; database=biblioteca"
@@ -43,6 +43,7 @@ Module Modulo
             MysqlConexion.Close()
         Catch ex As Exception
             MsgBox(ex.ToString)
+            ERROR1 = 1
         End Try
 
     End Sub
