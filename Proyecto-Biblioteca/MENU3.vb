@@ -47,8 +47,8 @@ Public Class MENU3
         Chart_Prestamos.Series.RemoveAt(0)
         For Each row As DataRow In Tabla.Rows
             If row("fecha_salida").ToString.Substring(6, 4) = "2018" Then
-                Chart_Prestamos.Series("Prestamos").Points.AddXY(row("count(prestamolibro.cod_libro)"), row("fecha_salida"))
-                else
+                Chart_Prestamos.Series("Prestamos").Points.AddXY(2018, row("count(prestamolibro.cod_libro)"))
+            Else
 
             End If
 

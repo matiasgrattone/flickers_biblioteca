@@ -161,10 +161,10 @@
     <Compile Include="Prestamos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Inicio Usuarios.vb">
+    <Compile Include="Alphas\Inicio Usuarios.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Inicio Usuarios.Designer.vb">
+    <Compile Include="Alphas\Inicio Usuarios.Designer.vb">
       <DependentUpon>Inicio Usuarios.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
@@ -255,7 +255,7 @@
     <EmbeddedResource Include="Prestamos.resx">
       <DependentUpon>Prestamos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inicio Usuarios.resx">
+    <EmbeddedResource Include="Alphas\Inicio Usuarios.resx">
       <DependentUpon>Inicio Usuarios.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Carga.resx">

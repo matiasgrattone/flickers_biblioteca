@@ -62,6 +62,7 @@ Partial Class Prestamos
         Me.Label19 = New System.Windows.Forms.Label()
         Me.BotonExtrearReservados = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
@@ -501,6 +502,7 @@ Partial Class Prestamos
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.SystemColors.ScrollBar
+        Me.Panel3.Controls.Add(Me.Button2)
         Me.Panel3.Controls.Add(Me.Panel4)
         Me.Panel3.Controls.Add(Me.Cedula)
         Me.Panel3.Controls.Add(Me.Label1)
@@ -513,6 +515,15 @@ Partial Class Prestamos
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(1016, 112)
         Me.Panel3.TabIndex = 75
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(93, 80)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 77
+        Me.Button2.Text = "Ver Registro"
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'Panel4
         '
@@ -536,7 +547,7 @@ Partial Class Prestamos
         'Cedula
         '
         Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Cedula.Location = New System.Drawing.Point(6, 54)
+        Me.Cedula.Location = New System.Drawing.Point(3, 50)
         Me.Cedula.Name = "Cedula"
         Me.Cedula.Size = New System.Drawing.Size(259, 20)
         Me.Cedula.TabIndex = 75
@@ -799,4 +810,5 @@ Partial Class Prestamos
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Timer2 As System.Windows.Forms.Timer
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents Button2 As System.Windows.Forms.Button
 End Class
