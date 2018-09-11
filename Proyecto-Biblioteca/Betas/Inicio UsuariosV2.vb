@@ -71,7 +71,7 @@
         Label18.Visible = False 'label contraseña funcionario
         contrasenia.Visible = False 'textbox contraseña funcionario
 
-        Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento from usuarios where estado = 1 and tipo = 1;"
+        Consulta = "select cedula as 'Cedula', nombre as 'Nombre', apellido as 'Apellido', direccion as 'Direccion', telefono 'Telefono', nacimiento as 'Nacimiento' from usuarios where estado = 1 and tipo = 1;"
         consultar()
         DataGridView1.DataSource = Tabla
 
@@ -946,7 +946,4 @@
         End Select
     End Sub
 
-    Private Sub DataGridView1_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-
-    End Sub
 End Class
