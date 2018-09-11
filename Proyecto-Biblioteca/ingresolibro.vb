@@ -8,8 +8,17 @@
     Dim dvgautorW As Integer
     Dim dgvclas As Integer
     Dim bandera As Integer
+
     Dim primeringreso As Integer = 0
+    Dim primeringresoedi As Integer = 0
+    Dim primeringresoau As Integer = 0
+    Dim primeringresoclas As Integer = 0
+
     Dim contadoringreso As Integer = 0
+    Dim contadoringresoedi As Integer = 0
+    Dim contadoringresoau As Integer = 0
+    Dim contadoringresoclas As Integer = 0
+
     Dim autor As Integer
     Dim editorial As Integer
     Dim clasificacion As Integer
@@ -27,7 +36,7 @@
                     ErrorProvider1.SetError(txttitulo, "El campo se encuentra vacio")
                     contadoringreso = contadoringreso + 1
                 End If
-                If Trim(txtanio.Text) = "" Then
+                If Trim(txtanio.Text) = "" And error10 = 1 Then
                     ErrorProvider1.SetError(txtanio, "El campo se encuentra vacio")
                     contadoringreso = contadoringreso + 1
                 End If
@@ -43,7 +52,7 @@
                     ErrorProvider1.SetError(txtclasificacion, "El campo se encuentra vacio")
                     contadoringreso = contadoringreso + 1
                 End If
-                If Trim(txtvolumen.Text) = "" Then
+                If Trim(txtvolumen.Text) = "" And error10 = 1 Then
                     ErrorProvider1.SetError(txtvolumen, "El campo se encuentra vacio")
                     contadoringreso = contadoringreso + 1
                 End If
@@ -51,7 +60,6 @@
                     ErrorProvider1.SetError(txtcasa_editorial, "El campo se encuentra vacio")
                     contadoringreso = contadoringreso + 1
                 End If
-
 
                 If error10 = 0 Then
                     If contadoringreso <> 0 Then
@@ -154,6 +162,8 @@
                     consultar()
                     dgvautor.DataSource = Tabla
                     dgvautor.Columns(0).Visible = False
+                    dgvautor.Columns(1).HeaderText = "Nombre de Autor"
+                    dgvautor.Columns(2).HeaderText = "Nacionalidad"
                     dgvautor.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill 'Ajusta las columnas al tamaño del datagrid'
                 Catch ex As Exception
                     MsgBox("No es posible acceder a la tabla Autor")
@@ -197,6 +207,9 @@
                     Consulta = "SELECT * FROM editorial"
                     consultar()
                     dgveditorial.DataSource = Tabla
+                    dgveditorial.Columns(1).HeaderText = "Nombre de Editorial"
+                    dgveditorial.Columns(2).HeaderText = "Pais"
+                    dgveditorial.Columns(3).HeaderText = "Año"
                     dgveditorial.Columns(0).Visible = False
                     dgveditorial.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill 'Ajusta las columnas al tamaño del datagrid'
                 Catch ex As Exception
@@ -221,6 +234,7 @@
         Pautor.Visible = False
         Peditorial.Visible = False
         Pclasificacion.Visible = False
+        cmbclasificacion.SelectedIndex = 0
         'Comprobacion'
 
         Consulta = "select * from usuarios"
@@ -251,7 +265,7 @@
                 dgvlibro.Columns(0).HeaderText = "Nº de Inventario"
                 dgvlibro.Columns(5).HeaderText = "Año"
                 dgvlibro.Columns(8).HeaderText = "Codigo de Clasificacion"
-                dgvlibro.Columns(8).HeaderText = "Clasificacion"
+                dgvlibro.Columns(9).HeaderText = "Clasificacion"
             Catch ex As Exception
                 MsgBox("Base de datos no disponible")
             End Try
@@ -286,34 +300,53 @@
     Private Sub btnnwautor_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnnwautor.Click
         If bandera = 1 Then
             Try
-                If Trim(txtnombreau.Text) = "" Or (txtpaisau.Text) = "" Then
-                    MsgBox(" Ha ocurrido un error. Uno de los campos necesarios se encuentra vacio")
-                Else
-                    'Ingresa un nuevo autor a la Base de Datos.
-                    Consulta = "INSERT INTO autor (nombre, nacionalidad) values (concat(upper(left('" + txtnombreau.Text + "',1)),lower(substr('" + txtnombreau.Text + "',2))), concat(upper(left('" + txtpaisau.Text + "',1)),lower(substr('" + txtpaisau.Text + "',2))))"
-                    consultar()
-
-                    Consulta = "SELECT * FROM autor"
-                    consultar()
-                    dgvautor.DataSource = Tabla
-
-                    'El boton se esconde
-                    btncancelarautor.Visible = False
-                    'El boton se muestra
-                    btningautor.Visible = True
-
-                    'Limpia los campos de texto'
-                    txtnombreau.Clear()
-                    txtpaisau.Clear()
-
-                    timerautor.Enabled = True
+                If Trim(txtnombreau.Text) = "" Or error10 = 1 Then
+                    ErrorProvider1.SetError(txtnombreau, "El campo se encuentra vacio")
+                    contadoringresoau = contadoringresoau + 1
                 End If
+                If Trim(txtpaisau.Text) = "" Or error10 = 1 Then
+                    ErrorProvider1.SetError(txtpaisau, "El campo se encuentra vacio")
+                    contadoringresoau = contadoringresoau + 1
+                End If
+                If error10 = 0 Then
+                    If contadoringresoau <> 0 Then
+                        contadoringresoau = 0
+                        primeringresoau = 1
+
+                    Else
+                        'Ingresa un nuevo autor a la Base de Datos.
+                        Consulta = "INSERT INTO autor (nombre, nacionalidad) values (concat(upper(left('" + txtnombreau.Text + "',1)),lower(substr('" + txtnombreau.Text + "',2))), concat(upper(left('" + txtpaisau.Text + "',1)),lower(substr('" + txtpaisau.Text + "',2))))"
+                        consultar()
+
+                        Consulta = "SELECT * FROM autor"
+                        consultar()
+                        dgvautor.DataSource = Tabla
+
+                        'El boton se esconde
+                        btncancelarautor.Visible = False
+                        'El boton se muestra
+                        btningautor.Visible = True
+
+                        'Limpia los campos de texto'
+                        txtnombreau.Clear()
+                        txtpaisau.Clear()
+
+                        timerautor.Enabled = True
+
+                        primeringresoau = 0
+                        ErrorProvider1.SetError(txtnombreau, "")
+                        ErrorProvider1.SetError(txtpaisau, "")
+                    End If
+                End If
+
+                
+
             Catch ex As Exception
                 MsgBox("Base de datos no disponible")
             End Try
-        Else
-            MsgBox("Base de datos no disponible")
         End If
+
+
     End Sub
 
     Private Sub btningautor_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btningautor.Click
@@ -416,34 +449,54 @@
     End Sub
     Private Sub btnnweditorial_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnnweditorial.Click
 
-        If Trim(txtnombree.Text) = "" Or (txtpais.Text) = "" Or (txtanioe.Text) = "" Then
-            MsgBox(" Ha ocurrido un error. Uno de los campos necesarios se encuentra vacio")
+        If Trim(txtnombree.Text) = "" Or error10 = 1 Then
+            ErrorProvider1.SetError(txtnombree, "El campo se encuentra vacio")
+            contadoringresoedi = contadoringresoedi + 1
+        End If
+        If Trim(txtpais.Text) = "" Or error10 = 1 Then
+            ErrorProvider1.SetError(txtpais, "El campo se encuentra vacio")
+            contadoringresoedi = contadoringresoedi + 1
+        End If
+        If Trim(txtanioe.Text) = "" Or error10 = 1 Then
+            ErrorProvider1.SetError(txtanioe, "El campo se encuentra vacio")
+            contadoringresoedi = contadoringresoedi + 1
+        End If
 
-        Else
-            'Ingresa una nueva editorial a la Base de datos.
-            Consulta = "INSERT INTO editorial (nombre, pais, anio) values (concat(upper(left('" + txtnombree.Text + "',1)),lower(substr('" + txtnombree.Text + "',2))),concat(upper(left('" + txtpais.Text + "',1)),lower(substr('" + txtpais.Text + "',2))),'" + txtanioe.Text + "')"
-            consultar()
+        If error10 = 0 Then
+            If contadoringresoedi <> 0 Then
+                contadoringresoedi = 0
+                primeringresoedi = 1
 
-            Try
-                Consulta = "SELECT * FROM editorial"
+            Else
+                'Ingresa una nueva editorial a la Base de datos.
+                Consulta = "INSERT INTO editorial (nombre, pais, anio) values (concat(upper(left('" + txtnombree.Text + "',1)),lower(substr('" + txtnombree.Text + "',2))),concat(upper(left('" + txtpais.Text + "',1)),lower(substr('" + txtpais.Text + "',2))),'" + txtanioe.Text + "')"
                 consultar()
-                dgveditorial.DataSource = Tabla
 
-            Catch ex As Exception
-                MsgBox(ex)
-            End Try
+                Try
+                    Consulta = "SELECT * FROM editorial"
+                    consultar()
+                    dgveditorial.DataSource = Tabla
 
-            'El boton se esconde
-            btncancelaredi.Visible = False
-            btningeditorial.Visible = True
+                Catch ex As Exception
+                    MsgBox(ex)
+                End Try
 
-            'Limpia los campos de texto'
-            txtnombree.Clear()
-            txtpais.Clear()
-            txtanioe.Clear()
+                'El boton se esconde
+                btncancelaredi.Visible = False
+                btningeditorial.Visible = True
 
-            timereditorial.Enabled = True
+                'Limpia los campos de texto'
+                txtnombree.Clear()
+                txtpais.Clear()
+                txtanioe.Clear()
 
+                primeringresoedi = 0
+                ErrorProvider1.SetError(txtnombree, "")
+                ErrorProvider1.SetError(txtpais, "")
+                ErrorProvider1.SetError(txtanioe, "")
+
+                timereditorial.Enabled = True
+            End If
         End If
     End Sub
     Private Sub txtbuscarautor_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtbuscarautor.TextChanged
@@ -523,10 +576,10 @@
                 ErrorProvider1.SetError(txtcod_libro, "")
             End If
         End If
+    End Sub
 
-
-
-
+    Private Sub txttitulo_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txttitulo.KeyUp
+        txttitulo.MaxLength = 30
 
     End Sub
 
@@ -542,6 +595,17 @@
         End If
     End Sub
 
+    Private Sub txtanio_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtanio.KeyUp
+        txtanio.MaxLength = 4
+        If Not IsNumeric(txtanio.Text) And txtanio.Text <> "" Then
+            ErrorProvider1.SetError(txtanio, "ingrese solo numeros")
+            error10 = 1
+        Else
+            ErrorProvider1.SetError(txtanio, "")
+            error10 = 0
+        End If
+    End Sub
+
     Private Sub txtanio_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtanio.TextChanged
         'Activa el mensaje de error al fallar el ingreso.
         If primeringreso = 1 Then
@@ -551,6 +615,19 @@
                 'En caso de escribir algo en el textbox este se desactiva
                 ErrorProvider1.SetError(txtanio, "")
             End If
+        End If
+
+
+    End Sub
+
+    Private Sub txtorigen_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtorigen.KeyUp
+        txtorigen.MaxLength = 20
+        If IsNumeric(txtorigen.Text) And txtorigen.Text <> "" Then
+            ErrorProvider1.SetError(txtorigen, "ingrese solo letras")
+            error10 = 1
+        Else
+            ErrorProvider1.SetError(txtorigen, "")
+            error10 = 0
         End If
     End Sub
 
@@ -566,6 +643,17 @@
         End If
     End Sub
 
+    Private Sub txtvolumen_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtvolumen.KeyUp
+        txtvolumen.MaxLength = 3
+        If Not IsNumeric(txtvolumen.Text) And txtvolumen.Text <> "" Then
+            ErrorProvider1.SetError(txtvolumen, "ingrese solo numeros")
+            error10 = 1
+        Else
+            ErrorProvider1.SetError(txtvolumen, "")
+            error10 = 0
+        End If
+    End Sub
+
     Private Sub txtvolumen_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtvolumen.TextChanged
         'Activa el mensaje de error al fallar el ingreso.
         If primeringreso = 1 Then
@@ -576,6 +664,10 @@
                 ErrorProvider1.SetError(txtvolumen, "")
             End If
         End If
+    End Sub
+
+    Private Sub txtobservaciones_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtobservaciones.KeyUp
+        txtobservaciones.MaxLength = 255
     End Sub
 
     Private Sub txtobservaciones_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtobservaciones.TextChanged
@@ -614,10 +706,6 @@
         End If
     End Sub
 
-    Private Sub dgvautor_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvautor.CellContentClick
-
-    End Sub
-
     Private Sub btnselectclas_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnselectclas.Click
         If bandera = 1 Then
             Try
@@ -644,6 +732,8 @@
                     Consulta = "SELECT * FROM clasificacion"
                     consultar()
                     dgvclasificacion.DataSource = Tabla
+                    dgvclasificacion.Columns(0).HeaderText = "Codigo de Clasificacion"
+                    dgvclasificacion.Columns(1).HeaderText = "Clasificacion"
                     dgvclasificacion.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill 'Ajusta las columnas al tamaño del datagrid'
                 Catch ex As Exception
                     MsgBox("No es posible acceder a la tabla Clasificacion")
@@ -775,39 +865,49 @@
         timerclasificacion.Enabled = True
     End Sub
 
-    Private Sub txtbuscarclas_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
-    End Sub
-
     Private Sub btnnwclas_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnnwclas.Click
-        If Trim(txtcodclas.Text) = "" Or (txtnombreclas.Text) = "" Then
-            MsgBox(" Ha ocurrido un error. Uno de los campos necesarios se encuentra vacio")
+        If Trim(txtcodclas.Text) = "" Or error10 = 1 Then
+            ErrorProvider1.SetError(txtcodclas, "El campo se encuentra vacio")
+            contadoringresoclas = contadoringresoclas + 1
+        End If
+        If Trim(txtnombreclas.Text) = "" Or error10 = 1 Then
+            ErrorProvider1.SetError(txtnombreclas, "El campo se encuentra vacio")
+            contadoringresoclas = contadoringresoclas + 1
+        End If
+        If error10 = 0 Then
+            If contadoringresoclas <> 0 Then
+                contadoringresoclas = 0
+                primeringresoclas = 1
 
-        Else
-            'Ingresa una nueva editorial a la Base de datos.
-            'Consulta = "INSERT INTO clasificacion values ('" + txtcodclas.Text + "',concat(upper(left('" + txtnombreclas.Text + "',1))),lower(substr('" + txtnombreclas.Text + "',2)))"
-            Consulta = "insert into clasificacion values('" & txtcodclas.Text & "','" & txtnombreclas.Text & "')"
-            consultar()
-
-            Try
-                Consulta = "SELECT * FROM clasificacion"
+            Else
+                'Ingresa una nueva editorial a la Base de datos.
+                'Consulta = "INSERT INTO clasificacion values ('" + txtcodclas.Text + "',concat(upper(left('" + txtnombreclas.Text + "',1))),lower(substr('" + txtnombreclas.Text + "',2)))"
+                Consulta = "insert into clasificacion values('" & txtcodclas.Text & "','" & txtnombreclas.Text & "')"
                 consultar()
-                dgvclasificacion.DataSource = Tabla
 
-            Catch ex As Exception
-                MsgBox(ex)
-            End Try
+                Try
+                    Consulta = "SELECT * FROM clasificacion"
+                    consultar()
+                    dgvclasificacion.DataSource = Tabla
 
-            'El boton se esconde
-            btncancelarclas.Visible = False
-            btninclas.Visible = True
+                Catch ex As Exception
+                    MsgBox(ex)
+                End Try
 
-            'Limpia los campos de texto'
-            txtcodclas.Clear()
-            txtnombreclas.Clear()
+                'El boton se esconde
+                btncancelarclas.Visible = False
+                btninclas.Visible = True
 
-            timerclasificacion.Enabled = True
+                'Limpia los campos de texto'
+                txtcodclas.Clear()
+                txtnombreclas.Clear()
 
+                primeringresoclas = 0
+                ErrorProvider1.SetError(txtcodclas, "")
+                ErrorProvider1.SetError(txtnombreclas, "")
+
+                timerclasificacion.Enabled = True
+            End If
         End If
     End Sub
     Private Sub dgvclasificacion_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvclasificacion.CellDoubleClick
@@ -816,5 +916,174 @@
         clasificacion = dgvclasificacion.Item(0, dgvclasificacion.CurrentRow.Index).Value
         'El panel que contiene el datagrid se esconde.
         Pclasificacion.Visible = False
+    End Sub
+
+    Private Sub txtcodclas_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtcodclas.KeyUp
+        txtcodclas.MaxLength = 255
+        If Not IsNumeric(txtcodclas.Text) Or e.KeyCode = 46 And txtcodclas.Text <> "" Then
+            ErrorProvider1.SetError(txtcodclas, "ingrese solo numeros")
+            error10 = 1
+        Else
+            ErrorProvider1.SetError(txtcodclas, "")
+            error10 = 0
+        End If
+    End Sub
+
+    Private Sub txtcodclas_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtcodclas.TextChanged
+        'Activa el mensaje de error al fallar el ingreso.
+        If primeringreso = 1 Then
+            If txtcodclas.Text = "" Then
+                ErrorProvider1.SetError(txtcodclas, "El campo se encuentra vacio")
+            Else
+                'En caso de escribir algo en el textbox este se desactiva
+                ErrorProvider1.SetError(txtcodclas, "")
+            End If
+        End If
+    End Sub
+
+    Private Sub txtanioe_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtanioe.KeyUp
+        txtanioe.MaxLength = 4
+        If Not IsNumeric(txtanioe.Text) And txtanioe.Text <> "" Then
+            ErrorProvider1.SetError(txtanioe, "ingrese solo numeros")
+            error10 = 1
+        Else
+            ErrorProvider1.SetError(txtanioe, "")
+            error10 = 0
+        End If
+    End Sub
+
+    Private Sub txtbuscarclas_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtbuscarclas.TextChanged
+        'Busqueda de Clasificaciones
+        Select Case cmbclasificacion.SelectedIndex
+            Case 0
+                Consulta = "select * from clasificacion where cod_clas like '" & txtbuscarclas.Text & "%'"
+                consultar()
+                dgvclasificacion.DataSource = Tabla
+            Case 1
+                Consulta = "select * from clasificacion where nom_clas like '" & txtbuscarclas.Text & "%'"
+                consultar()
+                dgvclasificacion.DataSource = Tabla
+            Case Else
+                Consulta = "select * from clasificacion"
+                consultar()
+                dgvclasificacion.DataSource = Tabla
+        End Select
+        
+    End Sub
+
+    Private Sub txtpaisau_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtpaisau.KeyUp
+        txtpaisau.MaxLength = 20
+        If IsNumeric(txtpaisau.Text) And txtpaisau.Text <> "" Then
+            ErrorProvider1.SetError(txtpaisau, "ingrese solo letras")
+            error10 = 1
+        Else
+            ErrorProvider1.SetError(txtpaisau, "")
+            error10 = 0
+        End If
+    End Sub
+
+    Private Sub txtnombree_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtnombree.KeyUp
+        txtnombree.MaxLength = 30
+        If IsNumeric(txtnombree.Text) And txtnombree.Text <> "" Then
+            ErrorProvider1.SetError(txtnombree, "ingrese solo letras")
+            error10 = 1
+        Else
+            ErrorProvider1.SetError(txtnombree, "")
+            error10 = 0
+        End If
+    End Sub
+
+    Private Sub txtnombreclas_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtnombreclas.KeyUp
+        txtnombreclas.MaxLength = 50
+        If IsNumeric(txtnombreclas.Text) And txtnombreclas.Text <> "" Then
+            ErrorProvider1.SetError(txtnombreclas, "ingrese solo letras")
+            error10 = 1
+        Else
+            ErrorProvider1.SetError(txtnombreclas, "")
+            error10 = 0
+        End If
+    End Sub
+
+    Private Sub txtnombreau_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtnombreau.KeyUp
+        txtnombreau.MaxLength = 50
+        If IsNumeric(txtnombreau.Text) And txtnombreau.Text <> "" Then
+            ErrorProvider1.SetError(txtnombreau, "ingrese solo letras")
+            error10 = 1
+        Else
+            ErrorProvider1.SetError(txtnombreau, "")
+            error10 = 0
+        End If
+
+    End Sub
+
+    Private Sub txtpais_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtpais.KeyUp
+        txtpais.MaxLength = 20
+        If IsNumeric(txtpais.Text) And txtpais.Text <> "" Then
+            ErrorProvider1.SetError(txtpais, "ingrese solo letras")
+            error10 = 1
+        Else
+            ErrorProvider1.SetError(txtpais, "")
+            error10 = 0
+        End If
+    End Sub
+
+    Private Sub txtpais_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtpais.TextChanged
+        'Activa el mensaje de error al fallar el ingreso.
+        If primeringreso = 1 Then
+            If txtpais.Text = "" Then
+                ErrorProvider1.SetError(txtpais, "El campo se encuentra vacio")
+            Else
+                'En caso de escribir algo en el textbox este se desactiva
+                ErrorProvider1.SetError(txtpais, "")
+            End If
+        End If
+    End Sub
+
+    Private Sub txtnombreau_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtnombreau.TextChanged
+        'Activa el mensaje de error al fallar el ingreso.
+        If primeringreso = 1 Then
+            If txtnombreau.Text = "" Then
+                ErrorProvider1.SetError(txtnombreau, "El campo se encuentra vacio")
+            Else
+                'En caso de escribir algo en el textbox este se desactiva
+                ErrorProvider1.SetError(txtnombreau, "")
+            End If
+        End If
+    End Sub
+
+    Private Sub txtnombreclas_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtnombreclas.TextChanged
+        'Activa el mensaje de error al fallar el ingreso.
+        If primeringreso = 1 Then
+            If txtnombreclas.Text = "" Then
+                ErrorProvider1.SetError(txtnombreclas, "El campo se encuentra vacio")
+            Else
+                'En caso de escribir algo en el textbox este se desactiva
+                ErrorProvider1.SetError(txtnombreclas, "")
+            End If
+        End If
+    End Sub
+
+    Private Sub txtnombree_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtnombree.TextChanged
+        'Activa el mensaje de error al fallar el ingreso.
+        If primeringreso = 1 Then
+            If txtnombree.Text = "" Then
+                ErrorProvider1.SetError(txtnombree, "El campo se encuentra vacio")
+            Else
+                'En caso de escribir algo en el textbox este se desactiva
+                ErrorProvider1.SetError(txtnombree, "")
+            End If
+        End If
+    End Sub
+
+    Private Sub txtpaisau_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtpaisau.TextChanged
+        'Activa el mensaje de error al fallar el ingreso.
+        If primeringreso = 1 Then
+            If txtpaisau.Text = "" Then
+                ErrorProvider1.SetError(txtpaisau, "El campo se encuentra vacio")
+            Else
+                'En caso de escribir algo en el textbox este se desactiva
+                ErrorProvider1.SetError(txtpaisau, "")
+            End If
+        End If
     End Sub
 End Class
