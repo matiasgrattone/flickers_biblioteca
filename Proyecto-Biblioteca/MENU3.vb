@@ -41,6 +41,22 @@ Public Class MENU3
         End If
         '////////////////////////////////////////////////////////////////////////////////////////////////
         Chart()
+        '////////////////////////////////////////////////////////////////////////////////////////////////
+
+        ComboBox1.Items.Add("Mes")
+        ComboBox1.Items.Add("Enero")
+        ComboBox1.Items.Add("Febrero")
+        ComboBox1.Items.Add("Marzo")
+        ComboBox1.Items.Add("Abril")
+        ComboBox1.Items.Add("Mayo")
+        ComboBox1.Items.Add("Junio")
+        ComboBox1.Items.Add("Julio")
+        ComboBox1.Items.Add("Agosto")
+        ComboBox1.Items.Add("Septiembre")
+        ComboBox1.Items.Add("Octubre")
+        ComboBox1.Items.Add("Noviembre")
+        ComboBox1.Items.Add("Diciembre")
+
 
     End Sub
     Private Sub Panel1_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Phoraencabezado.MouseDown
@@ -140,6 +156,7 @@ Public Class MENU3
         Timer_UsuariosLabel.Enabled = True
         Timer_RevistasLabel.Enabled = True
         Timer_InicioLabel.Enabled = True
+
         panel_usuarios.BackColor = Drawing.Color.LightGray
         panel_libros.BackColor = Drawing.Color.Silver
         panel_prestamos.BackColor = Drawing.Color.Silver
@@ -505,6 +522,8 @@ Public Class MENU3
         mouse2 = 0
         mouse3 = 0
         mouse4 = 0
+        mouse5 = 0
+        mouse6 = 0
         Timer_UsuariosLabel.Enabled = True
 
     End Sub
@@ -934,7 +953,7 @@ Public Class MENU3
         consultar()
         Chart_Prestamos.ChartAreas.Add("Prestamos")
         Chart_Prestamos.Series.Add("Prestamos")
-
+        '/////////////////////////////////////////////////////////////////////////////////////////////////
         For Each row As DataRow In Tabla.Rows
 
             substring = row("fecha_salida").ToString.Substring(3, 2)
@@ -950,7 +969,37 @@ Public Class MENU3
         Chart_Prestamos.ChartAreas(0).AxisX.MajorGrid.Enabled = False
         Chart_Prestamos.ChartAreas(0).AxisY.MajorGrid.Enabled = False
 
-
         '//////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+        'ChartPrestamosDia.ChartAreas.Clear()
+        'ChartPrestamosDia.Series.Clear()
+
+        'Consulta = "select count(prestamolibro.cod_libro) , prestamolibro.fecha_salida from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro group by fecha_salida"
+        'consultar()
+
+        'ChartPrestamosDia.ChartAreas.Add("PrestamosDia")
+        'ChartPrestamosDia.Series.Add("Prestamos")
+
+        'For Each row As DataRow In Tabla.Rows
+        '    substring = ComboBox1.SelectedItem
+        '    mestonum()
+        '    If substring.Length = 1 Then
+        '        substring = "0" & substring
+        '    End If
+
+        '    If substring = row("fecha_salida").ToString.Substring(3, 2) Then
+        '        substring = row("fecha_salida".ToString.Substring(3, 2))
+        '        mes()
+        '        ChartPrestamosDia.Series("PrestamosDia").Points.AddXY(substring, row("count(prestamolibro.cod_libro)"))
+        '    End If
+        'Next
+
+
+    End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBox1.SelectedIndexChanged
+        Chart()
     End Sub
 End Class
