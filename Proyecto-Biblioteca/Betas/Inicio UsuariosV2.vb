@@ -172,7 +172,7 @@
                         ComboBox2.Items.Add("Noviembre")
                         ComboBox2.Items.Add("Diciembre")
 
-                        For i As Integer = 1899 To 2018
+                        For i As Integer = 1899 To Date.Now.ToString("yyyy")
                             If i = 1899 Then
                                 ComboBox3.Items.Add("Año")
                             Else
@@ -224,7 +224,7 @@
                         ComboBox5.Items.Add("Diciembre")
                         '//////////////////////////////////////////////////////////////////////////////////////////
                         '///////////////////////////////AÑO////////////////////////////////////////////////////////
-                        For i As Integer = 1899 To 2018
+                        For i As Integer = 1899 To Date.Now.ToString("yyyy")
                             If i = 1899 Then
                                 ComboBox6.Items.Add("Año")
                             Else

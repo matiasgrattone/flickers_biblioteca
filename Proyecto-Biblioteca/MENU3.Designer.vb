@@ -74,15 +74,15 @@ Partial Class MENU3
         Me.Timer_NvegadorLabel = New System.Windows.Forms.Timer(Me.components)
         Me.Timer_RevistasLabel = New System.Windows.Forms.Timer(Me.components)
         Me.Panel_Graficos = New System.Windows.Forms.Panel()
-        Me.ChartPrestamosDia = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Chart_Prestamos = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.Timer_InicioLabel = New System.Windows.Forms.Timer(Me.components)
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.ChartPrestamosDia = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Chart_Prestamos = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.Timer_InicioLabel = New System.Windows.Forms.Timer(Me.components)
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         Me.Labels_transparentes1 = New Proyecto_Biblioteca.labels_transparentes()
         Me.Phoraencabezado.SuspendLayout()
@@ -106,10 +106,10 @@ Partial Class MENU3
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Pnavegador.SuspendLayout()
         Me.Panel_Graficos.SuspendLayout()
-        CType(Me.ChartPrestamosDia, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Chart_Prestamos, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        CType(Me.ChartPrestamosDia, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
+        CType(Me.Chart_Prestamos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Phoraencabezado
@@ -524,6 +524,15 @@ Partial Class MENU3
         Me.Panel_Graficos.Size = New System.Drawing.Size(1006, 646)
         Me.Panel_Graficos.TabIndex = 7
         '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.SystemColors.ControlDark
+        Me.Panel2.Controls.Add(Me.ChartPrestamosDia)
+        Me.Panel2.Location = New System.Drawing.Point(25, 74)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(609, 235)
+        Me.Panel2.TabIndex = 7
+        '
         'ChartPrestamosDia
         '
         ChartArea1.Name = "ChartArea1"
@@ -537,18 +546,28 @@ Partial Class MENU3
         Series1.Legend = "Legend1"
         Series1.Name = "Series1"
         Me.ChartPrestamosDia.Series.Add(Series1)
-        Me.ChartPrestamosDia.Size = New System.Drawing.Size(300, 168)
+        Me.ChartPrestamosDia.Size = New System.Drawing.Size(603, 230)
         Me.ChartPrestamosDia.TabIndex = 2
         Me.ChartPrestamosDia.Text = "Chart1"
         '
-        'ComboBox1
+        'ComboBox2
         '
-        Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(25, 34)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(216, 28)
-        Me.ComboBox1.TabIndex = 1
+        Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(24, 315)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(101, 28)
+        Me.ComboBox2.TabIndex = 6
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.SystemColors.ControlDark
+        Me.Panel1.Controls.Add(Me.Chart_Prestamos)
+        Me.Panel1.Location = New System.Drawing.Point(24, 357)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(607, 280)
+        Me.Panel1.TabIndex = 5
         '
         'Chart_Prestamos
         '
@@ -567,18 +586,6 @@ Partial Class MENU3
         Me.Chart_Prestamos.TabIndex = 0
         Me.Chart_Prestamos.Text = "Chart1"
         '
-        'Timer_InicioLabel
-        '
-        Me.Timer_InicioLabel.Interval = 10
-        '
-        'ListBox1
-        '
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(864, 16)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(141, 628)
-        Me.ListBox1.TabIndex = 3
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -589,32 +596,27 @@ Partial Class MENU3
         Me.Label1.TabIndex = 4
         Me.Label1.Text = "Ultimos Libros Prestados"
         '
-        'Panel1
+        'ListBox1
         '
-        Me.Panel1.BackColor = System.Drawing.SystemColors.ControlDark
-        Me.Panel1.Controls.Add(Me.Chart_Prestamos)
-        Me.Panel1.Location = New System.Drawing.Point(24, 357)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(607, 280)
-        Me.Panel1.TabIndex = 5
+        Me.ListBox1.FormattingEnabled = True
+        Me.ListBox1.Location = New System.Drawing.Point(864, 16)
+        Me.ListBox1.Name = "ListBox1"
+        Me.ListBox1.Size = New System.Drawing.Size(141, 628)
+        Me.ListBox1.TabIndex = 3
         '
-        'ComboBox2
+        'ComboBox1
         '
-        Me.ComboBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(24, 315)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(101, 28)
-        Me.ComboBox2.TabIndex = 6
+        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(25, 34)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(216, 28)
+        Me.ComboBox1.TabIndex = 1
         '
-        'Panel2
+        'Timer_InicioLabel
         '
-        Me.Panel2.BackColor = System.Drawing.SystemColors.ControlDark
-        Me.Panel2.Controls.Add(Me.ChartPrestamosDia)
-        Me.Panel2.Location = New System.Drawing.Point(25, 74)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(306, 173)
-        Me.Panel2.TabIndex = 7
+        Me.Timer_InicioLabel.Interval = 10
         '
         'Labels_transparentes1
         '
@@ -673,10 +675,10 @@ Partial Class MENU3
         Me.Pnavegador.PerformLayout()
         Me.Panel_Graficos.ResumeLayout(False)
         Me.Panel_Graficos.PerformLayout()
-        CType(Me.ChartPrestamosDia, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Chart_Prestamos, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel1.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
+        CType(Me.ChartPrestamosDia, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        CType(Me.Chart_Prestamos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
