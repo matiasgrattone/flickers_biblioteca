@@ -529,7 +529,7 @@ Partial Class Prestamos
         '
         Me.Panel4.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.Panel4.Controls.Add(Me.Label5)
-        Me.Panel4.Location = New System.Drawing.Point(880, 14)
+        Me.Panel4.Location = New System.Drawing.Point(878, 14)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(135, 87)
         Me.Panel4.TabIndex = 76

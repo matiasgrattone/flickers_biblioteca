@@ -13,10 +13,12 @@ Public Class MENU3
     Dim mouse3 As Integer
     Dim mouse4 As Integer
     Dim mouse5 As Integer
+    Dim mouse6 As Integer
     Public F3 As New Seleccion_Libro
 
 
     Private Sub MENU3_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
         xf = Me.Location.X
         yf = Me.Location.Y
         Wbnavegador.Visible = False
@@ -38,27 +40,9 @@ Public Class MENU3
             Pbnube.Image = Image.FromFile("imagenes\cloud.png")
         End If
         '////////////////////////////////////////////////////////////////////////////////////////////////
-
-        '/////////////////////////////// CHART DE PRESTAMOS Y USUARIOS //////////////////////////////////
-        Consulta = "select count(prestamolibro.cod_libro) , prestamolibro.fecha_salida from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro group by fecha_salida"
-        consultar()
-
-        Chart_Prestamos.Series.Add("Prestamos")
-        Chart_Prestamos.Series.RemoveAt(0)
-        For Each row As DataRow In Tabla.Rows
-            If row("fecha_salida").ToString.Substring(6, 4) = "2018" Then
-                Chart_Prestamos.Series("Prestamos").Points.AddXY(2018, row("count(prestamolibro.cod_libro)"))
-            Else
-
-            End If
-
-
-        Next
-        '////////////////////////////////////////////////////////////////////////////////////////////////
-
+        Chart()
 
     End Sub
-
     Private Sub Panel1_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Phoraencabezado.MouseDown
         a = 1
     End Sub
@@ -142,22 +126,26 @@ Public Class MENU3
 
     Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbusuarios.Click
         seleccionado = "usuarios"
+        panel_menu.BringToFront()
         mouse = 1
         mouse2 = 0
         mouse3 = 0
         mouse4 = 0
         mouse5 = 0
+        mouse6 = 0
+
         Timer_LibrosLabel.Enabled = True
         Timer_NvegadorLabel.Enabled = True
         Timer_PrestamosLabel.Enabled = True
         Timer_UsuariosLabel.Enabled = True
         Timer_RevistasLabel.Enabled = True
+        Timer_InicioLabel.Enabled = True
         panel_usuarios.BackColor = Drawing.Color.LightGray
         panel_libros.BackColor = Drawing.Color.Silver
         panel_prestamos.BackColor = Drawing.Color.Silver
         panel_navegador.BackColor = Drawing.Color.Silver
         Panel_Revistas.BackColor = Drawing.Color.Silver
-
+        Panel_Inicio.BackColor = Drawing.Color.Silver
         Panel_Graficos.Visible = False
 
         Dim F1 As New Inicio_UsuariosV2
@@ -182,16 +170,19 @@ Public Class MENU3
 
     Public Sub PictureBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pblibros.Click
         seleccionado = "libros"
+        panel_menu.BringToFront()
         mouse = 0
         mouse2 = 1
         mouse3 = 0
         mouse4 = 0
         mouse5 = 0
+        mouse6 = 0
         Timer_LibrosLabel.Enabled = True
         Timer_NvegadorLabel.Enabled = True
         Timer_PrestamosLabel.Enabled = True
         Timer_UsuariosLabel.Enabled = True
         Timer_RevistasLabel.Enabled = True
+        Timer_InicioLabel.Enabled = True
 
         panel_menu.Controls.Clear()
         F3.TopLevel = False
@@ -214,22 +205,25 @@ Public Class MENU3
         panel_prestamos.BackColor = Drawing.Color.Silver
         panel_navegador.BackColor = Drawing.Color.Silver
         Panel_Revistas.BackColor = Drawing.Color.Silver
-
+        Panel_Inicio.BackColor = Drawing.Color.Silver
         Panel_Graficos.Visible = False
     End Sub
 
     Private Sub PictureBox3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbprestamos.Click
         seleccionado = "prestamos"
+        panel_menu.BringToFront()
         mouse = 0
         mouse2 = 0
         mouse3 = 1
         mouse4 = 0
         mouse5 = 0
+        mouse6 = 0
         Timer_LibrosLabel.Enabled = True
         Timer_NvegadorLabel.Enabled = True
         Timer_PrestamosLabel.Enabled = True
         Timer_UsuariosLabel.Enabled = True
         Timer_RevistasLabel.Enabled = True
+        Timer_InicioLabel.Enabled = True
         Dim F4 As New Prestamos
         panel_menu.Controls.Clear()
         F4.TopLevel = False
@@ -251,7 +245,7 @@ Public Class MENU3
         panel_prestamos.BackColor = Drawing.Color.LightGray
         panel_navegador.BackColor = Drawing.Color.Silver
         Panel_Revistas.BackColor = Drawing.Color.Silver
-
+        Panel_Inicio.BackColor = Drawing.Color.Silver
         Panel_Graficos.Visible = False
 
     End Sub
@@ -261,21 +255,25 @@ Public Class MENU3
 
     Private Sub PictureBox5_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbnavegador.Click
         seleccionado = "navegador"
+        panel_menu.BringToFront()
         mouse = 0
         mouse2 = 0
         mouse3 = 0
         mouse4 = 1
         mouse5 = 0
+        mouse6 = 0
         Timer_LibrosLabel.Enabled = True
         Timer_NvegadorLabel.Enabled = True
         Timer_PrestamosLabel.Enabled = True
         Timer_UsuariosLabel.Enabled = True
         Timer_RevistasLabel.Enabled = True
+        Timer_InicioLabel.Enabled = True
         panel_usuarios.BackColor = Drawing.Color.Silver
         panel_libros.BackColor = Drawing.Color.Silver
         panel_prestamos.BackColor = Drawing.Color.Silver
         panel_navegador.BackColor = Drawing.Color.LightGray
         Panel_Revistas.BackColor = Drawing.Color.Silver
+        Panel_Inicio.BackColor = Drawing.Color.Silver
         Try
             Pnavegador.Visible = True
             panel_menu.Visible = False
@@ -529,6 +527,8 @@ Public Class MENU3
         mouse2 = 1
         mouse3 = 0
         mouse4 = 0
+        mouse5 = 0
+        mouse6 = 0
         Timer_LibrosLabel.Enabled = True
     End Sub
 
@@ -550,6 +550,8 @@ Public Class MENU3
         mouse2 = 0
         mouse3 = 1
         mouse4 = 0
+        mouse5 = 0
+        mouse6 = 0
         Timer_PrestamosLabel.Enabled = True
     End Sub
 
@@ -571,6 +573,8 @@ Public Class MENU3
         mouse2 = 0
         mouse3 = 0
         mouse4 = 1
+        mouse5 = 0
+        mouse6 = 0
         Timer_NvegadorLabel.Enabled = True
     End Sub
 
@@ -689,16 +693,19 @@ Public Class MENU3
 
     Private Sub PictureBox1_Click_2(sender As System.Object, e As System.EventArgs) Handles Pbrevistas.Click
         seleccionado = "Revistas"
+        panel_menu.BringToFront()
         mouse = 0
         mouse2 = 0
         mouse3 = 0
         mouse4 = 0
         mouse5 = 1
+        mouse6 = 0
         Timer_LibrosLabel.Enabled = True
         Timer_NvegadorLabel.Enabled = True
         Timer_PrestamosLabel.Enabled = True
         Timer_UsuariosLabel.Enabled = True
         Timer_RevistasLabel.Enabled = True
+        Timer_InicioLabel.Enabled = True
         Dim F5 As New Seleccion_Revistas
         panel_menu.Controls.Clear()
         F5.TopLevel = False
@@ -720,13 +727,13 @@ Public Class MENU3
         panel_prestamos.BackColor = Drawing.Color.Silver
         panel_navegador.BackColor = Drawing.Color.Silver
         Panel_Revistas.BackColor = Drawing.Color.LightGray
-
+        Panel_Inicio.BackColor = Drawing.Color.Silver
         Panel_Graficos.Visible = False
 
     End Sub
 
     Private Sub PictureBox1_MouseEnter1(sender As Object, e As System.EventArgs) Handles Pbrevistas.MouseEnter
-        If seleccionado = "Rev" Then
+        If seleccionado = "Revistas" Then
         Else
             Panel_Revistas.BackColor = Drawing.Color.LightGray
         End If
@@ -735,6 +742,7 @@ Public Class MENU3
         mouse3 = 0
         mouse4 = 0
         mouse5 = 1
+        mouse6 = 0
         Timer_RevistasLabel.Enabled = True
     End Sub
 
@@ -843,5 +851,106 @@ Public Class MENU3
 
         Panel_Graficos.Visible = False
 
+    End Sub
+
+    Private Sub TimerInicio_Tick(sender As System.Object, e As System.EventArgs) Handles Timer_InicioLabel.Tick
+        Select Case mouse6
+            Case 1
+                If LabelInicio.Left < 70 Then
+                    LabelInicio.Left += 10
+                Else
+
+                End If
+            Case 0
+                If LabelInicio.Left > 12 And seleccionado <> "Inicio" Then
+                    LabelInicio.Left -= 10
+                Else
+                    Timer_InicioLabel.Enabled = False
+                End If
+        End Select
+    End Sub
+
+    Private Sub PbInicio_Click(sender As System.Object, e As System.EventArgs) Handles PbInicio.Click
+        seleccionado = "Inicio"
+        Panel_Graficos.Visible = True
+        panel_menu.Visible = False
+        chart
+
+        mouse = 0
+        mouse2 = 0
+        mouse3 = 0
+        mouse4 = 0
+        mouse5 = 0
+        mouse6 = 1
+
+
+        Timer_LibrosLabel.Enabled = True
+        Timer_NvegadorLabel.Enabled = True
+        Timer_PrestamosLabel.Enabled = True
+        Timer_UsuariosLabel.Enabled = True
+        Timer_RevistasLabel.Enabled = True
+        Timer_InicioLabel.Enabled = True
+
+
+        panel_usuarios.BackColor = Drawing.Color.Silver
+        panel_libros.BackColor = Drawing.Color.Silver
+        panel_prestamos.BackColor = Drawing.Color.Silver
+        panel_navegador.BackColor = Drawing.Color.Silver
+        Panel_Revistas.BackColor = Drawing.Color.Silver
+        Panel_Inicio.BackColor = Drawing.Color.LightGray
+
+
+
+
+    End Sub
+
+    Private Sub PbInicio_MouseEnter(sender As System.Object, e As System.EventArgs) Handles PbInicio.MouseEnter
+        If seleccionado = "Inicio" Then
+        Else
+            Panel_Inicio.BackColor = Drawing.Color.LightGray
+        End If
+        mouse = 0
+        mouse2 = 0
+        mouse3 = 0
+        mouse4 = 0
+        mouse5 = 0
+        mouse6 = 1
+        Timer_InicioLabel.Enabled = True
+    End Sub
+
+    Private Sub PbInicio_MouseLeave(sender As System.Object, e As System.EventArgs) Handles PbInicio.MouseLeave
+        If seleccionado = "Inicio" Then
+        Else
+            Panel_Inicio.BackColor = Drawing.Color.Silver
+        End If
+        mouse = 0
+        Timer_InicioLabel.Enabled = True
+    End Sub
+    Private Sub Chart()
+        Chart_Prestamos.Series.Clear()
+        Chart_Prestamos.ChartAreas.Clear()
+        '/////////////////////////////// CHART DE PRESTAMOS Y USUARIOS //////////////////////////////////
+        Consulta = "select count(prestamolibro.cod_libro) , prestamolibro.fecha_salida from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro group by fecha_salida"
+        consultar()
+        Chart_Prestamos.ChartAreas.Add("Prestamos")
+        Chart_Prestamos.Series.Add("Prestamos")
+
+        For Each row As DataRow In Tabla.Rows
+
+            substring = row("fecha_salida").ToString.Substring(3, 2)
+            mes()
+            Chart_Prestamos.Series("Prestamos").Points.AddXY(substring, row("count(prestamolibro.cod_libro)"))
+
+
+        Next
+        '////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+        Chart_Prestamos.Series("Prestamos").Label = "Libros : " + "#VALY"
+        Chart_Prestamos.ChartAreas(0).AxisX.MajorGrid.Enabled = False
+        Chart_Prestamos.ChartAreas(0).AxisY.MajorGrid.Enabled = False
+
+
+        '//////////////////////////////////////////////////////////////////////////////////////////////////
     End Sub
 End Class

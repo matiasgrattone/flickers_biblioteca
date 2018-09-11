@@ -26,9 +26,6 @@ Partial Class MENU3
         Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MENU3))
         Me.Phoraencabezado = New System.Windows.Forms.Panel()
         Me.lblfecha = New System.Windows.Forms.Label()
@@ -37,6 +34,9 @@ Partial Class MENU3
         Me.Pbusuario = New System.Windows.Forms.PictureBox()
         Me.Nombre = New System.Windows.Forms.Label()
         Me.Pmenu = New System.Windows.Forms.Panel()
+        Me.Panel_Inicio = New System.Windows.Forms.Panel()
+        Me.PbInicio = New System.Windows.Forms.PictureBox()
+        Me.LabelInicio = New System.Windows.Forms.Label()
         Me.Panel_Revistas = New System.Windows.Forms.Panel()
         Me.Pbrevistas = New System.Windows.Forms.PictureBox()
         Me.LabelRevistas = New System.Windows.Forms.Label()
@@ -71,13 +71,15 @@ Partial Class MENU3
         Me.Timer_NvegadorLabel = New System.Windows.Forms.Timer(Me.components)
         Me.Timer_RevistasLabel = New System.Windows.Forms.Timer(Me.components)
         Me.Panel_Graficos = New System.Windows.Forms.Panel()
-        Me.ChartUsuarios = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Chart_Prestamos = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.Timer_InicioLabel = New System.Windows.Forms.Timer(Me.components)
         Me.Labels_transparentes1 = New Proyecto_Biblioteca.labels_transparentes()
         Me.Phoraencabezado.SuspendLayout()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Pbusuario, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Pmenu.SuspendLayout()
+        Me.Panel_Inicio.SuspendLayout()
+        CType(Me.PbInicio, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel_Revistas.SuspendLayout()
         CType(Me.Pbrevistas, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Pbconfig, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -93,7 +95,6 @@ Partial Class MENU3
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Pnavegador.SuspendLayout()
         Me.Panel_Graficos.SuspendLayout()
-        CType(Me.ChartUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Chart_Prestamos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -166,6 +167,7 @@ Partial Class MENU3
         'Pmenu
         '
         Me.Pmenu.BackColor = System.Drawing.Color.Silver
+        Me.Pmenu.Controls.Add(Me.Panel_Inicio)
         Me.Pmenu.Controls.Add(Me.Panel_Revistas)
         Me.Pmenu.Controls.Add(Me.Pbconfig)
         Me.Pmenu.Controls.Add(Me.Labels_transparentes1)
@@ -180,11 +182,41 @@ Partial Class MENU3
         Me.Pmenu.Size = New System.Drawing.Size(135, 665)
         Me.Pmenu.TabIndex = 1
         '
+        'Panel_Inicio
+        '
+        Me.Panel_Inicio.Controls.Add(Me.PbInicio)
+        Me.Panel_Inicio.Controls.Add(Me.LabelInicio)
+        Me.Panel_Inicio.Location = New System.Drawing.Point(0, 25)
+        Me.Panel_Inicio.Name = "Panel_Inicio"
+        Me.Panel_Inicio.Size = New System.Drawing.Size(135, 83)
+        Me.Panel_Inicio.TabIndex = 16
+        '
+        'PbInicio
+        '
+        Me.PbInicio.BackColor = System.Drawing.Color.Transparent
+        Me.PbInicio.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PbInicio.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.home1
+        Me.PbInicio.Location = New System.Drawing.Point(3, 6)
+        Me.PbInicio.Name = "PbInicio"
+        Me.PbInicio.Size = New System.Drawing.Size(64, 63)
+        Me.PbInicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PbInicio.TabIndex = 0
+        Me.PbInicio.TabStop = False
+        '
+        'LabelInicio
+        '
+        Me.LabelInicio.AutoSize = True
+        Me.LabelInicio.Location = New System.Drawing.Point(19, 39)
+        Me.LabelInicio.Name = "LabelInicio"
+        Me.LabelInicio.Size = New System.Drawing.Size(32, 13)
+        Me.LabelInicio.TabIndex = 1
+        Me.LabelInicio.Text = "Inicio"
+        '
         'Panel_Revistas
         '
         Me.Panel_Revistas.Controls.Add(Me.Pbrevistas)
         Me.Panel_Revistas.Controls.Add(Me.LabelRevistas)
-        Me.Panel_Revistas.Location = New System.Drawing.Point(0, 388)
+        Me.Panel_Revistas.Location = New System.Drawing.Point(0, 486)
         Me.Panel_Revistas.Name = "Panel_Revistas"
         Me.Panel_Revistas.Size = New System.Drawing.Size(135, 94)
         Me.Panel_Revistas.TabIndex = 11
@@ -233,7 +265,7 @@ Partial Class MENU3
         '
         Me.panel_navegador.Controls.Add(Me.Pbnavegador)
         Me.panel_navegador.Controls.Add(Me.label_navegador)
-        Me.panel_navegador.Location = New System.Drawing.Point(0, 288)
+        Me.panel_navegador.Location = New System.Drawing.Point(0, 386)
         Me.panel_navegador.Name = "panel_navegador"
         Me.panel_navegador.Size = New System.Drawing.Size(135, 94)
         Me.panel_navegador.TabIndex = 10
@@ -263,7 +295,7 @@ Partial Class MENU3
         '
         Me.panel_libros.Controls.Add(Me.Pblibros)
         Me.panel_libros.Controls.Add(Me.label_libros)
-        Me.panel_libros.Location = New System.Drawing.Point(3, 110)
+        Me.panel_libros.Location = New System.Drawing.Point(3, 208)
         Me.panel_libros.Name = "panel_libros"
         Me.panel_libros.Size = New System.Drawing.Size(132, 83)
         Me.panel_libros.TabIndex = 9
@@ -295,7 +327,7 @@ Partial Class MENU3
         Me.panel_prestamos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.panel_prestamos.Controls.Add(Me.Pbprestamos)
         Me.panel_prestamos.Controls.Add(Me.label_prestamos)
-        Me.panel_prestamos.Location = New System.Drawing.Point(0, 199)
+        Me.panel_prestamos.Location = New System.Drawing.Point(0, 297)
         Me.panel_prestamos.Name = "panel_prestamos"
         Me.panel_prestamos.Size = New System.Drawing.Size(135, 83)
         Me.panel_prestamos.TabIndex = 9
@@ -325,7 +357,7 @@ Partial Class MENU3
         '
         Me.panel_usuarios.Controls.Add(Me.Pbusuarios)
         Me.panel_usuarios.Controls.Add(Me.label_usuarios)
-        Me.panel_usuarios.Location = New System.Drawing.Point(0, 21)
+        Me.panel_usuarios.Location = New System.Drawing.Point(0, 119)
         Me.panel_usuarios.Name = "panel_usuarios"
         Me.panel_usuarios.Size = New System.Drawing.Size(135, 83)
         Me.panel_usuarios.TabIndex = 8
@@ -367,7 +399,7 @@ Partial Class MENU3
         Me.Pnavegador.Controls.Add(Me.btnatras)
         Me.Pnavegador.Controls.Add(Me.btnadelante)
         Me.Pnavegador.Controls.Add(Me.Wbnavegador)
-        Me.Pnavegador.Location = New System.Drawing.Point(129, 45)
+        Me.Pnavegador.Location = New System.Drawing.Point(128, 43)
         Me.Pnavegador.Name = "Pnavegador"
         Me.Pnavegador.Size = New System.Drawing.Size(1003, 646)
         Me.Pnavegador.TabIndex = 12
@@ -440,7 +472,7 @@ Partial Class MENU3
         '
         'panel_menu
         '
-        Me.panel_menu.Location = New System.Drawing.Point(128, 45)
+        Me.panel_menu.Location = New System.Drawing.Point(128, 44)
         Me.panel_menu.Name = "panel_menu"
         Me.panel_menu.Size = New System.Drawing.Size(1006, 646)
         Me.panel_menu.TabIndex = 2
@@ -467,44 +499,32 @@ Partial Class MENU3
         '
         'Panel_Graficos
         '
-        Me.Panel_Graficos.Controls.Add(Me.ChartUsuarios)
         Me.Panel_Graficos.Controls.Add(Me.Chart_Prestamos)
-        Me.Panel_Graficos.Location = New System.Drawing.Point(128, 45)
+        Me.Panel_Graficos.Location = New System.Drawing.Point(128, 43)
         Me.Panel_Graficos.Name = "Panel_Graficos"
         Me.Panel_Graficos.Size = New System.Drawing.Size(1006, 646)
         Me.Panel_Graficos.TabIndex = 7
         '
-        'ChartUsuarios
+        'Chart_Prestamos
         '
         ChartArea1.Name = "ChartArea1"
-        Me.ChartUsuarios.ChartAreas.Add(ChartArea1)
+        Me.Chart_Prestamos.ChartAreas.Add(ChartArea1)
         Legend1.Name = "Legend1"
-        Me.ChartUsuarios.Legends.Add(Legend1)
-        Me.ChartUsuarios.Location = New System.Drawing.Point(22, 321)
-        Me.ChartUsuarios.Name = "ChartUsuarios"
+        Me.Chart_Prestamos.Legends.Add(Legend1)
+        Me.Chart_Prestamos.Location = New System.Drawing.Point(11, 16)
+        Me.Chart_Prestamos.Name = "Chart_Prestamos"
+        Me.Chart_Prestamos.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent
         Series1.ChartArea = "ChartArea1"
         Series1.Legend = "Legend1"
         Series1.Name = "Series1"
-        Me.ChartUsuarios.Series.Add(Series1)
-        Me.ChartUsuarios.Size = New System.Drawing.Size(547, 273)
-        Me.ChartUsuarios.TabIndex = 1
-        Me.ChartUsuarios.Text = "Chart1"
-        '
-        'Chart_Prestamos
-        '
-        ChartArea2.Name = "ChartArea1"
-        Me.Chart_Prestamos.ChartAreas.Add(ChartArea2)
-        Legend2.Name = "Legend1"
-        Me.Chart_Prestamos.Legends.Add(Legend2)
-        Me.Chart_Prestamos.Location = New System.Drawing.Point(22, 16)
-        Me.Chart_Prestamos.Name = "Chart_Prestamos"
-        Series2.ChartArea = "ChartArea1"
-        Series2.Legend = "Legend1"
-        Series2.Name = "Series1"
-        Me.Chart_Prestamos.Series.Add(Series2)
-        Me.Chart_Prestamos.Size = New System.Drawing.Size(547, 273)
+        Me.Chart_Prestamos.Series.Add(Series1)
+        Me.Chart_Prestamos.Size = New System.Drawing.Size(599, 273)
         Me.Chart_Prestamos.TabIndex = 0
         Me.Chart_Prestamos.Text = "Chart1"
+        '
+        'Timer_InicioLabel
+        '
+        Me.Timer_InicioLabel.Interval = 10
         '
         'Labels_transparentes1
         '
@@ -534,6 +554,9 @@ Partial Class MENU3
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Pbusuario, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Pmenu.ResumeLayout(False)
+        Me.Panel_Inicio.ResumeLayout(False)
+        Me.Panel_Inicio.PerformLayout()
+        CType(Me.PbInicio, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel_Revistas.ResumeLayout(False)
         Me.Panel_Revistas.PerformLayout()
         CType(Me.Pbrevistas, System.ComponentModel.ISupportInitialize).EndInit()
@@ -555,7 +578,6 @@ Partial Class MENU3
         Me.Pnavegador.ResumeLayout(False)
         Me.Pnavegador.PerformLayout()
         Me.Panel_Graficos.ResumeLayout(False)
-        CType(Me.ChartUsuarios, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Chart_Prestamos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -603,5 +625,8 @@ Partial Class MENU3
     Friend WithEvents Timer_RevistasLabel As System.Windows.Forms.Timer
     Friend WithEvents Panel_Graficos As System.Windows.Forms.Panel
     Friend WithEvents Chart_Prestamos As System.Windows.Forms.DataVisualization.Charting.Chart
-    Friend WithEvents ChartUsuarios As System.Windows.Forms.DataVisualization.Charting.Chart
+    Friend WithEvents Panel_Inicio As System.Windows.Forms.Panel
+    Friend WithEvents PbInicio As System.Windows.Forms.PictureBox
+    Friend WithEvents LabelInicio As System.Windows.Forms.Label
+    Friend WithEvents Timer_InicioLabel As System.Windows.Forms.Timer
 End Class
