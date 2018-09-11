@@ -15,7 +15,7 @@ Public Class MENU3
     Dim mouse5 As Integer
     Dim mouse6 As Integer
     Public F3 As New Seleccion_Libro
-
+    Dim MesT As String
 
     Private Sub MENU3_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
@@ -56,6 +56,17 @@ Public Class MENU3
         ComboBox1.Items.Add("Octubre")
         ComboBox1.Items.Add("Noviembre")
         ComboBox1.Items.Add("Diciembre")
+        ComboBox1.SelectedIndex = 0
+
+
+        For i As Integer = 1899 To 2018
+            If i = 1899 Then
+                ComboBox2.Items.Add("Año")
+            Else
+                ComboBox2.Items.Add(i)
+            End If
+        Next
+        ComboBox2.SelectedIndex = 0
 
 
     End Sub
@@ -893,7 +904,7 @@ Public Class MENU3
         seleccionado = "Inicio"
         Panel_Graficos.Visible = True
         panel_menu.Visible = False
-        chart
+        Chart()
 
         mouse = 0
         mouse2 = 0
@@ -948,6 +959,7 @@ Public Class MENU3
     Private Sub Chart()
         Chart_Prestamos.Series.Clear()
         Chart_Prestamos.ChartAreas.Clear()
+
         '/////////////////////////////// CHART DE PRESTAMOS Y USUARIOS //////////////////////////////////
         Consulta = "select count(prestamolibro.cod_libro) , prestamolibro.fecha_salida from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro group by fecha_salida"
         consultar()
@@ -971,30 +983,11 @@ Public Class MENU3
 
         '//////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
-        'ChartPrestamosDia.ChartAreas.Clear()
-        'ChartPrestamosDia.Series.Clear()
-
-        'Consulta = "select count(prestamolibro.cod_libro) , prestamolibro.fecha_salida from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro group by fecha_salida"
-        'consultar()
-
-        'ChartPrestamosDia.ChartAreas.Add("PrestamosDia")
-        'ChartPrestamosDia.Series.Add("Prestamos")
-
-        'For Each row As DataRow In Tabla.Rows
-        '    substring = ComboBox1.SelectedItem
-        '    mestonum()
-        '    If substring.Length = 1 Then
-        '        substring = "0" & substring
-        '    End If
-
-        '    If substring = row("fecha_salida").ToString.Substring(3, 2) Then
-        '        substring = row("fecha_salida".ToString.Substring(3, 2))
-        '        mes()
-        '        ChartPrestamosDia.Series("PrestamosDia").Points.AddXY(substring, row("count(prestamolibro.cod_libro)"))
-        '    End If
-        'Next
+        Consulta = "select titulo , fecha_salida from prestamolibro inner join libro on libro.cod_libro = prestamolibro.cod_libro where fecha_entrada is NULL "
+        consultar()
+        For Each row As DataRow In Tabla.Rows
+            ListBox1.Items.Add(row("titulo"))
+        Next
 
 
     End Sub
