@@ -737,107 +737,111 @@
         End Select
     End Sub
     Private Sub VerificarModificacion()
+        Try
+            If mouse = 0 Then
 
-        If mouse = 0 Then
+                Dim nombre1 As String = ""
+                Dim apellido1 As String = ""
+                Dim cedula1 As String = ""
+                Dim telefono1 As String = ""
+                Dim direccion1 As String = ""
+                Dim dia2 As String = ""
+                Dim mes2 As String = ""
+                Dim año2 As String = ""
+                Dim dianum As String
+                Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento , tipo from usuarios where cedula = '" & DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value & "'"
+                consultar()
 
-            Dim nombre1 As String = ""
-            Dim apellido1 As String = ""
-            Dim cedula1 As String = ""
-            Dim telefono1 As String = ""
-            Dim direccion1 As String = ""
-            Dim dia2 As String = ""
-            Dim mes2 As String = ""
-            Dim año2 As String = ""
-            Dim dianum As String
-            Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento , tipo from usuarios where cedula = '" & DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value & "'"
-            consultar()
+                For Each row As DataRow In Tabla.Rows
 
-            For Each row As DataRow In Tabla.Rows
+                    ' //////////////////FECHA NACIMIENTO////////////////////
 
-                ' //////////////////FECHA NACIMIENTO////////////////////
-
-                '/////////////////DIA//////////////////////////
-
-
-                If ComboBox4.SelectedItem.ToString.Length = 1 Then
-
-                    dianum = "0" & ComboBox4.SelectedItem
+                    '/////////////////DIA//////////////////////////
 
 
-                    If dianum = row("nacimiento").ToString.Substring(0, 2) Then
-                        dia2 = "0"
+                    If ComboBox4.SelectedItem.ToString.Length = 1 Then
+
+                        dianum = "0" & ComboBox4.SelectedItem
+
+
+                        If dianum = row("nacimiento").ToString.Substring(0, 2) Then
+                            dia2 = "0"
+                        Else
+                            dia2 = "1"
+                        End If
+
                     Else
-                        dia2 = "1"
+                        dianum = ComboBox4.SelectedItem
+
+                        If dianum = row("nacimiento").ToString.Substring(0, 2) Then
+                            dia2 = "0"
+                        Else
+                            dia2 = "1"
+                        End If
                     End If
+                    '///////////////////////////////////////////////
 
-                Else
-                    dianum = ComboBox4.SelectedItem
+                    '/////////////////MES//////////////////////////
+                    substring = ComboBox5.SelectedItem
+                    mestonum()
 
-                    If dianum = row("nacimiento").ToString.Substring(0, 2) Then
-                        dia2 = "0"
+                    If substring = row("nacimiento").ToString.Substring(3, 2) Then
+                        mes2 = "0"
                     Else
-                        dia2 = "1"
+                        mes2 = "1"
                     End If
-                End If
-                '///////////////////////////////////////////////
+                    '/////////////////////////////////////////////
 
-                '/////////////////MES//////////////////////////
-                substring = ComboBox5.SelectedItem
-                mestonum()
+                    '//////////////////AÑO////////////////////////
+                    If ComboBox6.SelectedItem = row("nacimiento").ToString.Substring(6, 4) Then
+                        año2 = "0"
+                    Else
+                        año2 = "1"
+                    End If
+                    '/////////////////////////////////////////////
 
-                If substring = row("nacimiento").ToString.Substring(3, 2) Then
-                    mes2 = "0"
-                Else
-                    mes2 = "1"
-                End If
-                '/////////////////////////////////////////////
+                    '/////////////////////////////////////////////////////////////////
 
-                '//////////////////AÑO////////////////////////
-                If ComboBox6.SelectedItem = row("nacimiento").ToString.Substring(6, 4) Then
-                    año2 = "0"
-                Else
-                    año2 = "1"
-                End If
-                '/////////////////////////////////////////////
-
-                '/////////////////////////////////////////////////////////////////
-
-                If nombre.Text = row("nombre").ToString Then
-                    nombre1 = "0"
-                Else
-                    nombre1 = "1"
-                End If
-                If apellido.Text = row("apellido").ToString Then
-                    apellido1 = "0"
-                Else
-                    apellido1 = "1"
-                End If
-                If cedula.Text = row("cedula").ToString Then
-                    cedula1 = "0"
-                Else
-                    cedula1 = "1"
-                End If
-                If telefono.Text = row("telefono").ToString Then
-                    telefono1 = "0"
-                Else
-                    telefono1 = "1"
-                End If
-                If direccion.Text = row("direccion").ToString Then
-                    direccion1 = "0"
-                Else
-                    direccion1 = "1"
-                End If
-            Next
+                    If nombre.Text = row("nombre").ToString Then
+                        nombre1 = "0"
+                    Else
+                        nombre1 = "1"
+                    End If
+                    If apellido.Text = row("apellido").ToString Then
+                        apellido1 = "0"
+                    Else
+                        apellido1 = "1"
+                    End If
+                    If cedula.Text = row("cedula").ToString Then
+                        cedula1 = "0"
+                    Else
+                        cedula1 = "1"
+                    End If
+                    If telefono.Text = row("telefono").ToString Then
+                        telefono1 = "0"
+                    Else
+                        telefono1 = "1"
+                    End If
+                    If direccion.Text = row("direccion").ToString Then
+                        direccion1 = "0"
+                    Else
+                        direccion1 = "1"
+                    End If
+                Next
 
 
-            If nombre1 = "0" And apellido1 = "0" And cedula1 = "0" And telefono1 = "0" And direccion1 = "0" And dia2 = "0" And mes2 = "0" And año2 = "0" Then
-                Button4.Visible = False
-            Else
-                Button4.Visible = True
+                If nombre1 = "0" And apellido1 = "0" And cedula1 = "0" And telefono1 = "0" And direccion1 = "0" And dia2 = "0" And mes2 = "0" And año2 = "0" Then
+                    Button4.Visible = False
+                Else
+                    Button4.Visible = True
+                End If
+
             End If
 
-        End If
+        Catch ex As Exception
 
+        End Try
+       
     End Sub
 
     Private Sub apellido_TextChanged(sender As System.Object, e As System.EventArgs) Handles apellido.TextChanged
