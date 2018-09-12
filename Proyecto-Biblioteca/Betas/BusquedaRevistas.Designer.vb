@@ -22,6 +22,7 @@ Partial Class BusquedaRevistas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(BusquedaRevistas))
         Me.dgvrevistas = New System.Windows.Forms.DataGridView()
         Me.Pactualizar = New System.Windows.Forms.Panel()
@@ -56,6 +57,7 @@ Partial Class BusquedaRevistas
         Me.desclabel = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.dgvcomprobar = New System.Windows.Forms.DataGridView()
+        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.txtbusqueda = New Proyecto_Biblioteca.PlaceHolder()
         CType(Me.dgvrevistas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Pactualizar.SuspendLayout()
@@ -63,6 +65,7 @@ Partial Class BusquedaRevistas
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Pmostrar.SuspendLayout()
         CType(Me.dgvcomprobar, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dgvrevistas
@@ -155,7 +158,7 @@ Partial Class BusquedaRevistas
         '
         Me.origen_txt.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.origen_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.origen_txt.Location = New System.Drawing.Point(102, 239)
+        Me.origen_txt.Location = New System.Drawing.Point(84, 239)
         Me.origen_txt.Name = "origen_txt"
         Me.origen_txt.Size = New System.Drawing.Size(160, 17)
         Me.origen_txt.TabIndex = 21
@@ -164,7 +167,7 @@ Partial Class BusquedaRevistas
         '
         Me.anio_txt.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.anio_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.anio_txt.Location = New System.Drawing.Point(102, 196)
+        Me.anio_txt.Location = New System.Drawing.Point(84, 196)
         Me.anio_txt.Name = "anio_txt"
         Me.anio_txt.Size = New System.Drawing.Size(160, 17)
         Me.anio_txt.TabIndex = 21
@@ -173,7 +176,7 @@ Partial Class BusquedaRevistas
         '
         Me.titulo_txt.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.titulo_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.titulo_txt.Location = New System.Drawing.Point(102, 156)
+        Me.titulo_txt.Location = New System.Drawing.Point(84, 156)
         Me.titulo_txt.Name = "titulo_txt"
         Me.titulo_txt.Size = New System.Drawing.Size(160, 17)
         Me.titulo_txt.TabIndex = 21
@@ -192,7 +195,7 @@ Partial Class BusquedaRevistas
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(35, 240)
+        Me.Label12.Location = New System.Drawing.Point(17, 240)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(56, 18)
         Me.Label12.TabIndex = 15
@@ -202,7 +205,7 @@ Partial Class BusquedaRevistas
         '
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(54, 197)
+        Me.Label18.Location = New System.Drawing.Point(36, 197)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(38, 18)
         Me.Label18.TabIndex = 20
@@ -212,7 +215,7 @@ Partial Class BusquedaRevistas
         '
         Me.Label26.AutoSize = True
         Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label26.Location = New System.Drawing.Point(41, 156)
+        Me.Label26.Location = New System.Drawing.Point(23, 156)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(48, 18)
         Me.Label26.TabIndex = 12
@@ -419,6 +422,10 @@ Partial Class BusquedaRevistas
         Me.dgvcomprobar.Size = New System.Drawing.Size(82, 30)
         Me.dgvcomprobar.TabIndex = 54
         '
+        'ErrorProvider1
+        '
+        Me.ErrorProvider1.ContainerControl = Me
+        '
         'txtbusqueda
         '
         Me.txtbusqueda.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -455,6 +462,7 @@ Partial Class BusquedaRevistas
         Me.Pmostrar.ResumeLayout(False)
         Me.Pmostrar.PerformLayout()
         CType(Me.dgvcomprobar, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -493,4 +501,5 @@ Partial Class BusquedaRevistas
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents dgvcomprobar As System.Windows.Forms.DataGridView
     Friend WithEvents estado_label As System.Windows.Forms.Label
+    Friend WithEvents ErrorProvider1 As System.Windows.Forms.ErrorProvider
 End Class
