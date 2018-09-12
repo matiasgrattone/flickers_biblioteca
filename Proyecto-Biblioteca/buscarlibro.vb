@@ -16,7 +16,7 @@ Public Class buscarlibro
 
     Dim autor As Integer
     Dim editorial As Integer
-    Dim clasificacion As Integer
+    'Dim clasificacion As Integer
 
 
     Private Sub dgvlibros_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles dgvlibros.MouseClick
@@ -25,10 +25,12 @@ Public Class buscarlibro
             'Permite al usuario una mejor visualizacion de los datos del libro que busca'
             Consulta = "SELECT volumen as Volumen, observaciones as Observaciones FROM libro where cod_libro = '" & dgvlibros.Item(0, dgvlibros.CurrentRow.Index).Value & "'"
             consultar()
-            dgvdatos2.DataSource = Tabla
 
-            volumen_label.Text = dgvdatos2.Item(0, dgvdatos2.CurrentRow.Index).Value
-            observaciones_label.Text = dgvdatos2.Item(1, dgvdatos2.CurrentRow.Index).Value
+            For Each row As DataRow In Tabla.Rows
+                volumen_label.Text = row("volumen")
+                observaciones_label.Text = row("observaciones")
+
+            Next
 
             cod_libro_label.Text = dgvlibros.Item(0, dgvlibros.CurrentRow.Index).Value
             titulo_label.Text = dgvlibros.Item(1, dgvlibros.CurrentRow.Index).Value
@@ -88,6 +90,7 @@ Public Class buscarlibro
                     dgvlibros.Columns(0).HeaderText = "Nº de Inventario"
                     dgvlibros.Columns(7).HeaderText = "Codigo de Clasificacion"
                     dgvlibros.Columns(8).HeaderText = "Clasificacion"
+                    dgvlibros.Columns(6).Visible = False
 
                     cmbestado.SelectedIndex = 0
                     cmbdatos.SelectedIndex = 0
@@ -166,9 +169,10 @@ Public Class buscarlibro
     End Sub
 
     Private Sub btnupdate_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnupdate.Click
+
         'Consulta Update Para la Tabla Libros en la Base'
         'Realiza la consulta, se actualizan los datos por los que el usuario indica y al momento el Datagrid se actualiza
-        Consulta = "UPDATE libro SET titulo=('" + titulo_txt.Text + "'), volumen=('" + volumen_txt.Text + "'),cod_autor='" & autor & "',cod_editorial='" & editorial & "', anio=('" + anio_txt.Text + "'), origen=('" + origen_txt.Text + "'), observaciones=('" + observaciones_txt.Text + "'),cod_clas='" & clasificacion & "' WHERE cod_libro=('" + cod_libro_txt.Text + "')"
+        Consulta = "UPDATE libro SET titulo=('" + titulo_txt.Text + "'), volumen=('" + volumen_txt.Text + "'),cod_autor='" & autor & "',cod_editorial='" & editorial & "', anio=('" + anio_txt.Text + "'), origen=('" + origen_txt.Text + "'), observaciones=('" + observaciones_txt.Text + "'),cod_clas='" + clasificacion_txt.Text + "' WHERE cod_libro=('" + cod_libro_txt.Text + "')"
         consultar()
 
 
@@ -979,9 +983,17 @@ Public Class buscarlibro
 
     Private Sub dgvclasificacion_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvclasificacion.CellDoubleClick
         'Al dar doble click sobre la celda del datagrid el campo de texto recibe el dato del nombre del autor.
-        clasificacion_txt.Text = dgvclasificacion.Item(1, dgvclasificacion.CurrentRow.Index).Value
-        clasificacion = dgvclasificacion.Item(0, dgvclasificacion.CurrentRow.Index).Value
+        clasificacion_txt.Text = dgvclasificacion.Item(0, dgvclasificacion.CurrentRow.Index).Value
+        'clasificacion = dgvclasificacion.Item(0, dgvclasificacion.CurrentRow.Index).Value
         'El panel que contiene el datagrid se esconde.
         Pclasificacion.Visible = False
+    End Sub
+
+    Private Sub dgvclasificacion_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvclasificacion.CellContentClick
+
+    End Sub
+
+    Private Sub dgvautor_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvautor.CellContentClick
+
     End Sub
 End Class
