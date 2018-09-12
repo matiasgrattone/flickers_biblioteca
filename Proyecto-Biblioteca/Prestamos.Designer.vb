@@ -294,11 +294,11 @@ Partial Class Prestamos
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(622, 290)
+        Me.Button4.Location = New System.Drawing.Point(618, 293)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(98, 34)
+        Me.Button4.Size = New System.Drawing.Size(113, 34)
         Me.Button4.TabIndex = 0
-        Me.Button4.Text = "Ver registro"
+        Me.Button4.Text = "Ver registro del socio"
         Me.Button4.UseVisualStyleBackColor = True
         '
         'Button5
@@ -713,11 +713,11 @@ Partial Class Prestamos
         Me.ClientSize = New System.Drawing.Size(1061, 646)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
-        Me.Controls.Add(Me.ReservacionComboBox)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.ExtCombo)
         Me.Controls.Add(Me.devoCOMBO)
         Me.Controls.Add(Me.CrearReservacionComboBox)
+        Me.Controls.Add(Me.ReservacionComboBox)
+        Me.Controls.Add(Me.ExtCombo)
         Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Prestamos"
