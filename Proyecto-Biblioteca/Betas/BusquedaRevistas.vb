@@ -1,6 +1,7 @@
 ﻿Public Class BusquedaRevistas
     Dim bandera As Integer
     Public estado As Integer
+    Dim id As Integer ' Variable usada en modificar revistas
 
     Private Sub cmbestado_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbestado.SelectedIndexChanged
         If bandera = 1 Then
@@ -77,6 +78,7 @@
     Private Sub btnmodificar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnmodificar.Click
         'Los datos que el usuario selecciono del DataGrid y que luego fueron mostrados en el Panel'
         'Son copiados a un segundo panel donde luego podran ser modificados'
+
         If bandera = 1 Then
             Try
                 titulo_txt.Text = lbltitulomostrar.Text
@@ -254,23 +256,43 @@
     End Sub
 
     Private Sub btnupdate_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnupdate.Click
-        Dim id As Integer
+        '-------------Variables-----------------------
         Dim titulo As String = Nothing
         Dim año As Integer = Nothing
         Dim origen As String = Nothing
         Dim descripcion As String = Nothing
         Dim estado As Integer = Nothing
-
+        Dim errorr As Integer = 0
+        '----------------------------------------------
+        '-------Obtener el codigo de la revista--------
         Consulta = "select * from revistas"
         consultar()
         For Each row As DataRow In Tabla.Rows
             id = Val(row("id_revistas"))
         Next
+        '----------------------------------------------
+        '-----------Comprobacion de campos-------------
+        If LTrim$(titulo_txt.Text) = "" Then
+            ErrorProvider1.SetError(titulo_txt, "No puede dejar este espacio en blanco")
+            errorr = 1
+        Else
+            titulo = titulo_txt.Text
+        End If
+        If LTrim$(anio_txt.Text) = "" Then
+            ErrorProvider1.SetError(anio_txt, "No se puede dejar este espacio en blanco")
+            errorr = 1
+        Else
+            año = anio_txt.Text
+        End If
+        If LTrim$(origen_txt.Text) = "" Then
+            ErrorProvider1.SetError(origen_txt, "No se puede dejar este espacio en blanco")
+            errorr = 1
+        Else
+            origen = origen_txt.Text
+        End If
 
-        titulo = titulo_txt.Text
-        año = anio_txt.Text
-        origen = origen_txt.Text
         descripcion = desc_txt.Text
+
         Select Case cmbupdate.SelectedIndex
             Case 0
                 estado = 0
@@ -281,9 +303,19 @@
             Case 3
                 estado = 3
         End Select
+        '--------------------------------------------------------
+        '------------Se actualizan los datos en la BD------------
+        If errorr = 0 Then
+            Try
+                Consulta = "update table revistas set titulo='" & titulo & "' where id_revistas='" & id & "'"
+                consultar()
+            Catch ex As Exception
+                MsgBox("No se pudo actualizar la informacion")
+            End Try
+        Else
+            MsgBox("No se pudo actualizar la informacion, revise los campos marcados")
+        End If
 
-        Consulta = "update table revistas set titulo='" & titulo & "' where id_revistas='" & id & "'"
-        consultar()
     End Sub
 
 End Class

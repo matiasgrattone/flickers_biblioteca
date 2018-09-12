@@ -23,12 +23,15 @@ Partial Class MENU3
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MENU3))
         Me.Phoraencabezado = New System.Windows.Forms.Panel()
         Me.lblfecha = New System.Windows.Forms.Label()
@@ -84,6 +87,9 @@ Partial Class MENU3
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Timer_InicioLabel = New System.Windows.Forms.Timer(Me.components)
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.ChartTOP = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.Labels_transparentes1 = New Proyecto_Biblioteca.labels_transparentes()
         Me.Phoraencabezado.SuspendLayout()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -110,6 +116,8 @@ Partial Class MENU3
         CType(Me.ChartPrestamosDia, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.Chart_Prestamos, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel3.SuspendLayout()
+        CType(Me.ChartTOP, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Phoraencabezado
@@ -513,6 +521,8 @@ Partial Class MENU3
         '
         'Panel_Graficos
         '
+        Me.Panel_Graficos.Controls.Add(Me.Label2)
+        Me.Panel_Graficos.Controls.Add(Me.Panel3)
         Me.Panel_Graficos.Controls.Add(Me.Panel2)
         Me.Panel_Graficos.Controls.Add(Me.ComboBox2)
         Me.Panel_Graficos.Controls.Add(Me.Panel1)
@@ -528,25 +538,25 @@ Partial Class MENU3
         '
         Me.Panel2.BackColor = System.Drawing.SystemColors.ControlDark
         Me.Panel2.Controls.Add(Me.ChartPrestamosDia)
-        Me.Panel2.Location = New System.Drawing.Point(25, 74)
+        Me.Panel2.Location = New System.Drawing.Point(25, 41)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(609, 235)
+        Me.Panel2.Size = New System.Drawing.Size(609, 268)
         Me.Panel2.TabIndex = 7
         '
         'ChartPrestamosDia
         '
-        ChartArea1.Name = "ChartArea1"
-        Me.ChartPrestamosDia.ChartAreas.Add(ChartArea1)
-        Legend1.Name = "Legend1"
-        Me.ChartPrestamosDia.Legends.Add(Legend1)
+        ChartArea2.Name = "ChartArea1"
+        Me.ChartPrestamosDia.ChartAreas.Add(ChartArea2)
+        Legend2.Name = "Legend1"
+        Me.ChartPrestamosDia.Legends.Add(Legend2)
         Me.ChartPrestamosDia.Location = New System.Drawing.Point(3, 2)
         Me.ChartPrestamosDia.Name = "ChartPrestamosDia"
         Me.ChartPrestamosDia.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent
-        Series1.ChartArea = "ChartArea1"
-        Series1.Legend = "Legend1"
-        Series1.Name = "Series1"
-        Me.ChartPrestamosDia.Series.Add(Series1)
-        Me.ChartPrestamosDia.Size = New System.Drawing.Size(603, 230)
+        Series2.ChartArea = "ChartArea1"
+        Series2.Legend = "Legend1"
+        Series2.Name = "Series1"
+        Me.ChartPrestamosDia.Series.Add(Series2)
+        Me.ChartPrestamosDia.Size = New System.Drawing.Size(603, 263)
         Me.ChartPrestamosDia.TabIndex = 2
         Me.ChartPrestamosDia.Text = "Chart1"
         '
@@ -566,23 +576,23 @@ Partial Class MENU3
         Me.Panel1.Controls.Add(Me.Chart_Prestamos)
         Me.Panel1.Location = New System.Drawing.Point(24, 357)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(607, 280)
+        Me.Panel1.Size = New System.Drawing.Size(499, 280)
         Me.Panel1.TabIndex = 5
         '
         'Chart_Prestamos
         '
-        ChartArea2.Name = "ChartArea1"
-        Me.Chart_Prestamos.ChartAreas.Add(ChartArea2)
-        Legend2.Name = "Legend1"
-        Me.Chart_Prestamos.Legends.Add(Legend2)
-        Me.Chart_Prestamos.Location = New System.Drawing.Point(4, 4)
+        ChartArea3.Name = "ChartArea1"
+        Me.Chart_Prestamos.ChartAreas.Add(ChartArea3)
+        Legend3.Name = "Legend1"
+        Me.Chart_Prestamos.Legends.Add(Legend3)
+        Me.Chart_Prestamos.Location = New System.Drawing.Point(3, 4)
         Me.Chart_Prestamos.Name = "Chart_Prestamos"
         Me.Chart_Prestamos.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent
-        Series2.ChartArea = "ChartArea1"
-        Series2.Legend = "Legend1"
-        Series2.Name = "Series1"
-        Me.Chart_Prestamos.Series.Add(Series2)
-        Me.Chart_Prestamos.Size = New System.Drawing.Size(599, 273)
+        Series3.ChartArea = "ChartArea1"
+        Series3.Legend = "Legend1"
+        Series3.Name = "Series1"
+        Me.Chart_Prestamos.Series.Add(Series3)
+        Me.Chart_Prestamos.Size = New System.Drawing.Size(492, 273)
         Me.Chart_Prestamos.TabIndex = 0
         Me.Chart_Prestamos.Text = "Chart1"
         '
@@ -609,7 +619,7 @@ Partial Class MENU3
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(25, 34)
+        Me.ComboBox1.Location = New System.Drawing.Point(25, 7)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(216, 28)
         Me.ComboBox1.TabIndex = 1
@@ -617,6 +627,42 @@ Partial Class MENU3
         'Timer_InicioLabel
         '
         Me.Timer_InicioLabel.Interval = 10
+        '
+        'Panel3
+        '
+        Me.Panel3.BackColor = System.Drawing.SystemColors.ControlDark
+        Me.Panel3.Controls.Add(Me.ChartTOP)
+        Me.Panel3.Location = New System.Drawing.Point(525, 328)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(333, 307)
+        Me.Panel3.TabIndex = 6
+        '
+        'ChartTOP
+        '
+        ChartArea1.Name = "ChartArea1"
+        Me.ChartTOP.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.ChartTOP.Legends.Add(Legend1)
+        Me.ChartTOP.Location = New System.Drawing.Point(4, 3)
+        Me.ChartTOP.Name = "ChartTOP"
+        Me.ChartTOP.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.ChartTOP.Series.Add(Series1)
+        Me.ChartTOP.Size = New System.Drawing.Size(326, 301)
+        Me.ChartTOP.TabIndex = 0
+        Me.ChartTOP.Text = "Chart1"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(746, 312)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(109, 13)
+        Me.Label2.TabIndex = 8
+        Me.Label2.Text = "Los Mas Llevados"
         '
         'Labels_transparentes1
         '
@@ -639,7 +685,7 @@ Partial Class MENU3
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.HelpButton = True
         Me.HelpProvider1.SetHelpKeyword(Me, "241")
-        Me.HelpProvider1.SetHelpString(Me, "")
+        Me.HelpProvider1.SetHelpString(Me, "HOLA MUNDO , ESTA ES UNA AYUDA")
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "MENU3"
         Me.HelpProvider1.SetShowHelp(Me, True)
@@ -679,6 +725,8 @@ Partial Class MENU3
         CType(Me.ChartPrestamosDia, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         CType(Me.Chart_Prestamos, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel3.ResumeLayout(False)
+        CType(Me.ChartTOP, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -737,4 +785,7 @@ Partial Class MENU3
     Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents HelpProvider1 As System.Windows.Forms.HelpProvider
+    Friend WithEvents Panel3 As System.Windows.Forms.Panel
+    Friend WithEvents ChartTOP As System.Windows.Forms.DataVisualization.Charting.Chart
+    Friend WithEvents Label2 As System.Windows.Forms.Label
 End Class
