@@ -22,13 +22,14 @@ Partial Class ConfiguraciònAdmin
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim TreeNode5 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Socios")
-        Dim TreeNode6 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Director")
-        Dim TreeNode7 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Funiconarios", New System.Windows.Forms.TreeNode() {TreeNode6})
-        Dim TreeNode8 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Administradoes")
+        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Socios")
+        Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Funiconarios")
+        Dim TreeNode3 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Administradoes")
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.TreeView1 = New System.Windows.Forms.TreeView()
+        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.PlaceHolder7 = New Proyecto_Biblioteca.PlaceHolder()
         Me.PlaceHolder6 = New Proyecto_Biblioteca.PlaceHolder()
         Me.PlaceHolder5 = New Proyecto_Biblioteca.PlaceHolder()
@@ -36,8 +37,6 @@ Partial Class ConfiguraciònAdmin
         Me.PlaceHolder3 = New Proyecto_Biblioteca.PlaceHolder()
         Me.PlaceHolder2 = New Proyecto_Biblioteca.PlaceHolder()
         Me.PlaceHolder1 = New Proyecto_Biblioteca.PlaceHolder()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'ComboBox1
@@ -60,18 +59,35 @@ Partial Class ConfiguraciònAdmin
         '
         Me.TreeView1.Location = New System.Drawing.Point(284, 6)
         Me.TreeView1.Name = "TreeView1"
-        TreeNode5.Name = "Node0"
-        TreeNode5.Text = "Socios"
-        TreeNode6.Name = "Node8"
-        TreeNode6.Text = "Director"
-        TreeNode7.BackColor = System.Drawing.Color.Transparent
-        TreeNode7.Name = "Node6"
-        TreeNode7.Text = "Funiconarios"
-        TreeNode8.Name = "Node12"
-        TreeNode8.Text = "Administradoes"
-        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode5, TreeNode7, TreeNode8})
+        TreeNode1.Name = "Node0"
+        TreeNode1.NodeFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        TreeNode1.Text = "Socios"
+        TreeNode2.BackColor = System.Drawing.Color.Transparent
+        TreeNode2.Name = "Node6"
+        TreeNode2.Text = "Funiconarios"
+        TreeNode3.Name = "Node12"
+        TreeNode3.Text = "Administradoes"
+        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode1, TreeNode2, TreeNode3})
         Me.TreeView1.Size = New System.Drawing.Size(214, 446)
         Me.TreeView1.TabIndex = 9
+        '
+        'ComboBox3
+        '
+        Me.ComboBox3.FormattingEnabled = True
+        Me.ComboBox3.Items.AddRange(New Object() {"0", "1"})
+        Me.ComboBox3.Location = New System.Drawing.Point(74, 294)
+        Me.ComboBox3.Name = "ComboBox3"
+        Me.ComboBox3.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBox3.TabIndex = 10
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(12, 298)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(56, 13)
+        Me.Label1.TabIndex = 11
+        Me.Label1.Text = "Animaciòn"
         '
         'PlaceHolder7
         '
@@ -142,24 +158,6 @@ Partial Class ConfiguraciònAdmin
         Me.PlaceHolder1.TabIndex = 0
         Me.PlaceHolder1.WaterMarkColor = System.Drawing.Color.Gray
         Me.PlaceHolder1.WaterMarkText = "Water Mark"
-        '
-        'ComboBox3
-        '
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Items.AddRange(New Object() {"0", "1"})
-        Me.ComboBox3.Location = New System.Drawing.Point(74, 294)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox3.TabIndex = 10
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 298)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(56, 13)
-        Me.Label1.TabIndex = 11
-        Me.Label1.Text = "Animaciòn"
         '
         'ConfiguraciònAdmin
         '

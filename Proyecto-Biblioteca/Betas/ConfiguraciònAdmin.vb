@@ -26,7 +26,7 @@
         Next
 
         TreeView1.ExpandAll()
-        ComboBox3.SelectedItem = 0
+        ComboBox3.SelectedIndex = 0
 
 
 
