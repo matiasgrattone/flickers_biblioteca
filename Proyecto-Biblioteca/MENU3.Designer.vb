@@ -120,7 +120,7 @@ Partial Class MENU3
         Me.Phoraencabezado.Controls.Add(Me.lblhora)
         Me.Phoraencabezado.Controls.Add(Me.Pbusuario)
         Me.Phoraencabezado.Controls.Add(Me.Nombre)
-        Me.Phoraencabezado.Location = New System.Drawing.Point(-6, -2)
+        Me.Phoraencabezado.Location = New System.Drawing.Point(-6, -1)
         Me.Phoraencabezado.Name = "Phoraencabezado"
         Me.Phoraencabezado.Size = New System.Drawing.Size(1141, 46)
         Me.Phoraencabezado.TabIndex = 0
