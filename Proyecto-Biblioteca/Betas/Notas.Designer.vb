@@ -23,6 +23,7 @@ Partial Class Notas
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.LabelDelEditor = New System.Windows.Forms.Label()
         Me.EditorDeTexto = New System.Windows.Forms.TextBox()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
@@ -50,21 +51,24 @@ Partial Class Notas
         Me.CrearRecordatorio3 = New System.Windows.Forms.Button()
         Me.Fecha3 = New System.Windows.Forms.Label()
         Me.Recordatorio3 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.TextoParaRecordar3 = New System.Windows.Forms.TextBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.EliminarRecordatorio2 = New System.Windows.Forms.Button()
         Me.CrearRecordatorio2 = New System.Windows.Forms.Button()
         Me.Fecha2 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.TextoParaRecordar2 = New System.Windows.Forms.TextBox()
         Me.Recordatorio2 = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.TextOculto = New System.Windows.Forms.TextBox()
         Me.EliminarRecordatorio = New System.Windows.Forms.Button()
         Me.Fecha = New System.Windows.Forms.Label()
         Me.CrearRecordatorio = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.TextoParaRecordar1 = New System.Windows.Forms.TextBox()
         Me.Recordatorio1 = New System.Windows.Forms.Label()
         Me.RECORDATORIOS = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -74,6 +78,7 @@ Partial Class Notas
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.ScrollBar
+        Me.Panel1.Controls.Add(Me.DataGridView1)
         Me.Panel1.Controls.Add(Me.LabelDelEditor)
         Me.Panel1.Controls.Add(Me.EditorDeTexto)
         Me.Panel1.Controls.Add(Me.MenuStrip1)
@@ -81,6 +86,14 @@ Partial Class Notas
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(624, 605)
         Me.Panel1.TabIndex = 0
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(378, 449)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(240, 150)
+        Me.DataGridView1.TabIndex = 6
         '
         'LabelDelEditor
         '
@@ -226,7 +239,7 @@ Partial Class Notas
         Me.Panel3.Controls.Add(Me.CrearRecordatorio3)
         Me.Panel3.Controls.Add(Me.Fecha3)
         Me.Panel3.Controls.Add(Me.Recordatorio3)
-        Me.Panel3.Controls.Add(Me.TextBox2)
+        Me.Panel3.Controls.Add(Me.TextoParaRecordar3)
         Me.Panel3.Location = New System.Drawing.Point(2, 417)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(416, 197)
@@ -270,13 +283,14 @@ Partial Class Notas
         Me.Recordatorio3.TabIndex = 4
         Me.Recordatorio3.Text = "Recordatorio3"
         '
-        'TextBox2
+        'TextoParaRecordar3
         '
-        Me.TextBox2.Location = New System.Drawing.Point(10, 25)
-        Me.TextBox2.Multiline = True
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(400, 153)
-        Me.TextBox2.TabIndex = 1
+        Me.TextoParaRecordar3.Location = New System.Drawing.Point(10, 25)
+        Me.TextoParaRecordar3.Multiline = True
+        Me.TextoParaRecordar3.Name = "TextoParaRecordar3"
+        Me.TextoParaRecordar3.ReadOnly = True
+        Me.TextoParaRecordar3.Size = New System.Drawing.Size(400, 153)
+        Me.TextoParaRecordar3.TabIndex = 1
         '
         'Panel2
         '
@@ -284,7 +298,7 @@ Partial Class Notas
         Me.Panel2.Controls.Add(Me.EliminarRecordatorio2)
         Me.Panel2.Controls.Add(Me.CrearRecordatorio2)
         Me.Panel2.Controls.Add(Me.Fecha2)
-        Me.Panel2.Controls.Add(Me.TextBox3)
+        Me.Panel2.Controls.Add(Me.TextoParaRecordar2)
         Me.Panel2.Controls.Add(Me.Recordatorio2)
         Me.Panel2.Location = New System.Drawing.Point(2, 230)
         Me.Panel2.Name = "Panel2"
@@ -320,13 +334,14 @@ Partial Class Notas
         Me.Fecha2.TabIndex = 4
         Me.Fecha2.Text = "Fecha2"
         '
-        'TextBox3
+        'TextoParaRecordar2
         '
-        Me.TextBox3.Location = New System.Drawing.Point(10, 25)
-        Me.TextBox3.Multiline = True
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(400, 153)
-        Me.TextBox3.TabIndex = 2
+        Me.TextoParaRecordar2.Location = New System.Drawing.Point(10, 25)
+        Me.TextoParaRecordar2.Multiline = True
+        Me.TextoParaRecordar2.Name = "TextoParaRecordar2"
+        Me.TextoParaRecordar2.ReadOnly = True
+        Me.TextoParaRecordar2.Size = New System.Drawing.Size(400, 153)
+        Me.TextoParaRecordar2.TabIndex = 2
         '
         'Recordatorio2
         '
@@ -343,12 +358,20 @@ Partial Class Notas
         Me.Panel4.Controls.Add(Me.EliminarRecordatorio)
         Me.Panel4.Controls.Add(Me.Fecha)
         Me.Panel4.Controls.Add(Me.CrearRecordatorio)
-        Me.Panel4.Controls.Add(Me.TextBox1)
+        Me.Panel4.Controls.Add(Me.TextoParaRecordar1)
         Me.Panel4.Controls.Add(Me.Recordatorio1)
+        Me.Panel4.Controls.Add(Me.TextOculto)
         Me.Panel4.Location = New System.Drawing.Point(2, 43)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(416, 193)
         Me.Panel4.TabIndex = 4
+        '
+        'TextOculto
+        '
+        Me.TextOculto.Location = New System.Drawing.Point(10, 58)
+        Me.TextOculto.Name = "TextOculto"
+        Me.TextOculto.Size = New System.Drawing.Size(100, 20)
+        Me.TextOculto.TabIndex = 8
         '
         'EliminarRecordatorio
         '
@@ -379,13 +402,14 @@ Partial Class Notas
         Me.CrearRecordatorio.Text = "+"
         Me.CrearRecordatorio.UseVisualStyleBackColor = True
         '
-        'TextBox1
+        'TextoParaRecordar1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(10, 28)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(400, 153)
-        Me.TextBox1.TabIndex = 0
+        Me.TextoParaRecordar1.Location = New System.Drawing.Point(10, 28)
+        Me.TextoParaRecordar1.Multiline = True
+        Me.TextoParaRecordar1.Name = "TextoParaRecordar1"
+        Me.TextoParaRecordar1.ReadOnly = True
+        Me.TextoParaRecordar1.Size = New System.Drawing.Size(400, 153)
+        Me.TextoParaRecordar1.TabIndex = 0
         '
         'Recordatorio1
         '
@@ -407,12 +431,22 @@ Partial Class Notas
         Me.RECORDATORIOS.TabIndex = 5
         Me.RECORDATORIOS.Text = "RECORDATORIOS"
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(343, 9)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 6
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'Notas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.ClientSize = New System.Drawing.Size(1045, 608)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.RECORDATORIOS)
         Me.Controls.Add(Me.Panel2)
@@ -424,6 +458,7 @@ Partial Class Notas
         Me.Text = "Form3"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.Panel3.ResumeLayout(False)
@@ -460,12 +495,12 @@ Partial Class Notas
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents Recordatorio3 As System.Windows.Forms.Label
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents TextoParaRecordar3 As System.Windows.Forms.TextBox
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
-    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
+    Friend WithEvents TextoParaRecordar2 As System.Windows.Forms.TextBox
     Friend WithEvents Recordatorio2 As System.Windows.Forms.Label
     Friend WithEvents Panel4 As System.Windows.Forms.Panel
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents TextoParaRecordar1 As System.Windows.Forms.TextBox
     Friend WithEvents Recordatorio1 As System.Windows.Forms.Label
     Friend WithEvents RECORDATORIOS As System.Windows.Forms.Label
     Friend WithEvents LabelDelEditor As System.Windows.Forms.Label
@@ -478,4 +513,7 @@ Partial Class Notas
     Friend WithEvents CrearRecordatorio3 As System.Windows.Forms.Button
     Friend WithEvents EliminarRecordatorio2 As System.Windows.Forms.Button
     Friend WithEvents CrearRecordatorio2 As System.Windows.Forms.Button
+    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents TextOculto As System.Windows.Forms.TextBox
 End Class

@@ -50,6 +50,8 @@ Partial Class BusquedaRevistas
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnmodificar = New System.Windows.Forms.Button()
         Me.Pmostrar = New System.Windows.Forms.Panel()
+        Me.lblid = New System.Windows.Forms.Label()
+        Me.labelid = New System.Windows.Forms.Label()
         Me.estado_label = New System.Windows.Forms.Label()
         Me.txtdescmostrar = New System.Windows.Forms.TextBox()
         Me.lblaniomostrar = New System.Windows.Forms.Label()
@@ -58,6 +60,8 @@ Partial Class BusquedaRevistas
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.dgvcomprobar = New System.Windows.Forms.DataGridView()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.id_txt = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.txtbusqueda = New Proyecto_Biblioteca.PlaceHolder()
         CType(Me.dgvrevistas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Pactualizar.SuspendLayout()
@@ -89,6 +93,8 @@ Partial Class BusquedaRevistas
         'Pactualizar
         '
         Me.Pactualizar.BackColor = System.Drawing.Color.DarkViolet
+        Me.Pactualizar.Controls.Add(Me.id_txt)
+        Me.Pactualizar.Controls.Add(Me.Label1)
         Me.Pactualizar.Controls.Add(Me.lbldesc)
         Me.Pactualizar.Controls.Add(Me.desc_txt)
         Me.Pactualizar.Controls.Add(Me.cmbupdate)
@@ -130,10 +136,10 @@ Partial Class BusquedaRevistas
         'cmbupdate
         '
         Me.cmbupdate.FormattingEnabled = True
-        Me.cmbupdate.Items.AddRange(New Object() {"disponible", "ocupado", "reservado", "descontinuado"})
-        Me.cmbupdate.Location = New System.Drawing.Point(102, 377)
+        Me.cmbupdate.Items.AddRange(New Object() {"Disponible", "Ocupado", "Reservado", "Discontinuado"})
+        Me.cmbupdate.Location = New System.Drawing.Point(87, 377)
         Me.cmbupdate.Name = "cmbupdate"
-        Me.cmbupdate.Size = New System.Drawing.Size(160, 21)
+        Me.cmbupdate.Size = New System.Drawing.Size(158, 21)
         Me.cmbupdate.TabIndex = 24
         '
         'btnback
@@ -185,7 +191,7 @@ Partial Class BusquedaRevistas
         '
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(35, 377)
+        Me.Label15.Location = New System.Drawing.Point(14, 377)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(59, 18)
         Me.Label15.TabIndex = 17
@@ -215,7 +221,7 @@ Partial Class BusquedaRevistas
         '
         Me.Label26.AutoSize = True
         Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label26.Location = New System.Drawing.Point(23, 156)
+        Me.Label26.Location = New System.Drawing.Point(25, 155)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(48, 18)
         Me.Label26.TabIndex = 12
@@ -224,9 +230,9 @@ Partial Class BusquedaRevistas
         'PictureBox2
         '
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(84, 12)
+        Me.PictureBox2.Location = New System.Drawing.Point(94, 12)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(125, 111)
+        Me.PictureBox2.Size = New System.Drawing.Size(93, 78)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 5
         Me.PictureBox2.TabStop = False
@@ -238,7 +244,7 @@ Partial Class BusquedaRevistas
         Me.cmbestado.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbestado.ForeColor = System.Drawing.Color.Black
         Me.cmbestado.FormattingEnabled = True
-        Me.cmbestado.Items.AddRange(New Object() {"disponible", "ocupado", "reservado", "descontinuado"})
+        Me.cmbestado.Items.AddRange(New Object() {"Disponible", "Ocupado", "Reservado", "Discontinuado"})
         Me.cmbestado.Location = New System.Drawing.Point(453, 65)
         Me.cmbestado.Name = "cmbestado"
         Me.cmbestado.Size = New System.Drawing.Size(172, 28)
@@ -271,17 +277,16 @@ Partial Class BusquedaRevistas
         '
         Me.lblorigenmostrar.AutoSize = True
         Me.lblorigenmostrar.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblorigenmostrar.Location = New System.Drawing.Point(93, 240)
+        Me.lblorigenmostrar.Location = New System.Drawing.Point(99, 238)
         Me.lblorigenmostrar.Name = "lblorigenmostrar"
-        Me.lblorigenmostrar.Size = New System.Drawing.Size(52, 18)
+        Me.lblorigenmostrar.Size = New System.Drawing.Size(0, 18)
         Me.lblorigenmostrar.TabIndex = 14
-        Me.lblorigenmostrar.Text = "Origen"
         '
         'aniolabel
         '
         Me.aniolabel.AutoSize = True
         Me.aniolabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.aniolabel.Location = New System.Drawing.Point(38, 196)
+        Me.aniolabel.Location = New System.Drawing.Point(53, 196)
         Me.aniolabel.Name = "aniolabel"
         Me.aniolabel.Size = New System.Drawing.Size(38, 18)
         Me.aniolabel.TabIndex = 20
@@ -291,7 +296,7 @@ Partial Class BusquedaRevistas
         '
         Me.origenlabel.AutoSize = True
         Me.origenlabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.origenlabel.Location = New System.Drawing.Point(32, 239)
+        Me.origenlabel.Location = New System.Drawing.Point(38, 240)
         Me.origenlabel.Name = "origenlabel"
         Me.origenlabel.Size = New System.Drawing.Size(56, 18)
         Me.origenlabel.TabIndex = 15
@@ -301,7 +306,7 @@ Partial Class BusquedaRevistas
         '
         Me.titulolabel.AutoSize = True
         Me.titulolabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.titulolabel.Location = New System.Drawing.Point(38, 156)
+        Me.titulolabel.Location = New System.Drawing.Point(46, 155)
         Me.titulolabel.Name = "titulolabel"
         Me.titulolabel.Size = New System.Drawing.Size(48, 18)
         Me.titulolabel.TabIndex = 12
@@ -311,7 +316,7 @@ Partial Class BusquedaRevistas
         '
         Me.estadolabel.AutoSize = True
         Me.estadolabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.estadolabel.Location = New System.Drawing.Point(34, 377)
+        Me.estadolabel.Location = New System.Drawing.Point(35, 376)
         Me.estadolabel.Name = "estadolabel"
         Me.estadolabel.Size = New System.Drawing.Size(59, 18)
         Me.estadolabel.TabIndex = 17
@@ -320,9 +325,9 @@ Partial Class BusquedaRevistas
         'PictureBox1
         '
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(84, 12)
+        Me.PictureBox1.Location = New System.Drawing.Point(99, 12)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(125, 111)
+        Me.PictureBox1.Size = New System.Drawing.Size(97, 91)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 5
         Me.PictureBox1.TabStop = False
@@ -339,6 +344,8 @@ Partial Class BusquedaRevistas
         'Pmostrar
         '
         Me.Pmostrar.BackColor = System.Drawing.Color.DarkOrchid
+        Me.Pmostrar.Controls.Add(Me.lblid)
+        Me.Pmostrar.Controls.Add(Me.labelid)
         Me.Pmostrar.Controls.Add(Me.estado_label)
         Me.Pmostrar.Controls.Add(Me.txtdescmostrar)
         Me.Pmostrar.Controls.Add(Me.lblaniomostrar)
@@ -356,21 +363,39 @@ Partial Class BusquedaRevistas
         Me.Pmostrar.Size = New System.Drawing.Size(275, 458)
         Me.Pmostrar.TabIndex = 53
         '
+        'lblid
+        '
+        Me.lblid.AutoSize = True
+        Me.lblid.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblid.Location = New System.Drawing.Point(100, 116)
+        Me.lblid.Name = "lblid"
+        Me.lblid.Size = New System.Drawing.Size(0, 18)
+        Me.lblid.TabIndex = 34
+        '
+        'labelid
+        '
+        Me.labelid.AutoSize = True
+        Me.labelid.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.labelid.Location = New System.Drawing.Point(64, 116)
+        Me.labelid.Name = "labelid"
+        Me.labelid.Size = New System.Drawing.Size(30, 18)
+        Me.labelid.TabIndex = 33
+        Me.labelid.Text = "ID: "
+        '
         'estado_label
         '
         Me.estado_label.AutoSize = True
         Me.estado_label.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.estado_label.Location = New System.Drawing.Point(109, 377)
+        Me.estado_label.Location = New System.Drawing.Point(99, 377)
         Me.estado_label.Name = "estado_label"
-        Me.estado_label.Size = New System.Drawing.Size(55, 18)
+        Me.estado_label.Size = New System.Drawing.Size(0, 18)
         Me.estado_label.TabIndex = 32
-        Me.estado_label.Text = "Estado"
         '
         'txtdescmostrar
         '
         Me.txtdescmostrar.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtdescmostrar.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtdescmostrar.Location = New System.Drawing.Point(99, 281)
+        Me.txtdescmostrar.Location = New System.Drawing.Point(102, 281)
         Me.txtdescmostrar.Multiline = True
         Me.txtdescmostrar.Name = "txtdescmostrar"
         Me.txtdescmostrar.ReadOnly = True
@@ -381,11 +406,10 @@ Partial Class BusquedaRevistas
         '
         Me.lblaniomostrar.AutoSize = True
         Me.lblaniomostrar.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblaniomostrar.Location = New System.Drawing.Point(83, 196)
+        Me.lblaniomostrar.Location = New System.Drawing.Point(99, 195)
         Me.lblaniomostrar.Name = "lblaniomostrar"
-        Me.lblaniomostrar.Size = New System.Drawing.Size(34, 18)
+        Me.lblaniomostrar.Size = New System.Drawing.Size(0, 18)
         Me.lblaniomostrar.TabIndex = 30
-        Me.lblaniomostrar.Text = "Año"
         '
         'lbltitulomostrar
         '
@@ -393,9 +417,8 @@ Partial Class BusquedaRevistas
         Me.lbltitulomostrar.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbltitulomostrar.Location = New System.Drawing.Point(99, 157)
         Me.lbltitulomostrar.Name = "lbltitulomostrar"
-        Me.lbltitulomostrar.Size = New System.Drawing.Size(44, 18)
+        Me.lbltitulomostrar.Size = New System.Drawing.Size(0, 18)
         Me.lbltitulomostrar.TabIndex = 29
-        Me.lbltitulomostrar.Text = "Titulo"
         '
         'desclabel
         '
@@ -426,6 +449,26 @@ Partial Class BusquedaRevistas
         '
         Me.ErrorProvider1.ContainerControl = Me
         '
+        'id_txt
+        '
+        Me.id_txt.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.id_txt.Enabled = False
+        Me.id_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.id_txt.Location = New System.Drawing.Point(84, 116)
+        Me.id_txt.Name = "id_txt"
+        Me.id_txt.Size = New System.Drawing.Size(160, 17)
+        Me.id_txt.TabIndex = 28
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(43, 115)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(30, 18)
+        Me.Label1.TabIndex = 27
+        Me.Label1.Text = "ID: "
+        '
         'txtbusqueda
         '
         Me.txtbusqueda.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -449,8 +492,8 @@ Partial Class BusquedaRevistas
         Me.Controls.Add(Me.cmbestado)
         Me.Controls.Add(Me.cmbdatos)
         Me.Controls.Add(Me.dgvrevistas)
-        Me.Controls.Add(Me.Pactualizar)
         Me.Controls.Add(Me.Pmostrar)
+        Me.Controls.Add(Me.Pactualizar)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "BusquedaRevistas"
         Me.Text = "BusquedaRevistas"
@@ -502,4 +545,8 @@ Partial Class BusquedaRevistas
     Friend WithEvents dgvcomprobar As System.Windows.Forms.DataGridView
     Friend WithEvents estado_label As System.Windows.Forms.Label
     Friend WithEvents ErrorProvider1 As System.Windows.Forms.ErrorProvider
+    Friend WithEvents lblid As System.Windows.Forms.Label
+    Friend WithEvents labelid As System.Windows.Forms.Label
+    Friend WithEvents id_txt As System.Windows.Forms.TextBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 End Class
