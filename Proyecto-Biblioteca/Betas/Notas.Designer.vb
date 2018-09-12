@@ -23,6 +23,7 @@ Partial Class Notas
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.LabelDelEditor = New System.Windows.Forms.Label()
         Me.EditorDeTexto = New System.Windows.Forms.TextBox()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -30,7 +31,6 @@ Partial Class Notas
         Me.AbrirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GuardarComoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AtrasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AdelanteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -46,21 +46,24 @@ Partial Class Notas
         Me.ColorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.EliminarRecordatorio3 = New System.Windows.Forms.Button()
+        Me.CrearRecordatorio3 = New System.Windows.Forms.Button()
+        Me.Fecha3 = New System.Windows.Forms.Label()
         Me.Recordatorio3 = New System.Windows.Forms.Label()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.EliminarRecordatorio2 = New System.Windows.Forms.Button()
+        Me.CrearRecordatorio2 = New System.Windows.Forms.Button()
+        Me.Fecha2 = New System.Windows.Forms.Label()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.Recordatorio2 = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.EliminarRecordatorio = New System.Windows.Forms.Button()
+        Me.Fecha = New System.Windows.Forms.Label()
+        Me.CrearRecordatorio = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Recordatorio1 = New System.Windows.Forms.Label()
         Me.RECORDATORIOS = New System.Windows.Forms.Label()
-        Me.LabelDelEditor = New System.Windows.Forms.Label()
-        Me.Fecha = New System.Windows.Forms.Label()
-        Me.Fecha2 = New System.Windows.Forms.Label()
-        Me.Fecha3 = New System.Windows.Forms.Label()
-        Me.CrearRecordatorio = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -74,10 +77,21 @@ Partial Class Notas
         Me.Panel1.Controls.Add(Me.LabelDelEditor)
         Me.Panel1.Controls.Add(Me.EditorDeTexto)
         Me.Panel1.Controls.Add(Me.MenuStrip1)
-        Me.Panel1.Location = New System.Drawing.Point(421, -1)
+        Me.Panel1.Location = New System.Drawing.Point(421, 2)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(624, 608)
+        Me.Panel1.Size = New System.Drawing.Size(624, 605)
         Me.Panel1.TabIndex = 0
+        '
+        'LabelDelEditor
+        '
+        Me.LabelDelEditor.AutoSize = True
+        Me.LabelDelEditor.BackColor = System.Drawing.SystemColors.HighlightText
+        Me.LabelDelEditor.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelDelEditor.Location = New System.Drawing.Point(465, 0)
+        Me.LabelDelEditor.Name = "LabelDelEditor"
+        Me.LabelDelEditor.Size = New System.Drawing.Size(144, 24)
+        Me.LabelDelEditor.TabIndex = 2
+        Me.LabelDelEditor.Text = "EditorDeTexto"
         '
         'EditorDeTexto
         '
@@ -99,7 +113,7 @@ Partial Class Notas
         '
         'ArchivoToolStripMenuItem
         '
-        Me.ArchivoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.AbrirToolStripMenuItem, Me.GuardarComoToolStripMenuItem, Me.ToolStripMenuItem1, Me.SalirToolStripMenuItem})
+        Me.ArchivoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.AbrirToolStripMenuItem, Me.GuardarComoToolStripMenuItem, Me.ToolStripMenuItem1})
         Me.ArchivoToolStripMenuItem.Name = "ArchivoToolStripMenuItem"
         Me.ArchivoToolStripMenuItem.Size = New System.Drawing.Size(60, 20)
         Me.ArchivoToolStripMenuItem.Text = "Archivo"
@@ -126,12 +140,6 @@ Partial Class Notas
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
         Me.ToolStripMenuItem1.Size = New System.Drawing.Size(147, 6)
-        '
-        'SalirToolStripMenuItem
-        '
-        Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
-        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
-        Me.SalirToolStripMenuItem.Text = "Salir"
         '
         'EditarToolStripMenuItem
         '
@@ -214,6 +222,8 @@ Partial Class Notas
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.SystemColors.ScrollBar
+        Me.Panel3.Controls.Add(Me.EliminarRecordatorio3)
+        Me.Panel3.Controls.Add(Me.CrearRecordatorio3)
         Me.Panel3.Controls.Add(Me.Fecha3)
         Me.Panel3.Controls.Add(Me.Recordatorio3)
         Me.Panel3.Controls.Add(Me.TextBox2)
@@ -221,6 +231,35 @@ Partial Class Notas
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(416, 197)
         Me.Panel3.TabIndex = 2
+        '
+        'EliminarRecordatorio3
+        '
+        Me.EliminarRecordatorio3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EliminarRecordatorio3.Location = New System.Drawing.Point(383, 146)
+        Me.EliminarRecordatorio3.Name = "EliminarRecordatorio3"
+        Me.EliminarRecordatorio3.Size = New System.Drawing.Size(30, 38)
+        Me.EliminarRecordatorio3.TabIndex = 11
+        Me.EliminarRecordatorio3.Text = "x"
+        Me.EliminarRecordatorio3.UseVisualStyleBackColor = True
+        '
+        'CrearRecordatorio3
+        '
+        Me.CrearRecordatorio3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CrearRecordatorio3.Location = New System.Drawing.Point(334, 146)
+        Me.CrearRecordatorio3.Name = "CrearRecordatorio3"
+        Me.CrearRecordatorio3.Size = New System.Drawing.Size(33, 38)
+        Me.CrearRecordatorio3.TabIndex = 10
+        Me.CrearRecordatorio3.Text = "+"
+        Me.CrearRecordatorio3.UseVisualStyleBackColor = True
+        '
+        'Fecha3
+        '
+        Me.Fecha3.AutoSize = True
+        Me.Fecha3.Location = New System.Drawing.Point(371, 9)
+        Me.Fecha3.Name = "Fecha3"
+        Me.Fecha3.Size = New System.Drawing.Size(43, 13)
+        Me.Fecha3.TabIndex = 5
+        Me.Fecha3.Text = "Fecha3"
         '
         'Recordatorio3
         '
@@ -242,6 +281,8 @@ Partial Class Notas
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.SystemColors.ScrollBar
+        Me.Panel2.Controls.Add(Me.EliminarRecordatorio2)
+        Me.Panel2.Controls.Add(Me.CrearRecordatorio2)
         Me.Panel2.Controls.Add(Me.Fecha2)
         Me.Panel2.Controls.Add(Me.TextBox3)
         Me.Panel2.Controls.Add(Me.Recordatorio2)
@@ -249,6 +290,35 @@ Partial Class Notas
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(416, 193)
         Me.Panel2.TabIndex = 3
+        '
+        'EliminarRecordatorio2
+        '
+        Me.EliminarRecordatorio2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EliminarRecordatorio2.Location = New System.Drawing.Point(383, 152)
+        Me.EliminarRecordatorio2.Name = "EliminarRecordatorio2"
+        Me.EliminarRecordatorio2.Size = New System.Drawing.Size(30, 38)
+        Me.EliminarRecordatorio2.TabIndex = 9
+        Me.EliminarRecordatorio2.Text = "x"
+        Me.EliminarRecordatorio2.UseVisualStyleBackColor = True
+        '
+        'CrearRecordatorio2
+        '
+        Me.CrearRecordatorio2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CrearRecordatorio2.Location = New System.Drawing.Point(334, 152)
+        Me.CrearRecordatorio2.Name = "CrearRecordatorio2"
+        Me.CrearRecordatorio2.Size = New System.Drawing.Size(33, 38)
+        Me.CrearRecordatorio2.TabIndex = 8
+        Me.CrearRecordatorio2.Text = "+"
+        Me.CrearRecordatorio2.UseVisualStyleBackColor = True
+        '
+        'Fecha2
+        '
+        Me.Fecha2.AutoSize = True
+        Me.Fecha2.Location = New System.Drawing.Point(371, 9)
+        Me.Fecha2.Name = "Fecha2"
+        Me.Fecha2.Size = New System.Drawing.Size(43, 13)
+        Me.Fecha2.TabIndex = 4
+        Me.Fecha2.Text = "Fecha2"
         '
         'TextBox3
         '
@@ -270,13 +340,44 @@ Partial Class Notas
         'Panel4
         '
         Me.Panel4.BackColor = System.Drawing.SystemColors.ScrollBar
+        Me.Panel4.Controls.Add(Me.EliminarRecordatorio)
         Me.Panel4.Controls.Add(Me.Fecha)
+        Me.Panel4.Controls.Add(Me.CrearRecordatorio)
         Me.Panel4.Controls.Add(Me.TextBox1)
         Me.Panel4.Controls.Add(Me.Recordatorio1)
         Me.Panel4.Location = New System.Drawing.Point(2, 43)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(416, 193)
         Me.Panel4.TabIndex = 4
+        '
+        'EliminarRecordatorio
+        '
+        Me.EliminarRecordatorio.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EliminarRecordatorio.Location = New System.Drawing.Point(383, 152)
+        Me.EliminarRecordatorio.Name = "EliminarRecordatorio"
+        Me.EliminarRecordatorio.Size = New System.Drawing.Size(30, 38)
+        Me.EliminarRecordatorio.TabIndex = 7
+        Me.EliminarRecordatorio.Text = "x"
+        Me.EliminarRecordatorio.UseVisualStyleBackColor = True
+        '
+        'Fecha
+        '
+        Me.Fecha.AutoSize = True
+        Me.Fecha.Location = New System.Drawing.Point(373, 12)
+        Me.Fecha.Name = "Fecha"
+        Me.Fecha.Size = New System.Drawing.Size(37, 13)
+        Me.Fecha.TabIndex = 3
+        Me.Fecha.Text = "Fecha"
+        '
+        'CrearRecordatorio
+        '
+        Me.CrearRecordatorio.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CrearRecordatorio.Location = New System.Drawing.Point(334, 152)
+        Me.CrearRecordatorio.Name = "CrearRecordatorio"
+        Me.CrearRecordatorio.Size = New System.Drawing.Size(33, 38)
+        Me.CrearRecordatorio.TabIndex = 6
+        Me.CrearRecordatorio.Text = "+"
+        Me.CrearRecordatorio.UseVisualStyleBackColor = True
         '
         'TextBox1
         '
@@ -300,69 +401,11 @@ Partial Class Notas
         Me.RECORDATORIOS.AutoSize = True
         Me.RECORDATORIOS.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RECORDATORIOS.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.RECORDATORIOS.Location = New System.Drawing.Point(3, 9)
+        Me.RECORDATORIOS.Location = New System.Drawing.Point(7, 9)
         Me.RECORDATORIOS.Name = "RECORDATORIOS"
         Me.RECORDATORIOS.Size = New System.Drawing.Size(208, 25)
         Me.RECORDATORIOS.TabIndex = 5
         Me.RECORDATORIOS.Text = "RECORDATORIOS"
-        '
-        'LabelDelEditor
-        '
-        Me.LabelDelEditor.AutoSize = True
-        Me.LabelDelEditor.BackColor = System.Drawing.SystemColors.HighlightText
-        Me.LabelDelEditor.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelDelEditor.Location = New System.Drawing.Point(465, 0)
-        Me.LabelDelEditor.Name = "LabelDelEditor"
-        Me.LabelDelEditor.Size = New System.Drawing.Size(144, 24)
-        Me.LabelDelEditor.TabIndex = 2
-        Me.LabelDelEditor.Text = "EditorDeTexto"
-        '
-        'Fecha
-        '
-        Me.Fecha.AutoSize = True
-        Me.Fecha.Location = New System.Drawing.Point(373, 12)
-        Me.Fecha.Name = "Fecha"
-        Me.Fecha.Size = New System.Drawing.Size(37, 13)
-        Me.Fecha.TabIndex = 3
-        Me.Fecha.Text = "Fecha"
-        '
-        'Fecha2
-        '
-        Me.Fecha2.AutoSize = True
-        Me.Fecha2.Location = New System.Drawing.Point(371, 9)
-        Me.Fecha2.Name = "Fecha2"
-        Me.Fecha2.Size = New System.Drawing.Size(43, 13)
-        Me.Fecha2.TabIndex = 4
-        Me.Fecha2.Text = "Fecha2"
-        '
-        'Fecha3
-        '
-        Me.Fecha3.AutoSize = True
-        Me.Fecha3.Location = New System.Drawing.Point(371, 9)
-        Me.Fecha3.Name = "Fecha3"
-        Me.Fecha3.Size = New System.Drawing.Size(43, 13)
-        Me.Fecha3.TabIndex = 5
-        Me.Fecha3.Text = "Fecha3"
-        '
-        'CrearRecordatorio
-        '
-        Me.CrearRecordatorio.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CrearRecordatorio.Location = New System.Drawing.Point(333, -1)
-        Me.CrearRecordatorio.Name = "CrearRecordatorio"
-        Me.CrearRecordatorio.Size = New System.Drawing.Size(33, 38)
-        Me.CrearRecordatorio.TabIndex = 6
-        Me.CrearRecordatorio.Text = "+"
-        Me.CrearRecordatorio.UseVisualStyleBackColor = True
-        '
-        'Button1
-        '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(382, -1)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(30, 38)
-        Me.Button1.TabIndex = 7
-        Me.Button1.Text = "x"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'Notas
         '
@@ -370,10 +413,8 @@ Partial Class Notas
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.ClientSize = New System.Drawing.Size(1045, 608)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.CrearRecordatorio)
-        Me.Controls.Add(Me.RECORDATORIOS)
         Me.Controls.Add(Me.Panel4)
+        Me.Controls.Add(Me.RECORDATORIOS)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel1)
@@ -403,7 +444,6 @@ Partial Class Notas
     Friend WithEvents AbrirToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents GuardarComoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents SalirToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents EditarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AtrasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AdelanteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -433,5 +473,9 @@ Partial Class Notas
     Friend WithEvents Fecha2 As System.Windows.Forms.Label
     Friend WithEvents Fecha As System.Windows.Forms.Label
     Friend WithEvents CrearRecordatorio As System.Windows.Forms.Button
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents EliminarRecordatorio As System.Windows.Forms.Button
+    Friend WithEvents EliminarRecordatorio3 As System.Windows.Forms.Button
+    Friend WithEvents CrearRecordatorio3 As System.Windows.Forms.Button
+    Friend WithEvents EliminarRecordatorio2 As System.Windows.Forms.Button
+    Friend WithEvents CrearRecordatorio2 As System.Windows.Forms.Button
 End Class
