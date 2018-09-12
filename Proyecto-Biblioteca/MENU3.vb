@@ -841,7 +841,31 @@ Public Class MENU3
     End Sub
 
     Private Sub Pbconfig_Click(sender As System.Object, e As System.EventArgs) Handles Pbconfig.Click
-        ConfiguraciònAdmin.Show()
+        Dim contraseñaAdmin As String
+        Consulta = "select * from usuarios where tipo = 0"
+        consultar()
+        contraseñaAdmin = InputBox("Por favor ingrese contraseña de un funcionario")
+        For Each row As DataRow In Tabla.Rows
+
+
+            If row("cedula") = contraseñaAdmin Then
+                contraseñaAdmin = "1"
+            End If
+
+        Next
+
+
+        If contraseñaAdmin = "1" Then
+            ConfiguraciònAdmin.Show()
+        Else
+            MsgBox("contraseña no valida")
+        End If
+
+
+
+
+
+
     End Sub
 
     Private Sub Pbconfig_MouseEnter(sender As System.Object, e As System.EventArgs) Handles Pbconfig.MouseEnter

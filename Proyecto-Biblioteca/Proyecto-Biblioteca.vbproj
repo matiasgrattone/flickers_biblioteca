@@ -116,10 +116,10 @@
     <Compile Include="Betas\Registroprestamos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Betas\Seleccion_Registro.Designer.vb">
-      <DependentUpon>Seleccion_Registro.vb</DependentUpon>
+    <Compile Include="Betas\registrorevistas.Designer.vb">
+      <DependentUpon>registrorevistas.vb</DependentUpon>
     </Compile>
-    <Compile Include="Betas\Seleccion_Registro.vb">
+    <Compile Include="Betas\registrorevistas.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Betas\Seleccion_Revistas.Designer.vb">
@@ -234,8 +234,8 @@
     <EmbeddedResource Include="Betas\Registroprestamos.resx">
       <DependentUpon>Registroprestamos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Betas\Seleccion_Registro.resx">
-      <DependentUpon>Seleccion_Registro.vb</DependentUpon>
+    <EmbeddedResource Include="Betas\registrorevistas.resx">
+      <DependentUpon>registrorevistas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Betas\Seleccion_Revistas.resx">
       <DependentUpon>Seleccion_Revistas.vb</DependentUpon>

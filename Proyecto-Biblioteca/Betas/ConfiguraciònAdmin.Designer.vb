@@ -22,20 +22,10 @@ Partial Class ConfiguraciònAdmin
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Node1")
-        Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Node2")
-        Dim TreeNode3 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Node3")
-        Dim TreeNode4 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Node4")
-        Dim TreeNode5 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Node5")
-        Dim TreeNode6 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Socios", New System.Windows.Forms.TreeNode() {TreeNode1, TreeNode2, TreeNode3, TreeNode4, TreeNode5})
-        Dim TreeNode7 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Node15")
-        Dim TreeNode8 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Director", New System.Windows.Forms.TreeNode() {TreeNode7})
-        Dim TreeNode9 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Node9")
-        Dim TreeNode10 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Node10")
-        Dim TreeNode11 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Node11")
-        Dim TreeNode12 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Funiconarios", New System.Windows.Forms.TreeNode() {TreeNode8, TreeNode9, TreeNode10, TreeNode11})
-        Dim TreeNode13 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Node16")
-        Dim TreeNode14 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Administradoes", New System.Windows.Forms.TreeNode() {TreeNode13})
+        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Socios")
+        Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Director")
+        Dim TreeNode3 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Funiconarios", New System.Windows.Forms.TreeNode() {TreeNode2})
+        Dim TreeNode4 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Administradoes")
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.TreeView1 = New System.Windows.Forms.TreeView()
@@ -68,36 +58,16 @@ Partial Class ConfiguraciònAdmin
         '
         Me.TreeView1.Location = New System.Drawing.Point(284, 6)
         Me.TreeView1.Name = "TreeView1"
-        TreeNode1.Name = "Node1"
-        TreeNode1.Text = "Node1"
-        TreeNode2.Name = "Node2"
-        TreeNode2.Text = "Node2"
-        TreeNode3.Name = "Node3"
-        TreeNode3.Text = "Node3"
-        TreeNode4.Name = "Node4"
-        TreeNode4.Text = "Node4"
-        TreeNode5.Name = "Node5"
-        TreeNode5.Text = "Node5"
-        TreeNode6.Name = "Node0"
-        TreeNode6.Text = "Socios"
-        TreeNode7.Name = "Node15"
-        TreeNode7.Text = "Node15"
-        TreeNode8.Name = "Node8"
-        TreeNode8.Text = "Director"
-        TreeNode9.Name = "Node9"
-        TreeNode9.Text = "Node9"
-        TreeNode10.Name = "Node10"
-        TreeNode10.Text = "Node10"
-        TreeNode11.Name = "Node11"
-        TreeNode11.Text = "Node11"
-        TreeNode12.BackColor = System.Drawing.Color.Transparent
-        TreeNode12.Name = "Node6"
-        TreeNode12.Text = "Funiconarios"
-        TreeNode13.Name = "Node16"
-        TreeNode13.Text = "Node16"
-        TreeNode14.Name = "Node12"
-        TreeNode14.Text = "Administradoes"
-        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode6, TreeNode12, TreeNode14})
+        TreeNode1.Name = "Node0"
+        TreeNode1.Text = "Socios"
+        TreeNode2.Name = "Node8"
+        TreeNode2.Text = "Director"
+        TreeNode3.BackColor = System.Drawing.Color.Transparent
+        TreeNode3.Name = "Node6"
+        TreeNode3.Text = "Funiconarios"
+        TreeNode4.Name = "Node12"
+        TreeNode4.Text = "Administradoes"
+        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode1, TreeNode3, TreeNode4})
         Me.TreeView1.Size = New System.Drawing.Size(214, 446)
         Me.TreeView1.TabIndex = 9
         '
