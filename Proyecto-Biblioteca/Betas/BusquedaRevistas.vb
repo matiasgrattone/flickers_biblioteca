@@ -110,6 +110,29 @@
         End If
     End Sub
 
+    Private Sub dgvrevistas_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvrevistas.CellDoubleClick
+
+        Consulta = "select * from revistas"
+        consultar()
+        For Each row As DataRow In Tabla.Rows
+            titulo_txt.Text = row("titulo").ToString
+            anio_txt.Text = row("anio").ToString
+            origen_txt.Text = row("origen").ToString
+            desc_txt.Text = row("descripcion").ToString
+            Select Case row("estado")
+                Case 0
+                    cmbupdate.SelectedIndex = 0
+                Case 1
+                    cmbupdate.SelectedIndex = 1
+                Case 2
+                    cmbupdate.SelectedIndex = 2
+                Case 3
+                    cmbupdate.SelectedIndex = 3
+            End Select
+        Next
+
+    End Sub
+
     Private Sub dgvrevistas_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles dgvrevistas.MouseClick
         Try
             '///El usuario selecciona una fila de datos en el DataGrid y estos son copiados a un Panel///'
@@ -231,6 +254,36 @@
     End Sub
 
     Private Sub btnupdate_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnupdate.Click
+        Dim id As Integer
+        Dim titulo As String = Nothing
+        Dim año As Integer = Nothing
+        Dim origen As String = Nothing
+        Dim descripcion As String = Nothing
+        Dim estado As Integer = Nothing
 
+        Consulta = "select * from revistas"
+        consultar()
+        For Each row As DataRow In Tabla.Rows
+            id = Val(row("id_revistas"))
+        Next
+
+        titulo = titulo_txt.Text
+        año = anio_txt.Text
+        origen = origen_txt.Text
+        descripcion = desc_txt.Text
+        Select Case cmbupdate.SelectedIndex
+            Case 0
+                estado = 0
+            Case 1
+                estado = 1
+            Case 2
+                estado = 2
+            Case 3
+                estado = 3
+        End Select
+
+        Consulta = "update table revistas set titulo='" & titulo & "' where id_revistas='" & id & "'"
+        consultar()
     End Sub
+
 End Class
