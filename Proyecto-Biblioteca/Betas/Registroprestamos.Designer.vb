@@ -43,6 +43,7 @@ Partial Class Registroprestamos
         Me.dgvregistro.Name = "dgvregistro"
         Me.dgvregistro.ReadOnly = True
         Me.dgvregistro.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.dgvregistro.RowHeadersVisible = False
         Me.dgvregistro.Size = New System.Drawing.Size(844, 522)
         Me.dgvregistro.TabIndex = 0
         '
