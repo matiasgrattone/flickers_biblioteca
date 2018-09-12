@@ -105,8 +105,6 @@ Public Class MENU3
     End Sub
 
 
-
-
     '////////////////////////////////Movimiento de Ventana//////////////////////////////////////////////////
 
     Private Sub Panel1_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Phoraencabezado.MouseDown
@@ -1626,28 +1624,40 @@ Public Class MENU3
 
                     ContadorMes = 0
 
-
-
                     ChartPrestamosDia.Series.Clear()
                     ChartPrestamosDia.ChartAreas.Clear()
 
-                    ChartPrestamosDia.ChartAreas.Add("PrestamosDia")
-                    ChartPrestamosDia.Series.Add("PrestamosDia")
+                    ChartPrestamosDia.ChartAreas.Add("Prestamos Del Dia")
+                    ChartPrestamosDia.Series.Add("Prestamos Del Dia")
 
                     For Each row As DataRow In Tabla.Rows
 
-                        ChartPrestamosDia.Series("PrestamosDia").Points.AddXY(row("day(prestamolibro.fecha_salida)"), row("count(prestamolibro.cod_libro)"))
-                        ChartPrestamosDia.Series("PrestamosDia").Points(ContadorDia).AxisLabel = "Dia : " + "#VALX"
+                        ChartPrestamosDia.Series("Prestamos Del Dia").Points.AddXY(row("day(prestamolibro.fecha_salida)"), row("count(prestamolibro.cod_libro)"))
+                        ChartPrestamosDia.Series("Prestamos Del Dia").Points(ContadorDia).AxisLabel = "Dia : " + "#VALX"
                         ContadorDia = ContadorDia + 1
+
                     Next
 
-                    ChartPrestamosDia.Series("PrestamosDia").Label = "Libros : " + "#VALY"
+                    ChartPrestamosDia.Series("Prestamos Del Dia").Label = "Libros : " + "#VALY"
 
                     ChartPrestamosDia.ChartAreas(0).AxisX.MajorGrid.Enabled = False
                     'Chart_Prestamos.ChartAreas(0).AxisY.MajorGrid.Enabled = False 
                     PrimerInicio = 0
 
+                    ChartTOP.Series.Clear()
+                    ChartTOP.ChartAreas.Clear()
 
+                    ChartTOP.Series.Add("TOP")
+                    ChartTOP.ChartAreas.Add("TOP")
+
+                    Consulta = "select count(prestamolibro.cod_libro) , libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro group by prestamolibro.cod_libro limit 5"
+                    consultar()
+
+                    For Each row As DataRow In Tabla.Rows
+
+                        ChartTOP.Series("TOP").Points.AddXY(row("titulo"), row("count(prestamolibro.cod_libro)"))
+
+                    Next
 
                 Catch ex As Exception
 
@@ -1668,28 +1678,43 @@ Public Class MENU3
                     ChartPrestamosDia.Series.Clear()
                     ChartPrestamosDia.ChartAreas.Clear()
 
-                    ChartPrestamosDia.ChartAreas.Add("PrestamosDia")
-                    ChartPrestamosDia.Series.Add("PrestamosDia")
+                    ChartPrestamosDia.ChartAreas.Add("Prestamos Del Dia")
+                    ChartPrestamosDia.Series.Add("Prestamos Del Dia")
+
                     Dim x As Integer = 0
                     For Each row As DataRow In Tabla.Rows
 
-                        ChartPrestamosDia.Series("PrestamosDia").Points.AddXY(row("day(prestamolibro.fecha_salida)"), row("count(prestamolibro.cod_libro)"))
-                        ChartPrestamosDia.Series("PrestamosDia").Points(x).AxisLabel = "Dia : " + "#VALX"
+                        ChartPrestamosDia.Series("Prestamos Del Dia").Points.AddXY(row("day(prestamolibro.fecha_salida)"), row("count(prestamolibro.cod_libro)"))
+                        ChartPrestamosDia.Series("Prestamos Del Dia").Points(x).AxisLabel = "Dia : " + "#VALX"
                         x = x + 1
                     Next
 
-                    ChartPrestamosDia.Series("PrestamosDia").Label = "Libros : " + "#VALY"
+                    ChartPrestamosDia.Series("Prestamos Del Dia").Label = "Libros : " + "#VALY"
 
                     ChartPrestamosDia.ChartAreas(0).AxisX.MajorGrid.Enabled = False
                     'Chart_Prestamos.ChartAreas(0).AxisY.MajorGrid.Enabled = False
+
+
+                    ChartTOP.Series.Clear()
+                    ChartTOP.ChartAreas.Clear()
+
+                    ChartTOP.Series.Add("TOP")
+                    ChartTOP.ChartAreas.Add("TOP")
+
+                    Consulta = "select count(prestamolibro.cod_libro) , libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro group by prestamolibro.cod_libro limit 5"
+                    consultar()
+
+                    For Each row As DataRow In Tabla.Rows
+
+                        ChartTOP.Series("TOP").Points.AddXY(row("titulo"), row("count(prestamolibro.cod_libro)"))
+
+                    Next
+
                 Catch ex As Exception
 
                 End Try
 
-
         End Select
 
-
     End Sub
-
 End Class
