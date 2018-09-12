@@ -19,6 +19,8 @@
     Dim contadoringresoau As Integer = 0
     Dim contadoringresoclas As Integer = 0
 
+    Dim errocodigo As Integer
+
     Dim autor As Integer
     Dim editorial As Integer
     Dim clasificacion As Integer
@@ -27,8 +29,7 @@
     Private Sub ingresar_boton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ingresar_boton.Click
         If bandera = 1 Then
             Try
-
-                If Trim(txtcod_libro.Text) = "" And error10 = 1 Then
+                If Trim(txtcod_libro.Text) = "" Then
                     ErrorProvider1.SetError(txtcod_libro, "El campo se encuentra vacio")
                     contadoringreso = contadoringreso + 1
                 End If
@@ -36,7 +37,7 @@
                     ErrorProvider1.SetError(txttitulo, "El campo se encuentra vacio")
                     contadoringreso = contadoringreso + 1
                 End If
-                If Trim(txtanio.Text) = "" And error10 = 1 Then
+                If Trim(txtanio.Text) = "" Then
                     ErrorProvider1.SetError(txtanio, "El campo se encuentra vacio")
                     contadoringreso = contadoringreso + 1
                 End If
@@ -52,7 +53,7 @@
                     ErrorProvider1.SetError(txtclasificacion, "El campo se encuentra vacio")
                     contadoringreso = contadoringreso + 1
                 End If
-                If Trim(txtvolumen.Text) = "" And error10 = 1 Then
+                If Trim(txtvolumen.Text) = "" Then
                     ErrorProvider1.SetError(txtvolumen, "El campo se encuentra vacio")
                     contadoringreso = contadoringreso + 1
                 End If
@@ -65,6 +66,10 @@
                     If contadoringreso <> 0 Then
                         contadoringreso = 0
                         primeringreso = 1
+
+                        '////////////
+                        errocodigo = 1
+                        '/////////////
                     Else
 
                         For Each Row As DataGridViewRow In dgvlibro.Rows
@@ -77,7 +82,7 @@
 
                         If cod = 1 Then
                             'En caso de estarlo envia un mensaje de error.
-                            MsgBox("este codigo ya existe en el inventario")
+                            ErrorProvider1.SetError(txtcod_libro, "El Codigo Ya Existe En El Inventario")
                             cod = 0
                         Else
 
@@ -366,6 +371,7 @@
             MsgBox("Esta accion es imposible de realizar actualmente")
         End If
     End Sub
+
     Private Sub btncancelarautor_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btncancelarautor.Click
 
         'El boton se esconde.
@@ -376,6 +382,10 @@
         'Limpia los campos de texto'
         txtnombreau.Clear()
         txtpaisau.Clear()
+
+        'Desactiva los errorprovider
+        ErrorProvider1.SetError(txtnombreau, "")
+        ErrorProvider1.SetError(txtpaisau, "")
 
         'El Datagrid se redimensiona y a su vez el panel se mueve a su posicion inicial.
         timerautor.Enabled = True
@@ -391,6 +401,7 @@
         btncancelaredi.Visible = True
 
     End Sub
+
     Private Sub btnvolver_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnvolver.Click
 
         If activadoEdi = 1 Then
@@ -407,6 +418,11 @@
         txtnombree.Clear()
         txtpais.Clear()
         txtanioe.Clear()
+
+        'Si no se escoge ningun dato y el campo se mantiene vacio, el errorprovider es activado.
+        If txtcasa_editorial.Text = "" Then
+            ErrorProvider1.SetError(txtcasa_editorial, "El Campo Se encuentra vacio")
+        End If
 
         'El panel editorial se oculta.
         Peditorial.Visible = False
@@ -429,6 +445,7 @@
         'El panel que contiene el datagrid se esconde.
         Peditorial.Visible = False
     End Sub
+
     Private Sub btnvolver2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnvolver2.Click
         If activadoAut = 1 Then
             'El datagrid se redimensiona y a su vez el panel vuelve a su posicion original.
@@ -444,9 +461,15 @@
         txtnombreau.Clear()
         txtpaisau.Clear()
 
+        'Si no se escoge ningun dato y el campo se mantiene vacio, el errorprovider es activado.
+        If txtautor.Text = "" Then
+            ErrorProvider1.SetError(txtautor, "El Campo Se encuentra vacio")
+        End If
+
         'El panel autor se oculta.
         Pautor.Visible = False
     End Sub
+
     Private Sub btnnweditorial_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnnweditorial.Click
 
         If Trim(txtnombree.Text) = "" Or error10 = 1 Then
@@ -499,6 +522,7 @@
             End If
         End If
     End Sub
+
     Private Sub txtbuscarautor_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtbuscarautor.TextChanged
         'Busuqeda de autor
         Try
@@ -510,6 +534,7 @@
         End Try
 
     End Sub
+
     Private Sub btncancelaredi_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btncancelaredi.Click
 
         'El boton se esconde
@@ -521,6 +546,11 @@
         txtnombree.Clear()
         txtpais.Clear()
         txtanioe.Clear()
+
+        'Desactiva los errorprovider
+        ErrorProvider1.SetError(txtnombree, "")
+        ErrorProvider1.SetError(txtpais, "")
+        ErrorProvider1.SetError(txtanioe, "")
 
         'El Datagrid se redimensiona y a su vez el panel vuelve a su posicion inicial.
         timereditorial.Enabled = True
@@ -562,10 +592,10 @@
             ErrorProvider1.SetError(txtcod_libro, "ingrese solo numeros")
             error10 = 1
         Else
-            ErrorProvider1.SetError(txtcod_libro, "")
             error10 = 0
         End If
     End Sub
+
     Private Sub txtcod_libro_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtcod_libro.TextChanged
         'Activa el mensaje de error al fallar el ingreso.
         If primeringreso = 1 Then
@@ -575,6 +605,8 @@
                 'En caso de escribir algo en el textbox este se desactiva
                 ErrorProvider1.SetError(txtcod_libro, "")
             End If
+        Else
+            ErrorProvider1.SetError(txtcod_libro, "")
         End If
     End Sub
 
@@ -592,6 +624,8 @@
                 'En caso de escribir algo en el textbox este se desactiva
                 ErrorProvider1.SetError(txttitulo, "")
             End If
+        Else
+            ErrorProvider1.SetError(txttitulo, "")
         End If
     End Sub
 
@@ -601,7 +635,6 @@
             ErrorProvider1.SetError(txtanio, "ingrese solo numeros")
             error10 = 1
         Else
-            ErrorProvider1.SetError(txtanio, "")
             error10 = 0
         End If
     End Sub
@@ -615,6 +648,8 @@
                 'En caso de escribir algo en el textbox este se desactiva
                 ErrorProvider1.SetError(txtanio, "")
             End If
+        Else
+            ErrorProvider1.SetError(txtanio, "")
         End If
 
 
@@ -626,7 +661,6 @@
             ErrorProvider1.SetError(txtorigen, "ingrese solo letras")
             error10 = 1
         Else
-            ErrorProvider1.SetError(txtorigen, "")
             error10 = 0
         End If
     End Sub
@@ -640,6 +674,8 @@
                 'En caso de escribir algo en el textbox este se desactiva
                 ErrorProvider1.SetError(txtorigen, "")
             End If
+        Else
+            ErrorProvider1.SetError(txtorigen, "")
         End If
     End Sub
 
@@ -649,7 +685,6 @@
             ErrorProvider1.SetError(txtvolumen, "ingrese solo numeros")
             error10 = 1
         Else
-            ErrorProvider1.SetError(txtvolumen, "")
             error10 = 0
         End If
     End Sub
@@ -663,6 +698,8 @@
                 'En caso de escribir algo en el textbox este se desactiva
                 ErrorProvider1.SetError(txtvolumen, "")
             End If
+        Else
+            ErrorProvider1.SetError(txtvolumen, "")
         End If
     End Sub
 
@@ -679,6 +716,8 @@
                 'En caso de escribir algo en el textbox este se desactiva
                 ErrorProvider1.SetError(txtvolumen, "")
             End If
+        Else
+            ErrorProvider1.SetError(txtobservaciones, "")
         End If
     End Sub
 
@@ -691,18 +730,7 @@
                 'En caso de escribir algo en el textbox este se desactiva
                 ErrorProvider1.SetError(txtautor, "")
             End If
-        End If
-    End Sub
-
-    Private Sub editorial_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        'Activa el mensaje de error al fallar el ingreso.
-        If primeringreso = 1 Then
-            If editorial = "" Then
-                ErrorProvider1.SetError(txtcasa_editorial, "El campo se encuentra vacio")
-            Else
-                'En caso de escribir algo en el textbox este se desactiva
-                ErrorProvider1.SetError(txtcasa_editorial, "")
-            End If
+            ErrorProvider1.SetError(txtautor, "")
         End If
     End Sub
 
@@ -767,6 +795,7 @@
             MsgBox("Esta accion es imposible de realizar actualmente")
         End If
     End Sub
+
     Private Sub btncancelar2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btncancelarautor.Click
 
         'El boton se esconde.
@@ -846,6 +875,11 @@
         txtpais.Clear()
         txtanioe.Clear()
 
+        'Si no se escoge ningun dato y el campo se mantiene vacio, el errorprovider es activado.
+        If txtclasificacion.Text = "" Then
+            ErrorProvider1.SetError(txtclasificacion, "El Campo Se encuentra vacio")
+        End If
+
         'El panel editorial se oculta.
         Pclasificacion.Visible = False
     End Sub
@@ -860,6 +894,10 @@
         'Limpia los campos de texto'
         txtnombreclas.Clear()
         txtcodclas.Clear()
+
+        'Desactiva los errorprovider
+        ErrorProvider1.SetError(txtcodclas, "")
+        ErrorProvider1.SetError(txtnombreclas, "")
 
         'El Datagrid se redimensiona y a su vez el panel se mueve a su posicion inicial.
         timerclasificacion.Enabled = True
@@ -910,6 +948,7 @@
             End If
         End If
     End Sub
+
     Private Sub dgvclasificacion_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvclasificacion.CellDoubleClick
         'Al dar doble click sobre la celda del datagrid el campo de texto recibe el dato del nombre del autor.
         txtclasificacion.Text = dgvclasificacion.Item(1, dgvclasificacion.CurrentRow.Index).Value
@@ -920,24 +959,30 @@
 
     Private Sub txtcodclas_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtcodclas.KeyUp
         txtcodclas.MaxLength = 255
-        If Not IsNumeric(txtcodclas.Text) Or e.KeyCode = 46 And txtcodclas.Text <> "" Then
+        If Not IsNumeric(txtcodclas.Text) And txtcodclas.Text <> "" Then
             ErrorProvider1.SetError(txtcodclas, "ingrese solo numeros")
             error10 = 1
         Else
-            ErrorProvider1.SetError(txtcodclas, "")
+
             error10 = 0
         End If
+
+        '/////////////////////////
+        'Asquii . = e.KeyCode = 46
+        '////////////////////////
     End Sub
 
     Private Sub txtcodclas_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtcodclas.TextChanged
         'Activa el mensaje de error al fallar el ingreso.
-        If primeringreso = 1 Then
+        If primeringresoclas = 1 Then
             If txtcodclas.Text = "" Then
                 ErrorProvider1.SetError(txtcodclas, "El campo se encuentra vacio")
             Else
                 'En caso de escribir algo en el textbox este se desactiva
                 ErrorProvider1.SetError(txtcodclas, "")
             End If
+        Else
+
         End If
     End Sub
 
@@ -947,7 +992,6 @@
             ErrorProvider1.SetError(txtanioe, "ingrese solo numeros")
             error10 = 1
         Else
-            ErrorProvider1.SetError(txtanioe, "")
             error10 = 0
         End If
     End Sub
@@ -977,7 +1021,6 @@
             ErrorProvider1.SetError(txtpaisau, "ingrese solo letras")
             error10 = 1
         Else
-            ErrorProvider1.SetError(txtpaisau, "")
             error10 = 0
         End If
     End Sub
@@ -988,7 +1031,6 @@
             ErrorProvider1.SetError(txtnombree, "ingrese solo letras")
             error10 = 1
         Else
-            ErrorProvider1.SetError(txtnombree, "")
             error10 = 0
         End If
     End Sub
@@ -999,7 +1041,6 @@
             ErrorProvider1.SetError(txtnombreclas, "ingrese solo letras")
             error10 = 1
         Else
-            ErrorProvider1.SetError(txtnombreclas, "")
             error10 = 0
         End If
     End Sub
@@ -1010,7 +1051,6 @@
             ErrorProvider1.SetError(txtnombreau, "ingrese solo letras")
             error10 = 1
         Else
-            ErrorProvider1.SetError(txtnombreau, "")
             error10 = 0
         End If
 
@@ -1022,68 +1062,93 @@
             ErrorProvider1.SetError(txtpais, "ingrese solo letras")
             error10 = 1
         Else
-            ErrorProvider1.SetError(txtpais, "")
             error10 = 0
         End If
     End Sub
 
     Private Sub txtpais_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtpais.TextChanged
         'Activa el mensaje de error al fallar el ingreso.
-        If primeringreso = 1 Then
+        If primeringresoedi = 1 Then
             If txtpais.Text = "" Then
                 ErrorProvider1.SetError(txtpais, "El campo se encuentra vacio")
             Else
                 'En caso de escribir algo en el textbox este se desactiva
                 ErrorProvider1.SetError(txtpais, "")
             End If
+        Else
+            ErrorProvider1.SetError(txtpais, "")
         End If
     End Sub
 
     Private Sub txtnombreau_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtnombreau.TextChanged
         'Activa el mensaje de error al fallar el ingreso.
-        If primeringreso = 1 Then
+        If primeringresoau = 1 Then
             If txtnombreau.Text = "" Then
                 ErrorProvider1.SetError(txtnombreau, "El campo se encuentra vacio")
             Else
                 'En caso de escribir algo en el textbox este se desactiva
                 ErrorProvider1.SetError(txtnombreau, "")
             End If
+        Else
+            ErrorProvider1.SetError(txtnombreau, "")
         End If
     End Sub
 
     Private Sub txtnombreclas_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtnombreclas.TextChanged
         'Activa el mensaje de error al fallar el ingreso.
-        If primeringreso = 1 Then
+        If primeringresoclas = 1 Then
             If txtnombreclas.Text = "" Then
                 ErrorProvider1.SetError(txtnombreclas, "El campo se encuentra vacio")
             Else
                 'En caso de escribir algo en el textbox este se desactiva
                 ErrorProvider1.SetError(txtnombreclas, "")
             End If
+        Else
+            ErrorProvider1.SetError(txtnombreclas, "")
         End If
     End Sub
 
     Private Sub txtnombree_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtnombree.TextChanged
         'Activa el mensaje de error al fallar el ingreso.
-        If primeringreso = 1 Then
+        If primeringresoedi = 1 Then
             If txtnombree.Text = "" Then
                 ErrorProvider1.SetError(txtnombree, "El campo se encuentra vacio")
             Else
                 'En caso de escribir algo en el textbox este se desactiva
                 ErrorProvider1.SetError(txtnombree, "")
             End If
+        Else
+            ErrorProvider1.SetError(txtnombree, "")
         End If
     End Sub
 
     Private Sub txtpaisau_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtpaisau.TextChanged
         'Activa el mensaje de error al fallar el ingreso.
-        If primeringreso = 1 Then
+        If primeringresoau = 1 Then
             If txtpaisau.Text = "" Then
                 ErrorProvider1.SetError(txtpaisau, "El campo se encuentra vacio")
             Else
                 'En caso de escribir algo en el textbox este se desactiva
                 ErrorProvider1.SetError(txtpaisau, "")
             End If
+        Else
+            ErrorProvider1.SetError(txtpaisau, "")
         End If
     End Sub
+
+    Private Sub txtcasa_editorial_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtcasa_editorial.TextChanged
+        'Activa el mensaje de error al fallar el ingreso.
+        If primeringreso = 1 Then
+            If txtcasa_editorial.Text = "" Then
+                ErrorProvider1.SetError(txtcasa_editorial, "El campo se encuentra vacio")
+            Else
+                'En caso de escribir algo en el textbox este se desactiva
+                ErrorProvider1.SetError(txtcasa_editorial, "")
+            End If
+        Else
+            ErrorProvider1.SetError(txtcasa_editorial, "")
+        End If
+    End Sub
+
+
 End Class

@@ -41,13 +41,13 @@ Partial Class ingresolibro
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Peditorial = New System.Windows.Forms.Panel()
-        Me.dgveditorial = New System.Windows.Forms.DataGridView()
         Me.Paneleditorial = New System.Windows.Forms.Panel()
         Me.btnnweditorial = New System.Windows.Forms.Button()
         Me.lblanio = New System.Windows.Forms.Label()
         Me.lblpais = New System.Windows.Forms.Label()
         Me.lblnombreeditorial = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
+        Me.dgveditorial = New System.Windows.Forms.DataGridView()
         Me.btnvolver = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btningeditorial = New System.Windows.Forms.Button()
@@ -105,8 +105,8 @@ Partial Class ingresolibro
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Peditorial.SuspendLayout()
-        CType(Me.dgveditorial, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Paneleditorial.SuspendLayout()
+        CType(Me.dgveditorial, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Pautor.SuspendLayout()
         Me.panelautor.SuspendLayout()
         CType(Me.dgvautor, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -295,21 +295,6 @@ Partial Class ingresolibro
         Me.Peditorial.Size = New System.Drawing.Size(421, 285)
         Me.Peditorial.TabIndex = 45
         '
-        'dgveditorial
-        '
-        Me.dgveditorial.AllowUserToAddRows = False
-        Me.dgveditorial.AllowUserToDeleteRows = False
-        Me.dgveditorial.AllowUserToResizeColumns = False
-        Me.dgveditorial.AllowUserToResizeRows = False
-        Me.dgveditorial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgveditorial.Location = New System.Drawing.Point(5, 24)
-        Me.dgveditorial.Name = "dgveditorial"
-        Me.dgveditorial.ReadOnly = True
-        Me.dgveditorial.RowHeadersVisible = False
-        Me.dgveditorial.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgveditorial.Size = New System.Drawing.Size(410, 231)
-        Me.dgveditorial.TabIndex = 1
-        '
         'Paneleditorial
         '
         Me.Paneleditorial.BackColor = System.Drawing.Color.DarkSlateGray
@@ -374,6 +359,21 @@ Partial Class ingresolibro
         Me.Label10.Size = New System.Drawing.Size(144, 16)
         Me.Label10.TabIndex = 11
         Me.Label10.Text = "Ingrese nueva editorial"
+        '
+        'dgveditorial
+        '
+        Me.dgveditorial.AllowUserToAddRows = False
+        Me.dgveditorial.AllowUserToDeleteRows = False
+        Me.dgveditorial.AllowUserToResizeColumns = False
+        Me.dgveditorial.AllowUserToResizeRows = False
+        Me.dgveditorial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgveditorial.Location = New System.Drawing.Point(5, 24)
+        Me.dgveditorial.Name = "dgveditorial"
+        Me.dgveditorial.ReadOnly = True
+        Me.dgveditorial.RowHeadersVisible = False
+        Me.dgveditorial.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgveditorial.Size = New System.Drawing.Size(410, 231)
+        Me.dgveditorial.TabIndex = 1
         '
         'btnvolver
         '
@@ -941,9 +941,9 @@ Partial Class ingresolibro
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Peditorial.ResumeLayout(False)
         Me.Peditorial.PerformLayout()
-        CType(Me.dgveditorial, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Paneleditorial.ResumeLayout(False)
         Me.Paneleditorial.PerformLayout()
+        CType(Me.dgveditorial, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Pautor.ResumeLayout(False)
         Me.Pautor.PerformLayout()
         Me.panelautor.ResumeLayout(False)
