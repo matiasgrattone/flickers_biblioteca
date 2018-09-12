@@ -27,8 +27,8 @@ Partial Class registrorevistas
         Me.cmbmes = New System.Windows.Forms.ComboBox()
         Me.cmbaño = New System.Windows.Forms.ComboBox()
         Me.cmbbusqueda = New System.Windows.Forms.ComboBox()
-        Me.txtbusqueda = New Proyecto_Biblioteca.PlaceHolder()
         Me.dgvregistro = New System.Windows.Forms.DataGridView()
+        Me.txtbusqueda = New Proyecto_Biblioteca.PlaceHolder()
         CType(Me.dgvregistro, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -45,7 +45,6 @@ Partial Class registrorevistas
         '
         Me.cmbdia.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbdia.FormattingEnabled = True
-        Me.cmbdia.Items.AddRange(New Object() {"01", "02", "03", "04", "05", "29"})
         Me.cmbdia.Location = New System.Drawing.Point(602, 26)
         Me.cmbdia.Name = "cmbdia"
         Me.cmbdia.Size = New System.Drawing.Size(58, 23)
@@ -55,7 +54,6 @@ Partial Class registrorevistas
         '
         Me.cmbmes.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbmes.FormattingEnabled = True
-        Me.cmbmes.Items.AddRange(New Object() {"01", "02", "03", "04", "05", "09"})
         Me.cmbmes.Location = New System.Drawing.Point(666, 26)
         Me.cmbmes.Name = "cmbmes"
         Me.cmbmes.Size = New System.Drawing.Size(116, 23)
@@ -65,7 +63,6 @@ Partial Class registrorevistas
         '
         Me.cmbaño.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbaño.FormattingEnabled = True
-        Me.cmbaño.Items.AddRange(New Object() {"2000", "2001", "2002", "2018"})
         Me.cmbaño.Location = New System.Drawing.Point(788, 26)
         Me.cmbaño.Name = "cmbaño"
         Me.cmbaño.Size = New System.Drawing.Size(68, 23)
@@ -81,16 +78,6 @@ Partial Class registrorevistas
         Me.cmbbusqueda.Size = New System.Drawing.Size(194, 23)
         Me.cmbbusqueda.TabIndex = 12
         '
-        'txtbusqueda
-        '
-        Me.txtbusqueda.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbusqueda.Location = New System.Drawing.Point(12, 25)
-        Me.txtbusqueda.Name = "txtbusqueda"
-        Me.txtbusqueda.Size = New System.Drawing.Size(274, 23)
-        Me.txtbusqueda.TabIndex = 11
-        Me.txtbusqueda.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txtbusqueda.WaterMarkText = "Ingrese"
-        '
         'dgvregistro
         '
         Me.dgvregistro.AllowUserToAddRows = False
@@ -105,6 +92,16 @@ Partial Class registrorevistas
         Me.dgvregistro.RowHeadersVisible = False
         Me.dgvregistro.Size = New System.Drawing.Size(844, 522)
         Me.dgvregistro.TabIndex = 10
+        '
+        'txtbusqueda
+        '
+        Me.txtbusqueda.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbusqueda.Location = New System.Drawing.Point(12, 25)
+        Me.txtbusqueda.Name = "txtbusqueda"
+        Me.txtbusqueda.Size = New System.Drawing.Size(274, 23)
+        Me.txtbusqueda.TabIndex = 11
+        Me.txtbusqueda.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txtbusqueda.WaterMarkText = "Ingrese"
         '
         'registrorevistas
         '
