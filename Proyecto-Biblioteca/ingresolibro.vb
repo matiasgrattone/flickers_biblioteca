@@ -1,9 +1,11 @@
 ﻿Public Class ingresolibro
     Dim idlibro As Integer '//////////////// VARIABLE QUE VA A CONTENER EL ID DE LIBRO /////////////////////// Esto no se esta utiizando
     Dim cod As Integer = 0
+
     Dim activadoEdi As Integer = 0
     Dim activadoAut As Integer = 0
     Dim activadoclas As Integer = 0
+
     Dim dvgeditorialW As Integer
     Dim dvgautorW As Integer
     Dim dgvclas As Integer
@@ -24,6 +26,7 @@
     Dim autor As Integer
     Dim editorial As Integer
     Dim clasificacion As Integer
+
     Dim seleccionado As Integer = 0
     Dim error10 As Integer = 0
     Private Sub ingresar_boton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ingresar_boton.Click
@@ -240,6 +243,10 @@
         Peditorial.Visible = False
         Pclasificacion.Visible = False
         cmbclasificacion.SelectedIndex = 0
+        txtcasa_editorial.Text = "Sin Editorial"
+        txtorigen.Text = "Sin Origen"
+        txtvolumen.Text = "Sin Volumenes"
+
         'Comprobacion'
 
         Consulta = "select * from usuarios"
@@ -1150,5 +1157,11 @@
         End If
     End Sub
 
+    Private Sub dgvclasificacion_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvclasificacion.CellContentClick
 
+    End Sub
+
+    Private Sub dgveditorial_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgveditorial.CellContentClick
+
+    End Sub
 End Class
