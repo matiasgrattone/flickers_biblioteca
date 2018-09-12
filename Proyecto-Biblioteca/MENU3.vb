@@ -18,7 +18,6 @@ Public Class MENU3
     Dim PrimerInicio As Integer = 1
     Dim ContadorDia As Integer = 0
     Dim ContadorMes As Integer = 0
-    Public ANIMACION As Integer = 0
 
 
     Private Sub MENU3_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -96,7 +95,9 @@ Public Class MENU3
 
         End Select
 
-
+        '//////////////// PRESTAMOS EN VIVO ///////////////
+        Timer_Prestamos_LIVE.Enabled = True
+        '/////////////////////////////////////////////////
 
     End Sub
 
@@ -1715,6 +1716,19 @@ Public Class MENU3
                 End Try
 
         End Select
+ 
+
 
     End Sub
+
+    Private Sub Timer_Prestamos_LIVE_Tick(sender As System.Object, e As System.EventArgs) Handles Timer_Prestamos_LIVE.Tick
+        ListBox1.Items.Clear()
+        Consulta = "select libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where fecha_entrada is null"
+        consultar()
+        For Each row As DataRow In Tabla.Rows
+            ListBox1.Items.Add(row("titulo"))
+        Next
+
+    End Sub
+
 End Class

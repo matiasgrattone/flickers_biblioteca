@@ -967,6 +967,7 @@
                 panelnombre = 1
             End If
         Catch ex As Exception
+
             Aparecer.Enabled = False
 
             ExtCombo.Visible = False

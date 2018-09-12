@@ -8,7 +8,6 @@ Module Modulo
     Dim ubicacion As String
     Public invitado As Integer = 0
     Public ERROR1 As Integer
-
     Public Conexion As MySqlDataAdapter
     Public Tabla As DataTable
     Public Consulta As String
@@ -17,15 +16,15 @@ Module Modulo
     Public fecha As String
     Public DatagridModulo As DataGridView ' vairable para poder usar el codigo Datagrid_Align en cualquier formulario
     Public correcto As Integer = 0 '----------------------Variable para verificar si la cedula es valida---------------------------
-
+    Public ANIMACION As Integer = 0
     Public substring As String
 
     Public Sub consultar()
 
         If invitado = 0 Then
-            'ubicacion = "server=localhost; user id=root; password=''; database=biblioteca"
+            ubicacion = "server=localhost; user id=root; password=''; database=biblioteca"
             'ubicacion = "server=192.168.1.12; user id=admin; password=admin; database=biblioteca" ' NO BORRAR, YO USO ESTA PARA PROGRAMAR EN CASA, GUILLE (NO PUEDO USAR EL DOMINIO EN LAN)
-            ubicacion = "server=bibliotecadb.ddns.net; user id=admin; password=admin; database=biblioteca"
+            'ubicacion = "server=bibliotecadb.ddns.net; user id=admin; password=admin; database=biblioteca"
         Else
             'ubicacion = "server=192.168.1.12; user id=invitado; password=invitado; database=biblioteca"
             ubicacion = "server=bibliotecadb.ddns.net; user id=invitado; password=invitado; database=biblioteca"

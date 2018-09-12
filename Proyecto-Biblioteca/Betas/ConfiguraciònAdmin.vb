@@ -33,7 +33,7 @@
     End Sub
 
     Private Sub ComboBox3_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBox3.SelectedIndexChanged
-        MENU3.ANIMACION = ComboBox3.SelectedItem
+        ANIMACION = ComboBox3.SelectedItem
         If ComboBox3.SelectedItem = 1 Then
             MENU3.Timer_InicioLabel.Enabled = True
             MENU3.Timer_LibrosLabel.Enabled = True
