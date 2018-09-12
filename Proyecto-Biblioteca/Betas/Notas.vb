@@ -2,7 +2,7 @@
 
     Private Sub Notas_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         '///////Ah  ubicacion se le asigna una ruta del archivo.txt///////
-        Dim Ubicacion As System.IO.StreamReader = New System.IO.StreamReader("C:\Users\usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\Importante.txt", System.Text.Encoding.[Default])
+        Dim Ubicacion As System.IO.StreamReader = New System.IO.StreamReader("", System.Text.Encoding.[Default])
         '/////////////////
 
         '///////Igualamos la variable "Texto" ah a el contenido 

@@ -243,9 +243,8 @@
         Peditorial.Visible = False
         Pclasificacion.Visible = False
         cmbclasificacion.SelectedIndex = 0
-        txtcasa_editorial.Text = "Sin Editorial"
         txtorigen.Text = "Sin Origen"
-        txtvolumen.Text = "Sin Volumenes"
+        txtvolumen.Text = "0"
 
         'Comprobacion'
 
