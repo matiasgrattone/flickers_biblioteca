@@ -22,8 +22,8 @@ Partial Class Notas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.LabelDelEditor = New System.Windows.Forms.Label()
         Me.EditorDeTexto = New System.Windows.Forms.TextBox()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
@@ -33,9 +33,6 @@ Partial Class Notas
         Me.GuardarComoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator()
         Me.EditarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AtrasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AdelanteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripSeparator()
         Me.CortarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CopiarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PegarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -59,16 +56,16 @@ Partial Class Notas
         Me.TextoParaRecordar2 = New System.Windows.Forms.TextBox()
         Me.Recordatorio2 = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.TextOculto = New System.Windows.Forms.TextBox()
+        Me.fecha = New System.Windows.Forms.Label()
         Me.EliminarRecordatorio = New System.Windows.Forms.Button()
-        Me.Fecha = New System.Windows.Forms.Label()
+        Me.Fecha1 = New System.Windows.Forms.Label()
         Me.CrearRecordatorio = New System.Windows.Forms.Button()
         Me.TextoParaRecordar1 = New System.Windows.Forms.TextBox()
         Me.Recordatorio1 = New System.Windows.Forms.Label()
+        Me.TextOculto = New System.Windows.Forms.TextBox()
         Me.RECORDATORIOS = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -78,7 +75,6 @@ Partial Class Notas
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.ScrollBar
-        Me.Panel1.Controls.Add(Me.DataGridView1)
         Me.Panel1.Controls.Add(Me.LabelDelEditor)
         Me.Panel1.Controls.Add(Me.EditorDeTexto)
         Me.Panel1.Controls.Add(Me.MenuStrip1)
@@ -86,14 +82,6 @@ Partial Class Notas
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(624, 605)
         Me.Panel1.TabIndex = 0
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(378, 449)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(240, 150)
-        Me.DataGridView1.TabIndex = 6
         '
         'LabelDelEditor
         '
@@ -156,27 +144,10 @@ Partial Class Notas
         '
         'EditarToolStripMenuItem
         '
-        Me.EditarToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AtrasToolStripMenuItem, Me.AdelanteToolStripMenuItem, Me.ToolStripMenuItem2, Me.CortarToolStripMenuItem, Me.CopiarToolStripMenuItem, Me.PegarToolStripMenuItem, Me.ToolStripMenuItem3, Me.SeleccionarTodoElTextoToolStripMenuItem, Me.LimpiarTodoElTextoToolStripMenuItem})
+        Me.EditarToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CortarToolStripMenuItem, Me.CopiarToolStripMenuItem, Me.PegarToolStripMenuItem, Me.ToolStripMenuItem3, Me.SeleccionarTodoElTextoToolStripMenuItem, Me.LimpiarTodoElTextoToolStripMenuItem})
         Me.EditarToolStripMenuItem.Name = "EditarToolStripMenuItem"
         Me.EditarToolStripMenuItem.Size = New System.Drawing.Size(49, 20)
         Me.EditarToolStripMenuItem.Text = "Editar"
-        '
-        'AtrasToolStripMenuItem
-        '
-        Me.AtrasToolStripMenuItem.Name = "AtrasToolStripMenuItem"
-        Me.AtrasToolStripMenuItem.Size = New System.Drawing.Size(203, 22)
-        Me.AtrasToolStripMenuItem.Text = "Atras"
-        '
-        'AdelanteToolStripMenuItem
-        '
-        Me.AdelanteToolStripMenuItem.Name = "AdelanteToolStripMenuItem"
-        Me.AdelanteToolStripMenuItem.Size = New System.Drawing.Size(203, 22)
-        Me.AdelanteToolStripMenuItem.Text = "Adelante"
-        '
-        'ToolStripMenuItem2
-        '
-        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(200, 6)
         '
         'CortarToolStripMenuItem
         '
@@ -268,11 +239,10 @@ Partial Class Notas
         'Fecha3
         '
         Me.Fecha3.AutoSize = True
-        Me.Fecha3.Location = New System.Drawing.Point(371, 9)
+        Me.Fecha3.Location = New System.Drawing.Point(345, 9)
         Me.Fecha3.Name = "Fecha3"
-        Me.Fecha3.Size = New System.Drawing.Size(43, 13)
+        Me.Fecha3.Size = New System.Drawing.Size(0, 13)
         Me.Fecha3.TabIndex = 5
-        Me.Fecha3.Text = "Fecha3"
         '
         'Recordatorio3
         '
@@ -328,11 +298,10 @@ Partial Class Notas
         'Fecha2
         '
         Me.Fecha2.AutoSize = True
-        Me.Fecha2.Location = New System.Drawing.Point(371, 9)
+        Me.Fecha2.Location = New System.Drawing.Point(345, 9)
         Me.Fecha2.Name = "Fecha2"
-        Me.Fecha2.Size = New System.Drawing.Size(43, 13)
+        Me.Fecha2.Size = New System.Drawing.Size(0, 13)
         Me.Fecha2.TabIndex = 4
-        Me.Fecha2.Text = "Fecha2"
         '
         'TextoParaRecordar2
         '
@@ -356,22 +325,25 @@ Partial Class Notas
         '
         Me.Panel4.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.Panel4.Controls.Add(Me.EliminarRecordatorio)
-        Me.Panel4.Controls.Add(Me.Fecha)
+        Me.Panel4.Controls.Add(Me.Fecha1)
         Me.Panel4.Controls.Add(Me.CrearRecordatorio)
         Me.Panel4.Controls.Add(Me.TextoParaRecordar1)
         Me.Panel4.Controls.Add(Me.Recordatorio1)
         Me.Panel4.Controls.Add(Me.TextOculto)
+        Me.Panel4.Controls.Add(Me.fecha)
         Me.Panel4.Location = New System.Drawing.Point(2, 43)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(416, 193)
         Me.Panel4.TabIndex = 4
         '
-        'TextOculto
+        'fecha
         '
-        Me.TextOculto.Location = New System.Drawing.Point(10, 58)
-        Me.TextOculto.Name = "TextOculto"
-        Me.TextOculto.Size = New System.Drawing.Size(100, 20)
-        Me.TextOculto.TabIndex = 8
+        Me.fecha.AutoSize = True
+        Me.fecha.Location = New System.Drawing.Point(229, 65)
+        Me.fecha.Name = "fecha"
+        Me.fecha.Size = New System.Drawing.Size(10, 13)
+        Me.fecha.TabIndex = 6
+        Me.fecha.Text = " "
         '
         'EliminarRecordatorio
         '
@@ -383,14 +355,13 @@ Partial Class Notas
         Me.EliminarRecordatorio.Text = "x"
         Me.EliminarRecordatorio.UseVisualStyleBackColor = True
         '
-        'Fecha
+        'Fecha1
         '
-        Me.Fecha.AutoSize = True
-        Me.Fecha.Location = New System.Drawing.Point(373, 12)
-        Me.Fecha.Name = "Fecha"
-        Me.Fecha.Size = New System.Drawing.Size(37, 13)
-        Me.Fecha.TabIndex = 3
-        Me.Fecha.Text = "Fecha"
+        Me.Fecha1.AutoSize = True
+        Me.Fecha1.Location = New System.Drawing.Point(347, 12)
+        Me.Fecha1.Name = "Fecha1"
+        Me.Fecha1.Size = New System.Drawing.Size(0, 13)
+        Me.Fecha1.TabIndex = 3
         '
         'CrearRecordatorio
         '
@@ -420,6 +391,13 @@ Partial Class Notas
         Me.Recordatorio1.TabIndex = 2
         Me.Recordatorio1.Text = "Recordatorio1"
         '
+        'TextOculto
+        '
+        Me.TextOculto.Location = New System.Drawing.Point(10, 58)
+        Me.TextOculto.Name = "TextOculto"
+        Me.TextOculto.Size = New System.Drawing.Size(100, 20)
+        Me.TextOculto.TabIndex = 8
+        '
         'RECORDATORIOS
         '
         Me.RECORDATORIOS.AutoSize = True
@@ -431,14 +409,9 @@ Partial Class Notas
         Me.RECORDATORIOS.TabIndex = 5
         Me.RECORDATORIOS.Text = "RECORDATORIOS"
         '
-        'Button1
+        'Timer1
         '
-        Me.Button1.Location = New System.Drawing.Point(343, 9)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 6
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Timer1.Enabled = True
         '
         'Notas
         '
@@ -446,7 +419,6 @@ Partial Class Notas
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.ClientSize = New System.Drawing.Size(1045, 608)
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.RECORDATORIOS)
         Me.Controls.Add(Me.Panel2)
@@ -458,7 +430,6 @@ Partial Class Notas
         Me.Text = "Form3"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.Panel3.ResumeLayout(False)
@@ -480,9 +451,6 @@ Partial Class Notas
     Friend WithEvents GuardarComoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents EditarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents AtrasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents AdelanteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem2 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents CortarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CopiarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PegarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -506,14 +474,14 @@ Partial Class Notas
     Friend WithEvents LabelDelEditor As System.Windows.Forms.Label
     Friend WithEvents Fecha3 As System.Windows.Forms.Label
     Friend WithEvents Fecha2 As System.Windows.Forms.Label
-    Friend WithEvents Fecha As System.Windows.Forms.Label
+    Friend WithEvents Fecha1 As System.Windows.Forms.Label
     Friend WithEvents CrearRecordatorio As System.Windows.Forms.Button
     Friend WithEvents EliminarRecordatorio As System.Windows.Forms.Button
     Friend WithEvents EliminarRecordatorio3 As System.Windows.Forms.Button
     Friend WithEvents CrearRecordatorio3 As System.Windows.Forms.Button
     Friend WithEvents EliminarRecordatorio2 As System.Windows.Forms.Button
     Friend WithEvents CrearRecordatorio2 As System.Windows.Forms.Button
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
-    Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents TextOculto As System.Windows.Forms.TextBox
+    Friend WithEvents fecha As System.Windows.Forms.Label
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
 End Class

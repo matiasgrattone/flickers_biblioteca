@@ -1357,4 +1357,5 @@
         Registroprestamos.Show()
     End Sub
 
+
 End Class
