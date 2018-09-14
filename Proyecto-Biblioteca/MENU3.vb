@@ -7,7 +7,7 @@ Public Class MENU3
     Dim xc, yc As Integer
     Dim xf, yf As Integer
     Dim holax, holay As Integer
-    Dim seleccionado As String
+    Dim seleccionado As String = "Inicio"
     Dim mouse As Integer
     Dim mouse2 As Integer
     Dim mouse3 As Integer
@@ -98,6 +98,17 @@ Public Class MENU3
         '//////////////// PRESTAMOS EN VIVO ///////////////
         Timer_Prestamos_LIVE.Enabled = True
         '/////////////////////////////////////////////////
+
+
+        Preparar_Form()
+
+
+        panel_usuarios.BackColor = Drawing.Color.Silver
+        panel_libros.BackColor = Drawing.Color.Silver
+        panel_prestamos.BackColor = Drawing.Color.Silver
+        panel_navegador.BackColor = Drawing.Color.Silver
+        Panel_Revistas.BackColor = Drawing.Color.Silver
+        Panel_Inicio.BackColor = Drawing.Color.LightGray
 
     End Sub
 
@@ -1332,14 +1343,17 @@ Public Class MENU3
 
             Try
                 Dim contraseñaAdmin As String
+
+                contraseñaAdmin = InputBox("Por favor ingrese contraseña de un funcionario", Title:="Biblioteca")
                 Consulta = "select * from usuarios where tipo = 0"
                 consultar()
-                contraseñaAdmin = InputBox("Por favor ingrese contraseña de un funcionario")
+
                 For Each row As DataRow In Tabla.Rows
 
 
                     If row("cedula") = contraseñaAdmin Then
                         contraseñaAdmin = "1"
+                    Else
                     End If
 
                 Next
@@ -1348,13 +1362,11 @@ Public Class MENU3
                 If contraseñaAdmin = "1" Then
                     ConfiguraciònAdmin.Show()
                 Else
-                    MsgBox("contraseña no valida")
+                    MsgBox("contraseña no valida", Title:="Biblioteca")
                 End If
             Catch ex As Exception
-
             End Try
         Else
-
         End If
 
     End Sub 'Evento clik
@@ -1520,7 +1532,6 @@ Public Class MENU3
 
             Case "Inicio"
 
-                Panel_Graficos.BringToFront()
                 Panel_Graficos.Visible = True
                 panel_menu.Visible = False
                 txtbuscar.Visible = False
@@ -1539,9 +1550,6 @@ Public Class MENU3
                 Panel_Graficos.Visible = False
 
 
-                Pnavegador.BringToFront()
-
-
                 txtbuscar.Visible = True
                 btnatras.Visible = True
                 btnadelante.Visible = True
@@ -1555,7 +1563,6 @@ Public Class MENU3
 
         If seleccionado <> "navegador" And seleccionado <> "Inicio" Then
 
-            panel_menu.BringToFront()
             Panel_Graficos.Visible = False
             panel_menu.Visible = True
             txtbuscar.Visible = False
@@ -1722,13 +1729,45 @@ Public Class MENU3
     End Sub
 
     Private Sub Timer_Prestamos_LIVE_Tick(sender As System.Object, e As System.EventArgs) Handles Timer_Prestamos_LIVE.Tick
-        ListBox1.Items.Clear()
-        Consulta = "select libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where fecha_entrada is null"
-        consultar()
-        For Each row As DataRow In Tabla.Rows
-            ListBox1.Items.Add(row("titulo"))
-        Next
+        If seleccionado = "Inicio" Then
+            Try
+                ListBox1.Items.Clear()
+                Consulta = "select libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where fecha_entrada is null"
+                consultar()
+                For Each row As DataRow In Tabla.Rows
+                    ListBox1.Items.Add(row("titulo"))
+                Next
+            Catch ex As Exception
+                MsgBox("Error Libros Prestados Timer")
+            End Try
+        Else
+        End If
+
+
 
     End Sub
+    Dim x As Integer = 1
+    Private Sub PictureBox1_Click_1(sender As System.Object, e As System.EventArgs) Handles PictureBox1.Click
 
+        If x = 0 Then
+            PanelPrestamosLIVE.Left = 1010
+            PanelGraph1.Width = 969
+            ChartPrestamosDia.Width = 963
+            ChartTOP.Width = 462
+            PanelPrestamosTOP.Width = 469
+            PictureBox1.Left = 970
+            x = 1
+        Else
+            PanelPrestamosLIVE.Left = 860
+            PictureBox1.Left = 835
+            PanelGraph1.Width = 833
+            ChartPrestamosDia.Width = 827
+            ChartTOP.Width = 326
+            PanelPrestamosTOP.Width = 333
+            x = 0
+        End If
+
+
+
+    End Sub
 End Class

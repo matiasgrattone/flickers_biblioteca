@@ -78,17 +78,19 @@ Partial Class MENU3
         Me.Timer_NvegadorLabel = New System.Windows.Forms.Timer(Me.components)
         Me.Timer_RevistasLabel = New System.Windows.Forms.Timer(Me.components)
         Me.Panel_Graficos = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.PanelPrestamosTOP = New System.Windows.Forms.Panel()
         Me.ChartTOP = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.PanelGraph1 = New System.Windows.Forms.Panel()
         Me.ChartPrestamosDia = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Chart_Prestamos = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.PanelPrestamosLIVE = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Timer_InicioLabel = New System.Windows.Forms.Timer(Me.components)
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         Me.Timer_Prestamos_LIVE = New System.Windows.Forms.Timer(Me.components)
@@ -113,12 +115,14 @@ Partial Class MENU3
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Pnavegador.SuspendLayout()
         Me.Panel_Graficos.SuspendLayout()
-        Me.Panel3.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelPrestamosTOP.SuspendLayout()
         CType(Me.ChartTOP, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel2.SuspendLayout()
+        Me.PanelGraph1.SuspendLayout()
         CType(Me.ChartPrestamosDia, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.Chart_Prestamos, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelPrestamosLIVE.SuspendLayout()
         Me.SuspendLayout()
         '
         'Phoraencabezado
@@ -530,37 +534,47 @@ Partial Class MENU3
         '
         'Panel_Graficos
         '
+        Me.Panel_Graficos.Controls.Add(Me.PictureBox1)
         Me.Panel_Graficos.Controls.Add(Me.Label2)
-        Me.Panel_Graficos.Controls.Add(Me.Panel3)
-        Me.Panel_Graficos.Controls.Add(Me.Panel2)
+        Me.Panel_Graficos.Controls.Add(Me.PanelPrestamosTOP)
+        Me.Panel_Graficos.Controls.Add(Me.PanelGraph1)
         Me.Panel_Graficos.Controls.Add(Me.ComboBox2)
         Me.Panel_Graficos.Controls.Add(Me.Panel1)
-        Me.Panel_Graficos.Controls.Add(Me.Label1)
-        Me.Panel_Graficos.Controls.Add(Me.ListBox1)
         Me.Panel_Graficos.Controls.Add(Me.ComboBox1)
+        Me.Panel_Graficos.Controls.Add(Me.PanelPrestamosLIVE)
         Me.Panel_Graficos.Location = New System.Drawing.Point(128, 43)
         Me.Panel_Graficos.Name = "Panel_Graficos"
         Me.Panel_Graficos.Size = New System.Drawing.Size(1006, 646)
         Me.Panel_Graficos.TabIndex = 7
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.back
+        Me.PictureBox1.Location = New System.Drawing.Point(970, 2)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(21, 30)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 10
+        Me.PictureBox1.TabStop = False
+        '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(746, 312)
+        Me.Label2.Location = New System.Drawing.Point(526, 314)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(109, 13)
         Me.Label2.TabIndex = 8
         Me.Label2.Text = "Los Mas Llevados"
         '
-        'Panel3
+        'PanelPrestamosTOP
         '
-        Me.Panel3.BackColor = System.Drawing.SystemColors.ControlDark
-        Me.Panel3.Controls.Add(Me.ChartTOP)
-        Me.Panel3.Location = New System.Drawing.Point(525, 328)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(333, 307)
-        Me.Panel3.TabIndex = 6
+        Me.PanelPrestamosTOP.BackColor = System.Drawing.SystemColors.ControlDark
+        Me.PanelPrestamosTOP.Controls.Add(Me.ChartTOP)
+        Me.PanelPrestamosTOP.Location = New System.Drawing.Point(525, 338)
+        Me.PanelPrestamosTOP.Name = "PanelPrestamosTOP"
+        Me.PanelPrestamosTOP.Size = New System.Drawing.Size(469, 293)
+        Me.PanelPrestamosTOP.TabIndex = 6
         '
         'ChartTOP
         '
@@ -575,18 +589,18 @@ Partial Class MENU3
         Series1.Legend = "Legend1"
         Series1.Name = "Series1"
         Me.ChartTOP.Series.Add(Series1)
-        Me.ChartTOP.Size = New System.Drawing.Size(326, 301)
+        Me.ChartTOP.Size = New System.Drawing.Size(462, 285)
         Me.ChartTOP.TabIndex = 0
         Me.ChartTOP.Text = "Chart1"
         '
-        'Panel2
+        'PanelGraph1
         '
-        Me.Panel2.BackColor = System.Drawing.SystemColors.ControlDark
-        Me.Panel2.Controls.Add(Me.ChartPrestamosDia)
-        Me.Panel2.Location = New System.Drawing.Point(25, 41)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(830, 268)
-        Me.Panel2.TabIndex = 7
+        Me.PanelGraph1.BackColor = System.Drawing.SystemColors.ControlDark
+        Me.PanelGraph1.Controls.Add(Me.ChartPrestamosDia)
+        Me.PanelGraph1.Location = New System.Drawing.Point(25, 33)
+        Me.PanelGraph1.Name = "PanelGraph1"
+        Me.PanelGraph1.Size = New System.Drawing.Size(969, 268)
+        Me.PanelGraph1.TabIndex = 7
         '
         'ChartPrestamosDia
         '
@@ -601,7 +615,7 @@ Partial Class MENU3
         Series2.Legend = "Legend1"
         Series2.Name = "Series1"
         Me.ChartPrestamosDia.Series.Add(Series2)
-        Me.ChartPrestamosDia.Size = New System.Drawing.Size(824, 263)
+        Me.ChartPrestamosDia.Size = New System.Drawing.Size(963, 263)
         Me.ChartPrestamosDia.TabIndex = 2
         Me.ChartPrestamosDia.Text = "Chart1"
         '
@@ -610,7 +624,7 @@ Partial Class MENU3
         Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(24, 315)
+        Me.ComboBox2.Location = New System.Drawing.Point(24, 306)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(101, 28)
         Me.ComboBox2.TabIndex = 6
@@ -619,9 +633,9 @@ Partial Class MENU3
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.ControlDark
         Me.Panel1.Controls.Add(Me.Chart_Prestamos)
-        Me.Panel1.Location = New System.Drawing.Point(24, 357)
+        Me.Panel1.Location = New System.Drawing.Point(24, 338)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(499, 280)
+        Me.Panel1.Size = New System.Drawing.Size(499, 293)
         Me.Panel1.TabIndex = 5
         '
         'Chart_Prestamos
@@ -630,22 +644,42 @@ Partial Class MENU3
         Me.Chart_Prestamos.ChartAreas.Add(ChartArea3)
         Legend3.Name = "Legend1"
         Me.Chart_Prestamos.Legends.Add(Legend3)
-        Me.Chart_Prestamos.Location = New System.Drawing.Point(3, 4)
+        Me.Chart_Prestamos.Location = New System.Drawing.Point(3, 3)
         Me.Chart_Prestamos.Name = "Chart_Prestamos"
         Me.Chart_Prestamos.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent
         Series3.ChartArea = "ChartArea1"
         Series3.Legend = "Legend1"
         Series3.Name = "Series1"
         Me.Chart_Prestamos.Series.Add(Series3)
-        Me.Chart_Prestamos.Size = New System.Drawing.Size(492, 273)
+        Me.Chart_Prestamos.Size = New System.Drawing.Size(492, 285)
         Me.Chart_Prestamos.TabIndex = 0
         Me.Chart_Prestamos.Text = "Chart1"
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(24, 3)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(216, 28)
+        Me.ComboBox1.TabIndex = 1
+        '
+        'PanelPrestamosLIVE
+        '
+        Me.PanelPrestamosLIVE.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.PanelPrestamosLIVE.Controls.Add(Me.Label1)
+        Me.PanelPrestamosLIVE.Controls.Add(Me.ListBox1)
+        Me.PanelPrestamosLIVE.Location = New System.Drawing.Point(1010, 0)
+        Me.PanelPrestamosLIVE.Name = "PanelPrestamosLIVE"
+        Me.PanelPrestamosLIVE.Size = New System.Drawing.Size(147, 637)
+        Me.PanelPrestamosLIVE.TabIndex = 9
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(861, 3)
+        Me.Label1.Location = New System.Drawing.Point(-1, 5)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(146, 13)
         Me.Label1.TabIndex = 4
@@ -654,20 +688,10 @@ Partial Class MENU3
         'ListBox1
         '
         Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(864, 16)
+        Me.ListBox1.Location = New System.Drawing.Point(2, 18)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(141, 628)
+        Me.ListBox1.Size = New System.Drawing.Size(141, 615)
         Me.ListBox1.TabIndex = 3
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(25, 7)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(216, 28)
-        Me.ComboBox1.TabIndex = 1
         '
         'Timer_InicioLabel
         '
@@ -675,7 +699,7 @@ Partial Class MENU3
         '
         'Timer_Prestamos_LIVE
         '
-        Me.Timer_Prestamos_LIVE.Interval = 300
+        Me.Timer_Prestamos_LIVE.Interval = 6000
         '
         'MENU3
         '
@@ -726,12 +750,15 @@ Partial Class MENU3
         Me.Pnavegador.PerformLayout()
         Me.Panel_Graficos.ResumeLayout(False)
         Me.Panel_Graficos.PerformLayout()
-        Me.Panel3.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelPrestamosTOP.ResumeLayout(False)
         CType(Me.ChartTOP, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel2.ResumeLayout(False)
+        Me.PanelGraph1.ResumeLayout(False)
         CType(Me.ChartPrestamosDia, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         CType(Me.Chart_Prestamos, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelPrestamosLIVE.ResumeLayout(False)
+        Me.PanelPrestamosLIVE.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -788,10 +815,12 @@ Partial Class MENU3
     Friend WithEvents ListBox1 As System.Windows.Forms.ListBox
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
-    Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents PanelGraph1 As System.Windows.Forms.Panel
     Friend WithEvents HelpProvider1 As System.Windows.Forms.HelpProvider
-    Friend WithEvents Panel3 As System.Windows.Forms.Panel
+    Friend WithEvents PanelPrestamosTOP As System.Windows.Forms.Panel
     Friend WithEvents ChartTOP As System.Windows.Forms.DataVisualization.Charting.Chart
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Timer_Prestamos_LIVE As System.Windows.Forms.Timer
+    Friend WithEvents PanelPrestamosLIVE As System.Windows.Forms.Panel
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
 End Class

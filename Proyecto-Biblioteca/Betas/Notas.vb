@@ -5,9 +5,9 @@
 
 
 
-        Dim Ubicacion1 As String
-        Dim Ubicacion2 As String
-        Dim Ubicacion3 As String
+        Dim Ubicacion1 As String = vbNull
+        Dim Ubicacion2 As String = vbNull
+        Dim Ubicacion3 As String = vbNull
         Dim Cedula As String = "12345"
 
         Consulta = "Select * from notas where cedula ='" & Cedula & "' and recordar = 1"
