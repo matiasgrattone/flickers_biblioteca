@@ -31,17 +31,22 @@ Public Class MENU3
 
         Pbnube.Image = Image.FromFile("imagenes\cloud-error.png")
 
-        Consulta = "select * from usuarios"
-        consultar()
-        DataGridView1.DataSource = Tabla
+        Try
+            Consulta = "select * from usuarios"
+            consultar()
+            DataGridView1.DataSource = Tabla
 
-        If DataGridView1.Rows.Count() = 0 Then
+            If DataGridView1.Rows.Count() = 0 Then
 
-            Pbnube.Image = Image.FromFile("imagenes\cloud-error.png")
+                Pbnube.Image = Image.FromFile("imagenes\cloud-error.png")
 
-        Else
-            Pbnube.Image = Image.FromFile("imagenes\cloud.png")
-        End If
+            Else
+                Pbnube.Image = Image.FromFile("imagenes\cloud.png")
+            End If
+        Catch ex As Exception
+
+        End Try
+
 
 
         ComboBox1.Items.Add("Mes")
@@ -1767,6 +1772,20 @@ Public Class MENU3
             x = 0
         End If
 
+
+
+    End Sub
+
+    Private Sub Pbnube_MouseHover(sender As System.Object, e As System.EventArgs) Handles Pbnube.MouseHover
+        If DataGridView1.Rows.Count() = 0 Then
+
+            Pbnube.Image = Image.FromFile("imagenes\cloud-error.png")
+            ToolTip1.Show("Base de Datos LOCAL", Pbnube)
+
+        Else
+            Pbnube.Image = Image.FromFile("imagenes\cloud.png")
+            ToolTip1.Show("Base de Datos ONLINE", Pbnube)
+        End If
 
 
     End Sub

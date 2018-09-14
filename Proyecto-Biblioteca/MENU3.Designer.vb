@@ -47,7 +47,6 @@ Partial Class MENU3
         Me.Pbrevistas = New System.Windows.Forms.PictureBox()
         Me.LabelRevistas = New System.Windows.Forms.Label()
         Me.Pbconfig = New System.Windows.Forms.PictureBox()
-        Me.Labels_transparentes1 = New Proyecto_Biblioteca.labels_transparentes()
         Me.Pbnube = New System.Windows.Forms.PictureBox()
         Me.panel_navegador = New System.Windows.Forms.Panel()
         Me.Pbnavegador = New System.Windows.Forms.PictureBox()
@@ -92,8 +91,10 @@ Partial Class MENU3
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.Timer_InicioLabel = New System.Windows.Forms.Timer(Me.components)
-        Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         Me.Timer_Prestamos_LIVE = New System.Windows.Forms.Timer(Me.components)
+        Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.Labels_transparentes1 = New Proyecto_Biblioteca.labels_transparentes()
         Me.Phoraencabezado.SuspendLayout()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Pbusuario, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -278,14 +279,6 @@ Partial Class MENU3
         Me.Pbconfig.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.Pbconfig.TabIndex = 15
         Me.Pbconfig.TabStop = False
-        '
-        'Labels_transparentes1
-        '
-        Me.Labels_transparentes1.Location = New System.Drawing.Point(99, 632)
-        Me.Labels_transparentes1.Name = "Labels_transparentes1"
-        Me.Labels_transparentes1.Size = New System.Drawing.Size(30, 23)
-        Me.Labels_transparentes1.TabIndex = 14
-        Me.Labels_transparentes1.Text = "V.2.0"
         '
         'Pbnube
         '
@@ -701,6 +694,18 @@ Partial Class MENU3
         '
         Me.Timer_Prestamos_LIVE.Interval = 6000
         '
+        'ToolTip1
+        '
+        Me.ToolTip1.AutomaticDelay = 300
+        '
+        'Labels_transparentes1
+        '
+        Me.Labels_transparentes1.Location = New System.Drawing.Point(99, 632)
+        Me.Labels_transparentes1.Name = "Labels_transparentes1"
+        Me.Labels_transparentes1.Size = New System.Drawing.Size(30, 23)
+        Me.Labels_transparentes1.TabIndex = 14
+        Me.Labels_transparentes1.Text = "V.2.0"
+        '
         'MENU3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -713,11 +718,8 @@ Partial Class MENU3
         Me.Controls.Add(Me.Pnavegador)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.HelpButton = True
-        Me.HelpProvider1.SetHelpKeyword(Me, "241")
-        Me.HelpProvider1.SetHelpString(Me, "HOLA MUNDO , ESTA ES UNA AYUDA")
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "MENU3"
-        Me.HelpProvider1.SetShowHelp(Me, True)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Biblioteca Municipal"
         Me.Phoraencabezado.ResumeLayout(False)
@@ -816,11 +818,12 @@ Partial Class MENU3
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
     Friend WithEvents PanelGraph1 As System.Windows.Forms.Panel
-    Friend WithEvents HelpProvider1 As System.Windows.Forms.HelpProvider
     Friend WithEvents PanelPrestamosTOP As System.Windows.Forms.Panel
     Friend WithEvents ChartTOP As System.Windows.Forms.DataVisualization.Charting.Chart
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Timer_Prestamos_LIVE As System.Windows.Forms.Timer
     Friend WithEvents PanelPrestamosLIVE As System.Windows.Forms.Panel
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents HelpProvider1 As System.Windows.Forms.HelpProvider
+    Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
 End Class
