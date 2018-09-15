@@ -78,6 +78,9 @@ Partial Class MENU3
         Me.Timer_NvegadorLabel = New System.Windows.Forms.Timer(Me.components)
         Me.Timer_RevistasLabel = New System.Windows.Forms.Timer(Me.components)
         Me.Panel_Graficos = New System.Windows.Forms.Panel()
+        Me.Panel_prestamosdia = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.LbPrestamos = New System.Windows.Forms.ListBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -94,14 +97,8 @@ Partial Class MENU3
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.Timer_InicioLabel = New System.Windows.Forms.Timer(Me.components)
         Me.Timer_Prestamos_LIVE = New System.Windows.Forms.Timer(Me.components)
-<<<<<<< HEAD
-        Me.Panel_prestamosdia = New System.Windows.Forms.Panel()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
-=======
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
->>>>>>> f522eec3bfdcaf930567ed71c32038ce68e8584c
         Me.Labels_transparentes1 = New Proyecto_Biblioteca.labels_transparentes()
         Me.Phoraencabezado.SuspendLayout()
         CType(Me.Pbadvertenciaprestamos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -125,6 +122,7 @@ Partial Class MENU3
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Pnavegador.SuspendLayout()
         Me.Panel_Graficos.SuspendLayout()
+        Me.Panel_prestamosdia.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelPrestamosTOP.SuspendLayout()
         CType(Me.ChartTOP, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -133,7 +131,6 @@ Partial Class MENU3
         Me.Panel1.SuspendLayout()
         CType(Me.Chart_Prestamos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelPrestamosLIVE.SuspendLayout()
-        Me.Panel_prestamosdia.SuspendLayout()
         Me.SuspendLayout()
         '
         'Phoraencabezado
@@ -563,6 +560,35 @@ Partial Class MENU3
         Me.Panel_Graficos.Size = New System.Drawing.Size(1006, 646)
         Me.Panel_Graficos.TabIndex = 7
         '
+        'Panel_prestamosdia
+        '
+        Me.Panel_prestamosdia.BackColor = System.Drawing.Color.SandyBrown
+        Me.Panel_prestamosdia.Controls.Add(Me.Button1)
+        Me.Panel_prestamosdia.Controls.Add(Me.Label3)
+        Me.Panel_prestamosdia.Controls.Add(Me.LbPrestamos)
+        Me.Panel_prestamosdia.Location = New System.Drawing.Point(764, 0)
+        Me.Panel_prestamosdia.Name = "Panel_prestamosdia"
+        Me.Panel_prestamosdia.Size = New System.Drawing.Size(200, 247)
+        Me.Panel_prestamosdia.TabIndex = 3
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(65, 219)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 2
+        Me.Button1.Text = "Volver"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(7, 11)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(190, 13)
+        Me.Label3.TabIndex = 1
+        Me.Label3.Text = "Libros que se deben devolver en el dia"
+        '
         'LbPrestamos
         '
         Me.LbPrestamos.FormattingEnabled = True
@@ -725,40 +751,9 @@ Partial Class MENU3
         '
         Me.Timer_Prestamos_LIVE.Interval = 6000
         '
-<<<<<<< HEAD
-        'Panel_prestamosdia
-        '
-        Me.Panel_prestamosdia.BackColor = System.Drawing.Color.SandyBrown
-        Me.Panel_prestamosdia.Controls.Add(Me.Button1)
-        Me.Panel_prestamosdia.Controls.Add(Me.Label3)
-        Me.Panel_prestamosdia.Controls.Add(Me.LbPrestamos)
-        Me.Panel_prestamosdia.Location = New System.Drawing.Point(764, 0)
-        Me.Panel_prestamosdia.Name = "Panel_prestamosdia"
-        Me.Panel_prestamosdia.Size = New System.Drawing.Size(200, 247)
-        Me.Panel_prestamosdia.TabIndex = 3
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(7, 11)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(190, 13)
-        Me.Label3.TabIndex = 1
-        Me.Label3.Text = "Libros que se deben devolver en el dia"
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(65, 219)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "Volver"
-        Me.Button1.UseVisualStyleBackColor = True
-=======
         'ToolTip1
         '
         Me.ToolTip1.AutomaticDelay = 300
->>>>>>> f522eec3bfdcaf930567ed71c32038ce68e8584c
         '
         'Labels_transparentes1
         '
@@ -815,6 +810,8 @@ Partial Class MENU3
         Me.Pnavegador.PerformLayout()
         Me.Panel_Graficos.ResumeLayout(False)
         Me.Panel_Graficos.PerformLayout()
+        Me.Panel_prestamosdia.ResumeLayout(False)
+        Me.Panel_prestamosdia.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelPrestamosTOP.ResumeLayout(False)
         CType(Me.ChartTOP, System.ComponentModel.ISupportInitialize).EndInit()
@@ -824,8 +821,6 @@ Partial Class MENU3
         CType(Me.Chart_Prestamos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelPrestamosLIVE.ResumeLayout(False)
         Me.PanelPrestamosLIVE.PerformLayout()
-        Me.Panel_prestamosdia.ResumeLayout(False)
-        Me.Panel_prestamosdia.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -889,14 +884,11 @@ Partial Class MENU3
     Friend WithEvents Timer_Prestamos_LIVE As System.Windows.Forms.Timer
     Friend WithEvents PanelPrestamosLIVE As System.Windows.Forms.Panel
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-<<<<<<< HEAD
     Friend WithEvents Pbadvertenciaprestamos As System.Windows.Forms.PictureBox
     Friend WithEvents LbPrestamos As System.Windows.Forms.ListBox
     Friend WithEvents Panel_prestamosdia As System.Windows.Forms.Panel
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Button1 As System.Windows.Forms.Button
-=======
     Friend WithEvents HelpProvider1 As System.Windows.Forms.HelpProvider
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
->>>>>>> f522eec3bfdcaf930567ed71c32038ce68e8584c
 End Class
