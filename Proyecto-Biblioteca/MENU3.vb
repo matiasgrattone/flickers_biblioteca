@@ -31,10 +31,12 @@ Public Class MENU3
 
         Pbnube.Image = Image.FromFile("imagenes\cloud-error.png")
 
-        Consulta = "select * from usuarios"
-        consultar()
-        DataGridView1.DataSource = Tabla
+        Try
+            Consulta = "select * from usuarios"
+            consultar()
+            DataGridView1.DataSource = Tabla
 
+<<<<<<< HEAD
         '///////////////////VENTANA DE LIBROS QUE SE DEVUELVEN EN EL DIA///////////////////////
         'Aviso_de_prestamos.Show()
         Pbadvertenciaprestamos.Visible = False
@@ -49,12 +51,19 @@ Public Class MENU3
         Next
 
         If DataGridView1.Rows.Count() = 0 Then
+=======
+            If DataGridView1.Rows.Count() = 0 Then
+>>>>>>> f522eec3bfdcaf930567ed71c32038ce68e8584c
 
-            Pbnube.Image = Image.FromFile("imagenes\cloud-error.png")
+                Pbnube.Image = Image.FromFile("imagenes\cloud-error.png")
 
-        Else
-            Pbnube.Image = Image.FromFile("imagenes\cloud.png")
-        End If
+            Else
+                Pbnube.Image = Image.FromFile("imagenes\cloud.png")
+            End If
+        Catch ex As Exception
+
+        End Try
+
 
 
         ComboBox1.Items.Add("Mes")
@@ -1784,6 +1793,7 @@ Public Class MENU3
 
     End Sub
 
+<<<<<<< HEAD
     Private Sub Pbadvertenciaprestamos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbadvertenciaprestamos.Click
         Panel_prestamosdia.Visible = True
         Dim fecha As String = DateTime.Now.ToString("yyyy/MM/dd")
@@ -1799,5 +1809,19 @@ Public Class MENU3
     Private Sub Button1_Click_2(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         LbPrestamos.Items.Clear()
         Panel_prestamosdia.Visible = False
+=======
+    Private Sub Pbnube_MouseHover(sender As System.Object, e As System.EventArgs) Handles Pbnube.MouseHover
+        If DataGridView1.Rows.Count() = 0 Then
+
+            Pbnube.Image = Image.FromFile("imagenes\cloud-error.png")
+            ToolTip1.Show("Base de Datos LOCAL", Pbnube)
+
+        Else
+            Pbnube.Image = Image.FromFile("imagenes\cloud.png")
+            ToolTip1.Show("Base de Datos ONLINE", Pbnube)
+        End If
+
+
+>>>>>>> f522eec3bfdcaf930567ed71c32038ce68e8584c
     End Sub
 End Class

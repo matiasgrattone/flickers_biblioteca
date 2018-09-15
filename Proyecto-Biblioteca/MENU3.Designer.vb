@@ -93,11 +93,15 @@ Partial Class MENU3
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.Timer_InicioLabel = New System.Windows.Forms.Timer(Me.components)
-        Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         Me.Timer_Prestamos_LIVE = New System.Windows.Forms.Timer(Me.components)
+<<<<<<< HEAD
         Me.Panel_prestamosdia = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
+=======
+        Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+>>>>>>> f522eec3bfdcaf930567ed71c32038ce68e8584c
         Me.Labels_transparentes1 = New Proyecto_Biblioteca.labels_transparentes()
         Me.Phoraencabezado.SuspendLayout()
         CType(Me.Pbadvertenciaprestamos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -721,6 +725,7 @@ Partial Class MENU3
         '
         Me.Timer_Prestamos_LIVE.Interval = 6000
         '
+<<<<<<< HEAD
         'Panel_prestamosdia
         '
         Me.Panel_prestamosdia.BackColor = System.Drawing.Color.SandyBrown
@@ -749,6 +754,11 @@ Partial Class MENU3
         Me.Button1.TabIndex = 2
         Me.Button1.Text = "Volver"
         Me.Button1.UseVisualStyleBackColor = True
+=======
+        'ToolTip1
+        '
+        Me.ToolTip1.AutomaticDelay = 300
+>>>>>>> f522eec3bfdcaf930567ed71c32038ce68e8584c
         '
         'Labels_transparentes1
         '
@@ -770,11 +780,8 @@ Partial Class MENU3
         Me.Controls.Add(Me.Pnavegador)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.HelpButton = True
-        Me.HelpProvider1.SetHelpKeyword(Me, "241")
-        Me.HelpProvider1.SetHelpString(Me, "HOLA MUNDO , ESTA ES UNA AYUDA")
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "MENU3"
-        Me.HelpProvider1.SetShowHelp(Me, True)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Biblioteca Municipal"
         Me.Phoraencabezado.ResumeLayout(False)
@@ -876,16 +883,20 @@ Partial Class MENU3
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
     Friend WithEvents PanelGraph1 As System.Windows.Forms.Panel
-    Friend WithEvents HelpProvider1 As System.Windows.Forms.HelpProvider
     Friend WithEvents PanelPrestamosTOP As System.Windows.Forms.Panel
     Friend WithEvents ChartTOP As System.Windows.Forms.DataVisualization.Charting.Chart
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Timer_Prestamos_LIVE As System.Windows.Forms.Timer
     Friend WithEvents PanelPrestamosLIVE As System.Windows.Forms.Panel
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+<<<<<<< HEAD
     Friend WithEvents Pbadvertenciaprestamos As System.Windows.Forms.PictureBox
     Friend WithEvents LbPrestamos As System.Windows.Forms.ListBox
     Friend WithEvents Panel_prestamosdia As System.Windows.Forms.Panel
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Button1 As System.Windows.Forms.Button
+=======
+    Friend WithEvents HelpProvider1 As System.Windows.Forms.HelpProvider
+    Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
+>>>>>>> f522eec3bfdcaf930567ed71c32038ce68e8584c
 End Class
