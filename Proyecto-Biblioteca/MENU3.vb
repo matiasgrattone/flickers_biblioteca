@@ -25,6 +25,8 @@ Public Class MENU3
         xf = Me.Location.X
         yf = Me.Location.Y
 
+        verificarBD()
+        Chart()
 
         '///////////////////VENTANA DE LIBROS QUE SE DEVUELVEN EN EL DIA///////////////////////
         'Aviso_de_prestamos.Show()
@@ -43,80 +45,60 @@ Public Class MENU3
         Catch ex As Exception
         End Try
 
+        ComboBox1.Items.Add("Mes")
+        ComboBox1.Items.Add("Enero")
+        ComboBox1.Items.Add("Febrero")
+        ComboBox1.Items.Add("Marzo")
+        ComboBox1.Items.Add("Abril")
+        ComboBox1.Items.Add("Mayo")
+        ComboBox1.Items.Add("Junio")
+        ComboBox1.Items.Add("Julio")
+        ComboBox1.Items.Add("Agosto")
+        ComboBox1.Items.Add("Septiembre")
+        ComboBox1.Items.Add("Octubre")
+        ComboBox1.Items.Add("Noviembre")
+        ComboBox1.Items.Add("Diciembre")
+        ComboBox1.SelectedIndex = 0
+
+
+        For i As Integer = 1899 To Date.Now.ToString("yyyy")
+            If i = 1899 Then
+                ComboBox2.Items.Add("Año")
+            Else
+                ComboBox2.Items.Add(i)
+            End If
+            ComboBox2.SelectedItem = i
+        Next
 
 
 
-
-            verificarBD()
-
-
-
-
-            ComboBox1.Items.Add("Mes")
-            ComboBox1.Items.Add("Enero")
-            ComboBox1.Items.Add("Febrero")
-            ComboBox1.Items.Add("Marzo")
-            ComboBox1.Items.Add("Abril")
-            ComboBox1.Items.Add("Mayo")
-            ComboBox1.Items.Add("Junio")
-            ComboBox1.Items.Add("Julio")
-            ComboBox1.Items.Add("Agosto")
-            ComboBox1.Items.Add("Septiembre")
-            ComboBox1.Items.Add("Octubre")
-            ComboBox1.Items.Add("Noviembre")
-            ComboBox1.Items.Add("Diciembre")
-            ComboBox1.SelectedIndex = 0
-
-
-            For i As Integer = 1899 To Date.Now.ToString("yyyy")
-                If i = 1899 Then
-                    ComboBox2.Items.Add("Año")
-                Else
-                    ComboBox2.Items.Add(i)
-                End If
-                ComboBox2.SelectedItem = i
-            Next
+        '//////////////// PRESTAMOS EN VIVO ///////////////
+        Timer_Prestamos_LIVE.Enabled = True
 
 
 
+        Select Case ANIMACION
+            Case 1
 
-            '////////////////////////////////////////////////////////////////////////////////////////////////
-            Chart()
-            '////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-            Select Case ANIMACION
-
-
-                Case 1
-
-
-
-                Case 0
-
-                    label_usuarios.Left = 72
-                    label_libros.Left = 72
-                    LabelInicio.Left = 72
-                    LabelRevistas.Left = 72
-                    label_prestamos.Left = 72
-                    label_navegador.Left = 72
-
-            End Select
-
-            '//////////////// PRESTAMOS EN VIVO ///////////////
-            Timer_Prestamos_LIVE.Enabled = True
-            '/////////////////////////////////////////////////
+            Case 0
+                label_usuarios.Left = 72
+                label_libros.Left = 72
+                LabelInicio.Left = 72
+                LabelRevistas.Left = 72
+                label_prestamos.Left = 72
+                label_navegador.Left = 72
+        End Select
 
 
-            Preparar_Form()
+        Preparar_Form()
 
 
-            panel_usuarios.BackColor = Drawing.Color.Silver
-            panel_libros.BackColor = Drawing.Color.Silver
-            panel_prestamos.BackColor = Drawing.Color.Silver
-            panel_navegador.BackColor = Drawing.Color.Silver
-            Panel_Revistas.BackColor = Drawing.Color.Silver
-            Panel_Inicio.BackColor = Drawing.Color.LightGray
+        panel_usuarios.BackColor = Drawing.Color.Silver
+        panel_libros.BackColor = Drawing.Color.Silver
+        panel_prestamos.BackColor = Drawing.Color.Silver
+        panel_navegador.BackColor = Drawing.Color.Silver
+        Panel_Revistas.BackColor = Drawing.Color.Silver
+        Panel_Inicio.BackColor = Drawing.Color.LightGray
 
     End Sub
 
