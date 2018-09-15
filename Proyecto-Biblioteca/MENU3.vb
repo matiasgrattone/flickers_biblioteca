@@ -35,6 +35,19 @@ Public Class MENU3
         consultar()
         DataGridView1.DataSource = Tabla
 
+        '///////////////////VENTANA DE LIBROS QUE SE DEVUELVEN EN EL DIA///////////////////////
+        'Aviso_de_prestamos.Show()
+        Pbadvertenciaprestamos.Visible = False
+        Panel_prestamosdia.Visible = False
+        Dim fecha As String = DateTime.Now.ToString("yyyy/MM/dd")
+        Consulta = "select titulo from prestamolibro p inner join libro l on p.cod_libro=l.cod_libro where fecha_salida='" + fecha + "'"
+        consultar()
+        For Each row As DataRow In Tabla.Rows
+            If Not IsDBNull(row("titulo")) Then
+                Pbadvertenciaprestamos.Visible = True
+            End If
+        Next
+
         If DataGridView1.Rows.Count() = 0 Then
 
             Pbnube.Image = Image.FromFile("imagenes\cloud-error.png")
@@ -1769,5 +1782,22 @@ Public Class MENU3
 
 
 
+    End Sub
+
+    Private Sub Pbadvertenciaprestamos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbadvertenciaprestamos.Click
+        Panel_prestamosdia.Visible = True
+        Dim fecha As String = DateTime.Now.ToString("yyyy/MM/dd")
+        Consulta = "select titulo from prestamolibro p inner join libro l on p.cod_libro=l.cod_libro where fecha_salida='" + fecha + "'"
+        consultar()
+        For Each row As DataRow In Tabla.Rows
+            If Not IsDBNull(row("titulo")) Then
+                LbPrestamos.Items.Add(row("titulo"))
+            End If
+        Next
+    End Sub
+
+    Private Sub Button1_Click_2(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        LbPrestamos.Items.Clear()
+        Panel_prestamosdia.Visible = False
     End Sub
 End Class

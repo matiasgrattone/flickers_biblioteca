@@ -335,6 +335,7 @@
     <None Include="Resources\faq.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\warning.png" />
     <None Include="Resources\reservar.png" />
     <None Include="Resources\notebook %281%29.png" />
     <None Include="Resources\notebook.png" />

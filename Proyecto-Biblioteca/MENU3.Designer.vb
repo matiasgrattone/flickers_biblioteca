@@ -34,6 +34,7 @@ Partial Class MENU3
         Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MENU3))
         Me.Phoraencabezado = New System.Windows.Forms.Panel()
+        Me.Pbadvertenciaprestamos = New System.Windows.Forms.PictureBox()
         Me.lblfecha = New System.Windows.Forms.Label()
         Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.lblhora = New System.Windows.Forms.Label()
@@ -47,7 +48,6 @@ Partial Class MENU3
         Me.Pbrevistas = New System.Windows.Forms.PictureBox()
         Me.LabelRevistas = New System.Windows.Forms.Label()
         Me.Pbconfig = New System.Windows.Forms.PictureBox()
-        Me.Labels_transparentes1 = New Proyecto_Biblioteca.labels_transparentes()
         Me.Pbnube = New System.Windows.Forms.PictureBox()
         Me.panel_navegador = New System.Windows.Forms.Panel()
         Me.Pbnavegador = New System.Windows.Forms.PictureBox()
@@ -78,6 +78,7 @@ Partial Class MENU3
         Me.Timer_NvegadorLabel = New System.Windows.Forms.Timer(Me.components)
         Me.Timer_RevistasLabel = New System.Windows.Forms.Timer(Me.components)
         Me.Panel_Graficos = New System.Windows.Forms.Panel()
+        Me.LbPrestamos = New System.Windows.Forms.ListBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.PanelPrestamosTOP = New System.Windows.Forms.Panel()
@@ -94,7 +95,12 @@ Partial Class MENU3
         Me.Timer_InicioLabel = New System.Windows.Forms.Timer(Me.components)
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         Me.Timer_Prestamos_LIVE = New System.Windows.Forms.Timer(Me.components)
+        Me.Panel_prestamosdia = New System.Windows.Forms.Panel()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Labels_transparentes1 = New Proyecto_Biblioteca.labels_transparentes()
         Me.Phoraencabezado.SuspendLayout()
+        CType(Me.Pbadvertenciaprestamos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Pbusuario, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Pmenu.SuspendLayout()
@@ -123,11 +129,13 @@ Partial Class MENU3
         Me.Panel1.SuspendLayout()
         CType(Me.Chart_Prestamos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelPrestamosLIVE.SuspendLayout()
+        Me.Panel_prestamosdia.SuspendLayout()
         Me.SuspendLayout()
         '
         'Phoraencabezado
         '
         Me.Phoraencabezado.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Phoraencabezado.Controls.Add(Me.Pbadvertenciaprestamos)
         Me.Phoraencabezado.Controls.Add(Me.lblfecha)
         Me.Phoraencabezado.Controls.Add(Me.PictureBox6)
         Me.Phoraencabezado.Controls.Add(Me.lblhora)
@@ -137,6 +145,17 @@ Partial Class MENU3
         Me.Phoraencabezado.Name = "Phoraencabezado"
         Me.Phoraencabezado.Size = New System.Drawing.Size(1141, 46)
         Me.Phoraencabezado.TabIndex = 0
+        '
+        'Pbadvertenciaprestamos
+        '
+        Me.Pbadvertenciaprestamos.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Pbadvertenciaprestamos.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.warning
+        Me.Pbadvertenciaprestamos.Location = New System.Drawing.Point(963, 4)
+        Me.Pbadvertenciaprestamos.Name = "Pbadvertenciaprestamos"
+        Me.Pbadvertenciaprestamos.Size = New System.Drawing.Size(45, 39)
+        Me.Pbadvertenciaprestamos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.Pbadvertenciaprestamos.TabIndex = 7
+        Me.Pbadvertenciaprestamos.TabStop = False
         '
         'lblfecha
         '
@@ -278,14 +297,6 @@ Partial Class MENU3
         Me.Pbconfig.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.Pbconfig.TabIndex = 15
         Me.Pbconfig.TabStop = False
-        '
-        'Labels_transparentes1
-        '
-        Me.Labels_transparentes1.Location = New System.Drawing.Point(99, 632)
-        Me.Labels_transparentes1.Name = "Labels_transparentes1"
-        Me.Labels_transparentes1.Size = New System.Drawing.Size(30, 23)
-        Me.Labels_transparentes1.TabIndex = 14
-        Me.Labels_transparentes1.Text = "V.2.0"
         '
         'Pbnube
         '
@@ -534,6 +545,7 @@ Partial Class MENU3
         '
         'Panel_Graficos
         '
+        Me.Panel_Graficos.Controls.Add(Me.Panel_prestamosdia)
         Me.Panel_Graficos.Controls.Add(Me.PictureBox1)
         Me.Panel_Graficos.Controls.Add(Me.Label2)
         Me.Panel_Graficos.Controls.Add(Me.PanelPrestamosTOP)
@@ -546,6 +558,14 @@ Partial Class MENU3
         Me.Panel_Graficos.Name = "Panel_Graficos"
         Me.Panel_Graficos.Size = New System.Drawing.Size(1006, 646)
         Me.Panel_Graficos.TabIndex = 7
+        '
+        'LbPrestamos
+        '
+        Me.LbPrestamos.FormattingEnabled = True
+        Me.LbPrestamos.Location = New System.Drawing.Point(33, 27)
+        Me.LbPrestamos.Name = "LbPrestamos"
+        Me.LbPrestamos.Size = New System.Drawing.Size(135, 186)
+        Me.LbPrestamos.TabIndex = 0
         '
         'PictureBox1
         '
@@ -701,14 +721,51 @@ Partial Class MENU3
         '
         Me.Timer_Prestamos_LIVE.Interval = 6000
         '
+        'Panel_prestamosdia
+        '
+        Me.Panel_prestamosdia.BackColor = System.Drawing.Color.SandyBrown
+        Me.Panel_prestamosdia.Controls.Add(Me.Button1)
+        Me.Panel_prestamosdia.Controls.Add(Me.Label3)
+        Me.Panel_prestamosdia.Controls.Add(Me.LbPrestamos)
+        Me.Panel_prestamosdia.Location = New System.Drawing.Point(764, 0)
+        Me.Panel_prestamosdia.Name = "Panel_prestamosdia"
+        Me.Panel_prestamosdia.Size = New System.Drawing.Size(200, 247)
+        Me.Panel_prestamosdia.TabIndex = 3
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(7, 11)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(190, 13)
+        Me.Label3.TabIndex = 1
+        Me.Label3.Text = "Libros que se deben devolver en el dia"
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(65, 219)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 2
+        Me.Button1.Text = "Volver"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Labels_transparentes1
+        '
+        Me.Labels_transparentes1.Location = New System.Drawing.Point(99, 632)
+        Me.Labels_transparentes1.Name = "Labels_transparentes1"
+        Me.Labels_transparentes1.Size = New System.Drawing.Size(30, 23)
+        Me.Labels_transparentes1.TabIndex = 14
+        Me.Labels_transparentes1.Text = "V.2.0"
+        '
         'MENU3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1134, 688)
+        Me.Controls.Add(Me.Panel_Graficos)
         Me.Controls.Add(Me.Phoraencabezado)
         Me.Controls.Add(Me.Pmenu)
-        Me.Controls.Add(Me.Panel_Graficos)
         Me.Controls.Add(Me.panel_menu)
         Me.Controls.Add(Me.Pnavegador)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -722,6 +779,7 @@ Partial Class MENU3
         Me.Text = "Biblioteca Municipal"
         Me.Phoraencabezado.ResumeLayout(False)
         Me.Phoraencabezado.PerformLayout()
+        CType(Me.Pbadvertenciaprestamos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Pbusuario, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Pmenu.ResumeLayout(False)
@@ -759,6 +817,8 @@ Partial Class MENU3
         CType(Me.Chart_Prestamos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelPrestamosLIVE.ResumeLayout(False)
         Me.PanelPrestamosLIVE.PerformLayout()
+        Me.Panel_prestamosdia.ResumeLayout(False)
+        Me.Panel_prestamosdia.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -823,4 +883,9 @@ Partial Class MENU3
     Friend WithEvents Timer_Prestamos_LIVE As System.Windows.Forms.Timer
     Friend WithEvents PanelPrestamosLIVE As System.Windows.Forms.Panel
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents Pbadvertenciaprestamos As System.Windows.Forms.PictureBox
+    Friend WithEvents LbPrestamos As System.Windows.Forms.ListBox
+    Friend WithEvents Panel_prestamosdia As System.Windows.Forms.Panel
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class
