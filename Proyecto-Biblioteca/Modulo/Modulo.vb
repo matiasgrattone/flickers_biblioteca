@@ -36,8 +36,12 @@ Module Modulo
             Conexion.Fill(Tabla)
             MysqlConexion.Close()
         Catch ex As Exception
-            MsgBox(ex.ToString)
-            ERROR1 = 1
+            If (ex.Message.ToLowerInvariant().Contains("unable to connect")) Then
+                MsgBox("no hay conexion con la base de datos", MsgBoxStyle.OkOnly, "ERROR")
+                ERROR1 = 1
+            Else
+                MsgBox(ex.ToString)
+            End If
         End Try
 
     End Sub
