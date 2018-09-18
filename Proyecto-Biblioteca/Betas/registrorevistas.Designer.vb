@@ -28,6 +28,9 @@ Partial Class registrorevistas
         Me.cmbaño = New System.Windows.Forms.ComboBox()
         Me.cmbbusqueda = New System.Windows.Forms.ComboBox()
         Me.dgvregistro = New System.Windows.Forms.DataGridView()
+        Me.cmbdia2 = New System.Windows.Forms.ComboBox()
+        Me.cmbmes2 = New System.Windows.Forms.ComboBox()
+        Me.cmbaño2 = New System.Windows.Forms.ComboBox()
         Me.txtbusqueda = New Proyecto_Biblioteca.PlaceHolder()
         CType(Me.dgvregistro, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -85,13 +88,40 @@ Partial Class registrorevistas
         Me.dgvregistro.AllowUserToResizeColumns = False
         Me.dgvregistro.AllowUserToResizeRows = False
         Me.dgvregistro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvregistro.Location = New System.Drawing.Point(12, 54)
+        Me.dgvregistro.Location = New System.Drawing.Point(12, 89)
         Me.dgvregistro.Name = "dgvregistro"
         Me.dgvregistro.ReadOnly = True
         Me.dgvregistro.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.dgvregistro.RowHeadersVisible = False
-        Me.dgvregistro.Size = New System.Drawing.Size(844, 522)
+        Me.dgvregistro.Size = New System.Drawing.Size(844, 487)
         Me.dgvregistro.TabIndex = 10
+        '
+        'cmbdia2
+        '
+        Me.cmbdia2.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbdia2.FormattingEnabled = True
+        Me.cmbdia2.Location = New System.Drawing.Point(602, 60)
+        Me.cmbdia2.Name = "cmbdia2"
+        Me.cmbdia2.Size = New System.Drawing.Size(58, 23)
+        Me.cmbdia2.TabIndex = 19
+        '
+        'cmbmes2
+        '
+        Me.cmbmes2.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbmes2.FormattingEnabled = True
+        Me.cmbmes2.Location = New System.Drawing.Point(666, 60)
+        Me.cmbmes2.Name = "cmbmes2"
+        Me.cmbmes2.Size = New System.Drawing.Size(116, 23)
+        Me.cmbmes2.TabIndex = 18
+        '
+        'cmbaño2
+        '
+        Me.cmbaño2.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbaño2.FormattingEnabled = True
+        Me.cmbaño2.Location = New System.Drawing.Point(788, 60)
+        Me.cmbaño2.Name = "cmbaño2"
+        Me.cmbaño2.Size = New System.Drawing.Size(68, 23)
+        Me.cmbaño2.TabIndex = 17
         '
         'txtbusqueda
         '
@@ -108,6 +138,9 @@ Partial Class registrorevistas
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(868, 586)
+        Me.Controls.Add(Me.cmbdia2)
+        Me.Controls.Add(Me.cmbmes2)
+        Me.Controls.Add(Me.cmbaño2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.cmbdia)
         Me.Controls.Add(Me.cmbmes)
@@ -129,4 +162,7 @@ Partial Class registrorevistas
     Friend WithEvents cmbbusqueda As System.Windows.Forms.ComboBox
     Friend WithEvents txtbusqueda As Proyecto_Biblioteca.PlaceHolder
     Friend WithEvents dgvregistro As System.Windows.Forms.DataGridView
+    Friend WithEvents cmbdia2 As System.Windows.Forms.ComboBox
+    Friend WithEvents cmbmes2 As System.Windows.Forms.ComboBox
+    Friend WithEvents cmbaño2 As System.Windows.Forms.ComboBox
 End Class
