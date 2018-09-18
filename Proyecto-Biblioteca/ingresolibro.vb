@@ -25,7 +25,7 @@
 
     Dim autor As Integer
     Dim editorial As Integer
-    Dim clasificacion As Integer
+    Dim clasificacion As String
 
     Dim seleccionado As Integer = 0
     Dim error10 As Integer = 0
@@ -92,7 +92,7 @@
                             Try
                                 '/// Permite ingresar un nuevo dato a la tabla libros ///'
                                 'Consulta = "INSERT INTO libro VALUES('" + txtcod_libro.Text + "',concat(upper(left('" + txttitulo.Text + "',1)),lower(substr('" + txttitulo.Text + "',2))),'" + autor + "','" + editorial + "','" + txtvolumen.Text + "','" + txtanio.Text + " ',concat(upper(left('" + txtorigen.Text + "',1)),lower(substr('" + txtorigen.Text + "',2))),concat(upper(left('" + txtobservaciones.Text + "',1)),lower(substr('" + txtobservaciones.Text + "',2))), '0','" + clasificacion + "')"
-                                Consulta = "insert into libro values('" + txtcod_libro.Text + "','" + txttitulo.Text + "','" & autor & "','" & editorial & "','" + txtvolumen.Text + "','" + txtanio.Text + "','" + txtorigen.Text + "','" + txtobservaciones.Text + "','0','" & clasificacion & "')"
+                                Consulta = "insert into libro values('" + txtcod_libro.Text + "','" + txttitulo.Text + "','" & autor & "','" & editorial & "','" + txtvolumen.Text + "','" + txtanio.Text + "','" + txtorigen.Text + "','" + txtobservaciones.Text + "','0','" & clasificacion & "','Biblioteca Municipal')"
                                 consultar()
 
 
@@ -929,6 +929,8 @@
                 Consulta = "insert into clasificacion values('" & txtcodclas.Text & "','" & txtnombreclas.Text & "')"
                 consultar()
 
+                ErrorProvider1.SetError(txtcodclas, "")
+                ErrorProvider1.SetError(txtnombreclas, "")
                 Try
                     Consulta = "SELECT * FROM clasificacion"
                     consultar()
@@ -969,7 +971,7 @@
             ErrorProvider1.SetError(txtcodclas, "ingrese solo numeros")
             error10 = 1
         Else
-
+            ErrorProvider1.SetError(txtcodclas, "")
             error10 = 0
         End If
 
@@ -998,6 +1000,7 @@
             ErrorProvider1.SetError(txtanioe, "ingrese solo numeros")
             error10 = 1
         Else
+            ErrorProvider1.SetError(txtanioe, "")
             error10 = 0
         End If
     End Sub
@@ -1154,13 +1157,5 @@
         Else
             ErrorProvider1.SetError(txtcasa_editorial, "")
         End If
-    End Sub
-
-    Private Sub dgvclasificacion_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvclasificacion.CellContentClick
-
-    End Sub
-
-    Private Sub dgveditorial_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgveditorial.CellContentClick
-
     End Sub
 End Class

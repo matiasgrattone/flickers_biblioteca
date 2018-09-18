@@ -300,6 +300,8 @@ Public Class buscarlibro
                 observaciones_txt.Text = observaciones_label.Text
                 clasificacion_txt.Text = clasificacio_label.Text
 
+
+
                 
                 'Permite seleccionar el estado predeterminado del combobox al momento de modificar los datos'
                 '0-disponible,1-ocupado, 2-reservado,3-descontinuado'
@@ -994,6 +996,10 @@ Public Class buscarlibro
     End Sub
 
     Private Sub dgvautor_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvautor.CellContentClick
+
+    End Sub
+
+    Private Sub Pmostrar_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Pmostrar.Paint
 
     End Sub
 End Class
