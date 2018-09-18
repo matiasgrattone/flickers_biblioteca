@@ -41,6 +41,7 @@ Module Modulo
                 ERROR1 = 1
             Else
                 MsgBox(ex.ToString)
+                ERROR1 = 1
             End If
         End Try
 

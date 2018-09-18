@@ -22,8 +22,6 @@ Partial Class Prestamos
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ButonParaExtreaer = New System.Windows.Forms.Button()
         Me.BotonParaBuscarCedula = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -65,7 +63,6 @@ Partial Class Prestamos
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.PictureCrearReservacion = New System.Windows.Forms.PictureBox()
         Me.PictureReservacion = New System.Windows.Forms.PictureBox()
         Me.PictureDevolucion = New System.Windows.Forms.PictureBox()
@@ -78,11 +75,8 @@ Partial Class Prestamos
         Me.Label24 = New System.Windows.Forms.Label()
         Me.LibrosParaReservar = New System.Windows.Forms.DataGridView()
         Me.Label25 = New System.Windows.Forms.Label()
-        Me.Aparecer = New System.Windows.Forms.Timer(Me.components)
-        Me.Ocultar = New System.Windows.Forms.Timer(Me.components)
-        Me.Ocultar_Aparecer = New System.Windows.Forms.Timer(Me.components)
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
+        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DatagridviewOcultolllllParaFuncionesPrestmolllll, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -104,22 +98,18 @@ Partial Class Prestamos
         CType(Me.LibrosParaReservar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Timer1
-        '
-        Me.Timer1.Enabled = True
-        '
         'ButonParaExtreaer
         '
-        Me.ButonParaExtreaer.Location = New System.Drawing.Point(628, 235)
+        Me.ButonParaExtreaer.Location = New System.Drawing.Point(373, 95)
         Me.ButonParaExtreaer.Name = "ButonParaExtreaer"
-        Me.ButonParaExtreaer.Size = New System.Drawing.Size(106, 52)
+        Me.ButonParaExtreaer.Size = New System.Drawing.Size(106, 32)
         Me.ButonParaExtreaer.TabIndex = 75
         Me.ButonParaExtreaer.Text = "EXTRAER"
         Me.ButonParaExtreaer.UseVisualStyleBackColor = True
         '
         'BotonParaBuscarCedula
         '
-        Me.BotonParaBuscarCedula.Location = New System.Drawing.Point(269, 54)
+        Me.BotonParaBuscarCedula.Location = New System.Drawing.Point(268, 49)
         Me.BotonParaBuscarCedula.Name = "BotonParaBuscarCedula"
         Me.BotonParaBuscarCedula.Size = New System.Drawing.Size(71, 21)
         Me.BotonParaBuscarCedula.TabIndex = 74
@@ -142,14 +132,14 @@ Partial Class Prestamos
         Me.Panel1.Controls.Add(Me.Label9)
         Me.Panel1.Controls.Add(Me.Label8)
         Me.Panel1.Controls.Add(Me.Label12)
-        Me.Panel1.Location = New System.Drawing.Point(-275, -28)
+        Me.Panel1.Location = New System.Drawing.Point(-268, -28)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(268, 676)
         Me.Panel1.TabIndex = 73
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(182, 231)
+        Me.Button1.Location = New System.Drawing.Point(94, 588)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 82
@@ -158,7 +148,7 @@ Partial Class Prestamos
         '
         'ButtonMoroso
         '
-        Me.ButtonMoroso.Location = New System.Drawing.Point(17, 631)
+        Me.ButtonMoroso.Location = New System.Drawing.Point(17, 636)
         Me.ButtonMoroso.Name = "ButtonMoroso"
         Me.ButtonMoroso.Size = New System.Drawing.Size(86, 29)
         Me.ButtonMoroso.TabIndex = 80
@@ -170,7 +160,7 @@ Partial Class Prestamos
         Me.CarritoDeLibros.FormattingEnabled = True
         Me.CarritoDeLibros.Location = New System.Drawing.Point(9, 228)
         Me.CarritoDeLibros.Name = "CarritoDeLibros"
-        Me.CarritoDeLibros.Size = New System.Drawing.Size(254, 342)
+        Me.CarritoDeLibros.Size = New System.Drawing.Size(254, 394)
         Me.CarritoDeLibros.TabIndex = 68
         '
         'Label4
@@ -213,7 +203,7 @@ Partial Class Prestamos
         '
         'ButtonLiberar
         '
-        Me.ButtonLiberar.Location = New System.Drawing.Point(171, 631)
+        Me.ButtonLiberar.Location = New System.Drawing.Point(171, 636)
         Me.ButtonLiberar.Name = "ButtonLiberar"
         Me.ButtonLiberar.Size = New System.Drawing.Size(86, 29)
         Me.ButtonLiberar.TabIndex = 59
@@ -294,7 +284,7 @@ Partial Class Prestamos
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(618, 293)
+        Me.Button4.Location = New System.Drawing.Point(199, 85)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(113, 34)
         Me.Button4.TabIndex = 0
@@ -303,7 +293,7 @@ Partial Class Prestamos
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(622, 235)
+        Me.Button5.Location = New System.Drawing.Point(398, 85)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(98, 34)
         Me.Button5.TabIndex = 63
@@ -325,12 +315,12 @@ Partial Class Prestamos
         Me.DataGridParaDevolucion.AllowUserToAddRows = False
         Me.DataGridParaDevolucion.AllowUserToDeleteRows = False
         Me.DataGridParaDevolucion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridParaDevolucion.Location = New System.Drawing.Point(5, 75)
+        Me.DataGridParaDevolucion.Location = New System.Drawing.Point(6, 125)
         Me.DataGridParaDevolucion.Name = "DataGridParaDevolucion"
         Me.DataGridParaDevolucion.ReadOnly = True
         Me.DataGridParaDevolucion.RowHeadersVisible = False
         Me.DataGridParaDevolucion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridParaDevolucion.Size = New System.Drawing.Size(603, 466)
+        Me.DataGridParaDevolucion.Size = New System.Drawing.Size(726, 416)
         Me.DataGridParaDevolucion.TabIndex = 0
         '
         'ENPODER
@@ -430,7 +420,7 @@ Partial Class Prestamos
         Me.DataGridViewlllllVerLibrosEnExtraccionlllll.ReadOnly = True
         Me.DataGridViewlllllVerLibrosEnExtraccionlllll.RowHeadersVisible = False
         Me.DataGridViewlllllVerLibrosEnExtraccionlllll.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridViewlllllVerLibrosEnExtraccionlllll.Size = New System.Drawing.Size(618, 401)
+        Me.DataGridViewlllllVerLibrosEnExtraccionlllll.Size = New System.Drawing.Size(727, 401)
         Me.DataGridViewlllllVerLibrosEnExtraccionlllll.TabIndex = 17
         '
         'ReservacionComboBox
@@ -544,16 +534,6 @@ Partial Class Prestamos
         Me.Label5.TabIndex = 66
         Me.Label5.Text = "SELECCION " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      DE " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FUNCION "
         '
-        'Cedula
-        '
-        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Cedula.Location = New System.Drawing.Point(3, 50)
-        Me.Cedula.Name = "Cedula"
-        Me.Cedula.Size = New System.Drawing.Size(259, 20)
-        Me.Cedula.TabIndex = 75
-        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
-        Me.Cedula.WaterMarkText = "Cedula"
-        '
         'PictureCrearReservacion
         '
         Me.PictureCrearReservacion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.crear_reserva
@@ -567,7 +547,7 @@ Partial Class Prestamos
         'PictureReservacion
         '
         Me.PictureReservacion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.reservar
-        Me.PictureReservacion.Location = New System.Drawing.Point(650, 13)
+        Me.PictureReservacion.Location = New System.Drawing.Point(706, 13)
         Me.PictureReservacion.Name = "PictureReservacion"
         Me.PictureReservacion.Size = New System.Drawing.Size(82, 85)
         Me.PictureReservacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -682,18 +662,6 @@ Partial Class Prestamos
         Me.Label25.TabIndex = 61
         Me.Label25.Text = "Libros Disponibles"
         '
-        'Aparecer
-        '
-        Me.Aparecer.Interval = 5
-        '
-        'Ocultar
-        '
-        Me.Ocultar.Interval = 5
-        '
-        'Ocultar_Aparecer
-        '
-        Me.Ocultar_Aparecer.Interval = 5
-        '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.SystemColors.ControlDarkDark
@@ -702,8 +670,15 @@ Partial Class Prestamos
         Me.Panel2.Size = New System.Drawing.Size(1016, 38)
         Me.Panel2.TabIndex = 78
         '
-        'Timer2
+        'Cedula
         '
+        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.Cedula.Location = New System.Drawing.Point(3, 50)
+        Me.Cedula.Name = "Cedula"
+        Me.Cedula.Size = New System.Drawing.Size(259, 20)
+        Me.Cedula.TabIndex = 75
+        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
+        Me.Cedula.WaterMarkText = "Cedula"
         '
         'Prestamos
         '
@@ -714,10 +689,10 @@ Partial Class Prestamos
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.ExtCombo)
         Me.Controls.Add(Me.devoCOMBO)
         Me.Controls.Add(Me.CrearReservacionComboBox)
         Me.Controls.Add(Me.ReservacionComboBox)
-        Me.Controls.Add(Me.ExtCombo)
         Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Prestamos"
@@ -751,7 +726,6 @@ Partial Class Prestamos
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents ButonParaExtreaer As System.Windows.Forms.Button
     Friend WithEvents BotonParaBuscarCedula As System.Windows.Forms.Button
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
@@ -796,9 +770,6 @@ Partial Class Prestamos
     Friend WithEvents LibrosParaReservar As System.Windows.Forms.DataGridView
     Friend WithEvents Label25 As System.Windows.Forms.Label
     Friend WithEvents ButtonEliminarReservacion As System.Windows.Forms.Button
-    Friend WithEvents Aparecer As System.Windows.Forms.Timer
-    Friend WithEvents Ocultar As System.Windows.Forms.Timer
-    Friend WithEvents Ocultar_Aparecer As System.Windows.Forms.Timer
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
@@ -808,7 +779,6 @@ Partial Class Prestamos
     Private WithEvents PictureDevolucion As System.Windows.Forms.PictureBox
     Friend WithEvents Panel4 As System.Windows.Forms.Panel
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents Timer2 As System.Windows.Forms.Timer
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
 End Class

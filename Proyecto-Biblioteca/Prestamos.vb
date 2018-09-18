@@ -13,7 +13,6 @@
     Dim VALIDADOR As String
     Dim modo As String = "devolucion"
     Dim panelnombre As Integer = 0
-    Dim error1 As Integer = 0
 
     '/////////////////////////////////////////////////////////
 
@@ -50,9 +49,9 @@
 
         Consulta = "select cedula , nombre from usuarios where cedula like '" & Cedula.Text & "'  "
         consultar()
-        DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.DataSource = Tabla
-
-        NOMBRE.Text = DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.Item(1, DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.CurrentRow.Index).Value
+        For Each row As DataRow In Tabla.Rows
+            NOMBRE.Text = row("nombre")
+        Next
 
         '////////////////////////////////
 
@@ -68,7 +67,7 @@
                     Consulta = "update usuarios set (tipo = ""0"") where cedulaU = '" & Cedula.Text & "';"
                     consultar()
 
-                    MsgBox("El usuario " & NOMBRE.Text & " esta libre ahora", Title:="PRESTAMOS")
+                    MsgBox("El socios " & NOMBRE.Text & " esta libre ahora", Title:="PRESTAMOS")
                 Else
                     MsgBox("No se encontraron los datos", Title:="PRESTAMOS")
                 End If
@@ -89,350 +88,128 @@
 
 
     End Sub
+    Dim errorcedula As Integer = 0
 
     Private Sub BotonParaBuscarCedula_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BotonParaBuscarCedula.Click
 
-        If panelnombre = 0 Then
-            'Se cambia el label solo cuando haya un valor en el textbox CEDULA
-
-            Try
-
-                If Cedula.Text <> "" Then
-
-                    '/////////////////////////Consulta a DATAGRIDVIEW oculto////////////////////////////////////
-                    Consulta = "select cedula , nombre, tipo from usuarios where cedula like '" & Cedula.Text & "'  "
-                    consultar()
-                    DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.DataSource = Tabla
-                    '///////////////////////////////////////////////////////////////////////////////////////////
-                    '//////////////////////////Consulta a DATAGRIDVIEW oculto////////////////////////////////////////
-                    Consulta = "select * from prestamolibro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
-                    consultar()
-                    DatagridviewOcultolllllParaFuncionesPrestmolllll.DataSource = Tabla
-                    '////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-                    '/////////////////////////////////////////////////////////////////////////////////////////////
-                    '////////////////////////////////Muestra los picturebox y la interfaz de las funciones///////////////////////
-                    '/////////////////////////////////////////////////////////////////////////////////////////////
-
-                    NOMBRE.Text = DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.Item(1, DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.CurrentRow.Index).Value
-                    Label5.Visible = True
-                    ExtCombo.Visible = False
-                    devoCOMBO.Visible = False
-                    ReservacionComboBox.Visible = False
-                    PictureExtraccion.Visible = True
-                    PictureDevolucion.Visible = True
-                    PictureCrearReservacion.Visible = True
-                    PictureReservacion.Visible = True
-                    Label5.Visible = True
-                    CarritoDeLibros.Items.Clear()
-                    ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
-                    Aparecer.Enabled = True
-                    Label12.Text = DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.Item(2, DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.CurrentRow.Index).Value
-                    If Label12.Text = 2 Then
-                        ButtonLiberar.Visible = True
-                    ElseIf Label12.Text = 0 Then
-                        ButtonMoroso.Visible = True
-                    End If
-                    '/////////////////////////////////////////////////////////////////////////////////////////////
-
-                End If
-
-            Catch ex As Exception
-
-
-
-
-                '//////////////////////Oculta los picturebox y la interfaz de las funciones///////////////////////////////
-
-                MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
-
-                ExtCombo.Visible = False
-                devoCOMBO.Visible = False
-                ReservacionComboBox.Visible = False
-                PictureExtraccion.Visible = False
-                PictureDevolucion.Visible = False
-                PictureCrearReservacion.Visible = False
-                PictureReservacion.Visible = False
-                Label5.Visible = False
-                CarritoDeLibros.Items.Clear()
-                ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
-                Ocultar.Enabled = True
-                '/////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-            End Try
-
-        End If
-
-        If panelnombre = 1 Then
-
-            'Se cambia el label solo cuando haya un valor en el textbox CEDULA
-
-            Try
-
-                If Cedula.Text <> "" Then
-
-                    '/////////////////////////Consulta a DATAGRIDVIEW oculto////////////////////////////////////
-                    Consulta = "select cedula , nombre, tipo from usuarios where cedula like '" & Cedula.Text & "'  "
-                    consultar()
-                    DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.DataSource = Tabla
-                    '///////////////////////////////////////////////////////////////////////////////////////////
-                    '//////////////////////////Consulta a DATAGRIDVIEW oculto////////////////////////////////////////
-                    Consulta = "select * from prestamolibro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
-                    consultar()
-                    DatagridviewOcultolllllParaFuncionesPrestmolllll.DataSource = Tabla
-                    '////////////////////////////////////////////////////////////////////////////////////////////////
-
-                    '/////////////////////////////////////////////////////////////////////////////////////////////
-                    '////////////////////////////////Muestra los picturebox y la interfaz de las funciones///////////////////////
-                    '/////////////////////////////////////////////////////////////////////////////////////////////
-
-
-                    Label5.Visible = True
-                    ExtCombo.Visible = False
-                    devoCOMBO.Visible = False
-                    ReservacionComboBox.Visible = False
-                    PictureExtraccion.Visible = True
-                    PictureDevolucion.Visible = True
-                    PictureCrearReservacion.Visible = True
-                    PictureReservacion.Visible = True
-                    Label5.Visible = True
-                    CarritoDeLibros.Items.Clear()
-                    ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
-                    Ocultar_Aparecer.Enabled = True
-                    Label12.Text = DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.Item(2, DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.CurrentRow.Index).Value
-                    If Label12.Text = 2 Then
-                        ButtonLiberar.Visible = True
-                    ElseIf Label12.Text = 0 Then
-                        ButtonMoroso.Visible = True
-                    End If
-                    '/////////////////////////////////////////////////////////////////////////////////////////////
-
-                End If
-
-            Catch ex As Exception
-
-
-
-
-                '//////////////////////Oculta los picturebox y la interfaz de las funciones///////////////////////////////
-
-                ExtCombo.Visible = False
-                devoCOMBO.Visible = False
-                ReservacionComboBox.Visible = False
-                PictureExtraccion.Visible = False
-                PictureDevolucion.Visible = False
-                PictureCrearReservacion.Visible = False
-                PictureReservacion.Visible = False
-                Label5.Visible = False
-                Ocultar.Enabled = True
-                CarritoDeLibros.Items.Clear()
-                ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
-                MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
-
-
-
-                '/////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-            End Try
-
-        End If
-    End Sub
-    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
-
-
-        '///////////////Variables igualdas a hora y fecha////////////////
-        Label2.Text = Date.Now.ToString("hh:mm:ss")
-
-        Label4.Text = Date.Now.ToString("yyyy-MM-dd")
-        '////////////////////////////////////////////////////////////////
-
-
-    End Sub
-
-    Private Sub Cedula_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Cedula.KeyDown
-        If panelnombre = 0 Then
-            If e.KeyCode = Keys.Enter Then
-
-                'Se cambia el label solo cuando haya un valor en el textbox CEDULA
-
-                Try
-
-                    If Cedula.Text <> "" Then
-
-                        '/////////////////////////Consulta a DATAGRIDVIEW oculto////////////////////////////////////
-                        Consulta = "select cedula , nombre from usuarios where cedula like '" & Cedula.Text & "'  "
-                        consultar()
-                        DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.DataSource = Tabla
-                        '///////////////////////////////////////////////////////////////////////////////////////////
-                        '//////////////////////////Consulta a DATAGRIDVIEW oculto////////////////////////////////////////
-                        Consulta = "select * from prestamolibro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
-                        consultar()
-                        DatagridviewOcultolllllParaFuncionesPrestmolllll.DataSource = Tabla
-                        '////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-                        '/////////////////////////////////////////////////////////////////////////////////////////////
-                        '////////////////////////////////Muestra los picturebox y la interfaz de las funciones///////////////////////
-                        '/////////////////////////////////////////////////////////////////////////////////////////////
-
-                        NOMBRE.Text = DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.Item(1, DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.CurrentRow.Index).Value
-                        Label5.Visible = True
-                        ExtCombo.Visible = False
-                        devoCOMBO.Visible = False
-                        ReservacionComboBox.Visible = False
-                        PictureExtraccion.Visible = True
-                        PictureDevolucion.Visible = True
-                        PictureCrearReservacion.Visible = True
-                        PictureReservacion.Visible = True
-                        Label5.Visible = True
-                        CarritoDeLibros.Items.Clear()
-                        ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
-                        Aparecer.Enabled = True
-                        '/////////////////////////////////////////////////////////////////////////////////////////////
-
-                    End If
-
-                Catch ex As Exception
-
-
-
-
-                    '//////////////////////Oculta los picturebox y la interfaz de las funciones///////////////////////////////
-
-                    MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
-
-                    ExtCombo.Visible = False
-                    devoCOMBO.Visible = False
-                    ReservacionComboBox.Visible = False
-                    PictureExtraccion.Visible = False
-                    PictureDevolucion.Visible = False
-                    PictureCrearReservacion.Visible = False
-                    PictureReservacion.Visible = False
-                    Label5.Visible = False
-                    CarritoDeLibros.Items.Clear()
-                    ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
-                    Ocultar.Enabled = True
-                    '/////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-                End Try
-
-            End If
-        End If
-
-        If panelnombre = 1 Then
-            If e.KeyCode = Keys.Enter Then
-
-                'Se cambia el label solo cuando haya un valor en el textbox CEDULA
-
-                Try
-
-                    If Cedula.Text <> "" Then
-
-                        '/////////////////////////Consulta a DATAGRIDVIEW oculto////////////////////////////////////
-                        Consulta = "select cedula , nombre from usuarios where cedula like '" & Cedula.Text & "'  "
-                        consultar()
-                        DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.DataSource = Tabla
-                        '///////////////////////////////////////////////////////////////////////////////////////////
-                        '//////////////////////////Consulta a DATAGRIDVIEW oculto////////////////////////////////////////
-                        Consulta = "select * from prestamolibro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
-                        consultar()
-                        DatagridviewOcultolllllParaFuncionesPrestmolllll.DataSource = Tabla
-                        '////////////////////////////////////////////////////////////////////////////////////////////////
-
-                        '/////////////////////////////////////////////////////////////////////////////////////////////
-                        '////////////////////////////////Muestra los picturebox y la interfaz de las funciones///////////////////////
-                        '/////////////////////////////////////////////////////////////////////////////////////////////
-
-
-                        Label5.Visible = True
-                        ExtCombo.Visible = False
-                        devoCOMBO.Visible = False
-                        ReservacionComboBox.Visible = False
-                        PictureExtraccion.Visible = True
-                        PictureDevolucion.Visible = True
-                        PictureCrearReservacion.Visible = True
-                        PictureReservacion.Visible = True
-                        Label5.Visible = True
-                        CarritoDeLibros.Items.Clear()
-                        ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
-                        Ocultar_Aparecer.Enabled = True
-
-
-                        '/////////////////////////////////////////////////////////////////////////////////////////////
-
-                    End If
-
-                Catch ex As Exception
-
-
-
-
-                    '//////////////////////Oculta los picturebox y la interfaz de las funciones///////////////////////////////
-
-
-                    ExtCombo.Visible = False
-                    devoCOMBO.Visible = False
-                    ReservacionComboBox.Visible = False
-                    PictureExtraccion.Visible = False
-                    PictureDevolucion.Visible = False
-                    PictureCrearReservacion.Visible = False
-                    PictureReservacion.Visible = False
-                    Label5.Visible = False
-                    Ocultar.Enabled = True
-                    CarritoDeLibros.Items.Clear()
-                    ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
-                    MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
-
-
-
-                    '/////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-                End Try
-
-            End If
-
-        End If
-
-
-    End Sub
-
-    Private Sub Cedula_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cedula.TextChanged
-
-        Try
-            Cedula.AutoCompleteMode = AutoCompleteMode.Suggest
-            Cedula.AutoCompleteSource = AutoCompleteSource.CustomSource
-            Dim DataCollection As New AutoCompleteStringCollection()
-            Consulta = "select cedula from usuarios"
+        'Se cambia el label solo cuando haya un valor en el textbox CEDULA
+
+
+        If Cedula.Text = "" Then
+            '//////////////////////Oculta los picturebox y la interfaz de las funciones///////////////////////////////
+
+            ExtCombo.Visible = False
+            devoCOMBO.Visible = False
+            ReservacionComboBox.Visible = False
+            PictureExtraccion.Visible = False
+            PictureDevolucion.Visible = False
+            PictureCrearReservacion.Visible = False
+            PictureReservacion.Visible = False
+            Label5.Visible = False
+            CarritoDeLibros.Items.Clear()
+            ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
+            Panel1.Left = -268
+            MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
+            '/////////////////////////////////////////////////////////////////////////////////////////////////////////
+        Else
+
+
+            Consulta = "select cedula from usuarios where cedula like '" & Cedula.Text & "'"
             consultar()
-            getData(DataCollection)
-            Cedula.AutoCompleteCustomSource = DataCollection
 
-        Catch ex As OutOfMemoryException
+            If Tabla.Rows.Count = 0 Then ' VERFICAR SI ES NULO EL RESULTADO DE LA CONSULTA
+                '//////////////////////Oculta los picturebox y la interfaz de las funciones///////////////////////////////
 
-        End Try
+                ExtCombo.Visible = False
+                devoCOMBO.Visible = False
+                ReservacionComboBox.Visible = False
+                PictureExtraccion.Visible = False
+                PictureDevolucion.Visible = False
+                PictureCrearReservacion.Visible = False
+                PictureReservacion.Visible = False
+                Label5.Visible = False
+                CarritoDeLibros.Items.Clear()
+                ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
+                Panel1.Left = -268
+                MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
+                '/////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Else
 
+
+    
+                Consulta = "select cedula , nombre , tipo from usuarios where cedula like '" & Cedula.Text & "'"
+                consultar()
+                Try
+                    For Each row As DataRow In Tabla.Rows
+                        NOMBRE.Text = row("nombre")
+                        Label12.Text = row("tipo")
+                    Next
+                Catch ex As Exception
+                    MsgBox(ex.ToString)
+                End Try
+
+                '/////////////////////////////////////////////////////////////////////////////////////////////
+                '////////////////////////////////Muestra los picturebox y la interfaz de las funciones///////////////////////
+                '/////////////////////////////////////////////////////////////////////////////////////////////
+
+                Label5.Visible = True
+                ExtCombo.Visible = False
+                devoCOMBO.Visible = False
+                ReservacionComboBox.Visible = False
+                PictureExtraccion.Visible = True
+                PictureDevolucion.Visible = True
+                PictureCrearReservacion.Visible = True
+                PictureReservacion.Visible = True
+                Label5.Visible = True
+                CarritoDeLibros.Items.Clear()
+                ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
+                Panel1.Left = -5
+
+                If Label12.Text = 2 Then
+                    ButtonLiberar.Visible = True
+                ElseIf Label12.Text = 0 Then
+                    ButtonMoroso.Visible = True
+                End If
+                '/////////////////////////////////////////////////////////////////////////////////////////////
+
+            End If
+
+        End If
 
     End Sub
 
-    Private Sub getData(ByVal dataCollection As AutoCompleteStringCollection)
-        Try
-            For Each row As DataRow In Tabla.Rows
-                dataCollection.Add(row(0).ToString())
-            Next
-        Catch ex As Exception
+   
 
-        End Try
+    'Private Sub Cedula_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cedula.TextChanged
 
-    End Sub
+    '    Try
+    '        Cedula.AutoCompleteMode = AutoCompleteMode.Suggest
+    '        Cedula.AutoCompleteSource = AutoCompleteSource.CustomSource
+    '        Dim DataCollection As New AutoCompleteStringCollection()
+    '        Consulta = "select cedula from usuarios"
+    '        consultar()
+    '        getData(DataCollection)
+    '        Cedula.AutoCompleteCustomSource = DataCollection
+
+    '    Catch ex As OutOfMemoryException
+
+    '    End Try
+
+
+    'End Sub
+
+    'Private Sub getData(ByVal dataCollection As AutoCompleteStringCollection)
+    '    Try
+    '        For Each row As DataRow In Tabla.Rows
+    '            dataCollection.Add(row(0).ToString())
+    '        Next
+    '    Catch ex As Exception
+
+    '    End Try
+
+    'End Sub
 
     Private Sub ButonParaExtreaer_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButonParaExtreaer.Click
-        'Igualamos una variable al valor de la fecha de la tabla, del datagridview oculto
-        Dim ROWS As DataGridViewRow = DatagridviewOcultolllllParaFuncionesPrestmolllll.CurrentRow
 
         Dim list, contador, libros As Integer
         contador = 0
@@ -444,15 +221,19 @@
         '1) El usario que puede extraer un libro SI ESTE NO TIENE NINGUN LIBROS EN PODER AHORA
         '/////////////////////CASO UNO///////////////////
         If Cedula.Text <> "" Then
-            If (DatagridviewOcultolllllParaFuncionesPrestmolllll.RowCount = 1) Then
 
-                MsgBox("Usted puede retirar un libro ", Title:="PRESTAMO")
+
+
+            Consulta = "select * from prestamolibro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
+            consultar()
+
+            If (Tabla.Rows.Count = 0) Then
 
                 While contador < list
                     contador = Val(contador) + 1
 
                     'REVISAR ESTO'
-                    Consulta = "insert into prestamolibro(cedula,cod_libro,fecha_salida) values('" + Cedula.Text + "','" + ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) + "','" + Label4.Text + "')"
+                    Consulta = "insert into prestamolibro(cedula,cod_libro,fecha_salida) values('" + Cedula.Text + "','" + ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "')"
                     consultar()
 
                     Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) & "';"
@@ -466,61 +247,50 @@
                 ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
                 MsgBox("Se extrajo correctamente los libros", Title:="PRESTAMO")
                 ExtCombo.Visible = False
-            End If
 
-
-        Else
-            MsgBox("La cedula debe estar ingrezada correctamente", Title:="PRESTAMOS")
-        End If
-
-
-        '/////////////////////CASO DOS///////////////////
-        Try
-            If Cedula.Text <> "" Then
-
-                If (ROWS.Cells(3).Value.ToString) <> "" Then
-                    MsgBox("Usted pude RETIRAR UN LIBREO", Title:="PRESTAMO")
-
-                    While contador < list
-                        contador = Val(contador) + 1
-
-
-                        Consulta = "insert into prestamolibro (cedula, cod_libro, fecha_salida) values ('" & Cedula.Text & "','" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) & "','" & Label4.Text & "')"
-                        consultar()
-
-
-                        Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) & "';"
-                        consultar()
-
-                        libros = libros + 1
-
-                    End While
-
-                    CarritoDeLibros.Items.Clear()
-                    ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
-                    MsgBox("Se extrajo correctamente los libros", Title:="PRESTAMO")
-                    ExtCombo.Visible = False
-                Else
-                    MsgBox("Este usuario no puede retirar libros hasta devolver los prestados", Title:="PRESTAMOS")
-
-                End If
 
             Else
-                MsgBox("La cedula debe estar ingresada", Title:="PRESTAMOS")
+
+
+                For Each row As DataRow In Tabla.Rows
+                    If row("fecha_entrada") Is DBNull.Value Then
+                        FechaEntradaPrestamo = 0
+                    Else
+                        FechaEntradaPrestamo = 1
+                    End If
+                Next
+
+                Select Case FechaEntradaPrestamo
+                    Case 1
+
+                        While contador < list
+                            contador = Val(contador) + 1
+
+
+                            Consulta = "insert into prestamolibro (cedula, cod_libro, fecha_salida) values ('" & Cedula.Text & "','" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) & "','" & Date.Now.ToString("yyyy-MM-dd") & "')"
+                            consultar()
+
+
+                            Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) & "';"
+                            consultar()
+
+                            libros = libros + 1
+
+                        End While
+
+                        CarritoDeLibros.Items.Clear()
+                        ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
+                        MsgBox("Se extrajo correctamente los libros", Title:="PRESTAMO")
+                        ExtCombo.Visible = False
+
+
+                    Case 0
+
+                        MsgBox("Este socios no puede retirar libros hasta devolver los prestados", Title:="PRESTAMOS")
+                End Select
             End If
-
-        Catch ex As Exception
-        End Try
-
-
-        '    1)////////////////////
+        End If
     End Sub
-
-
-
-
-
-
 
     Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
         Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where cedula= '" & Cedula.Text & "'"
@@ -544,13 +314,14 @@
 
         Consulta = "select cedula , nombre from usuarios where cedula like '" & Cedula.Text & "'  "
         consultar()
-        DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.DataSource = Tabla
-
-        NOMBRE.Text = DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.Item(1, DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.CurrentRow.Index).Value
+        For Each row As DataRow In Tabla.Rows
+            NOMBRE.Text = row("nombre")
+        Next
 
         '////////////////////////////////
 
-        Es_moroso2 = MsgBox("Desea volver moroso al usuario " & NOMBRE.Text & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
+        Es_moroso2 = MsgBox("Desea volver moroso al socios " & NOMBRE.Text & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
+
         Try
 
             If Cedula.Text <> "" Then
@@ -561,7 +332,7 @@
                     Consulta = "update usuarios set (tipo = ""2"") where cedulaU = '" & Cedula.Text & "';"
                     consultar()
 
-                    MsgBox("El usuario " & NOMBRE.Text & " es moroso ahora", Title:="PRESTAMOS")
+                    MsgBox("El socios " & NOMBRE.Text & " es moroso ahora", Title:="PRESTAMOS")
                 Else
                     MsgBox("No se encontraron los datos", Title:="PRESTAMOS")
                 End If
@@ -580,64 +351,52 @@
         End Try
 
     End Sub
-
+    Dim FechaEntradaPrestamo As Integer
     Private Sub PictureBoxDeExtraccion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureExtraccion.Click
+
         If CarritoDeLibros.Items.Count = 0 Then
-            Consulta = "select * from prestamolibro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
-            consultar()
-            DatagridviewOcultolllllParaFuncionesPrestmolllll.DataSource = Tabla
 
-            Consulta = "select * from libro where estado = '0'"
-            consultar()
-            DataGridViewlllllVerLibrosEnExtraccionlllll.DataSource = Tabla
-            Dim ROWS As DataGridViewRow = DatagridviewOcultolllllParaFuncionesPrestmolllll.CurrentRow
-
-
-            '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            devoCOMBO.Visible = False
-            ReservacionComboBox.Visible = False
-            CrearReservacionComboBox.Visible = False
-            '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             If Cedula.Text <> "" Then
 
-                If (DatagridviewOcultolllllParaFuncionesPrestmolllll.RowCount = 1) Then
 
+                '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                devoCOMBO.Visible = False
+                ReservacionComboBox.Visible = False
+                CrearReservacionComboBox.Visible = False
+                '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+                Consulta = "select * from prestamolibro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
+                consultar()
+                If (Tabla.Rows.Count = 0) Then
                     ExtCombo.Visible = True
-
                     Consulta = "select * from libro where estado = '0'"
                     consultar()
                     DataGridViewlllllVerLibrosEnExtraccionlllll.DataSource = Tabla
+                Else
 
+                    For Each row As DataRow In Tabla.Rows
+                        If row("fecha_entrada") Is DBNull.Value Then
+                            FechaEntradaPrestamo = 1
+                        Else
+                            FechaEntradaPrestamo = 0
+                        End If
+                    Next
+
+                    Select Case FechaEntradaPrestamo
+                        Case 1
+                            MsgBox("Este socio NO puede retirar un libro hasta devolver los ya prestados", Title:="ERROR")
+                        Case 0
+                            Consulta = "select * from libro where estado = '0'"
+                            consultar()
+                            DataGridViewlllllVerLibrosEnExtraccionlllll.DataSource = Tabla
+                            ExtCombo.Visible = True
+                    End Select
                 End If
-
             Else
             End If
-            '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-            '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            Try
-                If Cedula.Text <> "" Then
-                    If (ROWS.Cells(3).Value.ToString) <> "" Then
-                        ExtCombo.Visible = True
-
-                        Consulta = "select * from libro where estado = '0'"
-                        consultar()
-                        DataGridViewlllllVerLibrosEnExtraccionlllll.DataSource = Tabla
-                    Else
-                        ExtCombo.Visible = False
-                        MsgBox("Este socio NO puede retirar un libro hasta devolver los ya prestados", Title:="ERROR")
-                    End If
-
-                Else
-                    MsgBox("La cedula debe estar ingrezada correctamente", Title:="PRESTAMOS")
-                End If
-            Catch ex As Exception
-            End Try
-            '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
         End If
-
     End Sub
 
     Private Sub PictureBoxParaDevolucion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureDevolucion.Click
@@ -813,7 +572,7 @@
                     contador = Val(contador) + 1
 
                     'REVISAR ESTO'
-                    Consulta = "insert into prestamolibro(cedula,cod_libro,fecha_salida) values('" + Cedula.Text + "','" + ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) + "','" + Label4.Text + "')"
+                    Consulta = "insert into prestamolibro(cedula,cod_libro,fecha_salida) values('" + Cedula.Text + "','" + ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "')"
                     consultar()
 
                     Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) & "';"
@@ -845,7 +604,7 @@
                         contador = Val(contador) + 1
 
 
-                        Consulta = "insert into prestamolibro (cedula, cod_libro, fecha_salida) values ('" & Cedula.Text & "','" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) & "','" & Label4.Text & "')"
+                        Consulta = "insert into prestamolibro (cedula, cod_libro, fecha_salida) values ('" & Cedula.Text & "','" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) & "','" & Date.Now.ToString("yyyy-MM-dd") & "')"
                         consultar()
 
 
@@ -861,7 +620,7 @@
                     MsgBox("Se extrajo correctamente los libros", Title:="PRESTAMO")
                     ReservacionComboBox.Visible = False
                 Else
-                    MsgBox("Este usuario no puede retirar libros hasta devolver los prestados", Title:="PRESTAMOS")
+                    MsgBox("Este socios no puede retirar libros hasta devolver los prestados", Title:="PRESTAMOS")
 
                 End If
 
@@ -957,72 +716,6 @@
 
     End Sub
 
-    Private Sub Timer2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Aparecer.Tick
-        Try
-            If Panel1.Left < -5 Then
-                Panel1.Left += 10
-            Else
-                NOMBRE.Text = DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.Item(1, DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.CurrentRow.Index).Value
-                Aparecer.Enabled = False
-                panelnombre = 1
-            End If
-        Catch ex As Exception
-            Aparecer.Enabled = False
-
-            ExtCombo.Visible = False
-            devoCOMBO.Visible = False
-            ReservacionComboBox.Visible = False
-            PictureExtraccion.Visible = False
-            PictureDevolucion.Visible = False
-            PictureCrearReservacion.Visible = False
-            PictureReservacion.Visible = False
-            Label5.Visible = False
-            Ocultar.Enabled = True
-            MsgBox("La cedula ingresada no es correcta", Title:="Error")
-
-        End Try
-
-
-    End Sub
-
-    Private Sub Timer3_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Ocultar.Tick
-        If Panel1.Left > -265 Then
-            Panel1.Left -= 10
-        Else
-            Ocultar.Enabled = False
-
-        End If
-    End Sub
-
-    Private Sub Timer4_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Ocultar_Aparecer.Tick
-        Try
-            If Panel1.Left > -265 Then
-                Panel1.Left -= 10
-            Else
-                NOMBRE.Text = DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.Item(1, DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.CurrentRow.Index).Value
-                Aparecer.Enabled = True
-                Ocultar_Aparecer.Enabled = False
-
-            End If
-        Catch ex As Exception
-            Ocultar.Enabled = True
-            Ocultar_Aparecer.Enabled = False
-            ExtCombo.Visible = False
-            devoCOMBO.Visible = False
-            ReservacionComboBox.Visible = False
-            PictureExtraccion.Visible = False
-            PictureDevolucion.Visible = False
-            PictureCrearReservacion.Visible = False
-            PictureReservacion.Visible = False
-            Label5.Visible = False
-
-        End Try
-
-    End Sub
-
-    Private Sub DataGridViewlllllVerLibrosEnExtraccionlllll_CellContentDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridViewlllllVerLibrosEnExtraccionlllll.CellContentDoubleClick
-
-    End Sub
     '/////////////////////////////////////////////////////////////////////////////////
     Private Sub DataGridViewlllllVerLibrosEnExtraccionlllll_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridViewlllllVerLibrosEnExtraccionlllll.CellDoubleClick
         'Se iguala una variable a un valor de la base de datos
@@ -1104,7 +797,7 @@
 
                 Consulta = "update libro set estado = 0 where cod_libro = '" & cod_libros & "'"
                 consultar()
-                Consulta = "UPDATE prestamolibro SET fecha_entrada = '" & Label4.Text & "' WHERE cedula = '" & Cedula.Text & "' and cod_libro ='" & cod_libros & "'"
+                Consulta = "UPDATE prestamolibro SET fecha_entrada = '" & Date.Now.ToString("yyyy-MM-dd") & "' WHERE cedula = '" & Cedula.Text & "' and cod_libro ='" & cod_libros & "'"
                 consultar()
                 MsgBox("se ha devuelto", Title:="PRESTAMO")
 
@@ -1194,7 +887,7 @@
 
     End Sub
 
-    Private Sub Timer2_Tick_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer2.Tick
+    Private Sub Timer2_Tick_1(ByVal sender As System.Object, ByVal e As System.EventArgs)
         If Panel4.Left = 1018 Then
             Panel4.Left -= 10
         Else
@@ -1354,6 +1047,91 @@
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
         Registroprestamos.Show()
+    End Sub
+
+    Private Sub Cedula_KeyDown(sender As System.Object, e As System.Windows.Forms.KeyEventArgs) Handles Cedula.KeyDown
+
+        If e.KeyCode = Keys.Enter Then
+
+            If Cedula.Text = "" Then
+                '//////////////////////Oculta los picturebox y la interfaz de las funciones///////////////////////////////
+
+                ExtCombo.Visible = False
+                devoCOMBO.Visible = False
+                ReservacionComboBox.Visible = False
+                PictureExtraccion.Visible = False
+                PictureDevolucion.Visible = False
+                PictureCrearReservacion.Visible = False
+                PictureReservacion.Visible = False
+                Label5.Visible = False
+                CarritoDeLibros.Items.Clear()
+                ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
+                Panel1.Left = -268
+                MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
+                '/////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Else
+
+
+                Consulta = "select cedula from usuarios where cedula like '" & Cedula.Text & "'"
+                consultar()
+
+                If Tabla.Rows.Count = 0 Then ' VERFICAR SI ES NULO EL RESULTADO DE LA CONSULTA
+                    '//////////////////////Oculta los picturebox y la interfaz de las funciones///////////////////////////////
+
+                    ExtCombo.Visible = False
+                    devoCOMBO.Visible = False
+                    ReservacionComboBox.Visible = False
+                    PictureExtraccion.Visible = False
+                    PictureDevolucion.Visible = False
+                    PictureCrearReservacion.Visible = False
+                    PictureReservacion.Visible = False
+                    Label5.Visible = False
+                    CarritoDeLibros.Items.Clear()
+                    ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
+                    Panel1.Left = -268
+                    MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
+                    '/////////////////////////////////////////////////////////////////////////////////////////////////////////
+                Else
+
+                    Consulta = "select cedula , nombre , tipo from usuarios where cedula like '" & Cedula.Text & "'"
+                    consultar()
+                    Try
+                        For Each row As DataRow In Tabla.Rows
+                            NOMBRE.Text = row("nombre")
+                            Label12.Text = row("tipo")
+                        Next
+                    Catch ex As Exception
+                        MsgBox(ex.ToString)
+                    End Try
+
+                    '/////////////////////////////////////////////////////////////////////////////////////////////
+                    '////////////////////////////////Muestra los picturebox y la interfaz de las funciones///////////////////////
+                    '/////////////////////////////////////////////////////////////////////////////////////////////
+
+                    Label5.Visible = True
+                    ExtCombo.Visible = False
+                    devoCOMBO.Visible = False
+                    ReservacionComboBox.Visible = False
+                    PictureExtraccion.Visible = True
+                    PictureDevolucion.Visible = True
+                    PictureCrearReservacion.Visible = True
+                    PictureReservacion.Visible = True
+                    Label5.Visible = True
+                    CarritoDeLibros.Items.Clear()
+                    ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
+                    Panel1.Left = -5
+
+                    If Label12.Text = 2 Then
+                        ButtonLiberar.Visible = True
+                    ElseIf Label12.Text = 0 Then
+                        ButtonMoroso.Visible = True
+                    End If
+                    '/////////////////////////////////////////////////////////////////////////////////////////////
+
+                End If
+
+            End If
+        End If
     End Sub
 
 End Class
