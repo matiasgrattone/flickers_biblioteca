@@ -42,28 +42,26 @@
         '/////////////////////////////////////////////VARIABLES CON DIA Y HORA////////////////////
 
     End Sub
-
     Private Sub ButonLiberar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonLiberar.Click
 
         Dim Es_moroso As MsgBoxResult
 
-        'Igualamos Variable NOMBRE al valor del dato de la cedula
+        'Consulta a DATAGRIDVIEW oculto
 
-        Consulta = "select cedula , nombre from usuarios where cedula like '" & Cedula.Text & "'"
+        Consulta = "select cedula , nombre from usuarios where cedula like '" & Cedula.Text & "'  "
         consultar()
+        DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.DataSource = Tabla
 
-        For Each row As DataRow In Tabla.Rows
-            NOMBRE.Text = row("nombre")
-        Next
+        NOMBRE.Text = DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.Item(1, DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.CurrentRow.Index).Value
 
         '////////////////////////////////
-
-
 
         Es_moroso = MsgBox("Desea que el usuario " & NOMBRE.Text & " deje de ser moroso?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
 
         Try
+
             If Cedula.Text <> "" Then
+
                 '////////////////////////////////
                 If Es_moroso = vbYes Then
 
@@ -77,9 +75,13 @@
                 '////////////////////////////////
 
             Else
+
                 MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
+
             End If
+
         Catch ex As Exception
+
             MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
 
         End Try
@@ -89,7 +91,7 @@
     End Sub
 
     Private Sub BotonParaBuscarCedula_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BotonParaBuscarCedula.Click
-        
+
         If panelnombre = 0 Then
             'Se cambia el label solo cuando haya un valor en el textbox CEDULA
 
@@ -97,20 +99,15 @@
 
                 If Cedula.Text <> "" Then
 
-                    '/////////////////////////Igualamos el valor de NOMBRE.text a el valor dado por la tabla////////////////////////////////////
+                    '/////////////////////////Consulta a DATAGRIDVIEW oculto////////////////////////////////////
                     Consulta = "select cedula , nombre, tipo from usuarios where cedula like '" & Cedula.Text & "'  "
                     consultar()
-                    For Each row As DataRow In Tabla.Rows
-                        Label12.Text = row("tipo")
-                        NOMBRE.Text = row("nombre")
-                    Next
+                    DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.DataSource = Tabla
                     '///////////////////////////////////////////////////////////////////////////////////////////
-                    '//////////////////////////Igualamos el valor de NOMBRE.text a el valor dado por la tabla////////////////////////////////////////
+                    '//////////////////////////Consulta a DATAGRIDVIEW oculto////////////////////////////////////////
                     Consulta = "select * from prestamolibro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
                     consultar()
-                    For Each row As DataRow In Tabla.Rows
-
-                    Next
+                    DatagridviewOcultolllllParaFuncionesPrestmolllll.DataSource = Tabla
                     '////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -118,7 +115,7 @@
                     '////////////////////////////////Muestra los picturebox y la interfaz de las funciones///////////////////////
                     '/////////////////////////////////////////////////////////////////////////////////////////////
 
-
+                    NOMBRE.Text = DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.Item(1, DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.CurrentRow.Index).Value
                     Label5.Visible = True
                     ExtCombo.Visible = False
                     devoCOMBO.Visible = False
@@ -131,6 +128,7 @@
                     CarritoDeLibros.Items.Clear()
                     ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
                     Aparecer.Enabled = True
+                    Label12.Text = DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.Item(2, DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.CurrentRow.Index).Value
                     If Label12.Text = 2 Then
                         ButtonLiberar.Visible = True
                     ElseIf Label12.Text = 0 Then
@@ -175,20 +173,15 @@
 
                 If Cedula.Text <> "" Then
 
-                    '/////////////////////////Igualamos el valor de NOMBRE.text a el valor dado por la tabla////////////////////////////////////
+                    '/////////////////////////Consulta a DATAGRIDVIEW oculto////////////////////////////////////
                     Consulta = "select cedula , nombre, tipo from usuarios where cedula like '" & Cedula.Text & "'  "
                     consultar()
-                    For Each row As DataRow In Tabla.Rows
-                        Label12.Text = row("tipo")
-                        NOMBRE.Text = row("nombre")
-                    Next
+                    DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.DataSource = Tabla
                     '///////////////////////////////////////////////////////////////////////////////////////////
-                    '//////////////////////////Igualamos el valor de NOMBRE.text a el valor dado por la tabla////////////////////////////////////////
+                    '//////////////////////////Consulta a DATAGRIDVIEW oculto////////////////////////////////////////
                     Consulta = "select * from prestamolibro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
                     consultar()
-                    For Each row As DataRow In Tabla.Rows
-
-                    Next
+                    DatagridviewOcultolllllParaFuncionesPrestmolllll.DataSource = Tabla
                     '////////////////////////////////////////////////////////////////////////////////////////////////
 
                     '/////////////////////////////////////////////////////////////////////////////////////////////
@@ -208,6 +201,7 @@
                     CarritoDeLibros.Items.Clear()
                     ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
                     Ocultar_Aparecer.Enabled = True
+                    Label12.Text = DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.Item(2, DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.CurrentRow.Index).Value
                     If Label12.Text = 2 Then
                         ButtonLiberar.Visible = True
                     ElseIf Label12.Text = 0 Then
@@ -246,6 +240,17 @@
 
         End If
     End Sub
+    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
+
+
+        '///////////////Variables igualdas a hora y fecha////////////////
+        Label2.Text = Date.Now.ToString("hh:mm:ss")
+
+        Label4.Text = Date.Now.ToString("yyyy-MM-dd")
+        '////////////////////////////////////////////////////////////////
+
+
+    End Sub
 
     Private Sub Cedula_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Cedula.KeyDown
         If panelnombre = 0 Then
@@ -257,20 +262,15 @@
 
                     If Cedula.Text <> "" Then
 
-                        '/////////////////////////Igualamos el valor de NOMBRE.text a el valor dado por la tabla////////////////////////////////////
-                        Consulta = "select cedula , nombre, tipo from usuarios where cedula like '" & Cedula.Text & "'  "
+                        '/////////////////////////Consulta a DATAGRIDVIEW oculto////////////////////////////////////
+                        Consulta = "select cedula , nombre from usuarios where cedula like '" & Cedula.Text & "'  "
                         consultar()
-                        For Each row As DataRow In Tabla.Rows
-                            Label12.Text = row("tipo")
-                            NOMBRE.Text = row("nombre")
-                        Next
+                        DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.DataSource = Tabla
                         '///////////////////////////////////////////////////////////////////////////////////////////
-                        '//////////////////////////Igualamos el valor de NOMBRE.text a el valor dado por la tabla////////////////////////////////////////
+                        '//////////////////////////Consulta a DATAGRIDVIEW oculto////////////////////////////////////////
                         Consulta = "select * from prestamolibro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
                         consultar()
-                        For Each row As DataRow In Tabla.Rows
-
-                        Next
+                        DatagridviewOcultolllllParaFuncionesPrestmolllll.DataSource = Tabla
                         '////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -332,20 +332,15 @@
 
                     If Cedula.Text <> "" Then
 
-                        '/////////////////////////Igualamos el valor de NOMBRE.text a el valor dado por la tabla////////////////////////////////////
-                        Consulta = "select cedula , nombre, tipo from usuarios where cedula like '" & Cedula.Text & "'  "
+                        '/////////////////////////Consulta a DATAGRIDVIEW oculto////////////////////////////////////
+                        Consulta = "select cedula , nombre from usuarios where cedula like '" & Cedula.Text & "'  "
                         consultar()
-                        For Each row As DataRow In Tabla.Rows
-                            Label12.Text = row("tipo")
-                            NOMBRE.Text = row("nombre")
-                        Next
+                        DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.DataSource = Tabla
                         '///////////////////////////////////////////////////////////////////////////////////////////
-                        '//////////////////////////Igualamos el valor de NOMBRE.text a el valor dado por la tabla////////////////////////////////////////
+                        '//////////////////////////Consulta a DATAGRIDVIEW oculto////////////////////////////////////////
                         Consulta = "select * from prestamolibro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
                         consultar()
-                        For Each row As DataRow In Tabla.Rows
-
-                        Next
+                        DatagridviewOcultolllllParaFuncionesPrestmolllll.DataSource = Tabla
                         '////////////////////////////////////////////////////////////////////////////////////////////////
 
                         '/////////////////////////////////////////////////////////////////////////////////////////////
@@ -436,14 +431,8 @@
     End Sub
 
     Private Sub ButonParaExtreaer_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButonParaExtreaer.Click
-        Dim CondicionParaPrestamo As String
         'Igualamos una variable al valor de la fecha de la tabla, del datagridview oculto
-
-        Consulta = "select * from prestamolibro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
-        consultar()
-        For Each row As DataRow In Tabla.Rows
-            CondicionParaPrestamo = row("fecha_entrada")
-        Next
+        Dim ROWS As DataGridViewRow = DatagridviewOcultolllllParaFuncionesPrestmolllll.CurrentRow
 
         Dim list, contador, libros As Integer
         contador = 0
@@ -452,22 +441,18 @@
         list = ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Count
         list = list
 
-
-
-
-
-
         '1) El usario que puede extraer un libro SI ESTE NO TIENE NINGUN LIBROS EN PODER AHORA
         '/////////////////////CASO UNO///////////////////
         If Cedula.Text <> "" Then
-            If (CondicionParaPrestamo = vbNull) Then
+            If (DatagridviewOcultolllllParaFuncionesPrestmolllll.RowCount = 1) Then
 
                 MsgBox("Usted puede retirar un libro ", Title:="PRESTAMO")
 
                 While contador < list
                     contador = Val(contador) + 1
 
-                    Consulta = "insert into prestamolibro(cedula,cod_libro,fecha_salida) values('" + Cedula.Text + "','" + ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "')"
+                    'REVISAR ESTO'
+                    Consulta = "insert into prestamolibro(cedula,cod_libro,fecha_salida) values('" + Cedula.Text + "','" + ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) + "','" + Label4.Text + "')"
                     consultar()
 
                     Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) & "';"
@@ -493,14 +478,14 @@
         Try
             If Cedula.Text <> "" Then
 
-                If CondicionParaPrestamo = vbNull Then
+                If (ROWS.Cells(3).Value.ToString) <> "" Then
                     MsgBox("Usted pude RETIRAR UN LIBREO", Title:="PRESTAMO")
 
                     While contador < list
                         contador = Val(contador) + 1
 
 
-                        Consulta = "insert into prestamolibro (cedula, cod_libro, fecha_salida) values ('" & Cedula.Text & "','" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) & "','" & Date.Now.ToString("yyyy-MM-dd") & "')"
+                        Consulta = "insert into prestamolibro (cedula, cod_libro, fecha_salida) values ('" & Cedula.Text & "','" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) & "','" & Label4.Text & "')"
                         consultar()
 
 
@@ -559,9 +544,10 @@
 
         Consulta = "select cedula , nombre from usuarios where cedula like '" & Cedula.Text & "'  "
         consultar()
-        For Each row As DataRow In Tabla.Rows
-            NOMBRE.Text = row("fecha_entrada")
-        Next
+        DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.DataSource = Tabla
+
+        NOMBRE.Text = DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.Item(1, DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.CurrentRow.Index).Value
+
         '////////////////////////////////
 
         Es_moroso2 = MsgBox("Desea volver moroso al usuario " & NOMBRE.Text & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
@@ -596,18 +582,10 @@
     End Sub
 
     Private Sub PictureBoxDeExtraccion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureExtraccion.Click
-
-        Dim CondicionParaPrestamo As String
-        'Igualamos una variable al valor de la fecha de la tabla, del datagridview oculto
-
-        Consulta = "select * from prestamolibro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
-        consultar()
-        For Each row As DataRow In Tabla.Rows
-            CondicionParaPrestamo = row("fecha_entrada")
-        Next
-
         If CarritoDeLibros.Items.Count = 0 Then
-
+            Consulta = "select * from prestamolibro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
+            consultar()
+            DatagridviewOcultolllllParaFuncionesPrestmolllll.DataSource = Tabla
 
             Consulta = "select * from libro where estado = '0'"
             consultar()
@@ -622,7 +600,7 @@
             '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             If Cedula.Text <> "" Then
 
-                If (CondicionParaPrestamo = vbNull) Then
+                If (DatagridviewOcultolllllParaFuncionesPrestmolllll.RowCount = 1) Then
 
                     ExtCombo.Visible = True
 
@@ -640,7 +618,7 @@
             '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             Try
                 If Cedula.Text <> "" Then
-                    If CondicionParaPrestamo = vbNull Then
+                    If (ROWS.Cells(3).Value.ToString) <> "" Then
                         ExtCombo.Visible = True
 
                         Consulta = "select * from libro where estado = '0'"
@@ -835,7 +813,7 @@
                     contador = Val(contador) + 1
 
                     'REVISAR ESTO'
-                    Consulta = "insert into prestamolibro(cedula,cod_libro,fecha_salida) values('" + Cedula.Text + "','" + ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "')"
+                    Consulta = "insert into prestamolibro(cedula,cod_libro,fecha_salida) values('" + Cedula.Text + "','" + ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) + "','" + Label4.Text + "')"
                     consultar()
 
                     Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) & "';"
@@ -867,7 +845,7 @@
                         contador = Val(contador) + 1
 
 
-                        Consulta = "insert into prestamolibro (cedula, cod_libro, fecha_salida) values ('" & Cedula.Text & "','" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) & "','" & Date.Now.ToString("yyyy-MM-dd") & "')"
+                        Consulta = "insert into prestamolibro (cedula, cod_libro, fecha_salida) values ('" & Cedula.Text & "','" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) & "','" & Label4.Text & "')"
                         consultar()
 
 
@@ -984,17 +962,11 @@
             If Panel1.Left < -5 Then
                 Panel1.Left += 10
             Else
-                Consulta = "select cedula , nombre, tipo from usuarios where cedula like '" & Cedula.Text & "'  "
-                consultar()
-                For Each row As DataRow In Tabla.Rows
-                    Label12.Text = row("tipo")
-                    NOMBRE.Text = row("nombre")
-                Next
+                NOMBRE.Text = DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.Item(1, DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.CurrentRow.Index).Value
                 Aparecer.Enabled = False
                 panelnombre = 1
             End If
         Catch ex As Exception
-
             Aparecer.Enabled = False
 
             ExtCombo.Visible = False
@@ -1027,12 +999,7 @@
             If Panel1.Left > -265 Then
                 Panel1.Left -= 10
             Else
-                Consulta = "select cedula , nombre, tipo from usuarios where cedula like '" & Cedula.Text & "'  "
-                consultar()
-                For Each row As DataRow In Tabla.Rows
-                    Label12.Text = row("tipo")
-                    NOMBRE.Text = row("nombre")
-                Next
+                NOMBRE.Text = DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.Item(1, DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll.CurrentRow.Index).Value
                 Aparecer.Enabled = True
                 Ocultar_Aparecer.Enabled = False
 
@@ -1137,7 +1104,7 @@
 
                 Consulta = "update libro set estado = 0 where cod_libro = '" & cod_libros & "'"
                 consultar()
-                Consulta = "UPDATE prestamolibro SET fecha_entrada = '" & Date.Now.ToString("yyyy-MM-dd") & "' WHERE cedula = '" & Cedula.Text & "' and cod_libro ='" & cod_libros & "'"
+                Consulta = "UPDATE prestamolibro SET fecha_entrada = '" & Label4.Text & "' WHERE cedula = '" & Cedula.Text & "' and cod_libro ='" & cod_libros & "'"
                 consultar()
                 MsgBox("se ha devuelto", Title:="PRESTAMO")
 
@@ -1385,9 +1352,8 @@
         End If
     End Sub
 
-    Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
         Registroprestamos.Show()
     End Sub
-
 
 End Class
