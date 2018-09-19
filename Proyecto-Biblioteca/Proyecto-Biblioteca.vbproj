@@ -93,6 +93,12 @@
     <Compile Include="Betas\ConfiguraciònAdmin.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Betas\PrestamoRevistas.Designer.vb">
+      <DependentUpon>PrestamoRevistas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Betas\PrestamoRevistas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Betas\Notas.Designer.vb">
       <DependentUpon>Notas.vb</DependentUpon>
     </Compile>
@@ -228,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Betas\ConfiguraciònAdmin.resx">
       <DependentUpon>ConfiguraciònAdmin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Betas\PrestamoRevistas.resx">
+      <DependentUpon>PrestamoRevistas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Betas\IngresoRevistas.resx">
       <DependentUpon>IngresoRevistas.vb</DependentUpon>
@@ -365,6 +374,8 @@
     <None Include="Resources\magazine.png" />
     <None Include="Resources\3132.jpg" />
     <None Include="Resources\home1.png" />
+    <None Include="Resources\extraccionRevista.png" />
+    <None Include="Resources\devolcionRevistas.png" />
     <Content Include="Resources\navigator.png" />
     <None Include="Resources\Sin título-1.jpg" />
     <None Include="Resources\reading.png" />

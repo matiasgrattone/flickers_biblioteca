@@ -48,6 +48,7 @@ Partial Class MENU3
         Me.Pbrevistas = New System.Windows.Forms.PictureBox()
         Me.LabelRevistas = New System.Windows.Forms.Label()
         Me.Pbconfig = New System.Windows.Forms.PictureBox()
+        Me.Labels_transparentes1 = New Proyecto_Biblioteca.labels_transparentes()
         Me.Pbnube = New System.Windows.Forms.PictureBox()
         Me.panel_navegador = New System.Windows.Forms.Panel()
         Me.Pbnavegador = New System.Windows.Forms.PictureBox()
@@ -99,7 +100,6 @@ Partial Class MENU3
         Me.Timer_Prestamos_LIVE = New System.Windows.Forms.Timer(Me.components)
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Labels_transparentes1 = New Proyecto_Biblioteca.labels_transparentes()
         Me.Phoraencabezado.SuspendLayout()
         CType(Me.Pbadvertenciaprestamos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -298,6 +298,14 @@ Partial Class MENU3
         Me.Pbconfig.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.Pbconfig.TabIndex = 15
         Me.Pbconfig.TabStop = False
+        '
+        'Labels_transparentes1
+        '
+        Me.Labels_transparentes1.Location = New System.Drawing.Point(99, 632)
+        Me.Labels_transparentes1.Name = "Labels_transparentes1"
+        Me.Labels_transparentes1.Size = New System.Drawing.Size(30, 23)
+        Me.Labels_transparentes1.TabIndex = 14
+        Me.Labels_transparentes1.Text = "V.2.0"
         '
         'Pbnube
         '
@@ -754,14 +762,6 @@ Partial Class MENU3
         'ToolTip1
         '
         Me.ToolTip1.AutomaticDelay = 300
-        '
-        'Labels_transparentes1
-        '
-        Me.Labels_transparentes1.Location = New System.Drawing.Point(99, 632)
-        Me.Labels_transparentes1.Name = "Labels_transparentes1"
-        Me.Labels_transparentes1.Size = New System.Drawing.Size(30, 23)
-        Me.Labels_transparentes1.TabIndex = 14
-        Me.Labels_transparentes1.Text = "V.2.0"
         '
         'MENU3
         '
