@@ -533,7 +533,7 @@
         '///////////////////////////////////////////////////////////////////
         '//////////////////// AGREGAR USUARIOS /////////////////////////////
         '///////////////////////////////////////////////////////////////////
-
+        i_ingresar = 0
         ' Verificar campos
         If LTrim$(nombre_txt.Text) = "" Then ' Verifica si esta vacio nombre
             ErrorProvider1.SetError(nombre_txt, "Nombre no puede estar vacío")
@@ -559,8 +559,6 @@
 
         If i_ingresar = 0 Then
             If IsNumeric(cedula_txt.Text) = True Then
-
-
                 Modulo.Verificar_Cedula(cedula_txt.Text)
                 If Modulo.correcto = 0 Then
                     ced_ingresar = cedula_txt.Text
@@ -629,7 +627,7 @@
 
                 Dim nacimiento_ingresar As String = Str(ComboBox3.SelectedItem).Substring(1, 4) + "-" + substring + "-" + dia_ingresar '//GUARDA LOS DATOS DEL COMBO A LA VARIABLE NACIMIENTO PARA LUEGO USARLA EN LA CONSULTA INSERT
 
-                Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo , nacimiento, estado, contrasenia) values (concat(upper(left('" + nom_ingresar + "',1)), lower(substr('" + nom_ingresar + "',2))), concat(upper(left('" + ape_ingresar + "',1)), lower(substr('" + ape_ingresar + "',2))), '" + Str(ced_ingresar) + "', '" + Str(tel_ingresar) + "', '" + dir_ingresar + "', '" + Str(tipo_ingresar) + "', '" + nacimiento_ingresar + "','1', '" + pass_ingresar + "');"
+                Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo , nacimiento, estado, contrasenia , moroso) values (concat(upper(left('" + nom_ingresar + "',1)), lower(substr('" + nom_ingresar + "',2))), concat(upper(left('" + ape_ingresar + "',1)), lower(substr('" + ape_ingresar + "',2))), '" + Str(ced_ingresar) + "', '" + Str(tel_ingresar) + "', '" + dir_ingresar + "', '" + Str(tipo_ingresar) + "', '" + nacimiento_ingresar + "','1', '" + pass_ingresar + "',0);"
                 consultar()
 
                 If ERROR1 = 1 Then

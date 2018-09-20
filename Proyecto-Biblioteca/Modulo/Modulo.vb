@@ -177,17 +177,6 @@ Module Modulo
                 suma = (num1 * calculo(i)) & suma
             Next
 
-            'num = suma.ToString.ToCharArray
-
-            'ReDim Preserve num(1)
-            'suma1 = Convert.ToInt32(num) & 1
-            'num = suma1.ToString.ToCharArray
-            'ReDim Preserve num(2)
-            'num(2) = "0"
-
-            'suma1 = Convert.ToInt32(num)
-            'suma = suma1 - suma
-
             num = cedula.ToCharArray()
 
             Dim resto As Integer = 10 - (suma Mod 10)
@@ -201,6 +190,7 @@ Module Modulo
             End If
 
         Catch ex As Exception
+            MsgBox(ex.ToString, Title:=" MODULO VERIFICAR CEDULA ")
             correcto = 1
         End Try
 
