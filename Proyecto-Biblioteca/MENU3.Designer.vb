@@ -48,7 +48,6 @@ Partial Class MENU3
         Me.Pbrevistas = New System.Windows.Forms.PictureBox()
         Me.LabelRevistas = New System.Windows.Forms.Label()
         Me.Pbconfig = New System.Windows.Forms.PictureBox()
-        Me.Labels_transparentes1 = New Proyecto_Biblioteca.labels_transparentes()
         Me.Pbnube = New System.Windows.Forms.PictureBox()
         Me.panel_navegador = New System.Windows.Forms.Panel()
         Me.Pbnavegador = New System.Windows.Forms.PictureBox()
@@ -100,6 +99,8 @@ Partial Class MENU3
         Me.Timer_Prestamos_LIVE = New System.Windows.Forms.Timer(Me.components)
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.ListBox2 = New System.Windows.Forms.ListBox()
+        Me.Labels_transparentes1 = New Proyecto_Biblioteca.labels_transparentes()
         Me.Phoraencabezado.SuspendLayout()
         CType(Me.Pbadvertenciaprestamos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -298,14 +299,6 @@ Partial Class MENU3
         Me.Pbconfig.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.Pbconfig.TabIndex = 15
         Me.Pbconfig.TabStop = False
-        '
-        'Labels_transparentes1
-        '
-        Me.Labels_transparentes1.Location = New System.Drawing.Point(99, 632)
-        Me.Labels_transparentes1.Name = "Labels_transparentes1"
-        Me.Labels_transparentes1.Size = New System.Drawing.Size(30, 23)
-        Me.Labels_transparentes1.TabIndex = 14
-        Me.Labels_transparentes1.Text = "V.2.0"
         '
         'Pbnube
         '
@@ -555,6 +548,7 @@ Partial Class MENU3
         'Panel_Graficos
         '
         Me.Panel_Graficos.Controls.Add(Me.Panel_prestamosdia)
+        Me.Panel_Graficos.Controls.Add(Me.PanelPrestamosLIVE)
         Me.Panel_Graficos.Controls.Add(Me.PictureBox1)
         Me.Panel_Graficos.Controls.Add(Me.Label2)
         Me.Panel_Graficos.Controls.Add(Me.PanelPrestamosTOP)
@@ -562,7 +556,6 @@ Partial Class MENU3
         Me.Panel_Graficos.Controls.Add(Me.ComboBox2)
         Me.Panel_Graficos.Controls.Add(Me.Panel1)
         Me.Panel_Graficos.Controls.Add(Me.ComboBox1)
-        Me.Panel_Graficos.Controls.Add(Me.PanelPrestamosLIVE)
         Me.Panel_Graficos.Location = New System.Drawing.Point(128, 43)
         Me.Panel_Graficos.Name = "Panel_Graficos"
         Me.Panel_Graficos.Size = New System.Drawing.Size(1006, 646)
@@ -726,11 +719,12 @@ Partial Class MENU3
         'PanelPrestamosLIVE
         '
         Me.PanelPrestamosLIVE.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.PanelPrestamosLIVE.Controls.Add(Me.ListBox2)
         Me.PanelPrestamosLIVE.Controls.Add(Me.Label1)
         Me.PanelPrestamosLIVE.Controls.Add(Me.ListBox1)
         Me.PanelPrestamosLIVE.Location = New System.Drawing.Point(1010, 0)
         Me.PanelPrestamosLIVE.Name = "PanelPrestamosLIVE"
-        Me.PanelPrestamosLIVE.Size = New System.Drawing.Size(147, 637)
+        Me.PanelPrestamosLIVE.Size = New System.Drawing.Size(240, 637)
         Me.PanelPrestamosLIVE.TabIndex = 9
         '
         'Label1
@@ -746,9 +740,9 @@ Partial Class MENU3
         'ListBox1
         '
         Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(2, 18)
+        Me.ListBox1.Location = New System.Drawing.Point(90, 21)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(141, 615)
+        Me.ListBox1.Size = New System.Drawing.Size(142, 615)
         Me.ListBox1.TabIndex = 3
         '
         'Timer_InicioLabel
@@ -762,6 +756,22 @@ Partial Class MENU3
         'ToolTip1
         '
         Me.ToolTip1.AutomaticDelay = 300
+        '
+        'ListBox2
+        '
+        Me.ListBox2.FormattingEnabled = True
+        Me.ListBox2.Location = New System.Drawing.Point(3, 21)
+        Me.ListBox2.Name = "ListBox2"
+        Me.ListBox2.Size = New System.Drawing.Size(81, 615)
+        Me.ListBox2.TabIndex = 5
+        '
+        'Labels_transparentes1
+        '
+        Me.Labels_transparentes1.Location = New System.Drawing.Point(99, 632)
+        Me.Labels_transparentes1.Name = "Labels_transparentes1"
+        Me.Labels_transparentes1.Size = New System.Drawing.Size(30, 23)
+        Me.Labels_transparentes1.TabIndex = 14
+        Me.Labels_transparentes1.Text = "V.2.0"
         '
         'MENU3
         '
@@ -891,4 +901,5 @@ Partial Class MENU3
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents HelpProvider1 As System.Windows.Forms.HelpProvider
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
+    Friend WithEvents ListBox2 As System.Windows.Forms.ListBox
 End Class

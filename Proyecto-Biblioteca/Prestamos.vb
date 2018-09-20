@@ -1154,4 +1154,10 @@
     Private Sub DataGridParaDevolucion_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridParaDevolucion.CellContentClick
 
     End Sub
+
+    Private Sub Button6_Click_1(sender As System.Object, e As System.EventArgs) Handles Button6.Click
+
+        RegistroSocio.FichaCedulaSocio = Cedula.Text
+        RegistroSocio.Show()
+    End Sub
 End Class

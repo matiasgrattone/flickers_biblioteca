@@ -1715,10 +1715,12 @@ Public Class MENU3
         If seleccionado = "Inicio" Then
             Try
                 ListBox1.Items.Clear()
-                Consulta = "select libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where fecha_entrada is null"
+                ListBox2.Items.Clear()
+                Consulta = "select prestamolibro.cod_libro , libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where fecha_entrada is null"
                 consultar()
                 For Each row As DataRow In Tabla.Rows
                     ListBox1.Items.Add(row("titulo"))
+                    ListBox2.Items.Add(row("cod_libro"))
                 Next
             Catch ex As Exception
                 MsgBox("Error Libros Prestados Timer")
@@ -1739,14 +1741,21 @@ Public Class MENU3
             ChartTOP.Width = 462
             PanelPrestamosTOP.Width = 469
             PictureBox1.Left = 970
+            Panel1.Width = 499
+            Chart_Prestamos.Width = 492
+            PanelPrestamosTOP.Left = 525
             x = 1
         Else
-            PanelPrestamosLIVE.Left = 860
-            PictureBox1.Left = 835
-            PanelGraph1.Width = 833
-            ChartPrestamosDia.Width = 827
+            PanelPrestamosLIVE.Left = 766
+            PictureBox1.Left = 742
+            PanelGraph1.Width = 735
+            ChartPrestamosDia.Width = 730
             ChartTOP.Width = 326
             PanelPrestamosTOP.Width = 333
+            PanelPrestamosTOP.Left = 428
+            Panel1.Width = 398
+            Chart_Prestamos.Width = 392
+
             x = 0
         End If
 
@@ -1799,4 +1808,11 @@ Public Class MENU3
 
     End Sub
 
+    Private Sub ListBox2_MouseClick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles ListBox2.MouseClick
+        ListBox1.SelectedIndex = ListBox2.SelectedIndex
+    End Sub
+
+    Private Sub ListBox1_MouseClick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles ListBox1.MouseClick
+        ListBox2.SelectedIndex = ListBox1.SelectedIndex
+    End Sub
 End Class

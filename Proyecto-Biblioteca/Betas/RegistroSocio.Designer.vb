@@ -52,25 +52,34 @@ Partial Class RegistroSocio
         '
         'DataGridView1
         '
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.AllowUserToResizeColumns = False
+        Me.DataGridView1.AllowUserToResizeRows = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(3, 3)
+        Me.DataGridView1.Location = New System.Drawing.Point(2, 2)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(536, 428)
+        Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.RowHeadersVisible = False
+        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridView1.Size = New System.Drawing.Size(619, 390)
         Me.DataGridView1.TabIndex = 0
         '
         'PictureBox1
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.LightGray
-        Me.PictureBox1.Location = New System.Drawing.Point(4, 2)
+        Me.PictureBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.boss
+        Me.PictureBox1.Location = New System.Drawing.Point(1, 2)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(130, 142)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
         '
         'LabelNombre
         '
         Me.LabelNombre.AutoSize = True
-        Me.LabelNombre.Location = New System.Drawing.Point(549, 11)
+        Me.LabelNombre.Location = New System.Drawing.Point(436, 11)
         Me.LabelNombre.Name = "LabelNombre"
         Me.LabelNombre.Size = New System.Drawing.Size(50, 13)
         Me.LabelNombre.TabIndex = 2
@@ -79,7 +88,7 @@ Partial Class RegistroSocio
         'LabelApellido
         '
         Me.LabelApellido.AutoSize = True
-        Me.LabelApellido.Location = New System.Drawing.Point(549, 35)
+        Me.LabelApellido.Location = New System.Drawing.Point(436, 35)
         Me.LabelApellido.Name = "LabelApellido"
         Me.LabelApellido.Size = New System.Drawing.Size(50, 13)
         Me.LabelApellido.TabIndex = 3
@@ -88,7 +97,7 @@ Partial Class RegistroSocio
         'LabelDireccion
         '
         Me.LabelDireccion.AutoSize = True
-        Me.LabelDireccion.Location = New System.Drawing.Point(549, 62)
+        Me.LabelDireccion.Location = New System.Drawing.Point(436, 62)
         Me.LabelDireccion.Name = "LabelDireccion"
         Me.LabelDireccion.Size = New System.Drawing.Size(58, 13)
         Me.LabelDireccion.TabIndex = 4
@@ -97,7 +106,7 @@ Partial Class RegistroSocio
         'LabelMail
         '
         Me.LabelMail.AutoSize = True
-        Me.LabelMail.Location = New System.Drawing.Point(549, 88)
+        Me.LabelMail.Location = New System.Drawing.Point(436, 88)
         Me.LabelMail.Name = "LabelMail"
         Me.LabelMail.Size = New System.Drawing.Size(35, 13)
         Me.LabelMail.TabIndex = 5
@@ -106,7 +115,7 @@ Partial Class RegistroSocio
         'LabelCedula
         '
         Me.LabelCedula.AutoSize = True
-        Me.LabelCedula.Location = New System.Drawing.Point(549, 114)
+        Me.LabelCedula.Location = New System.Drawing.Point(436, 114)
         Me.LabelCedula.Name = "LabelCedula"
         Me.LabelCedula.Size = New System.Drawing.Size(46, 13)
         Me.LabelCedula.TabIndex = 6
@@ -115,7 +124,7 @@ Partial Class RegistroSocio
         'LabelNombretxt
         '
         Me.LabelNombretxt.AutoSize = True
-        Me.LabelNombretxt.Location = New System.Drawing.Point(627, 11)
+        Me.LabelNombretxt.Location = New System.Drawing.Point(509, 9)
         Me.LabelNombretxt.Name = "LabelNombretxt"
         Me.LabelNombretxt.Size = New System.Drawing.Size(46, 13)
         Me.LabelNombretxt.TabIndex = 7
@@ -124,7 +133,7 @@ Partial Class RegistroSocio
         'LabelApellidotxt
         '
         Me.LabelApellidotxt.AutoSize = True
-        Me.LabelApellidotxt.Location = New System.Drawing.Point(627, 35)
+        Me.LabelApellidotxt.Location = New System.Drawing.Point(509, 33)
         Me.LabelApellidotxt.Name = "LabelApellidotxt"
         Me.LabelApellidotxt.Size = New System.Drawing.Size(46, 13)
         Me.LabelApellidotxt.TabIndex = 8
@@ -133,7 +142,7 @@ Partial Class RegistroSocio
         'LabelDirecciontxt
         '
         Me.LabelDirecciontxt.AutoSize = True
-        Me.LabelDirecciontxt.Location = New System.Drawing.Point(627, 62)
+        Me.LabelDirecciontxt.Location = New System.Drawing.Point(509, 60)
         Me.LabelDirecciontxt.Name = "LabelDirecciontxt"
         Me.LabelDirecciontxt.Size = New System.Drawing.Size(46, 13)
         Me.LabelDirecciontxt.TabIndex = 9
@@ -142,7 +151,7 @@ Partial Class RegistroSocio
         'LabelMailtxt
         '
         Me.LabelMailtxt.AutoSize = True
-        Me.LabelMailtxt.Location = New System.Drawing.Point(627, 88)
+        Me.LabelMailtxt.Location = New System.Drawing.Point(509, 86)
         Me.LabelMailtxt.Name = "LabelMailtxt"
         Me.LabelMailtxt.Size = New System.Drawing.Size(46, 13)
         Me.LabelMailtxt.TabIndex = 10
@@ -151,7 +160,7 @@ Partial Class RegistroSocio
         'LabelCedulatxt
         '
         Me.LabelCedulatxt.AutoSize = True
-        Me.LabelCedulatxt.Location = New System.Drawing.Point(627, 114)
+        Me.LabelCedulatxt.Location = New System.Drawing.Point(509, 112)
         Me.LabelCedulatxt.Name = "LabelCedulatxt"
         Me.LabelCedulatxt.Size = New System.Drawing.Size(46, 13)
         Me.LabelCedulatxt.TabIndex = 11
@@ -190,7 +199,7 @@ Partial Class RegistroSocio
         Me.Panel1.Controls.Add(Me.DataGridView1)
         Me.Panel1.Location = New System.Drawing.Point(7, 194)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(543, 394)
+        Me.Panel1.Size = New System.Drawing.Size(623, 394)
         Me.Panel1.TabIndex = 15
         '
         'ListBoxLibros
@@ -214,9 +223,9 @@ Partial Class RegistroSocio
         '
         Me.Panel2.BackColor = System.Drawing.Color.Gray
         Me.Panel2.Controls.Add(Me.PictureBox1)
-        Me.Panel2.Location = New System.Drawing.Point(685, 3)
+        Me.Panel2.Location = New System.Drawing.Point(690, 3)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(137, 146)
+        Me.Panel2.Size = New System.Drawing.Size(132, 146)
         Me.Panel2.TabIndex = 18
         '
         'Label2
