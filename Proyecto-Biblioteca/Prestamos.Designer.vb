@@ -24,7 +24,9 @@ Partial Class Prestamos
     Private Sub InitializeComponent()
         Me.ButonParaExtreaer = New System.Windows.Forms.Button()
         Me.BotonParaBuscarCedula = New System.Windows.Forms.Button()
-        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.PanelDelCarrito = New System.Windows.Forms.Panel()
+        Me.LabelParaAlmacenarLaCedulaIngresada = New System.Windows.Forms.Label()
+        Me.LabelCI = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.ButtonMoroso = New System.Windows.Forms.Button()
         Me.CarritoDeLibros = New System.Windows.Forms.ListBox()
@@ -35,8 +37,8 @@ Partial Class Prestamos
         Me.ButtonLiberar = New System.Windows.Forms.Button()
         Me.DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll = New System.Windows.Forms.DataGridView()
         Me.DatagridviewOcultolllllParaFuncionesPrestmolllll = New System.Windows.Forms.DataGridView()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
+        Me.LabelLIBRO = New System.Windows.Forms.Label()
+        Me.LabelIDLIBRO = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.devoCOMBO = New System.Windows.Forms.GroupBox()
@@ -46,6 +48,7 @@ Partial Class Prestamos
         Me.DataGridParaDevolucion = New System.Windows.Forms.DataGridView()
         Me.ENPODER = New System.Windows.Forms.Label()
         Me.ExtCombo = New System.Windows.Forms.GroupBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -59,11 +62,17 @@ Partial Class Prestamos
         Me.Label19 = New System.Windows.Forms.Label()
         Me.BotonExtrearReservados = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.Label5 = New System.Windows.Forms.Label()
+        Me.LabelSELECCION_DE_FUNCION = New System.Windows.Forms.Label()
         Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
+        Me.PictureCrearReservacion = New System.Windows.Forms.PictureBox()
+        Me.PictureReservacion = New System.Windows.Forms.PictureBox()
+        Me.PictureDevolucion = New System.Windows.Forms.PictureBox()
+        Me.PictureExtraccion = New System.Windows.Forms.PictureBox()
         Me.CrearReservacionComboBox = New System.Windows.Forms.GroupBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.Label23 = New System.Windows.Forms.Label()
@@ -71,32 +80,25 @@ Partial Class Prestamos
         Me.LibrosParaReservar = New System.Windows.Forms.DataGridView()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.PictureCrearReservacion = New System.Windows.Forms.PictureBox()
-        Me.PictureReservacion = New System.Windows.Forms.PictureBox()
-        Me.PictureDevolucion = New System.Windows.Forms.PictureBox()
-        Me.PictureExtraccion = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Panel1.SuspendLayout()
+        Me.PanelDelCarrito.SuspendLayout()
         CType(Me.DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DatagridviewOcultolllllParaFuncionesPrestmolllll, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.devoCOMBO.SuspendLayout()
         CType(Me.DataGridParaDevolucion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ExtCombo.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridViewlllllVerLibrosEnExtraccionlllll, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ReservacionComboBox.SuspendLayout()
         CType(Me.VerLibrosReservados2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
-        Me.CrearReservacionComboBox.SuspendLayout()
-        CType(Me.LibrosParaReservar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureCrearReservacion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureReservacion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureDevolucion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureExtraccion, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.CrearReservacionComboBox.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LibrosParaReservar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ButonParaExtreaer
@@ -117,26 +119,52 @@ Partial Class Prestamos
         Me.BotonParaBuscarCedula.Text = "Buscar"
         Me.BotonParaBuscarCedula.UseVisualStyleBackColor = True
         '
-        'Panel1
+        'PanelDelCarrito
         '
-        Me.Panel1.BackColor = System.Drawing.SystemColors.ScrollBar
-        Me.Panel1.Controls.Add(Me.Button1)
-        Me.Panel1.Controls.Add(Me.ButtonMoroso)
-        Me.Panel1.Controls.Add(Me.CarritoDeLibros)
-        Me.Panel1.Controls.Add(Me.Label4)
-        Me.Panel1.Controls.Add(Me.NOMBRE)
-        Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Controls.Add(Me.ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll)
-        Me.Panel1.Controls.Add(Me.ButtonLiberar)
-        Me.Panel1.Controls.Add(Me.DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll)
-        Me.Panel1.Controls.Add(Me.DatagridviewOcultolllllParaFuncionesPrestmolllll)
-        Me.Panel1.Controls.Add(Me.Label9)
-        Me.Panel1.Controls.Add(Me.Label8)
-        Me.Panel1.Controls.Add(Me.Label12)
-        Me.Panel1.Location = New System.Drawing.Point(-268, -28)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(268, 676)
-        Me.Panel1.TabIndex = 73
+        Me.PanelDelCarrito.BackColor = System.Drawing.SystemColors.ScrollBar
+        Me.PanelDelCarrito.Controls.Add(Me.LabelParaAlmacenarLaCedulaIngresada)
+        Me.PanelDelCarrito.Controls.Add(Me.LabelCI)
+        Me.PanelDelCarrito.Controls.Add(Me.Button1)
+        Me.PanelDelCarrito.Controls.Add(Me.ButtonMoroso)
+        Me.PanelDelCarrito.Controls.Add(Me.CarritoDeLibros)
+        Me.PanelDelCarrito.Controls.Add(Me.Label4)
+        Me.PanelDelCarrito.Controls.Add(Me.NOMBRE)
+        Me.PanelDelCarrito.Controls.Add(Me.Label2)
+        Me.PanelDelCarrito.Controls.Add(Me.ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll)
+        Me.PanelDelCarrito.Controls.Add(Me.ButtonLiberar)
+        Me.PanelDelCarrito.Controls.Add(Me.DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll)
+        Me.PanelDelCarrito.Controls.Add(Me.DatagridviewOcultolllllParaFuncionesPrestmolllll)
+        Me.PanelDelCarrito.Controls.Add(Me.LabelLIBRO)
+        Me.PanelDelCarrito.Controls.Add(Me.LabelIDLIBRO)
+        Me.PanelDelCarrito.Controls.Add(Me.Label12)
+        Me.PanelDelCarrito.Location = New System.Drawing.Point(0, -28)
+        Me.PanelDelCarrito.Name = "PanelDelCarrito"
+        Me.PanelDelCarrito.Size = New System.Drawing.Size(268, 676)
+        Me.PanelDelCarrito.TabIndex = 73
+        '
+        'LabelParaAlmacenarLaCedulaIngresada
+        '
+        Me.LabelParaAlmacenarLaCedulaIngresada.AutoSize = True
+        Me.LabelParaAlmacenarLaCedulaIngresada.BackColor = System.Drawing.Color.Transparent
+        Me.LabelParaAlmacenarLaCedulaIngresada.Font = New System.Drawing.Font("Impact", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelParaAlmacenarLaCedulaIngresada.ForeColor = System.Drawing.Color.Black
+        Me.LabelParaAlmacenarLaCedulaIngresada.Location = New System.Drawing.Point(51, 169)
+        Me.LabelParaAlmacenarLaCedulaIngresada.Name = "LabelParaAlmacenarLaCedulaIngresada"
+        Me.LabelParaAlmacenarLaCedulaIngresada.Size = New System.Drawing.Size(115, 20)
+        Me.LabelParaAlmacenarLaCedulaIngresada.TabIndex = 84
+        Me.LabelParaAlmacenarLaCedulaIngresada.Text = "CedulaTemporal"
+        '
+        'LabelCI
+        '
+        Me.LabelCI.AutoSize = True
+        Me.LabelCI.BackColor = System.Drawing.Color.Transparent
+        Me.LabelCI.Font = New System.Drawing.Font("Impact", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelCI.ForeColor = System.Drawing.Color.Black
+        Me.LabelCI.Location = New System.Drawing.Point(19, 169)
+        Me.LabelCI.Name = "LabelCI"
+        Me.LabelCI.Size = New System.Drawing.Size(26, 20)
+        Me.LabelCI.TabIndex = 83
+        Me.LabelCI.Text = "C.I"
         '
         'Button1
         '
@@ -227,27 +255,27 @@ Partial Class Prestamos
         Me.DatagridviewOcultolllllParaFuncionesPrestmolllll.Size = New System.Drawing.Size(32, 23)
         Me.DatagridviewOcultolllllParaFuncionesPrestmolllll.TabIndex = 77
         '
-        'Label9
+        'LabelLIBRO
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.BackColor = System.Drawing.Color.Transparent
-        Me.Label9.Font = New System.Drawing.Font("Impact", 12.0!)
-        Me.Label9.Location = New System.Drawing.Point(124, 205)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(47, 20)
-        Me.Label9.TabIndex = 70
-        Me.Label9.Text = "LIBRO"
+        Me.LabelLIBRO.AutoSize = True
+        Me.LabelLIBRO.BackColor = System.Drawing.Color.Transparent
+        Me.LabelLIBRO.Font = New System.Drawing.Font("Impact", 12.0!)
+        Me.LabelLIBRO.Location = New System.Drawing.Point(124, 205)
+        Me.LabelLIBRO.Name = "LabelLIBRO"
+        Me.LabelLIBRO.Size = New System.Drawing.Size(47, 20)
+        Me.LabelLIBRO.TabIndex = 70
+        Me.LabelLIBRO.Text = "LIBRO"
         '
-        'Label8
+        'LabelIDLIBRO
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.BackColor = System.Drawing.Color.Transparent
-        Me.Label8.Font = New System.Drawing.Font("Impact", 12.0!)
-        Me.Label8.Location = New System.Drawing.Point(19, 205)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(26, 20)
-        Me.Label8.TabIndex = 69
-        Me.Label8.Text = "ID "
+        Me.LabelIDLIBRO.AutoSize = True
+        Me.LabelIDLIBRO.BackColor = System.Drawing.Color.Transparent
+        Me.LabelIDLIBRO.Font = New System.Drawing.Font("Impact", 12.0!)
+        Me.LabelIDLIBRO.Location = New System.Drawing.Point(19, 205)
+        Me.LabelIDLIBRO.Name = "LabelIDLIBRO"
+        Me.LabelIDLIBRO.Size = New System.Drawing.Size(26, 20)
+        Me.LabelIDLIBRO.TabIndex = 69
+        Me.LabelIDLIBRO.Text = "ID "
         '
         'Label12
         '
@@ -352,6 +380,16 @@ Partial Class Prestamos
         Me.ExtCombo.TabIndex = 66
         Me.ExtCombo.TabStop = False
         Me.ExtCombo.Text = "EXTRACCION"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.busqueda
+        Me.PictureBox1.Location = New System.Drawing.Point(458, 49)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(21, 20)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 77
+        Me.PictureBox1.TabStop = False
         '
         'Label7
         '
@@ -498,6 +536,15 @@ Partial Class Prestamos
         Me.Panel3.Size = New System.Drawing.Size(1016, 112)
         Me.Panel3.TabIndex = 75
         '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(174, 79)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 23)
+        Me.Button3.TabIndex = 78
+        Me.Button3.Text = "Button3"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
         'Button2
         '
         Me.Button2.Location = New System.Drawing.Point(93, 80)
@@ -510,21 +557,21 @@ Partial Class Prestamos
         'Panel4
         '
         Me.Panel4.BackColor = System.Drawing.SystemColors.ScrollBar
-        Me.Panel4.Controls.Add(Me.Label5)
+        Me.Panel4.Controls.Add(Me.LabelSELECCION_DE_FUNCION)
         Me.Panel4.Location = New System.Drawing.Point(878, 14)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(135, 87)
         Me.Panel4.TabIndex = 76
         '
-        'Label5
+        'LabelSELECCION_DE_FUNCION
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(23, 16)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(89, 45)
-        Me.Label5.TabIndex = 66
-        Me.Label5.Text = "SELECCION " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      DE " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FUNCION "
+        Me.LabelSELECCION_DE_FUNCION.AutoSize = True
+        Me.LabelSELECCION_DE_FUNCION.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelSELECCION_DE_FUNCION.Location = New System.Drawing.Point(23, 16)
+        Me.LabelSELECCION_DE_FUNCION.Name = "LabelSELECCION_DE_FUNCION"
+        Me.LabelSELECCION_DE_FUNCION.Size = New System.Drawing.Size(89, 45)
+        Me.LabelSELECCION_DE_FUNCION.TabIndex = 66
+        Me.LabelSELECCION_DE_FUNCION.Text = "SELECCION " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      DE " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FUNCION "
         '
         'Cedula
         '
@@ -535,6 +582,46 @@ Partial Class Prestamos
         Me.Cedula.TabIndex = 75
         Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
         Me.Cedula.WaterMarkText = "Cedula"
+        '
+        'PictureCrearReservacion
+        '
+        Me.PictureCrearReservacion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.crear_reserva
+        Me.PictureCrearReservacion.Location = New System.Drawing.Point(789, 13)
+        Me.PictureCrearReservacion.Name = "PictureCrearReservacion"
+        Me.PictureCrearReservacion.Size = New System.Drawing.Size(82, 85)
+        Me.PictureCrearReservacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureCrearReservacion.TabIndex = 3
+        Me.PictureCrearReservacion.TabStop = False
+        '
+        'PictureReservacion
+        '
+        Me.PictureReservacion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.reservar
+        Me.PictureReservacion.Location = New System.Drawing.Point(706, 13)
+        Me.PictureReservacion.Name = "PictureReservacion"
+        Me.PictureReservacion.Size = New System.Drawing.Size(82, 85)
+        Me.PictureReservacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureReservacion.TabIndex = 2
+        Me.PictureReservacion.TabStop = False
+        '
+        'PictureDevolucion
+        '
+        Me.PictureDevolucion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.devolcion
+        Me.PictureDevolucion.Location = New System.Drawing.Point(511, 13)
+        Me.PictureDevolucion.Name = "PictureDevolucion"
+        Me.PictureDevolucion.Size = New System.Drawing.Size(82, 85)
+        Me.PictureDevolucion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureDevolucion.TabIndex = 1
+        Me.PictureDevolucion.TabStop = False
+        '
+        'PictureExtraccion
+        '
+        Me.PictureExtraccion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.extraccion
+        Me.PictureExtraccion.Location = New System.Drawing.Point(372, 13)
+        Me.PictureExtraccion.Name = "PictureExtraccion"
+        Me.PictureExtraccion.Size = New System.Drawing.Size(82, 85)
+        Me.PictureExtraccion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureExtraccion.TabIndex = 0
+        Me.PictureExtraccion.TabStop = False
         '
         'CrearReservacionComboBox
         '
@@ -552,6 +639,16 @@ Partial Class Prestamos
         Me.CrearReservacionComboBox.TabIndex = 80
         Me.CrearReservacionComboBox.TabStop = False
         Me.CrearReservacionComboBox.Text = "CREAR RESERVACION"
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.busqueda
+        Me.PictureBox2.Location = New System.Drawing.Point(369, 48)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(21, 20)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 81
+        Me.PictureBox2.TabStop = False
         '
         'Label22
         '
@@ -622,75 +719,6 @@ Partial Class Prestamos
         Me.Panel2.Size = New System.Drawing.Size(1016, 38)
         Me.Panel2.TabIndex = 78
         '
-        'PictureCrearReservacion
-        '
-        Me.PictureCrearReservacion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.crear_reserva
-        Me.PictureCrearReservacion.Location = New System.Drawing.Point(789, 13)
-        Me.PictureCrearReservacion.Name = "PictureCrearReservacion"
-        Me.PictureCrearReservacion.Size = New System.Drawing.Size(82, 85)
-        Me.PictureCrearReservacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureCrearReservacion.TabIndex = 3
-        Me.PictureCrearReservacion.TabStop = False
-        '
-        'PictureReservacion
-        '
-        Me.PictureReservacion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.reservar
-        Me.PictureReservacion.Location = New System.Drawing.Point(706, 13)
-        Me.PictureReservacion.Name = "PictureReservacion"
-        Me.PictureReservacion.Size = New System.Drawing.Size(82, 85)
-        Me.PictureReservacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureReservacion.TabIndex = 2
-        Me.PictureReservacion.TabStop = False
-        '
-        'PictureDevolucion
-        '
-        Me.PictureDevolucion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.devolcion
-        Me.PictureDevolucion.Location = New System.Drawing.Point(511, 13)
-        Me.PictureDevolucion.Name = "PictureDevolucion"
-        Me.PictureDevolucion.Size = New System.Drawing.Size(82, 85)
-        Me.PictureDevolucion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureDevolucion.TabIndex = 1
-        Me.PictureDevolucion.TabStop = False
-        '
-        'PictureExtraccion
-        '
-        Me.PictureExtraccion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.extraccion
-        Me.PictureExtraccion.Location = New System.Drawing.Point(372, 13)
-        Me.PictureExtraccion.Name = "PictureExtraccion"
-        Me.PictureExtraccion.Size = New System.Drawing.Size(82, 85)
-        Me.PictureExtraccion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureExtraccion.TabIndex = 0
-        Me.PictureExtraccion.TabStop = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.busqueda
-        Me.PictureBox1.Location = New System.Drawing.Point(458, 49)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(21, 20)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 77
-        Me.PictureBox1.TabStop = False
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.busqueda
-        Me.PictureBox2.Location = New System.Drawing.Point(369, 48)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(21, 20)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 81
-        Me.PictureBox2.TabStop = False
-        '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(174, 79)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 23)
-        Me.Button3.TabIndex = 78
-        Me.Button3.Text = "Button3"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
         'Prestamos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -699,7 +727,7 @@ Partial Class Prestamos
         Me.ClientSize = New System.Drawing.Size(1061, 646)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.PanelDelCarrito)
         Me.Controls.Add(Me.devoCOMBO)
         Me.Controls.Add(Me.CrearReservacionComboBox)
         Me.Controls.Add(Me.ReservacionComboBox)
@@ -708,8 +736,8 @@ Partial Class Prestamos
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Prestamos"
         Me.Text = "PRESTAMOS"
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
+        Me.PanelDelCarrito.ResumeLayout(False)
+        Me.PanelDelCarrito.PerformLayout()
         CType(Me.DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DatagridviewOcultolllllParaFuncionesPrestmolllll, System.ComponentModel.ISupportInitialize).EndInit()
         Me.devoCOMBO.ResumeLayout(False)
@@ -717,6 +745,7 @@ Partial Class Prestamos
         CType(Me.DataGridParaDevolucion, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ExtCombo.ResumeLayout(False)
         Me.ExtCombo.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridViewlllllVerLibrosEnExtraccionlllll, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ReservacionComboBox.ResumeLayout(False)
         Me.ReservacionComboBox.PerformLayout()
@@ -725,25 +754,24 @@ Partial Class Prestamos
         Me.Panel3.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
-        Me.CrearReservacionComboBox.ResumeLayout(False)
-        Me.CrearReservacionComboBox.PerformLayout()
-        CType(Me.LibrosParaReservar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureCrearReservacion, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureReservacion, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureDevolucion, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureExtraccion, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.CrearReservacionComboBox.ResumeLayout(False)
+        Me.CrearReservacionComboBox.PerformLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LibrosParaReservar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents ButonParaExtreaer As System.Windows.Forms.Button
     Friend WithEvents BotonParaBuscarCedula As System.Windows.Forms.Button
-    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents PanelDelCarrito As System.Windows.Forms.Panel
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents LabelLIBRO As System.Windows.Forms.Label
+    Friend WithEvents LabelIDLIBRO As System.Windows.Forms.Label
     Friend WithEvents CarritoDeLibros As System.Windows.Forms.ListBox
     Friend WithEvents devoCOMBO As System.Windows.Forms.GroupBox
     Friend WithEvents DataGridParaDevolucion As System.Windows.Forms.DataGridView
@@ -789,8 +817,10 @@ Partial Class Prestamos
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Private WithEvents PictureDevolucion As System.Windows.Forms.PictureBox
     Friend WithEvents Panel4 As System.Windows.Forms.Panel
-    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents LabelSELECCION_DE_FUNCION As System.Windows.Forms.Label
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents LabelParaAlmacenarLaCedulaIngresada As System.Windows.Forms.Label
+    Friend WithEvents LabelCI As System.Windows.Forms.Label
 End Class

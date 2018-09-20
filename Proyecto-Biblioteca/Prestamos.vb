@@ -25,12 +25,13 @@
         ReservacionComboBox.Visible = False
         CrearReservacionComboBox.Visible = False
         ButonParaExtreaer.Visible = False
-        Label5.Visible = False
+        LabelSELECCION_DE_FUNCION.Visible = False
         PictureExtraccion.Visible = False
         PictureDevolucion.Visible = False
         PictureCrearReservacion.Visible = False
         PictureReservacion.Visible = False
-        Label5.Visible = False
+        LabelCI.Visible = False
+        LabelParaAlmacenarLaCedulaIngresada.Visible = False
         ButtonLiberar.Visible = False
         ButtonMoroso.Visible = False
         '//////////////////////////////////////VARIABLES PARA RALIZAR "CONSULTAS Y IFs" SIN ERRORES///////////////////////
@@ -105,10 +106,13 @@
             PictureDevolucion.Visible = False
             PictureCrearReservacion.Visible = False
             PictureReservacion.Visible = False
-            Label5.Visible = False
+            LabelCI.Visible = False
+            LabelParaAlmacenarLaCedulaIngresada.Visible = False
+            LabelParaAlmacenarLaCedulaIngresada.Text = ""
+            LabelSELECCION_DE_FUNCION.Visible = False
             CarritoDeLibros.Items.Clear()
             ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
-            Panel1.Left = -268
+            PanelDelCarrito.Left = -268
             MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
             '/////////////////////////////////////////////////////////////////////////////////////////////////////////
         Else
@@ -127,16 +131,19 @@
                 PictureDevolucion.Visible = False
                 PictureCrearReservacion.Visible = False
                 PictureReservacion.Visible = False
-                Label5.Visible = False
+                LabelCI.Visible = False
+                LabelParaAlmacenarLaCedulaIngresada.Visible = False
+                LabelParaAlmacenarLaCedulaIngresada.Text = ""
+                LabelSELECCION_DE_FUNCION.Visible = False
                 CarritoDeLibros.Items.Clear()
                 ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
-                Panel1.Left = -268
+                PanelDelCarrito.Left = -268
                 MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
                 '/////////////////////////////////////////////////////////////////////////////////////////////////////////
             Else
 
 
-    
+
                 Consulta = "select cedula , nombre , tipo from usuarios where cedula like '" & Cedula.Text & "'"
                 consultar()
                 Try
@@ -152,7 +159,7 @@
                 '////////////////////////////////Muestra los picturebox y la interfaz de las funciones///////////////////////
                 '/////////////////////////////////////////////////////////////////////////////////////////////
 
-                Label5.Visible = True
+                LabelSELECCION_DE_FUNCION.Visible = True
                 ExtCombo.Visible = False
                 devoCOMBO.Visible = False
                 ReservacionComboBox.Visible = False
@@ -160,10 +167,15 @@
                 PictureDevolucion.Visible = True
                 PictureCrearReservacion.Visible = True
                 PictureReservacion.Visible = True
-                Label5.Visible = True
+                LabelCI.Visible = True
+                LabelParaAlmacenarLaCedulaIngresada.Visible = True
+                '///////////////////LABEL PARA HACER LAS FUNCIONES CON LA CEDULA///////////////////////////
+                LabelParaAlmacenarLaCedulaIngresada.Text = Cedula.Text
+                '/////////////////////////////////////////////////////////////////////////////////////////
+                LabelSELECCION_DE_FUNCION.Visible = True
                 CarritoDeLibros.Items.Clear()
                 ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
-                Panel1.Left = -5
+                PanelDelCarrito.Left = -5
 
                 If Label12.Text = 2 Then
                     ButtonLiberar.Visible = True
@@ -178,7 +190,7 @@
 
     End Sub
 
-   
+
 
     'Private Sub Cedula_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cedula.TextChanged
 
@@ -430,6 +442,7 @@
     End Sub
 
     Private Sub PictureBoxParaReservacion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureReservacion.Click
+
         If CarritoDeLibros.Items.Count = 0 Then
 
             '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -778,53 +791,53 @@
     End Sub
 
     Private Sub DataGridParaDevolucion_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridParaDevolucion.CellDoubleClick
+        If modo = "devolucion" Then
+
+            Try
+
+                Libro1 = DataGridParaDevolucion.Item(2, DataGridParaDevolucion.CurrentRow.Index).Value
+
+                cod_libros = DataGridParaDevolucion.Item(1, DataGridParaDevolucion.CurrentRow.Index).Value
 
 
-        Try
 
-            Libro1 = DataGridParaDevolucion.Item(2, DataGridParaDevolucion.CurrentRow.Index).Value
-
-            cod_libros = DataGridParaDevolucion.Item(1, DataGridParaDevolucion.CurrentRow.Index).Value
+                Dim a As MsgBoxResult
+                a = MsgBox("Desea devolver el libro " & Libro1 & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
 
 
+                '       1) Si se devuelve el libro y se actualiza la Base da datos 
+                If a = vbYes Then
 
-            Dim a As MsgBoxResult
-            a = MsgBox("Desea devolver el libro " & Libro1 & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
+                    Consulta = "update libro set estado = 0 where cod_libro = '" & cod_libros & "'"
+                    consultar()
+                    Consulta = "UPDATE prestamolibro SET fecha_entrada = '" & Date.Now.ToString("yyyy-MM-dd") & "' WHERE cedula = '" & Cedula.Text & "' and cod_libro ='" & cod_libros & "'"
+                    consultar()
+                    MsgBox("se ha devuelto", Title:="PRESTAMO")
 
+                    Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
+                    consultar()
+                    DataGridParaDevolucion.DataSource = Tabla
 
-            '       1) Si se devuelve el libro y se actualiza la Base da datos 
-            If a = vbYes Then
+                Else
 
-                Consulta = "update libro set estado = 0 where cod_libro = '" & cod_libros & "'"
-                consultar()
-                Consulta = "UPDATE prestamolibro SET fecha_entrada = '" & Date.Now.ToString("yyyy-MM-dd") & "' WHERE cedula = '" & Cedula.Text & "' and cod_libro ='" & cod_libros & "'"
-                consultar()
-                MsgBox("se ha devuelto", Title:="PRESTAMO")
+                    MsgBox("Este libro no se devolvio", Title:="PRESTAMOS")
 
-                Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
-                consultar()
-                DataGridParaDevolucion.DataSource = Tabla
+                    Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
+                    consultar()
+                    DataGridParaDevolucion.DataSource = Tabla
 
-            Else
+                End If
+
+                If a = vbNo Then
+
+                End If
+
+            Catch ex As Exception
 
                 MsgBox("Este libro no se devolvio", Title:="PRESTAMOS")
 
-                Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
-                consultar()
-                DataGridParaDevolucion.DataSource = Tabla
-
-            End If
-
-            If a = vbNo Then
-
-            End If
-
-        Catch ex As Exception
-
-            MsgBox("Este libro no se devolvio", Title:="PRESTAMOS")
-
-        End Try
-
+            End Try
+        End If
 
     End Sub
 
@@ -867,23 +880,23 @@
     End Sub
 
     Private Sub PictureExtraccion_MouseHover(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureExtraccion.MouseHover
-        Label5.Text = "Extraccion"
+        LabelSELECCION_DE_FUNCION.Text = "Extraccion"
     End Sub
 
     Private Sub PictureDevolucion_MouseHover(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureDevolucion.MouseHover
-        Label5.Text = "Devolucion"
+        LabelSELECCION_DE_FUNCION.Text = "Devolucion"
     End Sub
 
     Private Sub PictureReservacion_MouseHover(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureReservacion.MouseHover
-        Label5.Text = "ExtreaerLibro" + vbCrLf + "Reservado"
+        LabelSELECCION_DE_FUNCION.Text = "ExtreaerLibro" + vbCrLf + "Reservado"
     End Sub
 
     Private Sub PictureCrearReservacion_MouseHover(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureCrearReservacion.MouseHover
-        Label5.Text = "Crear" + vbCrLf + "Reservacion"
+        LabelSELECCION_DE_FUNCION.Text = "Crear" + vbCrLf + "Reservacion"
     End Sub
 
     Private Sub Panel3_MouseHover(ByVal sender As Object, ByVal e As System.EventArgs) Handles Panel3.MouseHover
-        Label5.Text = "SELECCION " + vbCrLf + "DE" + vbCrLf + "FUNCION"
+        LabelSELECCION_DE_FUNCION.Text = "SELECCION " + vbCrLf + "DE" + vbCrLf + "FUNCION"
 
     End Sub
 
@@ -897,7 +910,7 @@
 
 
     Private Sub Panel4_MouseHover(ByVal sender As Object, ByVal e As System.EventArgs) Handles Panel4.MouseHover
-        Label5.Text = "SELECCION " + vbCrLf + "DE" + vbCrLf + "FUNCION"
+        LabelSELECCION_DE_FUNCION.Text = "SELECCION " + vbCrLf + "DE" + vbCrLf + "FUNCION"
     End Sub
 
 
@@ -1049,7 +1062,7 @@
         Registroprestamos.Show()
     End Sub
 
-    Private Sub Cedula_KeyDown(sender As System.Object, e As System.Windows.Forms.KeyEventArgs) Handles Cedula.KeyDown
+    Private Sub Cedula_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Cedula.KeyDown
 
         If e.KeyCode = Keys.Enter Then
 
@@ -1063,10 +1076,10 @@
                 PictureDevolucion.Visible = False
                 PictureCrearReservacion.Visible = False
                 PictureReservacion.Visible = False
-                Label5.Visible = False
+                LabelSELECCION_DE_FUNCION.Visible = False
                 CarritoDeLibros.Items.Clear()
                 ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
-                Panel1.Left = -268
+                PanelDelCarrito.Left = -268
                 MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
                 '/////////////////////////////////////////////////////////////////////////////////////////////////////////
             Else
@@ -1085,10 +1098,10 @@
                     PictureDevolucion.Visible = False
                     PictureCrearReservacion.Visible = False
                     PictureReservacion.Visible = False
-                    Label5.Visible = False
+                    LabelSELECCION_DE_FUNCION.Visible = False
                     CarritoDeLibros.Items.Clear()
                     ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
-                    Panel1.Left = -268
+                    PanelDelCarrito.Left = -268
                     MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
                     '/////////////////////////////////////////////////////////////////////////////////////////////////////////
                 Else
@@ -1108,7 +1121,7 @@
                     '////////////////////////////////Muestra los picturebox y la interfaz de las funciones///////////////////////
                     '/////////////////////////////////////////////////////////////////////////////////////////////
 
-                    Label5.Visible = True
+
                     ExtCombo.Visible = False
                     devoCOMBO.Visible = False
                     ReservacionComboBox.Visible = False
@@ -1116,10 +1129,10 @@
                     PictureDevolucion.Visible = True
                     PictureCrearReservacion.Visible = True
                     PictureReservacion.Visible = True
-                    Label5.Visible = True
+                    LabelSELECCION_DE_FUNCION.Visible = True
                     CarritoDeLibros.Items.Clear()
                     ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
-                    Panel1.Left = -5
+                    PanelDelCarrito.Left = -5
 
                     If Label12.Text = 2 Then
                         ButtonLiberar.Visible = True
@@ -1136,5 +1149,9 @@
 
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
         PrestamoRevistas.Show()
+    End Sub
+
+    Private Sub DataGridParaDevolucion_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridParaDevolucion.CellContentClick
+
     End Sub
 End Class

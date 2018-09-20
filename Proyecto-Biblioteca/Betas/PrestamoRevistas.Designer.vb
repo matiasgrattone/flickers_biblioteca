@@ -23,10 +23,10 @@ Partial Class PrestamoRevistas
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.LabelSELECCION_DE_FUNCION = New System.Windows.Forms.Label()
+        Me.ButtonVerRegistro = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.Label5 = New System.Windows.Forms.Label()
+        Me.LabelREVISTAS = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.BotonParaBuscarCedula = New System.Windows.Forms.Button()
         Me.PictureDevolucion = New System.Windows.Forms.PictureBox()
@@ -39,17 +39,19 @@ Partial Class PrestamoRevistas
         Me.ButonParaExtreaer = New System.Windows.Forms.Button()
         Me.TextboxBuscador = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.DataGridViewlllllVerLibrosEnExtraccionlllll = New System.Windows.Forms.DataGridView()
+        Me.DataGridView_VerRevistasEnExtraccion_ = New System.Windows.Forms.DataGridView()
         Me.PanelDelCarrito = New System.Windows.Forms.Panel()
+        Me.LabelAlmacenTemporalParaLaCedula = New System.Windows.Forms.Label()
+        Me.LabelCI = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.ButtonMoroso = New System.Windows.Forms.Button()
         Me.CarritoDeRevistas = New System.Windows.Forms.ListBox()
         Me.NOMBRE = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.ListboxOcultollllParaGuardarLasIdDeLasRevistasEnElCarritollll = New System.Windows.Forms.ListBox()
+        Me.ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_ = New System.Windows.Forms.ListBox()
         Me.ButtonLiberar = New System.Windows.Forms.Button()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
+        Me.LabelREVISTA = New System.Windows.Forms.Label()
+        Me.LabelIDREVISTAS = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.devoCOMBO = New System.Windows.Forms.GroupBox()
         Me.Button4 = New System.Windows.Forms.Button()
@@ -64,7 +66,7 @@ Partial Class PrestamoRevistas
         CType(Me.PictureExtraccion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ExtCombo.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridViewlllllVerLibrosEnExtraccionlllll, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView_VerRevistasEnExtraccion_, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelDelCarrito.SuspendLayout()
         Me.devoCOMBO.SuspendLayout()
         CType(Me.DataGridParaDevolucion, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -73,8 +75,8 @@ Partial Class PrestamoRevistas
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.SystemColors.ScrollBar
-        Me.Panel3.Controls.Add(Me.Label4)
-        Me.Panel3.Controls.Add(Me.Button2)
+        Me.Panel3.Controls.Add(Me.LabelSELECCION_DE_FUNCION)
+        Me.Panel3.Controls.Add(Me.ButtonVerRegistro)
         Me.Panel3.Controls.Add(Me.Panel4)
         Me.Panel3.Controls.Add(Me.Cedula)
         Me.Panel3.Controls.Add(Me.Label1)
@@ -86,43 +88,43 @@ Partial Class PrestamoRevistas
         Me.Panel3.Size = New System.Drawing.Size(1044, 112)
         Me.Panel3.TabIndex = 76
         '
-        'Label4
+        'LabelSELECCION_DE_FUNCION
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(514, 42)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(89, 45)
-        Me.Label4.TabIndex = 78
-        Me.Label4.Text = "SELECCION " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      DE " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FUNCION "
+        Me.LabelSELECCION_DE_FUNCION.AutoSize = True
+        Me.LabelSELECCION_DE_FUNCION.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelSELECCION_DE_FUNCION.Location = New System.Drawing.Point(514, 42)
+        Me.LabelSELECCION_DE_FUNCION.Name = "LabelSELECCION_DE_FUNCION"
+        Me.LabelSELECCION_DE_FUNCION.Size = New System.Drawing.Size(89, 45)
+        Me.LabelSELECCION_DE_FUNCION.TabIndex = 78
+        Me.LabelSELECCION_DE_FUNCION.Text = "SELECCION " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      DE " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FUNCION "
         '
-        'Button2
+        'ButtonVerRegistro
         '
-        Me.Button2.Location = New System.Drawing.Point(93, 80)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 77
-        Me.Button2.Text = "Ver Registro"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.ButtonVerRegistro.Location = New System.Drawing.Point(93, 80)
+        Me.ButtonVerRegistro.Name = "ButtonVerRegistro"
+        Me.ButtonVerRegistro.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonVerRegistro.TabIndex = 77
+        Me.ButtonVerRegistro.Text = "Ver Registro"
+        Me.ButtonVerRegistro.UseVisualStyleBackColor = True
         '
         'Panel4
         '
         Me.Panel4.BackColor = System.Drawing.SystemColors.ScrollBar
-        Me.Panel4.Controls.Add(Me.Label5)
+        Me.Panel4.Controls.Add(Me.LabelREVISTAS)
         Me.Panel4.Location = New System.Drawing.Point(748, 14)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(290, 87)
         Me.Panel4.TabIndex = 76
         '
-        'Label5
+        'LabelREVISTAS
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Impact", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(41, 13)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(205, 60)
-        Me.Label5.TabIndex = 66
-        Me.Label5.Text = "REVISTAS"
+        Me.LabelREVISTAS.AutoSize = True
+        Me.LabelREVISTAS.Font = New System.Drawing.Font("Impact", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelREVISTAS.Location = New System.Drawing.Point(41, 13)
+        Me.LabelREVISTAS.Name = "LabelREVISTAS"
+        Me.LabelREVISTAS.Size = New System.Drawing.Size(205, 60)
+        Me.LabelREVISTAS.TabIndex = 66
+        Me.LabelREVISTAS.Text = "REVISTAS"
         '
         'Label1
         '
@@ -173,7 +175,7 @@ Partial Class PrestamoRevistas
         Me.ExtCombo.Controls.Add(Me.ButonParaExtreaer)
         Me.ExtCombo.Controls.Add(Me.TextboxBuscador)
         Me.ExtCombo.Controls.Add(Me.Label6)
-        Me.ExtCombo.Controls.Add(Me.DataGridViewlllllVerLibrosEnExtraccionlllll)
+        Me.ExtCombo.Controls.Add(Me.DataGridView_VerRevistasEnExtraccion_)
         Me.ExtCombo.Location = New System.Drawing.Point(263, 98)
         Me.ExtCombo.Name = "ExtCombo"
         Me.ExtCombo.Size = New System.Drawing.Size(737, 550)
@@ -248,36 +250,62 @@ Partial Class PrestamoRevistas
         Me.Label6.TabIndex = 19
         Me.Label6.Text = "BUSCAR LIBRO"
         '
-        'DataGridViewlllllVerLibrosEnExtraccionlllll
+        'DataGridView_VerRevistasEnExtraccion_
         '
-        Me.DataGridViewlllllVerLibrosEnExtraccionlllll.AllowUserToAddRows = False
-        Me.DataGridViewlllllVerLibrosEnExtraccionlllll.AllowUserToDeleteRows = False
-        Me.DataGridViewlllllVerLibrosEnExtraccionlllll.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridViewlllllVerLibrosEnExtraccionlllll.Location = New System.Drawing.Point(4, 140)
-        Me.DataGridViewlllllVerLibrosEnExtraccionlllll.Name = "DataGridViewlllllVerLibrosEnExtraccionlllll"
-        Me.DataGridViewlllllVerLibrosEnExtraccionlllll.ReadOnly = True
-        Me.DataGridViewlllllVerLibrosEnExtraccionlllll.RowHeadersVisible = False
-        Me.DataGridViewlllllVerLibrosEnExtraccionlllll.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridViewlllllVerLibrosEnExtraccionlllll.Size = New System.Drawing.Size(727, 401)
-        Me.DataGridViewlllllVerLibrosEnExtraccionlllll.TabIndex = 17
+        Me.DataGridView_VerRevistasEnExtraccion_.AllowUserToAddRows = False
+        Me.DataGridView_VerRevistasEnExtraccion_.AllowUserToDeleteRows = False
+        Me.DataGridView_VerRevistasEnExtraccion_.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView_VerRevistasEnExtraccion_.Location = New System.Drawing.Point(4, 140)
+        Me.DataGridView_VerRevistasEnExtraccion_.Name = "DataGridView_VerRevistasEnExtraccion_"
+        Me.DataGridView_VerRevistasEnExtraccion_.ReadOnly = True
+        Me.DataGridView_VerRevistasEnExtraccion_.RowHeadersVisible = False
+        Me.DataGridView_VerRevistasEnExtraccion_.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridView_VerRevistasEnExtraccion_.Size = New System.Drawing.Size(727, 401)
+        Me.DataGridView_VerRevistasEnExtraccion_.TabIndex = 17
         '
         'PanelDelCarrito
         '
         Me.PanelDelCarrito.BackColor = System.Drawing.SystemColors.ScrollBar
+        Me.PanelDelCarrito.Controls.Add(Me.LabelAlmacenTemporalParaLaCedula)
+        Me.PanelDelCarrito.Controls.Add(Me.LabelCI)
         Me.PanelDelCarrito.Controls.Add(Me.Button1)
         Me.PanelDelCarrito.Controls.Add(Me.ButtonMoroso)
         Me.PanelDelCarrito.Controls.Add(Me.CarritoDeRevistas)
         Me.PanelDelCarrito.Controls.Add(Me.NOMBRE)
         Me.PanelDelCarrito.Controls.Add(Me.Label2)
-        Me.PanelDelCarrito.Controls.Add(Me.ListboxOcultollllParaGuardarLasIdDeLasRevistasEnElCarritollll)
+        Me.PanelDelCarrito.Controls.Add(Me.ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_)
         Me.PanelDelCarrito.Controls.Add(Me.ButtonLiberar)
-        Me.PanelDelCarrito.Controls.Add(Me.Label9)
-        Me.PanelDelCarrito.Controls.Add(Me.Label8)
+        Me.PanelDelCarrito.Controls.Add(Me.LabelREVISTA)
+        Me.PanelDelCarrito.Controls.Add(Me.LabelIDREVISTAS)
         Me.PanelDelCarrito.Controls.Add(Me.Label12)
         Me.PanelDelCarrito.Location = New System.Drawing.Point(-268, -28)
         Me.PanelDelCarrito.Name = "PanelDelCarrito"
         Me.PanelDelCarrito.Size = New System.Drawing.Size(268, 676)
         Me.PanelDelCarrito.TabIndex = 78
+        '
+        'LabelAlmacenTemporalParaLaCedula
+        '
+        Me.LabelAlmacenTemporalParaLaCedula.AutoSize = True
+        Me.LabelAlmacenTemporalParaLaCedula.BackColor = System.Drawing.Color.Transparent
+        Me.LabelAlmacenTemporalParaLaCedula.Font = New System.Drawing.Font("Impact", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelAlmacenTemporalParaLaCedula.ForeColor = System.Drawing.Color.Black
+        Me.LabelAlmacenTemporalParaLaCedula.Location = New System.Drawing.Point(54, 170)
+        Me.LabelAlmacenTemporalParaLaCedula.Name = "LabelAlmacenTemporalParaLaCedula"
+        Me.LabelAlmacenTemporalParaLaCedula.Size = New System.Drawing.Size(115, 20)
+        Me.LabelAlmacenTemporalParaLaCedula.TabIndex = 86
+        Me.LabelAlmacenTemporalParaLaCedula.Text = "CedulaTemporal"
+        '
+        'LabelCI
+        '
+        Me.LabelCI.AutoSize = True
+        Me.LabelCI.BackColor = System.Drawing.Color.Transparent
+        Me.LabelCI.Font = New System.Drawing.Font("Impact", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelCI.ForeColor = System.Drawing.Color.Black
+        Me.LabelCI.Location = New System.Drawing.Point(22, 170)
+        Me.LabelCI.Name = "LabelCI"
+        Me.LabelCI.Size = New System.Drawing.Size(26, 20)
+        Me.LabelCI.TabIndex = 85
+        Me.LabelCI.Text = "C.I"
         '
         'Button1
         '
@@ -302,7 +330,7 @@ Partial Class PrestamoRevistas
         Me.CarritoDeRevistas.FormattingEnabled = True
         Me.CarritoDeRevistas.Location = New System.Drawing.Point(9, 228)
         Me.CarritoDeRevistas.Name = "CarritoDeRevistas"
-        Me.CarritoDeRevistas.Size = New System.Drawing.Size(248, 394)
+        Me.CarritoDeRevistas.Size = New System.Drawing.Size(253, 394)
         Me.CarritoDeRevistas.TabIndex = 68
         '
         'NOMBRE
@@ -326,13 +354,13 @@ Partial Class PrestamoRevistas
         Me.Label2.TabIndex = 71
         Me.Label2.Text = "Label2"
         '
-        'ListboxOcultollllParaGuardarLasIdDeLasRevistasEnElCarritollll
+        'ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_
         '
-        Me.ListboxOcultollllParaGuardarLasIdDeLasRevistasEnElCarritollll.FormattingEnabled = True
-        Me.ListboxOcultollllParaGuardarLasIdDeLasRevistasEnElCarritollll.Location = New System.Drawing.Point(141, 434)
-        Me.ListboxOcultollllParaGuardarLasIdDeLasRevistasEnElCarritollll.Name = "ListboxOcultollllParaGuardarLasIdDeLasRevistasEnElCarritollll"
-        Me.ListboxOcultollllParaGuardarLasIdDeLasRevistasEnElCarritollll.Size = New System.Drawing.Size(116, 30)
-        Me.ListboxOcultollllParaGuardarLasIdDeLasRevistasEnElCarritollll.TabIndex = 64
+        Me.ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.FormattingEnabled = True
+        Me.ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Location = New System.Drawing.Point(141, 434)
+        Me.ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Name = "ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_"
+        Me.ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Size = New System.Drawing.Size(116, 30)
+        Me.ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.TabIndex = 64
         '
         'ButtonLiberar
         '
@@ -343,27 +371,27 @@ Partial Class PrestamoRevistas
         Me.ButtonLiberar.Text = "Liberar"
         Me.ButtonLiberar.UseVisualStyleBackColor = True
         '
-        'Label9
+        'LabelREVISTA
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.BackColor = System.Drawing.Color.Transparent
-        Me.Label9.Font = New System.Drawing.Font("Impact", 12.0!)
-        Me.Label9.Location = New System.Drawing.Point(124, 205)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(67, 20)
-        Me.Label9.TabIndex = 70
-        Me.Label9.Text = "REVISTAS"
+        Me.LabelREVISTA.AutoSize = True
+        Me.LabelREVISTA.BackColor = System.Drawing.Color.Transparent
+        Me.LabelREVISTA.Font = New System.Drawing.Font("Impact", 12.0!)
+        Me.LabelREVISTA.Location = New System.Drawing.Point(124, 205)
+        Me.LabelREVISTA.Name = "LabelREVISTA"
+        Me.LabelREVISTA.Size = New System.Drawing.Size(67, 20)
+        Me.LabelREVISTA.TabIndex = 70
+        Me.LabelREVISTA.Text = "REVISTAS"
         '
-        'Label8
+        'LabelIDREVISTAS
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.BackColor = System.Drawing.Color.Transparent
-        Me.Label8.Font = New System.Drawing.Font("Impact", 12.0!)
-        Me.Label8.Location = New System.Drawing.Point(19, 205)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(26, 20)
-        Me.Label8.TabIndex = 69
-        Me.Label8.Text = "ID "
+        Me.LabelIDREVISTAS.AutoSize = True
+        Me.LabelIDREVISTAS.BackColor = System.Drawing.Color.Transparent
+        Me.LabelIDREVISTAS.Font = New System.Drawing.Font("Impact", 12.0!)
+        Me.LabelIDREVISTAS.Location = New System.Drawing.Point(19, 205)
+        Me.LabelIDREVISTAS.Name = "LabelIDREVISTAS"
+        Me.LabelIDREVISTAS.Size = New System.Drawing.Size(26, 20)
+        Me.LabelIDREVISTAS.TabIndex = 69
+        Me.LabelIDREVISTAS.Text = "ID "
         '
         'Label12
         '
@@ -458,8 +486,8 @@ Partial Class PrestamoRevistas
         Me.ClientSize = New System.Drawing.Size(1045, 608)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.PanelDelCarrito)
-        Me.Controls.Add(Me.ExtCombo)
         Me.Controls.Add(Me.devoCOMBO)
+        Me.Controls.Add(Me.ExtCombo)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "PrestamoRevistas"
         Me.Text = "PrestamoRevistas"
@@ -472,7 +500,7 @@ Partial Class PrestamoRevistas
         Me.ExtCombo.ResumeLayout(False)
         Me.ExtCombo.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridViewlllllVerLibrosEnExtraccionlllll, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView_VerRevistasEnExtraccion_, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelDelCarrito.ResumeLayout(False)
         Me.PanelDelCarrito.PerformLayout()
         Me.devoCOMBO.ResumeLayout(False)
@@ -482,9 +510,9 @@ Partial Class PrestamoRevistas
 
     End Sub
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
-    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents ButtonVerRegistro As System.Windows.Forms.Button
     Friend WithEvents Panel4 As System.Windows.Forms.Panel
-    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents LabelREVISTAS As System.Windows.Forms.Label
     Friend WithEvents Cedula As Proyecto_Biblioteca.PlaceHolder
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents BotonParaBuscarCedula As System.Windows.Forms.Button
@@ -498,23 +526,25 @@ Partial Class PrestamoRevistas
     Friend WithEvents ButonParaExtreaer As System.Windows.Forms.Button
     Friend WithEvents TextboxBuscador As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents DataGridViewlllllVerLibrosEnExtraccionlllll As System.Windows.Forms.DataGridView
+    Friend WithEvents DataGridView_VerRevistasEnExtraccion_ As System.Windows.Forms.DataGridView
     Friend WithEvents PanelDelCarrito As System.Windows.Forms.Panel
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents ButtonMoroso As System.Windows.Forms.Button
     Friend WithEvents CarritoDeRevistas As System.Windows.Forms.ListBox
     Friend WithEvents NOMBRE As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents ListboxOcultollllParaGuardarLasIdDeLasRevistasEnElCarritollll As System.Windows.Forms.ListBox
+    Friend WithEvents ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_ As System.Windows.Forms.ListBox
     Friend WithEvents ButtonLiberar As System.Windows.Forms.Button
-    Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents LabelREVISTA As System.Windows.Forms.Label
+    Friend WithEvents LabelIDREVISTAS As System.Windows.Forms.Label
     Friend WithEvents Label12 As System.Windows.Forms.Label
-    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents LabelSELECCION_DE_FUNCION As System.Windows.Forms.Label
     Friend WithEvents devoCOMBO As System.Windows.Forms.GroupBox
     Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents DataGridParaDevolucion As System.Windows.Forms.DataGridView
     Friend WithEvents ENPODER As System.Windows.Forms.Label
+    Friend WithEvents LabelAlmacenTemporalParaLaCedula As System.Windows.Forms.Label
+    Friend WithEvents LabelCI As System.Windows.Forms.Label
 End Class
