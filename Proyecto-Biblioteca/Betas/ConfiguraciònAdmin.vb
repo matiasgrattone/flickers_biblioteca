@@ -27,7 +27,7 @@
         'Socios 2
 
 
-        Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where estado='1' and tipo='1' or tipo='0'"
+        Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where estado='1' and tipo<'2'"
         consultar()
         dgv_buscar.DataSource = Tabla
         For Each row As DataRow In Tabla.Rows
@@ -197,7 +197,7 @@
 
                 Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo, nacimiento, estado, contrasenia, moroso) values (concat(upper(left('" + nom_ingresar + "',1)), lower(substr('" + nom_ingresar + "',2))), concat(upper(left('" + ape_ingresar + "',1)), lower(substr('" + ape_ingresar + "',2))), '" + Str(ced_ingresar) + "', '" + Str(tel_ingresar) + "', '" + dir_ingresar + "', '1', '" + nacimiento_ingresar + "','1', '" + cont_ingresar + "', 0);"
                 consultar()
-                Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where estado='1' and tipo='0' or tipo='1'"
+                Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where estado='1' and tipo='0'"
                 consultar()
                 dgv_buscar.DataSource = Tabla
 
@@ -236,7 +236,7 @@
 
     Private Sub buscar_txt_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles buscar_txt.TextChanged
 
-        Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where nombre like '" & buscar_txt.Text & "%' and estado='0' and tipo='0' or tipo='1'"
+        Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where nombre like '" & buscar_txt.Text & "%' and estado='1' and tipo='0'"
         consultar()
         dgv_buscar.DataSource = Tabla
 
@@ -245,6 +245,7 @@
     Private Sub dgv_buscar_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgv_buscar.CellDoubleClick
         If MsgBox("Desea borrar este usuario", styleMSG_datagrid, Title:="Desea borrar?") = MsgBoxResult.Yes Then
 
+            cedulaUser = dgv_buscar.Item(2, dgv_buscar.CurrentRow.Index).Value
             cedulaAdmin = InputBox("Ingrese una cedula de un administrador", Title:="Cedula Administrador")
             Consulta = "select cedula from usuarios where tipo = 0 and cedula = '" & cedulaAdmin & "'"
             consultar()
@@ -255,12 +256,14 @@
 
                 Consulta = "update usuarios set estado = 0 where cedula = '" & cedulaUser & "'"
                 consultar()
-                Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where estado='0' and tipo='1' or tipo='0'"
+                Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where estado='1' and tipo<'2'"
                 consultar()
                 dgv_buscar.DataSource = Tabla
             Else
                 MsgBox("La cedula ingresada no coincide con ningun administrador", styleMSGOK_datagrid, Title:="Error")
             End If
+        Else
+            MsgBox("No se dio de baja")
         End If
     End Sub
 End Class
