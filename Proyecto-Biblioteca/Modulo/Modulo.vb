@@ -52,8 +52,6 @@ Module Modulo
     End Sub
 
     Public Sub Datagrid_Align()
-
-
         For x = 0 To DatagridModulo.Columns.Count - 1 'El for recorre cada columna y las va configurando hasta llegar a la columna a'
             DatagridModulo.Columns(x).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
         Next

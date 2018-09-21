@@ -1326,9 +1326,6 @@ Public Class MENU3
                 open = 0
             End If
 
-
-
-
         Next
 
         If open = 0 Then
