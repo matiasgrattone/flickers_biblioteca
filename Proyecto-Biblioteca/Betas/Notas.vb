@@ -8,23 +8,22 @@
         Dim Ubicacion1 As String = vbNull
         Dim Ubicacion2 As String = vbNull
         Dim Ubicacion3 As String = vbNull
-        Dim Cedula As String = "12345"
 
-        Consulta = "Select * from notas where cedula ='" & Cedula & "' and recordar = 1"
+        Consulta = "Select * from notas where cedula ='" & MENU3.Cedula.Text & "' and recordar = 1"
         consultar()
         For Each row As DataRow In Tabla.Rows
             Ubicacion1 = row("texto")
             Fecha1.Text = row("fecha")
         Next
 
-        Consulta = "Select * from notas where cedula ='" & Cedula & "' and recordar = 2"
+        Consulta = "Select * from notas where cedula ='" & MENU3.Cedula.Text & "' and recordar = 2"
         consultar()
         For Each row As DataRow In Tabla.Rows
             Ubicacion2 = row("texto")
             Fecha2.Text = row("fecha")
         Next
 
-        Consulta = "Select * from notas where cedula ='" & Cedula & "' and recordar = 3"
+        Consulta = "Select * from notas where cedula ='" & MENU3.Cedula.Text & "' and recordar = 3"
         consultar()
         For Each row As DataRow In Tabla.Rows
             Ubicacion3 = row("texto")
@@ -34,29 +33,35 @@
 
 
         '///////Ah  los recordatorios se le asigna una ruta del archivo.txt gurdada con anterioridad en la base de datos///////
-        If Ubicacion1 <> "" Then
-            Dim Recordatorio1 As System.IO.StreamReader = New System.IO.StreamReader(Ubicacion1, System.Text.Encoding.[Default])
-            TextoParaRecordar1.Text = Recordatorio1.ReadToEnd() 'Igualamos la variable "Texto" ah a el contenido del archivo con el comando ReadToEnd del archivo que ya buscamos con anterioridad con la variable "Ubicacion" 
-            Recordatorio1.Close()
+        Consulta = "select * from notas where cedula= '" & MENU3.Cedula.Text & "'"
+        consultar()
+        If (Tabla.Rows.Count = 0) Then
 
-            '////////Igualamos El textbox1 a el contenido de la variabe "Texto"
+        Else
+
+            If Ubicacion1 <> "" Then
+                Dim Recordatorio1 As System.IO.StreamReader = New System.IO.StreamReader(Ubicacion1, System.Text.Encoding.[Default])
+                TextoParaRecordar1.Text = Recordatorio1.ReadToEnd() 'Igualamos la variable "Texto" ah a el contenido del archivo con el comando ReadToEnd del archivo que ya buscamos con anterioridad con la variable "Ubicacion" 
+                Recordatorio1.Close()
+
+                '////////Igualamos El textbox1 a el contenido de la variabe "Texto"
+            End If
+            If Ubicacion2 <> "" Then
+                Dim Recordatorio2 As System.IO.StreamReader = New System.IO.StreamReader(Ubicacion2, System.Text.Encoding.[Default])
+                TextoParaRecordar2.Text = Recordatorio2.ReadToEnd() 'Igualamos la variable "Texto" ah a el contenido del archivo con el comando ReadToEnd del archivo que ya buscamos con anterioridad con la variable "Ubicacion" 
+                Recordatorio2.Close()
+
+                '////////Igualamos El textbox1 a el contenido de la variabe "Texto"
+            End If
+            If Ubicacion3 <> "" Then
+                Dim Recordatorio3 As System.IO.StreamReader = New System.IO.StreamReader(Ubicacion3, System.Text.Encoding.[Default])
+                TextoParaRecordar3.Text = Recordatorio3.ReadToEnd() 'Igualamos la variable "Texto" ah a el contenido del archivo con el comando ReadToEnd del archivo que ya buscamos con anterioridad con la variable "Ubicacion" 
+                Recordatorio3.Close()
+
+                '////////Igualamos El textbox1 a el contenido de la variabe "Texto"
+            End If
+            '/////////////////
         End If
-        If Ubicacion2 <> "" Then
-            Dim Recordatorio2 As System.IO.StreamReader = New System.IO.StreamReader(Ubicacion2, System.Text.Encoding.[Default])
-            TextoParaRecordar2.Text = Recordatorio2.ReadToEnd() 'Igualamos la variable "Texto" ah a el contenido del archivo con el comando ReadToEnd del archivo que ya buscamos con anterioridad con la variable "Ubicacion" 
-            Recordatorio2.Close()
-
-            '////////Igualamos El textbox1 a el contenido de la variabe "Texto"
-        End If
-        If Ubicacion3 <> "" Then
-            Dim Recordatorio3 As System.IO.StreamReader = New System.IO.StreamReader(Ubicacion3, System.Text.Encoding.[Default])
-            TextoParaRecordar3.Text = Recordatorio3.ReadToEnd() 'Igualamos la variable "Texto" ah a el contenido del archivo con el comando ReadToEnd del archivo que ya buscamos con anterioridad con la variable "Ubicacion" 
-            Recordatorio3.Close()
-
-            '////////Igualamos El textbox1 a el contenido de la variabe "Texto"
-        End If
-        '/////////////////
-
 
     End Sub
 
@@ -199,7 +204,7 @@
                     a1 = Replace(a1, "\", "\\") 'Remplazamos la barrita por 2  
                 End If
 
-                Consulta = "Insert into notas (cod_texto ,texto, cedula, recordar, fecha) VALUES ('1','" & a1 & "', '12345', '1','" & Date.Now.ToString("yyyy-MM-dd") & "')" 'Guardamos en la base de datos 
+                Consulta = "Insert into notas (cod_texto ,texto, cedula, recordar, fecha) VALUES ('1','" & a1 & "', '" & MENU3.Cedula.Text & "', '1','" & Date.Now.ToString("yyyy-MM-dd") & "')" 'Guardamos en la base de datos 
                 consultar()
             End If
 
@@ -238,7 +243,7 @@
                     a1 = Replace(a1, "\", "\\") 'Remplazamos la barrita por 2  
                 End If
 
-                Consulta = "Insert into notas (cod_texto ,texto, cedula, recordar,fecha) VALUES ('2','" & a1 & "', '12345', '2', '" & Date.Now.ToString("yyyy-MM-dd") & "')" 'Guardamos en la base de datos 
+                Consulta = "Insert into notas (cod_texto ,texto, cedula, recordar,fecha) VALUES ('2','" & a1 & "', '" & MENU3.Cedula.Text & "', '2', '" & Date.Now.ToString("yyyy-MM-dd") & "')" 'Guardamos en la base de datos 
                 consultar()
 
             End If
@@ -277,7 +282,7 @@
                     a1 = Replace(a1, "\", "\\") 'Remplazamos la barrita por 2  
                 End If
 
-                Consulta = "Insert into notas (cod_texto ,texto, cedula, recordar,fecha) VALUES ('3','" & a1 & "', '12345', '3','" & Date.Now.ToString("yyyy-MM-dd") & "')" 'Guardamos en la base de datos 
+                Consulta = "Insert into notas (cod_texto ,texto, cedula, recordar,fecha) VALUES ('3','" & a1 & "', '" & MENU3.Cedula.Text & "', '3','" & Date.Now.ToString("yyyy-MM-dd") & "')" 'Guardamos en la base de datos 
                 consultar()
             End If
         End If
@@ -292,7 +297,7 @@
             Dim A As String
             A = MsgBox("Desea eliminar el recordatorio ?", MsgBoxStyle.YesNoCancel, Title:="NOTAS")
             If A = vbYes Then
-                Consulta = "delete from notas WHERE recordar = 1;"
+                Consulta = "delete from notas WHERE recordar = 1 and cedula = '" & MENU3.Cedula.Text & "';"
                 consultar()
                 TextoParaRecordar1.Clear()
                 Fecha1.Text = " "
@@ -306,7 +311,7 @@
         If TextoParaRecordar2.Text <> "" Then
             A = MsgBox("Desea eliminar el recordatorio ?", MsgBoxStyle.YesNoCancel, Title:="NOTAS")
             If A = vbYes Then
-                Consulta = "delete from notas WHERE recordar = 2;"
+                Consulta = "delete from notas WHERE recordar = 2 and cedula = '" & MENU3.Cedula.Text & "';"
                 consultar()
                 TextoParaRecordar2.Clear()
                 Fecha2.Text = " "
@@ -320,7 +325,7 @@
         If TextoParaRecordar3.Text <> "" Then
             A = MsgBox("Desea eliminar el recordatorio ?", MsgBoxStyle.YesNoCancel, Title:="NOTAS")
             If A = vbYes Then
-                Consulta = "delete from notas WHERE reordar = 3;"
+                Consulta = "delete from notas WHERE recordar = 3 and cedula = '" & MENU3.Cedula.Text & "';"
                 consultar()
                 TextoParaRecordar3.Clear()
                 Fecha3.Text = " "
@@ -333,23 +338,23 @@
         Dim Ubicacion1 As String
         Dim Ubicacion2 As String
         Dim Ubicacion3 As String
-        Dim Cedula As String = "12345"
 
-        Consulta = "Select * from notas where cedula ='" & Cedula & "' and recordar = 1"
+
+        Consulta = "Select * from notas where cedula ='" & MENU3.Cedula.Text & "' and recordar = 1"
         consultar()
         For Each row As DataRow In Tabla.Rows
             Ubicacion1 = row("texto")
             Fecha1.Text = row("fecha")
         Next
 
-        Consulta = "Select * from notas where cedula ='" & Cedula & "' and recordar = 2"
+        Consulta = "Select * from notas where cedula ='" & MENU3.Cedula.Text & "' and recordar = 2"
         consultar()
         For Each row As DataRow In Tabla.Rows
             Ubicacion2 = row("texto")
             Fecha2.Text = row("fecha")
         Next
 
-        Consulta = "Select * from notas where cedula ='" & Cedula & "' and recordar = 3"
+        Consulta = "Select * from notas where cedula ='" & MENU3.Cedula.Text & "' and recordar = 3"
         consultar()
         For Each row As DataRow In Tabla.Rows
             Ubicacion3 = row("texto")

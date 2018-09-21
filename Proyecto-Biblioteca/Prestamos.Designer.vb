@@ -67,11 +67,11 @@ Partial Class Prestamos
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.LabelSELECCION_DE_FUNCION = New System.Windows.Forms.Label()
-        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.PictureCrearReservacion = New System.Windows.Forms.PictureBox()
         Me.PictureReservacion = New System.Windows.Forms.PictureBox()
         Me.PictureDevolucion = New System.Windows.Forms.PictureBox()
         Me.PictureExtraccion = New System.Windows.Forms.PictureBox()
+        Me.ButtonEditarCedula = New System.Windows.Forms.Button()
         Me.CrearReservacionComboBox = New System.Windows.Forms.GroupBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label22 = New System.Windows.Forms.Label()
@@ -81,7 +81,8 @@ Partial Class Prestamos
         Me.LibrosParaReservar = New System.Windows.Forms.DataGridView()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.ButtonEditarCedula = New System.Windows.Forms.Button()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.PanelDelCarrito.SuspendLayout()
         CType(Me.DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DatagridviewOcultolllllParaFuncionesPrestmolllll, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -523,6 +524,7 @@ Partial Class Prestamos
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.SystemColors.ScrollBar
+        Me.Panel3.Controls.Add(Me.Button7)
         Me.Panel3.Controls.Add(Me.Button6)
         Me.Panel3.Controls.Add(Me.Button3)
         Me.Panel3.Controls.Add(Me.Button2)
@@ -586,16 +588,6 @@ Partial Class Prestamos
         Me.LabelSELECCION_DE_FUNCION.TabIndex = 66
         Me.LabelSELECCION_DE_FUNCION.Text = "SELECCION " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      DE " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FUNCION "
         '
-        'Cedula
-        '
-        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Cedula.Location = New System.Drawing.Point(3, 50)
-        Me.Cedula.Name = "Cedula"
-        Me.Cedula.Size = New System.Drawing.Size(259, 20)
-        Me.Cedula.TabIndex = 75
-        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
-        Me.Cedula.WaterMarkText = "Cedula"
-        '
         'PictureCrearReservacion
         '
         Me.PictureCrearReservacion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.crear_reserva
@@ -635,6 +627,15 @@ Partial Class Prestamos
         Me.PictureExtraccion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureExtraccion.TabIndex = 0
         Me.PictureExtraccion.TabStop = False
+        '
+        'ButtonEditarCedula
+        '
+        Me.ButtonEditarCedula.Location = New System.Drawing.Point(268, 50)
+        Me.ButtonEditarCedula.Name = "ButtonEditarCedula"
+        Me.ButtonEditarCedula.Size = New System.Drawing.Size(71, 21)
+        Me.ButtonEditarCedula.TabIndex = 80
+        Me.ButtonEditarCedula.Text = "Editar"
+        Me.ButtonEditarCedula.UseVisualStyleBackColor = True
         '
         'CrearReservacionComboBox
         '
@@ -732,14 +733,24 @@ Partial Class Prestamos
         Me.Panel2.Size = New System.Drawing.Size(1016, 38)
         Me.Panel2.TabIndex = 78
         '
-        'ButtonEditarCedula
+        'Button7
         '
-        Me.ButtonEditarCedula.Location = New System.Drawing.Point(268, 50)
-        Me.ButtonEditarCedula.Name = "ButtonEditarCedula"
-        Me.ButtonEditarCedula.Size = New System.Drawing.Size(71, 21)
-        Me.ButtonEditarCedula.TabIndex = 80
-        Me.ButtonEditarCedula.Text = "Editar"
-        Me.ButtonEditarCedula.UseVisualStyleBackColor = True
+        Me.Button7.Location = New System.Drawing.Point(619, 24)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(58, 27)
+        Me.Button7.TabIndex = 81
+        Me.Button7.Text = "nOtas"
+        Me.Button7.UseVisualStyleBackColor = True
+        '
+        'Cedula
+        '
+        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.Cedula.Location = New System.Drawing.Point(3, 50)
+        Me.Cedula.Name = "Cedula"
+        Me.Cedula.Size = New System.Drawing.Size(259, 20)
+        Me.Cedula.TabIndex = 75
+        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
+        Me.Cedula.WaterMarkText = "Cedula"
         '
         'Prestamos
         '
@@ -847,4 +858,5 @@ Partial Class Prestamos
     Friend WithEvents LabelCI As System.Windows.Forms.Label
     Friend WithEvents Button6 As System.Windows.Forms.Button
     Friend WithEvents ButtonEditarCedula As System.Windows.Forms.Button
+    Friend WithEvents Button7 As System.Windows.Forms.Button
 End Class

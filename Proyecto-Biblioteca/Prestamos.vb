@@ -78,7 +78,7 @@
                 '////////////////////////////////
                 If Es_moroso = vbYes Then
 
-                    Consulta = "update usuarios set (tipo = ""0"") where cedulaU = '" & Cedula.Text & "';"
+                    Consulta = "update usuarios set (moroso = 0) where cedula = '" & Cedula.Text & "';"
                     consultar()
 
                     MsgBox("El socios " & NOMBRE.Text & " esta libre ahora", Title:="PRESTAMOS")
@@ -130,7 +130,7 @@
                 '////////////////////////////////
                 If Es_moroso2 = vbYes Then
 
-                    Consulta = "update usuarios set (tipo = ""2"") where cedulaU = '" & Cedula.Text & "';"
+                    Consulta = "update usuarios set (moroso = 1) where cedula = '" & Cedula.Text & "';"
                     consultar()
 
                     MsgBox("El socios " & NOMBRE.Text & " es moroso ahora", Title:="PRESTAMOS")
@@ -748,7 +748,7 @@
                     contador = Val(contador) + 1
 
                     'REVISAR ESTO'
-                    Consulta = "insert into prestamolibro(cedula,cod_libro,fecha_salida) values('" + Cedula.Text + "','" + ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "')"
+                    Consulta = "insert into prestamolibro(cedula,cod_libro,fecha_salida,cod_prestado) values('" + Cedula.Text + "','" + ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "','" + MENU3.Cedula.Text + "')"
                     consultar()
 
                     Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) & "';"
@@ -780,7 +780,7 @@
                         contador = Val(contador) + 1
 
 
-                        Consulta = "insert into prestamolibro (cedula, cod_libro, fecha_salida) values ('" & Cedula.Text & "','" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) & "','" & Date.Now.ToString("yyyy-MM-dd") & "')"
+                        Consulta = "insert into prestamolibro (cedula, cod_libro, fecha_salida, cod_prestado) values ('" & Cedula.Text & "','" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) & "','" & Date.Now.ToString("yyyy-MM-dd") & "','" + MENU3.Cedula.Text + "')"
                         consultar()
 
 
@@ -973,7 +973,7 @@
 
                     Consulta = "update libro set estado = 0 where cod_libro = '" & cod_libros & "'"
                     consultar()
-                    Consulta = "UPDATE prestamolibro SET fecha_entrada = '" & Date.Now.ToString("yyyy-MM-dd") & "' WHERE cedula = '" & Cedula.Text & "' and cod_libro ='" & cod_libros & "'"
+                    Consulta = "UPDATE prestamolibro SET fecha_entrada = '" + Date.Now.ToString("dd-MM-yyyy") + "' and cod_devuelto = '" & MENU3.Cedula.Text & "' WHERE cedula = '" & Cedula.Text & "' and cod_libro ='" & cod_libros & "'"
                     consultar()
                     MsgBox("se ha devuelto", Title:="PRESTAMO")
 
@@ -1230,9 +1230,6 @@
         PrestamoRevistas.Show()
     End Sub
 
-    Private Sub DataGridParaDevolucion_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridParaDevolucion.CellContentClick
-
-    End Sub
 
     Private Sub Button6_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button6.Click
 
@@ -1243,4 +1240,11 @@
 
 
 
+    Private Sub Button7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button7.Click
+        Notas.Show()
+    End Sub
+
+    Private Sub DataGridParaDevolucion_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridParaDevolucion.CellContentClick
+
+    End Sub
 End Class
