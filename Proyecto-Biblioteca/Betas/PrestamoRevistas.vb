@@ -10,11 +10,11 @@
     Dim modo As String = "devolucion"
     Dim panelnombre As Integer = 0
 
-    '/////////////////////////////////////////////////////////
+    Dim FechaEntradaPrestamo As Integer
 
+    Dim errorcedula As Integer = 0
 
     Private Sub Form3_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        DataGridParaDevolucion.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill ' ajusta las columnas al tamaño del datagrid
         '/////////////////////////////////////////////GRUPBOX OCULTOS////////////////////
         ExtCombo.Visible = False
         devoCOMBO.Visible = False
@@ -31,12 +31,7 @@
         If z = vbYes Then
             Contador = 1 + Contador
         End If
-        '/////////////////////////////////////////////VARIABLES CON DIA Y HORA////////////////////
-
     End Sub
-
-    Dim errorcedula As Integer = 0
-
     Private Sub BotonParaBuscarCedula_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BotonParaBuscarCedula.Click
 
         'Se cambia el label solo cuando haya un valor en el textbox CEDULA
@@ -117,16 +112,9 @@
                     ButtonMoroso.Visible = True
                 End If
                 '/////////////////////////////////////////////////////////////////////////////////////////////
-
             End If
-
         End If
-
     End Sub
-
-
-
-
     Private Sub PictureExtraccion_MouseHover(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureExtraccion.MouseHover
         LabelSELECCION_DE_FUNCION.Text = "Extraccion"
     End Sub
@@ -138,10 +126,6 @@
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonVerRegistro.Click
         Registroprestamos.Show()
     End Sub
-
-
-
-
     Private Sub ButonLiberar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonLiberar.Click
 
         Dim Es_moroso As MsgBoxResult
@@ -191,16 +175,8 @@
     End Sub
 
 
-
-
-
     '/////////////////////////////////////////////////////////EXTRACCION///////////////////////////////////////////////////////////////
-
-
-
-
     '///PARA VERFIFICAR SI PUEDE RETIRAR UNA REVISTA ///
-    Dim FechaEntradaPrestamo As Integer
     Private Sub PictureExtraccion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureExtraccion.Click
         If CarritoDeRevistas.Items.Count = 0 Then
 
@@ -220,6 +196,16 @@
                     Consulta = "select * from revistas where estado = '0'"
                     consultar()
                     DataGridView_VerRevistasEnExtraccion_.DataSource = Tabla
+
+                    DataGridView_VerRevistasEnExtraccion_.Columns(0).HeaderText = "Cedula de Socio"
+                    DataGridView_VerRevistasEnExtraccion_.Columns(1).HeaderText = "Codigo de Revista"
+                    DataGridView_VerRevistasEnExtraccion_.Columns(2).HeaderText = "Titulo"
+                    DataGridView_VerRevistasEnExtraccion_.Columns(3).HeaderText = "Fecha de Prestamo"
+                    DataGridView_VerRevistasEnExtraccion_.Columns(4).HeaderText = "Fecha de Devolucion"
+                    DataGridView_VerRevistasEnExtraccion_.Columns(5).HeaderText = "Descripcion"
+
+                    DatagridModulo = DataGridView_VerRevistasEnExtraccion_
+                    Datagrid_Align()
                 Else
 
                     For Each row As DataRow In Tabla.Rows
@@ -244,60 +230,6 @@
             End If
         End If
     End Sub
-
-
-
-
-    '///PARA LLEVAR LAS REVISTAS AL CARRTIO///
-    Private Sub DataGridView_VerRevistasEnExtraccion__CellContentDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView_VerRevistasEnExtraccion_.CellContentDoubleClick
-
-        '////////////////////////////SI LA CEDULA ES CORRECTA SE PODRA AGREGAR LIBROS O REALIZAR OTRAS FUNCIONES  /////////////////////// 
-        Dim list1 As Integer
-        list1 = ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Count
-
-
-
-        If DataGridView_VerRevistasEnExtraccion_.Item(0, DataGridView_VerRevistasEnExtraccion_.CurrentRow.Index).Value <> list1 Then
-
-            Dim NomREVISTA As String
-            Dim IdREVISTA As String
-
-            NomREVISTA = DataGridView_VerRevistasEnExtraccion_.Item(1, DataGridView_VerRevistasEnExtraccion_.CurrentRow.Index).Value
-            IdREVISTA = DataGridView_VerRevistasEnExtraccion_.Item(0, DataGridView_VerRevistasEnExtraccion_.CurrentRow.Index).Value
-
-
-
-            If (ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Contains(IdREVISTA)) Then
-
-                MsgBox("La revista " & NomREVISTA & " ya se encuentra en el carrito de extracción ", Title:="PRESTAMOS")
-
-
-            Else
-
-                z = MsgBox("Desea llevar al carrito la revista " & NomREVISTA & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
-
-                If z = vbYes Then
-
-
-                    ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Add(IdREVISTA)
-                    CarritoDeRevistas.Items.Add(IdREVISTA & "                          " & NomREVISTA)
-
-                End If
-            End If
-        End If
-
-        If CarritoDeRevistas.Items.Count <> 0 Then
-
-            ButonParaExtreaer.Visible = True
-        Else
-            ButonParaExtreaer.Visible = False
-
-        End If
-    End Sub
-
-
-
-
     '///PARA EXTRAER LAS REVISTAS DEL CARRTIO///
     Private Sub ButonParaExtreaer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButonParaExtreaer.Click
 
@@ -382,17 +314,56 @@
             End If
         End If
     End Sub
+    '///PARA LLEVAR LAS REVISTAS AL CARRTIO///
+    Private Sub DataGridView_VerRevistasEnExtraccion__CellDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView_VerRevistasEnExtraccion_.CellDoubleClick
 
+        '////////////////////////////SI LA CEDULA ES CORRECTA SE PODRA AGREGAR LIBROS O REALIZAR OTRAS FUNCIONES  /////////////////////// 
+        Dim list1 As Integer
+        list1 = ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Count
+
+
+
+        If DataGridView_VerRevistasEnExtraccion_.Item(0, DataGridView_VerRevistasEnExtraccion_.CurrentRow.Index).Value <> list1 Then
+
+            Dim NomREVISTA As String
+            Dim IdREVISTA As String
+
+            NomREVISTA = DataGridView_VerRevistasEnExtraccion_.Item(1, DataGridView_VerRevistasEnExtraccion_.CurrentRow.Index).Value
+            IdREVISTA = DataGridView_VerRevistasEnExtraccion_.Item(0, DataGridView_VerRevistasEnExtraccion_.CurrentRow.Index).Value
+
+
+
+            If (ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Contains(IdREVISTA)) Then
+
+                MsgBox("La revista " & NomREVISTA & " ya se encuentra en el carrito de extracción ", Title:="PRESTAMOS")
+
+
+            Else
+
+                z = MsgBox("Desea llevar al carrito la revista " & NomREVISTA & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
+
+                If z = vbYes Then
+
+
+                    ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Add(IdREVISTA)
+                    CarritoDeRevistas.Items.Add(IdREVISTA & "                          " & NomREVISTA)
+
+                End If
+            End If
+        End If
+
+        If CarritoDeRevistas.Items.Count <> 0 Then
+
+            ButonParaExtreaer.Visible = True
+        Else
+            ButonParaExtreaer.Visible = False
+
+        End If
+    End Sub
     '/////////////////////////////////////////////////////////FIN DE EXTRACCION///////////////////////////////////////////////////////////////
 
 
-
-
-
     '/////////////////////////////////////////////////////////DEVOLUCION///////////////////////////////////////////////////////////////
-
-
-
     '///PARA INICIAR FUNCIONES DE DEVOLUCION///
     Private Sub PictureDevolucion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureDevolucion.Click
 
@@ -402,6 +373,15 @@
             Consulta = "select p.cedula, p.id_revistas, r.titulo, p.fecha_salida, p.fecha_entrada from prestamorevistas p INNER JOIN revistas r on p.id_revistas=r.id_revistas where fecha_entrada is NULL and cedula= '" & LabelAlmacenTemporalParaLaCedula.Text & "'"
             consultar()
             DataGridParaDevolucion.DataSource = Tabla
+
+            DataGridParaDevolucion.Columns(0).HeaderText = "Cedula de Socio"
+            DataGridParaDevolucion.Columns(1).HeaderText = "Codigo de Revista"
+            DataGridParaDevolucion.Columns(2).HeaderText = "Titulo"
+            DataGridParaDevolucion.Columns(3).HeaderText = "Fecha de Prestamo"
+            DataGridParaDevolucion.Columns(4).HeaderText = "Fecha de Devolucion"
+
+            DatagridModulo = DataGridParaDevolucion
+            Datagrid_Align()
 
             '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             ExtCombo.Visible = False
@@ -413,20 +393,14 @@
 
         End If
     End Sub
-
-
-
-
     '///PARA DEVOLVER LAS REVISTAS EXTRAIDAS///
-    Private Sub DataGridParaDevolucion_CellContentDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridParaDevolucion.CellContentDoubleClick
+    Private Sub DataGridParaDevolucion_CellDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridParaDevolucion.CellDoubleClick
         If modo = "devolucion" Then
             Try
 
                 Revista1 = DataGridParaDevolucion.Item(2, DataGridParaDevolucion.CurrentRow.Index).Value
 
                 ID_Revista1 = DataGridParaDevolucion.Item(1, DataGridParaDevolucion.CurrentRow.Index).Value
-
-
 
                 Dim a As MsgBoxResult
                 a = MsgBox("Desea devolver la revista " & Revista1 & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
@@ -441,15 +415,9 @@
                     consultar()
                     MsgBox("Se ha devuelto correctamente", Title:="PRESTAMO")
 
-
-
-
-
-
                     Consulta = "select p.cedula, p.id_revistas, r.titulo, p.fecha_salida, p.fecha_entrada from prestamorevistas p INNER JOIN revistas r on p.id_revistas=r.id_revistas where fecha_entrada is NULL and cedula= '" & LabelAlmacenTemporalParaLaCedula.Text & "'"
                     consultar()
                     DataGridParaDevolucion.DataSource = Tabla
-
 
                 Else
 
@@ -472,10 +440,6 @@
             End Try
         End If
     End Sub
-
-
-
-
     '///PARA IR A MODO "VER REGISTRO DEL SOCIO"///
     Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
         Consulta = "select p.cedula, p.id_revistas, r.titulo, p.fecha_salida, p.fecha_entrada from prestamorevistas p INNER JOIN revistas r on p.id_revistas=r.id_revistas where cedula= '" & LabelAlmacenTemporalParaLaCedula.Text & "'"
@@ -483,10 +447,6 @@
         DataGridParaDevolucion.DataSource = Tabla
         modo = "registro"
     End Sub
-
-
-
-
     '///PARA IR A MODO "VER REGISTRO DEL SOCIO"///
     Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
         Consulta = "select p.cedula, p.id_revistas, r.titulo, p.fecha_salida, p.fecha_entrada from prestamorevistas p INNER JOIN revistas r on p.id_revistas=r.id_revistas where fecha_entrada is NULL and cedula= '" & LabelAlmacenTemporalParaLaCedula.Text & "'"
@@ -494,11 +454,10 @@
         DataGridParaDevolucion.DataSource = Tabla
         modo = "devolucion"
     End Sub
-
     '/////////////////////////////////////////////////////////FIN DE DEVOLUCION///////////////////////////////////////////////////////////////
 
-
-
-
-
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        CarritoDeRevistas.Items.Clear()
+        ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Clear()
+    End Sub
 End Class
