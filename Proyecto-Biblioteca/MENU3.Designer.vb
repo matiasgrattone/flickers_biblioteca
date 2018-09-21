@@ -100,6 +100,7 @@ Partial Class MENU3
         Me.Timer_Prestamos_LIVE = New System.Windows.Forms.Timer(Me.components)
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.Cedula = New System.Windows.Forms.Label()
         Me.Labels_transparentes1 = New Proyecto_Biblioteca.labels_transparentes()
         Me.Phoraencabezado.SuspendLayout()
         CType(Me.Pbadvertenciaprestamos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -137,6 +138,7 @@ Partial Class MENU3
         'Phoraencabezado
         '
         Me.Phoraencabezado.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Phoraencabezado.Controls.Add(Me.Cedula)
         Me.Phoraencabezado.Controls.Add(Me.Pbadvertenciaprestamos)
         Me.Phoraencabezado.Controls.Add(Me.lblfecha)
         Me.Phoraencabezado.Controls.Add(Me.PictureBox6)
@@ -152,7 +154,7 @@ Partial Class MENU3
         '
         Me.Pbadvertenciaprestamos.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Pbadvertenciaprestamos.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.warning
-        Me.Pbadvertenciaprestamos.Location = New System.Drawing.Point(963, 4)
+        Me.Pbadvertenciaprestamos.Location = New System.Drawing.Point(928, 4)
         Me.Pbadvertenciaprestamos.Name = "Pbadvertenciaprestamos"
         Me.Pbadvertenciaprestamos.Size = New System.Drawing.Size(45, 39)
         Me.Pbadvertenciaprestamos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -194,7 +196,7 @@ Partial Class MENU3
         'Pbusuario
         '
         Me.Pbusuario.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.boss
-        Me.Pbusuario.Location = New System.Drawing.Point(1014, 3)
+        Me.Pbusuario.Location = New System.Drawing.Point(979, 3)
         Me.Pbusuario.Name = "Pbusuario"
         Me.Pbusuario.Size = New System.Drawing.Size(43, 43)
         Me.Pbusuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -206,7 +208,7 @@ Partial Class MENU3
         Me.Nombre.AutoSize = True
         Me.Nombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Nombre.ForeColor = System.Drawing.Color.White
-        Me.Nombre.Location = New System.Drawing.Point(1061, 16)
+        Me.Nombre.Location = New System.Drawing.Point(1041, 6)
         Me.Nombre.Name = "Nombre"
         Me.Nombre.Size = New System.Drawing.Size(81, 26)
         Me.Nombre.TabIndex = 3
@@ -567,7 +569,7 @@ Partial Class MENU3
         Me.Panel_prestamosdia.Controls.Add(Me.Button1)
         Me.Panel_prestamosdia.Controls.Add(Me.Label3)
         Me.Panel_prestamosdia.Controls.Add(Me.LbPrestamos)
-        Me.Panel_prestamosdia.Location = New System.Drawing.Point(764, 0)
+        Me.Panel_prestamosdia.Location = New System.Drawing.Point(732, 0)
         Me.Panel_prestamosdia.Name = "Panel_prestamosdia"
         Me.Panel_prestamosdia.Size = New System.Drawing.Size(200, 247)
         Me.Panel_prestamosdia.TabIndex = 3
@@ -765,6 +767,17 @@ Partial Class MENU3
         '
         Me.ToolTip1.AutomaticDelay = 300
         '
+        'Cedula
+        '
+        Me.Cedula.AutoSize = True
+        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Cedula.ForeColor = System.Drawing.Color.White
+        Me.Cedula.Location = New System.Drawing.Point(1043, 31)
+        Me.Cedula.Name = "Cedula"
+        Me.Cedula.Size = New System.Drawing.Size(45, 13)
+        Me.Cedula.TabIndex = 8
+        Me.Cedula.Text = "Label4"
+        '
         'Labels_transparentes1
         '
         Me.Labels_transparentes1.Location = New System.Drawing.Point(99, 632)
@@ -778,8 +791,8 @@ Partial Class MENU3
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1134, 688)
-        Me.Controls.Add(Me.Panel_Graficos)
         Me.Controls.Add(Me.Phoraencabezado)
+        Me.Controls.Add(Me.Panel_Graficos)
         Me.Controls.Add(Me.Pmenu)
         Me.Controls.Add(Me.panel_menu)
         Me.Controls.Add(Me.Pnavegador)
@@ -902,4 +915,5 @@ Partial Class MENU3
     Friend WithEvents HelpProvider1 As System.Windows.Forms.HelpProvider
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
     Friend WithEvents ListBox2 As System.Windows.Forms.ListBox
+    Friend WithEvents Cedula As System.Windows.Forms.Label
 End Class

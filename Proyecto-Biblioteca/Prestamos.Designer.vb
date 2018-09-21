@@ -81,6 +81,7 @@ Partial Class Prestamos
         Me.LibrosParaReservar = New System.Windows.Forms.DataGridView()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.ButtonEditarCedula = New System.Windows.Forms.Button()
         Me.PanelDelCarrito.SuspendLayout()
         CType(Me.DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DatagridviewOcultolllllParaFuncionesPrestmolllll, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -533,6 +534,7 @@ Partial Class Prestamos
         Me.Panel3.Controls.Add(Me.PictureReservacion)
         Me.Panel3.Controls.Add(Me.PictureDevolucion)
         Me.Panel3.Controls.Add(Me.PictureExtraccion)
+        Me.Panel3.Controls.Add(Me.ButtonEditarCedula)
         Me.Panel3.Location = New System.Drawing.Point(-2, -2)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(1016, 112)
@@ -730,6 +732,15 @@ Partial Class Prestamos
         Me.Panel2.Size = New System.Drawing.Size(1016, 38)
         Me.Panel2.TabIndex = 78
         '
+        'ButtonEditarCedula
+        '
+        Me.ButtonEditarCedula.Location = New System.Drawing.Point(268, 50)
+        Me.ButtonEditarCedula.Name = "ButtonEditarCedula"
+        Me.ButtonEditarCedula.Size = New System.Drawing.Size(71, 21)
+        Me.ButtonEditarCedula.TabIndex = 80
+        Me.ButtonEditarCedula.Text = "Editar"
+        Me.ButtonEditarCedula.UseVisualStyleBackColor = True
+        '
         'Prestamos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -835,4 +846,5 @@ Partial Class Prestamos
     Friend WithEvents LabelParaAlmacenarLaCedulaIngresada As System.Windows.Forms.Label
     Friend WithEvents LabelCI As System.Windows.Forms.Label
     Friend WithEvents Button6 As System.Windows.Forms.Button
+    Friend WithEvents ButtonEditarCedula As System.Windows.Forms.Button
 End Class
