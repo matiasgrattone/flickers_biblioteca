@@ -21,25 +21,24 @@
 
         If i = 0 Then
             Try
-                Consulta = "select contrasenia, nombre from usuarios where cedula = '" + user + "';"
+                Consulta = "select contrasenia , nombre , cedula from usuarios where cedula = '" + user + "';"
                 consultar()
 
                 For Each row As DataRow In Tabla.Rows
-                    pass1 = row("contrasenia").ToString
+
+                    If row("contrasenia").ToString = pass Then
+                        MENU3.Nombre.Text = row("nombre")
+                        MENU3.Cedula.Text = row("cedula")
+                        Me.Hide()
+                        MENU3.Show()
+
+                    Else
+                        MsgBox("Cedula/Contraseaña Incorrecto")
+                    End If
+
+
                 Next
 
-
-                '    DataGridView1.DataSource = Tabla
-                '    Dim row As DataGridViewRow = DataGridView1.CurrentRow
-                '    Dim pass1 As String = CStr(row.Cells(0).Value)
-                '    Modulo.nombre = CStr(row.Cells(1).Value)
-                If pass1 = pass Then
-                    MENU3.Show()
-                    Me.Hide()
-                    MENU3.Nombre.Text = Modulo.nombre
-                Else
-                    MsgBox("Cedula/Contraseaña Incorrecto")
-                End If
             Catch ex As Exception
                 MsgBox("Cedula/Contraseaña Incorrecto")
             End Try

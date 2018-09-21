@@ -29,7 +29,42 @@
             End If
         Next
 
+        cmbmes.Items.Add("Mes")
+        cmbmes.Items.Add("Enero")
+        cmbmes.Items.Add("Febrero")
+        cmbmes.Items.Add("Marzo")
+        cmbmes.Items.Add("Abril")
+        cmbmes.Items.Add("Mayo")
+        cmbmes.Items.Add("Junio")
+        cmbmes.Items.Add("Julio")
+        cmbmes.Items.Add("Agosto")
+        cmbmes.Items.Add("Septiembre")
+        cmbmes.Items.Add("Octubre")
+        cmbmes.Items.Add("Noviembre")
+        cmbmes.Items.Add("Diciembre")
+        substring = Date.Now.ToString("MM")
+        mes()
+        cmbmes.SelectedItem = substring
 
+        For i As Integer = 1899 To Date.Now.ToString("yyyy")
+            If i = 1899 Then
+                cmbaño.Items.Add("Año")
+            Else
+                cmbaño.Items.Add(i)
+            End If
+            cmbaño.SelectedItem = i
+        Next
+
+        For i As Integer = 0 To 31
+            If i = 0 Then
+                cmbdia.Items.Add("Dia")
+            Else
+                cmbdia.Items.Add(i)
+            End If
+
+        Next
+
+        cmbdia.SelectedText = Date.Now.ToString("dd")
 
     End Sub
 

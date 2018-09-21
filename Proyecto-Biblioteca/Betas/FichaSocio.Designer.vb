@@ -43,6 +43,10 @@ Partial Class FichaSocio
         Me.LabelFechaUltimaVez = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.cmbdia = New System.Windows.Forms.ComboBox()
+        Me.cmbmes = New System.Windows.Forms.ComboBox()
+        Me.cmbaño = New System.Windows.Forms.ComboBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBoxEstado, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -241,11 +245,51 @@ Partial Class FichaSocio
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 6000
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(274, 206)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(89, 13)
+        Me.Label3.TabIndex = 24
+        Me.Label3.Text = "Filtrado por fecha"
+        '
+        'cmbdia
+        '
+        Me.cmbdia.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbdia.FormattingEnabled = True
+        Me.cmbdia.Location = New System.Drawing.Point(369, 202)
+        Me.cmbdia.Name = "cmbdia"
+        Me.cmbdia.Size = New System.Drawing.Size(58, 23)
+        Me.cmbdia.TabIndex = 23
+        '
+        'cmbmes
+        '
+        Me.cmbmes.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbmes.FormattingEnabled = True
+        Me.cmbmes.Location = New System.Drawing.Point(433, 202)
+        Me.cmbmes.Name = "cmbmes"
+        Me.cmbmes.Size = New System.Drawing.Size(116, 23)
+        Me.cmbmes.TabIndex = 22
+        '
+        'cmbaño
+        '
+        Me.cmbaño.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbaño.FormattingEnabled = True
+        Me.cmbaño.Location = New System.Drawing.Point(555, 202)
+        Me.cmbaño.Name = "cmbaño"
+        Me.cmbaño.Size = New System.Drawing.Size(68, 23)
+        Me.cmbaño.TabIndex = 21
+        '
         'FichaSocio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(822, 622)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.cmbdia)
+        Me.Controls.Add(Me.cmbmes)
+        Me.Controls.Add(Me.cmbaño)
         Me.Controls.Add(Me.LabelFechaUltimaVez)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Panel2)
@@ -296,4 +340,8 @@ Partial Class FichaSocio
     Friend WithEvents LabelFechaUltimaVez As System.Windows.Forms.Label
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents cmbdia As System.Windows.Forms.ComboBox
+    Friend WithEvents cmbmes As System.Windows.Forms.ComboBox
+    Friend WithEvents cmbaño As System.Windows.Forms.ComboBox
 End Class

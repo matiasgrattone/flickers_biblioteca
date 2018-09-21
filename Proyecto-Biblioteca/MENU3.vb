@@ -58,7 +58,9 @@ Public Class MENU3
         ComboBox1.Items.Add("Octubre")
         ComboBox1.Items.Add("Noviembre")
         ComboBox1.Items.Add("Diciembre")
-        ComboBox1.SelectedIndex = 0
+        substring = Date.Now.ToString("MM")
+        mes()
+        ComboBox1.SelectedItem = substring
 
 
         For i As Integer = 1899 To Date.Now.ToString("yyyy")
@@ -73,6 +75,7 @@ Public Class MENU3
 
 
         '//////////////// PRESTAMOS EN VIVO ///////////////
+
         Timer_Prestamos_LIVE.Enabled = True
 
 
