@@ -53,16 +53,8 @@ Partial Class Inicio_UsuariosV2
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.direccion_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.telefono_txt = New Proyecto_Biblioteca.PlaceHolder()
-        Me.cedula_txt = New Proyecto_Biblioteca.PlaceHolder()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.apellido_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.nombre_txt = New Proyecto_Biblioteca.PlaceHolder()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.Label15 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.TimerMenu = New System.Windows.Forms.Timer(Me.components)
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
@@ -70,6 +62,14 @@ Partial Class Inicio_UsuariosV2
         Me.PlaceHolder1 = New Proyecto_Biblioteca.PlaceHolder()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Inactivo = New System.Windows.Forms.Timer(Me.components)
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.nombre_txt = New Proyecto_Biblioteca.PlaceHolder()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.apellido_txt = New Proyecto_Biblioteca.PlaceHolder()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.cedula_txt = New Proyecto_Biblioteca.PlaceHolder()
+        Me.telefono_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.Menu_Panel.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -394,46 +394,6 @@ Partial Class Inicio_UsuariosV2
         Me.ComboBox1.Size = New System.Drawing.Size(78, 27)
         Me.ComboBox1.TabIndex = 67
         '
-        'telefono_txt
-        '
-        Me.telefono_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.telefono_txt.Location = New System.Drawing.Point(77, 134)
-        Me.telefono_txt.Name = "telefono_txt"
-        Me.telefono_txt.Size = New System.Drawing.Size(189, 27)
-        Me.telefono_txt.TabIndex = 73
-        Me.telefono_txt.WaterMarkColor = System.Drawing.Color.Gray
-        Me.telefono_txt.WaterMarkText = "Teléfono"
-        '
-        'cedula_txt
-        '
-        Me.cedula_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cedula_txt.Location = New System.Drawing.Point(77, 95)
-        Me.cedula_txt.Name = "cedula_txt"
-        Me.cedula_txt.Size = New System.Drawing.Size(189, 27)
-        Me.cedula_txt.TabIndex = 72
-        Me.cedula_txt.WaterMarkColor = System.Drawing.Color.Gray
-        Me.cedula_txt.WaterMarkText = "Cédula"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(15, 67)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(62, 19)
-        Me.Label2.TabIndex = 63
-        Me.Label2.Text = "Apellido"
-        '
-        'apellido_txt
-        '
-        Me.apellido_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.apellido_txt.Location = New System.Drawing.Point(78, 62)
-        Me.apellido_txt.Name = "apellido_txt"
-        Me.apellido_txt.Size = New System.Drawing.Size(189, 27)
-        Me.apellido_txt.TabIndex = 71
-        Me.apellido_txt.WaterMarkColor = System.Drawing.Color.Gray
-        Me.apellido_txt.WaterMarkText = "Apellido"
-        '
         'Label12
         '
         Me.Label12.AutoSize = True
@@ -444,16 +404,6 @@ Partial Class Inicio_UsuariosV2
         Me.Label12.TabIndex = 60
         Me.Label12.Text = "Fecha de nacimiento"
         '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(15, 26)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(60, 19)
-        Me.Label16.TabIndex = 56
-        Me.Label16.Text = "Nombre"
-        '
         'Label13
         '
         Me.Label13.AutoSize = True
@@ -463,36 +413,6 @@ Partial Class Inicio_UsuariosV2
         Me.Label13.Size = New System.Drawing.Size(70, 19)
         Me.Label13.TabIndex = 59
         Me.Label13.Text = "Dirección"
-        '
-        'nombre_txt
-        '
-        Me.nombre_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nombre_txt.Location = New System.Drawing.Point(77, 23)
-        Me.nombre_txt.Name = "nombre_txt"
-        Me.nombre_txt.Size = New System.Drawing.Size(189, 27)
-        Me.nombre_txt.TabIndex = 70
-        Me.nombre_txt.WaterMarkColor = System.Drawing.Color.Gray
-        Me.nombre_txt.WaterMarkText = "Nombre"
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(8, 137)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(65, 19)
-        Me.Label14.TabIndex = 58
-        Me.Label14.Text = "Teléfono"
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(11, 103)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(54, 19)
-        Me.Label15.TabIndex = 57
-        Me.Label15.Text = "Cédula"
         '
         'DataGridView1
         '
@@ -549,6 +469,86 @@ Partial Class Inicio_UsuariosV2
         '
         Me.Inactivo.Interval = 1
         '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Location = New System.Drawing.Point(11, 103)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(54, 19)
+        Me.Label15.TabIndex = 57
+        Me.Label15.Text = "Cédula"
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(8, 137)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(65, 19)
+        Me.Label14.TabIndex = 58
+        Me.Label14.Text = "Teléfono"
+        '
+        'nombre_txt
+        '
+        Me.nombre_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nombre_txt.Location = New System.Drawing.Point(77, 23)
+        Me.nombre_txt.Name = "nombre_txt"
+        Me.nombre_txt.Size = New System.Drawing.Size(189, 27)
+        Me.nombre_txt.TabIndex = 70
+        Me.nombre_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.nombre_txt.WaterMarkText = "Nombre"
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Location = New System.Drawing.Point(15, 26)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(60, 19)
+        Me.Label16.TabIndex = 56
+        Me.Label16.Text = "Nombre"
+        '
+        'apellido_txt
+        '
+        Me.apellido_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.apellido_txt.Location = New System.Drawing.Point(78, 62)
+        Me.apellido_txt.Name = "apellido_txt"
+        Me.apellido_txt.Size = New System.Drawing.Size(189, 27)
+        Me.apellido_txt.TabIndex = 71
+        Me.apellido_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.apellido_txt.WaterMarkText = "Apellido"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(15, 67)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(62, 19)
+        Me.Label2.TabIndex = 63
+        Me.Label2.Text = "Apellido"
+        '
+        'cedula_txt
+        '
+        Me.cedula_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cedula_txt.Location = New System.Drawing.Point(77, 95)
+        Me.cedula_txt.Name = "cedula_txt"
+        Me.cedula_txt.Size = New System.Drawing.Size(189, 27)
+        Me.cedula_txt.TabIndex = 72
+        Me.cedula_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.cedula_txt.WaterMarkText = "Cédula"
+        '
+        'telefono_txt
+        '
+        Me.telefono_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.telefono_txt.Location = New System.Drawing.Point(77, 134)
+        Me.telefono_txt.Name = "telefono_txt"
+        Me.telefono_txt.Size = New System.Drawing.Size(189, 27)
+        Me.telefono_txt.TabIndex = 73
+        Me.telefono_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.telefono_txt.WaterMarkText = "Teléfono"
+        '
         'Inicio_UsuariosV2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -591,16 +591,8 @@ Partial Class Inicio_UsuariosV2
     Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
     Friend WithEvents direccion_txt As Proyecto_Biblioteca.PlaceHolder
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
-    Friend WithEvents telefono_txt As Proyecto_Biblioteca.PlaceHolder
-    Friend WithEvents cedula_txt As Proyecto_Biblioteca.PlaceHolder
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents apellido_txt As Proyecto_Biblioteca.PlaceHolder
     Friend WithEvents Label12 As System.Windows.Forms.Label
-    Friend WithEvents Label16 As System.Windows.Forms.Label
     Friend WithEvents Label13 As System.Windows.Forms.Label
-    Friend WithEvents nombre_txt As Proyecto_Biblioteca.PlaceHolder
-    Friend WithEvents Label14 As System.Windows.Forms.Label
-    Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
@@ -625,4 +617,12 @@ Partial Class Inicio_UsuariosV2
     Friend WithEvents Panel4 As System.Windows.Forms.Panel
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents Inactivo As System.Windows.Forms.Timer
+    Friend WithEvents telefono_txt As Proyecto_Biblioteca.PlaceHolder
+    Friend WithEvents cedula_txt As Proyecto_Biblioteca.PlaceHolder
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents apellido_txt As Proyecto_Biblioteca.PlaceHolder
+    Friend WithEvents Label16 As System.Windows.Forms.Label
+    Friend WithEvents nombre_txt As Proyecto_Biblioteca.PlaceHolder
+    Friend WithEvents Label14 As System.Windows.Forms.Label
+    Friend WithEvents Label15 As System.Windows.Forms.Label
 End Class
