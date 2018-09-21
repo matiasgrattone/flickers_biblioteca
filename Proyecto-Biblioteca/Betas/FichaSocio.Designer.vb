@@ -22,6 +22,7 @@ Partial Class FichaSocio
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.LabelDireccion = New System.Windows.Forms.Label()
@@ -41,6 +42,7 @@ Partial Class FichaSocio
         Me.Label2 = New System.Windows.Forms.Label()
         Me.LabelFechaUltimaVez = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBoxEstado, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -234,6 +236,11 @@ Partial Class FichaSocio
         Me.Panel3.Size = New System.Drawing.Size(193, 482)
         Me.Panel3.TabIndex = 16
         '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 6000
+        '
         'FichaSocio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -288,4 +295,5 @@ Partial Class FichaSocio
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents LabelFechaUltimaVez As System.Windows.Forms.Label
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
 End Class
