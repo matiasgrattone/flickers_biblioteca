@@ -21,7 +21,7 @@
 
         If i = 0 Then
             Try
-                Consulta = "select contrasenia , nombre , cedula from usuarios where cedula = '" + user + "';"
+                Consulta = "select contrasenia , nombre , cedula from usuarios where cedula = '" + user + "' and tipo<'2';"
                 consultar()
 
                 For Each row As DataRow In Tabla.Rows
@@ -49,6 +49,7 @@
         If e.KeyCode = Keys.Enter Then
             Dim user As String = Nothing
             Dim pass As String = Nothing
+            Dim pass1 As String = Nothing
 
             If LTrim$(usuario.Text) = "" Then ' Verifica si esta vacio nombre
                 errorusuario.Text = "Nombre no puede estar vacío"
@@ -66,19 +67,24 @@
 
             If i = 0 Then
                 Try
-                    Consulta = "select contrasenia, nombre from usuarios where cedula = '" + user + "';"
+                    Consulta = "select contrasenia , nombre , cedula from usuarios where cedula = '" + user + "' and tipo<'2';"
                     consultar()
-                    DataGridView1.DataSource = Tabla
-                    Dim row As DataGridViewRow = DataGridView1.CurrentRow
-                    Dim pass1 As String = CStr(row.Cells(0).Value)
-                    Modulo.nombre = CStr(row.Cells(1).Value)
-                    If pass1 = pass Then
-                        MENU3.Show()
-                        Me.Close()
-                        MENU3.Nombre.Text = Modulo.nombre
-                    Else
-                        MsgBox("Cedula/Contraseaña Incorrecto")
-                    End If
+
+                    For Each row As DataRow In Tabla.Rows
+
+                        If row("contrasenia").ToString = pass Then
+                            MENU3.Nombre.Text = row("nombre")
+                            MENU3.Cedula.Text = row("cedula")
+                            Me.Hide()
+                            MENU3.Show()
+
+                        Else
+                            MsgBox("Cedula/Contraseaña Incorrecto")
+                        End If
+
+
+                    Next
+
                 Catch ex As Exception
                     MsgBox("Cedula/Contraseaña Incorrecto")
                 End Try
