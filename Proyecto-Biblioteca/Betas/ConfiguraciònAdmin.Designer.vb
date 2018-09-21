@@ -37,6 +37,10 @@ Partial Class ConfiguraciònAdmin
         Me.PlaceHolder3 = New Proyecto_Biblioteca.PlaceHolder()
         Me.PlaceHolder2 = New Proyecto_Biblioteca.PlaceHolder()
         Me.PlaceHolder1 = New Proyecto_Biblioteca.PlaceHolder()
+        Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.TabControl1.SuspendLayout()
         Me.SuspendLayout()
         '
         'ComboBox1
@@ -159,11 +163,42 @@ Partial Class ConfiguraciònAdmin
         Me.PlaceHolder1.WaterMarkColor = System.Drawing.Color.Gray
         Me.PlaceHolder1.WaterMarkText = "Water Mark"
         '
+        'TabControl1
+        '
+        Me.TabControl1.Controls.Add(Me.TabPage1)
+        Me.TabControl1.Controls.Add(Me.TabPage2)
+        Me.TabControl1.Location = New System.Drawing.Point(518, 0)
+        Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.Size = New System.Drawing.Size(466, 458)
+        Me.TabControl1.TabIndex = 12
+        '
+        'TabPage1
+        '
+        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(458, 432)
+        Me.TabPage1.TabIndex = 0
+        Me.TabPage1.Text = "Funcionarios"
+        Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'TabPage2
+        '
+        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(458, 412)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "Socios"
+        Me.TabPage2.UseVisualStyleBackColor = True
+        '
         'ConfiguraciònAdmin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(502, 461)
+        Me.ClientSize = New System.Drawing.Size(988, 461)
+        Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.ComboBox3)
         Me.Controls.Add(Me.TreeView1)
@@ -178,6 +213,7 @@ Partial Class ConfiguraciònAdmin
         Me.Controls.Add(Me.PlaceHolder1)
         Me.Name = "ConfiguraciònAdmin"
         Me.Text = "ConfiguraciònAdmin"
+        Me.TabControl1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -194,4 +230,7 @@ Partial Class ConfiguraciònAdmin
     Friend WithEvents TreeView1 As System.Windows.Forms.TreeView
     Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
+    Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
+    Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
 End Class

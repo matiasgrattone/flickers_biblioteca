@@ -82,6 +82,10 @@ Partial Class MENU3
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.LbPrestamos = New System.Windows.Forms.ListBox()
+        Me.PanelPrestamosLIVE = New System.Windows.Forms.Panel()
+        Me.ListBox2 = New System.Windows.Forms.ListBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.PanelPrestamosTOP = New System.Windows.Forms.Panel()
@@ -92,14 +96,10 @@ Partial Class MENU3
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Chart_Prestamos = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.PanelPrestamosLIVE = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.Timer_InicioLabel = New System.Windows.Forms.Timer(Me.components)
         Me.Timer_Prestamos_LIVE = New System.Windows.Forms.Timer(Me.components)
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.ListBox2 = New System.Windows.Forms.ListBox()
         Me.Labels_transparentes1 = New Proyecto_Biblioteca.labels_transparentes()
         Me.Phoraencabezado.SuspendLayout()
         CType(Me.Pbadvertenciaprestamos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -124,6 +124,7 @@ Partial Class MENU3
         Me.Pnavegador.SuspendLayout()
         Me.Panel_Graficos.SuspendLayout()
         Me.Panel_prestamosdia.SuspendLayout()
+        Me.PanelPrestamosLIVE.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelPrestamosTOP.SuspendLayout()
         CType(Me.ChartTOP, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -131,7 +132,6 @@ Partial Class MENU3
         CType(Me.ChartPrestamosDia, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.Chart_Prestamos, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PanelPrestamosLIVE.SuspendLayout()
         Me.SuspendLayout()
         '
         'Phoraencabezado
@@ -598,6 +598,43 @@ Partial Class MENU3
         Me.LbPrestamos.Size = New System.Drawing.Size(135, 186)
         Me.LbPrestamos.TabIndex = 0
         '
+        'PanelPrestamosLIVE
+        '
+        Me.PanelPrestamosLIVE.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.PanelPrestamosLIVE.Controls.Add(Me.ListBox2)
+        Me.PanelPrestamosLIVE.Controls.Add(Me.Label1)
+        Me.PanelPrestamosLIVE.Controls.Add(Me.ListBox1)
+        Me.PanelPrestamosLIVE.Location = New System.Drawing.Point(1010, 0)
+        Me.PanelPrestamosLIVE.Name = "PanelPrestamosLIVE"
+        Me.PanelPrestamosLIVE.Size = New System.Drawing.Size(240, 637)
+        Me.PanelPrestamosLIVE.TabIndex = 9
+        '
+        'ListBox2
+        '
+        Me.ListBox2.FormattingEnabled = True
+        Me.ListBox2.Location = New System.Drawing.Point(3, 21)
+        Me.ListBox2.Name = "ListBox2"
+        Me.ListBox2.Size = New System.Drawing.Size(81, 615)
+        Me.ListBox2.TabIndex = 5
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(-1, 5)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(146, 13)
+        Me.Label1.TabIndex = 4
+        Me.Label1.Text = "Ultimos Libros Prestados"
+        '
+        'ListBox1
+        '
+        Me.ListBox1.FormattingEnabled = True
+        Me.ListBox1.Location = New System.Drawing.Point(90, 21)
+        Me.ListBox1.Name = "ListBox1"
+        Me.ListBox1.Size = New System.Drawing.Size(142, 615)
+        Me.ListBox1.TabIndex = 3
+        '
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.back
@@ -716,35 +753,6 @@ Partial Class MENU3
         Me.ComboBox1.Size = New System.Drawing.Size(216, 28)
         Me.ComboBox1.TabIndex = 1
         '
-        'PanelPrestamosLIVE
-        '
-        Me.PanelPrestamosLIVE.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Me.PanelPrestamosLIVE.Controls.Add(Me.ListBox2)
-        Me.PanelPrestamosLIVE.Controls.Add(Me.Label1)
-        Me.PanelPrestamosLIVE.Controls.Add(Me.ListBox1)
-        Me.PanelPrestamosLIVE.Location = New System.Drawing.Point(1010, 0)
-        Me.PanelPrestamosLIVE.Name = "PanelPrestamosLIVE"
-        Me.PanelPrestamosLIVE.Size = New System.Drawing.Size(240, 637)
-        Me.PanelPrestamosLIVE.TabIndex = 9
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(-1, 5)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(146, 13)
-        Me.Label1.TabIndex = 4
-        Me.Label1.Text = "Ultimos Libros Prestados"
-        '
-        'ListBox1
-        '
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(90, 21)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(142, 615)
-        Me.ListBox1.TabIndex = 3
-        '
         'Timer_InicioLabel
         '
         Me.Timer_InicioLabel.Interval = 10
@@ -756,14 +764,6 @@ Partial Class MENU3
         'ToolTip1
         '
         Me.ToolTip1.AutomaticDelay = 300
-        '
-        'ListBox2
-        '
-        Me.ListBox2.FormattingEnabled = True
-        Me.ListBox2.Location = New System.Drawing.Point(3, 21)
-        Me.ListBox2.Name = "ListBox2"
-        Me.ListBox2.Size = New System.Drawing.Size(81, 615)
-        Me.ListBox2.TabIndex = 5
         '
         'Labels_transparentes1
         '
@@ -822,6 +822,8 @@ Partial Class MENU3
         Me.Panel_Graficos.PerformLayout()
         Me.Panel_prestamosdia.ResumeLayout(False)
         Me.Panel_prestamosdia.PerformLayout()
+        Me.PanelPrestamosLIVE.ResumeLayout(False)
+        Me.PanelPrestamosLIVE.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelPrestamosTOP.ResumeLayout(False)
         CType(Me.ChartTOP, System.ComponentModel.ISupportInitialize).EndInit()
@@ -829,8 +831,6 @@ Partial Class MENU3
         CType(Me.ChartPrestamosDia, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         CType(Me.Chart_Prestamos, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.PanelPrestamosLIVE.ResumeLayout(False)
-        Me.PanelPrestamosLIVE.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub

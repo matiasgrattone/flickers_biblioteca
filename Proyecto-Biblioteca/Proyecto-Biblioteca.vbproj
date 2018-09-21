@@ -111,10 +111,10 @@
     <Compile Include="Betas\IngresoRevistas.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Betas\Inicio UsuariosV2.Designer.vb">
+    <Compile Include="Inicio UsuariosV2.Designer.vb">
       <DependentUpon>Inicio UsuariosV2.vb</DependentUpon>
     </Compile>
-    <Compile Include="Betas\Inicio UsuariosV2.vb">
+    <Compile Include="Inicio UsuariosV2.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Betas\Registroprestamos.Designer.vb">
@@ -129,10 +129,10 @@
     <Compile Include="Betas\registrorevistas.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Betas\RegistroSocio.Designer.vb">
-      <DependentUpon>RegistroSocio.vb</DependentUpon>
+    <Compile Include="Betas\FichaSocio.Designer.vb">
+      <DependentUpon>FichaSocio.vb</DependentUpon>
     </Compile>
-    <Compile Include="Betas\RegistroSocio.vb">
+    <Compile Include="Betas\FichaSocio.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Betas\Seleccion_Revistas.Designer.vb">
@@ -241,7 +241,7 @@
     <EmbeddedResource Include="Betas\IngresoRevistas.resx">
       <DependentUpon>IngresoRevistas.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Betas\Inicio UsuariosV2.resx">
+    <EmbeddedResource Include="Inicio UsuariosV2.resx">
       <DependentUpon>Inicio UsuariosV2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Betas\Notas.resx">
@@ -253,8 +253,8 @@
     <EmbeddedResource Include="Betas\registrorevistas.resx">
       <DependentUpon>registrorevistas.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Betas\RegistroSocio.resx">
-      <DependentUpon>RegistroSocio.vb</DependentUpon>
+    <EmbeddedResource Include="Betas\FichaSocio.resx">
+      <DependentUpon>FichaSocio.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Betas\Seleccion_Revistas.resx">
       <DependentUpon>Seleccion_Revistas.vb</DependentUpon>

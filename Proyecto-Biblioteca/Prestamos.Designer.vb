@@ -62,6 +62,7 @@ Partial Class Prestamos
         Me.Label19 = New System.Windows.Forms.Label()
         Me.BotonExtrearReservados = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Button6 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
@@ -80,7 +81,6 @@ Partial Class Prestamos
         Me.LibrosParaReservar = New System.Windows.Forms.DataGridView()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Button6 = New System.Windows.Forms.Button()
         Me.PanelDelCarrito.SuspendLayout()
         CType(Me.DataGridViewOcultolllllParaSacarElNombreDelUsuariolllll, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DatagridviewOcultolllllParaFuncionesPrestmolllll, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -538,6 +538,15 @@ Partial Class Prestamos
         Me.Panel3.Size = New System.Drawing.Size(1016, 112)
         Me.Panel3.TabIndex = 75
         '
+        'Button6
+        '
+        Me.Button6.Location = New System.Drawing.Point(12, 80)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(75, 23)
+        Me.Button6.TabIndex = 79
+        Me.Button6.Text = "Ver Ficha"
+        Me.Button6.UseVisualStyleBackColor = True
+        '
         'Button3
         '
         Me.Button3.Location = New System.Drawing.Point(174, 79)
@@ -720,15 +729,6 @@ Partial Class Prestamos
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1016, 38)
         Me.Panel2.TabIndex = 78
-        '
-        'Button6
-        '
-        Me.Button6.Location = New System.Drawing.Point(12, 80)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(75, 23)
-        Me.Button6.TabIndex = 79
-        Me.Button6.Text = "Ver Ficha"
-        Me.Button6.UseVisualStyleBackColor = True
         '
         'Prestamos
         '

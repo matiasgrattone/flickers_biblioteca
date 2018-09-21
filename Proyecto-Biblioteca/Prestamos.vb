@@ -1157,7 +1157,7 @@
 
     Private Sub Button6_Click_1(sender As System.Object, e As System.EventArgs) Handles Button6.Click
 
-        RegistroSocio.FichaCedulaSocio = Cedula.Text
-        RegistroSocio.Show()
+        FichaSocio.FichaCedulaSocio = Cedula.Text
+        FichaSocio.Show()
     End Sub
 End Class
