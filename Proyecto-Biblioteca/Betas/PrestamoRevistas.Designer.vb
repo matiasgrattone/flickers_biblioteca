@@ -27,6 +27,7 @@ Partial Class PrestamoRevistas
         Me.ButtonVerRegistro = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.LabelREVISTAS = New System.Windows.Forms.Label()
+        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.BotonParaBuscarCedula = New System.Windows.Forms.Button()
         Me.PictureDevolucion = New System.Windows.Forms.PictureBox()
@@ -59,7 +60,6 @@ Partial Class PrestamoRevistas
         Me.Label11 = New System.Windows.Forms.Label()
         Me.DataGridParaDevolucion = New System.Windows.Forms.DataGridView()
         Me.ENPODER = New System.Windows.Forms.Label()
-        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
         CType(Me.PictureDevolucion, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -122,9 +122,19 @@ Partial Class PrestamoRevistas
         Me.LabelREVISTAS.Font = New System.Drawing.Font("Impact", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelREVISTAS.Location = New System.Drawing.Point(41, 13)
         Me.LabelREVISTAS.Name = "LabelREVISTAS"
-        Me.LabelREVISTAS.Size = New System.Drawing.Size(205, 60)
+        Me.LabelREVISTAS.Size = New System.Drawing.Size(203, 60)
         Me.LabelREVISTAS.TabIndex = 66
         Me.LabelREVISTAS.Text = "REVISTAS"
+        '
+        'Cedula
+        '
+        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.Cedula.Location = New System.Drawing.Point(3, 50)
+        Me.Cedula.Name = "Cedula"
+        Me.Cedula.Size = New System.Drawing.Size(259, 20)
+        Me.Cedula.TabIndex = 75
+        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
+        Me.Cedula.WaterMarkText = "Cedula"
         '
         'Label1
         '
@@ -254,6 +264,8 @@ Partial Class PrestamoRevistas
         '
         Me.DataGridView_VerRevistasEnExtraccion_.AllowUserToAddRows = False
         Me.DataGridView_VerRevistasEnExtraccion_.AllowUserToDeleteRows = False
+        Me.DataGridView_VerRevistasEnExtraccion_.AllowUserToResizeColumns = False
+        Me.DataGridView_VerRevistasEnExtraccion_.AllowUserToResizeRows = False
         Me.DataGridView_VerRevistasEnExtraccion_.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView_VerRevistasEnExtraccion_.Location = New System.Drawing.Point(4, 140)
         Me.DataGridView_VerRevistasEnExtraccion_.Name = "DataGridView_VerRevistasEnExtraccion_"
@@ -278,7 +290,7 @@ Partial Class PrestamoRevistas
         Me.PanelDelCarrito.Controls.Add(Me.LabelREVISTA)
         Me.PanelDelCarrito.Controls.Add(Me.LabelIDREVISTAS)
         Me.PanelDelCarrito.Controls.Add(Me.Label12)
-        Me.PanelDelCarrito.Location = New System.Drawing.Point(-268, -28)
+        Me.PanelDelCarrito.Location = New System.Drawing.Point(-272, -28)
         Me.PanelDelCarrito.Name = "PanelDelCarrito"
         Me.PanelDelCarrito.Size = New System.Drawing.Size(268, 676)
         Me.PanelDelCarrito.TabIndex = 78
@@ -291,7 +303,7 @@ Partial Class PrestamoRevistas
         Me.LabelAlmacenTemporalParaLaCedula.ForeColor = System.Drawing.Color.Black
         Me.LabelAlmacenTemporalParaLaCedula.Location = New System.Drawing.Point(54, 170)
         Me.LabelAlmacenTemporalParaLaCedula.Name = "LabelAlmacenTemporalParaLaCedula"
-        Me.LabelAlmacenTemporalParaLaCedula.Size = New System.Drawing.Size(115, 20)
+        Me.LabelAlmacenTemporalParaLaCedula.Size = New System.Drawing.Size(114, 20)
         Me.LabelAlmacenTemporalParaLaCedula.TabIndex = 86
         Me.LabelAlmacenTemporalParaLaCedula.Text = "CedulaTemporal"
         '
@@ -378,7 +390,7 @@ Partial Class PrestamoRevistas
         Me.LabelREVISTA.Font = New System.Drawing.Font("Impact", 12.0!)
         Me.LabelREVISTA.Location = New System.Drawing.Point(124, 205)
         Me.LabelREVISTA.Name = "LabelREVISTA"
-        Me.LabelREVISTA.Size = New System.Drawing.Size(67, 20)
+        Me.LabelREVISTA.Size = New System.Drawing.Size(66, 20)
         Me.LabelREVISTA.TabIndex = 70
         Me.LabelREVISTA.Text = "REVISTAS"
         '
@@ -449,6 +461,8 @@ Partial Class PrestamoRevistas
         '
         Me.DataGridParaDevolucion.AllowUserToAddRows = False
         Me.DataGridParaDevolucion.AllowUserToDeleteRows = False
+        Me.DataGridParaDevolucion.AllowUserToResizeColumns = False
+        Me.DataGridParaDevolucion.AllowUserToResizeRows = False
         Me.DataGridParaDevolucion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridParaDevolucion.Location = New System.Drawing.Point(6, 125)
         Me.DataGridParaDevolucion.Name = "DataGridParaDevolucion"
@@ -468,16 +482,6 @@ Partial Class PrestamoRevistas
         Me.ENPODER.Size = New System.Drawing.Size(216, 34)
         Me.ENPODER.TabIndex = 61
         Me.ENPODER.Text = "Revistas en poder"
-        '
-        'Cedula
-        '
-        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Cedula.Location = New System.Drawing.Point(3, 50)
-        Me.Cedula.Name = "Cedula"
-        Me.Cedula.Size = New System.Drawing.Size(259, 20)
-        Me.Cedula.TabIndex = 75
-        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
-        Me.Cedula.WaterMarkText = "Cedula"
         '
         'PrestamoRevistas
         '
