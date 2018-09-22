@@ -2,14 +2,23 @@
     Public FichaCedulaSocio As String
 
     Private Sub RegistroSocio_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-        Consulta = "SELECT cedula, cod_libro, fecha_salida as 'Fecha Salida', fecha_entrada as 'Fecha Entrada', cod_prestado as 'Funcionario Prestamo', cod_devuelto as 'Funcionario Devuelto' FROM prestamolibro WHERE cedula = '" & FichaCedulaSocio & "'"
+
+        Consulta = "select prestamolibro.cod_libro , libro.titulo from prestamolibro inner join libro on prestamolibro.cod_libro = libro.cod_libro where cedula = '" & FichaCedulaSocio & "' and fecha_entrada is NULL"
+        consultar()
+        ListBoxLibros.Items.Clear()
+        For Each row As DataRow In Tabla.Rows
+            ListBoxLibros.Items.Add(row("titulo"))
+        Next
+
+        Consulta = "SELECT concat(usuarios1.nombre,' ',usuarios1.apellido) as 'Nombre Socio', `cod_libro`, fecha_salida as 'Fecha Prestamo', `fecha_entrada`, concat(usuarios2.nombre,' ',usuarios2.apellido) as 'Funcionario Prestamo', concat(usuarios3.nombre,' ',usuarios3.apellido) as 'Funcionario Devolucion' FROM prestamolibro as prestamolibro1 inner join usuarios as usuarios1 on usuarios1.cedula = prestamolibro1.cedula inner join usuarios as usuarios2 on usuarios2.cedula = prestamolibro1.cod_prestado inner join usuarios as usuarios3 on usuarios3.cedula = prestamolibro1.cod_devuelto WHERE 1"
         consultar()
         DataGridView1.DataSource = Tabla
         DatagridModulo = DataGridView1
         Datagrid_Align()
-        DataGridView1.Columns(0).HeaderText = "Nº de Inventario"
 
-
+        DataGridView1.Columns(1).HeaderText = "Nº de Inventario"
+        DataGridView1.Columns(3).HeaderText = "Fecha Devoluciòn"
+        DataGridView1.Columns(5).HeaderText = "Funcionario Devoluciòn"
 
         Consulta = "select cedula , nombre , apellido , direccion , mail , moroso from usuarios where cedula = '" & FichaCedulaSocio & "'"
         consultar()
@@ -66,6 +75,9 @@
 
         cmbdia.SelectedText = Date.Now.ToString("dd")
 
+
+
+
     End Sub
 
     Private Sub Timer1_Tick(sender As System.Object, e As System.EventArgs) Handles Timer1.Tick
@@ -76,4 +88,6 @@
             ListBoxLibros.Items.Add(row("titulo"))
         Next
     End Sub
+
+
 End Class

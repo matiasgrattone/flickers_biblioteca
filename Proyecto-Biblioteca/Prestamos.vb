@@ -130,7 +130,7 @@
                 '////////////////////////////////
                 If Es_moroso2 = vbYes Then
 
-                    Consulta = "update usuarios set (moroso = 1) where cedula = '" & Cedula.Text & "';"
+                    Consulta = "update usuarios set (moroso = 1) , fecha_moroso = '" & Date.Now.ToString("yyyy-MM-dd") & "' where cedula = '" & Cedula.Text & "';"
                     consultar()
 
                     MsgBox("El socios " & NOMBRE.Text & " es moroso ahora", Title:="PRESTAMOS")

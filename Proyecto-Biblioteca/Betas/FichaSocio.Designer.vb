@@ -24,6 +24,8 @@ Partial Class FichaSocio
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.HolaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.LabelDireccion = New System.Windows.Forms.Label()
         Me.LabelMail = New System.Windows.Forms.Label()
@@ -48,6 +50,7 @@ Partial Class FichaSocio
         Me.cmbmes = New System.Windows.Forms.ComboBox()
         Me.cmbaño = New System.Windows.Forms.ComboBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBoxEstado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -61,13 +64,26 @@ Partial Class FichaSocio
         Me.DataGridView1.AllowUserToResizeColumns = False
         Me.DataGridView1.AllowUserToResizeRows = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.ContextMenuStrip = Me.ContextMenuStrip1
         Me.DataGridView1.Location = New System.Drawing.Point(2, 2)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(619, 390)
+        Me.DataGridView1.Size = New System.Drawing.Size(738, 423)
         Me.DataGridView1.TabIndex = 0
+        '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HolaToolStripMenuItem})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(91, 26)
+        '
+        'HolaToolStripMenuItem
+        '
+        Me.HolaToolStripMenuItem.Name = "HolaToolStripMenuItem"
+        Me.HolaToolStripMenuItem.Size = New System.Drawing.Size(90, 22)
+        Me.HolaToolStripMenuItem.Text = "Ver"
         '
         'PictureBox1
         '
@@ -154,7 +170,7 @@ Partial Class FichaSocio
         '
         Me.LabelEstadotxt.AutoSize = True
         Me.LabelEstadotxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelEstadotxt.Location = New System.Drawing.Point(738, 14)
+        Me.LabelEstadotxt.Location = New System.Drawing.Point(852, 11)
         Me.LabelEstadotxt.Name = "LabelEstadotxt"
         Me.LabelEstadotxt.Size = New System.Drawing.Size(81, 20)
         Me.LabelEstadotxt.TabIndex = 12
@@ -163,7 +179,7 @@ Partial Class FichaSocio
         'PictureBoxEstado
         '
         Me.PictureBoxEstado.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBoxEstado.Location = New System.Drawing.Point(746, 41)
+        Me.PictureBoxEstado.Location = New System.Drawing.Point(860, 38)
         Me.PictureBoxEstado.Name = "PictureBoxEstado"
         Me.PictureBoxEstado.Size = New System.Drawing.Size(66, 68)
         Me.PictureBoxEstado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -173,7 +189,7 @@ Partial Class FichaSocio
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(526, 9)
+        Me.Label1.Location = New System.Drawing.Point(640, 6)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(104, 13)
         Me.Label1.TabIndex = 14
@@ -183,23 +199,23 @@ Partial Class FichaSocio
         '
         Me.Panel1.BackColor = System.Drawing.Color.DimGray
         Me.Panel1.Controls.Add(Me.DataGridView1)
-        Me.Panel1.Location = New System.Drawing.Point(7, 228)
+        Me.Panel1.Location = New System.Drawing.Point(7, 192)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(623, 394)
+        Me.Panel1.Size = New System.Drawing.Size(743, 428)
         Me.Panel1.TabIndex = 15
         '
         'ListBoxLibros
         '
         Me.ListBoxLibros.FormattingEnabled = True
-        Me.ListBoxLibros.Location = New System.Drawing.Point(636, 150)
+        Me.ListBoxLibros.Location = New System.Drawing.Point(759, 135)
         Me.ListBoxLibros.Name = "ListBoxLibros"
-        Me.ListBoxLibros.Size = New System.Drawing.Size(185, 472)
+        Me.ListBoxLibros.Size = New System.Drawing.Size(184, 485)
         Me.ListBoxLibros.TabIndex = 16
         '
         'LabelLibrosPoder
         '
         Me.LabelLibrosPoder.AutoSize = True
-        Me.LabelLibrosPoder.Location = New System.Drawing.Point(737, 124)
+        Me.LabelLibrosPoder.Location = New System.Drawing.Point(858, 117)
         Me.LabelLibrosPoder.Name = "LabelLibrosPoder"
         Me.LabelLibrosPoder.Size = New System.Drawing.Size(82, 13)
         Me.LabelLibrosPoder.TabIndex = 17
@@ -217,7 +233,7 @@ Partial Class FichaSocio
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(6, 212)
+        Me.Label2.Location = New System.Drawing.Point(8, 172)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(53, 13)
         Me.Label2.TabIndex = 19
@@ -226,7 +242,7 @@ Partial Class FichaSocio
         'LabelFechaUltimaVez
         '
         Me.LabelFechaUltimaVez.AutoSize = True
-        Me.LabelFechaUltimaVez.Location = New System.Drawing.Point(633, 9)
+        Me.LabelFechaUltimaVez.Location = New System.Drawing.Point(747, 6)
         Me.LabelFechaUltimaVez.Name = "LabelFechaUltimaVez"
         Me.LabelFechaUltimaVez.Size = New System.Drawing.Size(73, 13)
         Me.LabelFechaUltimaVez.TabIndex = 20
@@ -235,9 +251,9 @@ Partial Class FichaSocio
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.DimGray
-        Me.Panel3.Location = New System.Drawing.Point(634, 148)
+        Me.Panel3.Location = New System.Drawing.Point(756, 132)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(193, 482)
+        Me.Panel3.Size = New System.Drawing.Size(190, 501)
         Me.Panel3.TabIndex = 16
         '
         'Timer1
@@ -248,7 +264,7 @@ Partial Class FichaSocio
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(274, 206)
+        Me.Label3.Location = New System.Drawing.Point(402, 167)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(89, 13)
         Me.Label3.TabIndex = 24
@@ -258,7 +274,7 @@ Partial Class FichaSocio
         '
         Me.cmbdia.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbdia.FormattingEnabled = True
-        Me.cmbdia.Location = New System.Drawing.Point(369, 202)
+        Me.cmbdia.Location = New System.Drawing.Point(497, 163)
         Me.cmbdia.Name = "cmbdia"
         Me.cmbdia.Size = New System.Drawing.Size(58, 23)
         Me.cmbdia.TabIndex = 23
@@ -267,7 +283,7 @@ Partial Class FichaSocio
         '
         Me.cmbmes.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbmes.FormattingEnabled = True
-        Me.cmbmes.Location = New System.Drawing.Point(433, 202)
+        Me.cmbmes.Location = New System.Drawing.Point(561, 163)
         Me.cmbmes.Name = "cmbmes"
         Me.cmbmes.Size = New System.Drawing.Size(116, 23)
         Me.cmbmes.TabIndex = 22
@@ -276,7 +292,7 @@ Partial Class FichaSocio
         '
         Me.cmbaño.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbaño.FormattingEnabled = True
-        Me.cmbaño.Location = New System.Drawing.Point(555, 202)
+        Me.cmbaño.Location = New System.Drawing.Point(683, 163)
         Me.cmbaño.Name = "cmbaño"
         Me.cmbaño.Size = New System.Drawing.Size(68, 23)
         Me.cmbaño.TabIndex = 21
@@ -285,7 +301,7 @@ Partial Class FichaSocio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(822, 622)
+        Me.ClientSize = New System.Drawing.Size(945, 622)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.cmbdia)
         Me.Controls.Add(Me.cmbmes)
@@ -312,6 +328,7 @@ Partial Class FichaSocio
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "RegistroSocio"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContextMenuStrip1.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBoxEstado, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
@@ -344,4 +361,6 @@ Partial Class FichaSocio
     Friend WithEvents cmbdia As System.Windows.Forms.ComboBox
     Friend WithEvents cmbmes As System.Windows.Forms.ComboBox
     Friend WithEvents cmbaño As System.Windows.Forms.ComboBox
+    Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents HolaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class
