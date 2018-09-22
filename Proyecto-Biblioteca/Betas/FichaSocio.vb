@@ -20,16 +20,27 @@
         DataGridView1.Columns(3).HeaderText = "Fecha Devoluciòn"
         DataGridView1.Columns(5).HeaderText = "Funcionario Devoluciòn"
 
-        Consulta = "select cedula , nombre , apellido , direccion , mail , moroso from usuarios where cedula = '" & FichaCedulaSocio & "'"
+        Consulta = "select cedula , nombre , apellido , direccion , mail , moroso , tipo , fecha_moroso from usuarios where cedula = '" & FichaCedulaSocio & "'"
         consultar()
         For Each row As DataRow In Tabla.Rows
             LabelCedulatxt.Text = row("cedula").ToString.Substring(0, 1) & "." & row("cedula").ToString.Substring(1, 3) & "." & row("cedula").ToString.Substring(4, 3) & "-" & row("cedula").ToString.Substring(7, 1)
-
+            Select Case row("tipo")
+                Case 0
+                    Label_TIPO_txt.Text = "Administrador"
+                Case 1
+                    Label_TIPO_txt.Text = "Funcionario"
+                Case 2
+                    Label_TIPO_txt.Text = "Socio"
+            End Select
             LabelDirecciontxt.Text = row("direccion")
             LabelNombretxt.Text = row("nombre") & " " & row("apellido")
             If row("mail") Is DBNull.Value Then
             Else
                 LabelMailtxt.Text = row("mail")
+            End If
+            If row("fecha_moroso") Is DBNull.Value Then
+            Else
+                LabelFechaUltimaVez.Text = row("fecha_moroso")
             End If
             If row("moroso") = 0 Then
                 PictureBoxEstado.Image = Image.FromFile("imagenes\checked.png")

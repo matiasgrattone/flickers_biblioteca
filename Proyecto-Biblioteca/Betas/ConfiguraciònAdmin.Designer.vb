@@ -23,19 +23,13 @@ Partial Class ConfiguraciònAdmin
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Socios")
-        Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Funcionarios")
-        Dim TreeNode3 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Administradoes")
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label_Animaciòn = New System.Windows.Forms.Label()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.dgv_buscar = New System.Windows.Forms.DataGridView()
-        Me.buscar_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -50,83 +44,65 @@ Partial Class ConfiguraciònAdmin
         Me.cb_dia = New System.Windows.Forms.ComboBox()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Dgv_Baja = New System.Windows.Forms.DataGridView()
+        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.Label_BaseDatos = New System.Windows.Forms.Label()
+        Me.Label_BaseDatosTXT = New System.Windows.Forms.Label()
+        Me.Label_BDestado = New System.Windows.Forms.Label()
+        Me.Label_BDestadoTXT = New System.Windows.Forms.Label()
+        Me.Lbl_NombreADMIN_TXT = New System.Windows.Forms.Label()
+        Me.buscar_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.contrasenia_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.telefono_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.cedula_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.apellido_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.nombre_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.direccion_txt = New Proyecto_Biblioteca.PlaceHolder()
-        Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.PlaceHolder7 = New Proyecto_Biblioteca.PlaceHolder()
-        Me.PlaceHolder6 = New Proyecto_Biblioteca.PlaceHolder()
-        Me.PlaceHolder5 = New Proyecto_Biblioteca.PlaceHolder()
-        Me.PlaceHolder4 = New Proyecto_Biblioteca.PlaceHolder()
-        Me.PlaceHolder3 = New Proyecto_Biblioteca.PlaceHolder()
-        Me.PlaceHolder2 = New Proyecto_Biblioteca.PlaceHolder()
-        Me.PlaceHolder1 = New Proyecto_Biblioteca.PlaceHolder()
+        Me.Buscar_Baja_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.dgv_buscar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
+        Me.TabPage4.SuspendLayout()
+        CType(Me.Dgv_Baja, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(12, 428)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox1.TabIndex = 7
-        '
-        'ComboBox2
-        '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(12, 401)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox2.TabIndex = 8
-        '
         'TreeView1
         '
-        Me.TreeView1.Location = New System.Drawing.Point(284, 6)
+        Me.TreeView1.Location = New System.Drawing.Point(302, 3)
         Me.TreeView1.Name = "TreeView1"
-        TreeNode1.Name = "Node0"
-        TreeNode1.NodeFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        TreeNode1.Text = "Socios"
-        TreeNode2.BackColor = System.Drawing.Color.Transparent
-        TreeNode2.Name = "Node6"
-        TreeNode2.Text = "Funcionarios"
-        TreeNode3.Name = "Node12"
-        TreeNode3.Text = "Administradoes"
-        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode1, TreeNode2, TreeNode3})
-        Me.TreeView1.Size = New System.Drawing.Size(214, 446)
+        Me.TreeView1.Size = New System.Drawing.Size(214, 455)
         Me.TreeView1.TabIndex = 9
         '
         'ComboBox3
         '
+        Me.ComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox3.FormattingEnabled = True
         Me.ComboBox3.Items.AddRange(New Object() {"0", "1"})
-        Me.ComboBox3.Location = New System.Drawing.Point(74, 294)
+        Me.ComboBox3.Location = New System.Drawing.Point(74, 376)
         Me.ComboBox3.Name = "ComboBox3"
         Me.ComboBox3.Size = New System.Drawing.Size(121, 21)
         Me.ComboBox3.TabIndex = 10
         '
-        'Label1
+        'Label_Animaciòn
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 298)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(56, 13)
-        Me.Label1.TabIndex = 11
-        Me.Label1.Text = "Animaciòn"
+        Me.Label_Animaciòn.AutoSize = True
+        Me.Label_Animaciòn.Location = New System.Drawing.Point(12, 380)
+        Me.Label_Animaciòn.Name = "Label_Animaciòn"
+        Me.Label_Animaciòn.Size = New System.Drawing.Size(56, 13)
+        Me.Label_Animaciòn.TabIndex = 11
+        Me.Label_Animaciòn.Text = "Animaciòn"
         '
         'TabControl1
         '
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
+        Me.TabControl1.Controls.Add(Me.TabPage4)
         Me.TabControl1.Location = New System.Drawing.Point(518, 0)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
@@ -157,21 +133,17 @@ Partial Class ConfiguraciònAdmin
         '
         'dgv_buscar
         '
+        Me.dgv_buscar.AllowUserToAddRows = False
+        Me.dgv_buscar.AllowUserToDeleteRows = False
+        Me.dgv_buscar.AllowUserToResizeColumns = False
+        Me.dgv_buscar.AllowUserToResizeRows = False
         Me.dgv_buscar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_buscar.Location = New System.Drawing.Point(29, 62)
+        Me.dgv_buscar.Location = New System.Drawing.Point(4, 62)
         Me.dgv_buscar.Name = "dgv_buscar"
-        Me.dgv_buscar.Size = New System.Drawing.Size(400, 338)
+        Me.dgv_buscar.RowHeadersVisible = False
+        Me.dgv_buscar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgv_buscar.Size = New System.Drawing.Size(450, 364)
         Me.dgv_buscar.TabIndex = 0
-        '
-        'buscar_txt
-        '
-        Me.buscar_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.buscar_txt.Location = New System.Drawing.Point(72, 16)
-        Me.buscar_txt.Name = "buscar_txt"
-        Me.buscar_txt.Size = New System.Drawing.Size(301, 20)
-        Me.buscar_txt.TabIndex = 1
-        Me.buscar_txt.WaterMarkColor = System.Drawing.Color.Gray
-        Me.buscar_txt.WaterMarkText = "Buscar por Nombre"
         '
         'TabPage2
         '
@@ -333,6 +305,112 @@ Partial Class ConfiguraciònAdmin
         Me.Label18.TabIndex = 133
         Me.Label18.Text = "Dirección"
         '
+        'TabPage3
+        '
+        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Size = New System.Drawing.Size(458, 432)
+        Me.TabPage3.TabIndex = 2
+        Me.TabPage3.Text = "Editar"
+        Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'TabPage4
+        '
+        Me.TabPage4.Controls.Add(Me.Label1)
+        Me.TabPage4.Controls.Add(Me.Dgv_Baja)
+        Me.TabPage4.Controls.Add(Me.Buscar_Baja_txt)
+        Me.TabPage4.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage4.Name = "TabPage4"
+        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage4.Size = New System.Drawing.Size(458, 432)
+        Me.TabPage4.TabIndex = 3
+        Me.TabPage4.Text = "Ver Dados de baja"
+        Me.TabPage4.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(87, 43)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(255, 13)
+        Me.Label1.TabIndex = 4
+        Me.Label1.Text = "Para activar a un funcionario dar doble click sobre él"
+        '
+        'Dgv_Baja
+        '
+        Me.Dgv_Baja.AllowUserToAddRows = False
+        Me.Dgv_Baja.AllowUserToDeleteRows = False
+        Me.Dgv_Baja.AllowUserToResizeColumns = False
+        Me.Dgv_Baja.AllowUserToResizeRows = False
+        Me.Dgv_Baja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.Dgv_Baja.Location = New System.Drawing.Point(4, 62)
+        Me.Dgv_Baja.Name = "Dgv_Baja"
+        Me.Dgv_Baja.ReadOnly = True
+        Me.Dgv_Baja.RowHeadersVisible = False
+        Me.Dgv_Baja.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.Dgv_Baja.Size = New System.Drawing.Size(450, 364)
+        Me.Dgv_Baja.TabIndex = 0
+        '
+        'ErrorProvider1
+        '
+        Me.ErrorProvider1.ContainerControl = Me
+        '
+        'Label_BaseDatos
+        '
+        Me.Label_BaseDatos.AutoSize = True
+        Me.Label_BaseDatos.Location = New System.Drawing.Point(12, 420)
+        Me.Label_BaseDatos.Name = "Label_BaseDatos"
+        Me.Label_BaseDatos.Size = New System.Drawing.Size(86, 13)
+        Me.Label_BaseDatos.TabIndex = 13
+        Me.Label_BaseDatos.Text = "Base de Datos : "
+        '
+        'Label_BaseDatosTXT
+        '
+        Me.Label_BaseDatosTXT.AutoSize = True
+        Me.Label_BaseDatosTXT.Location = New System.Drawing.Point(95, 420)
+        Me.Label_BaseDatosTXT.Name = "Label_BaseDatosTXT"
+        Me.Label_BaseDatosTXT.Size = New System.Drawing.Size(40, 13)
+        Me.Label_BaseDatosTXT.TabIndex = 14
+        Me.Label_BaseDatosTXT.Text = "..........."
+        '
+        'Label_BDestado
+        '
+        Me.Label_BDestado.AutoSize = True
+        Me.Label_BDestado.Location = New System.Drawing.Point(12, 435)
+        Me.Label_BDestado.Name = "Label_BDestado"
+        Me.Label_BDestado.Size = New System.Drawing.Size(105, 13)
+        Me.Label_BDestado.TabIndex = 15
+        Me.Label_BDestado.Text = "Actualizado Ult Vez :"
+        '
+        'Label_BDestadoTXT
+        '
+        Me.Label_BDestadoTXT.AutoSize = True
+        Me.Label_BDestadoTXT.Location = New System.Drawing.Point(123, 435)
+        Me.Label_BDestadoTXT.Name = "Label_BDestadoTXT"
+        Me.Label_BDestadoTXT.Size = New System.Drawing.Size(40, 13)
+        Me.Label_BDestadoTXT.TabIndex = 16
+        Me.Label_BDestadoTXT.Text = "..........."
+        '
+        'Lbl_NombreADMIN_TXT
+        '
+        Me.Lbl_NombreADMIN_TXT.AutoSize = True
+        Me.Lbl_NombreADMIN_TXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Lbl_NombreADMIN_TXT.Location = New System.Drawing.Point(12, 9)
+        Me.Lbl_NombreADMIN_TXT.Name = "Lbl_NombreADMIN_TXT"
+        Me.Lbl_NombreADMIN_TXT.Size = New System.Drawing.Size(72, 24)
+        Me.Lbl_NombreADMIN_TXT.TabIndex = 17
+        Me.Lbl_NombreADMIN_TXT.Text = "Label3"
+        '
+        'buscar_txt
+        '
+        Me.buscar_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.buscar_txt.Location = New System.Drawing.Point(72, 16)
+        Me.buscar_txt.Name = "buscar_txt"
+        Me.buscar_txt.Size = New System.Drawing.Size(301, 20)
+        Me.buscar_txt.TabIndex = 1
+        Me.buscar_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.buscar_txt.WaterMarkText = "Buscar por Nombre"
+        '
         'contrasenia_txt
         '
         Me.contrasenia_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -393,132 +471,50 @@ Partial Class ConfiguraciònAdmin
         Me.direccion_txt.WaterMarkColor = System.Drawing.Color.Gray
         Me.direccion_txt.WaterMarkText = "Dirección"
         '
-        'TabPage3
+        'Buscar_Baja_txt
         '
-        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(458, 432)
-        Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "Editar"
-        Me.TabPage3.UseVisualStyleBackColor = True
-        '
-        'ErrorProvider1
-        '
-        Me.ErrorProvider1.ContainerControl = Me
-        '
-        'PlaceHolder7
-        '
-        Me.PlaceHolder7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.PlaceHolder7.Location = New System.Drawing.Point(12, 214)
-        Me.PlaceHolder7.Name = "PlaceHolder7"
-        Me.PlaceHolder7.Size = New System.Drawing.Size(221, 20)
-        Me.PlaceHolder7.TabIndex = 6
-        Me.PlaceHolder7.WaterMarkColor = System.Drawing.Color.Gray
-        Me.PlaceHolder7.WaterMarkText = "Water Mark"
-        '
-        'PlaceHolder6
-        '
-        Me.PlaceHolder6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.PlaceHolder6.Location = New System.Drawing.Point(12, 188)
-        Me.PlaceHolder6.Name = "PlaceHolder6"
-        Me.PlaceHolder6.Size = New System.Drawing.Size(221, 20)
-        Me.PlaceHolder6.TabIndex = 5
-        Me.PlaceHolder6.WaterMarkColor = System.Drawing.Color.Gray
-        Me.PlaceHolder6.WaterMarkText = "Water Mark"
-        '
-        'PlaceHolder5
-        '
-        Me.PlaceHolder5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.PlaceHolder5.Location = New System.Drawing.Point(12, 162)
-        Me.PlaceHolder5.Name = "PlaceHolder5"
-        Me.PlaceHolder5.Size = New System.Drawing.Size(221, 20)
-        Me.PlaceHolder5.TabIndex = 4
-        Me.PlaceHolder5.WaterMarkColor = System.Drawing.Color.Gray
-        Me.PlaceHolder5.WaterMarkText = "Water Mark"
-        '
-        'PlaceHolder4
-        '
-        Me.PlaceHolder4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.PlaceHolder4.Location = New System.Drawing.Point(12, 136)
-        Me.PlaceHolder4.Name = "PlaceHolder4"
-        Me.PlaceHolder4.Size = New System.Drawing.Size(221, 20)
-        Me.PlaceHolder4.TabIndex = 3
-        Me.PlaceHolder4.WaterMarkColor = System.Drawing.Color.Gray
-        Me.PlaceHolder4.WaterMarkText = "Water Mark"
-        '
-        'PlaceHolder3
-        '
-        Me.PlaceHolder3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.PlaceHolder3.Location = New System.Drawing.Point(12, 110)
-        Me.PlaceHolder3.Name = "PlaceHolder3"
-        Me.PlaceHolder3.Size = New System.Drawing.Size(221, 20)
-        Me.PlaceHolder3.TabIndex = 2
-        Me.PlaceHolder3.WaterMarkColor = System.Drawing.Color.Gray
-        Me.PlaceHolder3.WaterMarkText = "Water Mark"
-        '
-        'PlaceHolder2
-        '
-        Me.PlaceHolder2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.PlaceHolder2.Location = New System.Drawing.Point(12, 84)
-        Me.PlaceHolder2.Name = "PlaceHolder2"
-        Me.PlaceHolder2.Size = New System.Drawing.Size(221, 20)
-        Me.PlaceHolder2.TabIndex = 1
-        Me.PlaceHolder2.WaterMarkColor = System.Drawing.Color.Gray
-        Me.PlaceHolder2.WaterMarkText = "Water Mark"
-        '
-        'PlaceHolder1
-        '
-        Me.PlaceHolder1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.PlaceHolder1.Location = New System.Drawing.Point(12, 58)
-        Me.PlaceHolder1.Name = "PlaceHolder1"
-        Me.PlaceHolder1.Size = New System.Drawing.Size(221, 20)
-        Me.PlaceHolder1.TabIndex = 0
-        Me.PlaceHolder1.WaterMarkColor = System.Drawing.Color.Gray
-        Me.PlaceHolder1.WaterMarkText = "Water Mark"
+        Me.Buscar_Baja_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.Buscar_Baja_txt.Location = New System.Drawing.Point(72, 16)
+        Me.Buscar_Baja_txt.Name = "Buscar_Baja_txt"
+        Me.Buscar_Baja_txt.Size = New System.Drawing.Size(301, 20)
+        Me.Buscar_Baja_txt.TabIndex = 3
+        Me.Buscar_Baja_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.Buscar_Baja_txt.WaterMarkText = "Buscar por Nombre"
         '
         'ConfiguraciònAdmin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(988, 461)
+        Me.Controls.Add(Me.Lbl_NombreADMIN_TXT)
+        Me.Controls.Add(Me.Label_BDestadoTXT)
+        Me.Controls.Add(Me.Label_BDestado)
+        Me.Controls.Add(Me.Label_BaseDatosTXT)
+        Me.Controls.Add(Me.Label_BaseDatos)
         Me.Controls.Add(Me.TabControl1)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.Label_Animaciòn)
         Me.Controls.Add(Me.ComboBox3)
         Me.Controls.Add(Me.TreeView1)
-        Me.Controls.Add(Me.ComboBox2)
-        Me.Controls.Add(Me.ComboBox1)
-        Me.Controls.Add(Me.PlaceHolder7)
-        Me.Controls.Add(Me.PlaceHolder6)
-        Me.Controls.Add(Me.PlaceHolder5)
-        Me.Controls.Add(Me.PlaceHolder4)
-        Me.Controls.Add(Me.PlaceHolder3)
-        Me.Controls.Add(Me.PlaceHolder2)
-        Me.Controls.Add(Me.PlaceHolder1)
         Me.Name = "ConfiguraciònAdmin"
-        Me.Text = "ConfiguraciònAdmin"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Biblioteca"
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
         CType(Me.dgv_buscar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
+        Me.TabPage4.ResumeLayout(False)
+        Me.TabPage4.PerformLayout()
+        CType(Me.Dgv_Baja, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents PlaceHolder1 As Proyecto_Biblioteca.PlaceHolder
-    Friend WithEvents PlaceHolder2 As Proyecto_Biblioteca.PlaceHolder
-    Friend WithEvents PlaceHolder3 As Proyecto_Biblioteca.PlaceHolder
-    Friend WithEvents PlaceHolder4 As Proyecto_Biblioteca.PlaceHolder
-    Friend WithEvents PlaceHolder5 As Proyecto_Biblioteca.PlaceHolder
-    Friend WithEvents PlaceHolder6 As Proyecto_Biblioteca.PlaceHolder
-    Friend WithEvents PlaceHolder7 As Proyecto_Biblioteca.PlaceHolder
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
-    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
     Friend WithEvents TreeView1 As System.Windows.Forms.TreeView
     Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Label_Animaciòn As System.Windows.Forms.Label
     Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
     Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
@@ -546,4 +542,13 @@ Partial Class ConfiguraciònAdmin
     Friend WithEvents Label18 As System.Windows.Forms.Label
     Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
     Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Label_BaseDatosTXT As System.Windows.Forms.Label
+    Friend WithEvents Label_BaseDatos As System.Windows.Forms.Label
+    Friend WithEvents Label_BDestadoTXT As System.Windows.Forms.Label
+    Friend WithEvents Label_BDestado As System.Windows.Forms.Label
+    Friend WithEvents TabPage4 As System.Windows.Forms.TabPage
+    Friend WithEvents Dgv_Baja As System.Windows.Forms.DataGridView
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Buscar_Baja_txt As Proyecto_Biblioteca.PlaceHolder
+    Friend WithEvents Lbl_NombreADMIN_TXT As System.Windows.Forms.Label
 End Class

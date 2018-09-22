@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Notas
+Partial Class NotasUsuario
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -56,13 +56,13 @@ Partial Class Notas
         Me.TextoParaRecordar2 = New System.Windows.Forms.TextBox()
         Me.Recordatorio2 = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.fecha = New System.Windows.Forms.Label()
         Me.EliminarRecordatorio = New System.Windows.Forms.Button()
         Me.Fecha1 = New System.Windows.Forms.Label()
         Me.CrearRecordatorio = New System.Windows.Forms.Button()
         Me.TextoParaRecordar1 = New System.Windows.Forms.TextBox()
         Me.Recordatorio1 = New System.Windows.Forms.Label()
         Me.TextOculto = New System.Windows.Forms.TextBox()
+        Me.fecha = New System.Windows.Forms.Label()
         Me.RECORDATORIOS = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1.SuspendLayout()
@@ -336,15 +336,6 @@ Partial Class Notas
         Me.Panel4.Size = New System.Drawing.Size(416, 193)
         Me.Panel4.TabIndex = 4
         '
-        'fecha
-        '
-        Me.fecha.AutoSize = True
-        Me.fecha.Location = New System.Drawing.Point(229, 65)
-        Me.fecha.Name = "fecha"
-        Me.fecha.Size = New System.Drawing.Size(10, 13)
-        Me.fecha.TabIndex = 6
-        Me.fecha.Text = " "
-        '
         'EliminarRecordatorio
         '
         Me.EliminarRecordatorio.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -398,6 +389,15 @@ Partial Class Notas
         Me.TextOculto.Size = New System.Drawing.Size(100, 20)
         Me.TextOculto.TabIndex = 8
         '
+        'fecha
+        '
+        Me.fecha.AutoSize = True
+        Me.fecha.Location = New System.Drawing.Point(229, 65)
+        Me.fecha.Name = "fecha"
+        Me.fecha.Size = New System.Drawing.Size(10, 13)
+        Me.fecha.TabIndex = 6
+        Me.fecha.Text = " "
+        '
         'RECORDATORIOS
         '
         Me.RECORDATORIOS.AutoSize = True
@@ -413,7 +413,7 @@ Partial Class Notas
         '
         Me.Timer1.Enabled = True
         '
-        'Notas
+        'NotasUsuario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -424,10 +424,10 @@ Partial Class Notas
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.MainMenuStrip = Me.MenuStrip1
-        Me.Name = "Notas"
-        Me.Text = "Form3"
+        Me.Name = "NotasUsuario"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Notas"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.MenuStrip1.ResumeLayout(False)

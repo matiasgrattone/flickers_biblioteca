@@ -62,7 +62,6 @@ Partial Class Prestamos
         Me.Label19 = New System.Windows.Forms.Label()
         Me.BotonExtrearReservados = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Button7 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
@@ -180,7 +179,7 @@ Partial Class Prestamos
         '
         'ButtonMoroso
         '
-        Me.ButtonMoroso.Location = New System.Drawing.Point(17, 636)
+        Me.ButtonMoroso.Location = New System.Drawing.Point(79, 636)
         Me.ButtonMoroso.Name = "ButtonMoroso"
         Me.ButtonMoroso.Size = New System.Drawing.Size(86, 29)
         Me.ButtonMoroso.TabIndex = 80
@@ -235,7 +234,7 @@ Partial Class Prestamos
         '
         'ButtonLiberar
         '
-        Me.ButtonLiberar.Location = New System.Drawing.Point(171, 636)
+        Me.ButtonLiberar.Location = New System.Drawing.Point(79, 636)
         Me.ButtonLiberar.Name = "ButtonLiberar"
         Me.ButtonLiberar.Size = New System.Drawing.Size(86, 29)
         Me.ButtonLiberar.TabIndex = 59
@@ -524,7 +523,6 @@ Partial Class Prestamos
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.SystemColors.ScrollBar
-        Me.Panel3.Controls.Add(Me.Button7)
         Me.Panel3.Controls.Add(Me.Button6)
         Me.Panel3.Controls.Add(Me.Button3)
         Me.Panel3.Controls.Add(Me.Button2)
@@ -541,15 +539,6 @@ Partial Class Prestamos
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(1016, 112)
         Me.Panel3.TabIndex = 75
-        '
-        'Button7
-        '
-        Me.Button7.Location = New System.Drawing.Point(619, 24)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(58, 27)
-        Me.Button7.TabIndex = 81
-        Me.Button7.Text = "nOtas"
-        Me.Button7.UseVisualStyleBackColor = True
         '
         'Button6
         '
@@ -858,5 +847,4 @@ Partial Class Prestamos
     Friend WithEvents LabelCI As System.Windows.Forms.Label
     Friend WithEvents Button6 As System.Windows.Forms.Button
     Friend WithEvents ButtonEditarCedula As System.Windows.Forms.Button
-    Friend WithEvents Button7 As System.Windows.Forms.Button
 End Class

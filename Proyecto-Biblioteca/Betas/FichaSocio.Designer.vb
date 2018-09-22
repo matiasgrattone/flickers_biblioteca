@@ -45,10 +45,12 @@ Partial Class FichaSocio
         Me.LabelFechaUltimaVez = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.cmbdia = New System.Windows.Forms.ComboBox()
-        Me.cmbmes = New System.Windows.Forms.ComboBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label_TIPO_txt = New System.Windows.Forms.Label()
         Me.cmbaño = New System.Windows.Forms.ComboBox()
+        Me.cmbmes = New System.Windows.Forms.ComboBox()
+        Me.cmbdia = New System.Windows.Forms.ComboBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -100,7 +102,7 @@ Partial Class FichaSocio
         '
         Me.LabelDireccion.AutoSize = True
         Me.LabelDireccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelDireccion.Location = New System.Drawing.Point(146, 72)
+        Me.LabelDireccion.Location = New System.Drawing.Point(146, 66)
         Me.LabelDireccion.Name = "LabelDireccion"
         Me.LabelDireccion.Size = New System.Drawing.Size(94, 20)
         Me.LabelDireccion.TabIndex = 4
@@ -110,7 +112,7 @@ Partial Class FichaSocio
         '
         Me.LabelMail.AutoSize = True
         Me.LabelMail.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelMail.Location = New System.Drawing.Point(146, 98)
+        Me.LabelMail.Location = New System.Drawing.Point(146, 115)
         Me.LabelMail.Name = "LabelMail"
         Me.LabelMail.Size = New System.Drawing.Size(56, 20)
         Me.LabelMail.TabIndex = 5
@@ -120,7 +122,7 @@ Partial Class FichaSocio
         '
         Me.LabelCedula.AutoSize = True
         Me.LabelCedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelCedula.Location = New System.Drawing.Point(146, 49)
+        Me.LabelCedula.Location = New System.Drawing.Point(146, 43)
         Me.LabelCedula.Name = "LabelCedula"
         Me.LabelCedula.Size = New System.Drawing.Size(75, 20)
         Me.LabelCedula.TabIndex = 6
@@ -130,7 +132,7 @@ Partial Class FichaSocio
         '
         Me.LabelNombretxt.AutoSize = True
         Me.LabelNombretxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelNombretxt.Location = New System.Drawing.Point(145, 14)
+        Me.LabelNombretxt.Location = New System.Drawing.Point(145, 8)
         Me.LabelNombretxt.Name = "LabelNombretxt"
         Me.LabelNombretxt.Size = New System.Drawing.Size(88, 24)
         Me.LabelNombretxt.TabIndex = 7
@@ -140,7 +142,7 @@ Partial Class FichaSocio
         '
         Me.LabelDirecciontxt.AutoSize = True
         Me.LabelDirecciontxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelDirecciontxt.Location = New System.Drawing.Point(237, 72)
+        Me.LabelDirecciontxt.Location = New System.Drawing.Point(237, 66)
         Me.LabelDirecciontxt.Name = "LabelDirecciontxt"
         Me.LabelDirecciontxt.Size = New System.Drawing.Size(74, 20)
         Me.LabelDirecciontxt.TabIndex = 9
@@ -150,7 +152,7 @@ Partial Class FichaSocio
         '
         Me.LabelMailtxt.AutoSize = True
         Me.LabelMailtxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelMailtxt.Location = New System.Drawing.Point(195, 98)
+        Me.LabelMailtxt.Location = New System.Drawing.Point(195, 116)
         Me.LabelMailtxt.Name = "LabelMailtxt"
         Me.LabelMailtxt.Size = New System.Drawing.Size(74, 20)
         Me.LabelMailtxt.TabIndex = 10
@@ -160,7 +162,7 @@ Partial Class FichaSocio
         '
         Me.LabelCedulatxt.AutoSize = True
         Me.LabelCedulatxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelCedulatxt.Location = New System.Drawing.Point(220, 49)
+        Me.LabelCedulatxt.Location = New System.Drawing.Point(220, 43)
         Me.LabelCedulatxt.Name = "LabelCedulatxt"
         Me.LabelCedulatxt.Size = New System.Drawing.Size(74, 20)
         Me.LabelCedulatxt.TabIndex = 11
@@ -189,9 +191,10 @@ Partial Class FichaSocio
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(640, 6)
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(612, 4)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(104, 13)
+        Me.Label1.Size = New System.Drawing.Size(140, 15)
         Me.Label1.TabIndex = 14
         Me.Label1.Text = "Ultima Vez Moroso : "
         '
@@ -225,7 +228,7 @@ Partial Class FichaSocio
         '
         Me.Panel2.BackColor = System.Drawing.Color.Gray
         Me.Panel2.Controls.Add(Me.PictureBox1)
-        Me.Panel2.Location = New System.Drawing.Point(7, 12)
+        Me.Panel2.Location = New System.Drawing.Point(7, 6)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(132, 146)
         Me.Panel2.TabIndex = 18
@@ -242,9 +245,10 @@ Partial Class FichaSocio
         'LabelFechaUltimaVez
         '
         Me.LabelFechaUltimaVez.AutoSize = True
-        Me.LabelFechaUltimaVez.Location = New System.Drawing.Point(747, 6)
+        Me.LabelFechaUltimaVez.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelFechaUltimaVez.Location = New System.Drawing.Point(745, 4)
         Me.LabelFechaUltimaVez.Name = "LabelFechaUltimaVez"
-        Me.LabelFechaUltimaVez.Size = New System.Drawing.Size(73, 13)
+        Me.LabelFechaUltimaVez.Size = New System.Drawing.Size(95, 15)
         Me.LabelFechaUltimaVez.TabIndex = 20
         Me.LabelFechaUltimaVez.Text = "......................"
         '
@@ -261,32 +265,24 @@ Partial Class FichaSocio
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 6000
         '
-        'Label3
+        'Button1
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(402, 167)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(89, 13)
-        Me.Label3.TabIndex = 24
-        Me.Label3.Text = "Filtrado por fecha"
+        Me.Button1.Location = New System.Drawing.Point(152, 145)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 25
+        Me.Button1.Text = "Enviar Mail"
+        Me.Button1.UseVisualStyleBackColor = True
         '
-        'cmbdia
+        'Label_TIPO_txt
         '
-        Me.cmbdia.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbdia.FormattingEnabled = True
-        Me.cmbdia.Location = New System.Drawing.Point(497, 163)
-        Me.cmbdia.Name = "cmbdia"
-        Me.cmbdia.Size = New System.Drawing.Size(58, 23)
-        Me.cmbdia.TabIndex = 23
-        '
-        'cmbmes
-        '
-        Me.cmbmes.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbmes.FormattingEnabled = True
-        Me.cmbmes.Location = New System.Drawing.Point(561, 163)
-        Me.cmbmes.Name = "cmbmes"
-        Me.cmbmes.Size = New System.Drawing.Size(116, 23)
-        Me.cmbmes.TabIndex = 22
+        Me.Label_TIPO_txt.AutoSize = True
+        Me.Label_TIPO_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_TIPO_txt.Location = New System.Drawing.Point(149, 92)
+        Me.Label_TIPO_txt.Name = "Label_TIPO_txt"
+        Me.Label_TIPO_txt.Size = New System.Drawing.Size(109, 20)
+        Me.Label_TIPO_txt.TabIndex = 26
+        Me.Label_TIPO_txt.Text = "...................."
         '
         'cmbaño
         '
@@ -297,11 +293,40 @@ Partial Class FichaSocio
         Me.cmbaño.Size = New System.Drawing.Size(68, 23)
         Me.cmbaño.TabIndex = 21
         '
+        'cmbmes
+        '
+        Me.cmbmes.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbmes.FormattingEnabled = True
+        Me.cmbmes.Location = New System.Drawing.Point(561, 163)
+        Me.cmbmes.Name = "cmbmes"
+        Me.cmbmes.Size = New System.Drawing.Size(116, 23)
+        Me.cmbmes.TabIndex = 22
+        '
+        'cmbdia
+        '
+        Me.cmbdia.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbdia.FormattingEnabled = True
+        Me.cmbdia.Location = New System.Drawing.Point(497, 163)
+        Me.cmbdia.Name = "cmbdia"
+        Me.cmbdia.Size = New System.Drawing.Size(58, 23)
+        Me.cmbdia.TabIndex = 23
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(402, 167)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(89, 13)
+        Me.Label3.TabIndex = 24
+        Me.Label3.Text = "Filtrado por fecha"
+        '
         'FichaSocio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(945, 622)
+        Me.Controls.Add(Me.Label_TIPO_txt)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.cmbdia)
         Me.Controls.Add(Me.cmbmes)
@@ -357,10 +382,12 @@ Partial Class FichaSocio
     Friend WithEvents LabelFechaUltimaVez As System.Windows.Forms.Label
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents cmbdia As System.Windows.Forms.ComboBox
-    Friend WithEvents cmbmes As System.Windows.Forms.ComboBox
-    Friend WithEvents cmbaño As System.Windows.Forms.ComboBox
     Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents HolaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents Label_TIPO_txt As System.Windows.Forms.Label
+    Friend WithEvents cmbaño As System.Windows.Forms.ComboBox
+    Friend WithEvents cmbmes As System.Windows.Forms.ComboBox
+    Friend WithEvents cmbdia As System.Windows.Forms.ComboBox
+    Friend WithEvents Label3 As System.Windows.Forms.Label
 End Class

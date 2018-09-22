@@ -99,10 +99,10 @@
     <Compile Include="Betas\PrestamoRevistas.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Betas\Notas.Designer.vb">
-      <DependentUpon>Notas.vb</DependentUpon>
+    <Compile Include="Betas\NotasUsuario.Designer.vb">
+      <DependentUpon>NotasUsuario.vb</DependentUpon>
     </Compile>
-    <Compile Include="Betas\Notas.vb">
+    <Compile Include="Betas\NotasUsuario.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Betas\IngresoRevistas.Designer.vb">
@@ -244,8 +244,8 @@
     <EmbeddedResource Include="Inicio UsuariosV2.resx">
       <DependentUpon>Inicio UsuariosV2.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Betas\Notas.resx">
-      <DependentUpon>Notas.vb</DependentUpon>
+    <EmbeddedResource Include="Betas\NotasUsuario.resx">
+      <DependentUpon>NotasUsuario.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Betas\Registroprestamos.resx">
       <DependentUpon>Registroprestamos.vb</DependentUpon>

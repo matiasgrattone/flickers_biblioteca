@@ -20,33 +20,45 @@
     Dim confirmacion As String = 0
     Dim cedulaAdmin As String
     Dim cedulaUser As String
-
-    Private Sub ConfiguraciònAdmin_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'Administrador 0
-        'Funcionarios 1
-        'Socios 2
-
-
-        Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where estado='1' and tipo<'2'"
+    Private Sub listboxcarga()
+        TreeView1.Nodes.Clear()
+        TreeView1.Nodes.Add("Funcionarios")
+        TreeView1.Nodes.Add("Administradores")
+        Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where estado='1' and tipo < '2'"
         consultar()
-        dgv_buscar.DataSource = Tabla
         For Each row As DataRow In Tabla.Rows
 
             Select Case row("tipo").ToString
 
                 Case 1
 
-                    TreeView1.Nodes(0).Nodes.Add(row("nombre"))
+                    TreeView1.Nodes(0).Nodes.Add(row("nombre") & " " & row("apellido"))
 
                 Case 0
 
-                    TreeView1.Nodes(1).Nodes.Add(row("nombre"))
+                    TreeView1.Nodes(1).Nodes.Add(row("nombre") & " " & row("apellido"))
 
             End Select
 
         Next
 
         TreeView1.ExpandAll()
+    End Sub
+    Private Sub ConfiguraciònAdmin_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'Administrador 0
+        'Funcionarios 1
+        'Socios 2
+
+
+        Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where estado='1' and tipo = '1'"
+        consultar()
+        dgv_buscar.DataSource = Tabla
+        DatagridModulo = dgv_buscar
+        Datagrid_Align()
+        dgv_buscar.Columns.Item("Tipo").Visible = False
+
+        listboxcarga()
+
         ComboBox3.SelectedIndex = 0
 
         '/////////////////////////////////////////////////////////////////////////////////////////////
@@ -85,6 +97,15 @@
                 cb_anio.Items.Add(i)
             End If
         Next
+
+
+
+        Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where estado='0' and tipo = '1'"
+        consultar()
+        Dgv_Baja.DataSource = Tabla
+        DatagridModulo = Dgv_Baja
+        Datagrid_Align()
+        Dgv_Baja.Columns.Item("Tipo").Visible = False
 
     End Sub
 
@@ -236,7 +257,7 @@
 
     Private Sub buscar_txt_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles buscar_txt.TextChanged
 
-        Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where nombre like '" & buscar_txt.Text & "%' and estado='1' and tipo='0'"
+        Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where nombre like '" & buscar_txt.Text & "%' and estado='1' and tipo = '1'"
         consultar()
         dgv_buscar.DataSource = Tabla
 
@@ -256,14 +277,56 @@
 
                 Consulta = "update usuarios set estado = 0 where cedula = '" & cedulaUser & "'"
                 consultar()
-                Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where estado='1' and tipo<'2'"
+                Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where estado='1' and tipo ='1'"
                 consultar()
                 dgv_buscar.DataSource = Tabla
+                Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where estado='0' and tipo = '1'"
+                consultar()
+                Dgv_Baja.DataSource = Tabla
+                listboxcarga()
             Else
                 MsgBox("La cedula ingresada no coincide con ningun administrador", styleMSGOK_datagrid, Title:="Error")
             End If
         Else
             MsgBox("No se dio de baja")
         End If
+    End Sub
+
+
+    Private Sub Dgv_Baja_CellDoubleClick(sender As Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles Dgv_Baja.CellDoubleClick
+        If MsgBox("Desea activar a este usuario", styleMSG_datagrid, Title:="Desea activarlo?") = MsgBoxResult.Yes Then
+
+            cedulaUser = Dgv_Baja.Item(2, Dgv_Baja.CurrentRow.Index).Value
+            cedulaAdmin = InputBox("Ingrese una cedula de un administrador", Title:="Cedula Administrador")
+            Consulta = "select cedula from usuarios where tipo = 0 and cedula = '" & cedulaAdmin & "'"
+            consultar()
+            For Each row As DataRow In Tabla.Rows
+                confirmacion = row("cedula").ToString
+            Next
+            If confirmacion = cedulaAdmin Then
+
+                Consulta = "update usuarios set estado = 1 where cedula = '" & cedulaUser & "'"
+                consultar()
+                Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where estado='0' and tipo ='1'"
+                consultar()
+                Dgv_Baja.DataSource = Tabla
+                Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where estado='1' and tipo='1'"
+                consultar()
+                dgv_buscar.DataSource = Tabla
+                listboxcarga()
+            Else
+                MsgBox("La cedula ingresada no coincide con ningun administrador", styleMSGOK_datagrid, Title:="Error")
+            End If
+        Else
+            MsgBox("No se Activo")
+        End If
+    End Sub
+
+    Private Sub PlaceHolder8_TextChanged(sender As System.Object, e As System.EventArgs) Handles Buscar_Baja_txt.TextChanged
+
+        Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where nombre like '" & Buscar_Baja_txt.Text & "%' and estado='0' and tipo = '1'"
+        consultar()
+        Dgv_Baja.DataSource = Tabla
+
     End Sub
 End Class

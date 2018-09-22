@@ -78,10 +78,12 @@
                 '////////////////////////////////
                 If Es_moroso = vbYes Then
 
-                    Consulta = "update usuarios set (moroso = 0) where cedula = '" & Cedula.Text & "';"
+                    Consulta = "update usuarios set moroso = 0 where cedula = '" & Cedula.Text & "';"
                     consultar()
 
                     MsgBox("El socios " & NOMBRE.Text & " esta libre ahora", Title:="PRESTAMOS")
+                    ButtonMoroso.Visible = True
+                    ButtonLiberar.Visible = False
                 Else
                     MsgBox("No se encontraron los datos", Title:="PRESTAMOS")
                 End If
@@ -130,10 +132,14 @@
                 '////////////////////////////////
                 If Es_moroso2 = vbYes Then
 
-                    Consulta = "update usuarios set (moroso = 1) , fecha_moroso = '" & Date.Now.ToString("yyyy-MM-dd") & "' where cedula = '" & Cedula.Text & "';"
+                    Consulta = "update usuarios set moroso = 1 , fecha_moroso = '" & Date.Now.ToString("yyyy-MM-dd") & "' where cedula = '" & Cedula.Text & "';"
                     consultar()
+                    If ERROR1 = 0 Then
+                        MsgBox("El socios " & NOMBRE.Text & " es moroso ahora", Title:="PRESTAMOS")
+                        ButtonMoroso.Visible = False
+                        ButtonLiberar.Visible = True
+                    End If
 
-                    MsgBox("El socios " & NOMBRE.Text & " es moroso ahora", Title:="PRESTAMOS")
                 Else
                     MsgBox("No se encontraron los datos", Title:="PRESTAMOS")
                 End If
@@ -227,12 +233,12 @@
 
 
 
-                Consulta = "select cedula , nombre , tipo from usuarios where cedula like '" & Cedula.Text & "'"
+                Consulta = "select cedula , nombre , tipo , moroso from usuarios where cedula like '" & Cedula.Text & "'"
                 consultar()
                 Try
                     For Each row As DataRow In Tabla.Rows
                         NOMBRE.Text = row("nombre")
-                        Label12.Text = row("tipo")
+                        Label12.Text = row("moroso")
                     Next
                 Catch ex As Exception
                     MsgBox(ex.ToString)
@@ -263,7 +269,7 @@
                 ButtonEditarCedula.Visible = True
                 BotonParaBuscarCedula.Visible = False
 
-                If Label12.Text = 2 Then
+                If Label12.Text = 1 Then
                     ButtonLiberar.Visible = True
                 ElseIf Label12.Text = 0 Then
                     ButtonMoroso.Visible = True
@@ -338,12 +344,12 @@
                     '/////////////////////////////////////////////////////////////////////////////////////////////////////////
                 Else
 
-                    Consulta = "select cedula , nombre , tipo from usuarios where cedula like '" & Cedula.Text & "'"
+                    Consulta = "select cedula , nombre , tipo , moroso from usuarios where cedula like '" & Cedula.Text & "'"
                     consultar()
                     Try
                         For Each row As DataRow In Tabla.Rows
                             NOMBRE.Text = row("nombre")
-                            Label12.Text = row("tipo")
+                            Label12.Text = row("moroso")
                         Next
                     Catch ex As Exception
                         MsgBox(ex.ToString)
@@ -374,7 +380,7 @@
                     ButtonEditarCedula.Visible = True
                     BotonParaBuscarCedula.Visible = False
 
-                    If Label12.Text = 2 Then
+                    If Label12.Text = 1 Then
                         ButtonLiberar.Visible = True
                     ElseIf Label12.Text = 0 Then
                         ButtonMoroso.Visible = True
@@ -1238,13 +1244,5 @@
         FichaSocio.FichaCedulaSocio = Cedula.Text
         FichaSocio.Show()
     End Sub
-
-
-
-
-    Private Sub Button7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button7.Click
-        Notas.Show()
-    End Sub
-
 
 End Class
