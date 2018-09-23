@@ -18,6 +18,7 @@
 
     '////////////////////////////////CUANDO SE CARGA EL FORUMLARO/////////////////////////////////
     Private Sub Form4_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Button6.Visible = False
         DataGridParaDevolucion.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill ' ajusta las columnas al tamaño del datagrid
         '/////////////////////////////////////////////GRUPBOX OCULTOS////////////////////
         ExtCombo.Visible = False
@@ -199,6 +200,7 @@
             BotonParaBuscarCedula.Visible = True
             Cedula.Clear()
             MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
+            Button6.Visible = False
             '/////////////////////////////////////////////////////////////////////////////////////////////////////////
         Else
 
@@ -228,13 +230,15 @@
                 BotonParaBuscarCedula.Visible = True
                 Cedula.Clear()
                 MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
+                Button6.Visible = False
                 '/////////////////////////////////////////////////////////////////////////////////////////////////////////
             Else
 
 
-
                 Consulta = "select cedula , nombre , tipo , moroso from usuarios where cedula like '" & Cedula.Text & "'"
                 consultar()
+
+
                 Try
                     For Each row As DataRow In Tabla.Rows
                         NOMBRE.Text = row("nombre")
@@ -247,7 +251,7 @@
                 '/////////////////////////////////////////////////////////////////////////////////////////////
                 '////////////////////////////////Muestra los picturebox y la interfaz de las funciones///////////////////////
                 '/////////////////////////////////////////////////////////////////////////////////////////////
-
+                Button6.Visible = True
                 LabelSELECCION_DE_FUNCION.Visible = True
                 ExtCombo.Visible = False
                 devoCOMBO.Visible = False
@@ -312,6 +316,7 @@
                 BotonParaBuscarCedula.Visible = True
                 Cedula.Clear()
                 MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
+                Button6.Visible = False
                 '/////////////////////////////////////////////////////////////////////////////////////////////////////////
             Else
 
@@ -341,9 +346,10 @@
                     BotonParaBuscarCedula.Visible = True
                     Cedula.Clear()
                     MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
+                    Button6.Visible = False
                     '/////////////////////////////////////////////////////////////////////////////////////////////////////////
                 Else
-
+                    Button6.Visible = True
                     Consulta = "select cedula , nombre , tipo , moroso from usuarios where cedula like '" & Cedula.Text & "'"
                     consultar()
                     Try
@@ -419,6 +425,7 @@
             ButtonEditarCedula.Visible = False
             BotonParaBuscarCedula.Visible = True
             Cedula.Clear()
+            Button6.Visible = False
         End If
     End Sub
 

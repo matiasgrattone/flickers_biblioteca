@@ -1779,30 +1779,15 @@ Public Class MENU3
                 Timer_BD.Interval = 6000
                 Try
                     ListBox1.Items.Clear()
-                    ListBox2.Items.Clear()
                     Consulta = "select prestamolibro.cod_libro , libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where fecha_entrada is null"
                     consultar()
                     For Each row As DataRow In Tabla.Rows
-                        If ListBox1.Items.Count = 0 And ListBox2.Items.Count = 0 Then ' SI ES EL PRIMER INICIO AGREGA LOS DATOS DE LA CONSULTA
-                            ListBox1.Items.Add(row("titulo"))
-                            ListBox2.Items.Add(row("cod_libro"))
-                        End If
 
-                        For Each item In ListBox1.Items ' SI LOS DATOS DEL LISTBOX SON IGUALES A LO DE LA CONSULTA ENTONCES NO HACE NADA
-                            If item <> row("titulo") Then
-                                ListBox1.Items.Add(row("titulo"))
-                            End If
-                        Next
-                        For Each item In ListBox2.Items ' SI LOS DATOS DEL LISTBOX SON IGUALES A LO DE LA CONSULTA ENTONCES NO HACE NADA
-                            If item <> row("cod_libro") Then
-                                ListBox2.Items.Add(row("cod_libro"))
-                                Chart()
-                            End If
-                        Next
+                        ListBox1.Items.Add(row("cod_libro") & " " & row("titulo"))
 
                     Next
                 Catch ex As Exception
-                    MsgBox("Error Libros Prestados Timer")
+                    MsgBox("Error Libros Prestados Timer" & ex.ToString)
                 End Try
             Else
             End If
@@ -1899,17 +1884,11 @@ Public Class MENU3
         End If
 
     End Sub
-    Private Sub ListBox2_MouseClick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles ListBox2.MouseClick
-        ListBox1.SelectedIndex = ListBox2.SelectedIndex
-    End Sub
-
-    Private Sub ListBox1_MouseClick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles ListBox1.MouseClick
-        ListBox2.SelectedIndex = ListBox1.SelectedIndex
-    End Sub
 
     Private Sub Timer_BD_Tick(sender As System.Object, e As System.EventArgs) Handles Timer_BD.Tick
 
         If ERROR1 = 2 Then
+            ERROR1 = 2
             verificarBD()
             Timer_Prestamos_LIVE.Enabled = False
             ComboBox1.Enabled = False
@@ -1948,5 +1927,11 @@ Public Class MENU3
 
     Private Sub PictureBox2_MouseLeave_1(sender As System.Object, e As System.EventArgs) Handles PictureBox2.MouseLeave
         Me.Cursor = Cursors.Default
+    End Sub
+    Private Sub Panel_Inicio_MouseLeave(sender As System.Object, e As System.EventArgs) Handles Panel_Inicio.MouseLeave
+        If seleccionado = "Inicio" Then
+        Else
+            Panel_Inicio.BackColor = Drawing.Color.Silver
+        End If
     End Sub
 End Class

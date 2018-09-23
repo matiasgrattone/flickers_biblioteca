@@ -1,9 +1,11 @@
 ﻿Public Class LOGIN
     Dim i As Integer = 0
+    Dim mailrecuperar As String = Nothing
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
         Dim user As String = Nothing
         Dim pass As String = Nothing
         Dim pass1 As String = Nothing
+
 
         If LTrim$(usuario.Text) = "" Then ' Verifica si esta vacio nombre
             errorusuario.Text = "Nombre no puede estar vacío"
@@ -150,5 +152,28 @@
         MENU3.Show()
         Me.Hide()
         MENU3.Nombre.Text = "Invitado"
+    End Sub
+
+    Private Sub Label1_MouseEnter(sender As System.Object, e As System.EventArgs) Handles Label1.MouseEnter
+        Me.Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub Label1_MouseLeave(sender As System.Object, e As System.EventArgs) Handles Label1.MouseLeave
+        Me.Cursor = Cursors.Default
+    End Sub
+
+    Private Sub Labels_transparentes3_MouseEnter(sender As System.Object, e As System.EventArgs) Handles Labels_transparentes3.MouseEnter
+        Me.Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub Labels_transparentes3_MouseLeave(sender As System.Object, e As System.EventArgs) Handles Labels_transparentes3.MouseLeave
+        Me.Cursor = Cursors.Default
+    End Sub
+
+    Private Sub Label1_Click(sender As System.Object, e As System.EventArgs) Handles Label1.Click
+        mailrecuperar = InputBox("Por favor ingrese su mail para restablecer su contraseña")
+        If mailrecuperar <> Nothing Then
+
+        End If
     End Sub
 End Class
