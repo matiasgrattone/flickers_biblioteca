@@ -79,7 +79,6 @@
                             MENU3.Cedula.Text = row("cedula")
                             Me.Hide()
                             MENU3.Show()
-
                         Else
                             MsgBox("Cedula/Contraseaña Incorrecto")
                         End If
@@ -129,8 +128,8 @@
                     Dim pass1 As String = CStr(row.Cells(0).Value)
                     Modulo.nombre = CStr(row.Cells(1).Value)
                     If pass1 = pass Then
+                        Me.Hide()
                         MENU3.Show()
-                        Me.Close()
                         MENU3.Nombre.Text = Modulo.nombre
                     Else
                         MsgBox("Cedula/Contraseaña Incorrecto")
@@ -176,4 +175,5 @@
 
         End If
     End Sub
+
 End Class
