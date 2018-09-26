@@ -34,40 +34,26 @@ Partial Class MENU3
         Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MENU3))
         Me.Phoraencabezado = New System.Windows.Forms.Panel()
-        Me.Pbadvertenciaprestamos = New System.Windows.Forms.PictureBox()
+        Me.Cedula = New System.Windows.Forms.Label()
         Me.lblfecha = New System.Windows.Forms.Label()
-        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.lblhora = New System.Windows.Forms.Label()
-        Me.Pbusuario = New System.Windows.Forms.PictureBox()
         Me.Nombre = New System.Windows.Forms.Label()
         Me.Pmenu = New System.Windows.Forms.Panel()
         Me.Panel_Inicio = New System.Windows.Forms.Panel()
-        Me.PbInicio = New System.Windows.Forms.PictureBox()
         Me.LabelInicio = New System.Windows.Forms.Label()
         Me.Panel_Revistas = New System.Windows.Forms.Panel()
-        Me.Pbrevistas = New System.Windows.Forms.PictureBox()
         Me.LabelRevistas = New System.Windows.Forms.Label()
-        Me.Pbconfig = New System.Windows.Forms.PictureBox()
-        Me.Pbnube = New System.Windows.Forms.PictureBox()
         Me.panel_navegador = New System.Windows.Forms.Panel()
-        Me.Pbnavegador = New System.Windows.Forms.PictureBox()
         Me.label_navegador = New System.Windows.Forms.Label()
         Me.panel_libros = New System.Windows.Forms.Panel()
-        Me.Pblibros = New System.Windows.Forms.PictureBox()
         Me.label_libros = New System.Windows.Forms.Label()
         Me.panel_prestamos = New System.Windows.Forms.Panel()
-        Me.Pbprestamos = New System.Windows.Forms.PictureBox()
         Me.label_prestamos = New System.Windows.Forms.Label()
         Me.panel_usuarios = New System.Windows.Forms.Panel()
-        Me.Pbusuarios = New System.Windows.Forms.PictureBox()
         Me.label_usuarios = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Pnavegador = New System.Windows.Forms.Panel()
-        Me.btnrecargar = New System.Windows.Forms.Button()
-        Me.btnpaginainicio = New System.Windows.Forms.Button()
         Me.txtbuscar = New System.Windows.Forms.TextBox()
-        Me.btnatras = New System.Windows.Forms.Button()
-        Me.btnadelante = New System.Windows.Forms.Button()
         Me.Wbnavegador = New System.Windows.Forms.WebBrowser()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
@@ -83,10 +69,8 @@ Partial Class MENU3
         Me.Label3 = New System.Windows.Forms.Label()
         Me.LbPrestamos = New System.Windows.Forms.ListBox()
         Me.PanelPrestamosLIVE = New System.Windows.Forms.Panel()
-        Me.ListBox2 = New System.Windows.Forms.ListBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.PanelPrestamosTOP = New System.Windows.Forms.Panel()
         Me.ChartTOP = New System.Windows.Forms.DataVisualization.Charting.Chart()
@@ -100,44 +84,63 @@ Partial Class MENU3
         Me.Timer_Prestamos_LIVE = New System.Windows.Forms.Timer(Me.components)
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Cedula = New System.Windows.Forms.Label()
+        Me.Timer_BD = New System.Windows.Forms.Timer(Me.components)
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Pbadvertenciaprestamos = New System.Windows.Forms.PictureBox()
+        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
+        Me.Pbusuario = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.PbInicio = New System.Windows.Forms.PictureBox()
+        Me.Pbrevistas = New System.Windows.Forms.PictureBox()
+        Me.Pbconfig = New System.Windows.Forms.PictureBox()
+        Me.Pbnube = New System.Windows.Forms.PictureBox()
+        Me.Pbnavegador = New System.Windows.Forms.PictureBox()
+        Me.Pblibros = New System.Windows.Forms.PictureBox()
+        Me.Pbprestamos = New System.Windows.Forms.PictureBox()
+        Me.Pbusuarios = New System.Windows.Forms.PictureBox()
+        Me.btnrecargar = New System.Windows.Forms.Button()
+        Me.btnpaginainicio = New System.Windows.Forms.Button()
+        Me.btnatras = New System.Windows.Forms.Button()
+        Me.btnadelante = New System.Windows.Forms.Button()
         Me.Labels_transparentes1 = New Proyecto_Biblioteca.labels_transparentes()
         Me.Phoraencabezado.SuspendLayout()
-        CType(Me.Pbadvertenciaprestamos, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Pbusuario, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Pmenu.SuspendLayout()
         Me.Panel_Inicio.SuspendLayout()
-        CType(Me.PbInicio, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel_Revistas.SuspendLayout()
-        CType(Me.Pbrevistas, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Pbconfig, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Pbnube, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panel_navegador.SuspendLayout()
-        CType(Me.Pbnavegador, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panel_libros.SuspendLayout()
-        CType(Me.Pblibros, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panel_prestamos.SuspendLayout()
-        CType(Me.Pbprestamos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panel_usuarios.SuspendLayout()
-        CType(Me.Pbusuarios, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Pnavegador.SuspendLayout()
         Me.Panel_Graficos.SuspendLayout()
         Me.Panel_prestamosdia.SuspendLayout()
         Me.PanelPrestamosLIVE.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelPrestamosTOP.SuspendLayout()
         CType(Me.ChartTOP, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelGraph1.SuspendLayout()
         CType(Me.ChartPrestamosDia, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.Chart_Prestamos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Pbadvertenciaprestamos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Pbusuario, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PbInicio, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Pbrevistas, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Pbconfig, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Pbnube, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Pbnavegador, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Pblibros, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Pbprestamos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Pbusuarios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Phoraencabezado
         '
         Me.Phoraencabezado.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Phoraencabezado.Controls.Add(Me.PictureBox2)
         Me.Phoraencabezado.Controls.Add(Me.Cedula)
         Me.Phoraencabezado.Controls.Add(Me.Pbadvertenciaprestamos)
         Me.Phoraencabezado.Controls.Add(Me.lblfecha)
@@ -145,21 +148,21 @@ Partial Class MENU3
         Me.Phoraencabezado.Controls.Add(Me.lblhora)
         Me.Phoraencabezado.Controls.Add(Me.Pbusuario)
         Me.Phoraencabezado.Controls.Add(Me.Nombre)
-        Me.Phoraencabezado.Location = New System.Drawing.Point(-6, -1)
+        Me.Phoraencabezado.Location = New System.Drawing.Point(1, 1)
         Me.Phoraencabezado.Name = "Phoraencabezado"
-        Me.Phoraencabezado.Size = New System.Drawing.Size(1141, 46)
+        Me.Phoraencabezado.Size = New System.Drawing.Size(1140, 46)
         Me.Phoraencabezado.TabIndex = 0
         '
-        'Pbadvertenciaprestamos
+        'Cedula
         '
-        Me.Pbadvertenciaprestamos.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Pbadvertenciaprestamos.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.warning
-        Me.Pbadvertenciaprestamos.Location = New System.Drawing.Point(928, 4)
-        Me.Pbadvertenciaprestamos.Name = "Pbadvertenciaprestamos"
-        Me.Pbadvertenciaprestamos.Size = New System.Drawing.Size(45, 39)
-        Me.Pbadvertenciaprestamos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.Pbadvertenciaprestamos.TabIndex = 7
-        Me.Pbadvertenciaprestamos.TabStop = False
+        Me.Cedula.AutoSize = True
+        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Cedula.ForeColor = System.Drawing.Color.White
+        Me.Cedula.Location = New System.Drawing.Point(1043, 31)
+        Me.Cedula.Name = "Cedula"
+        Me.Cedula.Size = New System.Drawing.Size(45, 13)
+        Me.Cedula.TabIndex = 8
+        Me.Cedula.Text = "Label4"
         '
         'lblfecha
         '
@@ -172,16 +175,6 @@ Partial Class MENU3
         Me.lblfecha.TabIndex = 6
         Me.lblfecha.Text = "Label1"
         '
-        'PictureBox6
-        '
-        Me.PictureBox6.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.clock__2_
-        Me.PictureBox6.Location = New System.Drawing.Point(10, 3)
-        Me.PictureBox6.Name = "PictureBox6"
-        Me.PictureBox6.Size = New System.Drawing.Size(40, 40)
-        Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox6.TabIndex = 5
-        Me.PictureBox6.TabStop = False
-        '
         'lblhora
         '
         Me.lblhora.AutoSize = True
@@ -192,16 +185,6 @@ Partial Class MENU3
         Me.lblhora.Size = New System.Drawing.Size(63, 20)
         Me.lblhora.TabIndex = 4
         Me.lblhora.Text = "Label2"
-        '
-        'Pbusuario
-        '
-        Me.Pbusuario.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.boss
-        Me.Pbusuario.Location = New System.Drawing.Point(979, 3)
-        Me.Pbusuario.Name = "Pbusuario"
-        Me.Pbusuario.Size = New System.Drawing.Size(43, 43)
-        Me.Pbusuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.Pbusuario.TabIndex = 3
-        Me.Pbusuario.TabStop = False
         '
         'Nombre
         '
@@ -227,9 +210,9 @@ Partial Class MENU3
         Me.Pmenu.Controls.Add(Me.panel_prestamos)
         Me.Pmenu.Controls.Add(Me.panel_usuarios)
         Me.Pmenu.Controls.Add(Me.DataGridView1)
-        Me.Pmenu.Location = New System.Drawing.Point(-6, 28)
+        Me.Pmenu.Location = New System.Drawing.Point(1, 30)
         Me.Pmenu.Name = "Pmenu"
-        Me.Pmenu.Size = New System.Drawing.Size(135, 665)
+        Me.Pmenu.Size = New System.Drawing.Size(135, 661)
         Me.Pmenu.TabIndex = 1
         '
         'Panel_Inicio
@@ -240,18 +223,6 @@ Partial Class MENU3
         Me.Panel_Inicio.Name = "Panel_Inicio"
         Me.Panel_Inicio.Size = New System.Drawing.Size(135, 83)
         Me.Panel_Inicio.TabIndex = 16
-        '
-        'PbInicio
-        '
-        Me.PbInicio.BackColor = System.Drawing.Color.Transparent
-        Me.PbInicio.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PbInicio.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.home1
-        Me.PbInicio.Location = New System.Drawing.Point(3, 6)
-        Me.PbInicio.Name = "PbInicio"
-        Me.PbInicio.Size = New System.Drawing.Size(64, 63)
-        Me.PbInicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PbInicio.TabIndex = 0
-        Me.PbInicio.TabStop = False
         '
         'LabelInicio
         '
@@ -271,18 +242,6 @@ Partial Class MENU3
         Me.Panel_Revistas.Size = New System.Drawing.Size(135, 94)
         Me.Panel_Revistas.TabIndex = 11
         '
-        'Pbrevistas
-        '
-        Me.Pbrevistas.BackColor = System.Drawing.Color.Transparent
-        Me.Pbrevistas.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Pbrevistas.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.magazine
-        Me.Pbrevistas.Location = New System.Drawing.Point(7, 16)
-        Me.Pbrevistas.Name = "Pbrevistas"
-        Me.Pbrevistas.Size = New System.Drawing.Size(64, 63)
-        Me.Pbrevistas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.Pbrevistas.TabIndex = 6
-        Me.Pbrevistas.TabStop = False
-        '
         'LabelRevistas
         '
         Me.LabelRevistas.AutoSize = True
@@ -292,25 +251,6 @@ Partial Class MENU3
         Me.LabelRevistas.TabIndex = 7
         Me.LabelRevistas.Text = "Revistas"
         '
-        'Pbconfig
-        '
-        Me.Pbconfig.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.ios7_gear
-        Me.Pbconfig.Location = New System.Drawing.Point(12, 586)
-        Me.Pbconfig.Name = "Pbconfig"
-        Me.Pbconfig.Size = New System.Drawing.Size(25, 25)
-        Me.Pbconfig.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.Pbconfig.TabIndex = 15
-        Me.Pbconfig.TabStop = False
-        '
-        'Pbnube
-        '
-        Me.Pbnube.Location = New System.Drawing.Point(11, 616)
-        Me.Pbnube.Name = "Pbnube"
-        Me.Pbnube.Size = New System.Drawing.Size(40, 39)
-        Me.Pbnube.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.Pbnube.TabIndex = 12
-        Me.Pbnube.TabStop = False
-        '
         'panel_navegador
         '
         Me.panel_navegador.Controls.Add(Me.Pbnavegador)
@@ -319,18 +259,6 @@ Partial Class MENU3
         Me.panel_navegador.Name = "panel_navegador"
         Me.panel_navegador.Size = New System.Drawing.Size(135, 94)
         Me.panel_navegador.TabIndex = 10
-        '
-        'Pbnavegador
-        '
-        Me.Pbnavegador.BackColor = System.Drawing.Color.Transparent
-        Me.Pbnavegador.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Pbnavegador.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.navigator
-        Me.Pbnavegador.Location = New System.Drawing.Point(8, 17)
-        Me.Pbnavegador.Name = "Pbnavegador"
-        Me.Pbnavegador.Size = New System.Drawing.Size(64, 63)
-        Me.Pbnavegador.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.Pbnavegador.TabIndex = 6
-        Me.Pbnavegador.TabStop = False
         '
         'label_navegador
         '
@@ -349,18 +277,6 @@ Partial Class MENU3
         Me.panel_libros.Name = "panel_libros"
         Me.panel_libros.Size = New System.Drawing.Size(132, 83)
         Me.panel_libros.TabIndex = 9
-        '
-        'Pblibros
-        '
-        Me.Pblibros.BackColor = System.Drawing.Color.Transparent
-        Me.Pblibros.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Pblibros.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.books
-        Me.Pblibros.Location = New System.Drawing.Point(3, 9)
-        Me.Pblibros.Name = "Pblibros"
-        Me.Pblibros.Size = New System.Drawing.Size(64, 63)
-        Me.Pblibros.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.Pblibros.TabIndex = 1
-        Me.Pblibros.TabStop = False
         '
         'label_libros
         '
@@ -382,18 +298,6 @@ Partial Class MENU3
         Me.panel_prestamos.Size = New System.Drawing.Size(135, 83)
         Me.panel_prestamos.TabIndex = 9
         '
-        'Pbprestamos
-        '
-        Me.Pbprestamos.BackColor = System.Drawing.Color.Transparent
-        Me.Pbprestamos.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Pbprestamos.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.reading
-        Me.Pbprestamos.Location = New System.Drawing.Point(7, 12)
-        Me.Pbprestamos.Name = "Pbprestamos"
-        Me.Pbprestamos.Size = New System.Drawing.Size(64, 63)
-        Me.Pbprestamos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.Pbprestamos.TabIndex = 2
-        Me.Pbprestamos.TabStop = False
-        '
         'label_prestamos
         '
         Me.label_prestamos.AutoSize = True
@@ -411,18 +315,6 @@ Partial Class MENU3
         Me.panel_usuarios.Name = "panel_usuarios"
         Me.panel_usuarios.Size = New System.Drawing.Size(135, 83)
         Me.panel_usuarios.TabIndex = 8
-        '
-        'Pbusuarios
-        '
-        Me.Pbusuarios.BackColor = System.Drawing.Color.Transparent
-        Me.Pbusuarios.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Pbusuarios.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.users
-        Me.Pbusuarios.Location = New System.Drawing.Point(2, 12)
-        Me.Pbusuarios.Name = "Pbusuarios"
-        Me.Pbusuarios.Size = New System.Drawing.Size(64, 63)
-        Me.Pbusuarios.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.Pbusuarios.TabIndex = 0
-        Me.Pbusuarios.TabStop = False
         '
         'label_usuarios
         '
@@ -443,36 +335,17 @@ Partial Class MENU3
         '
         'Pnavegador
         '
+        Me.Pnavegador.BackColor = System.Drawing.SystemColors.Control
         Me.Pnavegador.Controls.Add(Me.btnrecargar)
         Me.Pnavegador.Controls.Add(Me.btnpaginainicio)
         Me.Pnavegador.Controls.Add(Me.txtbuscar)
         Me.Pnavegador.Controls.Add(Me.btnatras)
         Me.Pnavegador.Controls.Add(Me.btnadelante)
         Me.Pnavegador.Controls.Add(Me.Wbnavegador)
-        Me.Pnavegador.Location = New System.Drawing.Point(128, 43)
+        Me.Pnavegador.Location = New System.Drawing.Point(135, 45)
         Me.Pnavegador.Name = "Pnavegador"
         Me.Pnavegador.Size = New System.Drawing.Size(1003, 646)
         Me.Pnavegador.TabIndex = 12
-        '
-        'btnrecargar
-        '
-        Me.btnrecargar.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.reload
-        Me.btnrecargar.Location = New System.Drawing.Point(122, 1)
-        Me.btnrecargar.Name = "btnrecargar"
-        Me.btnrecargar.Size = New System.Drawing.Size(52, 23)
-        Me.btnrecargar.TabIndex = 16
-        Me.btnrecargar.UseVisualStyleBackColor = True
-        Me.btnrecargar.Visible = False
-        '
-        'btnpaginainicio
-        '
-        Me.btnpaginainicio.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.home
-        Me.btnpaginainicio.Location = New System.Drawing.Point(180, 1)
-        Me.btnpaginainicio.Name = "btnpaginainicio"
-        Me.btnpaginainicio.Size = New System.Drawing.Size(52, 23)
-        Me.btnpaginainicio.TabIndex = 15
-        Me.btnpaginainicio.UseVisualStyleBackColor = True
-        Me.btnpaginainicio.Visible = False
         '
         'txtbuscar
         '
@@ -481,26 +354,6 @@ Partial Class MENU3
         Me.txtbuscar.Size = New System.Drawing.Size(651, 20)
         Me.txtbuscar.TabIndex = 12
         Me.txtbuscar.Visible = False
-        '
-        'btnatras
-        '
-        Me.btnatras.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.left_arrow__1_
-        Me.btnatras.Location = New System.Drawing.Point(6, 1)
-        Me.btnatras.Name = "btnatras"
-        Me.btnatras.Size = New System.Drawing.Size(52, 23)
-        Me.btnatras.TabIndex = 13
-        Me.btnatras.UseVisualStyleBackColor = True
-        Me.btnatras.Visible = False
-        '
-        'btnadelante
-        '
-        Me.btnadelante.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.right_arrow
-        Me.btnadelante.Location = New System.Drawing.Point(64, 1)
-        Me.btnadelante.Name = "btnadelante"
-        Me.btnadelante.Size = New System.Drawing.Size(52, 23)
-        Me.btnadelante.TabIndex = 14
-        Me.btnadelante.UseVisualStyleBackColor = True
-        Me.btnadelante.Visible = False
         '
         'Wbnavegador
         '
@@ -522,7 +375,8 @@ Partial Class MENU3
         '
         'panel_menu
         '
-        Me.panel_menu.Location = New System.Drawing.Point(128, 44)
+        Me.panel_menu.BackColor = System.Drawing.SystemColors.Control
+        Me.panel_menu.Location = New System.Drawing.Point(135, 46)
         Me.panel_menu.Name = "panel_menu"
         Me.panel_menu.Size = New System.Drawing.Size(1006, 646)
         Me.panel_menu.TabIndex = 2
@@ -549,6 +403,7 @@ Partial Class MENU3
         '
         'Panel_Graficos
         '
+        Me.Panel_Graficos.BackColor = System.Drawing.SystemColors.Control
         Me.Panel_Graficos.Controls.Add(Me.Panel_prestamosdia)
         Me.Panel_Graficos.Controls.Add(Me.PanelPrestamosLIVE)
         Me.Panel_Graficos.Controls.Add(Me.PictureBox1)
@@ -558,7 +413,7 @@ Partial Class MENU3
         Me.Panel_Graficos.Controls.Add(Me.ComboBox2)
         Me.Panel_Graficos.Controls.Add(Me.Panel1)
         Me.Panel_Graficos.Controls.Add(Me.ComboBox1)
-        Me.Panel_Graficos.Location = New System.Drawing.Point(128, 43)
+        Me.Panel_Graficos.Location = New System.Drawing.Point(135, 45)
         Me.Panel_Graficos.Name = "Panel_Graficos"
         Me.Panel_Graficos.Size = New System.Drawing.Size(1006, 646)
         Me.Panel_Graficos.TabIndex = 7
@@ -569,7 +424,7 @@ Partial Class MENU3
         Me.Panel_prestamosdia.Controls.Add(Me.Button1)
         Me.Panel_prestamosdia.Controls.Add(Me.Label3)
         Me.Panel_prestamosdia.Controls.Add(Me.LbPrestamos)
-        Me.Panel_prestamosdia.Location = New System.Drawing.Point(732, 0)
+        Me.Panel_prestamosdia.Location = New System.Drawing.Point(688, 0)
         Me.Panel_prestamosdia.Name = "Panel_prestamosdia"
         Me.Panel_prestamosdia.Size = New System.Drawing.Size(200, 247)
         Me.Panel_prestamosdia.TabIndex = 3
@@ -603,21 +458,12 @@ Partial Class MENU3
         'PanelPrestamosLIVE
         '
         Me.PanelPrestamosLIVE.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Me.PanelPrestamosLIVE.Controls.Add(Me.ListBox2)
         Me.PanelPrestamosLIVE.Controls.Add(Me.Label1)
         Me.PanelPrestamosLIVE.Controls.Add(Me.ListBox1)
         Me.PanelPrestamosLIVE.Location = New System.Drawing.Point(1010, 0)
         Me.PanelPrestamosLIVE.Name = "PanelPrestamosLIVE"
         Me.PanelPrestamosLIVE.Size = New System.Drawing.Size(240, 637)
         Me.PanelPrestamosLIVE.TabIndex = 9
-        '
-        'ListBox2
-        '
-        Me.ListBox2.FormattingEnabled = True
-        Me.ListBox2.Location = New System.Drawing.Point(3, 21)
-        Me.ListBox2.Name = "ListBox2"
-        Me.ListBox2.Size = New System.Drawing.Size(81, 615)
-        Me.ListBox2.TabIndex = 5
         '
         'Label1
         '
@@ -632,20 +478,10 @@ Partial Class MENU3
         'ListBox1
         '
         Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(90, 21)
+        Me.ListBox1.Location = New System.Drawing.Point(11, 21)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(142, 615)
+        Me.ListBox1.Size = New System.Drawing.Size(220, 615)
         Me.ListBox1.TabIndex = 3
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.back
-        Me.PictureBox1.Location = New System.Drawing.Point(970, 2)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(21, 30)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 10
-        Me.PictureBox1.TabStop = False
         '
         'Label2
         '
@@ -767,16 +603,191 @@ Partial Class MENU3
         '
         Me.ToolTip1.AutomaticDelay = 300
         '
-        'Cedula
+        'Timer_BD
         '
-        Me.Cedula.AutoSize = True
-        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Cedula.ForeColor = System.Drawing.Color.White
-        Me.Cedula.Location = New System.Drawing.Point(1043, 31)
-        Me.Cedula.Name = "Cedula"
-        Me.Cedula.Size = New System.Drawing.Size(45, 13)
-        Me.Cedula.TabIndex = 8
-        Me.Cedula.Text = "Label4"
+        Me.Timer_BD.Interval = 6000
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.file
+        Me.PictureBox2.Location = New System.Drawing.Point(951, 4)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(45, 43)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 9
+        Me.PictureBox2.TabStop = False
+        '
+        'Pbadvertenciaprestamos
+        '
+        Me.Pbadvertenciaprestamos.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Pbadvertenciaprestamos.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.warning
+        Me.Pbadvertenciaprestamos.Location = New System.Drawing.Point(900, 4)
+        Me.Pbadvertenciaprestamos.Name = "Pbadvertenciaprestamos"
+        Me.Pbadvertenciaprestamos.Size = New System.Drawing.Size(45, 43)
+        Me.Pbadvertenciaprestamos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.Pbadvertenciaprestamos.TabIndex = 7
+        Me.Pbadvertenciaprestamos.TabStop = False
+        '
+        'PictureBox6
+        '
+        Me.PictureBox6.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.clock__2_
+        Me.PictureBox6.Location = New System.Drawing.Point(10, 3)
+        Me.PictureBox6.Name = "PictureBox6"
+        Me.PictureBox6.Size = New System.Drawing.Size(40, 40)
+        Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox6.TabIndex = 5
+        Me.PictureBox6.TabStop = False
+        '
+        'Pbusuario
+        '
+        Me.Pbusuario.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.boss
+        Me.Pbusuario.Location = New System.Drawing.Point(998, 3)
+        Me.Pbusuario.Name = "Pbusuario"
+        Me.Pbusuario.Size = New System.Drawing.Size(45, 43)
+        Me.Pbusuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.Pbusuario.TabIndex = 3
+        Me.Pbusuario.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.back
+        Me.PictureBox1.Location = New System.Drawing.Point(970, 2)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(21, 30)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 10
+        Me.PictureBox1.TabStop = False
+        '
+        'PbInicio
+        '
+        Me.PbInicio.BackColor = System.Drawing.Color.Transparent
+        Me.PbInicio.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PbInicio.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.home1
+        Me.PbInicio.Location = New System.Drawing.Point(3, 6)
+        Me.PbInicio.Name = "PbInicio"
+        Me.PbInicio.Size = New System.Drawing.Size(64, 63)
+        Me.PbInicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PbInicio.TabIndex = 0
+        Me.PbInicio.TabStop = False
+        '
+        'Pbrevistas
+        '
+        Me.Pbrevistas.BackColor = System.Drawing.Color.Transparent
+        Me.Pbrevistas.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Pbrevistas.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.magazine
+        Me.Pbrevistas.Location = New System.Drawing.Point(7, 16)
+        Me.Pbrevistas.Name = "Pbrevistas"
+        Me.Pbrevistas.Size = New System.Drawing.Size(64, 63)
+        Me.Pbrevistas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.Pbrevistas.TabIndex = 6
+        Me.Pbrevistas.TabStop = False
+        '
+        'Pbconfig
+        '
+        Me.Pbconfig.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.ios7_gear
+        Me.Pbconfig.Location = New System.Drawing.Point(12, 586)
+        Me.Pbconfig.Name = "Pbconfig"
+        Me.Pbconfig.Size = New System.Drawing.Size(25, 25)
+        Me.Pbconfig.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.Pbconfig.TabIndex = 15
+        Me.Pbconfig.TabStop = False
+        '
+        'Pbnube
+        '
+        Me.Pbnube.Location = New System.Drawing.Point(11, 616)
+        Me.Pbnube.Name = "Pbnube"
+        Me.Pbnube.Size = New System.Drawing.Size(40, 39)
+        Me.Pbnube.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.Pbnube.TabIndex = 12
+        Me.Pbnube.TabStop = False
+        '
+        'Pbnavegador
+        '
+        Me.Pbnavegador.BackColor = System.Drawing.Color.Transparent
+        Me.Pbnavegador.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Pbnavegador.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.navigator
+        Me.Pbnavegador.Location = New System.Drawing.Point(8, 17)
+        Me.Pbnavegador.Name = "Pbnavegador"
+        Me.Pbnavegador.Size = New System.Drawing.Size(64, 63)
+        Me.Pbnavegador.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.Pbnavegador.TabIndex = 6
+        Me.Pbnavegador.TabStop = False
+        '
+        'Pblibros
+        '
+        Me.Pblibros.BackColor = System.Drawing.Color.Transparent
+        Me.Pblibros.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Pblibros.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.books
+        Me.Pblibros.Location = New System.Drawing.Point(3, 9)
+        Me.Pblibros.Name = "Pblibros"
+        Me.Pblibros.Size = New System.Drawing.Size(64, 63)
+        Me.Pblibros.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.Pblibros.TabIndex = 1
+        Me.Pblibros.TabStop = False
+        '
+        'Pbprestamos
+        '
+        Me.Pbprestamos.BackColor = System.Drawing.Color.Transparent
+        Me.Pbprestamos.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Pbprestamos.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.reading
+        Me.Pbprestamos.Location = New System.Drawing.Point(7, 12)
+        Me.Pbprestamos.Name = "Pbprestamos"
+        Me.Pbprestamos.Size = New System.Drawing.Size(64, 63)
+        Me.Pbprestamos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.Pbprestamos.TabIndex = 2
+        Me.Pbprestamos.TabStop = False
+        '
+        'Pbusuarios
+        '
+        Me.Pbusuarios.BackColor = System.Drawing.Color.Transparent
+        Me.Pbusuarios.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Pbusuarios.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.users
+        Me.Pbusuarios.Location = New System.Drawing.Point(2, 12)
+        Me.Pbusuarios.Name = "Pbusuarios"
+        Me.Pbusuarios.Size = New System.Drawing.Size(64, 63)
+        Me.Pbusuarios.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.Pbusuarios.TabIndex = 0
+        Me.Pbusuarios.TabStop = False
+        '
+        'btnrecargar
+        '
+        Me.btnrecargar.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.reload
+        Me.btnrecargar.Location = New System.Drawing.Point(122, 1)
+        Me.btnrecargar.Name = "btnrecargar"
+        Me.btnrecargar.Size = New System.Drawing.Size(52, 23)
+        Me.btnrecargar.TabIndex = 16
+        Me.btnrecargar.UseVisualStyleBackColor = True
+        Me.btnrecargar.Visible = False
+        '
+        'btnpaginainicio
+        '
+        Me.btnpaginainicio.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.home
+        Me.btnpaginainicio.Location = New System.Drawing.Point(180, 1)
+        Me.btnpaginainicio.Name = "btnpaginainicio"
+        Me.btnpaginainicio.Size = New System.Drawing.Size(52, 23)
+        Me.btnpaginainicio.TabIndex = 15
+        Me.btnpaginainicio.UseVisualStyleBackColor = True
+        Me.btnpaginainicio.Visible = False
+        '
+        'btnatras
+        '
+        Me.btnatras.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.left_arrow__1_
+        Me.btnatras.Location = New System.Drawing.Point(6, 1)
+        Me.btnatras.Name = "btnatras"
+        Me.btnatras.Size = New System.Drawing.Size(52, 23)
+        Me.btnatras.TabIndex = 13
+        Me.btnatras.UseVisualStyleBackColor = True
+        Me.btnatras.Visible = False
+        '
+        'btnadelante
+        '
+        Me.btnadelante.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.right_arrow
+        Me.btnadelante.Location = New System.Drawing.Point(64, 1)
+        Me.btnadelante.Name = "btnadelante"
+        Me.btnadelante.Size = New System.Drawing.Size(52, 23)
+        Me.btnadelante.TabIndex = 14
+        Me.btnadelante.UseVisualStyleBackColor = True
+        Me.btnadelante.Visible = False
         '
         'Labels_transparentes1
         '
@@ -790,10 +801,11 @@ Partial Class MENU3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1134, 688)
+        Me.BackColor = System.Drawing.Color.Black
+        Me.ClientSize = New System.Drawing.Size(1142, 692)
         Me.Controls.Add(Me.Phoraencabezado)
-        Me.Controls.Add(Me.Panel_Graficos)
         Me.Controls.Add(Me.Pmenu)
+        Me.Controls.Add(Me.Panel_Graficos)
         Me.Controls.Add(Me.panel_menu)
         Me.Controls.Add(Me.Pnavegador)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -804,30 +816,19 @@ Partial Class MENU3
         Me.Text = "Biblioteca Municipal"
         Me.Phoraencabezado.ResumeLayout(False)
         Me.Phoraencabezado.PerformLayout()
-        CType(Me.Pbadvertenciaprestamos, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Pbusuario, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Pmenu.ResumeLayout(False)
         Me.Panel_Inicio.ResumeLayout(False)
         Me.Panel_Inicio.PerformLayout()
-        CType(Me.PbInicio, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel_Revistas.ResumeLayout(False)
         Me.Panel_Revistas.PerformLayout()
-        CType(Me.Pbrevistas, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Pbconfig, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Pbnube, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panel_navegador.ResumeLayout(False)
         Me.panel_navegador.PerformLayout()
-        CType(Me.Pbnavegador, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panel_libros.ResumeLayout(False)
         Me.panel_libros.PerformLayout()
-        CType(Me.Pblibros, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panel_prestamos.ResumeLayout(False)
         Me.panel_prestamos.PerformLayout()
-        CType(Me.Pbprestamos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panel_usuarios.ResumeLayout(False)
         Me.panel_usuarios.PerformLayout()
-        CType(Me.Pbusuarios, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Pnavegador.ResumeLayout(False)
         Me.Pnavegador.PerformLayout()
@@ -837,13 +838,25 @@ Partial Class MENU3
         Me.Panel_prestamosdia.PerformLayout()
         Me.PanelPrestamosLIVE.ResumeLayout(False)
         Me.PanelPrestamosLIVE.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelPrestamosTOP.ResumeLayout(False)
         CType(Me.ChartTOP, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelGraph1.ResumeLayout(False)
         CType(Me.ChartPrestamosDia, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         CType(Me.Chart_Prestamos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Pbadvertenciaprestamos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Pbusuario, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PbInicio, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Pbrevistas, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Pbconfig, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Pbnube, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Pbnavegador, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Pblibros, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Pbprestamos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Pbusuarios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -914,6 +927,7 @@ Partial Class MENU3
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents HelpProvider1 As System.Windows.Forms.HelpProvider
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
-    Friend WithEvents ListBox2 As System.Windows.Forms.ListBox
     Friend WithEvents Cedula As System.Windows.Forms.Label
+    Friend WithEvents Timer_BD As System.Windows.Forms.Timer
+    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
 End Class

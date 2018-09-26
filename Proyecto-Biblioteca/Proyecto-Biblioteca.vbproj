@@ -99,10 +99,10 @@
     <Compile Include="Betas\PrestamoRevistas.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Betas\Notas.Designer.vb">
-      <DependentUpon>Notas.vb</DependentUpon>
+    <Compile Include="Betas\NotasUsuario.Designer.vb">
+      <DependentUpon>NotasUsuario.vb</DependentUpon>
     </Compile>
-    <Compile Include="Betas\Notas.vb">
+    <Compile Include="Betas\NotasUsuario.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Betas\IngresoRevistas.Designer.vb">
@@ -244,8 +244,8 @@
     <EmbeddedResource Include="Inicio UsuariosV2.resx">
       <DependentUpon>Inicio UsuariosV2.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Betas\Notas.resx">
-      <DependentUpon>Notas.vb</DependentUpon>
+    <EmbeddedResource Include="Betas\NotasUsuario.resx">
+      <DependentUpon>NotasUsuario.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Betas\Registroprestamos.resx">
       <DependentUpon>Registroprestamos.vb</DependentUpon>
@@ -353,6 +353,7 @@
     <None Include="Resources\faq.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\printer-.png" />
     <None Include="Resources\warning.png" />
     <None Include="Resources\reservar.png" />
     <None Include="Resources\notebook %281%29.png" />
@@ -376,6 +377,9 @@
     <None Include="Resources\home1.png" />
     <None Include="Resources\extraccionRevista.png" />
     <None Include="Resources\devolcionRevistas.png" />
+    <None Include="Resources\minimize.png" />
+    <None Include="Resources\icon.png" />
+    <None Include="Resources\gmail-logo.png" />
     <Content Include="Resources\navigator.png" />
     <None Include="Resources\Sin título-1.jpg" />
     <None Include="Resources\reading.png" />

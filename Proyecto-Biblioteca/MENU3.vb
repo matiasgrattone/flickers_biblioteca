@@ -18,6 +18,56 @@ Public Class MENU3
     Dim PrimerInicio As Integer = 1
     Dim ContadorDia As Integer = 0
     Dim ContadorMes As Integer = 0
+    Public BD_ONLINE As Integer = 0 'verificar si la base de datos esta online
+
+    Private Sub inicio()
+        If ERROR1 = 2 Then
+
+        ElseIf ERROR1 = 0 Then
+            Try
+                Chart()
+                Dim fecha As String = DateTime.Now.ToString("yyyy/MM/dd")
+                Consulta = "select titulo from prestamolibro p inner join libro l on p.cod_libro=l.cod_libro where fecha_salida='" + fecha + "'"
+                consultar()
+                For Each row As DataRow In Tabla.Rows
+                    If Not IsDBNull(row("titulo")) Then
+                        Pbadvertenciaprestamos.Visible = True
+                    End If
+                Next
+
+                ComboBox1.Items.Add("Mes")
+                ComboBox1.Items.Add("Enero")
+                ComboBox1.Items.Add("Febrero")
+                ComboBox1.Items.Add("Marzo")
+                ComboBox1.Items.Add("Abril")
+                ComboBox1.Items.Add("Mayo")
+                ComboBox1.Items.Add("Junio")
+                ComboBox1.Items.Add("Julio")
+                ComboBox1.Items.Add("Agosto")
+                ComboBox1.Items.Add("Septiembre")
+                ComboBox1.Items.Add("Octubre")
+                ComboBox1.Items.Add("Noviembre")
+                ComboBox1.Items.Add("Diciembre")
+                substring = Date.Now.ToString("MM")
+                mes()
+                ComboBox1.SelectedItem = substring
+
+
+                For i As Integer = 1899 To Date.Now.ToString("yyyy")
+                    If i = 1899 Then
+                        ComboBox2.Items.Add("Año")
+                    Else
+                        ComboBox2.Items.Add(i)
+                    End If
+                    ComboBox2.SelectedItem = i
+                Next
+
+
+            Catch ex As Exception
+            End Try
+        End If
+
+    End Sub
 
 
     Private Sub MENU3_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -25,76 +75,44 @@ Public Class MENU3
         xf = Me.Location.X
         yf = Me.Location.Y
 
+
         verificarBD()
-        Chart()
+        Timer_BD.Enabled = True
+
+        Select Case ERROR1
+
+            Case 0
+                Chart()
+                inicio()
+                Timer_Prestamos_LIVE.Enabled = True
+
+        End Select
+
+
+
+
 
         '///////////////////VENTANA DE LIBROS QUE SE DEVUELVEN EN EL DIA///////////////////////
         'Aviso_de_prestamos.Show()
         Pbadvertenciaprestamos.Visible = False
         Panel_prestamosdia.Visible = False
 
-        Try
-            Dim fecha As String = DateTime.Now.ToString("yyyy/MM/dd")
-            Consulta = "select titulo from prestamolibro p inner join libro l on p.cod_libro=l.cod_libro where fecha_salida='" + fecha + "'"
-            consultar()
-            For Each row As DataRow In Tabla.Rows
-                If Not IsDBNull(row("titulo")) Then
-                    Pbadvertenciaprestamos.Visible = True
-                End If
-            Next
-        Catch ex As Exception
-        End Try
 
-        ComboBox1.Items.Add("Mes")
-        ComboBox1.Items.Add("Enero")
-        ComboBox1.Items.Add("Febrero")
-        ComboBox1.Items.Add("Marzo")
-        ComboBox1.Items.Add("Abril")
-        ComboBox1.Items.Add("Mayo")
-        ComboBox1.Items.Add("Junio")
-        ComboBox1.Items.Add("Julio")
-        ComboBox1.Items.Add("Agosto")
-        ComboBox1.Items.Add("Septiembre")
-        ComboBox1.Items.Add("Octubre")
-        ComboBox1.Items.Add("Noviembre")
-        ComboBox1.Items.Add("Diciembre")
-        substring = Date.Now.ToString("MM")
-        mes()
-        ComboBox1.SelectedItem = substring
+          
 
+            Select Case ANIMACION
+                Case 1
 
-        For i As Integer = 1899 To Date.Now.ToString("yyyy")
-            If i = 1899 Then
-                ComboBox2.Items.Add("Año")
-            Else
-                ComboBox2.Items.Add(i)
-            End If
-            ComboBox2.SelectedItem = i
-        Next
-
-
-
-        '//////////////// PRESTAMOS EN VIVO ///////////////
-
-        Timer_Prestamos_LIVE.Enabled = True
-
-
-
-        Select Case ANIMACION
-            Case 1
-
-            Case 0
-                label_usuarios.Left = 72
-                label_libros.Left = 72
-                LabelInicio.Left = 72
-                LabelRevistas.Left = 72
-                label_prestamos.Left = 72
-                label_navegador.Left = 72
-        End Select
-
+                Case 0
+                    label_usuarios.Left = 72
+                    label_libros.Left = 72
+                    LabelInicio.Left = 72
+                    LabelRevistas.Left = 72
+                    label_prestamos.Left = 72
+                    label_navegador.Left = 72
+            End Select
 
         Preparar_Form()
-
 
         panel_usuarios.BackColor = Drawing.Color.Silver
         panel_libros.BackColor = Drawing.Color.Silver
@@ -123,11 +141,12 @@ Public Class MENU3
             holay = yc - yco
             Me.Location = New Point(xf + holax, yf + holay)
             Me.Opacity = 0.9
+            Timer_Prestamos_LIVE.Enabled = False
         End If
         If a = 0 Then
             xco = Cursor.Position.X
             yco = Cursor.Position.Y
-
+            Timer_Prestamos_LIVE.Enabled = True
         End If
     End Sub
 
@@ -230,7 +249,8 @@ Public Class MENU3
         panel_libros.BackColor = Drawing.Color.Silver
         panel_prestamos.BackColor = Drawing.Color.Silver
         panel_navegador.BackColor = Drawing.Color.Silver
-
+        Panel_Revistas.BackColor = Drawing.Color.Silver
+        Panel_Inicio.BackColor = Drawing.Color.Silver
 
 
     End Sub
@@ -296,7 +316,7 @@ Public Class MENU3
 
     Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbusuarios.Click
         seleccionado = "usuarios"
-
+        Timer_Prestamos_LIVE.Enabled = False
         Select Case ANIMACION
             Case 1
 
@@ -403,33 +423,49 @@ Public Class MENU3
     End Sub
 
     Private Sub panel_libros_Mouseclick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles panel_libros.MouseClick
-        seleccionado = "libros"
-        Timer_LibrosLabel.Enabled = True
-        Timer_NvegadorLabel.Enabled = True
-        Timer_PrestamosLabel.Enabled = True
-        Timer_UsuariosLabel.Enabled = True
-        panel_usuarios.BackColor = Drawing.Color.Silver
-        panel_libros.BackColor = Drawing.Color.LightGray
-        panel_prestamos.BackColor = Drawing.Color.Silver
-        panel_navegador.BackColor = Drawing.Color.Silver
 
-        Dim F3 As New Seleccion_Libro
+        seleccionado = "libros"
+        Timer_Prestamos_LIVE.Enabled = False
+        Select Case ANIMACION
+            Case 1
+
+                mouse = 0
+                mouse2 = 1
+                mouse3 = 0
+                mouse4 = 0
+                mouse5 = 0
+                mouse6 = 0
+                Timer_LibrosLabel.Enabled = True
+                Timer_NvegadorLabel.Enabled = True
+                Timer_PrestamosLabel.Enabled = True
+                Timer_UsuariosLabel.Enabled = True
+                Timer_RevistasLabel.Enabled = True
+                Timer_InicioLabel.Enabled = True
+
+            Case 0
+
+
+        End Select
+
+
         panel_menu.Controls.Clear()
         F3.TopLevel = False
         F3.Parent = panel_menu
         F3.Dock = DockStyle.Fill
         F3.Show()
 
-        panel_menu.Visible = True
-        txtbuscar.Visible = False
-        btnatras.Visible = False
-        btnadelante.Visible = False
-        btnpaginainicio.Visible = False
-        btnrecargar.Visible = False
-        Pnavegador.Visible = False
-        Wbnavegador.Visible = False
 
-        Panel_Graficos.Visible = False
+        panel_usuarios.BackColor = Drawing.Color.Silver
+        panel_libros.BackColor = Drawing.Color.LightGray
+        panel_prestamos.BackColor = Drawing.Color.Silver
+        panel_navegador.BackColor = Drawing.Color.Silver
+        Panel_Revistas.BackColor = Drawing.Color.Silver
+        Panel_Inicio.BackColor = Drawing.Color.Silver
+
+
+        Preparar_Form()
+
+
 
     End Sub
 
@@ -488,7 +524,7 @@ Public Class MENU3
     Public Sub PictureBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pblibros.Click
 
         seleccionado = "libros"
-
+        Timer_Prestamos_LIVE.Enabled = False
         Select Case ANIMACION
             Case 1
 
@@ -592,11 +628,12 @@ Public Class MENU3
 
         Preparar_Form()
 
-
         panel_usuarios.BackColor = Drawing.Color.Silver
         panel_libros.BackColor = Drawing.Color.Silver
         panel_prestamos.BackColor = Drawing.Color.LightGray
         panel_navegador.BackColor = Drawing.Color.Silver
+        Panel_Revistas.BackColor = Drawing.Color.Silver
+        Panel_Inicio.BackColor = Drawing.Color.Silver
 
     End Sub
 
@@ -663,6 +700,7 @@ Public Class MENU3
 
     Private Sub PictureBox3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbprestamos.Click
         seleccionado = "prestamos"
+        Timer_Prestamos_LIVE.Enabled = False
         Select Case ANIMACION
             Case 1
 
@@ -800,7 +838,7 @@ Public Class MENU3
 
     Private Sub PictureBox5_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbnavegador.Click
         seleccionado = "navegador"
-
+        Timer_Prestamos_LIVE.Enabled = False
         Select Case ANIMACION
             Case 1
 
@@ -911,46 +949,49 @@ Public Class MENU3
 
     Private Sub panel_navegador_MouseClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles panel_navegador.MouseClick
         seleccionado = "navegador"
+        Timer_Prestamos_LIVE.Enabled = False
+        Select Case ANIMACION
+            Case 1
+
+                mouse = 0
+                mouse2 = 0
+                mouse3 = 0
+                mouse4 = 1
+                mouse5 = 0
+                mouse6 = 0
+
+                Timer_LibrosLabel.Enabled = True
+                Timer_NvegadorLabel.Enabled = True
+                Timer_PrestamosLabel.Enabled = True
+                Timer_UsuariosLabel.Enabled = True
+                Timer_RevistasLabel.Enabled = True
+                Timer_InicioLabel.Enabled = True
+
+
+            Case 0
+
+
+        End Select
+
+
 
 
         panel_usuarios.BackColor = Drawing.Color.Silver
         panel_libros.BackColor = Drawing.Color.Silver
         panel_prestamos.BackColor = Drawing.Color.Silver
         panel_navegador.BackColor = Drawing.Color.LightGray
-        Timer_LibrosLabel.Enabled = True
-        Timer_NvegadorLabel.Enabled = True
-        Timer_PrestamosLabel.Enabled = True
-        Timer_UsuariosLabel.Enabled = True
+        Panel_Revistas.BackColor = Drawing.Color.Silver
+        Panel_Inicio.BackColor = Drawing.Color.Silver
 
+        Preparar_Form()
 
-        Pnavegador.Visible = True
-        panel_menu.Visible = False
-        txtbuscar.Visible = True
-        btnatras.Visible = True
-        btnadelante.Visible = True
-        btnpaginainicio.Visible = True
-        btnrecargar.Visible = True
-        Wbnavegador.Visible = True
-        Wbnavegador.Navigate("www.ecosia.org")
-
-
-        Panel_Graficos.Visible = False
 
 
     End Sub
 
-
-
-    '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
     Private Sub PictureBox1_Click_2(sender As System.Object, e As System.EventArgs) Handles Pbrevistas.Click
         seleccionado = "Revistas"
+        Timer_Prestamos_LIVE.Enabled = False
         Select Case ANIMACION
             Case 1
 
@@ -1186,6 +1227,8 @@ Public Class MENU3
         panel_prestamos.BackColor = Drawing.Color.Silver
         panel_navegador.BackColor = Drawing.Color.Silver
         Panel_Revistas.BackColor = Drawing.Color.LightGray
+        Panel_Inicio.BackColor = Drawing.Color.Silver
+
 
         Panel_Graficos.Visible = False
 
@@ -1198,7 +1241,7 @@ Public Class MENU3
     Private Sub PbInicio_Click(sender As System.Object, e As System.EventArgs) Handles PbInicio.Click
         seleccionado = "Inicio"
         Chart()
-
+        Timer_Prestamos_LIVE.Enabled = True
         Select Case ANIMACION
             Case 1
                 mouse = 0
@@ -1341,6 +1384,7 @@ Public Class MENU3
 
 
                     If row("cedula") = contraseñaAdmin Then
+                        ConfiguraciònAdmin.Lbl_NombreADMIN_TXT.Text = row("nombre") & " " & row("apellido")
                         contraseñaAdmin = "1"
                     Else
                     End If
@@ -1565,167 +1609,188 @@ Public Class MENU3
 
 
     Private Sub Chart()
+        If ERROR1 = 2 Then
 
-        Chart_Prestamos.Series.Clear()
-        Chart_Prestamos.ChartAreas.Clear()
+            ChartPrestamosDia.Series.Clear()
+            ChartPrestamosDia.ChartAreas.Clear()
+            Chart_Prestamos.Series.Clear()
+            Chart_Prestamos.ChartAreas.Clear()
+            ChartTOP.Series.Clear()
+            ChartTOP.ChartAreas.Clear()
+            ComboBox1.Enabled = False
+            ComboBox2.Enabled = False
 
-        '/////////////////////////////// CHART DE PRESTAMOS Y USUARIOS //////////////////////////////////
-        Consulta = "select count(prestamolibro.cod_libro) , month(prestamolibro.fecha_salida) from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro group by month(fecha_salida)"
-        consultar()
-        Chart_Prestamos.ChartAreas.Add("Prestamos")
-        Chart_Prestamos.Series.Add("Prestamos")
-        '/////////////////////////////////////////////////////////////////////////////////////////////////
-        For Each row As DataRow In Tabla.Rows
-
-            substring = row("month(prestamolibro.fecha_salida)")
-            If substring.Length = 1 Then
-                substring = "0" & row("month(prestamolibro.fecha_salida)")
-            End If
-            mes()
-            Chart_Prestamos.Series("Prestamos").Points.AddXY(substring, row("count(prestamolibro.cod_libro)"))
+        Else
+            ComboBox1.Enabled = True
+            ComboBox2.Enabled = True
 
 
-        Next
-        '////////////////////////////////////////////////////////////////////////////////////////////////
+            Chart_Prestamos.Series.Clear()
+            Chart_Prestamos.ChartAreas.Clear()
+
+            '/////////////////////////////// CHART DE PRESTAMOS Y USUARIOS //////////////////////////////////
+            Consulta = "select count(prestamolibro.cod_libro) , month(prestamolibro.fecha_salida) from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro group by month(fecha_salida)"
+            consultar()
+            Chart_Prestamos.ChartAreas.Add("Prestamos")
+            Chart_Prestamos.Series.Add("Prestamos")
+            '/////////////////////////////////////////////////////////////////////////////////////////////////
+            For Each row As DataRow In Tabla.Rows
+
+                substring = row("month(prestamolibro.fecha_salida)")
+                If substring.Length = 1 Then
+                    substring = "0" & row("month(prestamolibro.fecha_salida)")
+                End If
+                mes()
+                Chart_Prestamos.Series("Prestamos").Points.AddXY(substring, row("count(prestamolibro.cod_libro)"))
 
 
-        Chart_Prestamos.Series("Prestamos").Label = "Libros : " + "#VALY"
-        Chart_Prestamos.ChartAreas(0).AxisX.MajorGrid.Enabled = False
-        'Chart_Prestamos.ChartAreas(0).AxisY.MajorGrid.Enabled = False
+            Next
+            '////////////////////////////////////////////////////////////////////////////////////////////////
 
-        '//////////////////////////////////////////////////////////////////////////////////////////////////
-        Select Case PrimerInicio
-            Case 1
 
-                Try
-                    substring = Date.Now.ToString("MM")
-                    Consulta = "select count(prestamolibro.cod_libro) , day(prestamolibro.fecha_salida) from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where month(prestamolibro.fecha_salida) = '" & substring & "' group by day(fecha_salida)"
-                    consultar()
+            Chart_Prestamos.Series("Prestamos").Label = "Libros : " + "#VALY"
+            Chart_Prestamos.ChartAreas(0).AxisX.MajorGrid.Enabled = False
 
-                    substring = Date.Now.ToString("MM")
-                    mes()
+            '//////////////////////////////////////////////////////////////////////////////////////////////////
+            Select Case PrimerInicio
+                Case 1
 
-                    For Each item In ComboBox1.Items
+                    Try
+                        substring = Date.Now.ToString("MM")
+                        Consulta = "select count(prestamolibro.cod_libro) , day(prestamolibro.fecha_salida) from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where month(prestamolibro.fecha_salida) = '" & substring & "' group by day(fecha_salida)"
+                        consultar()
 
-                        If substring = item Then
-                            ComboBox1.SelectedIndex = ContadorMes
+                        substring = Date.Now.ToString("MM")
+                        mes()
+
+                        For Each item In ComboBox1.Items
+
+                            If substring = item Then
+                                ComboBox1.SelectedIndex = ContadorMes
+                            End If
+                            ContadorMes = ContadorMes + 1
+                        Next
+
+                        ContadorMes = 0
+
+                        ChartPrestamosDia.Series.Clear()
+                        ChartPrestamosDia.ChartAreas.Clear()
+
+                        ChartPrestamosDia.ChartAreas.Add("Prestamos Del Dia")
+                        ChartPrestamosDia.Series.Add("Prestamos Del Dia")
+
+                        For Each row As DataRow In Tabla.Rows
+
+                            ChartPrestamosDia.Series("Prestamos Del Dia").Points.AddXY(row("day(prestamolibro.fecha_salida)"), row("count(prestamolibro.cod_libro)"))
+                            ChartPrestamosDia.Series("Prestamos Del Dia").Points(ContadorDia).AxisLabel = "Dia : " + "#VALX"
+                            ContadorDia = ContadorDia + 1
+
+                        Next
+
+                        ChartPrestamosDia.Series("Prestamos Del Dia").Label = "Libros : " + "#VALY"
+
+                        ChartPrestamosDia.ChartAreas(0).AxisX.MajorGrid.Enabled = False
+                        PrimerInicio = 0
+
+                        ChartTOP.Series.Clear()
+                        ChartTOP.ChartAreas.Clear()
+
+                        ChartTOP.Series.Add("TOP")
+                        ChartTOP.ChartAreas.Add("TOP")
+
+                        Consulta = "select count(prestamolibro.cod_libro) , libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro group by prestamolibro.cod_libro limit 5"
+                        consultar()
+
+                        For Each row As DataRow In Tabla.Rows
+
+                            ChartTOP.Series("TOP").Points.AddXY(row("titulo"), row("count(prestamolibro.cod_libro)"))
+
+                        Next
+
+                    Catch ex As Exception
+
+                    End Try
+
+                Case 0
+
+                    Try
+                        substring = ComboBox1.SelectedItem
+                        mestonum()
+                        If substring.Substring(0, 1) = 0 Then
+                            substring.Remove(0)
                         End If
-                        ContadorMes = ContadorMes + 1
-                    Next
 
-                    ContadorMes = 0
+                        Consulta = "select count(prestamolibro.cod_libro) , day(prestamolibro.fecha_salida) from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where month(prestamolibro.fecha_salida) = '" & substring & "' group by day(fecha_salida)"
+                        consultar()
 
-                    ChartPrestamosDia.Series.Clear()
-                    ChartPrestamosDia.ChartAreas.Clear()
+                        ChartPrestamosDia.Series.Clear()
+                        ChartPrestamosDia.ChartAreas.Clear()
 
-                    ChartPrestamosDia.ChartAreas.Add("Prestamos Del Dia")
-                    ChartPrestamosDia.Series.Add("Prestamos Del Dia")
+                        ChartPrestamosDia.ChartAreas.Add("Prestamos Del Dia")
+                        ChartPrestamosDia.Series.Add("Prestamos Del Dia")
 
-                    For Each row As DataRow In Tabla.Rows
+                        Dim x As Integer = 0
+                        For Each row As DataRow In Tabla.Rows
 
-                        ChartPrestamosDia.Series("Prestamos Del Dia").Points.AddXY(row("day(prestamolibro.fecha_salida)"), row("count(prestamolibro.cod_libro)"))
-                        ChartPrestamosDia.Series("Prestamos Del Dia").Points(ContadorDia).AxisLabel = "Dia : " + "#VALX"
-                        ContadorDia = ContadorDia + 1
+                            ChartPrestamosDia.Series("Prestamos Del Dia").Points.AddXY(row("day(prestamolibro.fecha_salida)"), row("count(prestamolibro.cod_libro)"))
+                            ChartPrestamosDia.Series("Prestamos Del Dia").Points(x).AxisLabel = "Dia : " + "#VALX"
+                            x = x + 1
+                        Next
 
-                    Next
+                        ChartPrestamosDia.Series("Prestamos Del Dia").Label = "Libros : " + "#VALY"
 
-                    ChartPrestamosDia.Series("Prestamos Del Dia").Label = "Libros : " + "#VALY"
-
-                    ChartPrestamosDia.ChartAreas(0).AxisX.MajorGrid.Enabled = False
-                    'Chart_Prestamos.ChartAreas(0).AxisY.MajorGrid.Enabled = False 
-                    PrimerInicio = 0
-
-                    ChartTOP.Series.Clear()
-                    ChartTOP.ChartAreas.Clear()
-
-                    ChartTOP.Series.Add("TOP")
-                    ChartTOP.ChartAreas.Add("TOP")
-
-                    Consulta = "select count(prestamolibro.cod_libro) , libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro group by prestamolibro.cod_libro limit 5"
-                    consultar()
-
-                    For Each row As DataRow In Tabla.Rows
-
-                        ChartTOP.Series("TOP").Points.AddXY(row("titulo"), row("count(prestamolibro.cod_libro)"))
-
-                    Next
-
-                Catch ex As Exception
-
-                End Try
-
-            Case 0
-
-                Try
-                    substring = ComboBox1.SelectedItem
-                    mestonum()
-                    If substring.Substring(0, 1) = 0 Then
-                        substring.Remove(0)
-                    End If
-
-                    Consulta = "select count(prestamolibro.cod_libro) , day(prestamolibro.fecha_salida) from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where month(prestamolibro.fecha_salida) = '" & substring & "' group by day(fecha_salida)"
-                    consultar()
-
-                    ChartPrestamosDia.Series.Clear()
-                    ChartPrestamosDia.ChartAreas.Clear()
-
-                    ChartPrestamosDia.ChartAreas.Add("Prestamos Del Dia")
-                    ChartPrestamosDia.Series.Add("Prestamos Del Dia")
-
-                    Dim x As Integer = 0
-                    For Each row As DataRow In Tabla.Rows
-
-                        ChartPrestamosDia.Series("Prestamos Del Dia").Points.AddXY(row("day(prestamolibro.fecha_salida)"), row("count(prestamolibro.cod_libro)"))
-                        ChartPrestamosDia.Series("Prestamos Del Dia").Points(x).AxisLabel = "Dia : " + "#VALX"
-                        x = x + 1
-                    Next
-
-                    ChartPrestamosDia.Series("Prestamos Del Dia").Label = "Libros : " + "#VALY"
-
-                    ChartPrestamosDia.ChartAreas(0).AxisX.MajorGrid.Enabled = False
-                    'Chart_Prestamos.ChartAreas(0).AxisY.MajorGrid.Enabled = False
+                        ChartPrestamosDia.ChartAreas(0).AxisX.MajorGrid.Enabled = False
 
 
-                    ChartTOP.Series.Clear()
-                    ChartTOP.ChartAreas.Clear()
+                        ChartTOP.Series.Clear()
+                        ChartTOP.ChartAreas.Clear()
 
-                    ChartTOP.Series.Add("TOP")
-                    ChartTOP.ChartAreas.Add("TOP")
+                        ChartTOP.Series.Add("TOP")
+                        ChartTOP.ChartAreas.Add("TOP")
 
-                    Consulta = "select count(prestamolibro.cod_libro) , libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro group by prestamolibro.cod_libro limit 5"
-                    consultar()
+                        Consulta = "select count(prestamolibro.cod_libro) , libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro group by prestamolibro.cod_libro limit 5"
+                        consultar()
 
-                    For Each row As DataRow In Tabla.Rows
+                        For Each row As DataRow In Tabla.Rows
 
-                        ChartTOP.Series("TOP").Points.AddXY(row("titulo"), row("count(prestamolibro.cod_libro)"))
+                            ChartTOP.Series("TOP").Points.AddXY(row("titulo"), row("count(prestamolibro.cod_libro)"))
 
-                    Next
+                        Next
 
-                Catch ex As Exception
+                    Catch ex As Exception
 
-                End Try
+                    End Try
 
-        End Select
- 
+            End Select
 
+        End If
 
     End Sub
 
     Private Sub Timer_Prestamos_LIVE_Tick(sender As System.Object, e As System.EventArgs) Handles Timer_Prestamos_LIVE.Tick
-        If seleccionado = "Inicio" Then
-            Try
-                ListBox1.Items.Clear()
-                ListBox2.Items.Clear()
-                Consulta = "select prestamolibro.cod_libro , libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where fecha_entrada is null"
-                consultar()
-                For Each row As DataRow In Tabla.Rows
-                    ListBox1.Items.Add(row("titulo"))
-                    ListBox2.Items.Add(row("cod_libro"))
-                Next
-            Catch ex As Exception
-                MsgBox("Error Libros Prestados Timer")
-            End Try
-        Else
+
+        If ERROR1 = 2 Then ' SI HAY UN ERROR EN LA BASE NO VA A HACER NADA HASTA QUE SE RETOME LA CONEXIÒN
+            Timer_Prestamos_LIVE.Enabled = False
+        ElseIf ERROR1 = 0 Then
+
+            If seleccionado = "Inicio" Then
+                inicio()
+                Chart()
+                Timer_BD.Interval = 6000
+                Try
+                    ListBox1.Items.Clear()
+                    Consulta = "select prestamolibro.cod_libro , libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where fecha_entrada is null"
+                    consultar()
+                    For Each row As DataRow In Tabla.Rows
+
+                        ListBox1.Items.Add(row("cod_libro") & " " & row("titulo"))
+
+                    Next
+                Catch ex As Exception
+                    MsgBox("Error Libros Prestados Timer" & ex.ToString)
+                End Try
+            Else
+            End If
         End If
 
 
@@ -1787,7 +1852,14 @@ Public Class MENU3
     End Sub
 
     Private Sub Pbnube_MouseHover(sender As System.Object, e As System.EventArgs) Handles Pbnube.MouseHover
-        verificarBD()
+
+        Select Case BD_ONLINE
+            Case 1
+                ToolTip1.Show("Base de Datos ONLINE", Pbnube)
+            Case 0
+                ToolTip1.Show("Base de Datos LOCAL", Pbnube)
+        End Select
+
     End Sub
 
     Private Sub verificarBD()
@@ -1797,22 +1869,69 @@ Public Class MENU3
 
 
         If DataGridView1.Rows.Count() = 0 Then
-
             Pbnube.Image = Image.FromFile("imagenes\cloud-error.png")
-            ToolTip1.Show("Base de Datos LOCAL", Pbnube)
-
+            ConfiguraciònAdmin.Label_BDestadoTXT.Text = lblhora.Text
+            ConfiguraciònAdmin.Label_BaseDatosTXT.Text = "LOCAL"
+            BD_ONLINE = 0
         Else
             Pbnube.Image = Image.FromFile("imagenes\cloud.png")
-            ToolTip1.Show("Base de Datos ONLINE", Pbnube)
+            ConfiguraciònAdmin.Label_BDestadoTXT.Text = lblhora.Text
+            ConfiguraciònAdmin.Label_BaseDatosTXT.Text = "ONLINE"
+            BD_ONLINE = 1
+            If ERROR1 = 2 Then
+                Timer_BD.Interval = 10
+            End If
         End If
 
     End Sub
 
-    Private Sub ListBox2_MouseClick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles ListBox2.MouseClick
-        ListBox1.SelectedIndex = ListBox2.SelectedIndex
+    Private Sub Timer_BD_Tick(sender As System.Object, e As System.EventArgs) Handles Timer_BD.Tick
+
+        If ERROR1 = 2 Then
+            ERROR1 = 2
+            verificarBD()
+            Timer_Prestamos_LIVE.Enabled = False
+            ComboBox1.Enabled = False
+            ComboBox2.Enabled = False
+        ElseIf ERROR1 = 0 Then
+            verificarBD()
+            If seleccionado = "Inicio" Then
+                Timer_Prestamos_LIVE.Enabled = True
+            Else
+                Timer_Prestamos_LIVE.Enabled = False
+                Timer_BD.Interval = 6000
+            End If
+        End If
+
+    End Sub
+    Dim notasopen As Integer
+    Private Sub PictureBox2_Click_1(sender As System.Object, e As System.EventArgs) Handles PictureBox2.Click
+
+        For Each notas As Form In Application.OpenForms
+            If notas.Name = "Notas" Then
+                notasopen = 1
+            Else
+                notasopen = 0
+            End If
+        Next
+
+        If notasopen = 0 Then
+            NotasUsuario.Show()
+        End If
+
     End Sub
 
-    Private Sub ListBox1_MouseClick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles ListBox1.MouseClick
-        ListBox2.SelectedIndex = ListBox1.SelectedIndex
+    Private Sub PictureBox2_MouseEnter_1(sender As System.Object, e As System.EventArgs) Handles PictureBox2.MouseEnter
+        Me.Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub PictureBox2_MouseLeave_1(sender As System.Object, e As System.EventArgs) Handles PictureBox2.MouseLeave
+        Me.Cursor = Cursors.Default
+    End Sub
+    Private Sub Panel_Inicio_MouseLeave(sender As System.Object, e As System.EventArgs) Handles Panel_Inicio.MouseLeave
+        If seleccionado = "Inicio" Then
+        Else
+            Panel_Inicio.BackColor = Drawing.Color.Silver
+        End If
     End Sub
 End Class

@@ -35,17 +35,25 @@ Module Modulo
             Tabla = New DataTable
             Conexion.Fill(Tabla)
             MysqlConexion.Close()
+            If ERROR1 = 2 Then
+                MsgBox("ha vuelto la conexiòn", MsgBoxStyle.Information)
+                ERROR1 = 0
+            End If
+
         Catch ex As Exception
-            If (ex.Message.ToLowerInvariant().Contains("unable to connect")) Then
+            
+            If (ex.Message.ToLowerInvariant().Contains("unable to connect")) And ERROR1 = 0 Then
                 MsgBox("no hay conexion con la base de datos", MsgBoxStyle.OkOnly, "ERROR")
-                ERROR1 = 1
+                ERROR1 = 2
             ElseIf (ex.Message.ToLowerInvariant().Contains("duplicate entry")) Then
                 MsgBox("hay datos duplicados , verifique que los datos no esten ya ingresados en la plataforma", MsgBoxStyle.OkOnly, "ERROR")
                 ERROR1 = 1
-            Else
-                MsgBox(ex.ToString)
-                ERROR1 = 1
-     
+            ElseIf (ex.Message.ToLowerInvariant().Contains("unable to connect")) And ERROR1 = 2 Then
+            ElseIf ERROR1 <> 2 Then
+                If MsgBox("ha ocurrido un error desea verlo?", MsgBoxStyle.YesNo) = vbYes Then
+                    MsgBox(ex.ToString)
+                Else
+                End If
             End If
         End Try
 

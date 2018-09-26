@@ -31,9 +31,10 @@ Partial Class LOGIN
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Labels_transparentes3 = New Proyecto_Biblioteca.labels_transparentes()
         Me.Labels_transparentes2 = New Proyecto_Biblioteca.labels_transparentes()
         Me.Labels_transparentes1 = New Proyecto_Biblioteca.labels_transparentes()
-        Me.Labels_transparentes3 = New Proyecto_Biblioteca.labels_transparentes()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -112,9 +113,30 @@ Partial Class LOGIN
         Me.PictureBox2.TabIndex = 13
         Me.PictureBox2.TabStop = False
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(534, 313)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(126, 13)
+        Me.Label1.TabIndex = 17
+        Me.Label1.Text = "Olvide mi contraseña"
+        '
+        'Labels_transparentes3
+        '
+        Me.Labels_transparentes3.ForeColor = System.Drawing.Color.LightSeaGreen
+        Me.Labels_transparentes3.Location = New System.Drawing.Point(800, 307)
+        Me.Labels_transparentes3.Name = "Labels_transparentes3"
+        Me.Labels_transparentes3.Size = New System.Drawing.Size(140, 23)
+        Me.Labels_transparentes3.TabIndex = 15
+        Me.Labels_transparentes3.Text = "Ingresar como invitado"
+        '
         'Labels_transparentes2
         '
-        Me.Labels_transparentes2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Labels_transparentes2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Labels_transparentes2.ForeColor = System.Drawing.Color.White
         Me.Labels_transparentes2.Location = New System.Drawing.Point(407, 278)
         Me.Labels_transparentes2.Name = "Labels_transparentes2"
@@ -124,22 +146,13 @@ Partial Class LOGIN
         '
         'Labels_transparentes1
         '
-        Me.Labels_transparentes1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Labels_transparentes1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Labels_transparentes1.ForeColor = System.Drawing.Color.White
         Me.Labels_transparentes1.Location = New System.Drawing.Point(407, 236)
         Me.Labels_transparentes1.Name = "Labels_transparentes1"
         Me.Labels_transparentes1.Size = New System.Drawing.Size(63, 23)
         Me.Labels_transparentes1.TabIndex = 11
         Me.Labels_transparentes1.Text = "Cedula"
-        '
-        'Labels_transparentes3
-        '
-        Me.Labels_transparentes3.ForeColor = System.Drawing.Color.LightSeaGreen
-        Me.Labels_transparentes3.Location = New System.Drawing.Point(540, 318)
-        Me.Labels_transparentes3.Name = "Labels_transparentes3"
-        Me.Labels_transparentes3.Size = New System.Drawing.Size(140, 23)
-        Me.Labels_transparentes3.TabIndex = 15
-        Me.Labels_transparentes3.Text = "Ingresar como invitado"
         '
         'LOGIN
         '
@@ -148,6 +161,7 @@ Partial Class LOGIN
         Me.BackgroundImage = Global.Proyecto_Biblioteca.My.Resources.Resources.Sin_título_1
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(973, 562)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Labels_transparentes3)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.Labels_transparentes2)
@@ -181,4 +195,5 @@ Partial Class LOGIN
     Friend WithEvents Labels_transparentes2 As Proyecto_Biblioteca.labels_transparentes
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
     Friend WithEvents Labels_transparentes3 As Proyecto_Biblioteca.labels_transparentes
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 End Class

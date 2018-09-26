@@ -18,6 +18,7 @@
 
     '////////////////////////////////CUANDO SE CARGA EL FORUMLARO/////////////////////////////////
     Private Sub Form4_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Button6.Visible = False
         DataGridParaDevolucion.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill ' ajusta las columnas al tamaño del datagrid
         '/////////////////////////////////////////////GRUPBOX OCULTOS////////////////////
         ExtCombo.Visible = False
@@ -78,10 +79,12 @@
                 '////////////////////////////////
                 If Es_moroso = vbYes Then
 
-                    Consulta = "update usuarios set (moroso = 0) where cedula = '" & Cedula.Text & "';"
+                    Consulta = "update usuarios set moroso = 0 where cedula = '" & Cedula.Text & "';"
                     consultar()
 
                     MsgBox("El socios " & NOMBRE.Text & " esta libre ahora", Title:="PRESTAMOS")
+                    ButtonMoroso.Visible = True
+                    ButtonLiberar.Visible = False
                 Else
                     MsgBox("No se encontraron los datos", Title:="PRESTAMOS")
                 End If
@@ -130,10 +133,14 @@
                 '////////////////////////////////
                 If Es_moroso2 = vbYes Then
 
-                    Consulta = "update usuarios set (moroso = 1) where cedula = '" & Cedula.Text & "';"
+                    Consulta = "update usuarios set moroso = 1 , fecha_moroso = '" & Date.Now.ToString("yyyy-MM-dd") & "' where cedula = '" & Cedula.Text & "';"
                     consultar()
+                    If ERROR1 = 0 Then
+                        MsgBox("El socios " & NOMBRE.Text & " es moroso ahora", Title:="PRESTAMOS")
+                        ButtonMoroso.Visible = False
+                        ButtonLiberar.Visible = True
+                    End If
 
-                    MsgBox("El socios " & NOMBRE.Text & " es moroso ahora", Title:="PRESTAMOS")
                 Else
                     MsgBox("No se encontraron los datos", Title:="PRESTAMOS")
                 End If
@@ -193,6 +200,7 @@
             BotonParaBuscarCedula.Visible = True
             Cedula.Clear()
             MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
+            Button6.Visible = False
             '/////////////////////////////////////////////////////////////////////////////////////////////////////////
         Else
 
@@ -222,17 +230,19 @@
                 BotonParaBuscarCedula.Visible = True
                 Cedula.Clear()
                 MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
+                Button6.Visible = False
                 '/////////////////////////////////////////////////////////////////////////////////////////////////////////
             Else
 
 
-
-                Consulta = "select cedula , nombre , tipo from usuarios where cedula like '" & Cedula.Text & "'"
+                Consulta = "select cedula , nombre , tipo , moroso from usuarios where cedula like '" & Cedula.Text & "'"
                 consultar()
+
+
                 Try
                     For Each row As DataRow In Tabla.Rows
                         NOMBRE.Text = row("nombre")
-                        Label12.Text = row("tipo")
+                        Label12.Text = row("moroso")
                     Next
                 Catch ex As Exception
                     MsgBox(ex.ToString)
@@ -241,7 +251,7 @@
                 '/////////////////////////////////////////////////////////////////////////////////////////////
                 '////////////////////////////////Muestra los picturebox y la interfaz de las funciones///////////////////////
                 '/////////////////////////////////////////////////////////////////////////////////////////////
-
+                Button6.Visible = True
                 LabelSELECCION_DE_FUNCION.Visible = True
                 ExtCombo.Visible = False
                 devoCOMBO.Visible = False
@@ -263,7 +273,7 @@
                 ButtonEditarCedula.Visible = True
                 BotonParaBuscarCedula.Visible = False
 
-                If Label12.Text = 2 Then
+                If Label12.Text = 1 Then
                     ButtonLiberar.Visible = True
                 ElseIf Label12.Text = 0 Then
                     ButtonMoroso.Visible = True
@@ -306,6 +316,7 @@
                 BotonParaBuscarCedula.Visible = True
                 Cedula.Clear()
                 MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
+                Button6.Visible = False
                 '/////////////////////////////////////////////////////////////////////////////////////////////////////////
             Else
 
@@ -335,15 +346,16 @@
                     BotonParaBuscarCedula.Visible = True
                     Cedula.Clear()
                     MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
+                    Button6.Visible = False
                     '/////////////////////////////////////////////////////////////////////////////////////////////////////////
                 Else
-
-                    Consulta = "select cedula , nombre , tipo from usuarios where cedula like '" & Cedula.Text & "'"
+                    Button6.Visible = True
+                    Consulta = "select cedula , nombre , tipo , moroso from usuarios where cedula like '" & Cedula.Text & "'"
                     consultar()
                     Try
                         For Each row As DataRow In Tabla.Rows
                             NOMBRE.Text = row("nombre")
-                            Label12.Text = row("tipo")
+                            Label12.Text = row("moroso")
                         Next
                     Catch ex As Exception
                         MsgBox(ex.ToString)
@@ -374,7 +386,7 @@
                     ButtonEditarCedula.Visible = True
                     BotonParaBuscarCedula.Visible = False
 
-                    If Label12.Text = 2 Then
+                    If Label12.Text = 1 Then
                         ButtonLiberar.Visible = True
                     ElseIf Label12.Text = 0 Then
                         ButtonMoroso.Visible = True
@@ -413,6 +425,7 @@
             ButtonEditarCedula.Visible = False
             BotonParaBuscarCedula.Visible = True
             Cedula.Clear()
+            Button6.Visible = False
         End If
     End Sub
 
@@ -1238,13 +1251,5 @@
         FichaSocio.FichaCedulaSocio = Cedula.Text
         FichaSocio.Show()
     End Sub
-
-
-
-
-    Private Sub Button7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button7.Click
-        Notas.Show()
-    End Sub
-
 
 End Class

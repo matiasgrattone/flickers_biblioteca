@@ -1,4 +1,4 @@
-﻿Public Class Notas
+﻿Public Class NotasUsuario
 
     Dim RecordatorioValor As Integer
     Dim modo As String
