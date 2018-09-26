@@ -56,20 +56,25 @@ Partial Class Notas
         Me.TextoParaRecordar2 = New System.Windows.Forms.TextBox()
         Me.Recordatorio2 = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.fecha = New System.Windows.Forms.Label()
         Me.EliminarRecordatorio = New System.Windows.Forms.Button()
         Me.Fecha1 = New System.Windows.Forms.Label()
         Me.CrearRecordatorio = New System.Windows.Forms.Button()
         Me.TextoParaRecordar1 = New System.Windows.Forms.TextBox()
         Me.Recordatorio1 = New System.Windows.Forms.Label()
         Me.TextOculto = New System.Windows.Forms.TextBox()
+        Me.fecha = New System.Windows.Forms.Label()
         Me.RECORDATORIOS = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.PanelNotas = New System.Windows.Forms.Panel()
+        Me.DataGridViewParaVerNotasDisponibles = New System.Windows.Forms.DataGridView()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel4.SuspendLayout()
+        Me.PanelNotas.SuspendLayout()
+        CType(Me.DataGridViewParaVerNotasDisponibles, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -122,25 +127,25 @@ Partial Class Notas
         'NuevoToolStripMenuItem
         '
         Me.NuevoToolStripMenuItem.Name = "NuevoToolStripMenuItem"
-        Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.NuevoToolStripMenuItem.Text = "Nuevo"
         '
         'AbrirToolStripMenuItem
         '
         Me.AbrirToolStripMenuItem.Name = "AbrirToolStripMenuItem"
-        Me.AbrirToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.AbrirToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.AbrirToolStripMenuItem.Text = "Abrir"
         '
         'GuardarComoToolStripMenuItem
         '
         Me.GuardarComoToolStripMenuItem.Name = "GuardarComoToolStripMenuItem"
-        Me.GuardarComoToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.GuardarComoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.GuardarComoToolStripMenuItem.Text = "Guardar como"
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(147, 6)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(149, 6)
         '
         'EditarToolStripMenuItem
         '
@@ -336,15 +341,6 @@ Partial Class Notas
         Me.Panel4.Size = New System.Drawing.Size(416, 193)
         Me.Panel4.TabIndex = 4
         '
-        'fecha
-        '
-        Me.fecha.AutoSize = True
-        Me.fecha.Location = New System.Drawing.Point(229, 65)
-        Me.fecha.Name = "fecha"
-        Me.fecha.Size = New System.Drawing.Size(10, 13)
-        Me.fecha.TabIndex = 6
-        Me.fecha.Text = " "
-        '
         'EliminarRecordatorio
         '
         Me.EliminarRecordatorio.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -398,6 +394,15 @@ Partial Class Notas
         Me.TextOculto.Size = New System.Drawing.Size(100, 20)
         Me.TextOculto.TabIndex = 8
         '
+        'fecha
+        '
+        Me.fecha.AutoSize = True
+        Me.fecha.Location = New System.Drawing.Point(229, 65)
+        Me.fecha.Name = "fecha"
+        Me.fecha.Size = New System.Drawing.Size(10, 13)
+        Me.fecha.TabIndex = 6
+        Me.fecha.Text = " "
+        '
         'RECORDATORIOS
         '
         Me.RECORDATORIOS.AutoSize = True
@@ -413,12 +418,41 @@ Partial Class Notas
         '
         Me.Timer1.Enabled = True
         '
+        'PanelNotas
+        '
+        Me.PanelNotas.Controls.Add(Me.DataGridViewParaVerNotasDisponibles)
+        Me.PanelNotas.Controls.Add(Me.Label1)
+        Me.PanelNotas.Location = New System.Drawing.Point(839, 0)
+        Me.PanelNotas.Name = "PanelNotas"
+        Me.PanelNotas.Size = New System.Drawing.Size(200, 305)
+        Me.PanelNotas.TabIndex = 3
+        '
+        'DataGridViewParaVerNotasDisponibles
+        '
+        Me.DataGridViewParaVerNotasDisponibles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridViewParaVerNotasDisponibles.Location = New System.Drawing.Point(9, 29)
+        Me.DataGridViewParaVerNotasDisponibles.Name = "DataGridViewParaVerNotasDisponibles"
+        Me.DataGridViewParaVerNotasDisponibles.ReadOnly = True
+        Me.DataGridViewParaVerNotasDisponibles.Size = New System.Drawing.Size(182, 268)
+        Me.DataGridViewParaVerNotasDisponibles.TabIndex = 1
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(12, 8)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(147, 15)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "NOTAS DISPONIBLES"
+        '
         'Notas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.ClientSize = New System.Drawing.Size(1045, 608)
+        Me.Controls.Add(Me.PanelNotas)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.RECORDATORIOS)
         Me.Controls.Add(Me.Panel2)
@@ -438,6 +472,9 @@ Partial Class Notas
         Me.Panel2.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
+        Me.PanelNotas.ResumeLayout(False)
+        Me.PanelNotas.PerformLayout()
+        CType(Me.DataGridViewParaVerNotasDisponibles, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -484,4 +521,7 @@ Partial Class Notas
     Friend WithEvents TextOculto As System.Windows.Forms.TextBox
     Friend WithEvents fecha As System.Windows.Forms.Label
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents PanelNotas As System.Windows.Forms.Panel
+    Friend WithEvents DataGridViewParaVerNotasDisponibles As System.Windows.Forms.DataGridView
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 End Class

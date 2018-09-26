@@ -1,8 +1,17 @@
 ﻿Public Class Notas
 
+    Dim RecordatorioValor As Integer
+    Dim modo As String
+    Dim RutaDeGuardadoDeNotas As String = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\DATOS\Notas" 'Ruta en la que se guardarán las imágenes cargadas: "Documentos\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\DATOS\Notas"
     Private Sub Notas_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
+        Consulta = "Select NombreNota, texto from notas where cedula= '" + MENU3.Cedula.Text + "'"
+        consultar()
 
+        DataGridViewParaVerNotasDisponibles.DataSource = Tabla
+        DataGridViewParaVerNotasDisponibles.Columns(1).Visible = False
+
+        My.Computer.FileSystem.CreateDirectory(RutaDeGuardadoDeNotas) 'Crea la carpeta "Notas" en la ruta especificada si esta no existe
 
 
         Dim Ubicacion1 As String = vbNull
@@ -40,23 +49,52 @@
         Else
 
             If Ubicacion1 <> "" Then
-                Dim Recordatorio1 As System.IO.StreamReader = New System.IO.StreamReader(Ubicacion1, System.Text.Encoding.[Default])
-                TextoParaRecordar1.Text = Recordatorio1.ReadToEnd() 'Igualamos la variable "Texto" ah a el contenido del archivo con el comando ReadToEnd del archivo que ya buscamos con anterioridad con la variable "Ubicacion" 
-                Recordatorio1.Close()
+                Try
+                    Dim Recordatorio1 As System.IO.StreamReader = New System.IO.StreamReader(Ubicacion1, System.Text.Encoding.[Default])
+                    TextoParaRecordar1.Text = Recordatorio1.ReadToEnd() 'Igualamos la variable "Texto" ah a el contenido del archivo con el comando ReadToEnd del archivo que ya buscamos con anterioridad con la variable "Ubicacion" 
+                    Recordatorio1.Close()
+                Catch ex As Exception
+                    Dim ms As String
+                    ms = MsgBox("La nota que se desea recordar ya no se encuntra, desea dejar de recordarlas? ", MsgBoxStyle.YesNoCancel, Title:="Notas")
+                    If ms = vbYes Then
+                        Consulta = "DELETE FROM notas WHERE cedula = '" & MENU3.Cedula.Text & "' and recordar = 1"
+                        consultar()
+                    End If
+                End Try
+
+
 
                 '////////Igualamos El textbox1 a el contenido de la variabe "Texto"
             End If
             If Ubicacion2 <> "" Then
-                Dim Recordatorio2 As System.IO.StreamReader = New System.IO.StreamReader(Ubicacion2, System.Text.Encoding.[Default])
-                TextoParaRecordar2.Text = Recordatorio2.ReadToEnd() 'Igualamos la variable "Texto" ah a el contenido del archivo con el comando ReadToEnd del archivo que ya buscamos con anterioridad con la variable "Ubicacion" 
-                Recordatorio2.Close()
+                Try
+                    Dim Recordatorio2 As System.IO.StreamReader = New System.IO.StreamReader(Ubicacion2, System.Text.Encoding.[Default])
+                    TextoParaRecordar2.Text = Recordatorio2.ReadToEnd() 'Igualamos la variable "Texto" ah a el contenido del archivo con el comando ReadToEnd del archivo que ya buscamos con anterioridad con la variable "Ubicacion" 
+                    Recordatorio2.Close()
+                Catch ex As Exception
+                    Dim ms As String
+                    ms = MsgBox("La nota que se desea recordar ya no se encuntra, desea dejar de recordarlas? ", MsgBoxStyle.YesNoCancel, Title:="Notas")
+                    If ms = vbYes Then
+                        Consulta = "DELETE FROM notas WHERE cedula = '" & MENU3.Cedula.Text & "' and recordar = 2"
+                        consultar()
+                    End If
+                End Try
 
                 '////////Igualamos El textbox1 a el contenido de la variabe "Texto"
             End If
             If Ubicacion3 <> "" Then
-                Dim Recordatorio3 As System.IO.StreamReader = New System.IO.StreamReader(Ubicacion3, System.Text.Encoding.[Default])
-                TextoParaRecordar3.Text = Recordatorio3.ReadToEnd() 'Igualamos la variable "Texto" ah a el contenido del archivo con el comando ReadToEnd del archivo que ya buscamos con anterioridad con la variable "Ubicacion" 
-                Recordatorio3.Close()
+                Try
+                    Dim Recordatorio3 As System.IO.StreamReader = New System.IO.StreamReader(Ubicacion3, System.Text.Encoding.[Default])
+                    TextoParaRecordar3.Text = Recordatorio3.ReadToEnd() 'Igualamos la variable "Texto" ah a el contenido del archivo con el comando ReadToEnd del archivo que ya buscamos con anterioridad con la variable "Ubicacion" 
+                    Recordatorio3.Close()
+                Catch ex As Exception
+                    Dim ms As String
+                    ms = MsgBox("La nota que se desea recordar ya no se encuntra, desea dejar de recordarlas? ", MsgBoxStyle.YesNoCancel, Title:="Notas")
+                    If ms = vbYes Then
+                        Consulta = "DELETE FROM notas WHERE cedula = '" & MENU3.Cedula.Text & "' and recordar = 3"
+                        consultar()
+                    End If
+                End Try
 
                 '////////Igualamos El textbox1 a el contenido de la variabe "Texto"
             End If
@@ -72,46 +110,32 @@
     End Sub
 
     Private Sub AbrirToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AbrirToolStripMenuItem.Click
-        '////////Creamos las variables con teminalidad OpenFile Y StreamReader
-        Dim AbrirArchivo As New OpenFileDialog() 'Para abrir el menu para busar el archivo
-        Dim myStreamReader As System.IO.StreamReader 'Para leer el contenido del archivo 
+        PanelNotas.Top = 0
+        modo = "Abrir"
 
-        '////////Se abre una ventana para poder busar el archivo que quieras (Un .txt)
-        AbrirArchivo.Filter = "Text [*.txt*]|*.txt|All Files [*,*]|*,*"
-        AbrirArchivo.CheckFileExists = True
-        AbrirArchivo.Title = "Abrir Archivo" 'Titulo de la ventana 
-        AbrirArchivo.ShowDialog(Me)
-        Try
-
-            AbrirArchivo.OpenFile() 'Abrimos le archivo seleccionado con anterioridad
-            myStreamReader = System.IO.File.OpenText(AbrirArchivo.FileName) 'Pasamos el contenido del archivo de texto para poder pasarlo al textbox
-            EditorDeTexto.Text = myStreamReader.ReadToEnd() 'Igualamos el ontenido del archivo al EditorDeTexto
-
-        Catch ex As Exception
-
-        End Try
     End Sub
 
     Private Sub GuardarComoToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GuardarComoToolStripMenuItem.Click
 
-        '////////Creamos las variables con teminalidad SaveFileDialogo Y StreamWiter
+        Dim NombreDelArchivo As String
+        Dim Intru As Object
+        Dim Archivo As Object
 
-        Dim GuardarArchivo As New SaveFileDialog()  'Para poder guardar el contenido del archivo en un .txt
-        Dim myStreamWriter As System.IO.StreamWriter  'Para poder guardar el texto en el archivoen un .txt
+        NombreDelArchivo = InputBox("Ingrese el nombre de su nota", Title:="Notas")
+        NombreDelArchivo = NombreDelArchivo + ".txt"
+        If NombreDelArchivo = vbCancel Then
+            Intru = CreateObject("Scripting.FileSystemObject")
+            Archivo = Intru.CreateTextFile((Environment.SpecialFolder.MyDocuments) + ":\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\DATOS\Notas\'" + NombreDelArchivo + "'", True)
+            Archivo.WriteLine(EditorDeTexto.Text)
+            Archivo.Close()
 
-        '////////Se abre una ventana para poder busar el archivo que quieras (Un .txt)
-        GuardarArchivo.Filter = "Text (*.txt)|*.txt|HTML(*.html*)|*.html|PHP(*.php*)|*.php*|All files(*.*)|*.*"
-        GuardarArchivo.CheckPathExists = True
-        GuardarArchivo.Title = "Guardar como"   'Titulo de la ventana 
-        GuardarArchivo.ShowDialog(Me)
-        Try
-            myStreamWriter = System.IO.File.AppendText(GuardarArchivo.FileName) 'Guardarmos el archivo con el nombre deseado
-            myStreamWriter.Write(EditorDeTexto.Text) 'Guarda el contenido del archivo 
-            myStreamWriter.Flush()
 
-        Catch ex As Exception
+        Else
 
-        End Try
+        End If
+
+
+
     End Sub
 
     Private Sub CortarToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CortarToolStripMenuItem.Click
@@ -171,122 +195,51 @@
 
     '/////////////////////CREAR RECORDATORIOS////////////////////////////
 
-
+    Dim NombreDeLaNotaParaRecordar As String
     Private Sub CrearRecordatorio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CrearRecordatorio.Click
 
-        Dim Ubicacion As String
         Dim A As String
-        '////////Creamos las variables con teminalidad OpenFile
-        Dim AbrirArchivo As New OpenFileDialog() 'Para abrir el menu para busar el archivo 
 
-        '////////// Msgbox que se comunica con el funcionario para saber si! Si o no quiere recordar alguna nota ya creada 
         If TextoParaRecordar1.Text = "" Then
             A = MsgBox("Desea recordar alguna nota ?", MsgBoxStyle.YesNoCancel, Title:="NOTAS")
             If A = vbYes Then
-
-
-                '////////Se abre una ventana para poder busar el archivo que quieras (Un .txt)
-                AbrirArchivo.Filter = "Text [*.txt*]|*.txt|All Files [*,*]|*,*"
-                AbrirArchivo.CheckFileExists = True
-                AbrirArchivo.Title = "Seleccione el archivo que desea recordar" 'Titulo de la ventana 
-                AbrirArchivo.ShowDialog(Me)
-
-
-                Ubicacion = AbrirArchivo.FileName 'Igualamos la variable Ubicacion a la URL del archivo 
-                TextOculto.Text = Ubicacion
-
-                Dim a1 As String
-                a1 = TextOculto.Text
-
-
-
-                If (a1.Contains("\")) Then 'Detectamos si la variable tiene una barrita  
-                    a1 = Replace(a1, "\", "\\") 'Remplazamos la barrita por 2  
-                End If
-
-                Consulta = "Insert into notas (cod_texto ,texto, cedula, recordar, fecha) VALUES ('1','" & a1 & "', '" & MENU3.Cedula.Text & "', '1','" & Date.Now.ToString("yyyy-MM-dd") & "')" 'Guardamos en la base de datos 
-                consultar()
+                modo = "recordar"
+                PanelNotas.Top = 0
+                RecordatorioValor = 1
             End If
-
         End If
-        ActualizarNotas()
+
     End Sub
 
     Private Sub CrearRecordatorio2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CrearRecordatorio2.Click
-        Dim Ubicacion As String
-        Dim A As String
-        '////////Creamos las variables con teminalidad OpenFile
-        Dim AbrirArchivo As New OpenFileDialog() 'Para abrir el menu para busar el archivo 
 
-        '////////// Msgbox que se comunica con el funcionario para saber si! Si o no quiere recordar alguna nota ya creada 
+        Dim A As String
+
         If TextoParaRecordar2.Text = "" Then
             A = MsgBox("Desea recordar alguna nota ?", MsgBoxStyle.YesNoCancel, Title:="NOTAS")
             If A = vbYes Then
-
-
-                '////////Se abre una ventana para poder busar el archivo que quieras (Un .txt)
-                AbrirArchivo.Filter = "Text [*.txt*]|*.txt|All Files [*,*]|*,*"
-                AbrirArchivo.CheckFileExists = True
-                AbrirArchivo.Title = "Seleccione el archivo que desea recordar" 'Titulo de la ventana 
-                AbrirArchivo.ShowDialog(Me)
-
-
-                Ubicacion = AbrirArchivo.FileName 'Igualamos la variable Ubicacion a la URL del archivo 
-                TextOculto.Text = Ubicacion
-
-                Dim a1 As String
-                a1 = TextOculto.Text
-
-
-
-                If (a1.Contains("\")) Then 'Detectamos si la variable tiene una barrita  
-                    a1 = Replace(a1, "\", "\\") 'Remplazamos la barrita por 2  
-                End If
-
-                Consulta = "Insert into notas (cod_texto ,texto, cedula, recordar,fecha) VALUES ('2','" & a1 & "', '" & MENU3.Cedula.Text & "', '2', '" & Date.Now.ToString("yyyy-MM-dd") & "')" 'Guardamos en la base de datos 
-                consultar()
-
+                modo = "recordar"
+                PanelNotas.Top = 0
+                RecordatorioValor = 2
             End If
         End If
-        ActualizarNotas()
+
     End Sub
 
     Private Sub CrearRecordatorio3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CrearRecordatorio3.Click
-        Dim Ubicacion As String
-        Dim A As String
-        '////////Creamos las variables con teminalidad OpenFile
-        Dim AbrirArchivo As New OpenFileDialog() 'Para abrir el menu para busar el archivo 
 
-        '////////// Msgbox que se comunica con el funcionario para saber si! Si o no quiere recordar alguna nota ya creada 
+        Dim A As String
+
         If TextoParaRecordar3.Text = "" Then
             A = MsgBox("Desea recordar alguna nota ?", MsgBoxStyle.YesNoCancel, Title:="NOTAS")
             If A = vbYes Then
-
-
-                '////////Se abre una ventana para poder busar el archivo que quieras (Un .txt)
-                AbrirArchivo.Filter = "Text [*.txt*]|*.txt|All Files [*,*]|*,*"
-                AbrirArchivo.CheckFileExists = True
-                AbrirArchivo.Title = "Seleccione el archivo que desea recordar" 'Titulo de la ventana 
-                AbrirArchivo.ShowDialog(Me)
-
-
-                Ubicacion = AbrirArchivo.FileName 'Igualamos la variable Ubicacion a la URL del archivo 
-                TextOculto.Text = Ubicacion
-
-                Dim a1 As String
-                a1 = TextOculto.Text
-
-
-
-                If (a1.Contains("\")) Then 'Detectamos si la variable tiene una barrita  
-                    a1 = Replace(a1, "\", "\\") 'Remplazamos la barrita por 2  
-                End If
-
-                Consulta = "Insert into notas (cod_texto ,texto, cedula, recordar,fecha) VALUES ('3','" & a1 & "', '" & MENU3.Cedula.Text & "', '3','" & Date.Now.ToString("yyyy-MM-dd") & "')" 'Guardamos en la base de datos 
-                consultar()
+                modo = "recordar"
+                PanelNotas.Top = 0
+                RecordatorioValor = 3
             End If
         End If
-        ActualizarNotas()
+
+
     End Sub
 
 
@@ -390,7 +343,39 @@
     End Sub
     '//////////////////////////FUNCION////////////////////////////////
 
-    Private Sub CrearRecordatorio_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CrearRecordatorio.Click
+    Private Sub DataGridViewParaVerNotasDisponibles_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridViewParaVerNotasDisponibles.CellDoubleClick
+        If modo = "recordar" Then
+            Dim a As String
+            Dim Ubicacion As String
+            NombreDeLaNotaParaRecordar = DataGridViewParaVerNotasDisponibles.Item(0, DataGridViewParaVerNotasDisponibles.CurrentRow.Index).Value
+            Ubicacion = DataGridViewParaVerNotasDisponibles.Item(1, DataGridViewParaVerNotasDisponibles.CurrentRow.Index).Value
+            a = MsgBox("Desea recordar la nota " + NombreDeLaNotaParaRecordar + "?", MsgBoxStyle.YesNoCancel, Title:="Recordatorios")
+            If a = vbYes Then
 
+                If (Ubicacion.Contains("\")) Then 'Detectamos si la variable tiene una barrita  
+                    Ubicacion = Replace(Ubicacion, "\", "\\") 'Remplazamos la barrita por 2  
+                End If
+
+                Consulta = "UPDATE notas SET recordar = '" + RecordatorioValor + "' WHERE cedula = '" & MENU3.Cedula.Text & "' and texto ='" + Ubicacion + "';"
+                consultar()
+            End If
+            ActualizarNotas()
+        End If
+
+        If modo = "Abrir" Then
+            Try
+                Dim Ubicacion As String
+                Ubicacion = DataGridViewParaVerNotasDisponibles.Item(1, DataGridViewParaVerNotasDisponibles.CurrentRow.Index).Value
+
+                Dim Recordatorio2 As System.IO.StreamReader = New System.IO.StreamReader(Ubicacion, System.Text.Encoding.[Default])
+                EditorDeTexto.Text = Recordatorio2.ReadToEnd() 'Igualamos la variable "Texto" ah a el contenido del archivo con el comando ReadToEnd del archivo que ya buscamos con anterioridad con la variable "Ubicacion" 
+                Recordatorio2.Close()
+
+            Catch ex As Exception
+
+            End Try
+        End If
     End Sub
+
+
 End Class
