@@ -193,6 +193,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property coat_of_arms_of_salto__uruguay__KLV_icon() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("coat_of_arms_of_salto__uruguay__KLV_icon", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property crear_reserva() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("crear_reserva", resourceCulture)

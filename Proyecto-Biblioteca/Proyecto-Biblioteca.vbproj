@@ -111,6 +111,12 @@
     <Compile Include="Betas\IngresoRevistas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Clases\CircleProgressBar.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Clases\PictureboxBordesRedondos.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Inicio UsuariosV2.Designer.vb">
       <DependentUpon>Inicio UsuariosV2.vb</DependentUpon>
     </Compile>
@@ -166,6 +172,12 @@
       <DependentUpon>buscarlibro.vb</DependentUpon>
     </Compile>
     <Compile Include="buscarlibro.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PantallaDeBloqueo.Designer.vb">
+      <DependentUpon>PantallaDeBloqueo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PantallaDeBloqueo.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Prestamos.Designer.vb">
@@ -270,6 +282,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="buscarlibro.resx">
       <DependentUpon>buscarlibro.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PantallaDeBloqueo.resx">
+      <DependentUpon>PantallaDeBloqueo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Prestamos.resx">
       <DependentUpon>Prestamos.vb</DependentUpon>
@@ -380,6 +395,7 @@
     <None Include="Resources\minimize.png" />
     <None Include="Resources\icon.png" />
     <None Include="Resources\gmail-logo.png" />
+    <None Include="bin\Debug\imagenes\coat_of_arms_of_salto__uruguay__KLV_icon.ico" />
     <Content Include="Resources\navigator.png" />
     <None Include="Resources\Sin título-1.jpg" />
     <None Include="Resources\reading.png" />

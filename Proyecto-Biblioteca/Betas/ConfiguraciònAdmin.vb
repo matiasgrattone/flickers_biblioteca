@@ -1,23 +1,27 @@
-﻿Public Class ConfiguraciònAdmin
+﻿Public Class ConfigAdmin
+    Dim a As Integer
+    Public xco, yco As Integer
+    Dim resultx, resulty As Integer
+    Dim xc, yc As Integer
+    Dim xf, yf As Integer
+    Dim holax, holay As Integer
 
-    Dim ced_ingresar As Integer = Nothing
-    Dim nom_ingresar As String = Nothing
-    Dim ape_ingresar As String = Nothing
-    Dim tel_ingresar As Integer = Nothing
-    Dim dir_ingresar As String = Nothing
-    Dim tipo_ingresar As Integer = Nothing
-    Dim pass_ingresar As String = Nothing
-    Dim cont_ingresar As String = Nothing
-    Dim i_ingresar As Integer = 0 ' Variable bandera para avisar que existe un error
-    Dim MsgStyle As MsgBoxStyle
+    Dim ced_ingresar As Integer
+    Dim nom_ingresar As String
+    Dim ape_ingresar As String
+    Dim tel_ingresar As Integer
+    Dim dir_ingresar As String
+    Dim tipo_ingresar As Integer
+    Dim pass_ingresar As String
+    Dim cont_ingresar As String
+
+    Dim i_ingresar As Integer ' Variable bandera para avisar que existe un error
 
     Dim dia_ingresar As String
     Dim mes_ingresar As String
     Dim año_ingresar As String
 
-    Dim styleMSG_datagrid As MsgBoxStyle = MsgBoxStyle.YesNo + MsgBoxStyle.Question
-    Dim styleMSGOK_datagrid As MsgBoxStyle = MsgBoxStyle.OkOnly + MsgBoxStyle.Question
-    Dim confirmacion As String = 0
+    Dim confirmacion As String
     Dim cedulaAdmin As String
     Dim cedulaUser As String
     Private Sub listboxcarga()
@@ -48,14 +52,17 @@
         'Administrador 0
         'Funcionarios 1
         'Socios 2
+        a = 0
 
+        xf = Me.Location.X
+        yf = Me.Location.Y
 
         Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where estado='1' and tipo = '1'"
         consultar()
-        dgv_buscar.DataSource = Tabla
-        DatagridModulo = dgv_buscar
+        DataGridView1.DataSource = Tabla
+        DatagridModulo = DataGridView1
         Datagrid_Align()
-        dgv_buscar.Columns.Item("Tipo").Visible = False
+        DataGridView1.Columns.Item("Tipo").Visible = False
 
         listboxcarga()
 
@@ -129,7 +136,7 @@
         End If
     End Sub
 
-    Private Sub btn_guardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub btn_guardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         i_ingresar = 0
 
         If LTrim$(nombre_txt.Text) = "" Then ' Verifica si esta vacio nombre
@@ -220,18 +227,18 @@
                 consultar()
                 Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where estado='1' and tipo='0'"
                 consultar()
-                dgv_buscar.DataSource = Tabla
+                DataGridView1.DataSource = Tabla
 
                 If ERROR1 = 1 Then
 
-                    MsgStyle = MsgBoxStyle.Information + MsgBoxStyle.OkOnly
-                    MsgBox("Error al agregar usuario", MsgStyle, Title:="Biblioteca")
+
+                    MsgBox("Error al agregar usuario", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, Title:="Biblioteca")
                     ERROR1 = 0
 
                 Else
 
-                    MsgStyle = MsgBoxStyle.Information + MsgBoxStyle.OkOnly
-                    MsgBox("Usuario agregado con exito", MsgStyle, Title:="Biblioteca")
+
+                    MsgBox("Usuario agregado con exito", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, Title:="Biblioteca")
                     ERROR1 = 0
 
                 End If
@@ -259,14 +266,14 @@
 
         Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where nombre like '" & buscar_txt.Text & "%' and estado='1' and tipo = '1'"
         consultar()
-        dgv_buscar.DataSource = Tabla
+        DataGridView1.DataSource = Tabla
 
     End Sub
 
-    Private Sub dgv_buscar_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgv_buscar.CellDoubleClick
-        If MsgBox("Desea borrar este usuario", styleMSG_datagrid, Title:="Desea borrar?") = MsgBoxResult.Yes Then
+    Private Sub dgv_buscar_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellDoubleClick
+        If MsgBox("Desea borrar este usuario", MsgBoxStyle.YesNo + MsgBoxStyle.Question, Title:="Desea borrar?") = MsgBoxResult.Yes Then
 
-            cedulaUser = dgv_buscar.Item(2, dgv_buscar.CurrentRow.Index).Value
+            cedulaUser = DataGridView1.Item(2, DataGridView1.CurrentRow.Index).Value
             cedulaAdmin = InputBox("Ingrese una cedula de un administrador", Title:="Cedula Administrador")
             Consulta = "select cedula from usuarios where tipo = 0 and cedula = '" & cedulaAdmin & "'"
             consultar()
@@ -279,13 +286,13 @@
                 consultar()
                 Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where estado='1' and tipo ='1'"
                 consultar()
-                dgv_buscar.DataSource = Tabla
+                DataGridView1.DataSource = Tabla
                 Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where estado='0' and tipo = '1'"
                 consultar()
                 Dgv_Baja.DataSource = Tabla
                 listboxcarga()
             Else
-                MsgBox("La cedula ingresada no coincide con ningun administrador", styleMSGOK_datagrid, Title:="Error")
+                MsgBox("La cedula ingresada no coincide con ningun administrador", MsgBoxStyle.OkOnly + MsgBoxStyle.Question, Title:="Error")
             End If
         Else
             MsgBox("No se dio de baja")
@@ -294,7 +301,7 @@
 
 
     Private Sub Dgv_Baja_CellDoubleClick(sender As Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles Dgv_Baja.CellDoubleClick
-        If MsgBox("Desea activar a este usuario", styleMSG_datagrid, Title:="Desea activarlo?") = MsgBoxResult.Yes Then
+        If MsgBox("Desea activar a este usuario", MsgBoxStyle.YesNo + MsgBoxStyle.Question, Title:="Desea activarlo?") = MsgBoxResult.Yes Then
 
             cedulaUser = Dgv_Baja.Item(2, Dgv_Baja.CurrentRow.Index).Value
             cedulaAdmin = InputBox("Ingrese una cedula de un administrador", Title:="Cedula Administrador")
@@ -312,10 +319,10 @@
                 Dgv_Baja.DataSource = Tabla
                 Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where estado='1' and tipo='1'"
                 consultar()
-                dgv_buscar.DataSource = Tabla
+                DataGridView1.DataSource = Tabla
                 listboxcarga()
             Else
-                MsgBox("La cedula ingresada no coincide con ningun administrador", styleMSGOK_datagrid, Title:="Error")
+                MsgBox("La cedula ingresada no coincide con ningun administrador", MsgBoxStyle.OkOnly + MsgBoxStyle.Question, Title:="Error")
             End If
         Else
             MsgBox("No se Activo")
@@ -327,6 +334,36 @@
         Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where nombre like '" & Buscar_Baja_txt.Text & "%' and estado='0' and tipo = '1'"
         consultar()
         Dgv_Baja.DataSource = Tabla
+
+    End Sub
+
+    Private Sub Panel1_MouseDown(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseDown
+        a = 1
+    End Sub
+
+    Private Sub Panel1_MouseUp(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseUp
+        xf = Me.Location.X
+        yf = Me.Location.Y
+        a = 0
+        Me.Opacity = 1
+    End Sub
+
+    Private Sub Panel1_MouseMove(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseMove
+        If a = 1 Then
+            xc = Cursor.Position.X
+            yc = Cursor.Position.Y
+            holax = xc - xco
+            holay = yc - yco
+            Me.Location = New Point(xf + holax, yf + holay)
+            Me.Opacity = 0.9
+        End If
+        If a = 0 Then
+            xco = Cursor.Position.X
+            yco = Cursor.Position.Y
+        End If
+    End Sub
+
+    Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
 
     End Sub
 End Class
