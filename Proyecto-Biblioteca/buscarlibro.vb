@@ -16,6 +16,10 @@ Public Class buscarlibro
 
     Dim autor As Integer
     Dim editorial As Integer
+
+    Dim contadoringresoclas As Integer
+    Dim primeringresoclas As Integer
+    Dim error10 As Integer = 0
     'Dim clasificacion As Integer
 
 
@@ -945,7 +949,6 @@ Public Class buscarlibro
             Case 1
                 If panelclasificacion.Left < 423 Then
                     panelclasificacion.Left += 5
-
                 Else
                     dgvclasificacion.Width = dgvclas
                     activadoclas = 0
@@ -995,4 +998,54 @@ Public Class buscarlibro
         'El panel que contiene el datagrid se esconde.
         Pclasificacion.Visible = False
     End Sub
+
+    Private Sub btnnwclas_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnnwclas.Click
+        If Trim(txtcodclas.Text) = "" Or error10 = 1 Then
+            ErrorProvider1.SetError(txtcodclas, "El campo se encuentra vacio")
+            contadoringresoclas = contadoringresoclas + 1
+        End If
+        If Trim(txtnombreclas.Text) = "" Or error10 = 1 Then
+            ErrorProvider1.SetError(txtnombreclas, "El campo se encuentra vacio")
+            contadoringresoclas = contadoringresoclas + 1
+        End If
+        If error10 = 0 Then
+            If contadoringresoclas <> 0 Then
+                contadoringresoclas = 0
+                primeringresoclas = 1
+
+            Else
+                'Ingresa una nueva editorial a la Base de datos.
+                'Consulta = "INSERT INTO clasificacion values ('" + txtcodclas.Text + "',concat(upper(left('" + txtnombreclas.Text + "',1))),lower(substr('" + txtnombreclas.Text + "',2)))"
+                Consulta = "insert into clasificacion values('" & txtcodclas.Text & "','" & txtnombreclas.Text & "')"
+                consultar()
+
+                ErrorProvider1.SetError(txtcodclas, "")
+                ErrorProvider1.SetError(txtnombreclas, "")
+                Try
+                    Consulta = "SELECT * FROM clasificacion"
+                    consultar()
+                    dgvclasificacion.DataSource = Tabla
+
+                Catch ex As Exception
+                    MsgBox(ex)
+                End Try
+
+                'El boton se esconde
+                btncancelarclas.Visible = False
+                btninclas.Visible = True
+
+                'Limpia los campos de texto'
+                txtcodclas.Clear()
+                txtnombreclas.Clear()
+
+                primeringresoclas = 0
+                ErrorProvider1.SetError(txtcodclas, "")
+                ErrorProvider1.SetError(txtnombreclas, "")
+
+                timerclasificacion.Enabled = True
+            End If
+        End If
+    End Sub
+
+
 End Class

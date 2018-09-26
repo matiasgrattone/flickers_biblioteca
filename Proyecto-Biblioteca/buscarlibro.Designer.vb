@@ -117,6 +117,10 @@ Partial Class buscarlibro
         Me.btninclas = New System.Windows.Forms.Button()
         Me.btncancelarclas = New System.Windows.Forms.Button()
         Me.timerclasificacion = New System.Windows.Forms.Timer(Me.components)
+        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.txtnombreclas = New Proyecto_Biblioteca.PlaceHolder()
+        Me.txtcodclas = New Proyecto_Biblioteca.PlaceHolder()
+        Me.txtbuscarclas = New Proyecto_Biblioteca.PlaceHolder()
         Me.txtanioe = New Proyecto_Biblioteca.PlaceHolder()
         Me.txtpais = New Proyecto_Biblioteca.PlaceHolder()
         Me.txtnombree = New Proyecto_Biblioteca.PlaceHolder()
@@ -124,9 +128,6 @@ Partial Class buscarlibro
         Me.txtpaisau = New Proyecto_Biblioteca.PlaceHolder()
         Me.txtnombreau = New Proyecto_Biblioteca.PlaceHolder()
         Me.txtbuscarautor = New Proyecto_Biblioteca.PlaceHolder()
-        Me.txtnombreclas = New Proyecto_Biblioteca.PlaceHolder()
-        Me.txtcodclas = New Proyecto_Biblioteca.PlaceHolder()
-        Me.txtbuscarclas = New Proyecto_Biblioteca.PlaceHolder()
         Me.txtbusqueda = New Proyecto_Biblioteca.PlaceHolder()
         CType(Me.dgvlibros, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Pmostrar.SuspendLayout()
@@ -142,6 +143,7 @@ Partial Class buscarlibro
         Me.Pclasificacion.SuspendLayout()
         Me.panelclasificacion.SuspendLayout()
         CType(Me.dgvclasificacion, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cmbdatos
@@ -1038,7 +1040,7 @@ Partial Class buscarlibro
         Me.panelclasificacion.Controls.Add(Me.lblnombreclas)
         Me.panelclasificacion.Controls.Add(Me.lblcodclas)
         Me.panelclasificacion.Controls.Add(Me.Label20)
-        Me.panelclasificacion.Location = New System.Drawing.Point(428, 30)
+        Me.panelclasificacion.Location = New System.Drawing.Point(353, 30)
         Me.panelclasificacion.Name = "panelclasificacion"
         Me.panelclasificacion.Size = New System.Drawing.Size(181, 227)
         Me.panelclasificacion.TabIndex = 46
@@ -1139,6 +1141,40 @@ Partial Class buscarlibro
         '
         Me.timerclasificacion.Interval = 1
         '
+        'ErrorProvider1
+        '
+        Me.ErrorProvider1.ContainerControl = Me
+        '
+        'txtnombreclas
+        '
+        Me.txtnombreclas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.txtnombreclas.Location = New System.Drawing.Point(41, 102)
+        Me.txtnombreclas.Name = "txtnombreclas"
+        Me.txtnombreclas.Size = New System.Drawing.Size(100, 20)
+        Me.txtnombreclas.TabIndex = 59
+        Me.txtnombreclas.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txtnombreclas.WaterMarkText = "Nombre Clasif"
+        '
+        'txtcodclas
+        '
+        Me.txtcodclas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.txtcodclas.Location = New System.Drawing.Point(41, 60)
+        Me.txtcodclas.Name = "txtcodclas"
+        Me.txtcodclas.Size = New System.Drawing.Size(100, 20)
+        Me.txtcodclas.TabIndex = 58
+        Me.txtcodclas.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txtcodclas.WaterMarkText = "Numero Clasificacion"
+        '
+        'txtbuscarclas
+        '
+        Me.txtbuscarclas.Font = New System.Drawing.Font("Lucida Sans", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbuscarclas.Location = New System.Drawing.Point(268, 5)
+        Me.txtbuscarclas.Name = "txtbuscarclas"
+        Me.txtbuscarclas.Size = New System.Drawing.Size(145, 20)
+        Me.txtbuscarclas.TabIndex = 55
+        Me.txtbuscarclas.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txtbuscarclas.WaterMarkText = "Buscar Clasificaion"
+        '
         'txtanioe
         '
         Me.txtanioe.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
@@ -1209,36 +1245,6 @@ Partial Class buscarlibro
         Me.txtbuscarautor.WaterMarkColor = System.Drawing.Color.Gray
         Me.txtbuscarautor.WaterMarkText = "Buscar Autor"
         '
-        'txtnombreclas
-        '
-        Me.txtnombreclas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.txtnombreclas.Location = New System.Drawing.Point(41, 102)
-        Me.txtnombreclas.Name = "txtnombreclas"
-        Me.txtnombreclas.Size = New System.Drawing.Size(100, 20)
-        Me.txtnombreclas.TabIndex = 59
-        Me.txtnombreclas.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txtnombreclas.WaterMarkText = "Nombre Clasif"
-        '
-        'txtcodclas
-        '
-        Me.txtcodclas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.txtcodclas.Location = New System.Drawing.Point(41, 60)
-        Me.txtcodclas.Name = "txtcodclas"
-        Me.txtcodclas.Size = New System.Drawing.Size(100, 20)
-        Me.txtcodclas.TabIndex = 58
-        Me.txtcodclas.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txtcodclas.WaterMarkText = "Numero Clasificacion"
-        '
-        'txtbuscarclas
-        '
-        Me.txtbuscarclas.Font = New System.Drawing.Font("Lucida Sans", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbuscarclas.Location = New System.Drawing.Point(268, 5)
-        Me.txtbuscarclas.Name = "txtbuscarclas"
-        Me.txtbuscarclas.Size = New System.Drawing.Size(145, 20)
-        Me.txtbuscarclas.TabIndex = 55
-        Me.txtbuscarclas.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txtbuscarclas.WaterMarkText = "Buscar Clasificaion"
-        '
         'txtbusqueda
         '
         Me.txtbusqueda.Font = New System.Drawing.Font("Lucida Sans", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1255,9 +1261,9 @@ Partial Class buscarlibro
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LimeGreen
         Me.ClientSize = New System.Drawing.Size(935, 612)
+        Me.Controls.Add(Me.Pclasificacion)
         Me.Controls.Add(Me.Peditorial)
         Me.Controls.Add(Me.Pautor)
-        Me.Controls.Add(Me.Pclasificacion)
         Me.Controls.Add(Me.txtbusqueda)
         Me.Controls.Add(Me.cmbestado)
         Me.Controls.Add(Me.cmbdatos)
@@ -1291,6 +1297,7 @@ Partial Class buscarlibro
         Me.panelclasificacion.ResumeLayout(False)
         Me.panelclasificacion.PerformLayout()
         CType(Me.dgvclasificacion, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1399,4 +1406,5 @@ Partial Class buscarlibro
     Friend WithEvents timerclasificacion As System.Windows.Forms.Timer
     Friend WithEvents Label22 As System.Windows.Forms.Label
     Friend WithEvents clasificacio_label As System.Windows.Forms.Label
+    Friend WithEvents ErrorProvider1 As System.Windows.Forms.ErrorProvider
 End Class
