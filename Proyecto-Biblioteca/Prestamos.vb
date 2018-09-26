@@ -18,6 +18,17 @@
 
     '////////////////////////////////CUANDO SE CARGA EL FORUMLARO/////////////////////////////////
     Private Sub Form4_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+        DatagridModulo = VerLibrosReservados2
+        Datagrid_Align()
+        DatagridModulo = DataGridViewlllllVerLibrosEnExtraccionlllll
+        Datagrid_Align()
+        DatagridModulo = DataGridParaDevolucion
+        Datagrid_Align()
+        DatagridModulo = LibrosParaReservar
+        Datagrid_Align()
+
+
         Button6.Visible = False
         DataGridParaDevolucion.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill ' ajusta las columnas al tamaño del datagrid
         '/////////////////////////////////////////////GRUPBOX OCULTOS////////////////////
@@ -1148,7 +1159,7 @@
         End If
     End Sub
 
-    Public Sub LibrosParaReservar_CellContentDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles LibrosParaReservar.CellContentDoubleClick
+    Public Sub LibrosParaReservar_CellContentDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs)
 
         'Se iguala una variable a un valor de la base de datos
         Dim list1 As Integer

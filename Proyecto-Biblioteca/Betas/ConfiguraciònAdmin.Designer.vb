@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class ConfiguraciònAdmin
+Partial Class ConfigAdmin
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -23,13 +23,20 @@ Partial Class ConfiguraciònAdmin
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ConfigAdmin))
         Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         Me.Label_Animaciòn = New System.Windows.Forms.Label()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.dgv_buscar = New System.Windows.Forms.DataGridView()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -46,14 +53,18 @@ Partial Class ConfiguraciònAdmin
         Me.Label18 = New System.Windows.Forms.Label()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Dgv_Baja = New System.Windows.Forms.DataGridView()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.Label_BaseDatos = New System.Windows.Forms.Label()
         Me.Label_BaseDatosTXT = New System.Windows.Forms.Label()
         Me.Label_BDestado = New System.Windows.Forms.Label()
         Me.Label_BDestadoTXT = New System.Windows.Forms.Label()
         Me.Lbl_NombreADMIN_TXT = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.PictureboxBordesRedondos1 = New Proyecto_Biblioteca.PictureboxBordesRedondos()
         Me.buscar_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.contrasenia_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.telefono_txt = New Proyecto_Biblioteca.PlaceHolder()
@@ -62,20 +73,23 @@ Partial Class ConfiguraciònAdmin
         Me.nombre_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.direccion_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.Buscar_Baja_txt = New Proyecto_Biblioteca.PlaceHolder()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
-        CType(Me.dgv_buscar, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
         Me.TabPage4.SuspendLayout()
         CType(Me.Dgv_Baja, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
+        CType(Me.PictureboxBordesRedondos1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TreeView1
         '
-        Me.TreeView1.Location = New System.Drawing.Point(302, 3)
+        Me.TreeView1.Location = New System.Drawing.Point(295, 3)
         Me.TreeView1.Name = "TreeView1"
-        Me.TreeView1.Size = New System.Drawing.Size(214, 455)
+        Me.TreeView1.Size = New System.Drawing.Size(214, 458)
         Me.TreeView1.TabIndex = 9
         '
         'ComboBox3
@@ -83,7 +97,7 @@ Partial Class ConfiguraciònAdmin
         Me.ComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox3.FormattingEnabled = True
         Me.ComboBox3.Items.AddRange(New Object() {"0", "1"})
-        Me.ComboBox3.Location = New System.Drawing.Point(74, 376)
+        Me.ComboBox3.Location = New System.Drawing.Point(72, 380)
         Me.ComboBox3.Name = "ComboBox3"
         Me.ComboBox3.Size = New System.Drawing.Size(121, 21)
         Me.ComboBox3.TabIndex = 10
@@ -91,7 +105,7 @@ Partial Class ConfiguraciònAdmin
         'Label_Animaciòn
         '
         Me.Label_Animaciòn.AutoSize = True
-        Me.Label_Animaciòn.Location = New System.Drawing.Point(12, 380)
+        Me.Label_Animaciòn.Location = New System.Drawing.Point(10, 384)
         Me.Label_Animaciòn.Name = "Label_Animaciòn"
         Me.Label_Animaciòn.Size = New System.Drawing.Size(56, 13)
         Me.Label_Animaciòn.TabIndex = 11
@@ -103,24 +117,71 @@ Partial Class ConfiguraciònAdmin
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.Controls.Add(Me.TabPage4)
-        Me.TabControl1.Location = New System.Drawing.Point(518, 0)
+        Me.TabControl1.ImageList = Me.ImageList1
+        Me.TabControl1.Location = New System.Drawing.Point(511, 3)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(466, 458)
+        Me.TabControl1.Size = New System.Drawing.Size(472, 458)
         Me.TabControl1.TabIndex = 12
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.DataGridView1)
         Me.TabPage1.Controls.Add(Me.Label2)
-        Me.TabPage1.Controls.Add(Me.dgv_buscar)
         Me.TabPage1.Controls.Add(Me.buscar_txt)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage1.ImageKey = "usuario (4).png"
+        Me.TabPage1.Location = New System.Drawing.Point(4, 39)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(458, 432)
+        Me.TabPage1.Size = New System.Drawing.Size(464, 415)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Buscar/Eliminar"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.AllowUserToResizeColumns = False
+        Me.DataGridView1.AllowUserToResizeRows = False
+        Me.DataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.DataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.DataGridView1.ColumnHeadersHeight = 40
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.DataGridView1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.DataGridView1.EnableHeadersVisualStyles = False
+        Me.DataGridView1.Location = New System.Drawing.Point(0, 68)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.DataGridView1.RowHeadersVisible = False
+        Me.DataGridView1.RowHeadersWidth = 50
+        Me.DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White
+        Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle3
+        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridView1.Size = New System.Drawing.Size(464, 344)
+        Me.DataGridView1.TabIndex = 18
         '
         'Label2
         '
@@ -130,20 +191,6 @@ Partial Class ConfiguraciònAdmin
         Me.Label2.Size = New System.Drawing.Size(276, 13)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Para dar de baja a un funcionario dar doble click sobre él"
-        '
-        'dgv_buscar
-        '
-        Me.dgv_buscar.AllowUserToAddRows = False
-        Me.dgv_buscar.AllowUserToDeleteRows = False
-        Me.dgv_buscar.AllowUserToResizeColumns = False
-        Me.dgv_buscar.AllowUserToResizeRows = False
-        Me.dgv_buscar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_buscar.Location = New System.Drawing.Point(4, 62)
-        Me.dgv_buscar.Name = "dgv_buscar"
-        Me.dgv_buscar.RowHeadersVisible = False
-        Me.dgv_buscar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgv_buscar.Size = New System.Drawing.Size(450, 364)
-        Me.dgv_buscar.TabIndex = 0
         '
         'TabPage2
         '
@@ -166,10 +213,11 @@ Partial Class ConfiguraciònAdmin
         Me.TabPage2.Controls.Add(Me.apellido_txt)
         Me.TabPage2.Controls.Add(Me.nombre_txt)
         Me.TabPage2.Controls.Add(Me.direccion_txt)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.ImageIndex = 1
+        Me.TabPage2.Location = New System.Drawing.Point(4, 39)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(458, 432)
+        Me.TabPage2.Size = New System.Drawing.Size(464, 415)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Registro"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -307,25 +355,71 @@ Partial Class ConfiguraciònAdmin
         '
         'TabPage3
         '
-        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage3.ImageKey = "usuario (1).png"
+        Me.TabPage3.Location = New System.Drawing.Point(4, 39)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(458, 432)
+        Me.TabPage3.Size = New System.Drawing.Size(464, 415)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Editar"
         Me.TabPage3.UseVisualStyleBackColor = True
         '
         'TabPage4
         '
-        Me.TabPage4.Controls.Add(Me.Label1)
         Me.TabPage4.Controls.Add(Me.Dgv_Baja)
+        Me.TabPage4.Controls.Add(Me.Label1)
         Me.TabPage4.Controls.Add(Me.Buscar_Baja_txt)
-        Me.TabPage4.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage4.Location = New System.Drawing.Point(4, 39)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(458, 432)
+        Me.TabPage4.Size = New System.Drawing.Size(464, 415)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "Ver Dados de baja"
         Me.TabPage4.UseVisualStyleBackColor = True
+        '
+        'Dgv_Baja
+        '
+        Me.Dgv_Baja.AllowUserToAddRows = False
+        Me.Dgv_Baja.AllowUserToDeleteRows = False
+        Me.Dgv_Baja.AllowUserToResizeColumns = False
+        Me.Dgv_Baja.AllowUserToResizeRows = False
+        Me.Dgv_Baja.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.Dgv_Baja.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Dgv_Baja.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        Me.Dgv_Baja.ColumnHeadersHeight = 40
+        Me.Dgv_Baja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.Dgv_Baja.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Dgv_Baja.EnableHeadersVisualStyles = False
+        Me.Dgv_Baja.Location = New System.Drawing.Point(0, 71)
+        Me.Dgv_Baja.Name = "Dgv_Baja"
+        Me.Dgv_Baja.ReadOnly = True
+        Me.Dgv_Baja.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Dgv_Baja.RowHeadersDefaultCellStyle = DataGridViewCellStyle5
+        Me.Dgv_Baja.RowHeadersVisible = False
+        Me.Dgv_Baja.RowHeadersWidth = 50
+        Me.Dgv_Baja.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White
+        Me.Dgv_Baja.RowsDefaultCellStyle = DataGridViewCellStyle6
+        Me.Dgv_Baja.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.Dgv_Baja.Size = New System.Drawing.Size(464, 344)
+        Me.Dgv_Baja.TabIndex = 18
         '
         'Label1
         '
@@ -336,20 +430,13 @@ Partial Class ConfiguraciònAdmin
         Me.Label1.TabIndex = 4
         Me.Label1.Text = "Para activar a un funcionario dar doble click sobre él"
         '
-        'Dgv_Baja
+        'ImageList1
         '
-        Me.Dgv_Baja.AllowUserToAddRows = False
-        Me.Dgv_Baja.AllowUserToDeleteRows = False
-        Me.Dgv_Baja.AllowUserToResizeColumns = False
-        Me.Dgv_Baja.AllowUserToResizeRows = False
-        Me.Dgv_Baja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Dgv_Baja.Location = New System.Drawing.Point(4, 62)
-        Me.Dgv_Baja.Name = "Dgv_Baja"
-        Me.Dgv_Baja.ReadOnly = True
-        Me.Dgv_Baja.RowHeadersVisible = False
-        Me.Dgv_Baja.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.Dgv_Baja.Size = New System.Drawing.Size(450, 364)
-        Me.Dgv_Baja.TabIndex = 0
+        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageList1.Images.SetKeyName(0, "usuario (4).png")
+        Me.ImageList1.Images.SetKeyName(1, "usuario.png")
+        Me.ImageList1.Images.SetKeyName(2, "usuario (1).png")
         '
         'ErrorProvider1
         '
@@ -358,7 +445,7 @@ Partial Class ConfiguraciònAdmin
         'Label_BaseDatos
         '
         Me.Label_BaseDatos.AutoSize = True
-        Me.Label_BaseDatos.Location = New System.Drawing.Point(12, 420)
+        Me.Label_BaseDatos.Location = New System.Drawing.Point(10, 424)
         Me.Label_BaseDatos.Name = "Label_BaseDatos"
         Me.Label_BaseDatos.Size = New System.Drawing.Size(86, 13)
         Me.Label_BaseDatos.TabIndex = 13
@@ -367,7 +454,7 @@ Partial Class ConfiguraciònAdmin
         'Label_BaseDatosTXT
         '
         Me.Label_BaseDatosTXT.AutoSize = True
-        Me.Label_BaseDatosTXT.Location = New System.Drawing.Point(95, 420)
+        Me.Label_BaseDatosTXT.Location = New System.Drawing.Point(91, 424)
         Me.Label_BaseDatosTXT.Name = "Label_BaseDatosTXT"
         Me.Label_BaseDatosTXT.Size = New System.Drawing.Size(40, 13)
         Me.Label_BaseDatosTXT.TabIndex = 14
@@ -376,7 +463,7 @@ Partial Class ConfiguraciònAdmin
         'Label_BDestado
         '
         Me.Label_BDestado.AutoSize = True
-        Me.Label_BDestado.Location = New System.Drawing.Point(12, 435)
+        Me.Label_BDestado.Location = New System.Drawing.Point(10, 439)
         Me.Label_BDestado.Name = "Label_BDestado"
         Me.Label_BDestado.Size = New System.Drawing.Size(105, 13)
         Me.Label_BDestado.TabIndex = 15
@@ -385,7 +472,7 @@ Partial Class ConfiguraciònAdmin
         'Label_BDestadoTXT
         '
         Me.Label_BDestadoTXT.AutoSize = True
-        Me.Label_BDestadoTXT.Location = New System.Drawing.Point(123, 435)
+        Me.Label_BDestadoTXT.Location = New System.Drawing.Point(114, 439)
         Me.Label_BDestadoTXT.Name = "Label_BDestadoTXT"
         Me.Label_BDestadoTXT.Size = New System.Drawing.Size(40, 13)
         Me.Label_BDestadoTXT.TabIndex = 16
@@ -394,12 +481,49 @@ Partial Class ConfiguraciònAdmin
         'Lbl_NombreADMIN_TXT
         '
         Me.Lbl_NombreADMIN_TXT.AutoSize = True
-        Me.Lbl_NombreADMIN_TXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Lbl_NombreADMIN_TXT.Location = New System.Drawing.Point(12, 9)
+        Me.Lbl_NombreADMIN_TXT.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Lbl_NombreADMIN_TXT.Location = New System.Drawing.Point(46, 3)
         Me.Lbl_NombreADMIN_TXT.Name = "Lbl_NombreADMIN_TXT"
-        Me.Lbl_NombreADMIN_TXT.Size = New System.Drawing.Size(72, 24)
+        Me.Lbl_NombreADMIN_TXT.Size = New System.Drawing.Size(83, 25)
         Me.Lbl_NombreADMIN_TXT.TabIndex = 17
         Me.Lbl_NombreADMIN_TXT.Text = "Label3"
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(67, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.Panel1.Location = New System.Drawing.Point(1, 1)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(986, 47)
+        Me.Panel1.TabIndex = 18
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.Silver
+        Me.Panel2.Controls.Add(Me.Button2)
+        Me.Panel2.Controls.Add(Me.PictureboxBordesRedondos1)
+        Me.Panel2.Controls.Add(Me.Lbl_NombreADMIN_TXT)
+        Me.Panel2.Controls.Add(Me.Label_BDestadoTXT)
+        Me.Panel2.Controls.Add(Me.Label_BDestado)
+        Me.Panel2.Controls.Add(Me.Label_BaseDatosTXT)
+        Me.Panel2.Controls.Add(Me.Label_BaseDatos)
+        Me.Panel2.Controls.Add(Me.TabControl1)
+        Me.Panel2.Controls.Add(Me.Label_Animaciòn)
+        Me.Panel2.Controls.Add(Me.ComboBox3)
+        Me.Panel2.Controls.Add(Me.TreeView1)
+        Me.Panel2.Location = New System.Drawing.Point(1, 38)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(986, 464)
+        Me.Panel2.TabIndex = 19
+        '
+        'PictureboxBordesRedondos1
+        '
+        Me.PictureboxBordesRedondos1.BackColor = System.Drawing.Color.DarkGray
+        Me.PictureboxBordesRedondos1.Location = New System.Drawing.Point(72, 41)
+        Me.PictureboxBordesRedondos1.Name = "PictureboxBordesRedondos1"
+        Me.PictureboxBordesRedondos1.Size = New System.Drawing.Size(126, 132)
+        Me.PictureboxBordesRedondos1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureboxBordesRedondos1.TabIndex = 19
+        Me.PictureboxBordesRedondos1.TabStop = False
         '
         'buscar_txt
         '
@@ -481,35 +605,41 @@ Partial Class ConfiguraciònAdmin
         Me.Buscar_Baja_txt.WaterMarkColor = System.Drawing.Color.Gray
         Me.Buscar_Baja_txt.WaterMarkText = "Buscar por Nombre"
         '
-        'ConfiguraciònAdmin
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(94, 190)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 20
+        Me.Button2.Text = "Button2"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'ConfigAdmin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(988, 461)
-        Me.Controls.Add(Me.Lbl_NombreADMIN_TXT)
-        Me.Controls.Add(Me.Label_BDestadoTXT)
-        Me.Controls.Add(Me.Label_BDestado)
-        Me.Controls.Add(Me.Label_BaseDatosTXT)
-        Me.Controls.Add(Me.Label_BaseDatos)
-        Me.Controls.Add(Me.TabControl1)
-        Me.Controls.Add(Me.Label_Animaciòn)
-        Me.Controls.Add(Me.ComboBox3)
-        Me.Controls.Add(Me.TreeView1)
-        Me.Name = "ConfiguraciònAdmin"
+        Me.BackColor = System.Drawing.Color.Black
+        Me.ClientSize = New System.Drawing.Size(988, 503)
+        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.Panel1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Name = "ConfigAdmin"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Biblioteca"
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
-        CType(Me.dgv_buscar, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
         Me.TabPage4.ResumeLayout(False)
         Me.TabPage4.PerformLayout()
         CType(Me.Dgv_Baja, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
+        CType(Me.PictureboxBordesRedondos1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents TreeView1 As System.Windows.Forms.TreeView
@@ -520,7 +650,6 @@ Partial Class ConfiguraciònAdmin
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
     Friend WithEvents ErrorProvider1 As System.Windows.Forms.ErrorProvider
     Friend WithEvents buscar_txt As Proyecto_Biblioteca.PlaceHolder
-    Friend WithEvents dgv_buscar As System.Windows.Forms.DataGridView
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents contrasenia_txt As Proyecto_Biblioteca.PlaceHolder
     Friend WithEvents Label4 As System.Windows.Forms.Label
@@ -547,8 +676,14 @@ Partial Class ConfiguraciònAdmin
     Friend WithEvents Label_BDestadoTXT As System.Windows.Forms.Label
     Friend WithEvents Label_BDestado As System.Windows.Forms.Label
     Friend WithEvents TabPage4 As System.Windows.Forms.TabPage
-    Friend WithEvents Dgv_Baja As System.Windows.Forms.DataGridView
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Buscar_Baja_txt As Proyecto_Biblioteca.PlaceHolder
     Friend WithEvents Lbl_NombreADMIN_TXT As System.Windows.Forms.Label
+    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents Dgv_Baja As System.Windows.Forms.DataGridView
+    Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents ImageList1 As System.Windows.Forms.ImageList
+    Friend WithEvents PictureboxBordesRedondos1 As Proyecto_Biblioteca.PictureboxBordesRedondos
+    Friend WithEvents Button2 As System.Windows.Forms.Button
 End Class

@@ -1,12 +1,14 @@
 ﻿Imports System.Threading
 Imports System.Text.RegularExpressions
 Public Class MENU3
+
     Dim a As Integer = 0
     Public xco, yco As Integer
     Dim resultx, resulty As Integer
     Dim xc, yc As Integer
     Dim xf, yf As Integer
     Dim holax, holay As Integer
+
     Dim seleccionado As String = "Inicio"
     Dim mouse As Integer
     Dim mouse2 As Integer
@@ -19,11 +21,11 @@ Public Class MENU3
     Dim ContadorDia As Integer = 0
     Dim ContadorMes As Integer = 0
     Public BD_ONLINE As Integer = 0 'verificar si la base de datos esta online
+    Dim primeriniciotimer As Integer = 1
 
     Private Sub inicio()
-        If ERROR1 = 2 Then
+        If ERROR1 = 0 Then
 
-        ElseIf ERROR1 = 0 Then
             Try
                 Chart()
                 Dim fecha As String = DateTime.Now.ToString("yyyy/MM/dd")
@@ -34,35 +36,6 @@ Public Class MENU3
                         Pbadvertenciaprestamos.Visible = True
                     End If
                 Next
-
-                ComboBox1.Items.Add("Mes")
-                ComboBox1.Items.Add("Enero")
-                ComboBox1.Items.Add("Febrero")
-                ComboBox1.Items.Add("Marzo")
-                ComboBox1.Items.Add("Abril")
-                ComboBox1.Items.Add("Mayo")
-                ComboBox1.Items.Add("Junio")
-                ComboBox1.Items.Add("Julio")
-                ComboBox1.Items.Add("Agosto")
-                ComboBox1.Items.Add("Septiembre")
-                ComboBox1.Items.Add("Octubre")
-                ComboBox1.Items.Add("Noviembre")
-                ComboBox1.Items.Add("Diciembre")
-                substring = Date.Now.ToString("MM")
-                mes()
-                ComboBox1.SelectedItem = substring
-
-
-                For i As Integer = 1899 To Date.Now.ToString("yyyy")
-                    If i = 1899 Then
-                        ComboBox2.Items.Add("Año")
-                    Else
-                        ComboBox2.Items.Add(i)
-                    End If
-                    ComboBox2.SelectedItem = i
-                Next
-
-
             Catch ex As Exception
             End Try
         End If
@@ -75,20 +48,61 @@ Public Class MENU3
         xf = Me.Location.X
         yf = Me.Location.Y
 
-
+        Rueda_de_carga1.Visible = False
         verificarBD()
-        Timer_BD.Enabled = True
 
-        Select Case ERROR1
-
-            Case 0
-                Chart()
-                inicio()
-                Timer_Prestamos_LIVE.Enabled = True
-
-        End Select
+        Consulta = "select prestamolibro.cod_libro as Libros, libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where fecha_entrada is null"
+        consultar()
+        DataGridViewLibros.DataSource = Tabla
+        DatagridModulo = DataGridViewLibros
+        Datagrid_Align()
 
 
+        If ERROR1 = 0 Then
+            Chart()
+            inicio()
+            Timer_Prestamos_LIVE.Enabled = True
+        End If
+
+        substring = Date.Now.ToString("MM")
+        mes()
+
+        For Each item In ComboBox1.Items
+
+            If substring = item Then
+                ComboBox1.SelectedIndex = ContadorMes
+            End If
+            ContadorMes = ContadorMes + 1
+        Next
+
+
+
+        ComboBox1.Items.Add("Mes")
+        ComboBox1.Items.Add("Enero")
+        ComboBox1.Items.Add("Febrero")
+        ComboBox1.Items.Add("Marzo")
+        ComboBox1.Items.Add("Abril")
+        ComboBox1.Items.Add("Mayo")
+        ComboBox1.Items.Add("Junio")
+        ComboBox1.Items.Add("Julio")
+        ComboBox1.Items.Add("Agosto")
+        ComboBox1.Items.Add("Septiembre")
+        ComboBox1.Items.Add("Octubre")
+        ComboBox1.Items.Add("Noviembre")
+        ComboBox1.Items.Add("Diciembre")
+        substring = Date.Now.ToString("MM")
+        mes()
+        ComboBox1.SelectedItem = substring
+
+
+        For i As Integer = 1899 To Date.Now.ToString("yyyy")
+            If i = 1899 Then
+                ComboBox2.Items.Add("Año")
+            Else
+                ComboBox2.Items.Add(i)
+            End If
+            ComboBox2.SelectedItem = i
+        Next
 
 
 
@@ -98,19 +112,19 @@ Public Class MENU3
         Panel_prestamosdia.Visible = False
 
 
-          
 
-            Select Case ANIMACION
-                Case 1
 
-                Case 0
-                    label_usuarios.Left = 72
-                    label_libros.Left = 72
-                    LabelInicio.Left = 72
-                    LabelRevistas.Left = 72
-                    label_prestamos.Left = 72
-                    label_navegador.Left = 72
-            End Select
+        Select Case ANIMACION
+            Case 1
+
+            Case 0
+                label_usuarios.Left = 72
+                label_libros.Left = 72
+                LabelInicio.Left = 72
+                LabelRevistas.Left = 72
+                label_prestamos.Left = 72
+                label_navegador.Left = 72
+        End Select
 
         Preparar_Form()
 
@@ -1384,7 +1398,9 @@ Public Class MENU3
 
 
                     If row("cedula") = contraseñaAdmin Then
-                        ConfiguraciònAdmin.Lbl_NombreADMIN_TXT.Text = row("nombre") & " " & row("apellido")
+                        ConfigAdmin.PictureboxBordesRedondos1.Image = Image.FromFile(row("rutaperfil").ToString)
+                        'Pbnube.Image = Image.FromFile("imagenes\cloud-error.png")
+                        ConfigAdmin.Lbl_NombreADMIN_TXT.Text = row("nombre") & " " & row("apellido")
                         contraseñaAdmin = "1"
                     Else
                     End If
@@ -1393,7 +1409,7 @@ Public Class MENU3
 
 
                 If contraseñaAdmin = "1" Then
-                    ConfiguraciònAdmin.Show()
+                    ConfigAdmin.Show()
                 Else
                     MsgBox("contraseña no valida", Title:="Biblioteca")
                 End If
@@ -1633,6 +1649,7 @@ Public Class MENU3
             consultar()
             Chart_Prestamos.ChartAreas.Add("Prestamos")
             Chart_Prestamos.Series.Add("Prestamos")
+
             '/////////////////////////////////////////////////////////////////////////////////////////////////
             For Each row As DataRow In Tabla.Rows
 
@@ -1652,116 +1669,51 @@ Public Class MENU3
             Chart_Prestamos.ChartAreas(0).AxisX.MajorGrid.Enabled = False
 
             '//////////////////////////////////////////////////////////////////////////////////////////////////
-            Select Case PrimerInicio
-                Case 1
 
-                    Try
-                        substring = Date.Now.ToString("MM")
-                        Consulta = "select count(prestamolibro.cod_libro) , day(prestamolibro.fecha_salida) from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where month(prestamolibro.fecha_salida) = '" & substring & "' group by day(fecha_salida)"
-                        consultar()
+            Try
 
-                        substring = Date.Now.ToString("MM")
-                        mes()
+                ChartPrestamosDia.Series.Clear()
+                ChartPrestamosDia.ChartAreas.Clear()
 
-                        For Each item In ComboBox1.Items
-
-                            If substring = item Then
-                                ComboBox1.SelectedIndex = ContadorMes
-                            End If
-                            ContadorMes = ContadorMes + 1
-                        Next
-
-                        ContadorMes = 0
-
-                        ChartPrestamosDia.Series.Clear()
-                        ChartPrestamosDia.ChartAreas.Clear()
-
-                        ChartPrestamosDia.ChartAreas.Add("Prestamos Del Dia")
-                        ChartPrestamosDia.Series.Add("Prestamos Del Dia")
-
-                        For Each row As DataRow In Tabla.Rows
-
-                            ChartPrestamosDia.Series("Prestamos Del Dia").Points.AddXY(row("day(prestamolibro.fecha_salida)"), row("count(prestamolibro.cod_libro)"))
-                            ChartPrestamosDia.Series("Prestamos Del Dia").Points(ContadorDia).AxisLabel = "Dia : " + "#VALX"
-                            ContadorDia = ContadorDia + 1
-
-                        Next
-
-                        ChartPrestamosDia.Series("Prestamos Del Dia").Label = "Libros : " + "#VALY"
-
-                        ChartPrestamosDia.ChartAreas(0).AxisX.MajorGrid.Enabled = False
-                        PrimerInicio = 0
-
-                        ChartTOP.Series.Clear()
-                        ChartTOP.ChartAreas.Clear()
-
-                        ChartTOP.Series.Add("TOP")
-                        ChartTOP.ChartAreas.Add("TOP")
-
-                        Consulta = "select count(prestamolibro.cod_libro) , libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro group by prestamolibro.cod_libro limit 5"
-                        consultar()
-
-                        For Each row As DataRow In Tabla.Rows
-
-                            ChartTOP.Series("TOP").Points.AddXY(row("titulo"), row("count(prestamolibro.cod_libro)"))
-
-                        Next
-
-                    Catch ex As Exception
-
-                    End Try
-
-                Case 0
-
-                    Try
-                        substring = ComboBox1.SelectedItem
-                        mestonum()
-                        If substring.Substring(0, 1) = 0 Then
-                            substring.Remove(0)
-                        End If
-
-                        Consulta = "select count(prestamolibro.cod_libro) , day(prestamolibro.fecha_salida) from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where month(prestamolibro.fecha_salida) = '" & substring & "' group by day(fecha_salida)"
-                        consultar()
-
-                        ChartPrestamosDia.Series.Clear()
-                        ChartPrestamosDia.ChartAreas.Clear()
-
-                        ChartPrestamosDia.ChartAreas.Add("Prestamos Del Dia")
-                        ChartPrestamosDia.Series.Add("Prestamos Del Dia")
-
-                        Dim x As Integer = 0
-                        For Each row As DataRow In Tabla.Rows
-
-                            ChartPrestamosDia.Series("Prestamos Del Dia").Points.AddXY(row("day(prestamolibro.fecha_salida)"), row("count(prestamolibro.cod_libro)"))
-                            ChartPrestamosDia.Series("Prestamos Del Dia").Points(x).AxisLabel = "Dia : " + "#VALX"
-                            x = x + 1
-                        Next
-
-                        ChartPrestamosDia.Series("Prestamos Del Dia").Label = "Libros : " + "#VALY"
-
-                        ChartPrestamosDia.ChartAreas(0).AxisX.MajorGrid.Enabled = False
+                substring = ComboBox1.SelectedItem
+                mestonum()
+                Consulta = "select count(prestamolibro.cod_libro) , day(prestamolibro.fecha_salida) from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where month(prestamolibro.fecha_salida) = '" & substring & "' group by day(fecha_salida)"
+                consultar()
 
 
-                        ChartTOP.Series.Clear()
-                        ChartTOP.ChartAreas.Clear()
+                ChartPrestamosDia.ChartAreas.Add("Prestamos Del Dia")
+                ChartPrestamosDia.Series.Add("Prestamos Del Dia")
+                ContadorDia = 0
 
-                        ChartTOP.Series.Add("TOP")
-                        ChartTOP.ChartAreas.Add("TOP")
+                For Each row As DataRow In Tabla.Rows
+                    ChartPrestamosDia.Series("Prestamos Del Dia").Points.AddXY(row("day(prestamolibro.fecha_salida)"), row("count(prestamolibro.cod_libro)"))
+                    ChartPrestamosDia.Series("Prestamos Del Dia").Points(ContadorDia).AxisLabel = "Dia : " + "#VALX"
+                    ContadorDia = ContadorDia + 1
+                Next
 
-                        Consulta = "select count(prestamolibro.cod_libro) , libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro group by prestamolibro.cod_libro limit 5"
-                        consultar()
+                ChartPrestamosDia.Series("Prestamos Del Dia").Label = "Libros : " + "#VALY"
 
-                        For Each row As DataRow In Tabla.Rows
+                ChartPrestamosDia.ChartAreas(0).AxisX.MajorGrid.Enabled = False
+                PrimerInicio = 0
 
-                            ChartTOP.Series("TOP").Points.AddXY(row("titulo"), row("count(prestamolibro.cod_libro)"))
+                ChartTOP.Series.Clear()
+                ChartTOP.ChartAreas.Clear()
 
-                        Next
+                ChartTOP.Series.Add("TOP")
+                ChartTOP.ChartAreas.Add("TOP")
 
-                    Catch ex As Exception
+                Consulta = "select count(prestamolibro.cod_libro) , libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro group by prestamolibro.cod_libro limit 5"
+                consultar()
 
-                    End Try
+                For Each row As DataRow In Tabla.Rows
+                    ChartTOP.Series("TOP").Points.AddXY(row("titulo"), row("count(prestamolibro.cod_libro)"))
+                Next
 
-            End Select
+            Catch ex As Exception
+                MsgBox(ex.ToString)
+
+            End Try
+
 
         End If
 
@@ -1778,14 +1730,10 @@ Public Class MENU3
                 Chart()
                 Timer_BD.Interval = 6000
                 Try
-                    ListBox1.Items.Clear()
-                    Consulta = "select prestamolibro.cod_libro , libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where fecha_entrada is null"
+                    DataGridViewLibros.Refresh()
+                    Consulta = "select prestamolibro.cod_libro as Libros, libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where fecha_entrada is null"
                     consultar()
-                    For Each row As DataRow In Tabla.Rows
-
-                        ListBox1.Items.Add(row("cod_libro") & " " & row("titulo"))
-
-                    Next
+                    DataGridViewLibros.DataSource = Tabla
                 Catch ex As Exception
                     MsgBox("Error Libros Prestados Timer" & ex.ToString)
                 End Try
@@ -1870,13 +1818,13 @@ Public Class MENU3
 
         If DataGridView1.Rows.Count() = 0 Then
             Pbnube.Image = Image.FromFile("imagenes\cloud-error.png")
-            ConfiguraciònAdmin.Label_BDestadoTXT.Text = lblhora.Text
-            ConfiguraciònAdmin.Label_BaseDatosTXT.Text = "LOCAL"
+            ConfigAdmin.Label_BDestadoTXT.Text = lblhora.Text
+            ConfigAdmin.Label_BaseDatosTXT.Text = "LOCAL"
             BD_ONLINE = 0
         Else
             Pbnube.Image = Image.FromFile("imagenes\cloud.png")
-            ConfiguraciònAdmin.Label_BDestadoTXT.Text = lblhora.Text
-            ConfiguraciònAdmin.Label_BaseDatosTXT.Text = "ONLINE"
+            ConfigAdmin.Label_BDestadoTXT.Text = lblhora.Text
+            ConfigAdmin.Label_BaseDatosTXT.Text = "ONLINE"
             BD_ONLINE = 1
             If ERROR1 = 2 Then
                 Timer_BD.Interval = 10
@@ -1887,23 +1835,44 @@ Public Class MENU3
 
     Private Sub Timer_BD_Tick(sender As System.Object, e As System.EventArgs) Handles Timer_BD.Tick
 
-        If ERROR1 = 2 Then
-            ERROR1 = 2
-            verificarBD()
-            Timer_Prestamos_LIVE.Enabled = False
-            ComboBox1.Enabled = False
-            ComboBox2.Enabled = False
-        ElseIf ERROR1 = 0 Then
-            verificarBD()
-            If seleccionado = "Inicio" Then
-                Timer_Prestamos_LIVE.Enabled = True
-            Else
-                Timer_Prestamos_LIVE.Enabled = False
-                Timer_BD.Interval = 6000
-            End If
+        If primeriniciotimer = 0 Then
+            Timer_BD.Interval = 6000
         End If
 
+        primeriniciotimer = 0
+
+
+        verificarBD()
+
+        Select Case ERROR1
+
+            Case 2
+
+                Timer_Prestamos_LIVE.Enabled = False
+                ComboBox1.Enabled = False
+                ComboBox2.Enabled = False
+                Timer_RuedaDeCarga.Enabled = True
+
+            Case 0
+
+                If seleccionado = "Inicio" Then
+
+                    Timer_Prestamos_LIVE.Enabled = True
+
+                Else
+
+                    Timer_Prestamos_LIVE.Enabled = False
+                    Timer_BD.Interval = 6000
+
+                End If
+
+
+        End Select
+
+
+
     End Sub
+
     Dim notasopen As Integer
     Private Sub PictureBox2_Click_1(sender As System.Object, e As System.EventArgs) Handles PictureBox2.Click
 
@@ -1933,5 +1902,22 @@ Public Class MENU3
         Else
             Panel_Inicio.BackColor = Drawing.Color.Silver
         End If
+    End Sub
+    Dim contadorAnimacionBD As Integer = 1
+    Private Sub Timer3_Tick(sender As System.Object, e As System.EventArgs) Handles Timer_RuedaDeCarga.Tick
+        If contadorAnimacionBD < 5 Then
+            Rueda_de_carga1.Start()
+            Rueda_de_carga1.Visible = True
+        Else
+            Rueda_de_carga1.Visible = False
+            Rueda_de_carga1.Stop()
+            contadorAnimacionBD = 0
+            Timer_RuedaDeCarga.Enabled = False
+        End If
+        contadorAnimacionBD = contadorAnimacionBD + 1
+    End Sub
+
+    Private Sub Panel_Graficos_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles Panel_Graficos.Paint
+
     End Sub
 End Class

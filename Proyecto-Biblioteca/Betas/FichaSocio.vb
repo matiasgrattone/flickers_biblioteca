@@ -29,7 +29,7 @@
         DataGridView1.Columns(3).HeaderText = "Fecha Devoluciòn"
         DataGridView1.Columns(5).HeaderText = "Funcionario Devoluciòn"
 
-        Consulta = "select cedula , nombre , telefono , apellido , direccion , mail , moroso , tipo , fecha_moroso from usuarios where cedula = '" & FichaCedulaSocio & "'"
+        Consulta = "select * from usuarios where cedula = '" & FichaCedulaSocio & "'"
         consultar()
         For Each row As DataRow In Tabla.Rows
             LabelCedulatxt.Text = row("cedula").ToString.Substring(0, 1) & "." & row("cedula").ToString.Substring(1, 3) & "." & row("cedula").ToString.Substring(4, 3) & "-" & row("cedula").ToString.Substring(7, 1)
@@ -44,6 +44,8 @@
             Label_Telefono_txt.Text = row("telefono")
             LabelDirecciontxt.Text = row("direccion")
             LabelNombretxt.Text = row("nombre") & " " & row("apellido")
+            LabelFecha_Ingreso.Text = row("fecha_Ingreso")
+
             If row("mail") Is DBNull.Value Then
             Else
                 LabelMailtxt.Text = row("mail")
