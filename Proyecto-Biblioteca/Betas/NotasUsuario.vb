@@ -5,7 +5,7 @@ Public Class Notas
     Dim RutaDeGuardadoDeNotas As String = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\DATOS\Notas" 'Ruta en la que se guardarán las imágenes cargadas: "Documentos\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\DATOS\Notas"
     Private Sub Notas_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
-        Consulta = "Select NombreNota, texto from notas where cedula= '" + MENU3.Cedula.Text + "'"
+        Consulta = "Select NombreNota, texto from notas where cedula= '" + MENU3.lbl_cedula.Text + "'"
         consultar()
 
         DataGridViewParaVerNotasDisponibles.DataSource = Tabla
@@ -18,21 +18,21 @@ Public Class Notas
         Dim Ubicacion2 As String = vbNull
         Dim Ubicacion3 As String = vbNull
 
-        Consulta = "Select * from notas where cedula ='" & MENU3.Cedula.Text & "' and recordar = 1"
+        Consulta = "Select * from notas where cedula ='" & MENU3.lbl_cedula.Text & "' and recordar = 1"
         consultar()
         For Each row As DataRow In Tabla.Rows
             Ubicacion1 = row("texto")
             Fecha1.Text = row("fecha")
         Next
 
-        Consulta = "Select * from notas where cedula ='" & MENU3.Cedula.Text & "' and recordar = 2"
+        Consulta = "Select * from notas where cedula ='" & MENU3.lbl_cedula.Text & "' and recordar = 2"
         consultar()
         For Each row As DataRow In Tabla.Rows
             Ubicacion2 = row("texto")
             Fecha2.Text = row("fecha")
         Next
 
-        Consulta = "Select * from notas where cedula ='" & MENU3.Cedula.Text & "' and recordar = 3"
+        Consulta = "Select * from notas where cedula ='" & MENU3.lbl_cedula.Text & "' and recordar = 3"
         consultar()
         For Each row As DataRow In Tabla.Rows
             Ubicacion3 = row("texto")
@@ -42,7 +42,7 @@ Public Class Notas
 
 
         '///////Ah  los recordatorios se le asigna una ruta del archivo.txt gurdada con anterioridad en la base de datos///////
-        Consulta = "select * from notas where cedula= '" & MENU3.Cedula.Text & "'"
+        Consulta = "select * from notas where cedula= '" & MENU3.lbl_cedula.Text & "'"
         consultar()
         If (Tabla.Rows.Count = 0) Then
 
@@ -57,7 +57,7 @@ Public Class Notas
                     Dim ms As String
                     ms = MsgBox("La nota que se desea recordar ya no se encuntra, desea dejar de recordarlas? ", MsgBoxStyle.YesNoCancel, Title:="Notas")
                     If ms = vbYes Then
-                        Consulta = "DELETE FROM notas WHERE cedula = '" & MENU3.Cedula.Text & "' and recordar = 1"
+                        Consulta = "DELETE FROM notas WHERE cedula = '" & MENU3.lbl_cedula.Text & "' and recordar = 1"
                         consultar()
                     End If
                 End Try
@@ -75,7 +75,7 @@ Public Class Notas
                     Dim ms As String
                     ms = MsgBox("La nota que se desea recordar ya no se encuntra, desea dejar de recordarlas? ", MsgBoxStyle.YesNoCancel, Title:="Notas")
                     If ms = vbYes Then
-                        Consulta = "DELETE FROM notas WHERE cedula = '" & MENU3.Cedula.Text & "' and recordar = 2"
+                        Consulta = "DELETE FROM notas WHERE cedula = '" & MENU3.lbl_cedula.Text & "' and recordar = 2"
                         consultar()
                     End If
                 End Try
@@ -91,7 +91,7 @@ Public Class Notas
                     Dim ms As String
                     ms = MsgBox("La nota que se desea recordar ya no se encuntra, desea dejar de recordarlas? ", MsgBoxStyle.YesNoCancel, Title:="Notas")
                     If ms = vbYes Then
-                        Consulta = "DELETE FROM notas WHERE cedula = '" & MENU3.Cedula.Text & "' and recordar = 3"
+                        Consulta = "DELETE FROM notas WHERE cedula = '" & MENU3.lbl_cedula.Text & "' and recordar = 3"
                         consultar()
                     End If
                 End Try
@@ -250,7 +250,7 @@ Public Class Notas
             Dim A As String
             A = MsgBox("Desea eliminar el recordatorio ?", MsgBoxStyle.YesNoCancel, Title:="NOTAS")
             If A = vbYes Then
-                Consulta = "delete from notas WHERE recordar = 1 and cedula = '" & MENU3.Cedula.Text & "';"
+                Consulta = "delete from notas WHERE recordar = 1 and cedula = '" & MENU3.lbl_cedula.Text & "';"
                 consultar()
                 TextoParaRecordar1.Clear()
                 Fecha1.Text = " "
@@ -264,7 +264,7 @@ Public Class Notas
         If TextoParaRecordar2.Text <> "" Then
             A = MsgBox("Desea eliminar el recordatorio ?", MsgBoxStyle.YesNoCancel, Title:="NOTAS")
             If A = vbYes Then
-                Consulta = "delete from notas WHERE recordar = 2 and cedula = '" & MENU3.Cedula.Text & "';"
+                Consulta = "delete from notas WHERE recordar = 2 and cedula = '" & MENU3.lbl_cedula.Text & "';"
                 consultar()
                 TextoParaRecordar2.Clear()
                 Fecha2.Text = " "
@@ -278,7 +278,7 @@ Public Class Notas
         If TextoParaRecordar3.Text <> "" Then
             A = MsgBox("Desea eliminar el recordatorio ?", MsgBoxStyle.YesNoCancel, Title:="NOTAS")
             If A = vbYes Then
-                Consulta = "delete from notas WHERE recordar = 3 and cedula = '" & MENU3.Cedula.Text & "';"
+                Consulta = "delete from notas WHERE recordar = 3 and cedula = '" & MENU3.lbl_cedula.Text & "';"
                 consultar()
                 TextoParaRecordar3.Clear()
                 Fecha3.Text = " "
@@ -293,21 +293,21 @@ Public Class Notas
         Dim Ubicacion3 As String
 
 
-        Consulta = "Select * from notas where cedula ='" & MENU3.Cedula.Text & "' and recordar = 1"
+        Consulta = "Select * from notas where cedula ='" & MENU3.lbl_cedula.Text & "' and recordar = 1"
         consultar()
         For Each row As DataRow In Tabla.Rows
             Ubicacion1 = row("texto")
             Fecha1.Text = row("fecha")
         Next
 
-        Consulta = "Select * from notas where cedula ='" & MENU3.Cedula.Text & "' and recordar = 2"
+        Consulta = "Select * from notas where cedula ='" & MENU3.lbl_cedula.Text & "' and recordar = 2"
         consultar()
         For Each row As DataRow In Tabla.Rows
             Ubicacion2 = row("texto")
             Fecha2.Text = row("fecha")
         Next
 
-        Consulta = "Select * from notas where cedula ='" & MENU3.Cedula.Text & "' and recordar = 3"
+        Consulta = "Select * from notas where cedula ='" & MENU3.lbl_cedula.Text & "' and recordar = 3"
         consultar()
         For Each row As DataRow In Tabla.Rows
             Ubicacion3 = row("texto")
@@ -356,7 +356,7 @@ Public Class Notas
                     Ubicacion = Replace(Ubicacion, "\", "\\") 'Remplazamos la barrita por 2  
                 End If
 
-                Consulta = "UPDATE notas SET recordar = '" + RecordatorioValor + "' WHERE cedula = '" & MENU3.Cedula.Text & "' and texto ='" + Ubicacion + "';"
+                Consulta = "UPDATE notas SET recordar = '" + RecordatorioValor + "' WHERE cedula = '" & MENU3.lbl_cedula.Text & "' and texto ='" + Ubicacion + "';"
                 consultar()
             End If
             ActualizarNotas()

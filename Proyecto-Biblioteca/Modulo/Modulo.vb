@@ -16,6 +16,9 @@ Module Modulo
     Public Consulta As String
     Public MysqlConexion As MySqlConnection = New MySqlConnection(ubicacion)
 
+    Public rutaGuardadoFotos As String = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\Fotos_de_perfil" ' Ruta donde estan las fotos de perfil de los funcionarios
+    Public cedula_ingresada As String
+
     Public opcioncolor As Color
     Public fecha As String
     Public DatagridModulo As DataGridView ' Variable para poder usar el codigo Datagrid_Align en cualquier formulario

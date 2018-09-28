@@ -30,10 +30,12 @@
 
                     If row("contrasenia").ToString = pass Then
                         MENU3.Nombre.Text = row("nombre")
-                        MENU3.Cedula.Text = row("cedula")
+                        MENU3.lbl_cedula.Text = row("cedula")
+
+                        MENU3.cedulaIngre = row("cedula").ToString
+
                         Me.Hide()
                         MENU3.Show()
-
                     Else
                         MsgBox("Cedula/Contraseaña Incorrecto")
                     End If
@@ -47,7 +49,7 @@
         End If
     End Sub
 
-    Private Sub contrasenia_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles contrasenia.KeyDown
+    Private Sub contrasenia_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles contrasenia.KeyDown
         If e.KeyCode = Keys.Enter Then
             Dim user As String = Nothing
             Dim pass As String = Nothing
@@ -76,7 +78,7 @@
 
                         If row("contrasenia").ToString = pass Then
                             MENU3.Nombre.Text = row("nombre")
-                            MENU3.Cedula.Text = row("cedula")
+                            MENU3.lbl_cedula.Text = row("cedula")
                             Me.Hide()
                             MENU3.Show()
                         Else

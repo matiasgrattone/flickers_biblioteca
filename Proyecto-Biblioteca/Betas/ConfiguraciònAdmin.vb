@@ -15,6 +15,8 @@ Public Class ConfigAdmin
     Dim pass_ingresar As String
     Dim cont_ingresar As String
 
+    Public cedulaFotoPerfil As String
+
     Dim i_ingresar As Integer ' Variable bandera para avisar que existe un error
 
     Dim dia_ingresar As String
@@ -67,6 +69,18 @@ Public Class ConfigAdmin
         listboxcarga()
 
         ComboBox3.SelectedIndex = 0
+
+
+        'Try
+        '    Consulta = "select rutaperfil from usuarios where cedula ='" + MENU3.cedulaIngre + "'"
+        '    consultar()
+
+        '    For Each row As DataRow In Tabla.Rows
+        '        ptbPerfilAdmin.ImageLocation = Convert.ToString(row("rutaperfil"))
+        '    Next
+        'Catch ex As Exception
+        '    MsgBox(ex.Message)
+        'End Try
 
         '/////////////////////////////////////////////////////////////////////////////////////////////
         '//////////////////////////////// Rellernar ComboBoxs ////////////////////////////////////////
@@ -370,5 +384,64 @@ Public Class ConfigAdmin
 
     Private Sub PictureBox1_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox1.Click
         Me.Close()
+    End Sub
+
+    Private Sub ptbPerfilAdmin_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ptbPerfilAdmin.Click
+
+    End Sub
+
+    Private Sub ptbPerfilAdmin_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles ptbPerfilAdmin.DoubleClick
+        Dim nombreArchivo As String
+
+        Dim dialogoCarga As New OpenFileDialog 'Crea un objeto del tipo OpenFileDialog para seleccionar archivos
+        dialogoCarga.Filter = "Imágenes|*.jpg; *.png; *.gif" 'Limita a que solo se puedan seleccionar imágenes de los tipos indicados
+        dialogoCarga.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) 'Indica en un String la ubicación en donde busca por defecto, en este caso se obtiene el escritorio
+
+        Dim rutaArchivo As String
+        Dim posicionBarra, longitudNombre As Integer
+
+        'dialogoCarga.ShowDialog() Abre una pantalla de diálogo que permite obtiener el nombre y la ruta del archivo cuando el usuario lo selecciona
+        If dialogoCarga.ShowDialog() = Windows.Forms.DialogResult.OK Then 'Solo si se ha seleccionado alguna imagen
+            rutaArchivo = dialogoCarga.FileName 'Guarda la ruta con el nombre del archivo
+
+            'lblNombre.Text = rutaArchivo
+            ptbPerfilAdmin.ImageLocation = rutaArchivo
+            posicionBarra = InStrRev(rutaArchivo, "\") ' Obtiene la posición en la que se encuentra la barra invertida en el String
+            longitudNombre = rutaArchivo.Length - posicionBarra 'Obtiene la cantidad de caracteres que ocupa el nombre
+
+            nombreArchivo = "Fotos de perfil/" + rutaArchivo.Substring(posicionBarra, longitudNombre) 'Corta la parte del nombre de la ruta completa
+
+            Try
+                Consulta = "update usuarios set rutaperfil = '" & nombreArchivo & "' where cedula='" + cedulaFotoPerfil + "'"
+                consultar()
+                MsgBox("Cambio de perfil exitoso")
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+
+            If My.Computer.FileSystem.FileExists(nombreArchivo) Then
+                ptbPerfilAdmin.ImageLocation = nombreArchivo
+                'cargar()
+            Else
+                'My.Computer.FileSystem.CopyFile(rutaArchivo, rutaGuardadoFotos + "\" + nombreArchivo) 'Copia imagen seleccionada en la carpeta de guardado, no sobreescribe duplicados
+                My.Computer.FileSystem.CopyFile(rutaArchivo, nombreArchivo)
+                cargar()
+            End If
+            'My.Computer.FileSystem.CopyFile(rutaArchivo, rutaGuardadoFotos + "\" + nombreArchivo) 'Copia imagen seleccionada en la carpeta de guardado, no sobreescribe duplicados
+            'cargar()
+        End If
+    End Sub
+
+    Private Sub cargar()
+        Try
+            Consulta = "select rutaperfil from usuarios where cedula ='" + cedulaAdmin + "'"
+            consultar()
+
+            For Each row As DataRow In Tabla.Rows
+                ptbPerfilAdmin.ImageLocation = Convert.ToString(row("rutaperfil"))
+            Next
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 End Class
