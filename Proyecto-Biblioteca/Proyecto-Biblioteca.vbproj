@@ -413,6 +413,9 @@
     <None Include="Resources\icon.png" />
     <None Include="Resources\gmail-logo.png" />
     <None Include="bin\Debug\imagenes\coat_of_arms_of_salto__uruguay__KLV_icon.ico" />
+    <None Include="bin\Debug\imagenes\cancel-music.png" />
+    <None Include="bin\Debug\imagenes\cancel.png" />
+    <None Include="bin\Debug\imagenes\minimize.png" />
     <Content Include="Resources\navigator.png" />
     <None Include="Resources\Sin título-1.jpg" />
     <None Include="Resources\reading.png" />

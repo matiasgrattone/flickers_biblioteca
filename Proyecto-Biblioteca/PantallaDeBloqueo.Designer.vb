@@ -22,34 +22,50 @@ Partial Class PantallaDeBloqueo
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Rueda_de_carga1 = New Proyecto_Biblioteca.OptProgressControl.Rueda_de_carga()
+        Me.components = New System.ComponentModel.Container()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.SuspendLayout()
         '
-        'Rueda_de_carga1
+        'Panel1
         '
-        Me.Rueda_de_carga1.BackColor = System.Drawing.Color.Transparent
-        Me.Rueda_de_carga1.Interval = 60
-        Me.Rueda_de_carga1.Location = New System.Drawing.Point(490, 225)
-        Me.Rueda_de_carga1.MinimumSize = New System.Drawing.Size(28, 28)
-        Me.Rueda_de_carga1.Name = "Rueda_de_carga1"
-        Me.Rueda_de_carga1.Rotation = Proyecto_Biblioteca.OptProgressControl.Rueda_de_carga.Direction.CLOCKWISE
-        Me.Rueda_de_carga1.Size = New System.Drawing.Size(150, 150)
-        Me.Rueda_de_carga1.StartAngle = 270
-        Me.Rueda_de_carga1.TabIndex = 0
-        Me.Rueda_de_carga1.TickColor = System.Drawing.Color.FromArgb(CType(CType(58, Byte), Integer), CType(CType(58, Byte), Integer), CType(CType(58, Byte), Integer))
+        Me.Panel1.BackColor = System.Drawing.Color.Silver
+        Me.Panel1.Location = New System.Drawing.Point(-3, -1)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(1130, 104)
+        Me.Panel1.TabIndex = 0
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(277, 255)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(337, 108)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Label1"
+        '
+        'Timer1
+        '
+        Me.Timer1.Interval = 60
         '
         'PantallaDeBloqueo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1126, 653)
-        Me.Controls.Add(Me.Rueda_de_carga1)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "PantallaDeBloqueo"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "PantallaDeBloqueo"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Rueda_de_carga1 As Proyecto_Biblioteca.OptProgressControl.Rueda_de_carga
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
 End Class

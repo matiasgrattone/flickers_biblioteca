@@ -356,11 +356,19 @@ Public Class ConfigAdmin
             holay = yc - yco
             Me.Location = New Point(xf + holax, yf + holay)
             Me.Opacity = 0.9
+            MENU3.Timer_Prestamos_LIVE.Enabled = False
         End If
         If a = 0 Then
             xco = Cursor.Position.X
             yco = Cursor.Position.Y
+            MENU3.Timer_Prestamos_LIVE.Enabled = True
         End If
     End Sub
 
+    Private Sub TreeView1_MouseEnter(sender As System.Object, e As System.EventArgs) Handles TreeView1.MouseEnter
+    End Sub
+
+    Private Sub PictureBox1_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox1.Click
+        Me.Close()
+    End Sub
 End Class

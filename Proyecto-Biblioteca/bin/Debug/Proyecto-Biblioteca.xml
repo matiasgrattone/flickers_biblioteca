@@ -51,6 +51,14 @@ Proyecto-Biblioteca
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
+</member><member name="P:Proyecto_Biblioteca.My.Resources.Resources.cancel">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Proyecto_Biblioteca.My.Resources.Resources.cancel_music">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="P:Proyecto_Biblioteca.My.Resources.Resources.clock">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -140,6 +148,10 @@ Proyecto-Biblioteca
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member><member name="P:Proyecto_Biblioteca.My.Resources.Resources.minimize">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Proyecto_Biblioteca.My.Resources.Resources.minimize1">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

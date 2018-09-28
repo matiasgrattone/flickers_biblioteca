@@ -71,8 +71,6 @@ Module Modulo
         Next
         DatagridModulo.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter 'Alinea las cabeceras de cada columena'
         DatagridModulo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill 'Ajusta las columnas al tamaño del datagrid'
-
-
     End Sub
     Public Sub mestonum()
 
