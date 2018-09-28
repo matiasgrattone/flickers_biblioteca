@@ -1645,7 +1645,7 @@ Public Class MENU3
             Chart_Prestamos.ChartAreas.Clear()
 
             '/////////////////////////////// CHART DE PRESTAMOS Y USUARIOS //////////////////////////////////
-            Consulta = "select count(prestamolibro.cod_libro) , month(prestamolibro.fecha_salida) from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro group by month(fecha_salida)"
+            Consulta = "select count(prestamolibro.cod_libro) , month(prestamolibro.fecha_salida) from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where fecha_salida IS NOT NULL group by month(fecha_salida)"
             consultar()
             Chart_Prestamos.ChartAreas.Add("Prestamos")
             Chart_Prestamos.Series.Add("Prestamos")

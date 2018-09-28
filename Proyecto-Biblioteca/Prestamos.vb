@@ -15,7 +15,7 @@
     Dim panelnombre As Integer = 0
 
     Dim fecha_actual As Date = DateTime.Now
-    Dim fecha_entrada As Date = fecha_actual.Month & "/" & fecha_actual.Year & "/" & Date.FromOADate(Val(fecha_actual.Day) + 14)
+    ' Dim fecha_entrada As Date = fecha_actual.Month & "/" & fecha_actual.Year & "/" & Date.FromOADate(Val(fecha_actual.Day) + 14)
 
     '/////////////////////////////////////////////////////////
 
@@ -539,15 +539,20 @@
     End Sub
 
     Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
-        Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where cedula= '" & Cedula.Text & "'"
+        Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where cedula= '" & Cedula.Text & "'"
         consultar()
+
+
+
         DataGridParaDevolucion.DataSource = Tabla
         modo = "registro"
     End Sub
 
     Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
-        Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and p.cedula= '" & Cedula.Text & "'"
+        Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and p.cedula= '" & Cedula.Text & "'"
         consultar()
+
+
         DataGridParaDevolucion.DataSource = Tabla
         modo = "devolucion"
     End Sub
@@ -573,7 +578,7 @@
                 consultar()
                 If (Tabla.Rows.Count = 0) Then
                     ExtCombo.Visible = True
-                    Consulta = "select * from libro where estado = '0'"
+                    Consulta = "select cod_libro as 'Numero de Inventario', titulo as 'Titulo', volumen as 'Volumen', ubicacion as 'Ubicacion' from libro where estado ='0'"
                     consultar()
                     DataGridViewlllllVerLibrosEnExtraccionlllll.DataSource = Tabla
                 Else
@@ -590,7 +595,7 @@
                         Case 1
                             MsgBox("Este socio NO puede retirar un libro hasta devolver los ya prestados", Title:="ERROR")
                         Case 0
-                            Consulta = "select * from libro where estado = '0'"
+                            Consulta = "select cod_libro as 'Numero de Inventario', titulo as 'Titulo', volumen as 'Volumen', ubicacion as 'Ubicacion' from libro where estado ='0'"
                             consultar()
                             DataGridViewlllllVerLibrosEnExtraccionlllll.DataSource = Tabla
                             ExtCombo.Visible = True
@@ -608,7 +613,7 @@
 
             'Dim ROWS As DataGridView = DatagridviewOcultolllllParaFuncionesPrestmolllll.CurrentRow
 
-            Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
+            Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
             consultar()
             DataGridParaDevolucion.DataSource = Tabla
 
@@ -643,7 +648,7 @@
 
             Dim ROWS As DataGridViewRow = DatagridviewOcultolllllParaFuncionesPrestmolllll.CurrentRow
 
-            Consulta = "select * from libro where estado = 2"
+            Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
             consultar()
             VerLibrosReservados2.DataSource = Tabla
 
@@ -657,7 +662,7 @@
 
                 ReservacionComboBox.Visible = True
 
-                Consulta = "select * from libro where estado = 2"
+                Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
                 consultar()
                 VerLibrosReservados2.DataSource = Tabla
 
@@ -670,7 +675,7 @@
                 If (ROWS.Cells(3).Value.ToString) <> "" Then
                     ReservacionComboBox.Visible = True
 
-                    Consulta = "select * from libro where estado = 2"
+                    Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
                     consultar()
                     VerLibrosReservados2.DataSource = Tabla
                 Else
@@ -701,7 +706,7 @@
             Dim ROWS As DataGridViewRow = DatagridviewOcultolllllParaFuncionesPrestmolllll.CurrentRow
 
 
-            Consulta = "select * from libro where estado = '0'"
+            Consulta = "select cod_libro as 'Numero de Inventario', titulo as 'Titulo', volumen as 'Volumen', ubicacion as 'Ubicacion' from libro where estado ='0'"
             consultar()
             LibrosParaReservar.DataSource = Tabla
 
@@ -714,7 +719,7 @@
 
             CrearReservacionComboBox.Visible = True
 
-            Consulta = "select * from libro where estado = '0'"
+            Consulta = "select cod_libro as 'Numero de Inventario', titulo as 'Titulo', volumen as 'Volumen', ubicacion as 'Ubicacion' from libro where estado ='0'"
             consultar()
 
             LibrosParaReservar.DataSource = Tabla
@@ -960,7 +965,7 @@
                     For Each item As String In ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items
 
                         For Each Row As DataGridViewRow In DataGridViewlllllVerLibrosEnExtraccionlllll.Rows
-                            If Row.Cells("cod_libro").Value = Val(item) Then
+                            If Row.Cells("Numero de Inventario").Value = Val(item) Then
                                 Row.DefaultCellStyle.BackColor = Drawing.Color.BlueViolet
                             End If
 
@@ -985,9 +990,9 @@
 
             Try
 
-                Libro1 = DataGridParaDevolucion.Item(2, DataGridParaDevolucion.CurrentRow.Index).Value
+                Libro1 = DataGridParaDevolucion.Item(1, DataGridParaDevolucion.CurrentRow.Index).Value
 
-                cod_libros = DataGridParaDevolucion.Item(1, DataGridParaDevolucion.CurrentRow.Index).Value
+                cod_libros = DataGridParaDevolucion.Item(0, DataGridParaDevolucion.CurrentRow.Index).Value
 
 
 
@@ -1006,7 +1011,7 @@
                     consultar()
                     MsgBox("Se ha devuelto", Title:="PRESTAMO")
 
-                    Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
+                    Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
                     consultar()
                     DataGridParaDevolucion.DataSource = Tabla
 
@@ -1014,7 +1019,7 @@
 
                     MsgBox("Este libro no se devolvio", Title:="PRESTAMOS")
 
-                    Consulta = "select p.cedula, p.cod_libro, l.titulo, p.fecha_salida, p.fecha_entrada from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
+                    Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
                     consultar()
                     DataGridParaDevolucion.DataSource = Tabla
 
@@ -1266,4 +1271,55 @@
         FichaSocio.Show()
     End Sub
 
+    Private Sub LibrosParaReservar_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles LibrosParaReservar.CellDoubleClick
+        Try
+
+            Libro1 = LibrosParaReservar.Item(1, LibrosParaReservar.CurrentRow.Index).Value
+
+            cod_libros = LibrosParaReservar.Item(0, LibrosParaReservar.CurrentRow.Index).Value
+
+
+
+            Dim a As MsgBoxResult
+            a = MsgBox("Desea reservar el libro " & Libro1 & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
+
+
+            '       1) Si se devuelve el libro y se actualiza la Base da datos 
+            If a = vbYes Then
+
+                Consulta = "update libro set estado = 2 where cod_libro = '" & cod_libros & "'"
+                consultar()
+                Consulta = "insert into prestamolibro (cedula, cod_libro) values ('" + Cedula.Text + "','" + cod_libros + "')"
+                consultar()
+                MsgBox("Se ha reservado", Title:="PRESTAMO")
+
+                Consulta = "select cod_libro as 'Numero de Inventario', titulo as 'Titulo', volumen as 'Volumen', ubicacion as 'Ubicacion' from libro where estado ='0'"
+                consultar()
+                LibrosParaReservar.DataSource = Tabla
+
+            Else
+
+                MsgBox("Este libro no se reservo", Title:="PRESTAMOS")
+
+                Consulta = "select cod_libro as 'Numero de Inventario', titulo as 'Titulo', volumen as 'Volumen', ubicacion as 'Ubicacion' from libro where estado ='0'"
+                consultar()
+                LibrosParaReservar.DataSource = Tabla
+
+            End If
+
+            If a = vbNo Then
+
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Consulta = "select cod_libro as 'Numero de Inventario', titulo as 'Titulo', volumen as 'Volumen', ubicacion as 'Ubicacion' from libro where estado ='0'"
+            consultar()
+            LibrosParaReservar.DataSource = Tabla
+        End Try
+
+    End Sub
+
+    Private Sub LibrosParaReservar_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles LibrosParaReservar.CellContentClick
+
+    End Sub
 End Class
