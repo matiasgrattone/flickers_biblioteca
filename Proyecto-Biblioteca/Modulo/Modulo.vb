@@ -2,6 +2,8 @@ Imports System.Data
 Imports System.Data.OleDb
 Imports MySql.Data.MySqlClient
 Imports System.IO
+Imports System.Net.Mail
+Imports System.Net
 Module Modulo
 
     Public nombre As String 'Variable para cambiar mostrar nombre en inicio usuario
@@ -206,6 +208,42 @@ Module Modulo
         Catch ex As Exception
             MsgBox(ex.ToString, Title:=" MODULO VERIFICAR CEDULA ")
             correcto = 1
+        End Try
+
+    End Sub
+
+    Public Sub enviarEmail(destino As String, ByVal asunto As String, ByVal cuerpo As String)
+        Dim Email As New MailMessage()
+
+        Try
+
+            'Declaramos nuestro objeto servidor SMTP
+            Dim SMTPServer As New SmtpClient
+
+            Email.From = New MailAddress("flickers.srl.uy@gmail.com")
+            Email.To.Add(New MailAddress(destino))
+            Email.Subject = asunto
+            Email.Body = cuerpo
+
+            'Especificamos cual es nuestro servidor SMTP
+            SMTPServer.Host = "smtp.gmail.com"
+            'Puerto SMTP de nuestro server
+            SMTPServer.Port = 587
+            'Credenciales de acceso de la cuenta de envio
+            SMTPServer.Credentials = New System.Net.NetworkCredential("flickers.srl.uy@gmail.com", "fli1234.ckers")
+            'Si nuestro servidor de correo admite SSL
+            SMTPServer.EnableSsl = True
+            'Enviamos el correo
+            SMTPServer.Send(Email)
+
+            'Destruimos el objeto de correo
+            Email.Dispose()
+
+            MessageBox.Show("Correo enviado.", "Mail Sender", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        Catch ex As Exception
+            MessageBox.Show("Ocurrio un error al enviar el correo: " & ex.Message,
+            "Mail Sender", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
     End Sub

@@ -62,8 +62,8 @@ Partial Class FichaSocio
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBoxEstado = New System.Windows.Forms.PictureBox()
         Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.LabelFecha_Ingreso = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -478,16 +478,6 @@ Partial Class FichaSocio
         Me.Panel5.Size = New System.Drawing.Size(957, 628)
         Me.Panel5.TabIndex = 32
         '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(645, 20)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(114, 15)
-        Me.Label4.TabIndex = 32
-        Me.Label4.Text = "Fecha_Ingreso : "
-        '
         'LabelFecha_Ingreso
         '
         Me.LabelFecha_Ingreso.AutoSize = True
@@ -497,6 +487,16 @@ Partial Class FichaSocio
         Me.LabelFecha_Ingreso.Size = New System.Drawing.Size(95, 15)
         Me.LabelFecha_Ingreso.TabIndex = 33
         Me.LabelFecha_Ingreso.Text = "......................"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(645, 20)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(114, 15)
+        Me.Label4.TabIndex = 32
+        Me.Label4.Text = "Fecha_Ingreso : "
         '
         'FichaSocio
         '
