@@ -150,4 +150,8 @@
     Private Sub Panel5_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles Panel5.Paint
 
     End Sub
+
+    Private Sub PictureBox2_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox2.Click
+        Form3.Show()
+    End Sub
 End Class

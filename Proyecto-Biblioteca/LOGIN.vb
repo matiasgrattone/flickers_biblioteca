@@ -171,15 +171,13 @@
 
     Private Sub Label1_Click(sender As System.Object, e As System.EventArgs) Handles Label1.Click
         mailrecuperar = InputBox("Por favor ingrese su cedula para restablecer su contraseña")
-        If mailrecuperar <> Nothing Then
-        Else
-            Consulta = "select mail from usuarios where cedula = '" & mailrecuperar & "'"
-            consultar()
-            For Each row As DataRow In Tabla.Rows
-                enviarEmail(row("mail"), "recuperación contraseña", row("contrasenia"))
-            Next
 
-        End If
+        Consulta = "select * from usuarios where cedula = '" & mailrecuperar & "'"
+        consultar()
+        For Each row As DataRow In Tabla.Rows
+            enviarEmail(row("mail"), "recuperación contraseña", "Su Contraseña es : " & row("contrasenia"))
+        Next
+
     End Sub
 
 End Class
