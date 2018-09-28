@@ -470,7 +470,7 @@
 
 
 
-            Consulta = "select * from prestamolibro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
+            Consulta = "select * from prestamolibro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula=  '" & Cedula.Text & "'"
             consultar()
 
             If (Tabla.Rows.Count = 0) Then
@@ -539,7 +539,7 @@
     End Sub
 
     Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
-        Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where cedula= '" & Cedula.Text & "'"
+        Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where cedula= '" & Cedula.Text & "' and fecha_salida IS NOT NULL AND fecha_entrada IS NOT NULL"
         consultar()
 
 
@@ -549,7 +549,7 @@
     End Sub
 
     Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
-        Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and p.cedula= '" & Cedula.Text & "'"
+        Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where  p.cedula= '" & Cedula.Text & "' and fecha_entrada is NULL and fecha_salida is NOT NULL"
         consultar()
 
 
@@ -574,7 +574,7 @@
 
 
 
-                Consulta = "select * from prestamolibro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
+                Consulta = "select * from prestamolibro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula=  '" & Cedula.Text & "'"
                 consultar()
                 If (Tabla.Rows.Count = 0) Then
                     ExtCombo.Visible = True
@@ -613,7 +613,7 @@
 
             'Dim ROWS As DataGridView = DatagridviewOcultolllllParaFuncionesPrestmolllll.CurrentRow
 
-            Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
+            Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where cedula= '" & Cedula.Text & "' and fecha_salida IS NOT NULL AND fecha_entrada IS NULL"
             consultar()
             DataGridParaDevolucion.DataSource = Tabla
 
@@ -647,35 +647,37 @@
                 devoCOMBO.Visible = False
                 ExtCombo.Visible = False
                 CrearReservacionComboBox.Visible = False
-                ReservacionComboBox.Visible = True
+
                 '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
-                Consulta = "select * from prestamolibro where fecha_entrada is NULL and fecha_salida is NULL and cedula= '" & Cedula.Text & "'"
+                Consulta = "select * from prestamolibro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
                 consultar()
-                If (Tabla.Rows.Count >= 1) Then
+                If (Tabla.Rows.Count = 0) Then
+                    ReservacionComboBox.Visible = True
                     Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado ='2' and cedula = '" + Cedula.Text + "'"
                     consultar()
                     VerLibrosReservados2.DataSource = Tabla
-                    'Else
+                Else
 
-                    '    For Each row As DataRow In Tabla.Rows
-                    '        If row("fecha_entrada") Is DBNull.Value Then
-                    '            FechaEntradaPrestamo = 1
-                    '        Else
-                    '            FechaEntradaPrestamo = 0
-                    '        End If
-                    '    Next
+                    For Each row As DataRow In Tabla.Rows
+                        If row("fecha_entrada") Is DBNull.Value Then
+                            FechaEntradaPrestamo = 1
+                        Else
+                            FechaEntradaPrestamo = 0
+                        End If
+                    Next
 
-                    '    Select Case FechaEntradaPrestamo
-                    '        Case 1
-                    '            MsgBox("Este socio NO puede retirar un libro hasta devolver los ya prestados", Title:="ERROR")
-                    '        Case 0
-                    '            Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado ='2' and cedula = '" + Cedula.Text + "'"
-                    '            consultar()
-                    '            VerLibrosReservados2.DataSource = Tabla
-                    '    End Select
+                    Select Case FechaEntradaPrestamo
+                        Case 1
+                            MsgBox("Este socio NO puede retirar un libro hasta devolver los ya prestados", Title:="ERROR")
+                        Case 0
+                            ReservacionComboBox.Visible = True
+                            Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado ='2' and cedula = '" + Cedula.Text + "'"
+                            consultar()
+                            VerLibrosReservados2.DataSource = Tabla
+                    End Select
                 End If
             Else
             End If
@@ -731,19 +733,21 @@
             If Consulta <> "" Then
                 Consulta = "update libro set estado = 0 where cod_libro ='" & IdLibro & "'"
                 consultar()
+                Consulta = "DELETE FROM prestamolibro WHERE cedula = '" + Cedula.Text + "' and cod_libro= '" + IdLibro + "'"
+                consultar()
                 MsgBox("Se a cancelado la reservacion", Title:="PRESTAMO")
 
-                Consulta = "select * from libro where estado = 2"
+                Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado ='2' and cedula = '" + Cedula.Text + "'"
                 consultar()
                 VerLibrosReservados2.DataSource = Tabla
             Else
-                MsgBox("No se canceló la reservación del libro", Title:="ERROR RESERVACIÓN")
+
             End If
         Catch ex As Exception
             MsgBox("Ha ocurrido un error en la eliminación de las reservación", Title:="ERROR RESERVACIÓN")
         End Try
 
-        Consulta = "select * from libro where estado = 2"
+        Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado ='2' and cedula = '" + Cedula.Text + "'"
         consultar()
         VerLibrosReservados2.DataSource = Tabla
     End Sub
@@ -763,16 +767,15 @@
 
 
 
-            Consulta = "select * from prestamolibro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
+            Consulta = "select * from prestamolibro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula=  '" & Cedula.Text & "'"
             consultar()
 
             If (Tabla.Rows.Count = 0) Then
-
                 While contador < list
                     contador = Val(contador) + 1
 
                     'REVISAR ESTO'
-                    Consulta = "update prestamolibro set fecha_salida = '" + Date.Now.ToString("yyyy-MM-dd") + "', cod_prestado = '" + MENU3.Cedula.Text + "' where cedula = '" + Cedula.Text + "' and cod_libro = " + ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) + "'"
+                    Consulta = "insert into prestamolibro(cedula,cod_libro,fecha_salida,cod_prestado) values('" + Cedula.Text + "','" + ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "','" + MENU3.Cedula.Text + "')"
                     consultar()
 
                     Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) & "';"
@@ -806,7 +809,7 @@
                             contador = Val(contador) + 1
 
 
-                            Consulta = "update prestamolibro set fecha_salida = '" + Date.Now.ToString("yyyy-MM-dd") + "', cod_prestado = '" + MENU3.Cedula.Text + "' where cedula = '" + Cedula.Text + "' and cod_libro = " + ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) + "'"
+                            Consulta = "insert into prestamolibro(cedula,cod_libro,fecha_salida,cod_prestado) values('" + Cedula.Text + "','" + ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "','" + MENU3.Cedula.Text + "')"
                             consultar()
 
 
@@ -937,7 +940,7 @@
 
             If (ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Contains(NomLibros)) Then
 
-                MsgBox("Este libro " & NomLibros & " ya se encuentra en el carrito de extracción ", Title:="PRESTAMOS")
+                MsgBox("Este libro ya se encuentra en el carrito de extracción ", Title:="PRESTAMOS")
 
 
             Else
@@ -999,7 +1002,7 @@
                     consultar()
                     MsgBox("Se ha devuelto", Title:="PRESTAMO")
 
-                    Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
+                    Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where cedula= '" & Cedula.Text & "' and fecha_salida IS NOT NULL AND fecha_entrada IS NULL"
                     consultar()
                     DataGridParaDevolucion.DataSource = Tabla
 
@@ -1007,7 +1010,7 @@
 
                     MsgBox("Este libro no se devolvio", Title:="PRESTAMOS")
 
-                    Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and cedula= '" & Cedula.Text & "'"
+                    Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where cedula= '" & Cedula.Text & "' and fecha_salida IS NOT NULL AND fecha_entrada IS NULL"
                     consultar()
                     DataGridParaDevolucion.DataSource = Tabla
 
@@ -1173,17 +1176,16 @@
             CarritoDeLibros.Items.Clear()
             ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
 
-            Consulta = "select * from libro where estado = '0'"
+            Consulta = "select cod_libro as 'Numero de Inventario', titulo as 'Titulo', volumen as 'Volumen', ubicacion as 'Ubicacion' from libro where estado ='0'"
             consultar()
             DataGridViewlllllVerLibrosEnExtraccionlllll.DataSource = Tabla
 
-            Consulta = "select * from libro where estado = 2"
+            Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado ='2' and cedula = '" + Cedula.Text + "'"
             consultar()
             VerLibrosReservados2.DataSource = Tabla
-
-        Else
-
         End If
+
+
     End Sub
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
@@ -1191,8 +1193,12 @@
     End Sub
 
 
-    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
+    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonRevistas.Click
+
+
         PrestamoRevistas.Show()
+        PrestamoRevistas.Location = New Point(135, 45)
+
     End Sub
 
 
@@ -1218,9 +1224,11 @@
             '       1) Si se devuelve el libro y se actualiza la Base da datos 
             If a = vbYes Then
 
-                Consulta = "update libro set estado = 2 where cod_libro = '" & cod_libros & "'"
-                consultar()
+
                 Consulta = "insert into prestamolibro (cedula, cod_libro) values ('" + Cedula.Text + "','" + cod_libros + "')"
+                consultar()
+
+                Consulta = "update libro set estado = 2 where cod_libro = '" & cod_libros & "'"
                 consultar()
                 MsgBox("Se ha reservado", Title:="PRESTAMO")
 
@@ -1249,14 +1257,6 @@
 
     End Sub
 
-    Private Sub LibrosParaReservar_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles LibrosParaReservar.CellContentClick
-
-    End Sub
-
-    Private Sub VerLibrosReservados2_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles VerLibrosReservados2.CellContentClick
-
-    End Sub
-
     Private Sub VerLibrosReservados2_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles VerLibrosReservados2.CellDoubleClick
 
 
@@ -1266,18 +1266,17 @@
         list1 = ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Count
 
 
+        If VerLibrosReservados2.Item(1, VerLibrosReservados2.CurrentRow.Index).Value <> list1 Then
 
-        If VerLibrosReservados2.Item(0, VerLibrosReservados2.CurrentRow.Index).Value <> list1 Then
             Dim NomLibros As String
             Dim IdLibros As String
             NomLibros = VerLibrosReservados2.Item(1, VerLibrosReservados2.CurrentRow.Index).Value
             IdLibros = VerLibrosReservados2.Item(0, VerLibrosReservados2.CurrentRow.Index).Value
 
 
-
             If (ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Contains(NomLibros)) Then
 
-                MsgBox("Este libro " & NomLibros & " ya se encuentra en el carrito de extracción ", Title:="PRESTAMOS")
+                MsgBox("Este libro ya se encuentra en el carrito de extracción ", Title:="PRESTAMOS")
 
 
             Else

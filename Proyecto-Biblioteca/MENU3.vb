@@ -1687,7 +1687,7 @@ Public Class MENU3
                 If RadioButton2.Checked = True Then
                     ChartPrestamosDia.ChartAreas("Prestamos Del Dia").Area3DStyle.Enable3D = True
                     'ChartPrestamosDia.ChartAreas("Prestamos Del Dia").Area3DStyle.Rotation = 0
-                    ChartPrestamosDia.ChartAreas("Prestamos Del Dia").Area3DStyle.Rotation = ConfigAdmin.TrackBar1.Value
+                    'ChartPrestamosDia.ChartAreas("Prestamos Del Dia").Area3DStyle.Rotation = ConfigAdmin.TrackBar1.Value
                 ElseIf RadioButton3.Checked = True Then
                     ChartPrestamosDia.Series("Prestamos Del Dia").ChartType = DataVisualization.Charting.SeriesChartType.Pie
                 End If
@@ -1952,4 +1952,5 @@ Public Class MENU3
     Private Sub RadioButton4_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton4.CheckedChanged
         Chart()
     End Sub
+
 End Class
