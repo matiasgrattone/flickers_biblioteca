@@ -1637,6 +1637,7 @@ Public Class MENU3
             ComboBox2.Enabled = False
 
         Else
+
             ComboBox1.Enabled = True
             ComboBox2.Enabled = True
 
@@ -1744,10 +1745,10 @@ Public Class MENU3
 
 
     End Sub
-    Dim x As Integer = 1
+    Dim x1 As Integer = 1
     Private Sub PictureBox1_Click_1(sender As System.Object, e As System.EventArgs) Handles PictureBox1.Click
 
-        If x = 0 Then
+        If x1 = 0 Then
             PanelPrestamosLIVE.Left = 1010
             PanelGraph1.Width = 969
             ChartPrestamosDia.Width = 963
@@ -1757,7 +1758,7 @@ Public Class MENU3
             Panel1.Width = 499
             Chart_Prestamos.Width = 492
             PanelPrestamosTOP.Left = 525
-            x = 1
+            x1 = 1
         Else
             PanelPrestamosLIVE.Left = 766
             PictureBox1.Left = 742
@@ -1769,7 +1770,7 @@ Public Class MENU3
             Panel1.Width = 398
             Chart_Prestamos.Width = 392
 
-            x = 0
+            x1 = 0
         End If
 
 
@@ -1833,7 +1834,7 @@ Public Class MENU3
         End If
 
     End Sub
-
+    Dim koko As Integer = 0
     Private Sub Timer_BD_Tick(sender As System.Object, e As System.EventArgs) Handles Timer_BD.Tick
 
         If primeriniciotimer = 0 Then
@@ -1853,16 +1854,17 @@ Public Class MENU3
                 ComboBox1.Enabled = False
                 ComboBox2.Enabled = False
                 Timer_RuedaDeCarga.Enabled = True
+                Chart()
 
             Case 0
 
                 If seleccionado = "Inicio" Then
 
+
                     Timer_Prestamos_LIVE.Enabled = True
 
                 Else
 
-                    Timer_Prestamos_LIVE.Enabled = False
                     Timer_BD.Interval = 6000
 
                 End If

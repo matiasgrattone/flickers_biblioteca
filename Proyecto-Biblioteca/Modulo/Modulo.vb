@@ -42,14 +42,14 @@ Module Modulo
             Conexion.Fill(Tabla)
             MysqlConexion.Close()
             If ERROR1 = 2 Then
-                MsgBox("ha vuelto la conexiòn", MsgBoxStyle.Information)
+                'MsgBox("ha vuelto la conexiòn", MsgBoxStyle.Information)
                 ERROR1 = 0
             End If
 
         Catch ex As Exception
 
             If (ex.Message.ToLowerInvariant().Contains("unable to connect")) And ERROR1 = 0 Then
-                MsgBox("no hay conexion con la base de datos", MsgBoxStyle.OkOnly, "ERROR")
+                '    MsgBox("no hay conexion con la base de datos", MsgBoxStyle.OkOnly, "ERROR")
                 ERROR1 = 2
             ElseIf (ex.Message.ToLowerInvariant().Contains("duplicate entry")) Then
                 MsgBox("hay datos duplicados , verifique que los datos no esten ya ingresados en la plataforma", MsgBoxStyle.OkOnly, "ERROR")
