@@ -146,4 +146,8 @@
     Private Sub PictureBox3_MouseEnter(sender As System.Object, e As System.EventArgs) Handles PictureBox3.MouseEnter
         Me.Cursor = Cursors.Hand
     End Sub
+
+    Private Sub Panel5_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles Panel5.Paint
+
+    End Sub
 End Class

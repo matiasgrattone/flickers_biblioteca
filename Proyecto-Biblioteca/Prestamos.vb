@@ -15,7 +15,7 @@
     Dim panelnombre As Integer = 0
 
     Dim fecha_actual As Date = DateTime.Now
-    Dim fecha_entrada As Date = fecha_actual.Month & "/" & fecha_actual.Year & "/" & Date.FromOADate(Val(fecha_actual.Day) + 14)
+    ' Dim fecha_entrada As Date = fecha_actual.Month & "/" & fecha_actual.Year & "/" & Date.FromOADate(Val(fecha_actual.Day) + 14)
 
     '/////////////////////////////////////////////////////////
 

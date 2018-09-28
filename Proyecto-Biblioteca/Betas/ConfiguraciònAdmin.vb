@@ -364,6 +364,6 @@ Public Class ConfigAdmin
     End Sub
 
     Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
-
+        enviarEmail("matiasgrattone32@gmail.com", "prueba modulo", "asdasdsadsadasdasdasdsa")
     End Sub
 End Class
