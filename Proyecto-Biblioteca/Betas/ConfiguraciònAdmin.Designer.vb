@@ -1,4 +1,4 @@
-ï»¿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class ConfigAdmin
     Inherits System.Windows.Forms.Form
 
@@ -32,7 +32,7 @@ Partial Class ConfigAdmin
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ConfigAdmin))
         Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.Label_AnimaciÃ²n = New System.Windows.Forms.Label()
+        Me.Label_Animaciòn = New System.Windows.Forms.Label()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
@@ -102,14 +102,14 @@ Partial Class ConfigAdmin
         Me.ComboBox3.Size = New System.Drawing.Size(121, 21)
         Me.ComboBox3.TabIndex = 10
         '
-        'Label_AnimaciÃ²n
+        'Label_Animaciòn
         '
-        Me.Label_AnimaciÃ²n.AutoSize = True
-        Me.Label_AnimaciÃ²n.Location = New System.Drawing.Point(10, 384)
-        Me.Label_AnimaciÃ²n.Name = "Label_AnimaciÃ²n"
-        Me.Label_AnimaciÃ²n.Size = New System.Drawing.Size(56, 13)
-        Me.Label_AnimaciÃ²n.TabIndex = 11
-        Me.Label_AnimaciÃ²n.Text = "AnimaciÃ²n"
+        Me.Label_Animaciòn.AutoSize = True
+        Me.Label_Animaciòn.Location = New System.Drawing.Point(10, 384)
+        Me.Label_Animaciòn.Name = "Label_Animaciòn"
+        Me.Label_Animaciòn.Size = New System.Drawing.Size(56, 13)
+        Me.Label_Animaciòn.TabIndex = 11
+        Me.Label_Animaciòn.Text = "Animaciòn"
         '
         'TabControl1
         '
@@ -190,7 +190,7 @@ Partial Class ConfigAdmin
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(276, 13)
         Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Para dar de baja a un funcionario dar doble click sobre Ã©l"
+        Me.Label2.Text = "Para dar de baja a un funcionario dar doble click sobre él"
         '
         'TabPage2
         '
@@ -239,7 +239,7 @@ Partial Class ConfigAdmin
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(83, 19)
         Me.Label4.TabIndex = 149
-        Me.Label4.Text = "ContraseÃ±a"
+        Me.Label4.Text = "Contraseña"
         '
         'Label5
         '
@@ -279,7 +279,7 @@ Partial Class ConfigAdmin
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(65, 19)
         Me.Label8.TabIndex = 142
-        Me.Label8.Text = "TelÃ©fono"
+        Me.Label8.Text = "Teléfono"
         '
         'Label9
         '
@@ -289,7 +289,7 @@ Partial Class ConfigAdmin
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(54, 19)
         Me.Label9.TabIndex = 141
-        Me.Label9.Text = "CÃ©dula"
+        Me.Label9.Text = "Cédula"
         '
         'Label11
         '
@@ -351,7 +351,7 @@ Partial Class ConfigAdmin
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(70, 19)
         Me.Label18.TabIndex = 133
-        Me.Label18.Text = "DirecciÃ³n"
+        Me.Label18.Text = "Dirección"
         '
         'TabPage3
         '
@@ -428,7 +428,7 @@ Partial Class ConfigAdmin
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(255, 13)
         Me.Label1.TabIndex = 4
-        Me.Label1.Text = "Para activar a un funcionario dar doble click sobre Ã©l"
+        Me.Label1.Text = "Para activar a un funcionario dar doble click sobre él"
         '
         'ImageList1
         '
@@ -507,7 +507,7 @@ Partial Class ConfigAdmin
         Me.Panel2.Controls.Add(Me.Label_BaseDatosTXT)
         Me.Panel2.Controls.Add(Me.Label_BaseDatos)
         Me.Panel2.Controls.Add(Me.TabControl1)
-        Me.Panel2.Controls.Add(Me.Label_AnimaciÃ²n)
+        Me.Panel2.Controls.Add(Me.Label_Animaciòn)
         Me.Panel2.Controls.Add(Me.ComboBox3)
         Me.Panel2.Controls.Add(Me.TreeView1)
         Me.Panel2.Location = New System.Drawing.Point(1, 38)
@@ -543,7 +543,7 @@ Partial Class ConfigAdmin
         Me.contrasenia_txt.Size = New System.Drawing.Size(189, 27)
         Me.contrasenia_txt.TabIndex = 150
         Me.contrasenia_txt.WaterMarkColor = System.Drawing.Color.Gray
-        Me.contrasenia_txt.WaterMarkText = "ContraseÃ±a"
+        Me.contrasenia_txt.WaterMarkText = "Contraseña"
         '
         'telefono_txt
         '
@@ -553,7 +553,7 @@ Partial Class ConfigAdmin
         Me.telefono_txt.Size = New System.Drawing.Size(189, 27)
         Me.telefono_txt.TabIndex = 147
         Me.telefono_txt.WaterMarkColor = System.Drawing.Color.Gray
-        Me.telefono_txt.WaterMarkText = "TelÃ©fono"
+        Me.telefono_txt.WaterMarkText = "Teléfono"
         '
         'cedula_txt
         '
@@ -563,7 +563,7 @@ Partial Class ConfigAdmin
         Me.cedula_txt.Size = New System.Drawing.Size(189, 27)
         Me.cedula_txt.TabIndex = 146
         Me.cedula_txt.WaterMarkColor = System.Drawing.Color.Gray
-        Me.cedula_txt.WaterMarkText = "CÃ©dula"
+        Me.cedula_txt.WaterMarkText = "Cédula"
         '
         'apellido_txt
         '
@@ -593,7 +593,7 @@ Partial Class ConfigAdmin
         Me.direccion_txt.Size = New System.Drawing.Size(189, 27)
         Me.direccion_txt.TabIndex = 138
         Me.direccion_txt.WaterMarkColor = System.Drawing.Color.Gray
-        Me.direccion_txt.WaterMarkText = "DirecciÃ³n"
+        Me.direccion_txt.WaterMarkText = "Dirección"
         '
         'Buscar_Baja_txt
         '
@@ -644,7 +644,7 @@ Partial Class ConfigAdmin
     End Sub
     Friend WithEvents TreeView1 As System.Windows.Forms.TreeView
     Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
-    Friend WithEvents Label_AnimaciÃ²n As System.Windows.Forms.Label
+    Friend WithEvents Label_Animaciòn As System.Windows.Forms.Label
     Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
     Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage

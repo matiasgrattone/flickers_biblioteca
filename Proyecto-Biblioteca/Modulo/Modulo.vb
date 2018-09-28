@@ -1,10 +1,11 @@
-ï»¿Imports System.Data
+Imports System.Data
 Imports System.Data.OleDb
 Imports MySql.Data.MySqlClient
-
+Imports System.IO
 Module Modulo
 
     Public nombre As String 'Variable para cambiar mostrar nombre en inicio usuario
+
     Dim ubicacion As String
     Public invitado As Integer = 0
     Public ERROR1 As Integer
@@ -12,12 +13,15 @@ Module Modulo
     Public Tabla As DataTable
     Public Consulta As String
     Public MysqlConexion As MySqlConnection = New MySqlConnection(ubicacion)
+
     Public opcioncolor As Color
     Public fecha As String
     Public DatagridModulo As DataGridView ' Variable para poder usar el codigo Datagrid_Align en cualquier formulario
     Public correcto As Integer = 0 '----------------------Variable para verificar si la cedula es valida---------------------------
     Public ANIMACION As Integer = 0
     Public substring As String
+
+
 
     Public Sub consultar()
 
@@ -27,7 +31,7 @@ Module Modulo
             ubicacion = "server=bibliotecadb.ddns.net; user id=admin; password=admin; database=biblioteca"
         Else
             'ubicacion = "server=192.168.1.12; user id=invitado; password=invitado; database=biblioteca"
-            ubicacion = "server=bibliotecadb.ddns.net; user id=invitado; password=invitado; database=biblioteca"
+            'ubicacion = "server=bibliotecadb.ddns.net; user id=invitado; password=invitado; database=biblioteca"
         End If
 
         Try
@@ -36,12 +40,12 @@ Module Modulo
             Conexion.Fill(Tabla)
             MysqlConexion.Close()
             If ERROR1 = 2 Then
-                MsgBox("ha vuelto la conexiÃ²n", MsgBoxStyle.Information)
+                MsgBox("ha vuelto la conexiòn", MsgBoxStyle.Information)
                 ERROR1 = 0
             End If
 
         Catch ex As Exception
-            
+
             If (ex.Message.ToLowerInvariant().Contains("unable to connect")) And ERROR1 = 0 Then
                 MsgBox("no hay conexion con la base de datos", MsgBoxStyle.OkOnly, "ERROR")
                 ERROR1 = 2
@@ -64,7 +68,7 @@ Module Modulo
             DatagridModulo.Columns(x).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
         Next
         DatagridModulo.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter 'Alinea las cabeceras de cada columena'
-        DatagridModulo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill 'Ajusta las columnas al tamaÃ±o del datagrid'
+        DatagridModulo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill 'Ajusta las columnas al tamaño del datagrid'
 
 
     End Sub

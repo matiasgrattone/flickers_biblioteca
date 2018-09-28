@@ -67,6 +67,10 @@ Proyecto-Biblioteca
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
+</member><member name="P:Proyecto_Biblioteca.My.Resources.Resources.coat_of_arms_of_salto__uruguay__KLV_icon">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="P:Proyecto_Biblioteca.My.Resources.Resources.crear_reserva">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.

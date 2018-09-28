@@ -1,4 +1,4 @@
-﻿Public Class ConfigAdmin
+Public Class ConfigAdmin
     Dim a As Integer
     Public xco, yco As Integer
     Dim resultx, resulty As Integer
@@ -19,7 +19,7 @@
 
     Dim dia_ingresar As String
     Dim mes_ingresar As String
-    Dim año_ingresar As String
+    Dim a�o_ingresar As String
 
     Dim confirmacion As String
     Dim cedulaAdmin As String
@@ -48,7 +48,7 @@
 
         TreeView1.ExpandAll()
     End Sub
-    Private Sub ConfiguraciònAdmin_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub Configuraci�nAdmin_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'Administrador 0
         'Funcionarios 1
         'Socios 2
@@ -98,7 +98,7 @@
 
         For i As Integer = 1899 To Date.Now.ToString("yyyy")
             If i = 1899 Then
-                cb_anio.Items.Add("Año")
+                cb_anio.Items.Add("A�o")
                 cb_anio.SelectedIndex = 0
             Else
                 cb_anio.Items.Add(i)
@@ -140,7 +140,7 @@
         i_ingresar = 0
 
         If LTrim$(nombre_txt.Text) = "" Then ' Verifica si esta vacio nombre
-            ErrorProvider1.SetError(nombre_txt, "Nombre no puede estar vacío")
+            ErrorProvider1.SetError(nombre_txt, "Nombre no puede estar vac�o")
             i_ingresar = 1
         Else
             nom_ingresar = nombre_txt.Text
@@ -149,14 +149,14 @@
 
 
         If LTrim$(apellido_txt.Text) = "" Then ' Verifica si esta vacio apellido
-            ErrorProvider1.SetError(apellido_txt, "Apellido no puede estar vacío")
+            ErrorProvider1.SetError(apellido_txt, "Apellido no puede estar vac�o")
             i_ingresar = 1
         Else
             ape_ingresar = apellido_txt.Text
         End If
 
         If LTrim$(cedula_txt.Text) = "" Then ' Verifica si esta vacio cedula
-            ErrorProvider1.SetError(cedula_txt, "Cedula no puede estar vacío")
+            ErrorProvider1.SetError(cedula_txt, "Cedula no puede estar vac�o")
             i_ingresar = 1
         End If
 
@@ -186,7 +186,7 @@
         dir_ingresar = direccion_txt.Text
 
         If LTrim$(contrasenia_txt.Text) = "" Then ' Verifica si esta vacio nombre
-            ErrorProvider1.SetError(contrasenia_txt, "Debe de tener una contraseña")
+            ErrorProvider1.SetError(contrasenia_txt, "Debe de tener una contrase�a")
             i_ingresar = 1
         Else
             cont_ingresar = contrasenia_txt.Text
@@ -203,8 +203,8 @@
         End If
 
 
-        If cb_anio.Text = "Año" Then
-            ErrorProvider1.SetError(cb_anio, "seleccione el año de nacimiento")
+        If cb_anio.Text = "A�o" Then
+            ErrorProvider1.SetError(cb_anio, "seleccione el a�o de nacimiento")
             i_ingresar = 1
         End If
 

@@ -1,4 +1,4 @@
-ï»¿Imports System.Threading
+Imports System.Threading
 Imports System.Text.RegularExpressions
 Public Class MENU3
 
@@ -97,7 +97,7 @@ Public Class MENU3
 
         For i As Integer = 1899 To Date.Now.ToString("yyyy")
             If i = 1899 Then
-                ComboBox2.Items.Add("AÃ±o")
+                ComboBox2.Items.Add("Año")
             Else
                 ComboBox2.Items.Add(i)
             End If
@@ -916,7 +916,7 @@ Public Class MENU3
         Try
             Wbnavegador.Navigate(url)
         Catch ex As Exception
-            MessageBox.Show("Lo siento. Si has llegado hasta este mensaje ocurriÃ³ un error, pero tranquilo que no pasa nada", "Genesis Navigator")
+            MessageBox.Show("Lo siento. Si has llegado hasta este mensaje ocurrió un error, pero tranquilo que no pasa nada", "Genesis Navigator")
         End Try
     End Sub
 
@@ -1377,7 +1377,7 @@ Public Class MENU3
         Dim open As Integer
         For Each f As Form In Application.OpenForms
 
-            If f.Name = "ConfiguraciÃ²nAdmin" Then
+            If f.Name = "ConfiguraciònAdmin" Then
                 open = 1
             Else
                 open = 0
@@ -1388,30 +1388,30 @@ Public Class MENU3
         If open = 0 Then
 
             Try
-                Dim contraseÃ±aAdmin As String
+                Dim contraseñaAdmin As String
 
-                contraseÃ±aAdmin = InputBox("Por favor ingrese contraseÃ±a de un funcionario", Title:="Biblioteca")
+                contraseñaAdmin = InputBox("Por favor ingrese contraseña de un funcionario", Title:="Biblioteca")
                 Consulta = "select * from usuarios where tipo = 0"
                 consultar()
 
                 For Each row As DataRow In Tabla.Rows
 
 
-                    If row("cedula") = contraseÃ±aAdmin Then
+                    If row("cedula") = contraseñaAdmin Then
                         ConfigAdmin.PictureboxBordesRedondos1.Image = Image.FromFile(row("rutaperfil").ToString)
                         'Pbnube.Image = Image.FromFile("imagenes\cloud-error.png")
                         ConfigAdmin.Lbl_NombreADMIN_TXT.Text = row("nombre") & " " & row("apellido")
-                        contraseÃ±aAdmin = "1"
+                        contraseñaAdmin = "1"
                     Else
                     End If
 
                 Next
 
 
-                If contraseÃ±aAdmin = "1" Then
+                If contraseñaAdmin = "1" Then
                     ConfigAdmin.Show()
                 Else
-                    MsgBox("contraseÃ±a no valida", Title:="Biblioteca")
+                    MsgBox("contraseña no valida", Title:="Biblioteca")
                 End If
             Catch ex As Exception
             End Try
@@ -1721,7 +1721,7 @@ Public Class MENU3
 
     Private Sub Timer_Prestamos_LIVE_Tick(sender As System.Object, e As System.EventArgs) Handles Timer_Prestamos_LIVE.Tick
 
-        If ERROR1 = 2 Then ' SI HAY UN ERROR EN LA BASE NO VA A HACER NADA HASTA QUE SE RETOME LA CONEXIÃ’N
+        If ERROR1 = 2 Then ' SI HAY UN ERROR EN LA BASE NO VA A HACER NADA HASTA QUE SE RETOME LA CONEXIÒN
             Timer_Prestamos_LIVE.Enabled = False
         ElseIf ERROR1 = 0 Then
 
@@ -1811,6 +1811,7 @@ Public Class MENU3
     End Sub
 
     Private Sub verificarBD()
+
         Consulta = "select * from usuarios"
         consultar()
         DataGridView1.DataSource = Tabla
@@ -1885,7 +1886,7 @@ Public Class MENU3
         Next
 
         If notasopen = 0 Then
-            NotasUsuario.Show()
+            Notas.Show()
         End If
 
     End Sub

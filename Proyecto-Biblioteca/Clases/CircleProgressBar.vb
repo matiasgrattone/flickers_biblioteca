@@ -1,4 +1,3 @@
-﻿
 Imports System
 Imports System.Collections.Generic
 Imports System.ComponentModel
@@ -158,4 +157,3 @@ Namespace OptProgressControl
         End Sub
     End Class
 End Namespace
-
