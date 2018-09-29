@@ -15,9 +15,12 @@ Public Class ConfigAdmin
     Dim pass_ingresar As String
     Dim cont_ingresar As String
 
+    Dim nom_editar, ape_editar, ced_editar, dir_editar, tel_editar, dia_editar, mes_editar, anio_editar, cedu_editar, dia, mes, anio As String
+
     Public cedulaFotoPerfil As String
 
-    Dim i_ingresar As Integer ' Variable bandera para avisar que existe un error
+    Dim i_ingresar As Integer = 0 ' Variable bandera para avisar que existe un error en ingresar
+    Dim i_editar As Integer = 0 ' Variable bandera para avisar que existe un error en editar
 
     Dim dia_ingresar As String
     Dim mes_ingresar As String
@@ -70,20 +73,8 @@ Public Class ConfigAdmin
 
         ComboBox3.SelectedIndex = 0
 
-
-        'Try
-        '    Consulta = "select rutaperfil from usuarios where cedula ='" + MENU3.cedulaIngre + "'"
-        '    consultar()
-
-        '    For Each row As DataRow In Tabla.Rows
-        '        ptbPerfilAdmin.ImageLocation = Convert.ToString(row("rutaperfil"))
-        '    Next
-        'Catch ex As Exception
-        '    MsgBox(ex.Message)
-        'End Try
-
         '/////////////////////////////////////////////////////////////////////////////////////////////
-        '//////////////////////////////// Rellernar ComboBoxs ////////////////////////////////////////
+        '//////////////////////// Rellernar ComboBoxs Ingresar Usuarios //////////////////////////////
         '/////////////////////////////////////////////////////////////////////////////////////////////
 
         For i As Integer = 0 To 31
@@ -119,7 +110,50 @@ Public Class ConfigAdmin
             End If
         Next
 
+        '/////////////////////////////////////////////////////////////////////////////////////////////
+        '//////////////////////// Rellernar ComboBoxs Editar Usuarios ////////////////////////////////
+        '/////////////////////////////////////////////////////////////////////////////////////////////
 
+        For i As Integer = 0 To 31
+            If i = 0 Then
+                cb_dia_editar.Items.Add("Dia")
+                cb_dia_editar.SelectedIndex = 0
+            Else
+                cb_dia_editar.Items.Add(i)
+            End If
+        Next
+
+        cb_mes_editar.Items.Add("Mes")
+        cb_mes_editar.SelectedIndex = 0
+        cb_mes_editar.Items.Add("Enero")
+        cb_mes_editar.Items.Add("Febrero")
+        cb_mes_editar.Items.Add("Marzo")
+        cb_mes_editar.Items.Add("Abril")
+        cb_mes_editar.Items.Add("Mayo")
+        cb_mes_editar.Items.Add("Junio")
+        cb_mes_editar.Items.Add("Julio")
+        cb_mes_editar.Items.Add("Agosto")
+        cb_mes_editar.Items.Add("Septiembre")
+        cb_mes_editar.Items.Add("Octubre")
+        cb_mes_editar.Items.Add("Noviembre")
+        cb_mes_editar.Items.Add("Diciembre")
+
+        For i As Integer = 1899 To Date.Now.ToString("yyyy")
+            If i = 1899 Then
+                cb_anio_editar.Items.Add("Año")
+                cb_anio_editar.SelectedIndex = 0
+            Else
+                cb_anio_editar.Items.Add(i)
+            End If
+        Next
+
+        'Llenar DataGrid de Editar
+        Consulta = "select cedula As 'Cedula', nombre As 'Nombre' from usuarios where tipo = 1"
+        consultar()
+        dgveditar.DataSource = Tabla
+
+        btn_guardar_editar.Visible = False
+        btn_editar_perfil.Visible = False
 
         Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where estado='0' and tipo = '1'"
         consultar()
@@ -404,7 +438,6 @@ Public Class ConfigAdmin
         If dialogoCarga.ShowDialog() = Windows.Forms.DialogResult.OK Then 'Solo si se ha seleccionado alguna imagen
             rutaArchivo = dialogoCarga.FileName 'Guarda la ruta con el nombre del archivo
 
-            'lblNombre.Text = rutaArchivo
             ptbPerfilAdmin.ImageLocation = rutaArchivo
             posicionBarra = InStrRev(rutaArchivo, "\") ' Obtiene la posición en la que se encuentra la barra invertida en el String
             longitudNombre = rutaArchivo.Length - posicionBarra 'Obtiene la cantidad de caracteres que ocupa el nombre
@@ -423,12 +456,9 @@ Public Class ConfigAdmin
                 ptbPerfilAdmin.ImageLocation = nombreArchivo
                 'cargar()
             Else
-                'My.Computer.FileSystem.CopyFile(rutaArchivo, rutaGuardadoFotos + "\" + nombreArchivo) 'Copia imagen seleccionada en la carpeta de guardado, no sobreescribe duplicados
-                My.Computer.FileSystem.CopyFile(rutaArchivo, nombreArchivo)
+                My.Computer.FileSystem.CopyFile(rutaArchivo, nombreArchivo) 'Copia imagen seleccionada en la carpeta de guardado, no sobreescribe duplicados
                 cargar()
             End If
-            'My.Computer.FileSystem.CopyFile(rutaArchivo, rutaGuardadoFotos + "\" + nombreArchivo) 'Copia imagen seleccionada en la carpeta de guardado, no sobreescribe duplicados
-            'cargar()
         End If
     End Sub
 
@@ -443,5 +473,186 @@ Public Class ConfigAdmin
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+    End Sub
+
+    Private Sub cargar2() ' Para editar
+        Try
+            Consulta = "select rutaperfil from usuarios where cedula ='" + cedu_editar + "'"
+            consultar()
+
+            For Each row As DataRow In Tabla.Rows
+                ptb_perfil_editar.ImageLocation = Convert.ToString(row("rutaperfil"))
+            Next
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_guardar_editar.Click
+        '///////////////////////////////////////////////////////////////////
+        '//////////////////// EDITAR USUARIOS //////////////////////////////
+        '///////////////////////////////////////////////////////////////////
+
+        i_editar = 0
+
+        ' Verificar campos
+        If LTrim$(nombre.Text) = "" Then ' Verifica si esta vacio nombre
+            ErrorProvider1.SetError(nombre, "Nombre no puede estar vacío") 'Label invisible debajo de nombre
+            i_editar = 1
+        Else
+            nom_editar = nombre.Text
+        End If
+
+        ape_editar = apellido.Text
+
+        ' Verifica si esta vacio cedula
+        If LTrim$(cedula.Text) <> "" Then
+            If IsNumeric(cedula.Text) = True Then
+                Modulo.Verificar_Cedula(cedula.Text)
+                If Modulo.correcto = 0 Then
+                    ced_editar = cedula.Text
+                Else
+                    i_editar = 1
+                    ErrorProvider1.SetError(cedula, "Cedula no valida")
+                End If
+            Else
+                i_editar = 1
+                ErrorProvider1.SetError(cedula, "No valido, ingrese solo numeros")
+            End If
+        End If
+
+
+        If IsNumeric(telefono.Text) = True Then
+            tel_editar = telefono.Text
+        Else
+            i_editar = 1
+            ErrorProvider1.SetError(telefono, "No valido, ingrese solo numeros")
+        End If
+
+        dir_editar = direccion.Text
+
+
+        If cb_dia_editar.Text = "Dia" Then
+            ErrorProvider1.SetError(cb_dia_editar, "seleccione un dia")
+            i_editar = 1
+        Else
+            dia_editar = ""
+            If cb_dia_editar.SelectedItem.ToString.Length = 1 Then
+                dia_editar = "0" & cb_dia_editar.SelectedItem
+            Else
+                dia_editar = cb_dia_editar.SelectedItem
+            End If
+        End If
+        If cb_mes_editar.Text = "Mes" Then
+            ErrorProvider1.SetError(cb_mes_editar, "seleccione un mes")
+            i_editar = 1
+        Else
+            mes_editar = cb_mes_editar.SelectedIndex
+        End If
+        If cb_anio_editar.Text = "Año" Then
+            ErrorProvider1.SetError(cb_anio_editar, "seleccione un año")
+            i_editar = 1
+        Else
+            anio_editar = cb_anio_editar.SelectedIndex
+        End If
+
+        substring = cb_mes_editar.SelectedItem
+        mestonum()
+
+        If i_editar = 0 Then
+            Dim nacimiento_editar As String = anio_editar + "-" + mes_editar + "-" + dia_editar
+            Try
+                Consulta = "update usuarios set cedula='" & Str(ced_editar) & "' , nombre='" & nom_editar & "', apellido='" & ape_editar & "', direccion='" & dir_editar & "', telefono='" & tel_editar & "', nacimiento='" & nacimiento_editar & "' , tipo='2' where cedula = '" & Str(ced_editar) & "'"
+                consultar()
+
+                MsgBox("Edición guardada satisfactoriamente")
+
+                '//////////////////Mostrar los datos actualizados en el datagrid///////////////////////
+                Try
+                    Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento from usuarios where estado = 1 and tipo = 2;"
+                    consultar()
+                    DataGridView1.DataSource = Tabla
+
+                Catch ex As Exception
+                    MsgBox(ex.Message)
+                End Try
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        Else
+        End If
+
+        '//////////////////////////////////////////////////////////////////////////////////////
+    End Sub
+
+    Private Sub btn_editar_perfil_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_editar_perfil.Click
+        Dim nombreArchivo As String
+
+        Dim dialogoCarga As New OpenFileDialog 'Crea un objeto del tipo OpenFileDialog para seleccionar archivos
+        dialogoCarga.Filter = "Imágenes|*.jpg; *.png; *.gif" 'Limita a que solo se puedan seleccionar imágenes de los tipos indicados
+        dialogoCarga.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) 'Indica en un String la ubicación en donde busca por defecto, en este caso se obtiene el escritorio
+
+        Dim rutaArchivo As String
+        Dim posicionBarra, longitudNombre As Integer
+
+        'dialogoCarga.ShowDialog() Abre una pantalla de diálogo que permite obtiener el nombre y la ruta del archivo cuando el usuario lo selecciona
+        If dialogoCarga.ShowDialog() = Windows.Forms.DialogResult.OK Then 'Solo si se ha seleccionado alguna imagen
+            rutaArchivo = dialogoCarga.FileName 'Guarda la ruta con el nombre del archivo
+
+            ptbPerfilAdmin.ImageLocation = rutaArchivo
+            posicionBarra = InStrRev(rutaArchivo, "\") ' Obtiene la posición en la que se encuentra la barra invertida en el String
+            longitudNombre = rutaArchivo.Length - posicionBarra 'Obtiene la cantidad de caracteres que ocupa el nombre
+
+            nombreArchivo = "Fotos de perfil/" + rutaArchivo.Substring(posicionBarra, longitudNombre) 'Corta la parte del nombre de la ruta completa
+
+            Try
+                Consulta = "update usuarios set rutaperfil = '" & nombreArchivo & "' where cedula='" + cedu_editar + "'"
+                consultar()
+                MsgBox("Cambio de perfil exitoso")
+                cargar2()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+
+            If My.Computer.FileSystem.FileExists(nombreArchivo) Then
+                ptbPerfilAdmin.ImageLocation = nombreArchivo
+                'cargar()
+            Else
+                My.Computer.FileSystem.CopyFile(rutaArchivo, nombreArchivo) 'Copia imagen seleccionada en la carpeta de guardado, no sobreescribe duplicados
+                cargar()
+            End If
+        End If
+    End Sub
+
+    Private Sub dgveditar_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgveditar.CellContentClick
+
+    End Sub
+
+    Private Sub dgveditar_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgveditar.CellDoubleClick
+        cedu_editar = dgveditar.Item(0, dgveditar.CurrentRow.Index).Value
+
+        Consulta = "select * from usuarios where cedula = '" + cedu_editar + "'"
+        consultar()
+        For Each row As DataRow In Tabla.Rows
+
+            dia = row("nacimiento").ToString.Substring(0, 2)
+            mes = row("nacimiento").ToString.Substring(3, 2)
+            anio = row("nacimiento").ToString.Substring(6, 4)
+
+            nombre.Text = row("nombre").ToString
+            apellido.Text = row("apellido").ToString
+            cedula.Text = row("cedula").ToString
+            direccion.Text = row("direccion").ToString
+            telefono.Text = row("telefono").ToString
+            cb_dia_editar.SelectedIndex = (Val(dia) + 1)
+            cb_mes_editar.SelectedIndex = (Val(mes) + 1)
+            cb_anio_editar.SelectedIndex = (Val(anio) + 1)
+
+            cargar2()
+
+            btn_guardar_editar.Visible = True
+            btn_editar_perfil.Visible = True
+        Next
+
     End Sub
 End Class

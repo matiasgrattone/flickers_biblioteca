@@ -23,12 +23,12 @@ Partial Class ConfigAdmin
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ConfigAdmin))
         Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
@@ -37,6 +37,7 @@ Partial Class ConfigAdmin
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.buscar_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -51,26 +52,36 @@ Partial Class ConfigAdmin
         Me.cb_dia = New System.Windows.Forms.ComboBox()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
+        Me.contrasenia_txt = New Proyecto_Biblioteca.PlaceHolder()
+        Me.telefono_txt = New Proyecto_Biblioteca.PlaceHolder()
+        Me.cedula_txt = New Proyecto_Biblioteca.PlaceHolder()
+        Me.apellido_txt = New Proyecto_Biblioteca.PlaceHolder()
+        Me.nombre_txt = New Proyecto_Biblioteca.PlaceHolder()
+        Me.direccion_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.direccion = New Proyecto_Biblioteca.PlaceHolder()
+        Me.telefono = New Proyecto_Biblioteca.PlaceHolder()
+        Me.cedula = New Proyecto_Biblioteca.PlaceHolder()
+        Me.apellido = New Proyecto_Biblioteca.PlaceHolder()
+        Me.nombre = New Proyecto_Biblioteca.PlaceHolder()
+        Me.btn_editar_perfil = New System.Windows.Forms.Button()
+        Me.ptb_perfil_editar = New System.Windows.Forms.PictureBox()
+        Me.dgveditar = New System.Windows.Forms.DataGridView()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.ComboBox4 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox5 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox6 = New System.Windows.Forms.ComboBox()
-        Me.Button4 = New System.Windows.Forms.Button()
+        Me.cb_dia_editar = New System.Windows.Forms.ComboBox()
+        Me.cb_mes_editar = New System.Windows.Forms.ComboBox()
+        Me.cb_anio_editar = New System.Windows.Forms.ComboBox()
+        Me.btn_guardar_editar = New System.Windows.Forms.Button()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.nombre = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.apellido = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.cedula = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
-        Me.telefono = New System.Windows.Forms.TextBox()
-        Me.direccion = New System.Windows.Forms.TextBox()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.Dgv_Baja = New System.Windows.Forms.DataGridView()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Buscar_Baja_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.Label_BaseDatos = New System.Windows.Forms.Label()
@@ -81,27 +92,21 @@ Partial Class ConfigAdmin
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label20 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.RadioButton4 = New System.Windows.Forms.RadioButton()
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.RadioButton3 = New System.Windows.Forms.RadioButton()
-        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.ptbPerfilAdmin = New Proyecto_Biblioteca.PictureboxBordesRedondos()
-        Me.buscar_txt = New Proyecto_Biblioteca.PlaceHolder()
-        Me.contrasenia_txt = New Proyecto_Biblioteca.PlaceHolder()
-        Me.telefono_txt = New Proyecto_Biblioteca.PlaceHolder()
-        Me.cedula_txt = New Proyecto_Biblioteca.PlaceHolder()
-        Me.apellido_txt = New Proyecto_Biblioteca.PlaceHolder()
-        Me.nombre_txt = New Proyecto_Biblioteca.PlaceHolder()
-        Me.direccion_txt = New Proyecto_Biblioteca.PlaceHolder()
-        Me.Buscar_Baja_txt = New Proyecto_Biblioteca.PlaceHolder()
-        Me.Label20 = New System.Windows.Forms.Label()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
         Me.TabPage3.SuspendLayout()
+        CType(Me.ptb_perfil_editar, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgveditar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage4.SuspendLayout()
         CType(Me.Dgv_Baja, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -172,14 +177,14 @@ Partial Class ConfigAdmin
         Me.DataGridView1.AllowUserToResizeRows = False
         Me.DataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.DataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
         Me.DataGridView1.ColumnHeadersHeight = 40
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.DataGridView1.Cursor = System.Windows.Forms.Cursors.Hand
@@ -188,23 +193,23 @@ Partial Class ConfigAdmin
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Gray
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle8.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle8
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.RowHeadersWidth = 50
         Me.DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.Gray
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White
-        Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle9.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White
+        Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle9
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView1.Size = New System.Drawing.Size(464, 344)
         Me.DataGridView1.TabIndex = 18
@@ -217,6 +222,16 @@ Partial Class ConfigAdmin
         Me.Label2.Size = New System.Drawing.Size(276, 13)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Para dar de baja a un funcionario dar doble click sobre él"
+        '
+        'buscar_txt
+        '
+        Me.buscar_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.buscar_txt.Location = New System.Drawing.Point(72, 16)
+        Me.buscar_txt.Name = "buscar_txt"
+        Me.buscar_txt.Size = New System.Drawing.Size(301, 20)
+        Me.buscar_txt.TabIndex = 1
+        Me.buscar_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.buscar_txt.WaterMarkText = "Buscar por Nombre"
         '
         'TabPage2
         '
@@ -379,24 +394,87 @@ Partial Class ConfigAdmin
         Me.Label18.TabIndex = 133
         Me.Label18.Text = "Dirección"
         '
+        'contrasenia_txt
+        '
+        Me.contrasenia_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.contrasenia_txt.Location = New System.Drawing.Point(168, 240)
+        Me.contrasenia_txt.Name = "contrasenia_txt"
+        Me.contrasenia_txt.Size = New System.Drawing.Size(189, 27)
+        Me.contrasenia_txt.TabIndex = 150
+        Me.contrasenia_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.contrasenia_txt.WaterMarkText = "Contraseña"
+        '
+        'telefono_txt
+        '
+        Me.telefono_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.telefono_txt.Location = New System.Drawing.Point(168, 169)
+        Me.telefono_txt.Name = "telefono_txt"
+        Me.telefono_txt.Size = New System.Drawing.Size(189, 27)
+        Me.telefono_txt.TabIndex = 147
+        Me.telefono_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.telefono_txt.WaterMarkText = "Teléfono"
+        '
+        'cedula_txt
+        '
+        Me.cedula_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cedula_txt.Location = New System.Drawing.Point(168, 136)
+        Me.cedula_txt.Name = "cedula_txt"
+        Me.cedula_txt.Size = New System.Drawing.Size(189, 27)
+        Me.cedula_txt.TabIndex = 146
+        Me.cedula_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.cedula_txt.WaterMarkText = "Cédula"
+        '
+        'apellido_txt
+        '
+        Me.apellido_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.apellido_txt.Location = New System.Drawing.Point(168, 100)
+        Me.apellido_txt.Name = "apellido_txt"
+        Me.apellido_txt.Size = New System.Drawing.Size(189, 27)
+        Me.apellido_txt.TabIndex = 145
+        Me.apellido_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.apellido_txt.WaterMarkText = "Apellido"
+        '
+        'nombre_txt
+        '
+        Me.nombre_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nombre_txt.Location = New System.Drawing.Point(168, 64)
+        Me.nombre_txt.Name = "nombre_txt"
+        Me.nombre_txt.Size = New System.Drawing.Size(189, 27)
+        Me.nombre_txt.TabIndex = 144
+        Me.nombre_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.nombre_txt.WaterMarkText = "Nombre"
+        '
+        'direccion_txt
+        '
+        Me.direccion_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.direccion_txt.Location = New System.Drawing.Point(168, 207)
+        Me.direccion_txt.Name = "direccion_txt"
+        Me.direccion_txt.Size = New System.Drawing.Size(189, 27)
+        Me.direccion_txt.TabIndex = 138
+        Me.direccion_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.direccion_txt.WaterMarkText = "Dirección"
+        '
         'TabPage3
         '
+        Me.TabPage3.Controls.Add(Me.direccion)
+        Me.TabPage3.Controls.Add(Me.telefono)
+        Me.TabPage3.Controls.Add(Me.cedula)
+        Me.TabPage3.Controls.Add(Me.apellido)
+        Me.TabPage3.Controls.Add(Me.nombre)
+        Me.TabPage3.Controls.Add(Me.btn_editar_perfil)
+        Me.TabPage3.Controls.Add(Me.ptb_perfil_editar)
+        Me.TabPage3.Controls.Add(Me.dgveditar)
         Me.TabPage3.Controls.Add(Me.Label10)
-        Me.TabPage3.Controls.Add(Me.ComboBox4)
-        Me.TabPage3.Controls.Add(Me.ComboBox5)
-        Me.TabPage3.Controls.Add(Me.ComboBox6)
-        Me.TabPage3.Controls.Add(Me.Button4)
+        Me.TabPage3.Controls.Add(Me.cb_dia_editar)
+        Me.TabPage3.Controls.Add(Me.cb_mes_editar)
+        Me.TabPage3.Controls.Add(Me.cb_anio_editar)
+        Me.TabPage3.Controls.Add(Me.btn_guardar_editar)
         Me.TabPage3.Controls.Add(Me.Label12)
         Me.TabPage3.Controls.Add(Me.Label13)
-        Me.TabPage3.Controls.Add(Me.nombre)
         Me.TabPage3.Controls.Add(Me.Label14)
-        Me.TabPage3.Controls.Add(Me.apellido)
         Me.TabPage3.Controls.Add(Me.Label15)
-        Me.TabPage3.Controls.Add(Me.cedula)
         Me.TabPage3.Controls.Add(Me.Label16)
         Me.TabPage3.Controls.Add(Me.Label19)
-        Me.TabPage3.Controls.Add(Me.telefono)
-        Me.TabPage3.Controls.Add(Me.direccion)
         Me.TabPage3.ImageKey = "usuario (1).png"
         Me.TabPage3.Location = New System.Drawing.Point(4, 39)
         Me.TabPage3.Name = "TabPage3"
@@ -405,60 +483,137 @@ Partial Class ConfigAdmin
         Me.TabPage3.Text = "Editar"
         Me.TabPage3.UseVisualStyleBackColor = True
         '
+        'direccion
+        '
+        Me.direccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.direccion.Location = New System.Drawing.Point(256, 164)
+        Me.direccion.Name = "direccion"
+        Me.direccion.Size = New System.Drawing.Size(164, 20)
+        Me.direccion.TabIndex = 97
+        Me.direccion.WaterMarkColor = System.Drawing.Color.Gray
+        Me.direccion.WaterMarkText = "Direccion"
+        '
+        'telefono
+        '
+        Me.telefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.telefono.Location = New System.Drawing.Point(256, 130)
+        Me.telefono.Name = "telefono"
+        Me.telefono.Size = New System.Drawing.Size(164, 20)
+        Me.telefono.TabIndex = 96
+        Me.telefono.WaterMarkColor = System.Drawing.Color.Gray
+        Me.telefono.WaterMarkText = "Telefono"
+        '
+        'cedula
+        '
+        Me.cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.cedula.Location = New System.Drawing.Point(256, 91)
+        Me.cedula.Name = "cedula"
+        Me.cedula.Size = New System.Drawing.Size(164, 20)
+        Me.cedula.TabIndex = 95
+        Me.cedula.WaterMarkColor = System.Drawing.Color.Gray
+        Me.cedula.WaterMarkText = "Cedula"
+        '
+        'apellido
+        '
+        Me.apellido.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.apellido.Location = New System.Drawing.Point(256, 51)
+        Me.apellido.Name = "apellido"
+        Me.apellido.Size = New System.Drawing.Size(164, 20)
+        Me.apellido.TabIndex = 94
+        Me.apellido.WaterMarkColor = System.Drawing.Color.Gray
+        Me.apellido.WaterMarkText = "Apellido"
+        '
+        'nombre
+        '
+        Me.nombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.nombre.Location = New System.Drawing.Point(256, 15)
+        Me.nombre.Name = "nombre"
+        Me.nombre.Size = New System.Drawing.Size(164, 20)
+        Me.nombre.TabIndex = 93
+        Me.nombre.WaterMarkColor = System.Drawing.Color.Gray
+        Me.nombre.WaterMarkText = "Nombre"
+        '
+        'btn_editar_perfil
+        '
+        Me.btn_editar_perfil.Location = New System.Drawing.Point(312, 315)
+        Me.btn_editar_perfil.Name = "btn_editar_perfil"
+        Me.btn_editar_perfil.Size = New System.Drawing.Size(128, 23)
+        Me.btn_editar_perfil.TabIndex = 92
+        Me.btn_editar_perfil.Text = "Cambiar Foto de Perfil"
+        Me.btn_editar_perfil.UseVisualStyleBackColor = True
+        '
+        'ptb_perfil_editar
+        '
+        Me.ptb_perfil_editar.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.boss
+        Me.ptb_perfil_editar.Location = New System.Drawing.Point(219, 296)
+        Me.ptb_perfil_editar.Name = "ptb_perfil_editar"
+        Me.ptb_perfil_editar.Size = New System.Drawing.Size(77, 59)
+        Me.ptb_perfil_editar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.ptb_perfil_editar.TabIndex = 91
+        Me.ptb_perfil_editar.TabStop = False
+        '
+        'dgveditar
+        '
+        Me.dgveditar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgveditar.Location = New System.Drawing.Point(14, 8)
+        Me.dgveditar.Name = "dgveditar"
+        Me.dgveditar.Size = New System.Drawing.Size(169, 390)
+        Me.dgveditar.TabIndex = 90
+        '
         'Label10
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(334, 160)
+        Me.Label10.Location = New System.Drawing.Point(424, 167)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(16, 20)
         Me.Label10.TabIndex = 89
         Me.Label10.Text = "*"
         '
-        'ComboBox4
+        'cb_dia_editar
         '
-        Me.ComboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox4.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox4.FormattingEnabled = True
-        Me.ComboBox4.Location = New System.Drawing.Point(107, 242)
-        Me.ComboBox4.Name = "ComboBox4"
-        Me.ComboBox4.Size = New System.Drawing.Size(77, 27)
-        Me.ComboBox4.TabIndex = 88
+        Me.cb_dia_editar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cb_dia_editar.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cb_dia_editar.FormattingEnabled = True
+        Me.cb_dia_editar.Location = New System.Drawing.Point(197, 240)
+        Me.cb_dia_editar.Name = "cb_dia_editar"
+        Me.cb_dia_editar.Size = New System.Drawing.Size(77, 27)
+        Me.cb_dia_editar.TabIndex = 88
         '
-        'ComboBox5
+        'cb_mes_editar
         '
-        Me.ComboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox5.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox5.FormattingEnabled = True
-        Me.ComboBox5.Location = New System.Drawing.Point(195, 242)
-        Me.ComboBox5.Name = "ComboBox5"
-        Me.ComboBox5.Size = New System.Drawing.Size(81, 27)
-        Me.ComboBox5.TabIndex = 87
+        Me.cb_mes_editar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cb_mes_editar.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cb_mes_editar.FormattingEnabled = True
+        Me.cb_mes_editar.Location = New System.Drawing.Point(285, 240)
+        Me.cb_mes_editar.Name = "cb_mes_editar"
+        Me.cb_mes_editar.Size = New System.Drawing.Size(81, 27)
+        Me.cb_mes_editar.TabIndex = 87
         '
-        'ComboBox6
+        'cb_anio_editar
         '
-        Me.ComboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox6.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox6.FormattingEnabled = True
-        Me.ComboBox6.Location = New System.Drawing.Point(288, 242)
-        Me.ComboBox6.Name = "ComboBox6"
-        Me.ComboBox6.Size = New System.Drawing.Size(78, 27)
-        Me.ComboBox6.TabIndex = 86
+        Me.cb_anio_editar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cb_anio_editar.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cb_anio_editar.FormattingEnabled = True
+        Me.cb_anio_editar.Location = New System.Drawing.Point(378, 240)
+        Me.cb_anio_editar.Name = "cb_anio_editar"
+        Me.cb_anio_editar.Size = New System.Drawing.Size(78, 27)
+        Me.cb_anio_editar.TabIndex = 86
         '
-        'Button4
+        'btn_guardar_editar
         '
-        Me.Button4.Location = New System.Drawing.Point(180, 377)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(109, 23)
-        Me.Button4.TabIndex = 79
-        Me.Button4.Text = "Guardar"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.btn_guardar_editar.Location = New System.Drawing.Point(270, 375)
+        Me.btn_guardar_editar.Name = "btn_guardar_editar"
+        Me.btn_guardar_editar.Size = New System.Drawing.Size(109, 23)
+        Me.btn_guardar_editar.TabIndex = 79
+        Me.btn_guardar_editar.Text = "Guardar"
+        Me.btn_guardar_editar.UseVisualStyleBackColor = True
         '
         'Label12
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(162, 202)
+        Me.Label12.Location = New System.Drawing.Point(252, 200)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(136, 16)
         Me.Label12.TabIndex = 85
@@ -468,58 +623,37 @@ Partial Class ConfigAdmin
         '
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(102, 9)
+        Me.Label13.Location = New System.Drawing.Point(192, 16)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(57, 16)
         Me.Label13.TabIndex = 80
         Me.Label13.Text = "Nombre"
         '
-        'nombre
-        '
-        Me.nombre.Location = New System.Drawing.Point(165, 5)
-        Me.nombre.Name = "nombre"
-        Me.nombre.Size = New System.Drawing.Size(165, 20)
-        Me.nombre.TabIndex = 76
-        '
         'Label14
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(101, 45)
+        Me.Label14.Location = New System.Drawing.Point(191, 52)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(58, 16)
         Me.Label14.TabIndex = 81
         Me.Label14.Text = "Apellido"
         '
-        'apellido
-        '
-        Me.apellido.Location = New System.Drawing.Point(165, 45)
-        Me.apellido.Name = "apellido"
-        Me.apellido.Size = New System.Drawing.Size(165, 20)
-        Me.apellido.TabIndex = 78
-        '
         'Label15
         '
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(101, 85)
+        Me.Label15.Location = New System.Drawing.Point(191, 92)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(51, 16)
         Me.Label15.TabIndex = 82
         Me.Label15.Text = "Cedula"
         '
-        'cedula
-        '
-        Me.cedula.Location = New System.Drawing.Point(165, 81)
-        Me.cedula.Name = "cedula"
-        Me.cedula.Size = New System.Drawing.Size(165, 20)
-        Me.cedula.TabIndex = 74
-        '
         'Label16
         '
         Me.Label16.AutoSize = True
         Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(99, 158)
+        Me.Label16.Location = New System.Drawing.Point(189, 165)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(65, 16)
         Me.Label16.TabIndex = 84
@@ -529,25 +663,11 @@ Partial Class ConfigAdmin
         '
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(102, 124)
+        Me.Label19.Location = New System.Drawing.Point(192, 131)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(62, 16)
         Me.Label19.TabIndex = 83
         Me.Label19.Text = "Telefono"
-        '
-        'telefono
-        '
-        Me.telefono.Location = New System.Drawing.Point(165, 120)
-        Me.telefono.Name = "telefono"
-        Me.telefono.Size = New System.Drawing.Size(165, 20)
-        Me.telefono.TabIndex = 75
-        '
-        'direccion
-        '
-        Me.direccion.Location = New System.Drawing.Point(165, 157)
-        Me.direccion.Name = "direccion"
-        Me.direccion.Size = New System.Drawing.Size(165, 20)
-        Me.direccion.TabIndex = 77
         '
         'TabPage4
         '
@@ -570,14 +690,14 @@ Partial Class ConfigAdmin
         Me.Dgv_Baja.AllowUserToResizeRows = False
         Me.Dgv_Baja.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.Dgv_Baja.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Dgv_Baja.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle10.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Dgv_Baja.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle10
         Me.Dgv_Baja.ColumnHeadersHeight = 40
         Me.Dgv_Baja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.Dgv_Baja.Cursor = System.Windows.Forms.Cursors.Hand
@@ -586,23 +706,23 @@ Partial Class ConfigAdmin
         Me.Dgv_Baja.Name = "Dgv_Baja"
         Me.Dgv_Baja.ReadOnly = True
         Me.Dgv_Baja.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.Gray
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Dgv_Baja.RowHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle11.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Dgv_Baja.RowHeadersDefaultCellStyle = DataGridViewCellStyle11
         Me.Dgv_Baja.RowHeadersVisible = False
         Me.Dgv_Baja.RowHeadersWidth = 50
         Me.Dgv_Baja.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.Gray
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White
-        Me.Dgv_Baja.RowsDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle12.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle12.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White
+        Me.Dgv_Baja.RowsDefaultCellStyle = DataGridViewCellStyle12
         Me.Dgv_Baja.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.Dgv_Baja.Size = New System.Drawing.Size(464, 344)
         Me.Dgv_Baja.TabIndex = 18
@@ -615,6 +735,16 @@ Partial Class ConfigAdmin
         Me.Label1.Size = New System.Drawing.Size(255, 13)
         Me.Label1.TabIndex = 4
         Me.Label1.Text = "Para activar a un funcionario dar doble click sobre él"
+        '
+        'Buscar_Baja_txt
+        '
+        Me.Buscar_Baja_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.Buscar_Baja_txt.Location = New System.Drawing.Point(72, 16)
+        Me.Buscar_Baja_txt.Name = "Buscar_Baja_txt"
+        Me.Buscar_Baja_txt.Size = New System.Drawing.Size(301, 20)
+        Me.Buscar_Baja_txt.TabIndex = 3
+        Me.Buscar_Baja_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.Buscar_Baja_txt.WaterMarkText = "Buscar por Nombre"
         '
         'ImageList1
         '
@@ -718,6 +848,15 @@ Partial Class ConfigAdmin
         Me.Panel2.Size = New System.Drawing.Size(986, 464)
         Me.Panel2.TabIndex = 19
         '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(48, 166)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(187, 13)
+        Me.Label20.TabIndex = 25
+        Me.Label20.Text = "Doble click en la imagen para cambiar"
+        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -779,95 +918,6 @@ Partial Class ConfigAdmin
         Me.ptbPerfilAdmin.TabIndex = 19
         Me.ptbPerfilAdmin.TabStop = False
         '
-        'buscar_txt
-        '
-        Me.buscar_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.buscar_txt.Location = New System.Drawing.Point(72, 16)
-        Me.buscar_txt.Name = "buscar_txt"
-        Me.buscar_txt.Size = New System.Drawing.Size(301, 20)
-        Me.buscar_txt.TabIndex = 1
-        Me.buscar_txt.WaterMarkColor = System.Drawing.Color.Gray
-        Me.buscar_txt.WaterMarkText = "Buscar por Nombre"
-        '
-        'contrasenia_txt
-        '
-        Me.contrasenia_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.contrasenia_txt.Location = New System.Drawing.Point(168, 240)
-        Me.contrasenia_txt.Name = "contrasenia_txt"
-        Me.contrasenia_txt.Size = New System.Drawing.Size(189, 27)
-        Me.contrasenia_txt.TabIndex = 150
-        Me.contrasenia_txt.WaterMarkColor = System.Drawing.Color.Gray
-        Me.contrasenia_txt.WaterMarkText = "Contraseña"
-        '
-        'telefono_txt
-        '
-        Me.telefono_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.telefono_txt.Location = New System.Drawing.Point(168, 169)
-        Me.telefono_txt.Name = "telefono_txt"
-        Me.telefono_txt.Size = New System.Drawing.Size(189, 27)
-        Me.telefono_txt.TabIndex = 147
-        Me.telefono_txt.WaterMarkColor = System.Drawing.Color.Gray
-        Me.telefono_txt.WaterMarkText = "Teléfono"
-        '
-        'cedula_txt
-        '
-        Me.cedula_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cedula_txt.Location = New System.Drawing.Point(168, 136)
-        Me.cedula_txt.Name = "cedula_txt"
-        Me.cedula_txt.Size = New System.Drawing.Size(189, 27)
-        Me.cedula_txt.TabIndex = 146
-        Me.cedula_txt.WaterMarkColor = System.Drawing.Color.Gray
-        Me.cedula_txt.WaterMarkText = "Cédula"
-        '
-        'apellido_txt
-        '
-        Me.apellido_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.apellido_txt.Location = New System.Drawing.Point(168, 100)
-        Me.apellido_txt.Name = "apellido_txt"
-        Me.apellido_txt.Size = New System.Drawing.Size(189, 27)
-        Me.apellido_txt.TabIndex = 145
-        Me.apellido_txt.WaterMarkColor = System.Drawing.Color.Gray
-        Me.apellido_txt.WaterMarkText = "Apellido"
-        '
-        'nombre_txt
-        '
-        Me.nombre_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nombre_txt.Location = New System.Drawing.Point(168, 64)
-        Me.nombre_txt.Name = "nombre_txt"
-        Me.nombre_txt.Size = New System.Drawing.Size(189, 27)
-        Me.nombre_txt.TabIndex = 144
-        Me.nombre_txt.WaterMarkColor = System.Drawing.Color.Gray
-        Me.nombre_txt.WaterMarkText = "Nombre"
-        '
-        'direccion_txt
-        '
-        Me.direccion_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.direccion_txt.Location = New System.Drawing.Point(168, 207)
-        Me.direccion_txt.Name = "direccion_txt"
-        Me.direccion_txt.Size = New System.Drawing.Size(189, 27)
-        Me.direccion_txt.TabIndex = 138
-        Me.direccion_txt.WaterMarkColor = System.Drawing.Color.Gray
-        Me.direccion_txt.WaterMarkText = "Dirección"
-        '
-        'Buscar_Baja_txt
-        '
-        Me.Buscar_Baja_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Buscar_Baja_txt.Location = New System.Drawing.Point(72, 16)
-        Me.Buscar_Baja_txt.Name = "Buscar_Baja_txt"
-        Me.Buscar_Baja_txt.Size = New System.Drawing.Size(301, 20)
-        Me.Buscar_Baja_txt.TabIndex = 3
-        Me.Buscar_Baja_txt.WaterMarkColor = System.Drawing.Color.Gray
-        Me.Buscar_Baja_txt.WaterMarkText = "Buscar por Nombre"
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(48, 166)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(187, 13)
-        Me.Label20.TabIndex = 25
-        Me.Label20.Text = "Doble click en la imagen para cambiar"
-        '
         'ConfigAdmin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -889,6 +939,8 @@ Partial Class ConfigAdmin
         Me.TabPage2.PerformLayout()
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage3.PerformLayout()
+        CType(Me.ptb_perfil_editar, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgveditar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage4.ResumeLayout(False)
         Me.TabPage4.PerformLayout()
         CType(Me.Dgv_Baja, System.ComponentModel.ISupportInitialize).EndInit()
@@ -952,20 +1004,23 @@ Partial Class ConfigAdmin
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox4 As System.Windows.Forms.ComboBox
-    Friend WithEvents ComboBox5 As System.Windows.Forms.ComboBox
-    Friend WithEvents ComboBox6 As System.Windows.Forms.ComboBox
-    Friend WithEvents Button4 As System.Windows.Forms.Button
+    Friend WithEvents cb_dia_editar As System.Windows.Forms.ComboBox
+    Friend WithEvents cb_mes_editar As System.Windows.Forms.ComboBox
+    Friend WithEvents cb_anio_editar As System.Windows.Forms.ComboBox
+    Friend WithEvents btn_guardar_editar As System.Windows.Forms.Button
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents Label13 As System.Windows.Forms.Label
-    Friend WithEvents nombre As System.Windows.Forms.TextBox
     Friend WithEvents Label14 As System.Windows.Forms.Label
-    Friend WithEvents apellido As System.Windows.Forms.TextBox
     Friend WithEvents Label15 As System.Windows.Forms.Label
-    Friend WithEvents cedula As System.Windows.Forms.TextBox
     Friend WithEvents Label16 As System.Windows.Forms.Label
     Friend WithEvents Label19 As System.Windows.Forms.Label
-    Friend WithEvents telefono As System.Windows.Forms.TextBox
-    Friend WithEvents direccion As System.Windows.Forms.TextBox
     Friend WithEvents Label20 As System.Windows.Forms.Label
+    Friend WithEvents dgveditar As System.Windows.Forms.DataGridView
+    Friend WithEvents direccion As Proyecto_Biblioteca.PlaceHolder
+    Friend WithEvents telefono As Proyecto_Biblioteca.PlaceHolder
+    Friend WithEvents cedula As Proyecto_Biblioteca.PlaceHolder
+    Friend WithEvents apellido As Proyecto_Biblioteca.PlaceHolder
+    Friend WithEvents nombre As Proyecto_Biblioteca.PlaceHolder
+    Friend WithEvents btn_editar_perfil As System.Windows.Forms.Button
+    Friend WithEvents ptb_perfil_editar As System.Windows.Forms.PictureBox
 End Class
