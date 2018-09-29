@@ -132,7 +132,7 @@
 
                         If row("contrasenia").ToString = pass Then
                             MENU3.Nombre.Text = row("nombre")
-                            MENU3.Cedula.Text = row("cedula")
+                            MENU3.lbl_cedula.Text = row("cedula")
                             Me.Hide()
                             MENU3.Show()
                         Else
