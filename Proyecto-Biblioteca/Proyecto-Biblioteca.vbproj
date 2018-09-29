@@ -131,6 +131,9 @@
     <Compile Include="Clases\PictureboxBordesRedondos.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Clases\PictureBoxTransparente.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Inicio UsuariosV2.Designer.vb">
       <DependentUpon>Inicio UsuariosV2.vb</DependentUpon>
     </Compile>

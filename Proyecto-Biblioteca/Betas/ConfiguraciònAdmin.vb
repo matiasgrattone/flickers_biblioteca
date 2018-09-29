@@ -58,7 +58,7 @@ Public Class ConfigAdmin
         'Funcionarios 1
         'Socios 2
         a = 0
-
+        PictureBox1.Visible = True
         xf = Me.Location.X
         yf = Me.Location.Y
 
@@ -70,7 +70,7 @@ Public Class ConfigAdmin
         DataGridView1.Columns.Item("Tipo").Visible = False
 
         listboxcarga()
-
+        cargar()
         ComboBox3.SelectedIndex = 0
 
         '/////////////////////////////////////////////////////////////////////////////////////////////
@@ -419,11 +419,6 @@ Public Class ConfigAdmin
     Private Sub PictureBox1_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox1.Click
         Me.Close()
     End Sub
-
-    Private Sub ptbPerfilAdmin_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ptbPerfilAdmin.Click
-
-    End Sub
-
     Private Sub ptbPerfilAdmin_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles ptbPerfilAdmin.DoubleClick
         Dim nombreArchivo As String
 
