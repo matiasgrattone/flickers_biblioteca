@@ -1412,7 +1412,7 @@ Public Class MENU3
                         'If row("cedula") = contraseñaAdmin Then
                         ConfigAdmin.ptbPerfilAdmin.ImageLocation = row("rutaperfil").ToString
                         ConfigAdmin.cedulaFotoPerfil = row("cedula").ToString
-                        MsgBox(ConfigAdmin.cedulaFotoPerfil)
+                        'MsgBox(ConfigAdmin.cedulaFotoPerfil)
                         Pbnube.Image = Image.FromFile("imagenes\cloud-error.png")
                         ConfigAdmin.Lbl_NombreADMIN_TXT.Text = row("nombre") & " " & row("apellido")
                         contraseñaAdmin = "1"

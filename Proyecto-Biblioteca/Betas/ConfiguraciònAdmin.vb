@@ -55,7 +55,7 @@ Public Class ConfigAdmin
         'Funcionarios 1
         'Socios 2
         a = 0
-
+        PictureBox1.Visible = True
         xf = Me.Location.X
         yf = Me.Location.Y
 
@@ -67,7 +67,7 @@ Public Class ConfigAdmin
         DataGridView1.Columns.Item("Tipo").Visible = False
 
         listboxcarga()
-
+        cargar()
         ComboBox3.SelectedIndex = 0
 
         '/////////////////////////////////////////////////////////////////////////////////////////////
