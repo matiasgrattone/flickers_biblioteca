@@ -1,14 +1,12 @@
 Imports System.Threading
 Imports System.Text.RegularExpressions
 Public Class MENU3
-
     Dim a As Integer = 0
     Public xco, yco As Integer
     Dim resultx, resulty As Integer
     Dim xc, yc As Integer
     Dim xf, yf As Integer
     Dim holax, holay As Integer
-
     Dim seleccionado As String = "Inicio"
     Dim mouse As Integer
     Dim mouse2 As Integer
@@ -44,6 +42,8 @@ Public Class MENU3
 
 
     Private Sub MENU3_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+
 
         xf = Me.Location.X
         yf = Me.Location.Y
@@ -1684,6 +1684,18 @@ Public Class MENU3
 
                 ChartPrestamosDia.ChartAreas.Add("Prestamos Del Dia")
                 ChartPrestamosDia.Series.Add("Prestamos Del Dia")
+                If RadioButton2.Checked = True Then
+                    ChartPrestamosDia.ChartAreas("Prestamos Del Dia").Area3DStyle.Enable3D = True
+                    ChartPrestamosDia.ChartAreas("Prestamos Del Dia").Area3DStyle.Rotation = 0
+                    'ChartPrestamosDia.ChartAreas("Prestamos Del Dia").Area3DStyle.Rotation = TrackBar1.Value
+                ElseIf RadioButton3.Checked = True Then
+                    ChartPrestamosDia.Series("Prestamos Del Dia").ChartType = DataVisualization.Charting.SeriesChartType.Pie
+                End If
+                If RadioButton4.Checked = True Then
+                    ChartPrestamosDia.Series("Prestamos Del Dia").ChartType = DataVisualization.Charting.SeriesChartType.Pie
+                    ChartPrestamosDia.ChartAreas("Prestamos Del Dia").Area3DStyle.Enable3D = True
+                    ChartPrestamosDia.ChartAreas("Prestamos Del Dia").Area3DStyle.Rotation = 0
+                End If
                 ContadorDia = 0
 
                 For Each row As DataRow In Tabla.Rows
@@ -1920,7 +1932,24 @@ Public Class MENU3
         contadorAnimacionBD = contadorAnimacionBD + 1
     End Sub
 
-    Private Sub Panel_Graficos_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles Panel_Graficos.Paint
+    Private Sub RadioButton1_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton1.CheckedChanged
+        Chart()
+    End Sub
 
+    Private Sub RadioButton2_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton2.CheckedChanged
+        Chart()
+    End Sub
+
+    Private Sub RadioButton3_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton3.CheckedChanged
+        Chart()
+    End Sub
+
+    Private Sub TrackBar1_Scroll(sender As System.Object, e As System.EventArgs)
+        Chart()
+
+    End Sub
+
+    Private Sub RadioButton4_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton4.CheckedChanged
+        Chart()
     End Sub
 End Class

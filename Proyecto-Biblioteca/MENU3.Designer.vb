@@ -83,6 +83,8 @@ Partial Class MENU3
         Me.Timer_NvegadorLabel = New System.Windows.Forms.Timer(Me.components)
         Me.Timer_RevistasLabel = New System.Windows.Forms.Timer(Me.components)
         Me.Panel_Graficos = New System.Windows.Forms.Panel()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.Panel_prestamosdia = New System.Windows.Forms.Panel()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -100,6 +102,7 @@ Partial Class MENU3
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Chart_Prestamos = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         Me.Timer_InicioLabel = New System.Windows.Forms.Timer(Me.components)
         Me.Timer_Prestamos_LIVE = New System.Windows.Forms.Timer(Me.components)
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
@@ -108,6 +111,7 @@ Partial Class MENU3
         Me.Timer_RuedaDeCarga = New System.Windows.Forms.Timer(Me.components)
         Me.Rueda_de_carga1 = New Proyecto_Biblioteca.OptProgressControl.Rueda_de_carga()
         Me.Labels_transparentes1 = New Proyecto_Biblioteca.labels_transparentes()
+        Me.RadioButton4 = New System.Windows.Forms.RadioButton()
         Me.Phoraencabezado.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Pbadvertenciaprestamos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -583,6 +587,9 @@ Partial Class MENU3
         'Panel_Graficos
         '
         Me.Panel_Graficos.BackColor = System.Drawing.SystemColors.Control
+        Me.Panel_Graficos.Controls.Add(Me.RadioButton4)
+        Me.Panel_Graficos.Controls.Add(Me.RadioButton2)
+        Me.Panel_Graficos.Controls.Add(Me.RadioButton1)
         Me.Panel_Graficos.Controls.Add(Me.Panel_prestamosdia)
         Me.Panel_Graficos.Controls.Add(Me.PanelPrestamosLIVE)
         Me.Panel_Graficos.Controls.Add(Me.PictureBox1)
@@ -592,10 +599,33 @@ Partial Class MENU3
         Me.Panel_Graficos.Controls.Add(Me.ComboBox2)
         Me.Panel_Graficos.Controls.Add(Me.Panel1)
         Me.Panel_Graficos.Controls.Add(Me.ComboBox1)
+        Me.Panel_Graficos.Controls.Add(Me.RadioButton3)
         Me.Panel_Graficos.Location = New System.Drawing.Point(135, 45)
         Me.Panel_Graficos.Name = "Panel_Graficos"
         Me.Panel_Graficos.Size = New System.Drawing.Size(1006, 646)
         Me.Panel_Graficos.TabIndex = 7
+        '
+        'RadioButton2
+        '
+        Me.RadioButton2.AutoSize = True
+        Me.RadioButton2.Location = New System.Drawing.Point(506, 16)
+        Me.RadioButton2.Name = "RadioButton2"
+        Me.RadioButton2.Size = New System.Drawing.Size(69, 17)
+        Me.RadioButton2.TabIndex = 12
+        Me.RadioButton2.Text = "Barras3D"
+        Me.RadioButton2.UseVisualStyleBackColor = True
+        '
+        'RadioButton1
+        '
+        Me.RadioButton1.AutoSize = True
+        Me.RadioButton1.Checked = True
+        Me.RadioButton1.Location = New System.Drawing.Point(445, 16)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(55, 17)
+        Me.RadioButton1.TabIndex = 11
+        Me.RadioButton1.TabStop = True
+        Me.RadioButton1.Text = "Barras"
+        Me.RadioButton1.UseVisualStyleBackColor = True
         '
         'Panel_prestamosdia
         '
@@ -603,7 +633,7 @@ Partial Class MENU3
         Me.Panel_prestamosdia.Controls.Add(Me.Button1)
         Me.Panel_prestamosdia.Controls.Add(Me.Label3)
         Me.Panel_prestamosdia.Controls.Add(Me.LbPrestamos)
-        Me.Panel_prestamosdia.Location = New System.Drawing.Point(688, 0)
+        Me.Panel_prestamosdia.Location = New System.Drawing.Point(688, 1)
         Me.Panel_prestamosdia.Name = "Panel_prestamosdia"
         Me.Panel_prestamosdia.Size = New System.Drawing.Size(200, 247)
         Me.Panel_prestamosdia.TabIndex = 3
@@ -698,7 +728,7 @@ Partial Class MENU3
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.back
-        Me.PictureBox1.Location = New System.Drawing.Point(970, 2)
+        Me.PictureBox1.Location = New System.Drawing.Point(970, 7)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(21, 30)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -709,7 +739,7 @@ Partial Class MENU3
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(526, 314)
+        Me.Label2.Location = New System.Drawing.Point(526, 325)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(109, 13)
         Me.Label2.TabIndex = 8
@@ -719,7 +749,7 @@ Partial Class MENU3
         '
         Me.PanelPrestamosTOP.BackColor = System.Drawing.SystemColors.ControlDark
         Me.PanelPrestamosTOP.Controls.Add(Me.ChartTOP)
-        Me.PanelPrestamosTOP.Location = New System.Drawing.Point(525, 338)
+        Me.PanelPrestamosTOP.Location = New System.Drawing.Point(525, 349)
         Me.PanelPrestamosTOP.Name = "PanelPrestamosTOP"
         Me.PanelPrestamosTOP.Size = New System.Drawing.Size(469, 293)
         Me.PanelPrestamosTOP.TabIndex = 6
@@ -745,13 +775,14 @@ Partial Class MENU3
         '
         Me.PanelGraph1.BackColor = System.Drawing.SystemColors.ControlDark
         Me.PanelGraph1.Controls.Add(Me.ChartPrestamosDia)
-        Me.PanelGraph1.Location = New System.Drawing.Point(25, 33)
+        Me.PanelGraph1.Location = New System.Drawing.Point(25, 43)
         Me.PanelGraph1.Name = "PanelGraph1"
         Me.PanelGraph1.Size = New System.Drawing.Size(969, 268)
         Me.PanelGraph1.TabIndex = 7
         '
         'ChartPrestamosDia
         '
+        ChartArea2.Area3DStyle.Rotation = 10
         ChartArea2.Name = "ChartArea1"
         Me.ChartPrestamosDia.ChartAreas.Add(ChartArea2)
         Legend2.Name = "Legend1"
@@ -772,7 +803,7 @@ Partial Class MENU3
         Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(24, 306)
+        Me.ComboBox2.Location = New System.Drawing.Point(24, 317)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(101, 28)
         Me.ComboBox2.TabIndex = 6
@@ -781,7 +812,7 @@ Partial Class MENU3
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.ControlDark
         Me.Panel1.Controls.Add(Me.Chart_Prestamos)
-        Me.Panel1.Location = New System.Drawing.Point(24, 338)
+        Me.Panel1.Location = New System.Drawing.Point(24, 349)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(499, 293)
         Me.Panel1.TabIndex = 5
@@ -808,10 +839,20 @@ Partial Class MENU3
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(24, 3)
+        Me.ComboBox1.Location = New System.Drawing.Point(24, 13)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(216, 28)
         Me.ComboBox1.TabIndex = 1
+        '
+        'RadioButton3
+        '
+        Me.RadioButton3.AutoSize = True
+        Me.RadioButton3.Location = New System.Drawing.Point(581, 16)
+        Me.RadioButton3.Name = "RadioButton3"
+        Me.RadioButton3.Size = New System.Drawing.Size(50, 17)
+        Me.RadioButton3.TabIndex = 13
+        Me.RadioButton3.Text = "Torta"
+        Me.RadioButton3.UseVisualStyleBackColor = True
         '
         'Timer_InicioLabel
         '
@@ -854,6 +895,16 @@ Partial Class MENU3
         Me.Labels_transparentes1.Size = New System.Drawing.Size(30, 23)
         Me.Labels_transparentes1.TabIndex = 14
         Me.Labels_transparentes1.Text = "V.2.0"
+        '
+        'RadioButton4
+        '
+        Me.RadioButton4.AutoSize = True
+        Me.RadioButton4.Location = New System.Drawing.Point(632, 16)
+        Me.RadioButton4.Name = "RadioButton4"
+        Me.RadioButton4.Size = New System.Drawing.Size(50, 17)
+        Me.RadioButton4.TabIndex = 14
+        Me.RadioButton4.Text = "Torta"
+        Me.RadioButton4.UseVisualStyleBackColor = True
         '
         'MENU3
         '
@@ -991,4 +1042,8 @@ Partial Class MENU3
     Friend WithEvents Rueda_de_carga1 As Proyecto_Biblioteca.OptProgressControl.Rueda_de_carga
     Friend WithEvents Timer_RuedaDeCarga As System.Windows.Forms.Timer
     Friend WithEvents DataGridViewLibros As System.Windows.Forms.DataGridView
+    Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
+    Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
+    Friend WithEvents RadioButton3 As System.Windows.Forms.RadioButton
+    Friend WithEvents RadioButton4 As System.Windows.Forms.RadioButton
 End Class

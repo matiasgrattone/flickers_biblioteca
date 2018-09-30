@@ -701,7 +701,7 @@ Partial Class Prestamos
         Me.Cedula.Location = New System.Drawing.Point(3, 50)
         Me.Cedula.Name = "Cedula"
         Me.Cedula.Size = New System.Drawing.Size(259, 20)
-        Me.Cedula.TabIndex = 75
+        Me.Cedula.TabIndex = 0
         Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
         Me.Cedula.WaterMarkText = "Cedula"
         '

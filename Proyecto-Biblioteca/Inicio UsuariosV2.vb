@@ -17,7 +17,7 @@
     Dim ced_editar As Integer = Nothing
     Dim nom_editar As String = Nothing
     Dim ape_editar As String = Nothing
-    Dim tel_editar As Integer = Nothing
+    Dim tel_editar As String = Nothing
     Dim dir_editar As String = Nothing
     Dim tipo_editar As Integer = Nothing
     Dim contra_editar As String = Nothing
@@ -67,7 +67,7 @@
     Private Sub Inicio_UsuariosV2_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
 
         Button4.Visible = False
-        Consulta = "select cedula as 'Cedula', nombre as 'Nombre', apellido as 'Apellido', direccion as 'Direccion', telefono 'Telefono', nacimiento as 'Nacimiento' from usuarios where estado = 1 and tipo >= 1;"
+        Consulta = "select cedula as 'Cedula', nombre as 'Nombre', apellido as 'Apellido', direccion as 'Direccion', telefono 'Telefono', nacimiento as 'Nacimiento' from usuarios where estado = 1 and tipo = 2;"
         consultar()
         DataGridView1.DataSource = Tabla
 
@@ -456,6 +456,8 @@
             dia_editar = ""
             If ComboBox4.SelectedItem.ToString.Length = 1 Then
                 dia_editar = "0" & ComboBox4.SelectedItem
+            Else
+                dia_editar = ComboBox4.SelectedItem
             End If
         End If
         If ComboBox5.Text = "Mes" Then
@@ -479,14 +481,14 @@
         If i_editar = 0 Then
             Dim nacimiento_editar As String = Str(ComboBox6.SelectedItem).Substring(1, 4) + "-" + substring + "-" + dia_editar
             Try
-                Consulta = "update usuarios set cedula='" & Str(ced_editar) & "' , nombre='" & nom_editar & "', apellido='" & ape_editar & "', direccion='" & dir_editar & "', telefono='" & Str(tel_editar) & "', nacimiento='" & nacimiento_editar & "' , tipo='" & Str(tipo_editar) & "' where cedula = '" & Str(ced_editar) & "'"
+                Consulta = "update usuarios set cedula='" & Str(ced_editar) & "' , nombre='" & nom_editar & "', apellido='" & ape_editar & "', direccion='" & dir_editar & "', telefono='" & tel_editar & "', nacimiento='" & nacimiento_editar & "' , tipo='2' where cedula = '" & Str(ced_editar) & "'"
                 consultar()
 
                 MsgBox("Edición guardada satisfactoriamente")
 
                 '//////////////////Mostrar los datos actualizados en el datagrid///////////////////////
                 Try
-                    Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento from usuarios where estado = 1 and tipo = 1;"
+                    Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento from usuarios where estado = 1 and tipo = 2;"
                     consultar()
                     DataGridView1.DataSource = Tabla
 
