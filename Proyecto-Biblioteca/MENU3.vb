@@ -1624,7 +1624,7 @@ Public Class MENU3
     End Sub
 
 
-    Private Sub Chart()
+    Public Sub Chart()
         If ERROR1 = 2 Then
 
             ChartPrestamosDia.Series.Clear()
@@ -1686,8 +1686,8 @@ Public Class MENU3
                 ChartPrestamosDia.Series.Add("Prestamos Del Dia")
                 If RadioButton2.Checked = True Then
                     ChartPrestamosDia.ChartAreas("Prestamos Del Dia").Area3DStyle.Enable3D = True
-                    ChartPrestamosDia.ChartAreas("Prestamos Del Dia").Area3DStyle.Rotation = 0
-                    'ChartPrestamosDia.ChartAreas("Prestamos Del Dia").Area3DStyle.Rotation = TrackBar1.Value
+                    'ChartPrestamosDia.ChartAreas("Prestamos Del Dia").Area3DStyle.Rotation = 0
+                    ChartPrestamosDia.ChartAreas("Prestamos Del Dia").Area3DStyle.Rotation = ConfigAdmin.TrackBar1.Value
                 ElseIf RadioButton3.Checked = True Then
                     ChartPrestamosDia.Series("Prestamos Del Dia").ChartType = DataVisualization.Charting.SeriesChartType.Pie
                 End If

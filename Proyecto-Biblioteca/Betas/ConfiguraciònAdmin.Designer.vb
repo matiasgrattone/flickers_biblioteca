@@ -72,7 +72,6 @@ Partial Class ConfigAdmin
         Me.Lbl_NombreADMIN_TXT = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.PictureboxBordesRedondos1 = New Proyecto_Biblioteca.PictureboxBordesRedondos()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -579,7 +578,6 @@ Partial Class ConfigAdmin
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.Silver
-        Me.Panel2.Controls.Add(Me.Button2)
         Me.Panel2.Controls.Add(Me.PictureboxBordesRedondos1)
         Me.Panel2.Controls.Add(Me.Lbl_NombreADMIN_TXT)
         Me.Panel2.Controls.Add(Me.Label_BDestadoTXT)
@@ -594,15 +592,6 @@ Partial Class ConfigAdmin
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(986, 464)
         Me.Panel2.TabIndex = 19
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(94, 190)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 20
-        Me.Button2.Text = "Button2"
-        Me.Button2.UseVisualStyleBackColor = True
         '
         'PictureboxBordesRedondos1
         '
@@ -686,5 +675,4 @@ Partial Class ConfigAdmin
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents ImageList1 As System.Windows.Forms.ImageList
     Friend WithEvents PictureboxBordesRedondos1 As Proyecto_Biblioteca.PictureboxBordesRedondos
-    Friend WithEvents Button2 As System.Windows.Forms.Button
 End Class
