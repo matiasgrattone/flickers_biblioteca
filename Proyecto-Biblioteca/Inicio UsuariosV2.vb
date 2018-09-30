@@ -66,6 +66,17 @@
 
     Private Sub Inicio_UsuariosV2_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
 
+        If RadioButton1.Checked = True Then
+            Label_Mail.Visible = True
+            PlaceHolderMail.Visible = True
+        Else
+            Label_Mail.Visible = False
+            PlaceHolderMail.Visible = False
+        End If
+
+        LabelMailEditar.Visible = False
+        PlaceHolderMailEditar.Visible = False
+
         Button4.Visible = False
         Consulta = "select cedula as 'Cedula', nombre as 'Nombre', apellido as 'Apellido', direccion as 'Direccion', telefono 'Telefono', nacimiento as 'Nacimiento' from usuarios where estado = 1 and tipo = 2;"
         consultar()
@@ -89,8 +100,10 @@
     End Sub
 
     Private Sub PictureBox3_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox3.Click
-        seleccionado = 2
-        PanelMenu()
+        If seleccionado = 2 And activo = 1 Then
+            seleccionado = 2
+            PanelMenu()
+        End If
     End Sub
 
     Private Sub PictureBox2_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox2.Click
@@ -184,6 +197,7 @@
 
                     Case 2
 
+
                         ComboClear()
 
                         Menu_Panel.BackColor = Color.Silver
@@ -236,6 +250,9 @@
                         ComboBox5.SelectedIndex = 0
                         ComboBox6.SelectedIndex = 0
                         '////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
                     Case 3
                         '//////LLAMA A COMBOCLEAR PARA LIMPIAR TODOS LOS COMBOBOX///////
                         ComboClear()
@@ -313,20 +330,32 @@
 
     End Sub
 
+    Private Sub DataGridView1_CellBorderStyleChanged(sender As Object, e As System.EventArgs) Handles DataGridView1.CellBorderStyleChanged
+
+    End Sub
+
     Private Sub DataGridView1_CellClick(sender As Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellClick
-        '///////////////////////////////////////////////////////////////////////////////////////////////////
-        '///////////////////////////////////////////////////////////////////////////////////////////////////
-        '///////////////////////////////////////////////////////////////////////////////////////////////////
 
-        cedulaUser = DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value
 
-        mouse = 0
+        '///////////////////////////////////////////////////////////////////////////////////////////////////
+        '///////////////////////////////////////////////////////////////////////////////////////////////////
+        '///////////////////////////////////////////////////////////////////////////////////////////////////
+        If seleccionado = 2 And activo = 1 Then
+        ElseIf activo = 0 Then
+            seleccionado = 2
+            PanelMenu()
+        End If
+
+
 
         Select Case seleccionado
 
             Case 2
 
-                Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento , tipo from usuarios where cedula = '" & DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value & "'"
+                cedulaUser = DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value
+
+                mouse = 0
+                Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento , tipo , mail from usuarios where cedula = '" & DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value & "'"
                 consultar()
 
                 For Each row As DataRow In Tabla.Rows
@@ -336,6 +365,18 @@
                     cedula.Text = row("cedula").ToString
                     telefono.Text = row("telefono").ToString
                     direccion.Text = row("direccion").ToString
+
+                    If row("mail") Is DBNull.Value Then
+                        PlaceHolderMailEditar.Visible = False
+                        LabelMailEditar.Visible = False
+                        PlaceHolderMailEditar.Clear()
+                        RadioButton3.Checked = True
+                    Else
+                        PlaceHolderMailEditar.Visible = True
+                        LabelMailEditar.Visible = True
+                        PlaceHolderMailEditar.Text = row("mail").ToString
+                        RadioButton4.Checked = True
+                    End If
 
                     dia_datagrid = row("nacimiento").ToString.Substring(0, 2)
                     mes_datagrid = row("nacimiento").ToString.Substring(3, 2)
@@ -481,8 +522,13 @@
         If i_editar = 0 Then
             Dim nacimiento_editar As String = Str(ComboBox6.SelectedItem).Substring(1, 4) + "-" + substring + "-" + dia_editar
             Try
-                Consulta = "update usuarios set cedula='" & Str(ced_editar) & "' , nombre='" & nom_editar & "', apellido='" & ape_editar & "', direccion='" & dir_editar & "', telefono='" & tel_editar & "', nacimiento='" & nacimiento_editar & "' , tipo='2' where cedula = '" & Str(ced_editar) & "'"
-                consultar()
+                If RadioButton4.Checked = True Then
+                    Consulta = "update usuarios set cedula='" & Str(ced_editar) & "' , nombre='" & nom_editar & "', apellido='" & ape_editar & "', direccion='" & dir_editar & "', telefono='" & tel_editar & "', nacimiento='" & nacimiento_editar & "' , tipo='2' , mail = '" & PlaceHolderMailEditar.Text & "' where cedula = '" & Str(ced_editar) & "'"
+                    consultar()
+                Else
+                    Consulta = "update usuarios set cedula='" & Str(ced_editar) & "' , nombre='" & nom_editar & "', apellido='" & ape_editar & "', direccion='" & dir_editar & "', telefono='" & tel_editar & "', nacimiento='" & nacimiento_editar & "' , tipo='2' , mail is NULL where cedula = '" & Str(ced_editar) & "'"
+                    consultar()
+                End If
 
                 MsgBox("Edición guardada satisfactoriamente")
 
@@ -491,7 +537,17 @@
                     Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento from usuarios where estado = 1 and tipo = 2;"
                     consultar()
                     DataGridView1.DataSource = Tabla
-
+                    nombre.Clear()
+                    apellido.Clear()
+                    cedula.Clear()
+                    telefono.Clear()
+                    direccion.Clear()
+                    ComboBox4.SelectedIndex = 1
+                    ComboBox5.SelectedIndex = 1
+                    ComboBox6.SelectedIndex = 1
+                    PlaceHolderMailEditar.Clear()
+                    PlaceHolderMailEditar.Visible = False
+                    LabelMailEditar.Visible = False
                 Catch ex As Exception
                     MsgBox(ex.Message)
                 End Try
@@ -589,10 +645,13 @@
                 mestonum()
 
                 Dim nacimiento_ingresar As String = Str(ComboBox3.SelectedItem).Substring(1, 4) + "-" + substring + "-" + dia_ingresar '//GUARDA LOS DATOS DEL COMBO A LA VARIABLE NACIMIENTO PARA LUEGO USARLA EN LA CONSULTA INSERT
-
-                Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo , nacimiento, estado, contrasenia , moroso , fecha_ingreso) values (concat(upper(left('" + nom_ingresar + "',1)), lower(substr('" + nom_ingresar + "',2))), concat(upper(left('" + ape_ingresar + "',1)), lower(substr('" + ape_ingresar + "',2))), '" + Str(ced_ingresar) + "', '" + Str(tel_ingresar) + "', '" + dir_ingresar + "', '2', '" + nacimiento_ingresar + "','1', '',0,'" & Date.Now.ToString("yyyy-MM-dd") & "');"
-                consultar()
-
+                If RadioButton1.Checked = True Then
+                    Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo , nacimiento, estado, contrasenia , moroso , fecha_ingreso , mail) values (concat(upper(left('" + nom_ingresar + "',1)), lower(substr('" + nom_ingresar + "',2))), concat(upper(left('" + ape_ingresar + "',1)), lower(substr('" + ape_ingresar + "',2))), '" + Str(ced_ingresar) + "', '" + Str(tel_ingresar) + "', '" + dir_ingresar + "', '2', '" + nacimiento_ingresar + "','1', '',0,'" & Date.Now.ToString("yyyy-MM-dd") & "','" & PlaceHolderMail.Text & "');"
+                    consultar()
+                Else
+                    Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo , nacimiento, estado, contrasenia , moroso , fecha_ingreso) values (concat(upper(left('" + nom_ingresar + "',1)), lower(substr('" + nom_ingresar + "',2))), concat(upper(left('" + ape_ingresar + "',1)), lower(substr('" + ape_ingresar + "',2))), '" + Str(ced_ingresar) + "', '" + Str(tel_ingresar) + "', '" + dir_ingresar + "', '2', '" + nacimiento_ingresar + "','1', '',0,'" & Date.Now.ToString("yyyy-MM-dd") & "');"
+                    consultar()
+                End If
                 If ERROR1 = 1 Then
 
                     MsgStyle = MsgBoxStyle.Information + MsgBoxStyle.OkOnly
@@ -701,8 +760,10 @@
                 Dim dia2 As String = ""
                 Dim mes2 As String = ""
                 Dim año2 As String = ""
-                Dim dianum As String
-                Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento , tipo from usuarios where cedula = '" & DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value & "'"
+                Dim dianum As String = ""
+                Dim mail12 As String = ""
+
+                Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento , tipo , mail from usuarios where cedula = '" & DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value & "'"
                 consultar()
 
                 For Each row As DataRow In Tabla.Rows
@@ -780,10 +841,39 @@
                     Else
                         direccion1 = "1"
                     End If
+
+
+                    If row("mail") Is DBNull.Value And RadioButton4.Checked = True Then
+                        PlaceHolderMailEditar.Visible = True
+                        Label_Mail.Visible = True
+                        mail12 = "1"
+                    End If
+
+                    If row("mail") Is DBNull.Value And RadioButton3.Checked = True Then
+                        PlaceHolderMailEditar.Visible = False
+                        LabelMailEditar.Visible = False
+                        mail12 = "0"
+                    End If
+
+
+                    If row("mail") IsNot DBNull.Value And RadioButton4.Checked = True Then
+                        mail12 = "0"
+                        PlaceHolderMailEditar.Visible = True
+                        Label_Mail.Visible = True
+                    End If
+
+                    If row("mail") IsNot DBNull.Value And RadioButton3.Checked = True Then
+                        mail12 = "1"
+                        PlaceHolderMailEditar.Visible = False
+                        LabelMailEditar.Visible = False
+                        PlaceHolderMailEditar.Clear()
+                    End If
+
+
                 Next
 
 
-                If nombre1 = "0" And apellido1 = "0" And cedula1 = "0" And telefono1 = "0" And direccion1 = "0" And dia2 = "0" And mes2 = "0" And año2 = "0" Then
+                If nombre1 = "0" And apellido1 = "0" And cedula1 = "0" And telefono1 = "0" And direccion1 = "0" And dia2 = "0" And mes2 = "0" And año2 = "0" And mail12 = "0" Then
                     Button4.Visible = False
                 Else
                     Button4.Visible = True
@@ -879,4 +969,54 @@
         End If
     End Sub
 
+    Private Sub RadioButton2_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton2.CheckedChanged
+        Label_Mail.Visible = False
+        PlaceHolderMail.Visible = False
+    End Sub
+
+    Private Sub RadioButton1_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton1.CheckedChanged
+        Label_Mail.Visible = True
+        PlaceHolderMail.Visible = True
+    End Sub
+
+    Private Sub RadioButton3_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton3.CheckedChanged
+        PlaceHolderMailEditar.Visible = False
+        LabelMailEditar.Visible = False
+        Select Case seleccionado
+            Case 1
+                ErrorProvider1.SetError(PlaceHolderMailEditar, "")
+            Case 2
+                ErrorProvider1.SetError(PlaceHolderMailEditar, "")
+                contador = 0
+                Inactivo.Enabled = True
+        End Select
+    End Sub
+
+    Private Sub RadioButton4_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton4.CheckedChanged
+        PlaceHolderMailEditar.Visible = True
+        LabelMailEditar.Visible = True
+        Select Case seleccionado
+            Case 1
+                ErrorProvider1.SetError(PlaceHolderMailEditar, "")
+            Case 2
+                ErrorProvider1.SetError(PlaceHolderMailEditar, "")
+                contador = 0
+                Inactivo.Enabled = True
+        End Select
+    End Sub
+
+    Private Sub DataGridView1_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+
+    End Sub
+
+    Private Sub PlaceHolderMailEditar_TextChanged(sender As System.Object, e As System.EventArgs) Handles PlaceHolderMailEditar.TextChanged
+        Select Case seleccionado
+            Case 1
+                ErrorProvider1.SetError(PlaceHolderMailEditar, "")
+            Case 2
+                ErrorProvider1.SetError(PlaceHolderMailEditar, "")
+                contador = 0
+                Inactivo.Enabled = True
+        End Select
+    End Sub
 End Class

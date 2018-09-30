@@ -8,14 +8,14 @@
 
 
         If LTrim$(usuario.Text) = "" Then ' Verifica si esta vacio nombre
-            errorusuario.Text = "Nombre no puede estar vacío"
+            ErrorProvider1.SetError(usuario, "Nombre no puede estar vacío")
             i = 1
         Else
             user = usuario.Text
         End If
 
         If LTrim$(contrasenia.Text) = "" Then ' Verifica si esta vacio nombre
-            errorpass.Text = "Nombre no puede estar vacío"
+            ErrorProvider1.SetError(contrasenia, "Contraseña no puede estar vacía")
             i = 1
         Else
             pass = contrasenia.Text
@@ -33,7 +33,6 @@
                         MENU3.Cedula.Text = row("cedula")
                         Me.Hide()
                         MENU3.Show()
-
                     Else
                         MsgBox("Cedula/Contraseaña Incorrecto")
                     End If
@@ -54,14 +53,14 @@
             Dim pass1 As String = Nothing
 
             If LTrim$(usuario.Text) = "" Then ' Verifica si esta vacio nombre
-                errorusuario.Text = "Nombre no puede estar vacío"
+                ' errorusuario.Text = "Nombre no puede estar vacío"
                 i = 1
             Else
                 user = usuario.Text
             End If
 
             If LTrim$(contrasenia.Text) = "" Then ' Verifica si esta vacio nombre
-                errorpass.Text = "Nombre no puede estar vacío"
+                ' errorpass.Text = "Nombre no puede estar vacío"
                 i = 1
             Else
                 pass = contrasenia.Text
@@ -96,7 +95,8 @@
     End Sub
 
     Private Sub contrasenia_TextChanged(sender As System.Object, e As System.EventArgs) Handles contrasenia.TextChanged
-        errorpass.Text = ""
+        'errorpass.Text = ""
+        ErrorProvider1.SetError(contrasenia, "")
         i = 0
     End Sub
 
@@ -104,16 +104,17 @@
         If e.KeyCode = Keys.Enter Then
             Dim user As String = Nothing
             Dim pass As String = Nothing
+            Dim pass1 As String = Nothing
 
             If LTrim$(usuario.Text) = "" Then ' Verifica si esta vacio nombre
-                errorusuario.Text = "Nombre no puede estar vacío"
+                ErrorProvider1.SetError(usuario, "Nombre no puede estar vacío")
                 i = 1
             Else
                 user = usuario.Text
             End If
 
             If LTrim$(contrasenia.Text) = "" Then ' Verifica si esta vacio nombre
-                errorpass.Text = "Nombre no puede estar vacío"
+                ErrorProvider1.SetError(contrasenia, "Nombre no puede estar vacío")
                 i = 1
             Else
                 pass = contrasenia.Text
@@ -121,28 +122,33 @@
 
             If i = 0 Then
                 Try
-                    Consulta = "select contrasenia, nombre from usuarios where cedula = '" + user + "';"
+                    Consulta = "select contrasenia , nombre , cedula from usuarios where cedula = '" + user + "' and tipo<'2';"
                     consultar()
-                    DataGridView1.DataSource = Tabla
-                    Dim row As DataGridViewRow = DataGridView1.CurrentRow
-                    Dim pass1 As String = CStr(row.Cells(0).Value)
-                    Modulo.nombre = CStr(row.Cells(1).Value)
-                    If pass1 = pass Then
-                        Me.Hide()
-                        MENU3.Show()
-                        MENU3.Nombre.Text = Modulo.nombre
-                    Else
-                        MsgBox("Cedula/Contraseaña Incorrecto")
-                    End If
+
+                    For Each row As DataRow In Tabla.Rows
+
+                        If row("contrasenia").ToString = pass Then
+                            MENU3.Nombre.Text = row("nombre")
+                            MENU3.Cedula.Text = row("cedula")
+                            Me.Hide()
+                            MENU3.Show()
+                        Else
+                            MsgBox("Cedula/Contraseaña Incorrecto")
+                        End If
+                    Next
+
                 Catch ex As Exception
                     MsgBox("Cedula/Contraseaña Incorrecto")
+                    ErrorProvider1.SetError(usuario, "Cedula/Contraseaña Incorrecto")
+                    ErrorProvider1.SetError(contrasenia, "Cedula/Contraseaña Incorrecto")
                 End Try
             End If
         End If
     End Sub
 
     Private Sub usuario_TextChanged(sender As System.Object, e As System.EventArgs) Handles usuario.TextChanged
-        errorusuario.Text = ""
+        'errorusuario.Text = ""
+        ErrorProvider1.SetError(usuario, "")
         i = 0
     End Sub
 
@@ -153,11 +159,11 @@
         MENU3.Nombre.Text = "Invitado"
     End Sub
 
-    Private Sub Label1_MouseEnter(sender As System.Object, e As System.EventArgs) Handles Label1.MouseEnter
+    Private Sub Label1_MouseEnter(sender As System.Object, e As System.EventArgs) Handles Labels_transparentes4.MouseEnter
         Me.Cursor = Cursors.Hand
     End Sub
 
-    Private Sub Label1_MouseLeave(sender As System.Object, e As System.EventArgs) Handles Label1.MouseLeave
+    Private Sub Label1_MouseLeave(sender As System.Object, e As System.EventArgs) Handles Labels_transparentes4.MouseLeave
         Me.Cursor = Cursors.Default
     End Sub
 
@@ -169,7 +175,11 @@
         Me.Cursor = Cursors.Default
     End Sub
 
-    Private Sub Label1_Click(sender As System.Object, e As System.EventArgs) Handles Label1.Click
+    Private Sub Labels_transparentes4_Click(sender As System.Object, e As System.EventArgs) Handles Labels_transparentes4.Click
+        BackgroundWorker1.RunWorkerAsync()
+    End Sub
+
+    Private Sub BackgroundWorker1_DoWork(sender As System.Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
         mailrecuperar = InputBox("Por favor ingrese su cedula para restablecer su contraseña")
 
         Consulta = "select * from usuarios where cedula = '" & mailrecuperar & "'"
@@ -177,7 +187,5 @@
         For Each row As DataRow In Tabla.Rows
             enviarEmail(row("mail"), "recuperación contraseña", "Su Contraseña es : " & row("contrasenia"))
         Next
-
     End Sub
-
 End Class

@@ -371,4 +371,8 @@ Public Class ConfigAdmin
     Private Sub PictureBox1_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox1.Click
         Me.Close()
     End Sub
+
+    Private Sub Panel1_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles Panel1.Paint
+
+    End Sub
 End Class
