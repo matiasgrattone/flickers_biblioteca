@@ -71,8 +71,15 @@ Partial Class ConfigAdmin
         Me.Label_BDestadoTXT = New System.Windows.Forms.Label()
         Me.Lbl_NombreADMIN_TXT = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.RadioButton4 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         Me.PictureboxBordesRedondos1 = New Proyecto_Biblioteca.PictureboxBordesRedondos()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -80,6 +87,8 @@ Partial Class ConfigAdmin
         Me.TabPage4.SuspendLayout()
         CType(Me.Dgv_Baja, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         CType(Me.PictureboxBordesRedondos1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -570,14 +579,31 @@ Partial Class ConfigAdmin
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(67, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Location = New System.Drawing.Point(1, 1)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(986, 47)
         Me.Panel1.TabIndex = 18
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(67, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.PictureBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.cancel
+        Me.PictureBox1.Location = New System.Drawing.Point(954, 6)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(24, 24)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabStop = False
+        '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.Silver
+        Me.Panel2.Controls.Add(Me.Label3)
+        Me.Panel2.Controls.Add(Me.RadioButton4)
+        Me.Panel2.Controls.Add(Me.RadioButton2)
+        Me.Panel2.Controls.Add(Me.RadioButton1)
+        Me.Panel2.Controls.Add(Me.RadioButton3)
         Me.Panel2.Controls.Add(Me.PictureboxBordesRedondos1)
         Me.Panel2.Controls.Add(Me.Lbl_NombreADMIN_TXT)
         Me.Panel2.Controls.Add(Me.Label_BDestadoTXT)
@@ -592,6 +618,57 @@ Partial Class ConfigAdmin
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(986, 464)
         Me.Panel2.TabIndex = 19
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(7, 197)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(87, 13)
+        Me.Label3.TabIndex = 24
+        Me.Label3.Text = "Graficas MENU3"
+        '
+        'RadioButton4
+        '
+        Me.RadioButton4.AutoSize = True
+        Me.RadioButton4.Location = New System.Drawing.Point(11, 305)
+        Me.RadioButton4.Name = "RadioButton4"
+        Me.RadioButton4.Size = New System.Drawing.Size(67, 17)
+        Me.RadioButton4.TabIndex = 23
+        Me.RadioButton4.Text = "Torta 3D"
+        Me.RadioButton4.UseVisualStyleBackColor = True
+        '
+        'RadioButton2
+        '
+        Me.RadioButton2.AutoSize = True
+        Me.RadioButton2.Location = New System.Drawing.Point(11, 247)
+        Me.RadioButton2.Name = "RadioButton2"
+        Me.RadioButton2.Size = New System.Drawing.Size(69, 17)
+        Me.RadioButton2.TabIndex = 21
+        Me.RadioButton2.Text = "Barras3D"
+        Me.RadioButton2.UseVisualStyleBackColor = True
+        '
+        'RadioButton1
+        '
+        Me.RadioButton1.AutoSize = True
+        Me.RadioButton1.Checked = True
+        Me.RadioButton1.Location = New System.Drawing.Point(11, 224)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(55, 17)
+        Me.RadioButton1.TabIndex = 20
+        Me.RadioButton1.TabStop = True
+        Me.RadioButton1.Text = "Barras"
+        Me.RadioButton1.UseVisualStyleBackColor = True
+        '
+        'RadioButton3
+        '
+        Me.RadioButton3.AutoSize = True
+        Me.RadioButton3.Location = New System.Drawing.Point(11, 282)
+        Me.RadioButton3.Name = "RadioButton3"
+        Me.RadioButton3.Size = New System.Drawing.Size(50, 17)
+        Me.RadioButton3.TabIndex = 22
+        Me.RadioButton3.Text = "Torta"
+        Me.RadioButton3.UseVisualStyleBackColor = True
         '
         'PictureboxBordesRedondos1
         '
@@ -626,6 +703,8 @@ Partial Class ConfigAdmin
         Me.TabPage4.PerformLayout()
         CType(Me.Dgv_Baja, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         CType(Me.PictureboxBordesRedondos1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -675,4 +754,11 @@ Partial Class ConfigAdmin
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents ImageList1 As System.Windows.Forms.ImageList
     Friend WithEvents PictureboxBordesRedondos1 As Proyecto_Biblioteca.PictureboxBordesRedondos
+    Friend WithEvents RadioButton4 As System.Windows.Forms.RadioButton
+    Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
+    Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
+    Friend WithEvents RadioButton3 As System.Windows.Forms.RadioButton
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
 End Class

@@ -1684,14 +1684,14 @@ Public Class MENU3
 
                 ChartPrestamosDia.ChartAreas.Add("Prestamos Del Dia")
                 ChartPrestamosDia.Series.Add("Prestamos Del Dia")
-                If RadioButton2.Checked = True Then
+                If ConfigAdmin.RadioButton2.Checked = True Then
                     ChartPrestamosDia.ChartAreas("Prestamos Del Dia").Area3DStyle.Enable3D = True
-                    'ChartPrestamosDia.ChartAreas("Prestamos Del Dia").Area3DStyle.Rotation = 0
-                    ChartPrestamosDia.ChartAreas("Prestamos Del Dia").Area3DStyle.Rotation = ConfigAdmin.TrackBar1.Value
-                ElseIf RadioButton3.Checked = True Then
+                    ChartPrestamosDia.ChartAreas("Prestamos Del Dia").Area3DStyle.Rotation = 0
+                    'ChartPrestamosDia.ChartAreas("Prestamos Del Dia").Area3DStyle.Rotation = ConfigAdmin.TrackBar1.Value
+                ElseIf ConfigAdmin.RadioButton3.Checked = True Then
                     ChartPrestamosDia.Series("Prestamos Del Dia").ChartType = DataVisualization.Charting.SeriesChartType.Pie
                 End If
-                If RadioButton4.Checked = True Then
+                If ConfigAdmin.RadioButton4.Checked = True Then
                     ChartPrestamosDia.Series("Prestamos Del Dia").ChartType = DataVisualization.Charting.SeriesChartType.Pie
                     ChartPrestamosDia.ChartAreas("Prestamos Del Dia").Area3DStyle.Enable3D = True
                     ChartPrestamosDia.ChartAreas("Prestamos Del Dia").Area3DStyle.Rotation = 0
@@ -1932,15 +1932,15 @@ Public Class MENU3
         contadorAnimacionBD = contadorAnimacionBD + 1
     End Sub
 
-    Private Sub RadioButton1_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton1.CheckedChanged
+    Private Sub RadioButton1_CheckedChanged(sender As System.Object, e As System.EventArgs)
         Chart()
     End Sub
 
-    Private Sub RadioButton2_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton2.CheckedChanged
+    Private Sub RadioButton2_CheckedChanged(sender As System.Object, e As System.EventArgs)
         Chart()
     End Sub
 
-    Private Sub RadioButton3_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton3.CheckedChanged
+    Private Sub RadioButton3_CheckedChanged(sender As System.Object, e As System.EventArgs)
         Chart()
     End Sub
 
@@ -1949,7 +1949,7 @@ Public Class MENU3
 
     End Sub
 
-    Private Sub RadioButton4_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton4.CheckedChanged
+    Private Sub RadioButton4_CheckedChanged(sender As System.Object, e As System.EventArgs)
         Chart()
     End Sub
 End Class

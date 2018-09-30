@@ -58,6 +58,7 @@ Partial Class FichaSocio
         Me.Label_Telefono_txt = New System.Windows.Forms.Label()
         Me.Label_Telefono = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBoxEstado = New System.Windows.Forms.PictureBox()
@@ -71,6 +72,8 @@ Partial Class FichaSocio
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         CType(Me.DataGridViewLibros, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel4.SuspendLayout()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBoxEstado, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -408,10 +411,22 @@ Partial Class FichaSocio
         'Panel4
         '
         Me.Panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
+        Me.Panel4.Controls.Add(Me.PictureBox4)
         Me.Panel4.Location = New System.Drawing.Point(1, 1)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(957, 33)
         Me.Panel4.TabIndex = 29
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.BackColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(67, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.PictureBox4.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.cancel
+        Me.PictureBox4.Location = New System.Drawing.Point(926, 3)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(24, 24)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox4.TabIndex = 1
+        Me.PictureBox4.TabStop = False
         '
         'PictureBox3
         '
@@ -517,6 +532,8 @@ Partial Class FichaSocio
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         CType(Me.DataGridViewLibros, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel4.ResumeLayout(False)
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBoxEstado, System.ComponentModel.ISupportInitialize).EndInit()
@@ -560,4 +577,5 @@ Partial Class FichaSocio
     Friend WithEvents Panel5 As System.Windows.Forms.Panel
     Friend WithEvents LabelFecha_Ingreso As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
 End Class
