@@ -30,12 +30,13 @@ Partial Class info_usuario
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.ptbperfil = New System.Windows.Forms.PictureBox()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ptbperfil, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -97,8 +98,9 @@ Partial Class info_usuario
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.SystemColors.Control
+        Me.Panel2.Controls.Add(Me.Button2)
         Me.Panel2.Controls.Add(Me.Button1)
-        Me.Panel2.Controls.Add(Me.PictureBox1)
+        Me.Panel2.Controls.Add(Me.ptbperfil)
         Me.Panel2.Controls.Add(Me.Label4)
         Me.Panel2.Controls.Add(Me.Label3)
         Me.Panel2.Controls.Add(Me.Label2)
@@ -108,16 +110,6 @@ Partial Class info_usuario
         Me.Panel2.Size = New System.Drawing.Size(380, 452)
         Me.Panel2.TabIndex = 6
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.boss
-        Me.PictureBox1.Location = New System.Drawing.Point(236, 30)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(121, 130)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 4
-        Me.PictureBox1.TabStop = False
-        '
         'Button1
         '
         Me.Button1.Location = New System.Drawing.Point(236, 164)
@@ -126,6 +118,25 @@ Partial Class info_usuario
         Me.Button1.TabIndex = 5
         Me.Button1.Text = "Cambiar Imagen Perfil"
         Me.Button1.UseVisualStyleBackColor = True
+        '
+        'ptbperfil
+        '
+        Me.ptbperfil.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.boss
+        Me.ptbperfil.Location = New System.Drawing.Point(236, 30)
+        Me.ptbperfil.Name = "ptbperfil"
+        Me.ptbperfil.Size = New System.Drawing.Size(121, 130)
+        Me.ptbperfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.ptbperfil.TabIndex = 4
+        Me.ptbperfil.TabStop = False
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(236, 193)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(121, 23)
+        Me.Button2.TabIndex = 6
+        Me.Button2.Text = "Guardar Imagen Perfil"
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'info_usuario
         '
@@ -144,7 +155,7 @@ Partial Class info_usuario
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ptbperfil, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -152,9 +163,10 @@ Partial Class info_usuario
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents ptbperfil As System.Windows.Forms.PictureBox
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents Button2 As System.Windows.Forms.Button
 End Class

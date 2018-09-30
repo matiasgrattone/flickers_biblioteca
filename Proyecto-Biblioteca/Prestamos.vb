@@ -479,7 +479,7 @@
                     contador = Val(contador) + 1
 
                     'REVISAR ESTO'
-                    Consulta = "insert into prestamolibro(cedula,cod_libro,fecha_salida,cod_prestado) values('" + Cedula.Text + "','" + ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "','" + MENU3.Cedula.Text + "')"
+                    Consulta = "insert into prestamolibro(cedula,cod_libro,fecha_salida,cod_prestado) values('" + Cedula.Text + "','" + ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "','" + MENU3.lbl_cedula.Text + "')"
                     consultar()
 
                     Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) & "';"
@@ -513,7 +513,7 @@
                             contador = Val(contador) + 1
 
 
-                            Consulta = "insert into prestamolibro(cedula,cod_libro,fecha_salida,cod_prestado) values('" + Cedula.Text + "','" + ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "','" + MENU3.Cedula.Text + "')"
+                            Consulta = "insert into prestamolibro(cedula,cod_libro,fecha_salida,cod_prestado) values('" + Cedula.Text + "','" + ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "','" + MENU3.lbl_cedula.Text + "')"
                             consultar()
 
 
@@ -749,7 +749,7 @@
     End Sub
 
     Private Sub BotonExtrearReservados_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BotonExtrearReservados.Click
-        
+
         Dim list, contador, libros As Integer
         contador = 0
 
@@ -772,7 +772,7 @@
                     contador = Val(contador) + 1
 
                     'REVISAR ESTO'
-                    Consulta = "update prestamolibro set fecha_salida = '" + Date.Now.ToString("yyyy-MM-dd") + "', cod_prestado = '" + MENU3.Cedula.Text + "' where cedula = '" + Cedula.Text + "' and cod_libro = " + ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) + "'"
+                    Consulta = "update prestamolibro set fecha_salida = '" + Date.Now.ToString("yyyy-MM-dd") + "', cod_prestado = '" + MENU3.lbl_cedula.Text + "' where cedula = '" + Cedula.Text + "' and cod_libro = " + ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) + "'"
                     consultar()
 
                     Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) & "';"
@@ -806,7 +806,7 @@
                             contador = Val(contador) + 1
 
 
-                            Consulta = "update prestamolibro set fecha_salida = '" + Date.Now.ToString("yyyy-MM-dd") + "', cod_prestado = '" + MENU3.Cedula.Text + "' where cedula = '" + Cedula.Text + "' and cod_libro = " + ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) + "'"
+                            Consulta = "update prestamolibro set fecha_salida = '" + Date.Now.ToString("yyyy-MM-dd") + "', cod_prestado = '" + MENU3.lbl_cedula.Text + "' where cedula = '" + Cedula.Text + "' and cod_libro = " + ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) + "'"
                             consultar()
 
 
@@ -993,7 +993,7 @@
 
                     Consulta = "update libro set estado = 0 where cod_libro = '" & cod_libros & "'"
                     consultar()
-                    Consulta = "UPDATE prestamolibro SET cod_devuelto = '" & MENU3.Cedula.Text & "' WHERE cedula = '" & Cedula.Text & "' and cod_libro ='" & cod_libros & "'"
+                    Consulta = "UPDATE prestamolibro SET cod_devuelto = '" & MENU3.lbl_cedula.Text & "' WHERE cedula = '" & Cedula.Text & "' and cod_libro ='" & cod_libros & "'"
                     consultar()
                     Consulta = "UPDATE prestamolibro SET fecha_entrada = '" & Date.Now.ToString("yyyy-MM-dd") & "' WHERE cedula = '" & Cedula.Text & "' and cod_libro ='" & cod_libros & "'"
                     consultar()

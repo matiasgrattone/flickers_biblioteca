@@ -1,5 +1,6 @@
 Imports System.Threading
 Imports System.Text.RegularExpressions
+
 Public Class MENU3
     Dim a As Integer = 0
     Public xco, yco As Integer
@@ -20,6 +21,9 @@ Public Class MENU3
     Dim ContadorMes As Integer = 0
     Public BD_ONLINE As Integer = 0 'verificar si la base de datos esta online
     Dim primeriniciotimer As Integer = 1
+
+    Public cedulaIngre As String ' Variable para actualizar foto de perfil, se carga en el load
+    Public cedulaAdmin As String ' Variable para cargar foto de perfil en admin, se carga al abrir config admin
 
     Private Sub inicio()
         If ERROR1 = 0 Then
@@ -43,8 +47,6 @@ Public Class MENU3
 
     Private Sub MENU3_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
-
-
         xf = Me.Location.X
         yf = Me.Location.Y
 
@@ -57,6 +59,17 @@ Public Class MENU3
         DatagridModulo = DataGridViewLibros
         Datagrid_Align()
 
+        cedulaIngre = lbl_cedula.Text ' Variable para actualizar foto de perfil
+        Try
+            Consulta = "select rutaperfil from usuarios where cedula ='" + cedulaIngre + "'"
+            consultar()
+
+            For Each row As DataRow In Tabla.Rows
+                Pbusuario.ImageLocation = Convert.ToString(row("rutaperfil"))
+            Next
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
 
         If ERROR1 = 0 Then
             Chart()
@@ -74,8 +87,6 @@ Public Class MENU3
             End If
             ContadorMes = ContadorMes + 1
         Next
-
-
 
         ComboBox1.Items.Add("Mes")
         ComboBox1.Items.Add("Enero")
@@ -137,7 +148,7 @@ Public Class MENU3
 
     End Sub
 
-    Private Sub ComboBox1_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBox1.SelectedIndexChanged
+    Private Sub ComboBox1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBox1.SelectedIndexChanged
         Chart()
     End Sub
 
@@ -1003,7 +1014,7 @@ Public Class MENU3
 
     End Sub
 
-    Private Sub PictureBox1_Click_2(sender As System.Object, e As System.EventArgs) Handles Pbrevistas.Click
+    Private Sub PictureBox1_Click_2(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbrevistas.Click
         seleccionado = "Revistas"
         Timer_Prestamos_LIVE.Enabled = False
         Select Case ANIMACION
@@ -1049,7 +1060,7 @@ Public Class MENU3
 
     End Sub
 
-    Private Sub PictureBox1_MouseEnter1(sender As Object, e As System.EventArgs) Handles Pbrevistas.MouseEnter
+    Private Sub PictureBox1_MouseEnter1(ByVal sender As Object, ByVal e As System.EventArgs) Handles Pbrevistas.MouseEnter
         Select Case ANIMACION
             Case 1
 
@@ -1076,7 +1087,7 @@ Public Class MENU3
 
     End Sub
 
-    Private Sub PictureBox1_MouseLeave_1(sender As System.Object, e As System.EventArgs) Handles Pbrevistas.MouseLeave
+    Private Sub PictureBox1_MouseLeave_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbrevistas.MouseLeave
         Select Case ANIMACION
 
             Case 1
@@ -1099,7 +1110,7 @@ Public Class MENU3
 
     End Sub
 
-    Private Sub PanelRevistas_Click(sender As System.Object, e As System.EventArgs)
+    Private Sub PanelRevistas_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         seleccionado = "Revistas"
         Select Case ANIMACION
 
@@ -1142,7 +1153,7 @@ Public Class MENU3
 
     End Sub
 
-    Private Sub PanelRevistas_MouseEnter(sender As System.Object, e As System.EventArgs) Handles Panel_Revistas.MouseEnter
+    Private Sub PanelRevistas_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Panel_Revistas.MouseEnter
         Select Case ANIMACION
             Case 1
 
@@ -1170,7 +1181,7 @@ Public Class MENU3
 
     End Sub
 
-    Private Sub PanelRevistas_MouseLeave(sender As System.Object, e As System.EventArgs) Handles Panel_Revistas.MouseLeave
+    Private Sub PanelRevistas_MouseLeave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Panel_Revistas.MouseLeave
         Select Case ANIMACION
 
 
@@ -1195,7 +1206,7 @@ Public Class MENU3
 
     End Sub
 
-    Private Sub Panel_Revistas_MouseClick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel_Revistas.MouseClick
+    Private Sub Panel_Revistas_MouseClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Panel_Revistas.MouseClick
         seleccionado = "Revistas"
 
         Select Case ANIMACION
@@ -1252,7 +1263,7 @@ Public Class MENU3
 
 
 
-    Private Sub PbInicio_Click(sender As System.Object, e As System.EventArgs) Handles PbInicio.Click
+    Private Sub PbInicio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PbInicio.Click
         seleccionado = "Inicio"
         Chart()
         Timer_Prestamos_LIVE.Enabled = True
@@ -1286,7 +1297,7 @@ Public Class MENU3
 
     End Sub
 
-    Private Sub PbInicio_MouseEnter(sender As System.Object, e As System.EventArgs) Handles PbInicio.MouseEnter
+    Private Sub PbInicio_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PbInicio.MouseEnter
         Select Case ANIMACION
             Case 1
 
@@ -1315,7 +1326,7 @@ Public Class MENU3
 
     End Sub
 
-    Private Sub PbInicio_MouseLeave(sender As System.Object, e As System.EventArgs) Handles PbInicio.MouseLeave
+    Private Sub PbInicio_MouseLeave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PbInicio.MouseLeave
 
         Select Case ANIMACION
             Case 1
@@ -1340,7 +1351,7 @@ Public Class MENU3
 
     End Sub
 
-    Private Sub Panel_Inicio_MouseEnter(sender As System.Object, e As System.EventArgs) Handles Panel_Inicio.MouseEnter
+    Private Sub Panel_Inicio_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Panel_Inicio.MouseEnter
         Select Case ANIMACION
             Case 1
 
@@ -1372,7 +1383,7 @@ Public Class MENU3
 
     '/////////////////////// CONFIGURACION ADMINISTRADOR ///////////////////////////////////////////////////////
 
-    Private Sub Pbconfig_Click(sender As System.Object, e As System.EventArgs) Handles Pbconfig.Click
+    Private Sub Pbconfig_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbconfig.Click
 
         Dim open As Integer
         For Each f As Form In Application.OpenForms
@@ -1390,63 +1401,62 @@ Public Class MENU3
             Try
                 Dim contraseñaAdmin As String
 
-                contraseñaAdmin = InputBox("Por favor ingrese contraseña de un funcionario", Title:="Biblioteca")
-                Consulta = "select * from usuarios where tipo = 0"
+                'contraseñaAdmin = InputBox("Por favor ingrese la cedula de un administrador", Title:="Biblioteca")
+                Consulta = "select * from usuarios where tipo = 0 and cedula='" + InputBox("Por favor ingrese la cedula de un administrador", Title:="Biblioteca") + "'"
                 consultar()
+                If Tabla.Rows Is DBNull.Value Then
+                    MsgBox("cedula incorrecta")
+                Else
+                    For Each row As DataRow In Tabla.Rows
 
-                For Each row As DataRow In Tabla.Rows
-
-
-                    If row("cedula") = contraseñaAdmin Then
-                        ConfigAdmin.PictureboxBordesRedondos1.Image = Image.FromFile(row("rutaperfil").ToString)
-                        'Pbnube.Image = Image.FromFile("imagenes\cloud-error.png")
+                        'If row("cedula") = contraseñaAdmin Then
+                        ConfigAdmin.ptbPerfilAdmin.ImageLocation = row("rutaperfil").ToString
+                        ConfigAdmin.cedulaFotoPerfil = row("cedula").ToString
+                        MsgBox(ConfigAdmin.cedulaFotoPerfil)
+                        Pbnube.Image = Image.FromFile("imagenes\cloud-error.png")
                         ConfigAdmin.Lbl_NombreADMIN_TXT.Text = row("nombre") & " " & row("apellido")
                         contraseñaAdmin = "1"
-                    Else
-                    End If
+                        'Else
+                        'End If
 
-                Next
-
-
-                If contraseñaAdmin = "1" Then
+                    Next
                     ConfigAdmin.Show()
-                Else
-                    MsgBox("contraseña no valida", Title:="Biblioteca")
                 End If
             Catch ex As Exception
+                MsgBox(ex.Message)
             End Try
         Else
         End If
 
     End Sub 'Evento clik
 
-    Private Sub Pbconfig_MouseEnter(sender As System.Object, e As System.EventArgs) Handles Pbconfig.MouseEnter
+    Private Sub Pbconfig_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbconfig.MouseEnter
         Me.Cursor = Cursors.Hand
     End Sub 'Evento Mouse enter
 
-    Private Sub Pbconfig_MouseLeave(sender As System.Object, e As System.EventArgs) Handles Pbconfig.MouseLeave
+    Private Sub Pbconfig_MouseLeave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbconfig.MouseLeave
         Me.Cursor = Cursors.Default
     End Sub 'Evento Mouse leave
 
     '/////////////////////////////////////// INFORMACION DEL USUARIO LOGEADO ////////////////////////////////////
 
-    Private Sub PictureBox4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbusuario.Click 'Evento clik
+    Private Sub PictureBox4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)  'Evento clik
         info_usuario.Show()
         info_usuario.Text = Nombre.Text
     End Sub
 
-    Private Sub PictureBox4_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbusuario.MouseEnter 'Evento Mouse enter
+    Private Sub PictureBox4_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs)  'Evento Mouse enter
         Me.Cursor = Cursors.Hand
     End Sub
 
-    Private Sub PictureBox4_MouseLeave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbusuario.MouseLeave 'Evento Mouse leave
+    Private Sub PictureBox4_MouseLeave(ByVal sender As System.Object, ByVal e As System.EventArgs)  'Evento Mouse leave
         Me.Cursor = Cursors.Default
     End Sub
 
     '///////////////////////////////////////////////// TIMERS /////////////////////////////////////////////////////////////////////////////////
 
 
-    Public Sub TimerInicio_Tick(sender As System.Object, e As System.EventArgs) Handles Timer_InicioLabel.Tick 'Timer Inicio
+    Public Sub TimerInicio_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer_InicioLabel.Tick 'Timer Inicio
 
         Select Case mouse6
             Case 1
@@ -1462,7 +1472,7 @@ Public Class MENU3
                 End If
         End Select
     End Sub
-    Public Sub Timer_RevistasLabel_Tick(sender As System.Object, e As System.EventArgs) Handles Timer_RevistasLabel.Tick 'Timer Revistas
+    Public Sub Timer_RevistasLabel_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer_RevistasLabel.Tick 'Timer Revistas
 
         Select Case mouse5
             Case 1
@@ -1732,7 +1742,7 @@ Public Class MENU3
 
     End Sub
 
-    Private Sub Timer_Prestamos_LIVE_Tick(sender As System.Object, e As System.EventArgs) Handles Timer_Prestamos_LIVE.Tick
+    Private Sub Timer_Prestamos_LIVE_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer_Prestamos_LIVE.Tick
 
         If ERROR1 = 2 Then ' SI HAY UN ERROR EN LA BASE NO VA A HACER NADA HASTA QUE SE RETOME LA CONEXIÒN
             Timer_Prestamos_LIVE.Enabled = False
@@ -1758,7 +1768,7 @@ Public Class MENU3
 
     End Sub
     Dim x1 As Integer = 1
-    Private Sub PictureBox1_Click_1(sender As System.Object, e As System.EventArgs) Handles PictureBox1.Click
+    Private Sub PictureBox1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox1.Click
 
         If x1 = 0 Then
             PanelPrestamosLIVE.Left = 1010
@@ -1812,7 +1822,7 @@ Public Class MENU3
         Panel_prestamosdia.Visible = False
     End Sub
 
-    Private Sub Pbnube_MouseHover(sender As System.Object, e As System.EventArgs) Handles Pbnube.MouseHover
+    Private Sub Pbnube_MouseHover(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbnube.MouseHover
 
         Select Case BD_ONLINE
             Case 1
@@ -1847,7 +1857,7 @@ Public Class MENU3
 
     End Sub
     Dim koko As Integer = 0
-    Private Sub Timer_BD_Tick(sender As System.Object, e As System.EventArgs) Handles Timer_BD.Tick
+    Private Sub Timer_BD_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer_BD.Tick
 
         If primeriniciotimer = 0 Then
             Timer_BD.Interval = 6000
@@ -1889,7 +1899,7 @@ Public Class MENU3
     End Sub
 
     Dim notasopen As Integer
-    Private Sub PictureBox2_Click_1(sender As System.Object, e As System.EventArgs) Handles PictureBox2.Click
+    Private Sub PictureBox2_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox2.Click
 
         For Each notas As Form In Application.OpenForms
             If notas.Name = "Notas" Then
@@ -1905,21 +1915,21 @@ Public Class MENU3
 
     End Sub
 
-    Private Sub PictureBox2_MouseEnter_1(sender As System.Object, e As System.EventArgs) Handles PictureBox2.MouseEnter
+    Private Sub PictureBox2_MouseEnter_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox2.MouseEnter
         Me.Cursor = Cursors.Hand
     End Sub
 
-    Private Sub PictureBox2_MouseLeave_1(sender As System.Object, e As System.EventArgs) Handles PictureBox2.MouseLeave
+    Private Sub PictureBox2_MouseLeave_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox2.MouseLeave
         Me.Cursor = Cursors.Default
     End Sub
-    Private Sub Panel_Inicio_MouseLeave(sender As System.Object, e As System.EventArgs) Handles Panel_Inicio.MouseLeave
+    Private Sub Panel_Inicio_MouseLeave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Panel_Inicio.MouseLeave
         If seleccionado = "Inicio" Then
         Else
             Panel_Inicio.BackColor = Drawing.Color.Silver
         End If
     End Sub
     Dim contadorAnimacionBD As Integer = 1
-    Private Sub Timer3_Tick(sender As System.Object, e As System.EventArgs) Handles Timer_RuedaDeCarga.Tick
+    Private Sub Timer3_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer_RuedaDeCarga.Tick
         If contadorAnimacionBD < 5 Then
             Rueda_de_carga1.Start()
             Rueda_de_carga1.Visible = True
@@ -1932,24 +1942,28 @@ Public Class MENU3
         contadorAnimacionBD = contadorAnimacionBD + 1
     End Sub
 
-    Private Sub RadioButton1_CheckedChanged(sender As System.Object, e As System.EventArgs)
+    Private Sub RadioButton1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Chart()
     End Sub
 
-    Private Sub RadioButton2_CheckedChanged(sender As System.Object, e As System.EventArgs)
+    Private Sub RadioButton2_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Chart()
     End Sub
 
-    Private Sub RadioButton3_CheckedChanged(sender As System.Object, e As System.EventArgs)
+    Private Sub RadioButton3_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Chart()
     End Sub
 
-    Private Sub TrackBar1_Scroll(sender As System.Object, e As System.EventArgs)
+    Private Sub TrackBar1_Scroll(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Chart()
 
     End Sub
 
-    Private Sub RadioButton4_CheckedChanged(sender As System.Object, e As System.EventArgs)
+    Private Sub RadioButton4_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Chart()
+    End Sub
+
+    Private Sub Pbusuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbusuario.Click
+        info_usuario.Show()
     End Sub
 End Class
