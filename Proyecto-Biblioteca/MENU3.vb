@@ -1909,7 +1909,7 @@ Public Class MENU3
         Next
 
         If notasopen = 0 Then
-            Notas.Show()
+            NotasUsuario.Show()
         End If
 
     End Sub

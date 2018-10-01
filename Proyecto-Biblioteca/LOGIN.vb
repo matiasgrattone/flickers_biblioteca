@@ -38,6 +38,8 @@
                         MENU3.Show()
                     Else
                         MsgBox("Cedula/Contraseaña Incorrecto")
+                        usuario.Clear()
+                        contrasenia.Clear()
                     End If
 
 
@@ -45,6 +47,8 @@
 
             Catch ex As Exception
                 MsgBox("Cedula/Contraseaña Incorrecto")
+                usuario.Clear()
+                contrasenia.Clear()
             End Try
         End If
     End Sub
@@ -83,6 +87,8 @@
                             MENU3.Show()
                         Else
                             MsgBox("Cedula/Contraseaña Incorrecto")
+                            usuario.Clear()
+                            contrasenia.Clear()
                         End If
 
 
@@ -90,6 +96,8 @@
 
                 Catch ex As Exception
                     MsgBox("Cedula/Contraseaña Incorrecto")
+                    usuario.Clear()
+                    contrasenia.Clear()
                 End Try
             End If
         End If
@@ -137,11 +145,15 @@
                             MENU3.Show()
                         Else
                             MsgBox("Cedula/Contraseaña Incorrecto")
+                            usuario.Clear()
+                            contrasenia.Clear()
                         End If
                     Next
 
                 Catch ex As Exception
                     MsgBox("Cedula/Contraseaña Incorrecto")
+                    usuario.Clear()
+                    contrasenia.Clear()
                     ErrorProvider1.SetError(usuario, "Cedula/Contraseaña Incorrecto")
                     ErrorProvider1.SetError(contrasenia, "Cedula/Contraseaña Incorrecto")
                 End Try

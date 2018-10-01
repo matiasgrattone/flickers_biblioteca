@@ -443,6 +443,7 @@ Public Class ConfigAdmin
                 Consulta = "update usuarios set rutaperfil = '" & nombreArchivo & "' where cedula='" + cedulaFotoPerfil + "'"
                 consultar()
                 MsgBox("Cambio de perfil exitoso")
+                MENU3.Pbusuario.ImageLocation = nombreArchivo
             Catch ex As Exception
                 MsgBox(ex.Message)
             End Try
@@ -648,6 +649,10 @@ Public Class ConfigAdmin
             btn_guardar_editar.Visible = True
             btn_editar_perfil.Visible = True
         Next
+
+    End Sub
+
+    Private Sub ptbPerfilAdmin_Click(sender As System.Object, e As System.EventArgs) Handles ptbPerfilAdmin.Click
 
     End Sub
 End Class
