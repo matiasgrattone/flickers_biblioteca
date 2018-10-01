@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Notas
+Partial Class NotasUsuario
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -68,6 +68,7 @@ Partial Class Notas
         Me.PanelNotas = New System.Windows.Forms.Panel()
         Me.DataGridViewParaVerNotasDisponibles = New System.Windows.Forms.DataGridView()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.ButtonX = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -127,25 +128,25 @@ Partial Class Notas
         'NuevoToolStripMenuItem
         '
         Me.NuevoToolStripMenuItem.Name = "NuevoToolStripMenuItem"
-        Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
         Me.NuevoToolStripMenuItem.Text = "Nuevo"
         '
         'AbrirToolStripMenuItem
         '
         Me.AbrirToolStripMenuItem.Name = "AbrirToolStripMenuItem"
-        Me.AbrirToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AbrirToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
         Me.AbrirToolStripMenuItem.Text = "Abrir"
         '
         'GuardarComoToolStripMenuItem
         '
         Me.GuardarComoToolStripMenuItem.Name = "GuardarComoToolStripMenuItem"
-        Me.GuardarComoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.GuardarComoToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
         Me.GuardarComoToolStripMenuItem.Text = "Guardar como"
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(149, 6)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(147, 6)
         '
         'EditarToolStripMenuItem
         '
@@ -420,6 +421,7 @@ Partial Class Notas
         '
         'PanelNotas
         '
+        Me.PanelNotas.Controls.Add(Me.ButtonX)
         Me.PanelNotas.Controls.Add(Me.DataGridViewParaVerNotasDisponibles)
         Me.PanelNotas.Controls.Add(Me.Label1)
         Me.PanelNotas.Location = New System.Drawing.Point(839, 0)
@@ -445,6 +447,15 @@ Partial Class Notas
         Me.Label1.Size = New System.Drawing.Size(147, 15)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "NOTAS DISPONIBLES"
+        '
+        'ButtonX
+        '
+        Me.ButtonX.Location = New System.Drawing.Point(165, 3)
+        Me.ButtonX.Name = "ButtonX"
+        Me.ButtonX.Size = New System.Drawing.Size(25, 23)
+        Me.ButtonX.TabIndex = 2
+        Me.ButtonX.Text = "X"
+        Me.ButtonX.UseVisualStyleBackColor = True
         '
         'Notas
         '
@@ -524,4 +535,5 @@ Partial Class Notas
     Friend WithEvents PanelNotas As System.Windows.Forms.Panel
     Friend WithEvents DataGridViewParaVerNotasDisponibles As System.Windows.Forms.DataGridView
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents ButtonX As System.Windows.Forms.Button
 End Class
