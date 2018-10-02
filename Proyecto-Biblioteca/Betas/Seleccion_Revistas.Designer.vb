@@ -26,11 +26,11 @@ Partial Class Seleccion_Revistas
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.lbl1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.pcbox1 = New System.Windows.Forms.PictureBox()
         Me.pcbox3 = New System.Windows.Forms.PictureBox()
         Me.pcbox2 = New System.Windows.Forms.PictureBox()
         Me.lbl2 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.pcbox1 = New System.Windows.Forms.PictureBox()
         Me.pcbox4 = New System.Windows.Forms.PictureBox()
         Me.Timer10 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer20 = New System.Windows.Forms.Timer(Me.components)
@@ -38,10 +38,10 @@ Partial Class Seleccion_Revistas
         Me.Timer40 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
+        CType(Me.pcbox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pcbox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pcbox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
-        CType(Me.pcbox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pcbox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -76,6 +76,16 @@ Partial Class Seleccion_Revistas
         Me.Panel1.Size = New System.Drawing.Size(482, 664)
         Me.Panel1.TabIndex = 0
         '
+        'pcbox1
+        '
+        Me.pcbox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.books
+        Me.pcbox1.Location = New System.Drawing.Point(410, 181)
+        Me.pcbox1.Name = "pcbox1"
+        Me.pcbox1.Size = New System.Drawing.Size(133, 125)
+        Me.pcbox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pcbox1.TabIndex = 10
+        Me.pcbox1.TabStop = False
+        '
         'pcbox3
         '
         Me.pcbox3.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.right_arrow1
@@ -108,7 +118,7 @@ Partial Class Seleccion_Revistas
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.SlateBlue
+        Me.Panel2.BackColor = System.Drawing.Color.DarkOrchid
         Me.Panel2.Controls.Add(Me.pcbox2)
         Me.Panel2.Controls.Add(Me.pcbox4)
         Me.Panel2.Controls.Add(Me.lbl2)
@@ -116,16 +126,6 @@ Partial Class Seleccion_Revistas
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(954, 651)
         Me.Panel2.TabIndex = 1
-        '
-        'pcbox1
-        '
-        Me.pcbox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.books
-        Me.pcbox1.Location = New System.Drawing.Point(410, 181)
-        Me.pcbox1.Name = "pcbox1"
-        Me.pcbox1.Size = New System.Drawing.Size(133, 125)
-        Me.pcbox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pcbox1.TabIndex = 10
-        Me.pcbox1.TabStop = False
         '
         'pcbox4
         '
@@ -166,11 +166,11 @@ Partial Class Seleccion_Revistas
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.pcbox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pcbox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pcbox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
-        CType(Me.pcbox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pcbox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 

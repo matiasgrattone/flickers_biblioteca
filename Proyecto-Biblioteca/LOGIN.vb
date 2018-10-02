@@ -6,6 +6,16 @@
         Dim pass As String = Nothing
         Dim pass1 As String = Nothing
 
+        'Dim fecha_actual As Date = DateTime.Now.ToString("dd/MM/yyyy")
+        Dim fecha_entrada As Date
+        Dim dia, mes, anio, diferenciaDia As Integer
+
+        dia = Val(DateTime.Now.ToString("dd"))
+        mes = Val(DateTime.Now.ToString("MM"))
+        anio = Val(DateTime.Now.ToString("yyyy"))
+
+        'MsgBox(DateTime.Now.ToString("dd"))
+        MsgBox(dia & " - " & mes & " - " & anio)
 
         If LTrim$(usuario.Text) = "" Then ' Verifica si esta vacio nombre
             ErrorProvider1.SetError(usuario, "Nombre no puede estar vacío")

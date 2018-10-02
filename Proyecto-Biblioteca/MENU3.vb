@@ -31,7 +31,7 @@ Public Class MENU3
             Try
                 Chart()
                 Dim fecha As String = DateTime.Now.ToString("yyyy/MM/dd")
-                Consulta = "select titulo from prestamolibro p inner join libro l on p.cod_libro=l.cod_libro where fecha_salida='" + fecha + "'"
+                Consulta = "select titulo from prestamolibro p inner join libro l on p.cod_libro=l.cod_libro where fecha_entrada='" + fecha + "'"
                 consultar()
                 For Each row As DataRow In Tabla.Rows
                     If Not IsDBNull(row("titulo")) Then
@@ -1388,7 +1388,7 @@ Public Class MENU3
         Dim open As Integer
         For Each f As Form In Application.OpenForms
 
-            If f.Name = "ConfiguraciònAdmin" Then
+            If f.Name = "ConfiguraciónAdmin" Then
                 open = 1
             Else
                 open = 0
@@ -1399,27 +1399,26 @@ Public Class MENU3
         If open = 0 Then
 
             Try
-                Dim contraseñaAdmin As String
+                Dim contraseniaAdmin As String
 
-                'contraseñaAdmin = InputBox("Por favor ingrese la cedula de un administrador", Title:="Biblioteca")
-                Consulta = "select * from usuarios where tipo = 0 and cedula='" + InputBox("Por favor ingrese la cedula de un administrador", Title:="Biblioteca") + "'"
+                contraseniaAdmin = InputBox("Por favor ingrese la cedula de un administrador", Title:="Biblioteca")
+                Consulta = "select * from usuarios where tipo = 0 and cedula='" + contraseniaAdmin + "'"
                 consultar()
-                If Tabla.Rows Is DBNull.Value Then
-                    MsgBox("cedula incorrecta")
+                If Not Tabla.Rows Is DBNull.Value Then
+                    MsgBox("Cedula incorrecta")
                 Else
                     For Each row As DataRow In Tabla.Rows
+                        If row("cedula") = contraseniaAdmin Then
+                            ConfigAdmin.ptbPerfilAdmin.ImageLocation = row("rutaperfil").ToString
+                            ConfigAdmin.cedulaFotoPerfil = row("cedula").ToString
+                            Pbnube.Image = Image.FromFile("imagenes\cloud-error.png")
+                            ConfigAdmin.Lbl_NombreADMIN_TXT.Text = row("nombre") & " " & row("apellido")
+                            contraseniaAdmin = "1"
+                            ConfigAdmin.Show()
 
-                        'If row("cedula") = contraseñaAdmin Then
-                        ConfigAdmin.ptbPerfilAdmin.ImageLocation = row("rutaperfil").ToString
-                        ConfigAdmin.cedulaFotoPerfil = row("cedula").ToString
-                        Pbnube.Image = Image.FromFile("imagenes\cloud-error.png")
-                        ConfigAdmin.Lbl_NombreADMIN_TXT.Text = row("nombre") & " " & row("apellido")
-                        contraseñaAdmin = "1"
-                        'Else
-                        'End If
-
+                        End If
+                        MsgBox("Cedula incorrecta")
                     Next
-                    ConfigAdmin.Show()
                 End If
             Catch ex As Exception
                 MsgBox(ex.Message)
@@ -1799,11 +1798,12 @@ Public Class MENU3
     End Sub
 
     Private Sub Pbadvertenciaprestamos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbadvertenciaprestamos.Click
+
         If Panel_prestamosdia.Visible = False Then
             LbPrestamos.Items.Clear()
             Panel_prestamosdia.Visible = True
             Dim fecha As String = DateTime.Now.ToString("yyyy/MM/dd")
-            Consulta = "select titulo from prestamolibro p inner join libro l on p.cod_libro=l.cod_libro where fecha_salida='" + fecha + "'"
+            Consulta = "select titulo from prestamolibro p inner join libro l on p.cod_libro=l.cod_libro where fecha_entrada='" + fecha + "'"
             consultar()
             For Each row As DataRow In Tabla.Rows
                 If Not IsDBNull(row("titulo")) Then
