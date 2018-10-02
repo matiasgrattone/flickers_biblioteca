@@ -1,48 +1,61 @@
-Public Class Notas
+Public Class NotasUsuario
 
-    Dim RecordatorioValor As Integer
+    Dim RecordatorioValor As String
     Dim modo As String
-    Dim RutaDeGuardadoDeNotas As String = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\DATOS\Notas" 'Ruta en la que se guardarán las imágenes cargadas: "Documentos\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\DATOS\Notas"
+    Dim cedula As String
     Private Sub Notas_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
+        DatagridModulo = DataGridViewParaVerNotasDisponibles
+        Datagrid_Align()
+
+        cedula = MENU3.lbl_cedula.Text
         Consulta = "Select NombreNota, texto from notas where cedula= '" + MENU3.lbl_cedula.Text + "'"
         consultar()
 
         DataGridViewParaVerNotasDisponibles.DataSource = Tabla
         DataGridViewParaVerNotasDisponibles.Columns(1).Visible = False
 
+        Dim RutaDeGuardadoDeNotas As String = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\DATOS\Notas" 'Ruta en la que se guardarán las imágenes cargadas: "Documentos\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\DATOS\Notas"
         My.Computer.FileSystem.CreateDirectory(RutaDeGuardadoDeNotas) 'Crea la carpeta "Notas" en la ruta especificada si esta no existe
 
 
-        Dim Ubicacion1 As String = vbNull
-        Dim Ubicacion2 As String = vbNull
-        Dim Ubicacion3 As String = vbNull
+        Dim Ubicacion1 As String = ""
+        Dim Ubicacion2 As String = ""
+        Dim Ubicacion3 As String = ""
 
         Consulta = "Select * from notas where cedula ='" & MENU3.lbl_cedula.Text & "' and recordar = 1"
         consultar()
-        For Each row As DataRow In Tabla.Rows
-            Ubicacion1 = row("texto")
-            Fecha1.Text = row("fecha")
-        Next
+        If (Tabla.Rows.Count <> 0) Then
+            For Each row As DataRow In Tabla.Rows
+                Ubicacion1 = row("texto")
+                Ubicacion1 = RutaDeDocumentos + Ubicacion1.ToString
+                Fecha1.Text = row("fecha")
+            Next
+        End If
 
         Consulta = "Select * from notas where cedula ='" & MENU3.lbl_cedula.Text & "' and recordar = 2"
         consultar()
-        For Each row As DataRow In Tabla.Rows
-            Ubicacion2 = row("texto")
-            Fecha2.Text = row("fecha")
-        Next
+        If (Tabla.Rows.Count <> 0) Then
+            For Each row As DataRow In Tabla.Rows
+                Ubicacion2 = row("texto")
+                Ubicacion2 = RutaDeDocumentos + Ubicacion2.ToString
+                Fecha2.Text = row("fecha")
+            Next
+        End If
+
 
         Consulta = "Select * from notas where cedula ='" & MENU3.lbl_cedula.Text & "' and recordar = 3"
         consultar()
-        For Each row As DataRow In Tabla.Rows
-            Ubicacion3 = row("texto")
-            Fecha3.Text = row("fecha")
-
-        Next
-
+        If (Tabla.Rows.Count <> 0) Then
+            For Each row As DataRow In Tabla.Rows
+                Ubicacion3 = row("texto")
+                Ubicacion3 = RutaDeDocumentos + Ubicacion3.ToString
+                Fecha3.Text = row("fecha")
+            Next
+        End If
 
         '///////Ah  los recordatorios se le asigna una ruta del archivo.txt gurdada con anterioridad en la base de datos///////
-        Consulta = "select * from notas where cedula= '" & MENU3.lbl_cedula.Text & "'"
+        Consulta = "select recordar from notas where cedula = '" & MENU3.lbl_cedula.Text & "' and recordar is NOT NULL"
         consultar()
         If (Tabla.Rows.Count = 0) Then
 
@@ -112,26 +125,35 @@ Public Class Notas
     Private Sub AbrirToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AbrirToolStripMenuItem.Click
         PanelNotas.Top = 0
         modo = "Abrir"
-
+        ActualizarNotas()
     End Sub
-
+    Dim RutaDeDocumentos As String = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
     Private Sub GuardarComoToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GuardarComoToolStripMenuItem.Click
-
         Dim NombreDelArchivo As String
         Dim Intru As Object
         Dim Archivo As Object
+        Dim UbicacionParaLaBaseDeDatos As String = "\\GitHub\\flickers_biblioteca\\Proyecto-Biblioteca\\bin\\Debug\\DATOS\\Notas\\"
 
         NombreDelArchivo = InputBox("Ingrese el nombre de su nota", Title:="Notas")
-        NombreDelArchivo = NombreDelArchivo + ".txt"
-        If NombreDelArchivo = vbCancel Then
-            Intru = CreateObject("Scripting.FileSystemObject")
-            Archivo = Intru.CreateTextFile((Environment.SpecialFolder.MyDocuments) + ":\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\DATOS\Notas\'" + NombreDelArchivo + "'", True)
-            Archivo.WriteLine(EditorDeTexto.Text)
-            Archivo.Close()
-
+        If NombreDelArchivo = "" Then
 
         Else
 
+            NombreDelArchivo = NombreDelArchivo + ".txt"
+            UbicacionParaLaBaseDeDatos = UbicacionParaLaBaseDeDatos + NombreDelArchivo.ToString
+            RutaDeDocumentos = RutaDeDocumentos + "\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\DATOS\Notas\" + NombreDelArchivo.ToString
+            RutaDeDocumentos = RutaDeDocumentos
+
+            Intru = CreateObject("Scripting.FileSystemObject")
+
+
+            Archivo = Intru.CreateTextFile(RutaDeDocumentos, True)
+            Archivo.WriteLine(EditorDeTexto.Text)
+            Archivo.Close()
+
+            Consulta = "INSERT INTO notas (NombreNota, texto, cedula, fecha) VALUES ( '" + NombreDelArchivo + "', '" + UbicacionParaLaBaseDeDatos.ToString + "', '" + MENU3.lbl_cedula.Text + "','" + Date.Now.ToString("yyyy-MM-dd") + "')"
+            consultar()
+            ActualizarNotas()
         End If
 
 
@@ -205,7 +227,7 @@ Public Class Notas
             If A = vbYes Then
                 modo = "recordar"
                 PanelNotas.Top = 0
-                RecordatorioValor = 1
+                RecordatorioValor = "1"
             End If
         End If
 
@@ -220,7 +242,7 @@ Public Class Notas
             If A = vbYes Then
                 modo = "recordar"
                 PanelNotas.Top = 0
-                RecordatorioValor = 2
+                RecordatorioValor = "2"
             End If
         End If
 
@@ -235,7 +257,7 @@ Public Class Notas
             If A = vbYes Then
                 modo = "recordar"
                 PanelNotas.Top = 0
-                RecordatorioValor = 3
+                RecordatorioValor = "3"
             End If
         End If
 
@@ -288,94 +310,200 @@ Public Class Notas
 
     '//////////////////////////FUNCION////////////////////////////////
     Public Sub ActualizarNotas()
-        Dim Ubicacion1 As String
-        Dim Ubicacion2 As String
-        Dim Ubicacion3 As String
+        DatagridModulo = DataGridViewParaVerNotasDisponibles
+        Datagrid_Align()
 
+        Consulta = "Select NombreNota, texto from notas where cedula= '" + MENU3.lbl_cedula.Text + "'"
+        consultar()
+
+        DataGridViewParaVerNotasDisponibles.DataSource = Tabla
+        DataGridViewParaVerNotasDisponibles.Columns(1).Visible = False
+
+        Dim Ubicacion1 As String = ""
+        Dim Ubicacion2 As String = ""
+        Dim Ubicacion3 As String = ""
 
         Consulta = "Select * from notas where cedula ='" & MENU3.lbl_cedula.Text & "' and recordar = 1"
         consultar()
-        For Each row As DataRow In Tabla.Rows
-            Ubicacion1 = row("texto")
-            Fecha1.Text = row("fecha")
-        Next
+        If (Tabla.Rows.Count <> 0) Then
+            For Each row As DataRow In Tabla.Rows
+                Ubicacion1 = row("texto")
+                Ubicacion1 = RutaDeDocumentos + Ubicacion1.ToString
+                Fecha1.Text = row("fecha")
+            Next
+        End If
 
         Consulta = "Select * from notas where cedula ='" & MENU3.lbl_cedula.Text & "' and recordar = 2"
         consultar()
-        For Each row As DataRow In Tabla.Rows
-            Ubicacion2 = row("texto")
-            Fecha2.Text = row("fecha")
-        Next
+        If (Tabla.Rows.Count <> 0) Then
+            For Each row As DataRow In Tabla.Rows
+                Ubicacion2 = row("texto")
+                Ubicacion2 = RutaDeDocumentos + Ubicacion2.ToString
+                Fecha2.Text = row("fecha")
+            Next
+        End If
+
 
         Consulta = "Select * from notas where cedula ='" & MENU3.lbl_cedula.Text & "' and recordar = 3"
         consultar()
-        For Each row As DataRow In Tabla.Rows
-            Ubicacion3 = row("texto")
-            Fecha3.Text = row("fecha")
-        Next
-
+        If (Tabla.Rows.Count <> 0) Then
+            For Each row As DataRow In Tabla.Rows
+                Ubicacion3 = row("texto")
+                Ubicacion3 = RutaDeDocumentos + Ubicacion3.ToString
+                Fecha3.Text = row("fecha")
+            Next
+        End If
 
         '///////Ah  los recordatorios se le asigna una ruta del archivo.txt gurdada con anterioridad en la base de datos///////
-        If Ubicacion1 <> "" Then
-            Dim Recordatorio1 As System.IO.StreamReader = New System.IO.StreamReader(Ubicacion1, System.Text.Encoding.[Default])
-            TextoParaRecordar1.Text = Recordatorio1.ReadToEnd() 'Igualamos la variable "Texto" ah a el contenido del archivo con el comando ReadToEnd del archivo que ya buscamos con anterioridad con la variable "Ubicacion" 
-            Recordatorio1.Close()
+        Consulta = "select recordar from notas where cedula = '" & MENU3.lbl_cedula.Text & "' and recordar is NOT NULL"
+        consultar()
+        If (Tabla.Rows.Count = 0) Then
 
-            '////////Igualamos El textbox1 a el contenido de la variabe "Texto"
+        Else
+
+            If Ubicacion1 <> "" Then
+                Try
+                    Dim Recordatorio1 As System.IO.StreamReader = New System.IO.StreamReader(Ubicacion1, System.Text.Encoding.[Default])
+                    TextoParaRecordar1.Text = Recordatorio1.ReadToEnd() 'Igualamos la variable "Texto" ah a el contenido del archivo con el comando ReadToEnd del archivo que ya buscamos con anterioridad con la variable "Ubicacion" 
+                    Recordatorio1.Close()
+                Catch ex As Exception
+                    Dim ms As String
+                    ms = MsgBox("La nota que se desea recordar ya no se encuntra, desea dejar de recordarlas? ", MsgBoxStyle.YesNoCancel, Title:="Notas")
+                    If ms = vbYes Then
+                        Consulta = "DELETE FROM notas WHERE cedula = '" & MENU3.lbl_cedula.Text & "' and recordar = 1"
+                        consultar()
+                    End If
+                End Try
+
+
+
+                '////////Igualamos El textbox1 a el contenido de la variabe "Texto"
+            End If
+            If Ubicacion2 <> "" Then
+                Try
+                    Dim Recordatorio2 As System.IO.StreamReader = New System.IO.StreamReader(Ubicacion2, System.Text.Encoding.[Default])
+                    TextoParaRecordar2.Text = Recordatorio2.ReadToEnd() 'Igualamos la variable "Texto" ah a el contenido del archivo con el comando ReadToEnd del archivo que ya buscamos con anterioridad con la variable "Ubicacion" 
+                    Recordatorio2.Close()
+                Catch ex As Exception
+                    Dim ms As String
+                    ms = MsgBox("La nota que se desea recordar ya no se encuntra, desea dejar de recordarlas? ", MsgBoxStyle.YesNoCancel, Title:="Notas")
+                    If ms = vbYes Then
+                        Consulta = "DELETE FROM notas WHERE cedula = '" & MENU3.lbl_cedula.Text & "' and recordar = 2"
+                        consultar()
+                    End If
+                End Try
+
+                '////////Igualamos El textbox1 a el contenido de la variabe "Texto"
+            End If
+            If Ubicacion3 <> "" Then
+                Try
+                    Dim Recordatorio3 As System.IO.StreamReader = New System.IO.StreamReader(Ubicacion3, System.Text.Encoding.[Default])
+                    TextoParaRecordar3.Text = Recordatorio3.ReadToEnd() 'Igualamos la variable "Texto" ah a el contenido del archivo con el comando ReadToEnd del archivo que ya buscamos con anterioridad con la variable "Ubicacion" 
+                    Recordatorio3.Close()
+                Catch ex As Exception
+                    Dim ms As String
+                    ms = MsgBox("La nota que se desea recordar ya no se encuntra, desea dejar de recordarlas? ", MsgBoxStyle.YesNoCancel, Title:="Notas")
+                    If ms = vbYes Then
+                        Consulta = "DELETE FROM notas WHERE cedula = '" & MENU3.lbl_cedula.Text & "' and recordar = 3"
+                        consultar()
+                    End If
+                End Try
+
+                '////////Igualamos El textbox1 a el contenido de la variabe "Texto"
+            End If
+            '/////////////////
         End If
-        If Ubicacion2 <> "" Then
-            Dim Recordatorio2 As System.IO.StreamReader = New System.IO.StreamReader(Ubicacion2, System.Text.Encoding.[Default])
-            TextoParaRecordar2.Text = Recordatorio2.ReadToEnd() 'Igualamos la variable "Texto" ah a el contenido del archivo con el comando ReadToEnd del archivo que ya buscamos con anterioridad con la variable "Ubicacion" 
-            Recordatorio2.Close()
-
-            '////////Igualamos El textbox1 a el contenido de la variabe "Texto"
-        End If
-        If Ubicacion3 <> "" Then
-            Dim Recordatorio3 As System.IO.StreamReader = New System.IO.StreamReader(Ubicacion3, System.Text.Encoding.[Default])
-            TextoParaRecordar3.Text = Recordatorio3.ReadToEnd() 'Igualamos la variable "Texto" ah a el contenido del archivo con el comando ReadToEnd del archivo que ya buscamos con anterioridad con la variable "Ubicacion" 
-            Recordatorio3.Close()
-
-            '////////Igualamos El textbox1 a el contenido de la variabe "Texto"
-        End If
-        '/////////////////
-
 
     End Sub
     '//////////////////////////FUNCION////////////////////////////////
 
     Private Sub DataGridViewParaVerNotasDisponibles_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridViewParaVerNotasDisponibles.CellDoubleClick
+        Dim TEXTOUbicacion As String
+        Dim a As String
+
+        NombreDeLaNotaParaRecordar = DataGridViewParaVerNotasDisponibles.Item(0, DataGridViewParaVerNotasDisponibles.CurrentRow.Index).Value
+        TEXTOUbicacion = DataGridViewParaVerNotasDisponibles.Item(1, DataGridViewParaVerNotasDisponibles.CurrentRow.Index).Value
+
+
         If modo = "recordar" Then
-            Dim a As String
-            Dim Ubicacion As String
-            NombreDeLaNotaParaRecordar = DataGridViewParaVerNotasDisponibles.Item(0, DataGridViewParaVerNotasDisponibles.CurrentRow.Index).Value
-            Ubicacion = DataGridViewParaVerNotasDisponibles.Item(1, DataGridViewParaVerNotasDisponibles.CurrentRow.Index).Value
+
+
+
             a = MsgBox("Desea recordar la nota " + NombreDeLaNotaParaRecordar + "?", MsgBoxStyle.YesNoCancel, Title:="Recordatorios")
             If a = vbYes Then
 
-                If (Ubicacion.Contains("\")) Then 'Detectamos si la variable tiene una barrita  
-                    Ubicacion = Replace(Ubicacion, "\", "\\") 'Remplazamos la barrita por 2  
+                TEXTOUbicacion = DataGridViewParaVerNotasDisponibles.Item(1, DataGridViewParaVerNotasDisponibles.CurrentRow.Index).Value
+                If (TEXTOUbicacion.Contains("\")) Then 'Detectamos si la variable tiene una barrita  
+                    TEXTOUbicacion = Replace(TEXTOUbicacion, "\", "\\") 'Remplazamos la barrita por 2  
                 End If
-
-                Consulta = "UPDATE notas SET recordar = '" + RecordatorioValor + "' WHERE cedula = '" & MENU3.lbl_cedula.Text & "' and texto ='" + Ubicacion + "';"
+                Consulta = "UPDATE notas SET recordar ='" + RecordatorioValor.ToString + "' WHERE cedula = '" + cedula.ToString + "' and texto ='" + TEXTOUbicacion.ToString + "';"
                 consultar()
+                ActualizarNotas()
+
+                PanelNotas.Top = -305
             End If
             ActualizarNotas()
         End If
 
         If modo = "Abrir" Then
-            Try
-                Dim Ubicacion As String
-                Ubicacion = DataGridViewParaVerNotasDisponibles.Item(1, DataGridViewParaVerNotasDisponibles.CurrentRow.Index).Value
 
-                Dim Recordatorio2 As System.IO.StreamReader = New System.IO.StreamReader(Ubicacion, System.Text.Encoding.[Default])
-                EditorDeTexto.Text = Recordatorio2.ReadToEnd() 'Igualamos la variable "Texto" ah a el contenido del archivo con el comando ReadToEnd del archivo que ya buscamos con anterioridad con la variable "Ubicacion" 
-                Recordatorio2.Close()
+            a = MsgBox("Desea abrir el archivo " + NombreDeLaNotaParaRecordar + "?", MsgBoxStyle.YesNoCancel, Title:="Recordatorios")
+            If a = vbYes Then
+                RutaDeDocumentos = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
+                TEXTOUbicacion = RutaDeDocumentos + TEXTOUbicacion
+                Dim Recordar As System.IO.StreamReader = New System.IO.StreamReader(TEXTOUbicacion, System.Text.Encoding.[Default])
+                EditorDeTexto.Text = Recordar.ReadToEnd() 'Igualamos la variable "Texto" ah a el contenido del archivo con el comando ReadToEnd del archivo que ya buscamos con anterioridad con la variable "Ubicacion" 
+                Recordar.Close()
 
-            Catch ex As Exception
 
-            End Try
+                PanelNotas.Top = -305
+
+            End If
         End If
     End Sub
 
+    Private Sub ButtonX_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonX.Click
+        PanelNotas.Top = -306
+        modo = "NULL"
+    End Sub
+  
+    Dim a As String = "2"
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonRecordatorio.Click
+
+
+       
+        If a = "1" Then
+
+            a = "2"
+            PanelEditroDeTexto.Width = 1039
+            PanelEditroDeTexto.Left = 3
+
+            EditorDeTexto.Width = 1031
+            EditorDeTexto.Left = 4
+
+            PanelRecordatorios.Left = 1048
+
+            LabelDelEditor.Left = 704
+
+            ButtonRecordatorio.Text = "< RECORDATORIOS"
+
+        Else
+            a = "1"
+            PanelEditroDeTexto.Width = 622
+            PanelEditroDeTexto.Left = 3
+
+            EditorDeTexto.Width = 613
+            EditorDeTexto.Left = 4
+
+            PanelRecordatorios.Left = 627
+
+            LabelDelEditor.Left = 425
+
+            ButtonRecordatorio.Text = "> RECORDATORIOS"
+        End If
+
+
+
+    End Sub
 
 End Class

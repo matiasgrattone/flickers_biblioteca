@@ -1,6 +1,14 @@
 ﻿Public Class LOGIN
     Dim i As Integer = 0
     Dim mailrecuperar As String = Nothing
+
+    Dim a As Integer = 0
+    Public xco, yco As Integer
+    Dim resultx, resulty As Integer
+    Dim xc, yc As Integer
+    Dim xf, yf As Integer
+    Dim holax, holay As Integer
+
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
         Dim user As String = Nothing
         Dim pass As String = Nothing
@@ -48,6 +56,8 @@
                         MENU3.Show()
                     Else
                         MsgBox("Cedula/Contraseaña Incorrecto")
+                        usuario.Clear()
+                        contrasenia.Clear()
                     End If
 
 
@@ -55,6 +65,8 @@
 
             Catch ex As Exception
                 MsgBox("Cedula/Contraseaña Incorrecto")
+                usuario.Clear()
+                contrasenia.Clear()
             End Try
         End If
     End Sub
@@ -93,6 +105,8 @@
                             MENU3.Show()
                         Else
                             MsgBox("Cedula/Contraseaña Incorrecto")
+                            usuario.Clear()
+                            contrasenia.Clear()
                         End If
 
 
@@ -100,6 +114,8 @@
 
                 Catch ex As Exception
                     MsgBox("Cedula/Contraseaña Incorrecto")
+                    usuario.Clear()
+                    contrasenia.Clear()
                 End Try
             End If
         End If
@@ -147,11 +163,15 @@
                             MENU3.Show()
                         Else
                             MsgBox("Cedula/Contraseaña Incorrecto")
+                            usuario.Clear()
+                            contrasenia.Clear()
                         End If
                     Next
 
                 Catch ex As Exception
                     MsgBox("Cedula/Contraseaña Incorrecto")
+                    usuario.Clear()
+                    contrasenia.Clear()
                     ErrorProvider1.SetError(usuario, "Cedula/Contraseaña Incorrecto")
                     ErrorProvider1.SetError(contrasenia, "Cedula/Contraseaña Incorrecto")
                 End Try
@@ -200,5 +220,37 @@
         For Each row As DataRow In Tabla.Rows
             enviarEmail(row("mail"), "recuperación contraseña", "Su Contraseña es : " & row("contrasenia"))
         Next
+    End Sub
+
+    Private Sub PictureBox1_MouseUp(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles PictureBox1.MouseUp
+        xf = Me.Location.X
+        yf = Me.Location.Y
+        a = 0
+        Me.Opacity = 1
+    End Sub
+
+    Private Sub PictureBox1_MouseMove(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles PictureBox1.MouseMove
+        If a = 1 Then
+            xc = Cursor.Position.X
+            yc = Cursor.Position.Y
+            holax = xc - xco
+            holay = yc - yco
+            Me.Location = New Point(xf + holax, yf + holay)
+            Me.Opacity = 0.9
+        End If
+        If a = 0 Then
+            xco = Cursor.Position.X
+            yco = Cursor.Position.Y
+        End If
+    End Sub
+
+    Private Sub PictureBox1_MouseDown(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles PictureBox1.MouseDown
+   a = 1
+    End Sub
+
+    Private Sub LOGIN_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        xf = Me.Location.X
+        yf = Me.Location.Y
+
     End Sub
 End Class
