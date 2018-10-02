@@ -31,7 +31,7 @@ Public Class MENU3
             Try
                 Chart()
                 Dim fecha As String = DateTime.Now.ToString("yyyy/MM/dd")
-                Consulta = "select titulo from prestamolibro p inner join libro l on p.cod_libro=l.cod_libro where fecha_entrada='" + fecha + "'"
+                Consulta = "select titulo from prestamolibro p inner join libro l on p.cod_libro=l.cod_libro where fecha_estimada='" + fecha + "'"
                 consultar()
                 For Each row As DataRow In Tabla.Rows
                     If Not IsDBNull(row("titulo")) Then
@@ -1803,7 +1803,7 @@ Public Class MENU3
             LbPrestamos.Items.Clear()
             Panel_prestamosdia.Visible = True
             Dim fecha As String = DateTime.Now.ToString("yyyy/MM/dd")
-            Consulta = "select titulo from prestamolibro p inner join libro l on p.cod_libro=l.cod_libro where fecha_entrada='" + fecha + "'"
+            Consulta = "select titulo from prestamolibro p inner join libro l on p.cod_libro=l.cod_libro where fecha_estimada='" + fecha + "'"
             consultar()
             For Each row As DataRow In Tabla.Rows
                 If Not IsDBNull(row("titulo")) Then
