@@ -28,9 +28,6 @@ Partial Class Inicio_UsuariosV2
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Menu_Panel = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Editar_Panel = New System.Windows.Forms.Panel()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -75,34 +72,43 @@ Partial Class Inicio_UsuariosV2
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Inactivo = New System.Windows.Forms.Timer(Me.components)
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.PlaceHolderMailEditar = New Proyecto_Biblioteca.PlaceHolder()
+        Me.ptbFotoSocio = New System.Windows.Forms.PictureBox()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.ptbFotoEditar = New System.Windows.Forms.PictureBox()
         Me.PlaceHolderMail = New Proyecto_Biblioteca.PlaceHolder()
         Me.direccion_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.telefono_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.cedula_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.apellido_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.nombre_txt = New Proyecto_Biblioteca.PlaceHolder()
+        Me.PlaceHolderMailEditar = New Proyecto_Biblioteca.PlaceHolder()
         Me.PlaceHolder1 = New Proyecto_Biblioteca.PlaceHolder()
         Me.Menu_Panel.SuspendLayout()
         Me.Panel1.SuspendLayout()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Editar_Panel.SuspendLayout()
         Me.Ingresar_Panel.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ptbFotoSocio, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ptbFotoEditar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Menu_Panel
         '
         Me.Menu_Panel.BackColor = System.Drawing.Color.Silver
+        Me.Menu_Panel.Controls.Add(Me.Ingresar_Panel)
+        Me.Menu_Panel.Controls.Add(Me.Editar_Panel)
         Me.Menu_Panel.Controls.Add(Me.Panel1)
         Me.Menu_Panel.Controls.Add(Me.Panel2)
-        Me.Menu_Panel.Controls.Add(Me.Editar_Panel)
-        Me.Menu_Panel.Controls.Add(Me.Ingresar_Panel)
-        Me.Menu_Panel.Location = New System.Drawing.Point(954, -2)
+        Me.Menu_Panel.Location = New System.Drawing.Point(957, 0)
         Me.Menu_Panel.Name = "Menu_Panel"
         Me.Menu_Panel.Size = New System.Drawing.Size(360, 651)
         Me.Menu_Panel.TabIndex = 0
@@ -117,36 +123,6 @@ Partial Class Inicio_UsuariosV2
         Me.Panel1.Size = New System.Drawing.Size(48, 651)
         Me.Panel1.TabIndex = 76
         '
-        'PictureBox3
-        '
-        Me.PictureBox3.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.usuario__1_
-        Me.PictureBox3.Location = New System.Drawing.Point(6, 237)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(32, 32)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox3.TabIndex = 2
-        Me.PictureBox3.TabStop = False
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.usuario__3_
-        Me.PictureBox2.Location = New System.Drawing.Point(6, 303)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(32, 32)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 1
-        Me.PictureBox2.TabStop = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.usuario
-        Me.PictureBox1.Location = New System.Drawing.Point(6, 173)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(32, 32)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
-        '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.Gray
@@ -157,6 +133,8 @@ Partial Class Inicio_UsuariosV2
         '
         'Editar_Panel
         '
+        Me.Editar_Panel.Controls.Add(Me.Button2)
+        Me.Editar_Panel.Controls.Add(Me.ptbFotoEditar)
         Me.Editar_Panel.Controls.Add(Me.Label8)
         Me.Editar_Panel.Controls.Add(Me.RadioButton3)
         Me.Editar_Panel.Controls.Add(Me.RadioButton4)
@@ -178,7 +156,7 @@ Partial Class Inicio_UsuariosV2
         Me.Editar_Panel.Controls.Add(Me.Label6)
         Me.Editar_Panel.Controls.Add(Me.telefono)
         Me.Editar_Panel.Controls.Add(Me.direccion)
-        Me.Editar_Panel.Location = New System.Drawing.Point(61, 17)
+        Me.Editar_Panel.Location = New System.Drawing.Point(56, 14)
         Me.Editar_Panel.Name = "Editar_Panel"
         Me.Editar_Panel.Size = New System.Drawing.Size(299, 619)
         Me.Editar_Panel.TabIndex = 3
@@ -187,7 +165,7 @@ Partial Class Inicio_UsuariosV2
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(123, 302)
+        Me.Label8.Location = New System.Drawing.Point(125, 292)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(33, 16)
         Me.Label8.TabIndex = 83
@@ -197,7 +175,7 @@ Partial Class Inicio_UsuariosV2
         '
         Me.RadioButton3.AutoSize = True
         Me.RadioButton3.Checked = True
-        Me.RadioButton3.Location = New System.Drawing.Point(152, 334)
+        Me.RadioButton3.Location = New System.Drawing.Point(154, 324)
         Me.RadioButton3.Name = "RadioButton3"
         Me.RadioButton3.Size = New System.Drawing.Size(39, 17)
         Me.RadioButton3.TabIndex = 82
@@ -208,7 +186,7 @@ Partial Class Inicio_UsuariosV2
         'RadioButton4
         '
         Me.RadioButton4.AutoSize = True
-        Me.RadioButton4.Location = New System.Drawing.Point(98, 334)
+        Me.RadioButton4.Location = New System.Drawing.Point(100, 324)
         Me.RadioButton4.Name = "RadioButton4"
         Me.RadioButton4.Size = New System.Drawing.Size(34, 17)
         Me.RadioButton4.TabIndex = 81
@@ -219,7 +197,7 @@ Partial Class Inicio_UsuariosV2
         '
         Me.LabelMailEditar.AutoSize = True
         Me.LabelMailEditar.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelMailEditar.Location = New System.Drawing.Point(122, 384)
+        Me.LabelMailEditar.Location = New System.Drawing.Point(124, 374)
         Me.LabelMailEditar.Name = "LabelMailEditar"
         Me.LabelMailEditar.Size = New System.Drawing.Size(38, 19)
         Me.LabelMailEditar.TabIndex = 78
@@ -267,7 +245,7 @@ Partial Class Inicio_UsuariosV2
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(79, 512)
+        Me.Button4.Location = New System.Drawing.Point(78, 537)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(129, 33)
         Me.Button4.TabIndex = 45
@@ -371,6 +349,8 @@ Partial Class Inicio_UsuariosV2
         '
         'Ingresar_Panel
         '
+        Me.Ingresar_Panel.Controls.Add(Me.Button1)
+        Me.Ingresar_Panel.Controls.Add(Me.ptbFotoSocio)
         Me.Ingresar_Panel.Controls.Add(Me.Label11)
         Me.Ingresar_Panel.Controls.Add(Me.RadioButton2)
         Me.Ingresar_Panel.Controls.Add(Me.RadioButton1)
@@ -392,16 +372,16 @@ Partial Class Inicio_UsuariosV2
         Me.Ingresar_Panel.Controls.Add(Me.nombre_txt)
         Me.Ingresar_Panel.Controls.Add(Me.Label14)
         Me.Ingresar_Panel.Controls.Add(Me.Label15)
-        Me.Ingresar_Panel.Location = New System.Drawing.Point(61, 17)
+        Me.Ingresar_Panel.Location = New System.Drawing.Point(53, 17)
         Me.Ingresar_Panel.Name = "Ingresar_Panel"
-        Me.Ingresar_Panel.Size = New System.Drawing.Size(299, 619)
+        Me.Ingresar_Panel.Size = New System.Drawing.Size(307, 596)
         Me.Ingresar_Panel.TabIndex = 75
         '
         'Label11
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(130, 346)
+        Me.Label11.Location = New System.Drawing.Point(128, 304)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(33, 16)
         Me.Label11.TabIndex = 80
@@ -411,7 +391,7 @@ Partial Class Inicio_UsuariosV2
         '
         Me.RadioButton2.AutoSize = True
         Me.RadioButton2.Checked = True
-        Me.RadioButton2.Location = New System.Drawing.Point(159, 378)
+        Me.RadioButton2.Location = New System.Drawing.Point(157, 336)
         Me.RadioButton2.Name = "RadioButton2"
         Me.RadioButton2.Size = New System.Drawing.Size(39, 17)
         Me.RadioButton2.TabIndex = 79
@@ -422,7 +402,7 @@ Partial Class Inicio_UsuariosV2
         'RadioButton1
         '
         Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(105, 378)
+        Me.RadioButton1.Location = New System.Drawing.Point(103, 336)
         Me.RadioButton1.Name = "RadioButton1"
         Me.RadioButton1.Size = New System.Drawing.Size(34, 17)
         Me.RadioButton1.TabIndex = 78
@@ -433,7 +413,7 @@ Partial Class Inicio_UsuariosV2
         '
         Me.Label_Mail.AutoSize = True
         Me.Label_Mail.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_Mail.Location = New System.Drawing.Point(125, 413)
+        Me.Label_Mail.Location = New System.Drawing.Point(123, 371)
         Me.Label_Mail.Name = "Label_Mail"
         Me.Label_Mail.Size = New System.Drawing.Size(38, 19)
         Me.Label_Mail.TabIndex = 76
@@ -464,7 +444,7 @@ Partial Class Inicio_UsuariosV2
         Me.ComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox3.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(219, 284)
+        Me.ComboBox3.Location = New System.Drawing.Point(219, 254)
         Me.ComboBox3.Name = "ComboBox3"
         Me.ComboBox3.Size = New System.Drawing.Size(77, 27)
         Me.ComboBox3.TabIndex = 69
@@ -474,7 +454,7 @@ Partial Class Inicio_UsuariosV2
         Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox2.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(99, 284)
+        Me.ComboBox2.Location = New System.Drawing.Point(99, 254)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(114, 27)
         Me.ComboBox2.TabIndex = 68
@@ -486,7 +466,7 @@ Partial Class Inicio_UsuariosV2
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(9, 284)
+        Me.ComboBox1.Location = New System.Drawing.Point(9, 254)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(84, 27)
         Me.ComboBox1.TabIndex = 67
@@ -505,7 +485,7 @@ Partial Class Inicio_UsuariosV2
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(75, 256)
+        Me.Label12.Location = New System.Drawing.Point(75, 226)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(143, 19)
         Me.Label12.TabIndex = 60
@@ -628,20 +608,78 @@ Partial Class Inicio_UsuariosV2
         Me.DataGridView1.Size = New System.Drawing.Size(920, 554)
         Me.DataGridView1.TabIndex = 5
         '
-        'PlaceHolderMailEditar
+        'ptbFotoSocio
         '
-        Me.PlaceHolderMailEditar.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PlaceHolderMailEditar.Location = New System.Drawing.Point(12, 410)
-        Me.PlaceHolderMailEditar.Name = "PlaceHolderMailEditar"
-        Me.PlaceHolderMailEditar.Size = New System.Drawing.Size(276, 27)
-        Me.PlaceHolderMailEditar.TabIndex = 79
-        Me.PlaceHolderMailEditar.WaterMarkColor = System.Drawing.Color.Gray
-        Me.PlaceHolderMailEditar.WaterMarkText = "Mail"
+        Me.ptbFotoSocio.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.student
+        Me.ptbFotoSocio.Location = New System.Drawing.Point(35, 449)
+        Me.ptbFotoSocio.Name = "ptbFotoSocio"
+        Me.ptbFotoSocio.Size = New System.Drawing.Size(82, 73)
+        Me.ptbFotoSocio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.ptbFotoSocio.TabIndex = 81
+        Me.ptbFotoSocio.TabStop = False
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.usuario__1_
+        Me.PictureBox3.Location = New System.Drawing.Point(6, 237)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(32, 32)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox3.TabIndex = 2
+        Me.PictureBox3.TabStop = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.usuario__3_
+        Me.PictureBox2.Location = New System.Drawing.Point(6, 303)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(32, 32)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 1
+        Me.PictureBox2.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.usuario
+        Me.PictureBox1.Location = New System.Drawing.Point(6, 173)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(32, 32)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabStop = False
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(138, 474)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(129, 23)
+        Me.Button1.TabIndex = 82
+        Me.Button1.Text = "Cargar Foto de Socio"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(134, 471)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(129, 23)
+        Me.Button2.TabIndex = 85
+        Me.Button2.Text = "Cambiar Foto de Socio"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'ptbFotoEditar
+        '
+        Me.ptbFotoEditar.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.student
+        Me.ptbFotoEditar.Location = New System.Drawing.Point(36, 447)
+        Me.ptbFotoEditar.Name = "ptbFotoEditar"
+        Me.ptbFotoEditar.Size = New System.Drawing.Size(82, 73)
+        Me.ptbFotoEditar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.ptbFotoEditar.TabIndex = 84
+        Me.ptbFotoEditar.TabStop = False
         '
         'PlaceHolderMail
         '
         Me.PlaceHolderMail.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PlaceHolderMail.Location = New System.Drawing.Point(17, 435)
+        Me.PlaceHolderMail.Location = New System.Drawing.Point(15, 393)
         Me.PlaceHolderMail.Name = "PlaceHolderMail"
         Me.PlaceHolderMail.Size = New System.Drawing.Size(274, 27)
         Me.PlaceHolderMail.TabIndex = 77
@@ -698,6 +736,16 @@ Partial Class Inicio_UsuariosV2
         Me.nombre_txt.WaterMarkColor = System.Drawing.Color.Gray
         Me.nombre_txt.WaterMarkText = "Nombre"
         '
+        'PlaceHolderMailEditar
+        '
+        Me.PlaceHolderMailEditar.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PlaceHolderMailEditar.Location = New System.Drawing.Point(14, 400)
+        Me.PlaceHolderMailEditar.Name = "PlaceHolderMailEditar"
+        Me.PlaceHolderMailEditar.Size = New System.Drawing.Size(276, 27)
+        Me.PlaceHolderMailEditar.TabIndex = 79
+        Me.PlaceHolderMailEditar.WaterMarkColor = System.Drawing.Color.Gray
+        Me.PlaceHolderMailEditar.WaterMarkText = "Mail"
+        '
         'PlaceHolder1
         '
         Me.PlaceHolder1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
@@ -723,9 +771,6 @@ Partial Class Inicio_UsuariosV2
         Me.Text = "Inicio_UsuariosV2"
         Me.Menu_Panel.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Editar_Panel.ResumeLayout(False)
         Me.Editar_Panel.PerformLayout()
         Me.Ingresar_Panel.ResumeLayout(False)
@@ -734,6 +779,11 @@ Partial Class Inicio_UsuariosV2
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ptbFotoSocio, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ptbFotoEditar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -794,4 +844,8 @@ Partial Class Inicio_UsuariosV2
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents RadioButton3 As System.Windows.Forms.RadioButton
     Friend WithEvents RadioButton4 As System.Windows.Forms.RadioButton
+    Friend WithEvents ptbFotoSocio As System.Windows.Forms.PictureBox
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents ptbFotoEditar As System.Windows.Forms.PictureBox
 End Class

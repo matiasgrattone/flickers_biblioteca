@@ -27,7 +27,6 @@ Partial Class PrestamoRevistas
         Me.ButtonVerRegistro = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.LabelREVISTAS = New System.Windows.Forms.Label()
-        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.BotonParaBuscarCedula = New System.Windows.Forms.Button()
         Me.PictureDevolucion = New System.Windows.Forms.PictureBox()
@@ -60,6 +59,7 @@ Partial Class PrestamoRevistas
         Me.Label11 = New System.Windows.Forms.Label()
         Me.DataGridParaDevolucion = New System.Windows.Forms.DataGridView()
         Me.ENPODER = New System.Windows.Forms.Label()
+        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
         CType(Me.PictureDevolucion, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -91,10 +91,10 @@ Partial Class PrestamoRevistas
         'LabelSELECCION_DE_FUNCION
         '
         Me.LabelSELECCION_DE_FUNCION.AutoSize = True
-        Me.LabelSELECCION_DE_FUNCION.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelSELECCION_DE_FUNCION.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelSELECCION_DE_FUNCION.Location = New System.Drawing.Point(514, 42)
         Me.LabelSELECCION_DE_FUNCION.Name = "LabelSELECCION_DE_FUNCION"
-        Me.LabelSELECCION_DE_FUNCION.Size = New System.Drawing.Size(89, 45)
+        Me.LabelSELECCION_DE_FUNCION.Size = New System.Drawing.Size(86, 48)
         Me.LabelSELECCION_DE_FUNCION.TabIndex = 78
         Me.LabelSELECCION_DE_FUNCION.Text = "SELECCION " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      DE " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FUNCION "
         '
@@ -126,23 +126,13 @@ Partial Class PrestamoRevistas
         Me.LabelREVISTAS.TabIndex = 66
         Me.LabelREVISTAS.Text = "REVISTAS"
         '
-        'Cedula
-        '
-        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Cedula.Location = New System.Drawing.Point(3, 50)
-        Me.Cedula.Name = "Cedula"
-        Me.Cedula.Size = New System.Drawing.Size(259, 20)
-        Me.Cedula.TabIndex = 75
-        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
-        Me.Cedula.WaterMarkText = "Cedula"
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(3, 11)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(243, 15)
+        Me.Label1.Size = New System.Drawing.Size(240, 16)
         Me.Label1.TabIndex = 58
         Me.Label1.Text = "INGRESE LA CEDULA DEL USUARIO "
         '
@@ -227,10 +217,10 @@ Partial Class PrestamoRevistas
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!)
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!)
         Me.Label10.Location = New System.Drawing.Point(17, 49)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(21, 15)
+        Me.Label10.Size = New System.Drawing.Size(21, 16)
         Me.Label10.TabIndex = 21
         Me.Label10.Text = "ID"
         '
@@ -253,10 +243,10 @@ Partial Class PrestamoRevistas
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!)
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!)
         Me.Label6.Location = New System.Drawing.Point(17, 27)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(106, 15)
+        Me.Label6.Size = New System.Drawing.Size(106, 16)
         Me.Label6.TabIndex = 19
         Me.Label6.Text = "BUSCAR LIBRO"
         '
@@ -482,6 +472,16 @@ Partial Class PrestamoRevistas
         Me.ENPODER.Size = New System.Drawing.Size(216, 34)
         Me.ENPODER.TabIndex = 61
         Me.ENPODER.Text = "Revistas en poder"
+        '
+        'Cedula
+        '
+        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.Cedula.Location = New System.Drawing.Point(3, 50)
+        Me.Cedula.Name = "Cedula"
+        Me.Cedula.Size = New System.Drawing.Size(259, 20)
+        Me.Cedula.TabIndex = 75
+        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
+        Me.Cedula.WaterMarkText = "Cedula"
         '
         'PrestamoRevistas
         '

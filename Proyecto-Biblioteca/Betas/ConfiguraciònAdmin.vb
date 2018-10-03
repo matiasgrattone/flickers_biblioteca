@@ -651,8 +651,4 @@ Public Class ConfigAdmin
         Next
 
     End Sub
-
-    Private Sub ptbPerfilAdmin_Click(sender As System.Object, e As System.EventArgs) Handles ptbPerfilAdmin.Click
-
-    End Sub
 End Class

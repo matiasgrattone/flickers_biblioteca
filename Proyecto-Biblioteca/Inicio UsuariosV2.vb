@@ -351,7 +351,7 @@
                 mes_datagrid = substring
 
                 For Each item In ComboBox4.Items
-                    If item = dia_datagrid Then
+                    If item.ToString = dia_datagrid Then
                         ComboBox4.SelectedIndex = x - 1
                     End If
                     x = x + 1
@@ -369,11 +369,13 @@
                 x = 1
 
                 For Each item In ComboBox6.Items
-                    If item = año_datagrid Then
+                    If item.ToString = año_datagrid Then
                         ComboBox6.SelectedIndex = x - 1
                     End If
                     x = x + 1
                 Next
+
+                cargar2()
 
             Case 3
 
@@ -876,6 +878,108 @@
             End If
         Else
             Inactivo.Enabled = False
+        End If
+    End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        Dim nombreArchivo As String
+
+        Dim dialogoCarga As New OpenFileDialog 'Crea un objeto del tipo OpenFileDialog para seleccionar archivos
+        dialogoCarga.Filter = "Imágenes|*.jpg; *.png; *.gif" 'Limita a que solo se puedan seleccionar imágenes de los tipos indicados
+        dialogoCarga.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) 'Indica en un String la ubicación en donde busca por defecto, en este caso se obtiene el escritorio
+
+        Dim rutaArchivo As String
+        Dim posicionBarra, longitudNombre As Integer
+
+        'dialogoCarga.ShowDialog() Abre una pantalla de diálogo que permite obtiener el nombre y la ruta del archivo cuando el usuario lo selecciona
+        If dialogoCarga.ShowDialog() = Windows.Forms.DialogResult.OK Then 'Solo si se ha seleccionado alguna imagen
+            rutaArchivo = dialogoCarga.FileName 'Guarda la ruta con el nombre del archivo
+
+            ptbFotoSocio.ImageLocation = rutaArchivo
+            posicionBarra = InStrRev(rutaArchivo, "\") ' Obtiene la posición en la que se encuentra la barra invertida en el String
+            longitudNombre = rutaArchivo.Length - posicionBarra 'Obtiene la cantidad de caracteres que ocupa el nombre
+
+            nombreArchivo = "Fotos de perfil/" + rutaArchivo.Substring(posicionBarra, longitudNombre) 'Corta la parte del nombre de la ruta completa
+
+            Try
+                Consulta = "update usuarios set rutaperfil = '" & nombreArchivo & "' where cedula='" + ced_ingresar + "'"
+                consultar()
+                cargar()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+
+            If My.Computer.FileSystem.FileExists(nombreArchivo) Then
+                ptbFotoSocio.ImageLocation = nombreArchivo
+                'cargar()
+            Else
+                My.Computer.FileSystem.CopyFile(rutaArchivo, nombreArchivo) 'Copia imagen seleccionada en la carpeta de guardado, no sobreescribe duplicados
+                cargar()
+            End If
+        End If
+    End Sub
+
+    Private Sub cargar()
+        Try
+            Consulta = "select rutaperfil from usuarios where cedula ='" + ced_ingresar + "'"
+            consultar()
+
+            For Each row As DataRow In Tabla.Rows
+                ptbFotoSocio.ImageLocation = Convert.ToString(row("rutaperfil"))
+            Next
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub cargar2()
+        Try
+            Consulta = "select rutaperfil from usuarios where cedula ='" + cedula.Text + "'"
+            consultar()
+
+            For Each row As DataRow In Tabla.Rows
+                ptbFotoEditar.ImageLocation = Convert.ToString(row("rutaperfil"))
+            Next
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+        Dim nombreArchivo As String
+
+        Dim dialogoCarga As New OpenFileDialog 'Crea un objeto del tipo OpenFileDialog para seleccionar archivos
+        dialogoCarga.Filter = "Imágenes|*.jpg; *.png; *.gif" 'Limita a que solo se puedan seleccionar imágenes de los tipos indicados
+        dialogoCarga.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) 'Indica en un String la ubicación en donde busca por defecto, en este caso se obtiene el escritorio
+
+        Dim rutaArchivo As String
+        Dim posicionBarra, longitudNombre As Integer
+
+        'dialogoCarga.ShowDialog() Abre una pantalla de diálogo que permite obtiener el nombre y la ruta del archivo cuando el usuario lo selecciona
+        If dialogoCarga.ShowDialog() = Windows.Forms.DialogResult.OK Then 'Solo si se ha seleccionado alguna imagen
+            rutaArchivo = dialogoCarga.FileName 'Guarda la ruta con el nombre del archivo
+
+            ptbFotoEditar.ImageLocation = rutaArchivo
+            posicionBarra = InStrRev(rutaArchivo, "\") ' Obtiene la posición en la que se encuentra la barra invertida en el String
+            longitudNombre = rutaArchivo.Length - posicionBarra 'Obtiene la cantidad de caracteres que ocupa el nombre
+
+            nombreArchivo = "Fotos de perfil/" + rutaArchivo.Substring(posicionBarra, longitudNombre) 'Corta la parte del nombre de la ruta completa
+
+            Try
+                Consulta = "update usuarios set rutaperfil = '" & nombreArchivo & "' where cedula='" + cedula.Text + "'"
+                consultar()
+                cargar2()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+
+            If My.Computer.FileSystem.FileExists(nombreArchivo) Then
+                ptbFotoEditar.ImageLocation = nombreArchivo
+                'cargar()
+            Else
+                My.Computer.FileSystem.CopyFile(rutaArchivo, nombreArchivo) 'Copia imagen seleccionada en la carpeta de guardado, no sobreescribe duplicados
+                cargar()
+            End If
         End If
     End Sub
 End Class
