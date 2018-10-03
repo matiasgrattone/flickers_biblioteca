@@ -1734,7 +1734,7 @@ Public Class MENU3
                 ChartTOP.Series.Add("TOP")
                 ChartTOP.ChartAreas.Add("TOP")
 
-                Consulta = "select count(prestamolibro.cod_libro) , libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro group by count(prestamolibro.cod_libro) limit 5"
+                Consulta = "select count(prestamolibro.cod_libro) , libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro group by prestamolibro.cod_libro limit 5"
                 consultar()
 
                 For Each row As DataRow In Tabla.Rows
@@ -1975,5 +1975,9 @@ Public Class MENU3
 
     Private Sub Pbusuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbusuario.Click
         info_usuario.Show()
+    End Sub
+
+    Private Sub Panel_Graficos_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles Panel_Graficos.Paint
+
     End Sub
 End Class
