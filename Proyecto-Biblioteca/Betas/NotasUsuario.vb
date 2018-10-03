@@ -123,7 +123,7 @@ Public Class NotasUsuario
     End Sub
 
     Private Sub AbrirToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AbrirToolStripMenuItem.Click
-        PanelNotas.Top = 0
+        PanelNotas.Top = 53
         modo = "Abrir"
         ActualizarNotas()
     End Sub
@@ -440,7 +440,7 @@ Public Class NotasUsuario
                 consultar()
                 ActualizarNotas()
 
-                PanelNotas.Top = -305
+                PanelNotas.Top = 844
             End If
             ActualizarNotas()
         End If
@@ -483,9 +483,10 @@ Public Class NotasUsuario
 
             PanelRecordatorios.Left = 1048
 
-            LabelDelEditor.Left = 704
+            '    LabelDelEditor.Left = 704
 
             ButtonRecordatorio.Text = "< RECORDATORIOS"
+            ButtonRecordatorio.Left = 350
 
         Else
             a = "1"
@@ -497,13 +498,17 @@ Public Class NotasUsuario
 
             PanelRecordatorios.Left = 627
 
-            LabelDelEditor.Left = 425
+            'LabelDelEditor.Left = 425
 
             ButtonRecordatorio.Text = "> RECORDATORIOS"
+            ButtonRecordatorio.Left = 780
         End If
 
 
 
     End Sub
 
+    Private Sub DataGridViewParaVerNotasDisponibles_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridViewParaVerNotasDisponibles.CellContentClick
+
+    End Sub
 End Class

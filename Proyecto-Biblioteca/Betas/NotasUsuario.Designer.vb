@@ -81,9 +81,10 @@ Partial Class NotasUsuario
         '
         Me.PanelEditroDeTexto.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.PanelEditroDeTexto.Controls.Add(Me.LabelDelEditor)
+        Me.PanelEditroDeTexto.Controls.Add(Me.ButtonRecordatorio)
         Me.PanelEditroDeTexto.Controls.Add(Me.EditorDeTexto)
         Me.PanelEditroDeTexto.Controls.Add(Me.MenuStrip1)
-        Me.PanelEditroDeTexto.Location = New System.Drawing.Point(0, 3)
+        Me.PanelEditroDeTexto.Location = New System.Drawing.Point(0, 55)
         Me.PanelEditroDeTexto.Name = "PanelEditroDeTexto"
         Me.PanelEditroDeTexto.Size = New System.Drawing.Size(1039, 605)
         Me.PanelEditroDeTexto.TabIndex = 0
@@ -93,7 +94,7 @@ Partial Class NotasUsuario
         Me.LabelDelEditor.AutoSize = True
         Me.LabelDelEditor.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.LabelDelEditor.Font = New System.Drawing.Font("Arial Rounded MT Bold", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelDelEditor.Location = New System.Drawing.Point(704, 2)
+        Me.LabelDelEditor.Location = New System.Drawing.Point(415, 2)
         Me.LabelDelEditor.Name = "LabelDelEditor"
         Me.LabelDelEditor.Size = New System.Drawing.Size(194, 22)
         Me.LabelDelEditor.TabIndex = 2
@@ -127,25 +128,25 @@ Partial Class NotasUsuario
         'NuevoToolStripMenuItem
         '
         Me.NuevoToolStripMenuItem.Name = "NuevoToolStripMenuItem"
-        Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.NuevoToolStripMenuItem.Text = "Nuevo"
         '
         'AbrirToolStripMenuItem
         '
         Me.AbrirToolStripMenuItem.Name = "AbrirToolStripMenuItem"
-        Me.AbrirToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.AbrirToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.AbrirToolStripMenuItem.Text = "Abrir"
         '
         'GuardarComoToolStripMenuItem
         '
         Me.GuardarComoToolStripMenuItem.Name = "GuardarComoToolStripMenuItem"
-        Me.GuardarComoToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.GuardarComoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.GuardarComoToolStripMenuItem.Text = "Guardar como"
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(147, 6)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(149, 6)
         '
         'EditarToolStripMenuItem
         '
@@ -214,7 +215,7 @@ Partial Class NotasUsuario
         Me.PanelNotas.Controls.Add(Me.ButtonX)
         Me.PanelNotas.Controls.Add(Me.DataGridViewParaVerNotasDisponibles)
         Me.PanelNotas.Controls.Add(Me.Label1)
-        Me.PanelNotas.Location = New System.Drawing.Point(844, -306)
+        Me.PanelNotas.Location = New System.Drawing.Point(840, -251)
         Me.PanelNotas.Name = "PanelNotas"
         Me.PanelNotas.Size = New System.Drawing.Size(200, 305)
         Me.PanelNotas.TabIndex = 3
@@ -449,7 +450,7 @@ Partial Class NotasUsuario
         Me.PanelRecordatorios.Controls.Add(Me.Panel2)
         Me.PanelRecordatorios.Controls.Add(Me.Panel4)
         Me.PanelRecordatorios.ForeColor = System.Drawing.Color.Black
-        Me.PanelRecordatorios.Location = New System.Drawing.Point(1048, 30)
+        Me.PanelRecordatorios.Location = New System.Drawing.Point(1045, 55)
         Me.PanelRecordatorios.Name = "PanelRecordatorios"
         Me.PanelRecordatorios.Size = New System.Drawing.Size(421, 595)
         Me.PanelRecordatorios.TabIndex = 0
@@ -457,7 +458,7 @@ Partial Class NotasUsuario
         'ButtonRecordatorio
         '
         Me.ButtonRecordatorio.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonRecordatorio.Location = New System.Drawing.Point(904, 3)
+        Me.ButtonRecordatorio.Location = New System.Drawing.Point(900, 3)
         Me.ButtonRecordatorio.Name = "ButtonRecordatorio"
         Me.ButtonRecordatorio.Size = New System.Drawing.Size(135, 23)
         Me.ButtonRecordatorio.TabIndex = 4
@@ -469,9 +470,8 @@ Partial Class NotasUsuario
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(181, Byte), Integer), CType(CType(126, Byte), Integer), CType(CType(220, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1045, 608)
+        Me.ClientSize = New System.Drawing.Size(1041, 617)
         Me.Controls.Add(Me.PanelNotas)
-        Me.Controls.Add(Me.ButtonRecordatorio)
         Me.Controls.Add(Me.PanelEditroDeTexto)
         Me.Controls.Add(Me.PanelRecordatorios)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
