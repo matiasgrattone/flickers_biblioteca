@@ -1405,28 +1405,27 @@ Public Class MENU3
 
                 contraseniaAdmin = InputBox("Por favor ingrese la cedula de un administrador", Title:="Biblioteca")
 
-                Consulta = "select * from usuarios where tipo < 2 and cedula='" & contraseniaAdmin & "'"
+                Consulta = "select * from usuarios where tipo < 2"
                 consultar()
 
                 For Each row As DataRow In Tabla.Rows
-                    If Not row("cedula") Is DBNull.Value Then
-                        If row("cedula") = contraseniaAdmin Then
-                            cedula = 1
-                            ConfigAdmin.ptbPerfilAdmin.ImageLocation = row("rutaperfil").ToString
-                            ConfigAdmin.cedulaFotoPerfil = row("cedula").ToString
-                            ConfigAdmin.Lbl_NombreADMIN_TXT.Text = row("nombre") & " " & row("apellido")
-                            contraseniaAdmin = "1"
-                        Else
-                            cedula = 0
-                        End If
-                        cedula = 0
+                    If row("cedula") = contraseniaAdmin Then
+                        cedula = 1
+                        ConfigAdmin.ptbPerfilAdmin.ImageLocation = row("rutaperfil").ToString
+                        ConfigAdmin.cedulaFotoPerfil = row("cedula").ToString
+                        ConfigAdmin.Lbl_NombreADMIN_TXT.Text = row("nombre") & " " & row("apellido")
+                        contraseniaAdmin = "1"
                     End If
-
+                    If row("cedula") Is DBNull.Value Then
+                        cedula = 0
+                        MsgBox("Cedula Incorrecta")
+                    End If
                 Next
+
 
                 If cedula = 1 Then
                     ConfigAdmin.Show()
-                Else
+                ElseIf cedula = 0 Then
                     MsgBox("Cedula Incorrecta")
                 End If
 
