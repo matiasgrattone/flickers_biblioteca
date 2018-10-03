@@ -1395,36 +1395,47 @@ Public Class MENU3
             End If
 
         Next
-
+        Dim cedula As Integer = 0
         If open = 0 Then
-
             Try
+
+
+
                 Dim contraseniaAdmin As String
 
                 contraseniaAdmin = InputBox("Por favor ingrese la cedula de un administrador", Title:="Biblioteca")
-                Consulta = "select * from usuarios where tipo = 0 and cedula='" + contraseniaAdmin + "'"
+
+                Consulta = "select * from usuarios where tipo < 2 and cedula='" & contraseniaAdmin & "'"
                 consultar()
-                If Not Tabla.Rows Is DBNull.Value Then
-                    MsgBox("Cedula incorrecta")
-                Else
-                    For Each row As DataRow In Tabla.Rows
+
+                For Each row As DataRow In Tabla.Rows
+                    If Not row("cedula") Is DBNull.Value Then
                         If row("cedula") = contraseniaAdmin Then
+                            cedula = 1
                             ConfigAdmin.ptbPerfilAdmin.ImageLocation = row("rutaperfil").ToString
                             ConfigAdmin.cedulaFotoPerfil = row("cedula").ToString
-                            Pbnube.Image = Image.FromFile("imagenes\cloud-error.png")
                             ConfigAdmin.Lbl_NombreADMIN_TXT.Text = row("nombre") & " " & row("apellido")
                             contraseniaAdmin = "1"
-                            ConfigAdmin.Show()
-
+                        Else
+                            cedula = 0
                         End If
-                        MsgBox("Cedula incorrecta")
-                    Next
+                        cedula = 0
+                    End If
+
+                Next
+
+                If cedula = 1 Then
+                    ConfigAdmin.Show()
+                Else
+                    MsgBox("Cedula Incorrecta")
                 End If
+
+
             Catch ex As Exception
                 MsgBox(ex.Message)
             End Try
-        Else
         End If
+
 
     End Sub 'Evento clik
 
