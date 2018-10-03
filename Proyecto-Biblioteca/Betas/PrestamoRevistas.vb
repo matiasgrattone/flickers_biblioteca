@@ -193,16 +193,9 @@
                 consultar()
                 If (Tabla.Rows.Count = 0) Then
                     ExtCombo.Visible = True
-                    Consulta = "select * from revistas where estado = '0'"
+                    Consulta = "select id_revistas as 'Codigo de Revista', titulo as 'Titulo', descripcion as 'Descripcion' from revistas where estado = '0'"
                     consultar()
                     DataGridView_VerRevistasEnExtraccion_.DataSource = Tabla
-
-                    DataGridView_VerRevistasEnExtraccion_.Columns(0).HeaderText = "Cedula de Socio"
-                    DataGridView_VerRevistasEnExtraccion_.Columns(1).HeaderText = "Codigo de Revista"
-                    DataGridView_VerRevistasEnExtraccion_.Columns(2).HeaderText = "Titulo"
-                    DataGridView_VerRevistasEnExtraccion_.Columns(3).HeaderText = "Fecha de Prestamo"
-                    DataGridView_VerRevistasEnExtraccion_.Columns(4).HeaderText = "Fecha de Devolucion"
-                    DataGridView_VerRevistasEnExtraccion_.Columns(5).HeaderText = "Descripcion"
 
                     DatagridModulo = DataGridView_VerRevistasEnExtraccion_
                     Datagrid_Align()
@@ -370,15 +363,9 @@
         If CarritoDeRevistas.Items.Count = 0 Then
 
 
-            Consulta = "select p.cedula, p.id_revistas, r.titulo, p.fecha_salida, p.fecha_entrada from prestamorevistas p INNER JOIN revistas r on p.id_revistas=r.id_revistas where fecha_entrada is NULL and cedula= '" & LabelAlmacenTemporalParaLaCedula.Text & "'"
+            Consulta = "select p.cedula as 'Cedula de Socio', p.id_revistas as 'Codigo de Revista', r.titulo as 'Titulo', p.fecha_salida as 'Fecha de Prestamo', p.fecha_entrada as 'Fecha de Devolucion' from prestamorevistas p INNER JOIN revistas r on p.id_revistas=r.id_revistas where fecha_entrada is NULL and cedula= '" & LabelAlmacenTemporalParaLaCedula.Text & "'"
             consultar()
             DataGridParaDevolucion.DataSource = Tabla
-
-            DataGridParaDevolucion.Columns(0).HeaderText = "Cedula de Socio"
-            DataGridParaDevolucion.Columns(1).HeaderText = "Codigo de Revista"
-            DataGridParaDevolucion.Columns(2).HeaderText = "Titulo"
-            DataGridParaDevolucion.Columns(3).HeaderText = "Fecha de Prestamo"
-            DataGridParaDevolucion.Columns(4).HeaderText = "Fecha de Devolucion"
 
             DatagridModulo = DataGridParaDevolucion
             Datagrid_Align()
@@ -415,7 +402,7 @@
                     consultar()
                     MsgBox("Se ha devuelto correctamente", Title:="PRESTAMO")
 
-                    Consulta = "select p.cedula, p.id_revistas, r.titulo, p.fecha_salida, p.fecha_entrada from prestamorevistas p INNER JOIN revistas r on p.id_revistas=r.id_revistas where fecha_entrada is NULL and cedula= '" & LabelAlmacenTemporalParaLaCedula.Text & "'"
+                    Consulta = "select p.cedula as 'Cedula de Socio', p.id_revistas as 'Codigo de Revista', r.titulo as 'Titulo', p.fecha_salida as 'Fecha de Prestamo', p.fecha_entrada as 'Fecha de Devolucion' from prestamorevistas p INNER JOIN revistas r on p.id_revistas=r.id_revistas where fecha_entrada is NULL and cedula= '" & LabelAlmacenTemporalParaLaCedula.Text & "'"
                     consultar()
                     DataGridParaDevolucion.DataSource = Tabla
 
@@ -423,7 +410,7 @@
 
                     MsgBox("No se a devuelto la revista ", Title:="PRESTAMOS")
 
-                    Consulta = "select p.cedula, p.id_revistas, r.titulo, p.fecha_salida, p.fecha_entrada from prestamorevistas p INNER JOIN revistas r on p.id_revistas=r.id_revistas where fecha_entrada is NULL and cedula= '" & LabelAlmacenTemporalParaLaCedula.Text & "'"
+                    Consulta = "select p.cedula as 'Cedula de Socio', p.id_revistas as 'Codigo de Revista', r.titulo as 'Titulo', p.fecha_salida as 'Fecha de Prestamo', p.fecha_entrada as 'Fecha de Devolucion' from prestamorevistas p INNER JOIN revistas r on p.id_revistas=r.id_revistas where fecha_entrada is NULL and cedula= '" & LabelAlmacenTemporalParaLaCedula.Text & "'"
                     consultar()
                     DataGridParaDevolucion.DataSource = Tabla
 
@@ -442,14 +429,14 @@
     End Sub
     '///PARA IR A MODO "VER REGISTRO DEL SOCIO"///
     Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
-        Consulta = "select p.cedula, p.id_revistas, r.titulo, p.fecha_salida, p.fecha_entrada from prestamorevistas p INNER JOIN revistas r on p.id_revistas=r.id_revistas where cedula= '" & LabelAlmacenTemporalParaLaCedula.Text & "'"
+        Consulta = "select p.cedula as 'Cedula de Socio', p.id_revistas as 'Codigo de Revista', r.titulo as 'Titulo', p.fecha_salida as 'Fecha de Prestamo', p.fecha_entrada as 'Fecha de Devolucion' from prestamorevistas p INNER JOIN revistas r on p.id_revistas=r.id_revistas where cedula= '" & LabelAlmacenTemporalParaLaCedula.Text & "'"
         consultar()
         DataGridParaDevolucion.DataSource = Tabla
         modo = "registro"
     End Sub
     '///PARA IR A MODO "VER REGISTRO DEL SOCIO"///
     Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
-        Consulta = "select p.cedula, p.id_revistas, r.titulo, p.fecha_salida, p.fecha_entrada from prestamorevistas p INNER JOIN revistas r on p.id_revistas=r.id_revistas where fecha_entrada is NULL and cedula= '" & LabelAlmacenTemporalParaLaCedula.Text & "'"
+        Consulta = "select p.cedula as 'Cedula de Socio', p.id_revistas as 'Codigo de Revista', r.titulo as 'Titulo', p.fecha_salida as 'Fecha de Prestamo', p.fecha_entrada as 'Fecha de Devolucion' from prestamorevistas p INNER JOIN revistas r on p.id_revistas=r.id_revistas where fecha_entrada is NULL and cedula= '" & LabelAlmacenTemporalParaLaCedula.Text & "'"
         consultar()
         DataGridParaDevolucion.DataSource = Tabla
         modo = "devolucion"
