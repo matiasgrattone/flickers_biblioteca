@@ -137,7 +137,7 @@ Partial Class Prestamos
         Me.PanelDelCarrito.Controls.Add(Me.ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll)
         Me.PanelDelCarrito.Controls.Add(Me.LabelLIBRO)
         Me.PanelDelCarrito.Controls.Add(Me.LabelIDLIBRO)
-        Me.PanelDelCarrito.Location = New System.Drawing.Point(-273, -28)
+        Me.PanelDelCarrito.Location = New System.Drawing.Point(-272, -28)
         Me.PanelDelCarrito.Name = "PanelDelCarrito"
         Me.PanelDelCarrito.Size = New System.Drawing.Size(268, 676)
         Me.PanelDelCarrito.TabIndex = 73
@@ -825,10 +825,10 @@ Partial Class Prestamos
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.PanelDelCarrito)
-        Me.Controls.Add(Me.GrupBoxExtraccion)
-        Me.Controls.Add(Me.GrupBoxDevolucion)
         Me.Controls.Add(Me.CrearReservacionGrupBox)
         Me.Controls.Add(Me.ReservacionGrupBox)
+        Me.Controls.Add(Me.GrupBoxExtraccion)
+        Me.Controls.Add(Me.GrupBoxDevolucion)
         Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Prestamos"

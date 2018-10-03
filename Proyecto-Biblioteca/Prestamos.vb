@@ -92,6 +92,7 @@
                 PictureDevolucion.Visible = False
                 PictureCrearReservacion.Visible = False
                 PictureReservacion.Visible = False
+                LabelParaAlmacenarLaCedulaIngresada.Visible = False
             End If
         End If
 
@@ -128,6 +129,7 @@
                 PictureDevolucion.Visible = False
                 PictureCrearReservacion.Visible = False
                 PictureReservacion.Visible = False
+                LabelParaAlmacenarLaCedulaIngresada.Visible = False
             End If
         End If
     End Sub
@@ -147,6 +149,7 @@
             PictureDevolucion.Visible = False
             PictureCrearReservacion.Visible = False
             PictureReservacion.Visible = False
+            LabelParaAlmacenarLaCedulaIngresada.Visible = False
             '///PARA QUE NO SE PUEDA EDITAR LA CEDULA///
             Cedula.ReadOnly = False
             '///////////////////////////////////////////
@@ -174,6 +177,7 @@
                 PictureDevolucion.Visible = False
                 PictureCrearReservacion.Visible = False
                 PictureReservacion.Visible = False
+                LabelParaAlmacenarLaCedulaIngresada.Visible = False
                 '///PARA QUE NO SE PUEDA EDITAR LA CEDULA///
                 Cedula.ReadOnly = False
                 '///////////////////////////////////////////
@@ -219,6 +223,8 @@
                 ModoCedula = "Editar"
                 Cedula.ReadOnly = True
                 ButtonVerFicha.Visible = True
+                LabelParaAlmacenarLaCedulaIngresada.Visible = True
+                LabelParaAlmacenarLaCedulaIngresada.Text = Cedula.Text
                 '/////////////////////////////////////////////////////////////////////////////////////////////
             End If
         End If
@@ -274,10 +280,10 @@
         End If
     End Sub
 
-    '///BUSCAR LIBRO POR NOMBRE///
-    Private Sub ButtonLupita_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonLupita.Click
+    '///BUSCAR LIBRO POR ID///
+    Private Sub TextboxBuscador_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextboxBuscador.TextChanged
         Try
-            Consulta = "select cod_libro as 'Numero de Inventario', titulo as 'Titulo', volumen as 'Volumen', ubicacion as 'Ubicacion' from libro where estado ='0' and titulo LIKE '" + TextboxBuscador.Text + "'"
+            Consulta = "select cod_libro as 'Numero de Inventario', titulo as 'Titulo', volumen as 'Volumen', ubicacion as 'Ubicacion' from libro where estado ='0' and cod_libro LIKE '" & TextboxBuscador.Text & "%'"
             consultar()
             DataGridViewlllllVerLibrosEnExtraccionlllll.DataSource = Tabla
         Catch ex As Exception
@@ -487,7 +493,7 @@
 
 
 
-            Consulta = "select * from prestamolibro where fecha_estimada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
+            Consulta = "select * from prestamolibro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
             consultar()
 
             If (Tabla.Rows.Count = 0) Then
@@ -672,10 +678,10 @@
         End If
     End Sub
 
-    '///BUSCAR LIBROS POR NOMBRE///
-    Private Sub LupitaParaBuscarLibrosEnReservacion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LupitaParaBuscarLibrosEnReservacion.Click
+    '///BUSCAR LIBRO POR ID///
+    Private Sub TextBoxEnCrearReservaciones_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextBoxEnCrearReservaciones.TextChanged
         Try
-            Consulta = "select cod_libro as 'Numero de Inventario', titulo as 'Titulo', volumen as 'Volumen', ubicacion as 'Ubicacion' from libro where estado ='0' and titulo LIKE '" + TextboxBuscador.Text + "'"
+            Consulta = "select cod_libro as 'Numero de Inventario', titulo as 'Titulo', volumen as 'Volumen', ubicacion as 'Ubicacion' from libro where estado ='0' and cod_libro LIKE '" & TextBoxEnCrearReservaciones.Text & "%'"
             consultar()
             LibrosParaReservar.DataSource = Tabla
         Catch ex As Exception
@@ -838,7 +844,7 @@
             MsgBox("Ha ocurrido un error en la eliminación de las reservación", Title:="ERROR RESERVACIÓN")
         End Try
 
-        Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado ='2' and cedula = '" + Cedula.Text + "' is NULL"
+        Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado = '2' and cedula = '" + Cedula.Text + "' and p.fecha_salida is NULL and p.fecha_entrada is NULL"
         consultar()
         VerLibrosReservados2.DataSource = Tabla
 
@@ -1016,4 +1022,5 @@
     Private Sub ButtonRevistas_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonRevistas.Click
         PrestamoRevistas.Show()
     End Sub
+
 End Class
