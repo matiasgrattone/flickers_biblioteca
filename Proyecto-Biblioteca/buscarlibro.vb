@@ -326,6 +326,7 @@ Public Class buscarlibro
                     'Envia el primer panel al fondo, mostrando el que contiene la consulta update'
                     Pmostrar.SendToBack()
                 Else
+                    contraseñaAdmin = "0"
                     MsgBox("contraseña no valida", Title:="Biblioteca")
                 End If
 

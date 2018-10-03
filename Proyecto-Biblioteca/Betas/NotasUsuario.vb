@@ -462,17 +462,48 @@ Public Class NotasUsuario
         End If
     End Sub
 
-
-    Private Sub Panel1_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Panel1.Paint
-
-    End Sub
-
-    Private Sub PanelNotas_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles PanelNotas.Paint
-
-    End Sub
-
     Private Sub ButtonX_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonX.Click
-        PanelNotas.Top = 0
+        PanelNotas.Top = -306
         modo = "NULL"
     End Sub
+  
+    Dim a As String = "2"
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonRecordatorio.Click
+
+
+       
+        If a = "1" Then
+
+            a = "2"
+            PanelEditroDeTexto.Width = 1039
+            PanelEditroDeTexto.Left = 3
+
+            EditorDeTexto.Width = 1031
+            EditorDeTexto.Left = 4
+
+            PanelRecordatorios.Left = 1048
+
+            LabelDelEditor.Left = 704
+
+            ButtonRecordatorio.Text = "< RECORDATORIOS"
+
+        Else
+            a = "1"
+            PanelEditroDeTexto.Width = 622
+            PanelEditroDeTexto.Left = 3
+
+            EditorDeTexto.Width = 613
+            EditorDeTexto.Left = 4
+
+            PanelRecordatorios.Left = 627
+
+            LabelDelEditor.Left = 425
+
+            ButtonRecordatorio.Text = "> RECORDATORIOS"
+        End If
+
+
+
+    End Sub
+
 End Class
