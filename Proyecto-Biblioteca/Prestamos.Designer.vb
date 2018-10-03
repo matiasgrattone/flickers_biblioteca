@@ -41,7 +41,6 @@ Partial Class Prestamos
         Me.LabelCI = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.CarritoDeLibros = New System.Windows.Forms.ListBox()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.NOMBRE = New System.Windows.Forms.Label()
         Me.ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll = New System.Windows.Forms.ListBox()
         Me.LabelLIBRO = New System.Windows.Forms.Label()
@@ -49,7 +48,6 @@ Partial Class Prestamos
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GrupBoxDevolucion = New System.Windows.Forms.GroupBox()
         Me.DataGridParaDevolucion = New System.Windows.Forms.DataGridView()
-        Me.ButtonVerRegistroDelSocio = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.ENPODER = New System.Windows.Forms.Label()
@@ -73,7 +71,6 @@ Partial Class Prestamos
         Me.ButtonVERREGISTRO = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.LabelSELECCION_DE_FUNCION = New System.Windows.Forms.Label()
-        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.PictureCrearReservacion = New System.Windows.Forms.PictureBox()
         Me.PictureReservacion = New System.Windows.Forms.PictureBox()
         Me.PictureDevolucion = New System.Windows.Forms.PictureBox()
@@ -88,6 +85,7 @@ Partial Class Prestamos
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.PanelDelCarrito.SuspendLayout()
         Me.GrupBoxDevolucion.SuspendLayout()
         CType(Me.DataGridParaDevolucion, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -132,12 +130,11 @@ Partial Class Prestamos
         Me.PanelDelCarrito.Controls.Add(Me.LabelCI)
         Me.PanelDelCarrito.Controls.Add(Me.Button1)
         Me.PanelDelCarrito.Controls.Add(Me.CarritoDeLibros)
-        Me.PanelDelCarrito.Controls.Add(Me.Label4)
         Me.PanelDelCarrito.Controls.Add(Me.NOMBRE)
         Me.PanelDelCarrito.Controls.Add(Me.ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll)
         Me.PanelDelCarrito.Controls.Add(Me.LabelLIBRO)
         Me.PanelDelCarrito.Controls.Add(Me.LabelIDLIBRO)
-        Me.PanelDelCarrito.Location = New System.Drawing.Point(-272, -28)
+        Me.PanelDelCarrito.Location = New System.Drawing.Point(-268, -28)
         Me.PanelDelCarrito.Name = "PanelDelCarrito"
         Me.PanelDelCarrito.Size = New System.Drawing.Size(268, 676)
         Me.PanelDelCarrito.TabIndex = 73
@@ -168,7 +165,7 @@ Partial Class Prestamos
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(10, 638)
+        Me.Button1.Location = New System.Drawing.Point(12, 642)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 82
@@ -178,19 +175,10 @@ Partial Class Prestamos
         'CarritoDeLibros
         '
         Me.CarritoDeLibros.FormattingEnabled = True
-        Me.CarritoDeLibros.Location = New System.Drawing.Point(9, 228)
+        Me.CarritoDeLibros.Location = New System.Drawing.Point(6, 234)
         Me.CarritoDeLibros.Name = "CarritoDeLibros"
         Me.CarritoDeLibros.Size = New System.Drawing.Size(254, 433)
         Me.CarritoDeLibros.TabIndex = 68
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(168, 251)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(39, 13)
-        Me.Label4.TabIndex = 72
-        Me.Label4.Text = "Label4"
         '
         'NOMBRE
         '
@@ -248,7 +236,6 @@ Partial Class Prestamos
         '
         Me.GrupBoxDevolucion.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.GrupBoxDevolucion.Controls.Add(Me.DataGridParaDevolucion)
-        Me.GrupBoxDevolucion.Controls.Add(Me.ButtonVerRegistroDelSocio)
         Me.GrupBoxDevolucion.Controls.Add(Me.Button5)
         Me.GrupBoxDevolucion.Controls.Add(Me.Label11)
         Me.GrupBoxDevolucion.Controls.Add(Me.ENPODER)
@@ -303,15 +290,6 @@ Partial Class Prestamos
         Me.DataGridParaDevolucion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridParaDevolucion.Size = New System.Drawing.Size(727, 401)
         Me.DataGridParaDevolucion.TabIndex = 82
-        '
-        'ButtonVerRegistroDelSocio
-        '
-        Me.ButtonVerRegistroDelSocio.Location = New System.Drawing.Point(199, 85)
-        Me.ButtonVerRegistroDelSocio.Name = "ButtonVerRegistroDelSocio"
-        Me.ButtonVerRegistroDelSocio.Size = New System.Drawing.Size(113, 34)
-        Me.ButtonVerRegistroDelSocio.TabIndex = 0
-        Me.ButtonVerRegistroDelSocio.Text = "Ver registro del socio"
-        Me.ButtonVerRegistroDelSocio.UseVisualStyleBackColor = True
         '
         'Button5
         '
@@ -629,16 +607,6 @@ Partial Class Prestamos
         Me.LabelSELECCION_DE_FUNCION.TabIndex = 66
         Me.LabelSELECCION_DE_FUNCION.Text = "SELECCION " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      DE " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FUNCION "
         '
-        'Cedula
-        '
-        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Cedula.Location = New System.Drawing.Point(3, 50)
-        Me.Cedula.Name = "Cedula"
-        Me.Cedula.Size = New System.Drawing.Size(259, 20)
-        Me.Cedula.TabIndex = 0
-        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
-        Me.Cedula.WaterMarkText = "Cedula"
-        '
         'PictureCrearReservacion
         '
         Me.PictureCrearReservacion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.crear_reserva
@@ -816,6 +784,16 @@ Partial Class Prestamos
         Me.Panel2.Size = New System.Drawing.Size(1016, 38)
         Me.Panel2.TabIndex = 78
         '
+        'Cedula
+        '
+        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.Cedula.Location = New System.Drawing.Point(3, 50)
+        Me.Cedula.Name = "Cedula"
+        Me.Cedula.Size = New System.Drawing.Size(259, 20)
+        Me.Cedula.TabIndex = 0
+        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
+        Me.Cedula.WaterMarkText = "Cedula"
+        '
         'Prestamos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -825,10 +803,10 @@ Partial Class Prestamos
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.PanelDelCarrito)
-        Me.Controls.Add(Me.CrearReservacionGrupBox)
-        Me.Controls.Add(Me.ReservacionGrupBox)
         Me.Controls.Add(Me.GrupBoxExtraccion)
         Me.Controls.Add(Me.GrupBoxDevolucion)
+        Me.Controls.Add(Me.CrearReservacionGrupBox)
+        Me.Controls.Add(Me.ReservacionGrupBox)
         Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Prestamos"
@@ -863,7 +841,6 @@ Partial Class Prestamos
     Friend WithEvents ButonParaExtreaer As System.Windows.Forms.Button
     Friend WithEvents BotonParaBuscarCedula As System.Windows.Forms.Button
     Friend WithEvents PanelDelCarrito As System.Windows.Forms.Panel
-    Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents LabelLIBRO As System.Windows.Forms.Label
     Friend WithEvents LabelIDLIBRO As System.Windows.Forms.Label
     Friend WithEvents CarritoDeLibros As System.Windows.Forms.ListBox
@@ -881,7 +858,6 @@ Partial Class Prestamos
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents Button5 As System.Windows.Forms.Button
-    Friend WithEvents ButtonVerRegistroDelSocio As System.Windows.Forms.Button
     Friend WithEvents PictureExtraccion As System.Windows.Forms.PictureBox
     Friend WithEvents PictureCrearReservacion As System.Windows.Forms.PictureBox
     Friend WithEvents PictureReservacion As System.Windows.Forms.PictureBox

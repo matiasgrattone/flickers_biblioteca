@@ -303,44 +303,34 @@
         Dim list1 As Integer
         list1 = ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Count
 
+        If list1 <= 2 Then
 
 
-        If DataGridViewlllllVerLibrosEnExtraccionlllll.Item(0, DataGridViewlllllVerLibrosEnExtraccionlllll.CurrentRow.Index).Value <> list1 Then
-            If (ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Contains(NomLibros)) Then
 
-                MsgBox("El libro " & NomLibros & " ya se encuentra en el carrito de extracción ", Title:="PRESTAMOS")
+            If DataGridViewlllllVerLibrosEnExtraccionlllll.Item(0, DataGridViewlllllVerLibrosEnExtraccionlllll.CurrentRow.Index).Value <> list1 Then
+                If (ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Contains(NomLibros)) Then
+
+                    MsgBox("El libro " & NomLibros & " ya se encuentra en el carrito de extracción ", Title:="PRESTAMOS")
 
 
-            Else
+                Else
 
-                z = MsgBox("Desea llevar al carrito el libro " & NomLibros & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
-                If z = vbYes Then
+                    z = MsgBox("Desea llevar al carrito el libro " & NomLibros & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
+                    If z = vbYes Then
 
-                    ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Add(IdLibros)
-                    CarritoDeLibros.Items.Add(IdLibros & "                          " & NomLibros)
-
-                    '/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                    For Each item As String In ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items
-
-                        For Each Row As DataGridViewRow In DataGridViewlllllVerLibrosEnExtraccionlllll.Rows
-                            If Row.Cells("Numero de Inventario").Value = Val(item) Then
-                                Row.DefaultCellStyle.BackColor = Drawing.Color.BlueViolet
-                            End If
-
-                        Next
-                    Next
-                    '/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+                        ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Add(IdLibros)
+                        CarritoDeLibros.Items.Add(IdLibros & "                          " & NomLibros)
+                    End If
                 End If
             End If
-        End If
 
-        If CarritoDeLibros.Items.Count <> 0 Then
+            If CarritoDeLibros.Items.Count <> 0 Then
 
-            ButonParaExtreaer.Visible = True
-        Else
-            ButonParaExtreaer.Visible = False
+                ButonParaExtreaer.Visible = True
+            Else
+                ButonParaExtreaer.Visible = False
 
+            End If
         End If
     End Sub
 
@@ -589,14 +579,6 @@
         End If
     End Sub
 
-    '///MODO VER REGISTRO///
-    Private Sub ButtonVerRegistroDeSocio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonVerRegistroDelSocio.Click
-        Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where cedula= '" & Cedula.Text & "'"
-        consultar()
-
-        DataGridParaDevolucion.DataSource = Tabla
-        modoDevoluciones = "registro"
-    End Sub
 
     '///MODO DEVOLUCION///
     Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
@@ -792,18 +774,6 @@
                         ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Add(IdLibros)
                         CarritoDeLibros.Items.Add(IdLibros & "                          " & NomLibros)
 
-                        '/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                        For Each item As String In ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items
-
-                            For Each Row As DataGridViewRow In DataGridViewlllllVerLibrosEnExtraccionlllll.Rows
-                                If Row.Cells("Numero de Inventario").Value = Val(item) Then
-                                    Row.DefaultCellStyle.BackColor = Drawing.Color.BlueViolet
-                                End If
-
-                            Next
-                        Next
-                        '/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
                     End If
                 End If
             End If
@@ -977,22 +947,20 @@
         NomLibro = CarritoDeLibros.SelectedItem
         z = 0
         '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        If CarritoDeLibros.Items.Count < 0 Then
+        If CarritoDeLibros.Items.Count <> 0 And CarritoDeLibros.SelectedIndex <> vbNull And CarritoDeLibros.SelectedItem <> "" Then
             z = MsgBox("Desea cancelar la extracción del libro? " & NomLibro & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
 
             If z = vbYes Then
-                IdLibro = InputBox("Ingrese la id del libro para verificar", Title:="PRESTAMO")
+                IdLibro = (ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.SelectedIndex = CarritoDeLibros.SelectedIndex)
 
-                If (ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Contains(IdLibro)) Then
-
-                    ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Remove(IdLibro)
-                    NomLibro = CarritoDeLibros.SelectedItem
-                    CarritoDeLibros.Items.Remove(NomLibro)
-                Else
-                    MsgBox("La id del libro no es correcta", Title:="PRESTAMO ERROR")
-                End If
+                ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.RemoveAt(CarritoDeLibros.SelectedIndex)
+                NomLibro = CarritoDeLibros.SelectedItem
+                CarritoDeLibros.Items.RemoveAt(CarritoDeLibros.SelectedIndex)
+            Else
+                MsgBox("La id del libro no es correcta", Title:="PRESTAMO ERROR")
             End If
         End If
+
     End Sub
 
     '///VACIAR EL CARRITO///
@@ -1023,4 +991,7 @@
         PrestamoRevistas.Show()
     End Sub
 
+    Private Sub DataGridViewlllllVerLibrosEnExtraccionlllll_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridViewlllllVerLibrosEnExtraccionlllll.CellContentClick
+
+    End Sub
 End Class

@@ -23,7 +23,6 @@
         anio = Val(DateTime.Now.ToString("yyyy"))
 
         'MsgBox(DateTime.Now.ToString("dd"))
-        MsgBox(dia & " - " & mes & " - " & anio)
 
         If LTrim$(usuario.Text) = "" Then ' Verifica si esta vacio nombre
             ErrorProvider1.SetError(usuario, "Nombre no puede estar vacío")
@@ -86,7 +85,6 @@
             anio = Val(DateTime.Now.ToString("yyyy"))
 
             'MsgBox(DateTime.Now.ToString("dd"))
-            MsgBox(dia & " - " & mes & " - " & anio)
 
             If LTrim$(usuario.Text) = "" Then ' Verifica si esta vacio nombre
                 ErrorProvider1.SetError(usuario, "Nombre no puede estar vacío")
@@ -158,7 +156,6 @@
             anio = Val(DateTime.Now.ToString("yyyy"))
 
             'MsgBox(DateTime.Now.ToString("dd"))
-            MsgBox(dia & " - " & mes & " - " & anio)
 
             If LTrim$(usuario.Text) = "" Then ' Verifica si esta vacio nombre
                 ErrorProvider1.SetError(usuario, "Nombre no puede estar vacío")
