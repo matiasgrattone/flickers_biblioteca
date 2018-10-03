@@ -130,9 +130,8 @@ Partial Class LOGIN
         '
         Me.usuario.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.usuario.Location = New System.Drawing.Point(496, 234)
-        Me.usuario.Multiline = True
         Me.usuario.Name = "usuario"
-        Me.usuario.Size = New System.Drawing.Size(237, 25)
+        Me.usuario.Size = New System.Drawing.Size(237, 26)
         Me.usuario.TabIndex = 0
         Me.usuario.WaterMarkColor = System.Drawing.Color.LightGray
         Me.usuario.WaterMarkText = "Cedula"
@@ -141,10 +140,9 @@ Partial Class LOGIN
         '
         Me.contrasenia.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.contrasenia.Location = New System.Drawing.Point(496, 276)
-        Me.contrasenia.Multiline = True
         Me.contrasenia.Name = "contrasenia"
         Me.contrasenia.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.contrasenia.Size = New System.Drawing.Size(237, 25)
+        Me.contrasenia.Size = New System.Drawing.Size(237, 26)
         Me.contrasenia.TabIndex = 1
         Me.contrasenia.WaterMarkColor = System.Drawing.Color.LightGray
         Me.contrasenia.WaterMarkText = "Contraseña"
