@@ -77,15 +77,26 @@
             Dim pass As String = Nothing
             Dim pass1 As String = Nothing
 
+            'Dim fecha_actual As Date = DateTime.Now.ToString("dd/MM/yyyy")
+            Dim fecha_entrada As Date
+            Dim dia, mes, anio, diferenciaDia As Integer
+
+            dia = Val(DateTime.Now.ToString("dd"))
+            mes = Val(DateTime.Now.ToString("MM"))
+            anio = Val(DateTime.Now.ToString("yyyy"))
+
+            'MsgBox(DateTime.Now.ToString("dd"))
+            MsgBox(dia & " - " & mes & " - " & anio)
+
             If LTrim$(usuario.Text) = "" Then ' Verifica si esta vacio nombre
-                ' errorusuario.Text = "Nombre no puede estar vacío"
+                ErrorProvider1.SetError(usuario, "Nombre no puede estar vacío")
                 i = 1
             Else
                 user = usuario.Text
             End If
 
             If LTrim$(contrasenia.Text) = "" Then ' Verifica si esta vacio nombre
-                ' errorpass.Text = "Nombre no puede estar vacío"
+                ErrorProvider1.SetError(contrasenia, "Contraseña no puede estar vacía")
                 i = 1
             Else
                 pass = contrasenia.Text
@@ -101,6 +112,9 @@
                         If row("contrasenia").ToString = pass Then
                             MENU3.Nombre.Text = row("nombre")
                             MENU3.lbl_cedula.Text = row("cedula")
+
+                            MENU3.cedulaIngre = row("cedula").ToString
+
                             Me.Hide()
                             MENU3.Show()
                         Else
@@ -135,6 +149,17 @@
             Dim pass As String = Nothing
             Dim pass1 As String = Nothing
 
+            'Dim fecha_actual As Date = DateTime.Now.ToString("dd/MM/yyyy")
+            Dim fecha_entrada As Date
+            Dim dia, mes, anio, diferenciaDia As Integer
+
+            dia = Val(DateTime.Now.ToString("dd"))
+            mes = Val(DateTime.Now.ToString("MM"))
+            anio = Val(DateTime.Now.ToString("yyyy"))
+
+            'MsgBox(DateTime.Now.ToString("dd"))
+            MsgBox(dia & " - " & mes & " - " & anio)
+
             If LTrim$(usuario.Text) = "" Then ' Verifica si esta vacio nombre
                 ErrorProvider1.SetError(usuario, "Nombre no puede estar vacío")
                 i = 1
@@ -143,7 +168,7 @@
             End If
 
             If LTrim$(contrasenia.Text) = "" Then ' Verifica si esta vacio nombre
-                ErrorProvider1.SetError(contrasenia, "Nombre no puede estar vacío")
+                ErrorProvider1.SetError(contrasenia, "Contraseña no puede estar vacía")
                 i = 1
             Else
                 pass = contrasenia.Text
@@ -159,6 +184,9 @@
                         If row("contrasenia").ToString = pass Then
                             MENU3.Nombre.Text = row("nombre")
                             MENU3.lbl_cedula.Text = row("cedula")
+
+                            MENU3.cedulaIngre = row("cedula").ToString
+
                             Me.Hide()
                             MENU3.Show()
                         Else
@@ -166,14 +194,14 @@
                             usuario.Clear()
                             contrasenia.Clear()
                         End If
+
+
                     Next
 
                 Catch ex As Exception
                     MsgBox("Cedula/Contraseaña Incorrecto")
                     usuario.Clear()
                     contrasenia.Clear()
-                    ErrorProvider1.SetError(usuario, "Cedula/Contraseaña Incorrecto")
-                    ErrorProvider1.SetError(contrasenia, "Cedula/Contraseaña Incorrecto")
                 End Try
             End If
         End If
