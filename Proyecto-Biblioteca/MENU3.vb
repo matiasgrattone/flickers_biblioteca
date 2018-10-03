@@ -60,6 +60,7 @@ Public Class MENU3
         Datagrid_Align()
 
         cedulaIngre = lbl_cedula.Text ' Variable para actualizar foto de perfil
+
         Try
             Consulta = "select rutaperfil from usuarios where cedula ='" + cedulaIngre + "'"
             consultar()
@@ -1733,7 +1734,7 @@ Public Class MENU3
                 ChartTOP.Series.Add("TOP")
                 ChartTOP.ChartAreas.Add("TOP")
 
-                Consulta = "select count(prestamolibro.cod_libro) , libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro group by prestamolibro.cod_libro limit 5"
+                Consulta = "select count(prestamolibro.cod_libro) , libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro group by count(prestamolibro.cod_libro) limit 5"
                 consultar()
 
                 For Each row As DataRow In Tabla.Rows
