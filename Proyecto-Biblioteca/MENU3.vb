@@ -1402,7 +1402,7 @@ Public Class MENU3
                 Dim contraseniaAdmin As String
 
                 contraseniaAdmin = InputBox("Por favor ingrese la cedula de un administrador", Title:="Biblioteca")
-                Consulta = "select * from usuarios where tipo = 0 and cedula='" + contraseniaAdmin + "'"
+                Consulta = "select * from usuarios where tipo = 0 and cedula='" & contraseniaAdmin & "'"
                 consultar()
                 If Not Tabla.Rows Is DBNull.Value Then
                     MsgBox("Cedula incorrecta")
@@ -1415,9 +1415,10 @@ Public Class MENU3
                             ConfigAdmin.Lbl_NombreADMIN_TXT.Text = row("nombre") & " " & row("apellido")
                             contraseniaAdmin = "1"
                             ConfigAdmin.Show()
-
+                        Else
+                            MsgBox("Cedula incorrecta")
                         End If
-                        MsgBox("Cedula incorrecta")
+
                     Next
                 End If
             Catch ex As Exception

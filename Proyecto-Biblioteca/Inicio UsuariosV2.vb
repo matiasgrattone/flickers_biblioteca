@@ -627,7 +627,7 @@
             ' MsgBox("Existen errores en el formulario, revisar los campos remarcados")
         End If
         Try
-            Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento from usuarios where estado = 1 and tipo = 1;"
+            Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento from usuarios where estado = 1 and tipo = 2;"
             consultar()
             DataGridView1.DataSource = Tabla
         Catch ex As Exception
