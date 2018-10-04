@@ -10,7 +10,14 @@
     Dim animacion As Integer = 0
     Dim mouse As Integer = 0
 
+    '///////////// Variable para verificar cedula y nombre para sacar foto ///////////
+    Public error12 As Integer = 0
 
+    '//////////// Variable para ver si cargo o saco la foto del socio ////////////
+    Public opcion As Integer ' 0 - Tomo la foto / 1 - Cargo la foto
+
+    '//////////// Variable para guardar ruta del archivo para ingresar y editar //////////////
+    Public nombreArchivo As String = "Fotos de socio/student.png"
 
     '/////////////////////variables para editar usuarios//////////////
 
@@ -29,6 +36,8 @@
 
     '//////////////////////////////////////////////////////////////////
 
+    '//////////////////////////// Variables para foto de socio
+    Public nombreFoto, cedulaFoto As String
 
     '//////////////////////////// variables para ingresar usuarios ////////////////
 
@@ -592,8 +601,15 @@
 
                 Dim nacimiento_ingresar As String = Str(ComboBox3.SelectedItem).Substring(1, 4) + "-" + substring + "-" + dia_ingresar '//GUARDA LOS DATOS DEL COMBO A LA VARIABLE NACIMIENTO PARA LUEGO USARLA EN LA CONSULTA INSERT
 
-                Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo , nacimiento, estado, contrasenia , moroso , fecha_ingreso) values (concat(upper(left('" + nom_ingresar + "',1)), lower(substr('" + nom_ingresar + "',2))), concat(upper(left('" + ape_ingresar + "',1)), lower(substr('" + ape_ingresar + "',2))), '" + Str(ced_ingresar) + "', '" + Str(tel_ingresar) + "', '" + dir_ingresar + "', '2', '" + nacimiento_ingresar + "','1', '',0,'" & Date.Now.ToString("yyyy-MM-dd") & "');"
-                consultar()
+                If opcion = 0 Then
+                    Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo , nacimiento, estado, contrasenia , moroso , fecha_ingreso, rutaperfil) values (concat(upper(left('" + nom_ingresar + "',1)), lower(substr('" + nom_ingresar + "',2))), concat(upper(left('" + ape_ingresar + "',1)), lower(substr('" + ape_ingresar + "',2))), '" + Str(ced_ingresar) + "', '" + Str(tel_ingresar) + "', '" + dir_ingresar + "', '2', '" + nacimiento_ingresar + "','1', '',0,'" & Date.Now.ToString("yyyy-MM-dd") & "'), '" + TomarFoto.rutaFoto + "'"
+                    consultar()
+                End If
+
+                If opcion = 1 Then
+                    Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo , nacimiento, estado, contrasenia , moroso , fecha_ingreso, rutaperfil) values (concat(upper(left('" + nom_ingresar + "',1)), lower(substr('" + nom_ingresar + "',2))), concat(upper(left('" + ape_ingresar + "',1)), lower(substr('" + ape_ingresar + "',2))), '" + Str(ced_ingresar) + "', '" + Str(tel_ingresar) + "', '" + dir_ingresar + "', '2', '" + nacimiento_ingresar + "','1', '',0,'" & Date.Now.ToString("yyyy-MM-dd") & "'), '" + nombreArchivo + "'"
+                    consultar()
+                End If
 
                 If ERROR1 = 1 Then
 
@@ -660,6 +676,19 @@
 
     Private Sub cedula_txt_TextChanged(sender As System.Object, e As System.EventArgs) Handles cedula_txt.TextChanged
         ErrorProvider1.SetError(cedula_txt, "")
+
+        If cedula_txt.TextLength = 8 Then
+            Verificar_Cedula(cedula_txt.Text)
+        End If
+
+        If correcto = 0 Then
+            error12 = 0
+            ErrorProvider1.SetError(cedula_txt, "")
+        Else
+            error12 = 1
+            ErrorProvider1.SetError(cedula_txt, "La cedula no esta correcta")
+        End If
+
     End Sub
 
     Private Sub telefono_txt_TextChanged(sender As System.Object, e As System.EventArgs) Handles telefono_txt.TextChanged
@@ -882,7 +911,6 @@
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        Dim nombreArchivo As String
 
         Dim dialogoCarga As New OpenFileDialog 'Crea un objeto del tipo OpenFileDialog para seleccionar archivos
         dialogoCarga.Filter = "Imágenes|*.jpg; *.png; *.gif" 'Limita a que solo se puedan seleccionar imágenes de los tipos indicados
@@ -899,11 +927,10 @@
             posicionBarra = InStrRev(rutaArchivo, "\") ' Obtiene la posición en la que se encuentra la barra invertida en el String
             longitudNombre = rutaArchivo.Length - posicionBarra 'Obtiene la cantidad de caracteres que ocupa el nombre
 
-            nombreArchivo = "Fotos de perfil/" + rutaArchivo.Substring(posicionBarra, longitudNombre) 'Corta la parte del nombre de la ruta completa
+            nombreArchivo = "Fotos de socio/" + rutaArchivo.Substring(posicionBarra, longitudNombre) 'Corta la parte del nombre de la ruta completa
 
             Try
-                Consulta = "update usuarios set rutaperfil = '" & nombreArchivo & "' where cedula='" + ced_ingresar + "'"
-                consultar()
+                opcion = 1
                 cargar()
             Catch ex As Exception
                 MsgBox(ex.Message)
@@ -946,7 +973,6 @@
     End Sub
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
-        Dim nombreArchivo As String
 
         Dim dialogoCarga As New OpenFileDialog 'Crea un objeto del tipo OpenFileDialog para seleccionar archivos
         dialogoCarga.Filter = "Imágenes|*.jpg; *.png; *.gif" 'Limita a que solo se puedan seleccionar imágenes de los tipos indicados
@@ -963,7 +989,7 @@
             posicionBarra = InStrRev(rutaArchivo, "\") ' Obtiene la posición en la que se encuentra la barra invertida en el String
             longitudNombre = rutaArchivo.Length - posicionBarra 'Obtiene la cantidad de caracteres que ocupa el nombre
 
-            nombreArchivo = "Fotos de perfil/" + rutaArchivo.Substring(posicionBarra, longitudNombre) 'Corta la parte del nombre de la ruta completa
+            nombreArchivo = "Fotos de socio/" + rutaArchivo.Substring(posicionBarra, longitudNombre) 'Corta la parte del nombre de la ruta completa
 
             Try
                 Consulta = "update usuarios set rutaperfil = '" & nombreArchivo & "' where cedula='" + cedula.Text + "'"
@@ -981,5 +1007,25 @@
                 cargar()
             End If
         End If
+    End Sub
+
+    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
+
+        If LTrim$(nombre_txt.Text) = "" Then
+            error12 = 1
+        End If
+        If LTrim$(cedula_txt.Text) = "" Then
+            error12 = 1
+        End If
+
+        If error12 = 0 Then
+            nombreFoto = nombre_txt.Text
+            cedulaFoto = cedula_txt.Text
+
+            TomarFoto.Show()
+        Else
+            MsgBox("Los campos de nombre y cedula deben de estar completos para realizar esto")
+        End If
+
     End Sub
 End Class
