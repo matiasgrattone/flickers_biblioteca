@@ -3,7 +3,20 @@ Public Class NotasUsuario
     Dim RecordatorioValor As String
     Dim modo As String
     Dim cedula As String
+
+
+    Dim ventanaActiva As Integer = 0
+    Public xco, yco As Integer
+    Dim resultx, resulty As Integer
+    Dim xc, yc As Integer
+    Dim xf, yf As Integer
+    Dim holax, holay As Integer
+
+
     Private Sub Notas_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+        xf = Me.Location.X
+        yf = Me.Location.Y
 
         DatagridModulo = DataGridViewParaVerNotasDisponibles
         Datagrid_Align()
@@ -486,7 +499,7 @@ Public Class NotasUsuario
             '    LabelDelEditor.Left = 704
 
             ButtonRecordatorio.Text = "< RECORDATORIOS"
-            ButtonRecordatorio.Left = 350
+            ButtonRecordatorio.Left = 900
 
         Else
             a = "1"
@@ -501,14 +514,66 @@ Public Class NotasUsuario
             'LabelDelEditor.Left = 425
 
             ButtonRecordatorio.Text = "> RECORDATORIOS"
-            ButtonRecordatorio.Left = 780
+            ButtonRecordatorio.Left = 480
         End If
 
 
 
     End Sub
 
-    Private Sub DataGridViewParaVerNotasDisponibles_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridViewParaVerNotasDisponibles.CellContentClick
+    Private Sub Panel1_MouseUp(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseUp
+        xf = Me.Location.X
+        yf = Me.Location.Y
+        ventanaActiva = 0
+        Me.Opacity = 1
+    End Sub
 
+    Private Sub Panel1_MouseMove(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseMove
+        If ventanaActiva = 1 Then
+            xc = Cursor.Position.X
+            yc = Cursor.Position.Y
+            holax = xc - xco
+            holay = yc - yco
+            Me.Location = New Point(xf + holax, yf + holay)
+            Me.Opacity = 0.9
+        End If
+        If ventanaActiva = 0 Then
+            xco = Cursor.Position.X
+            yco = Cursor.Position.Y
+        End If
+    End Sub
+
+    Private Sub Panel1_MouseDown(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseDown
+        ventanaActiva = 1
+    End Sub
+
+    Private Sub Labels_transparentes1_MouseUp(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles Labels_transparentes1.MouseUp
+        xf = Me.Location.X
+        yf = Me.Location.Y
+        ventanaActiva = 0
+        Me.Opacity = 1
+    End Sub
+
+    Private Sub Labels_transparentes1_MouseMove(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles Labels_transparentes1.MouseMove
+        If ventanaActiva = 1 Then
+            xc = Cursor.Position.X
+            yc = Cursor.Position.Y
+            holax = xc - xco
+            holay = yc - yco
+            Me.Location = New Point(xf + holax, yf + holay)
+            Me.Opacity = 0.9
+        End If
+        If ventanaActiva = 0 Then
+            xco = Cursor.Position.X
+            yco = Cursor.Position.Y
+        End If
+    End Sub
+
+    Private Sub Labels_transparentes1_MouseDown(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles Labels_transparentes1.MouseDown
+        ventanaActiva = 1
+    End Sub
+
+    Private Sub PictureBox1_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox1.Click
+        Me.Close()
     End Sub
 End Class

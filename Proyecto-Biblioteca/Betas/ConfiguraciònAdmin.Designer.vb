@@ -31,8 +31,6 @@ Partial Class ConfigAdmin
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ConfigAdmin))
         Me.TreeView1 = New System.Windows.Forms.TreeView()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.Label_Animaciòn = New System.Windows.Forms.Label()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
@@ -92,6 +90,7 @@ Partial Class ConfigAdmin
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.RadioButton4 = New System.Windows.Forms.RadioButton()
@@ -120,27 +119,8 @@ Partial Class ConfigAdmin
         '
         Me.TreeView1.Location = New System.Drawing.Point(295, 3)
         Me.TreeView1.Name = "TreeView1"
-        Me.TreeView1.Size = New System.Drawing.Size(214, 458)
+        Me.TreeView1.Size = New System.Drawing.Size(181, 458)
         Me.TreeView1.TabIndex = 9
-        '
-        'ComboBox3
-        '
-        Me.ComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Items.AddRange(New Object() {"0", "1"})
-        Me.ComboBox3.Location = New System.Drawing.Point(72, 380)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox3.TabIndex = 10
-        '
-        'Label_Animaciòn
-        '
-        Me.Label_Animaciòn.AutoSize = True
-        Me.Label_Animaciòn.Location = New System.Drawing.Point(10, 384)
-        Me.Label_Animaciòn.Name = "Label_Animaciòn"
-        Me.Label_Animaciòn.Size = New System.Drawing.Size(56, 13)
-        Me.Label_Animaciòn.TabIndex = 11
-        Me.Label_Animaciòn.Text = "Animaciòn"
         '
         'TabControl1
         '
@@ -149,10 +129,10 @@ Partial Class ConfigAdmin
         Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.Controls.Add(Me.TabPage4)
         Me.TabControl1.ImageList = Me.ImageList1
-        Me.TabControl1.Location = New System.Drawing.Point(511, 3)
+        Me.TabControl1.Location = New System.Drawing.Point(482, 3)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(472, 458)
+        Me.TabControl1.Size = New System.Drawing.Size(501, 458)
         Me.TabControl1.TabIndex = 12
         '
         'TabPage1
@@ -164,7 +144,7 @@ Partial Class ConfigAdmin
         Me.TabPage1.Location = New System.Drawing.Point(4, 39)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(464, 415)
+        Me.TabPage1.Size = New System.Drawing.Size(493, 415)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Buscar/Eliminar"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -189,7 +169,7 @@ Partial Class ConfigAdmin
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.DataGridView1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DataGridView1.EnableHeadersVisualStyles = False
-        Me.DataGridView1.Location = New System.Drawing.Point(0, 68)
+        Me.DataGridView1.Location = New System.Drawing.Point(0, 69)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
@@ -211,7 +191,7 @@ Partial Class ConfigAdmin
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White
         Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle3
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(464, 344)
+        Me.DataGridView1.Size = New System.Drawing.Size(493, 344)
         Me.DataGridView1.TabIndex = 18
         '
         'Label2
@@ -258,7 +238,7 @@ Partial Class ConfigAdmin
         Me.TabPage2.Location = New System.Drawing.Point(4, 39)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(464, 415)
+        Me.TabPage2.Size = New System.Drawing.Size(493, 415)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Registro"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -478,7 +458,7 @@ Partial Class ConfigAdmin
         Me.TabPage3.ImageKey = "usuario (1).png"
         Me.TabPage3.Location = New System.Drawing.Point(4, 39)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(464, 415)
+        Me.TabPage3.Size = New System.Drawing.Size(493, 415)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Editar"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -486,7 +466,7 @@ Partial Class ConfigAdmin
         'direccion
         '
         Me.direccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.direccion.Location = New System.Drawing.Point(256, 164)
+        Me.direccion.Location = New System.Drawing.Point(289, 165)
         Me.direccion.Name = "direccion"
         Me.direccion.Size = New System.Drawing.Size(164, 20)
         Me.direccion.TabIndex = 97
@@ -496,7 +476,7 @@ Partial Class ConfigAdmin
         'telefono
         '
         Me.telefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.telefono.Location = New System.Drawing.Point(256, 130)
+        Me.telefono.Location = New System.Drawing.Point(289, 131)
         Me.telefono.Name = "telefono"
         Me.telefono.Size = New System.Drawing.Size(164, 20)
         Me.telefono.TabIndex = 96
@@ -506,7 +486,7 @@ Partial Class ConfigAdmin
         'cedula
         '
         Me.cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.cedula.Location = New System.Drawing.Point(256, 91)
+        Me.cedula.Location = New System.Drawing.Point(289, 92)
         Me.cedula.Name = "cedula"
         Me.cedula.Size = New System.Drawing.Size(164, 20)
         Me.cedula.TabIndex = 95
@@ -516,7 +496,7 @@ Partial Class ConfigAdmin
         'apellido
         '
         Me.apellido.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.apellido.Location = New System.Drawing.Point(256, 51)
+        Me.apellido.Location = New System.Drawing.Point(289, 52)
         Me.apellido.Name = "apellido"
         Me.apellido.Size = New System.Drawing.Size(164, 20)
         Me.apellido.TabIndex = 94
@@ -526,7 +506,7 @@ Partial Class ConfigAdmin
         'nombre
         '
         Me.nombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.nombre.Location = New System.Drawing.Point(256, 15)
+        Me.nombre.Location = New System.Drawing.Point(289, 16)
         Me.nombre.Name = "nombre"
         Me.nombre.Size = New System.Drawing.Size(164, 20)
         Me.nombre.TabIndex = 93
@@ -535,7 +515,7 @@ Partial Class ConfigAdmin
         '
         'btn_editar_perfil
         '
-        Me.btn_editar_perfil.Location = New System.Drawing.Point(312, 315)
+        Me.btn_editar_perfil.Location = New System.Drawing.Point(345, 316)
         Me.btn_editar_perfil.Name = "btn_editar_perfil"
         Me.btn_editar_perfil.Size = New System.Drawing.Size(128, 23)
         Me.btn_editar_perfil.TabIndex = 92
@@ -545,7 +525,7 @@ Partial Class ConfigAdmin
         'ptb_perfil_editar
         '
         Me.ptb_perfil_editar.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.boss
-        Me.ptb_perfil_editar.Location = New System.Drawing.Point(219, 296)
+        Me.ptb_perfil_editar.Location = New System.Drawing.Point(252, 297)
         Me.ptb_perfil_editar.Name = "ptb_perfil_editar"
         Me.ptb_perfil_editar.Size = New System.Drawing.Size(77, 59)
         Me.ptb_perfil_editar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -555,16 +535,16 @@ Partial Class ConfigAdmin
         'dgveditar
         '
         Me.dgveditar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgveditar.Location = New System.Drawing.Point(14, 8)
+        Me.dgveditar.Location = New System.Drawing.Point(0, 0)
         Me.dgveditar.Name = "dgveditar"
-        Me.dgveditar.Size = New System.Drawing.Size(169, 390)
+        Me.dgveditar.Size = New System.Drawing.Size(219, 415)
         Me.dgveditar.TabIndex = 90
         '
         'Label10
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(424, 167)
+        Me.Label10.Location = New System.Drawing.Point(457, 168)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(16, 20)
         Me.Label10.TabIndex = 89
@@ -575,7 +555,7 @@ Partial Class ConfigAdmin
         Me.cb_dia_editar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cb_dia_editar.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cb_dia_editar.FormattingEnabled = True
-        Me.cb_dia_editar.Location = New System.Drawing.Point(197, 240)
+        Me.cb_dia_editar.Location = New System.Drawing.Point(230, 241)
         Me.cb_dia_editar.Name = "cb_dia_editar"
         Me.cb_dia_editar.Size = New System.Drawing.Size(77, 27)
         Me.cb_dia_editar.TabIndex = 88
@@ -585,7 +565,7 @@ Partial Class ConfigAdmin
         Me.cb_mes_editar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cb_mes_editar.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cb_mes_editar.FormattingEnabled = True
-        Me.cb_mes_editar.Location = New System.Drawing.Point(285, 240)
+        Me.cb_mes_editar.Location = New System.Drawing.Point(318, 241)
         Me.cb_mes_editar.Name = "cb_mes_editar"
         Me.cb_mes_editar.Size = New System.Drawing.Size(81, 27)
         Me.cb_mes_editar.TabIndex = 87
@@ -595,14 +575,14 @@ Partial Class ConfigAdmin
         Me.cb_anio_editar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cb_anio_editar.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cb_anio_editar.FormattingEnabled = True
-        Me.cb_anio_editar.Location = New System.Drawing.Point(378, 240)
+        Me.cb_anio_editar.Location = New System.Drawing.Point(411, 241)
         Me.cb_anio_editar.Name = "cb_anio_editar"
         Me.cb_anio_editar.Size = New System.Drawing.Size(78, 27)
         Me.cb_anio_editar.TabIndex = 86
         '
         'btn_guardar_editar
         '
-        Me.btn_guardar_editar.Location = New System.Drawing.Point(270, 375)
+        Me.btn_guardar_editar.Location = New System.Drawing.Point(303, 376)
         Me.btn_guardar_editar.Name = "btn_guardar_editar"
         Me.btn_guardar_editar.Size = New System.Drawing.Size(109, 23)
         Me.btn_guardar_editar.TabIndex = 79
@@ -613,7 +593,7 @@ Partial Class ConfigAdmin
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(252, 200)
+        Me.Label12.Location = New System.Drawing.Point(285, 201)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(136, 16)
         Me.Label12.TabIndex = 85
@@ -623,7 +603,7 @@ Partial Class ConfigAdmin
         '
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(192, 16)
+        Me.Label13.Location = New System.Drawing.Point(225, 17)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(57, 16)
         Me.Label13.TabIndex = 80
@@ -633,7 +613,7 @@ Partial Class ConfigAdmin
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(191, 52)
+        Me.Label14.Location = New System.Drawing.Point(224, 53)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(58, 16)
         Me.Label14.TabIndex = 81
@@ -643,7 +623,7 @@ Partial Class ConfigAdmin
         '
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(191, 92)
+        Me.Label15.Location = New System.Drawing.Point(224, 93)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(51, 16)
         Me.Label15.TabIndex = 82
@@ -653,7 +633,7 @@ Partial Class ConfigAdmin
         '
         Me.Label16.AutoSize = True
         Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(189, 165)
+        Me.Label16.Location = New System.Drawing.Point(222, 166)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(65, 16)
         Me.Label16.TabIndex = 84
@@ -663,7 +643,7 @@ Partial Class ConfigAdmin
         '
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(192, 131)
+        Me.Label19.Location = New System.Drawing.Point(225, 132)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(62, 16)
         Me.Label19.TabIndex = 83
@@ -677,7 +657,7 @@ Partial Class ConfigAdmin
         Me.TabPage4.Location = New System.Drawing.Point(4, 39)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(464, 415)
+        Me.TabPage4.Size = New System.Drawing.Size(493, 415)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "Ver Dados de baja"
         Me.TabPage4.UseVisualStyleBackColor = True
@@ -702,7 +682,7 @@ Partial Class ConfigAdmin
         Me.Dgv_Baja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.Dgv_Baja.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Dgv_Baja.EnableHeadersVisualStyles = False
-        Me.Dgv_Baja.Location = New System.Drawing.Point(0, 71)
+        Me.Dgv_Baja.Location = New System.Drawing.Point(1, 69)
         Me.Dgv_Baja.Name = "Dgv_Baja"
         Me.Dgv_Baja.ReadOnly = True
         Me.Dgv_Baja.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
@@ -724,7 +704,7 @@ Partial Class ConfigAdmin
         DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White
         Me.Dgv_Baja.RowsDefaultCellStyle = DataGridViewCellStyle6
         Me.Dgv_Baja.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.Dgv_Baja.Size = New System.Drawing.Size(464, 344)
+        Me.Dgv_Baja.Size = New System.Drawing.Size(492, 344)
         Me.Dgv_Baja.TabIndex = 18
         '
         'Label1
@@ -816,6 +796,7 @@ Partial Class ConfigAdmin
         'PictureBox1
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(67, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.PictureBox1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.cancel
         Me.PictureBox1.Location = New System.Drawing.Point(954, 6)
         Me.PictureBox1.Name = "PictureBox1"
@@ -827,6 +808,7 @@ Partial Class ConfigAdmin
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.Silver
+        Me.Panel2.Controls.Add(Me.Button2)
         Me.Panel2.Controls.Add(Me.Label20)
         Me.Panel2.Controls.Add(Me.Label3)
         Me.Panel2.Controls.Add(Me.RadioButton4)
@@ -840,13 +822,20 @@ Partial Class ConfigAdmin
         Me.Panel2.Controls.Add(Me.Label_BaseDatosTXT)
         Me.Panel2.Controls.Add(Me.Label_BaseDatos)
         Me.Panel2.Controls.Add(Me.TabControl1)
-        Me.Panel2.Controls.Add(Me.Label_Animaciòn)
-        Me.Panel2.Controls.Add(Me.ComboBox3)
         Me.Panel2.Controls.Add(Me.TreeView1)
         Me.Panel2.Location = New System.Drawing.Point(1, 38)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(986, 464)
         Me.Panel2.TabIndex = 19
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(71, 332)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(133, 23)
+        Me.Button2.TabIndex = 26
+        Me.Button2.Text = "Guardar Configuracion"
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'Label20
         '
@@ -860,7 +849,7 @@ Partial Class ConfigAdmin
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(7, 197)
+        Me.Label3.Location = New System.Drawing.Point(91, 250)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(87, 13)
         Me.Label3.TabIndex = 24
@@ -869,7 +858,7 @@ Partial Class ConfigAdmin
         'RadioButton4
         '
         Me.RadioButton4.AutoSize = True
-        Me.RadioButton4.Location = New System.Drawing.Point(11, 305)
+        Me.RadioButton4.Location = New System.Drawing.Point(152, 299)
         Me.RadioButton4.Name = "RadioButton4"
         Me.RadioButton4.Size = New System.Drawing.Size(67, 17)
         Me.RadioButton4.TabIndex = 23
@@ -879,7 +868,7 @@ Partial Class ConfigAdmin
         'RadioButton2
         '
         Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(11, 247)
+        Me.RadioButton2.Location = New System.Drawing.Point(71, 299)
         Me.RadioButton2.Name = "RadioButton2"
         Me.RadioButton2.Size = New System.Drawing.Size(69, 17)
         Me.RadioButton2.TabIndex = 21
@@ -890,7 +879,7 @@ Partial Class ConfigAdmin
         '
         Me.RadioButton1.AutoSize = True
         Me.RadioButton1.Checked = True
-        Me.RadioButton1.Location = New System.Drawing.Point(11, 224)
+        Me.RadioButton1.Location = New System.Drawing.Point(71, 276)
         Me.RadioButton1.Name = "RadioButton1"
         Me.RadioButton1.Size = New System.Drawing.Size(55, 17)
         Me.RadioButton1.TabIndex = 20
@@ -901,7 +890,7 @@ Partial Class ConfigAdmin
         'RadioButton3
         '
         Me.RadioButton3.AutoSize = True
-        Me.RadioButton3.Location = New System.Drawing.Point(11, 282)
+        Me.RadioButton3.Location = New System.Drawing.Point(152, 276)
         Me.RadioButton3.Name = "RadioButton3"
         Me.RadioButton3.Size = New System.Drawing.Size(50, 17)
         Me.RadioButton3.TabIndex = 22
@@ -911,6 +900,7 @@ Partial Class ConfigAdmin
         'ptbPerfilAdmin
         '
         Me.ptbPerfilAdmin.BackColor = System.Drawing.Color.DarkGray
+        Me.ptbPerfilAdmin.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ptbPerfilAdmin.Location = New System.Drawing.Point(72, 31)
         Me.ptbPerfilAdmin.Name = "ptbPerfilAdmin"
         Me.ptbPerfilAdmin.Size = New System.Drawing.Size(134, 132)
@@ -954,8 +944,6 @@ Partial Class ConfigAdmin
 
     End Sub
     Friend WithEvents TreeView1 As System.Windows.Forms.TreeView
-    Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
-    Friend WithEvents Label_Animaciòn As System.Windows.Forms.Label
     Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
     Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
@@ -1023,4 +1011,5 @@ Partial Class ConfigAdmin
     Friend WithEvents nombre As Proyecto_Biblioteca.PlaceHolder
     Friend WithEvents btn_editar_perfil As System.Windows.Forms.Button
     Friend WithEvents ptb_perfil_editar As System.Windows.Forms.PictureBox
+    Friend WithEvents Button2 As System.Windows.Forms.Button
 End Class

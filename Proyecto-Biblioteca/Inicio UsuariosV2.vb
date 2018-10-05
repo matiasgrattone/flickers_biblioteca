@@ -83,6 +83,9 @@
         DatagridModulo = DataGridView1
         Datagrid_Align()
 
+        'DataGridView1.Columns.Add(DataGridView1.Columns.Count - 1, "Ficha")
+   
+
 
     End Sub
 
@@ -353,6 +356,8 @@
 
                 Next
 
+                cargar2()
+
                 Dim x = 1
 
                 substring = mes_datagrid
@@ -384,7 +389,7 @@
                     x = x + 1
                 Next
 
-                cargar2()
+
 
             Case 3
 
@@ -961,12 +966,20 @@
 
     Private Sub cargar2()
         Try
-            Consulta = "select rutaperfil from usuarios where cedula ='" + cedula.Text + "'"
+            Consulta = "select rutaperfil from usuarios where cedula ='" & cedula.Text & "'"
             consultar()
-
             For Each row As DataRow In Tabla.Rows
-                ptbFotoEditar.ImageLocation = Convert.ToString(row("rutaperfil"))
+                ptbFotoEditar.Refresh()
+                ptbFotoEditar.ImageLocation = Convert.ToString("Fotos de socio\student.png")
+                If row("rutaperfil") Is DBNull.Value Or row("rutaperfil") Is "" Then
+                    ptbFotoEditar.Refresh()
+                    ptbFotoEditar.ImageLocation = Convert.ToString("Fotos de socio\student.png")
+                Else
+                    ptbFotoEditar.Refresh()
+                    ptbFotoEditar.ImageLocation = Convert.ToString(row("rutaperfil"))
+                End If
             Next
+
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -1026,6 +1039,24 @@
         Else
             MsgBox("Los campos de nombre y cedula deben de estar completos para realizar esto")
         End If
+
+    End Sub
+
+
+    Private Sub VerFichaToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles VerFichaToolStripMenuItem.Click
+
+        FichaSocio.FichaCedulaSocio = DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value
+        FichaSocio.Show()
+
+    End Sub
+
+    Private Sub DataGridView1_CellMouseUp(sender As System.Object, e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles DataGridView1.CellMouseDown
+
+
+
+    End Sub
+
+    Private Sub DataGridView1_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
 
     End Sub
 End Class

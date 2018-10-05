@@ -99,6 +99,12 @@
     <Compile Include="Betas\BusquedaRevistas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Alphas\ConfiguracionAdminV2.Designer.vb">
+      <DependentUpon>ConfiguracionAdminV2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Alphas\ConfiguracionAdminV2.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Betas\ConfiguraciònAdmin.Designer.vb">
       <DependentUpon>ConfiguraciònAdmin.vb</DependentUpon>
     </Compile>
@@ -264,6 +270,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Betas\BusquedaRevistas.resx">
       <DependentUpon>BusquedaRevistas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alphas\ConfiguracionAdminV2.resx">
+      <DependentUpon>ConfiguracionAdminV2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Betas\ConfiguraciònAdmin.resx">
       <DependentUpon>ConfiguraciònAdmin.vb</DependentUpon>

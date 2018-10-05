@@ -23,7 +23,7 @@ Partial Class NotasUsuario
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.PanelEditroDeTexto = New System.Windows.Forms.Panel()
-        Me.LabelDelEditor = New System.Windows.Forms.Label()
+        Me.ButtonRecordatorio = New System.Windows.Forms.Button()
         Me.EditorDeTexto = New System.Windows.Forms.TextBox()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -66,7 +66,9 @@ Partial Class NotasUsuario
         Me.Recordatorio3 = New System.Windows.Forms.Label()
         Me.TextoParaRecordar3 = New System.Windows.Forms.TextBox()
         Me.PanelRecordatorios = New System.Windows.Forms.Panel()
-        Me.ButtonRecordatorio = New System.Windows.Forms.Button()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Labels_transparentes1 = New Proyecto_Biblioteca.labels_transparentes()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PanelEditroDeTexto.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.PanelNotas.SuspendLayout()
@@ -75,37 +77,37 @@ Partial Class NotasUsuario
         Me.Panel4.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.PanelRecordatorios.SuspendLayout()
+        Me.Panel1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PanelEditroDeTexto
         '
         Me.PanelEditroDeTexto.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.PanelEditroDeTexto.Controls.Add(Me.LabelDelEditor)
         Me.PanelEditroDeTexto.Controls.Add(Me.ButtonRecordatorio)
         Me.PanelEditroDeTexto.Controls.Add(Me.EditorDeTexto)
         Me.PanelEditroDeTexto.Controls.Add(Me.MenuStrip1)
-        Me.PanelEditroDeTexto.Location = New System.Drawing.Point(0, 55)
+        Me.PanelEditroDeTexto.Location = New System.Drawing.Point(2, 55)
         Me.PanelEditroDeTexto.Name = "PanelEditroDeTexto"
-        Me.PanelEditroDeTexto.Size = New System.Drawing.Size(1039, 605)
+        Me.PanelEditroDeTexto.Size = New System.Drawing.Size(1039, 595)
         Me.PanelEditroDeTexto.TabIndex = 0
         '
-        'LabelDelEditor
+        'ButtonRecordatorio
         '
-        Me.LabelDelEditor.AutoSize = True
-        Me.LabelDelEditor.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.LabelDelEditor.Font = New System.Drawing.Font("Arial Rounded MT Bold", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelDelEditor.Location = New System.Drawing.Point(415, 2)
-        Me.LabelDelEditor.Name = "LabelDelEditor"
-        Me.LabelDelEditor.Size = New System.Drawing.Size(194, 22)
-        Me.LabelDelEditor.TabIndex = 2
-        Me.LabelDelEditor.Text = "Biblioteca Municipal"
+        Me.ButtonRecordatorio.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonRecordatorio.Location = New System.Drawing.Point(900, 3)
+        Me.ButtonRecordatorio.Name = "ButtonRecordatorio"
+        Me.ButtonRecordatorio.Size = New System.Drawing.Size(135, 23)
+        Me.ButtonRecordatorio.TabIndex = 4
+        Me.ButtonRecordatorio.Text = "< RECORDATORIOS"
+        Me.ButtonRecordatorio.UseVisualStyleBackColor = True
         '
         'EditorDeTexto
         '
-        Me.EditorDeTexto.Location = New System.Drawing.Point(4, 27)
+        Me.EditorDeTexto.Location = New System.Drawing.Point(5, 44)
         Me.EditorDeTexto.Multiline = True
         Me.EditorDeTexto.Name = "EditorDeTexto"
-        Me.EditorDeTexto.Size = New System.Drawing.Size(1031, 575)
+        Me.EditorDeTexto.Size = New System.Drawing.Size(1031, 548)
         Me.EditorDeTexto.TabIndex = 0
         '
         'MenuStrip1
@@ -128,25 +130,25 @@ Partial Class NotasUsuario
         'NuevoToolStripMenuItem
         '
         Me.NuevoToolStripMenuItem.Name = "NuevoToolStripMenuItem"
-        Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
         Me.NuevoToolStripMenuItem.Text = "Nuevo"
         '
         'AbrirToolStripMenuItem
         '
         Me.AbrirToolStripMenuItem.Name = "AbrirToolStripMenuItem"
-        Me.AbrirToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AbrirToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
         Me.AbrirToolStripMenuItem.Text = "Abrir"
         '
         'GuardarComoToolStripMenuItem
         '
         Me.GuardarComoToolStripMenuItem.Name = "GuardarComoToolStripMenuItem"
-        Me.GuardarComoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.GuardarComoToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
         Me.GuardarComoToolStripMenuItem.Text = "Guardar como"
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(149, 6)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(147, 6)
         '
         'EditarToolStripMenuItem
         '
@@ -455,22 +457,45 @@ Partial Class NotasUsuario
         Me.PanelRecordatorios.Size = New System.Drawing.Size(421, 595)
         Me.PanelRecordatorios.TabIndex = 0
         '
-        'ButtonRecordatorio
+        'Panel1
         '
-        Me.ButtonRecordatorio.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonRecordatorio.Location = New System.Drawing.Point(900, 3)
-        Me.ButtonRecordatorio.Name = "ButtonRecordatorio"
-        Me.ButtonRecordatorio.Size = New System.Drawing.Size(135, 23)
-        Me.ButtonRecordatorio.TabIndex = 4
-        Me.ButtonRecordatorio.Text = "< RECORDATORIOS"
-        Me.ButtonRecordatorio.UseVisualStyleBackColor = True
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(67, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.PictureBox1)
+        Me.Panel1.Controls.Add(Me.Labels_transparentes1)
+        Me.Panel1.Location = New System.Drawing.Point(2, 2)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(1039, 53)
+        Me.Panel1.TabIndex = 4
+        '
+        'Labels_transparentes1
+        '
+        Me.Labels_transparentes1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 14.25!)
+        Me.Labels_transparentes1.ForeColor = System.Drawing.Color.White
+        Me.Labels_transparentes1.Location = New System.Drawing.Point(398, 13)
+        Me.Labels_transparentes1.Name = "Labels_transparentes1"
+        Me.Labels_transparentes1.Size = New System.Drawing.Size(194, 23)
+        Me.Labels_transparentes1.TabIndex = 3
+        Me.Labels_transparentes1.Text = "Biblioteca Municipal"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(67, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.PictureBox1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.cancel
+        Me.PictureBox1.Location = New System.Drawing.Point(1003, 12)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(24, 24)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 4
+        Me.PictureBox1.TabStop = False
         '
         'NotasUsuario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(181, Byte), Integer), CType(CType(126, Byte), Integer), CType(CType(220, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1041, 617)
+        Me.ClientSize = New System.Drawing.Size(1043, 654)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.PanelNotas)
         Me.Controls.Add(Me.PanelEditroDeTexto)
         Me.Controls.Add(Me.PanelRecordatorios)
@@ -492,6 +517,8 @@ Partial Class NotasUsuario
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         Me.PanelRecordatorios.ResumeLayout(False)
+        Me.Panel1.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -506,7 +533,6 @@ Partial Class NotasUsuario
     Friend WithEvents Panel4 As System.Windows.Forms.Panel
     Friend WithEvents TextoParaRecordar1 As System.Windows.Forms.TextBox
     Friend WithEvents Recordatorio1 As System.Windows.Forms.Label
-    Friend WithEvents LabelDelEditor As System.Windows.Forms.Label
     Friend WithEvents Fecha3 As System.Windows.Forms.Label
     Friend WithEvents Fecha2 As System.Windows.Forms.Label
     Friend WithEvents Fecha1 As System.Windows.Forms.Label
@@ -540,4 +566,7 @@ Partial Class NotasUsuario
     Friend WithEvents FormatoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FuenteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ColorToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents Labels_transparentes1 As Proyecto_Biblioteca.labels_transparentes
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
 End Class

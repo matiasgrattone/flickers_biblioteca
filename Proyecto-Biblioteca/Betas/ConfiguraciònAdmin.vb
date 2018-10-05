@@ -29,6 +29,9 @@ Public Class ConfigAdmin
     Dim confirmacion As String
     Dim cedulaAdmin As String
     Dim cedulaUser As String
+
+    Dim graficaseleccionada As Integer 'que grafica selecciono el usuario para guardarla
+
     Private Sub listboxcarga()
         TreeView1.Nodes.Clear()
         TreeView1.Nodes.Add("Funcionarios")
@@ -71,7 +74,22 @@ Public Class ConfigAdmin
 
         listboxcarga()
         cargar()
-        ComboBox3.SelectedIndex = 0
+
+
+        Consulta = "select cod_grafica from MenuConfig where cod_usuario = '" & cedulaFotoPerfil & "'"
+        consultar()
+        For Each row As DataRow In Tabla.Rows
+            Select Case row("cod_grafica")
+                Case 1
+                    RadioButton1.Checked = True
+                Case 2
+                    RadioButton2.Checked = True
+                Case 3
+                    RadioButton3.Checked = True
+                Case 4
+                    RadioButton4.Checked = True
+            End Select
+        Next
 
         '/////////////////////////////////////////////////////////////////////////////////////////////
         '//////////////////////// Rellernar ComboBoxs Ingresar Usuarios //////////////////////////////
@@ -164,25 +182,6 @@ Public Class ConfigAdmin
 
     End Sub
 
-    Private Sub ComboBox3_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBox3.SelectedIndexChanged
-        ANIMACION = ComboBox3.SelectedItem
-        If ComboBox3.SelectedItem = 1 Then
-            MENU3.Timer_InicioLabel.Enabled = True
-            MENU3.Timer_LibrosLabel.Enabled = True
-            MENU3.Timer_NvegadorLabel.Enabled = True
-            MENU3.Timer_PrestamosLabel.Enabled = True
-            MENU3.Timer_UsuariosLabel.Enabled = True
-            MENU3.Timer_RevistasLabel.Enabled = True
-        Else
-            MENU3.label_usuarios.Left = 72
-            MENU3.label_libros.Left = 72
-            MENU3.LabelInicio.Left = 72
-            MENU3.LabelRevistas.Left = 72
-            MENU3.label_prestamos.Left = 72
-            MENU3.label_navegador.Left = 72
-
-        End If
-    End Sub
 
     Private Sub btn_guardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         i_ingresar = 0
@@ -443,7 +442,9 @@ Public Class ConfigAdmin
                 Consulta = "update usuarios set rutaperfil = '" & nombreArchivo & "' where cedula='" + cedulaFotoPerfil + "'"
                 consultar()
                 MsgBox("Cambio de perfil exitoso")
-                MENU3.Pbusuario.ImageLocation = nombreArchivo
+                If MENU3.lbl_cedula.Text = cedulaFotoPerfil Then
+                    MENU3.Pbusuario.ImageLocation = nombreArchivo
+                End If
             Catch ex As Exception
                 MsgBox(ex.Message)
             End Try
@@ -650,5 +651,34 @@ Public Class ConfigAdmin
             btn_editar_perfil.Visible = True
         Next
 
+    End Sub
+
+    Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
+
+        Consulta = "update MenuConfig  set cod_grafica ='" & graficaseleccionada & "' where cod_usuario = '" & cedulaFotoPerfil & "' "
+        consultar()
+        If cedulaFotoPerfil = MENU3.lbl_cedula.Text Then
+            MENU3.Chart()
+        End If
+    End Sub
+
+    Private Sub ptbPerfilAdmin_Click(sender As System.Object, e As System.EventArgs) Handles ptbPerfilAdmin.Click
+
+    End Sub
+
+    Private Sub RadioButton1_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton1.CheckedChanged
+        graficaseleccionada = 1
+    End Sub
+
+    Private Sub RadioButton2_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton2.CheckedChanged
+        graficaseleccionada = 2
+    End Sub
+
+    Private Sub RadioButton3_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton3.CheckedChanged
+        graficaseleccionada = 3
+    End Sub
+
+    Private Sub RadioButton4_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton4.CheckedChanged
+        graficaseleccionada = 4
     End Sub
 End Class
