@@ -138,6 +138,7 @@
     <Compile Include="Clases\CircleProgressBar.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Clases\MessageBox.vb" />
     <Compile Include="Clases\PictureboxBordesRedondos.vb">
       <SubType>Component</SubType>
     </Compile>
