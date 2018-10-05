@@ -95,6 +95,14 @@
             consultar()
             dgvregistro.DataSource = Tabla
 
+
+
+
+            jhjkhhgk()
+
+            jhgjhgjk()
+
+
         End If
     End Sub
 
