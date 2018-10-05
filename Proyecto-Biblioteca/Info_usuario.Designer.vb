@@ -23,57 +23,61 @@ Partial Class info_usuario
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(info_usuario))
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.LabelNombre = New System.Windows.Forms.Label()
+        Me.LabelCedula = New System.Windows.Forms.Label()
+        Me.LabelTipo = New System.Windows.Forms.Label()
+        Me.LabelMail = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.ptbperfil = New System.Windows.Forms.PictureBox()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         CType(Me.ptbperfil, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Label1
+        'LabelNombre
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(25, 54)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(39, 13)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Label1"
+        Me.LabelNombre.AutoSize = True
+        Me.LabelNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold)
+        Me.LabelNombre.Location = New System.Drawing.Point(11, 21)
+        Me.LabelNombre.Name = "LabelNombre"
+        Me.LabelNombre.Size = New System.Drawing.Size(83, 25)
+        Me.LabelNombre.TabIndex = 0
+        Me.LabelNombre.Text = "Label1"
         '
-        'Label2
+        'LabelCedula
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(25, 99)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(39, 13)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Label2"
+        Me.LabelCedula.AutoSize = True
+        Me.LabelCedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelCedula.Location = New System.Drawing.Point(13, 62)
+        Me.LabelCedula.Name = "LabelCedula"
+        Me.LabelCedula.Size = New System.Drawing.Size(55, 16)
+        Me.LabelCedula.TabIndex = 1
+        Me.LabelCedula.Text = "Label2"
         '
-        'Label3
+        'LabelTipo
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(25, 145)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(39, 13)
-        Me.Label3.TabIndex = 2
-        Me.Label3.Text = "Label3"
+        Me.LabelTipo.AutoSize = True
+        Me.LabelTipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelTipo.Location = New System.Drawing.Point(13, 94)
+        Me.LabelTipo.Name = "LabelTipo"
+        Me.LabelTipo.Size = New System.Drawing.Size(55, 16)
+        Me.LabelTipo.TabIndex = 2
+        Me.LabelTipo.Text = "Label3"
         '
-        'Label4
+        'LabelMail
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(25, 195)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(39, 13)
-        Me.Label4.TabIndex = 3
-        Me.Label4.Text = "Label4"
+        Me.LabelMail.AutoSize = True
+        Me.LabelMail.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelMail.Location = New System.Drawing.Point(13, 408)
+        Me.LabelMail.Name = "LabelMail"
+        Me.LabelMail.Size = New System.Drawing.Size(55, 16)
+        Me.LabelMail.TabIndex = 3
+        Me.LabelMail.Text = "Label4"
         '
         'Panel1
         '
@@ -101,14 +105,23 @@ Partial Class info_usuario
         Me.Panel2.Controls.Add(Me.Button2)
         Me.Panel2.Controls.Add(Me.Button1)
         Me.Panel2.Controls.Add(Me.ptbperfil)
-        Me.Panel2.Controls.Add(Me.Label4)
-        Me.Panel2.Controls.Add(Me.Label3)
-        Me.Panel2.Controls.Add(Me.Label2)
-        Me.Panel2.Controls.Add(Me.Label1)
+        Me.Panel2.Controls.Add(Me.LabelMail)
+        Me.Panel2.Controls.Add(Me.LabelTipo)
+        Me.Panel2.Controls.Add(Me.LabelCedula)
+        Me.Panel2.Controls.Add(Me.LabelNombre)
         Me.Panel2.Location = New System.Drawing.Point(1, 42)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(380, 452)
         Me.Panel2.TabIndex = 6
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(236, 193)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(121, 23)
+        Me.Button2.TabIndex = 6
+        Me.Button2.Text = "Guardar Imagen Perfil"
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'Button1
         '
@@ -128,15 +141,6 @@ Partial Class info_usuario
         Me.ptbperfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.ptbperfil.TabIndex = 4
         Me.ptbperfil.TabStop = False
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(236, 193)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(121, 23)
-        Me.Button2.TabIndex = 6
-        Me.Button2.Text = "Guardar Imagen Perfil"
-        Me.Button2.UseVisualStyleBackColor = True
         '
         'info_usuario
         '
@@ -159,10 +163,10 @@ Partial Class info_usuario
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents LabelNombre As System.Windows.Forms.Label
+    Friend WithEvents LabelCedula As System.Windows.Forms.Label
+    Friend WithEvents LabelTipo As System.Windows.Forms.Label
+    Friend WithEvents LabelMail As System.Windows.Forms.Label
     Friend WithEvents ptbperfil As System.Windows.Forms.PictureBox
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents Panel2 As System.Windows.Forms.Panel

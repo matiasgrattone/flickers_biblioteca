@@ -832,7 +832,11 @@ Public Class MENU3
 
 
             Catch ex As Exception
-                MsgBox(ex.Message)
+                If (ex.Message.ToLowerInvariant().Contains("double")) Then
+                    MsgBox("Cedula Incorrecta")
+                Else
+                    MsgBox(ex.Message)
+                End If
             End Try
         End If
 
@@ -1012,6 +1016,7 @@ Public Class MENU3
 
                             ChartPrestamosDia.ChartAreas("Prestamos Del Dia").Area3DStyle.Enable3D = True
                             ChartPrestamosDia.Series("Prestamos Del Dia").ChartType = DataVisualization.Charting.SeriesChartType.Column
+                            ChartPrestamosDia.ChartAreas("Prestamos Del Dia").Area3DStyle.Rotation = 0
 
                         Case 3
 
@@ -1288,6 +1293,22 @@ Public Class MENU3
     End Sub
 
     Private Sub Pbusuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbusuario.Click
+
+        Consulta = "select cedula , nombre , mail , tipo from usuarios where cedula = '" & lbl_cedula.Text & "'"
+        consultar()
+        For Each row As DataRow In Tabla.Rows
+            If row("cedula") IsNot DBNull.Value Then
+                info_usuario.LabelCedula.Text = row("cedula")
+                info_usuario.LabelMail.Text = row("mail")
+                info_usuario.LabelNombre.Text = row("nombre")
+                Select Case row("tipo")
+                    Case 0
+                        info_usuario.LabelTipo.Text = "Administrador"
+                    Case 1
+                        info_usuario.LabelTipo.Text = "Funcionario"
+                End Select
+            End If
+        Next
         info_usuario.Show()
     End Sub
 
