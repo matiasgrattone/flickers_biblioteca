@@ -556,7 +556,7 @@ Public Class MENU3
         Try
             Wbnavegador.Navigate(url)
         Catch ex As Exception
-            MessageBox.Show("Lo siento. Si has llegado hasta este mensaje ocurrió un error, pero tranquilo que no pasa nada", "Genesis Navigator")
+            MsgBox("Lo siento. Si has llegado hasta este mensaje ocurrió un error, pero tranquilo que no pasa nada", "Genesis Navigator")
         End Try
     End Sub
 

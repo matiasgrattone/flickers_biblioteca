@@ -240,11 +240,11 @@ Module Modulo
             'Destruimos el objeto de correo
             Email.Dispose()
 
-            MessageBox.Show("Correo enviado.", "Mail Sender", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MsgBox("Correo enviado.", "Mail Sender", MsgBoxStyle.OkOnly & MsgBoxStyle.Information)
 
         Catch ex As Exception
-            MessageBox.Show("Ocurrio un error al enviar el correo: " & ex.Message,
-            "Mail Sender", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MsgBox("Ocurrio un error al enviar el correo: " & ex.Message,
+            "Mail Sender", MsgBoxStyle.OkOnly & MsgBoxStyle.Critical)
         End Try
 
     End Sub
