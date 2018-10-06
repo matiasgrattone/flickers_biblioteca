@@ -48,7 +48,6 @@ Partial Class Prestamos
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GrupBoxDevolucion = New System.Windows.Forms.GroupBox()
         Me.DataGridParaDevolucion = New System.Windows.Forms.DataGridView()
-        Me.Button5 = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.ENPODER = New System.Windows.Forms.Label()
         Me.GrupBoxExtraccion = New System.Windows.Forms.GroupBox()
@@ -236,7 +235,6 @@ Partial Class Prestamos
         '
         Me.GrupBoxDevolucion.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.GrupBoxDevolucion.Controls.Add(Me.DataGridParaDevolucion)
-        Me.GrupBoxDevolucion.Controls.Add(Me.Button5)
         Me.GrupBoxDevolucion.Controls.Add(Me.Label11)
         Me.GrupBoxDevolucion.Controls.Add(Me.ENPODER)
         Me.GrupBoxDevolucion.Location = New System.Drawing.Point(263, 98)
@@ -290,15 +288,6 @@ Partial Class Prestamos
         Me.DataGridParaDevolucion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridParaDevolucion.Size = New System.Drawing.Size(727, 401)
         Me.DataGridParaDevolucion.TabIndex = 82
-        '
-        'Button5
-        '
-        Me.Button5.Location = New System.Drawing.Point(398, 85)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(98, 34)
-        Me.Button5.TabIndex = 63
-        Me.Button5.Text = "Modo devolucion"
-        Me.Button5.UseVisualStyleBackColor = True
         '
         'Label11
         '
@@ -803,10 +792,10 @@ Partial Class Prestamos
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.PanelDelCarrito)
-        Me.Controls.Add(Me.GrupBoxExtraccion)
         Me.Controls.Add(Me.GrupBoxDevolucion)
         Me.Controls.Add(Me.CrearReservacionGrupBox)
         Me.Controls.Add(Me.ReservacionGrupBox)
+        Me.Controls.Add(Me.GrupBoxExtraccion)
         Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Prestamos"
@@ -857,7 +846,6 @@ Partial Class Prestamos
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
-    Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents PictureExtraccion As System.Windows.Forms.PictureBox
     Friend WithEvents PictureCrearReservacion As System.Windows.Forms.PictureBox
     Friend WithEvents PictureReservacion As System.Windows.Forms.PictureBox

@@ -10,9 +10,6 @@
 
     Dim VALIDADOR As String
 
-    '///PARA HACER LAS DEVOLUCIONES SE EXPLICA MAS ADELANTE///
-    Dim modoDevoluciones As String = "devolucion"
-
     '///PARA QUE LA CEDULA SE PUEDA EDITAR///
     Dim ModoCedula As String = "Buscar"
     'Dim panelnombre As Integer = 0
@@ -579,60 +576,50 @@
         End If
     End Sub
 
-
-    '///MODO DEVOLUCION///
-    Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
-        Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
-        consultar()
-
-        DataGridParaDevolucion.DataSource = Tabla
-        modoDevoluciones = "devolucion"
-    End Sub
-
     '///PARA DEVOLVER EL LIBRO///
     Private Sub DataGridParaDevolucion_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridParaDevolucion.CellDoubleClick
-        If modoDevoluciones = "devolucion" Then
-
-            Try
-
-                Libro1 = DataGridParaDevolucion.Item(1, DataGridParaDevolucion.CurrentRow.Index).Value
-                cod_libros = DataGridParaDevolucion.Item(0, DataGridParaDevolucion.CurrentRow.Index).Value
 
 
+        Try
 
-                z = 0
-                z = MsgBox("Desea devolver el libro " & Libro1 & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
+            Libro1 = DataGridParaDevolucion.Item(1, DataGridParaDevolucion.CurrentRow.Index).Value
+            cod_libros = DataGridParaDevolucion.Item(0, DataGridParaDevolucion.CurrentRow.Index).Value
 
-                '       1) Si se devuelve el libro con un si, se actualiza la Base da datos 
-                If z = vbYes Then
 
-                    Consulta = "update libro set estado = 0 where cod_libro = '" & cod_libros & "'"
-                    consultar()
-                    Consulta = "UPDATE prestamolibro SET cod_devuelto = '" & MENU3.lbl_cedula.Text & "' WHERE cedula = '" & Cedula.Text & "' and cod_libro ='" & cod_libros & "'"
-                    consultar()
-                    Consulta = "UPDATE prestamolibro SET fecha_entrada = '" & Date.Now.ToString("yyyy-MM-dd") & "' WHERE cedula = '" & Cedula.Text & "' and cod_libro ='" & cod_libros & "'"
-                    consultar()
-                    MsgBox("Se ha devuelto", Title:="PRESTAMO")
 
-                    Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
-                    consultar()
-                    DataGridParaDevolucion.DataSource = Tabla
+            z = 0
+            z = MsgBox("Desea devolver el libro " & Libro1 & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
 
-                Else
+            '       1) Si se devuelve el libro con un si, se actualiza la Base da datos 
+            If z = vbYes Then
 
-                    MsgBox("Este libro no se devolvio", Title:="PRESTAMOS")
+                Consulta = "update libro set estado = 0 where cod_libro = '" & cod_libros & "'"
+                consultar()
+                Consulta = "UPDATE prestamolibro SET cod_devuelto = '" & MENU3.lbl_cedula.Text & "' WHERE cedula = '" & Cedula.Text & "' and cod_libro ='" & cod_libros & "'"
+                consultar()
+                Consulta = "UPDATE prestamolibro SET fecha_entrada = '" & Date.Now.ToString("yyyy-MM-dd") & "' WHERE cedula = '" & Cedula.Text & "' and cod_libro ='" & cod_libros & "'"
+                consultar()
+                MsgBox("Se ha devuelto", Title:="PRESTAMO")
 
-                    Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
-                    consultar()
-                    DataGridParaDevolucion.DataSource = Tabla
+                Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
+                consultar()
+                DataGridParaDevolucion.DataSource = Tabla
 
-                End If
-            Catch ex As Exception
+            Else
 
                 MsgBox("Este libro no se devolvio", Title:="PRESTAMOS")
 
-            End Try
-        End If
+                Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
+                consultar()
+                DataGridParaDevolucion.DataSource = Tabla
+
+            End If
+        Catch ex As Exception
+
+            MsgBox("Este libro no se devolvio", Title:="PRESTAMOS")
+
+        End Try
+
     End Sub
 
     '///////////////////////CREAR RESERVACION///////////////////
