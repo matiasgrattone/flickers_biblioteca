@@ -71,6 +71,7 @@ Partial Class Prestamos
         Me.ButtonVERREGISTRO = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.LabelSELECCION_DE_FUNCION = New System.Windows.Forms.Label()
+        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.PictureCrearReservacion = New System.Windows.Forms.PictureBox()
         Me.PictureReservacion = New System.Windows.Forms.PictureBox()
         Me.PictureDevolucion = New System.Windows.Forms.PictureBox()
@@ -85,7 +86,6 @@ Partial Class Prestamos
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.PanelDelCarrito.SuspendLayout()
         Me.GrupBoxDevolucion.SuspendLayout()
         CType(Me.DataGridParaDevolucion, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -607,6 +607,16 @@ Partial Class Prestamos
         Me.LabelSELECCION_DE_FUNCION.TabIndex = 66
         Me.LabelSELECCION_DE_FUNCION.Text = "SELECCION " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      DE " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FUNCION "
         '
+        'Cedula
+        '
+        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.Cedula.Location = New System.Drawing.Point(3, 50)
+        Me.Cedula.Name = "Cedula"
+        Me.Cedula.Size = New System.Drawing.Size(259, 20)
+        Me.Cedula.TabIndex = 0
+        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
+        Me.Cedula.WaterMarkText = "Cedula"
+        '
         'PictureCrearReservacion
         '
         Me.PictureCrearReservacion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.crear_reserva
@@ -783,16 +793,6 @@ Partial Class Prestamos
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1016, 38)
         Me.Panel2.TabIndex = 78
-        '
-        'Cedula
-        '
-        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Cedula.Location = New System.Drawing.Point(3, 50)
-        Me.Cedula.Name = "Cedula"
-        Me.Cedula.Size = New System.Drawing.Size(259, 20)
-        Me.Cedula.TabIndex = 0
-        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
-        Me.Cedula.WaterMarkText = "Cedula"
         '
         'Prestamos
         '

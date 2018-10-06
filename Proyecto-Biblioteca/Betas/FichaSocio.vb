@@ -147,11 +147,15 @@
         Me.Cursor = Cursors.Hand
     End Sub
 
-    Private Sub Panel5_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles Panel5.Paint
-
-    End Sub
-
     Private Sub PictureBox4_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox4.Click
         Me.Close()
+    End Sub
+
+    Private Sub PictureBox3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox3.Click
+
+        FichaParaImprimir.Show()
+
+
+       
     End Sub
 End Class

@@ -994,4 +994,8 @@
     Private Sub DataGridViewlllllVerLibrosEnExtraccionlllll_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridViewlllllVerLibrosEnExtraccionlllll.CellContentClick
 
     End Sub
+
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        FichaParaImprimir.Show()
+    End Sub
 End Class

@@ -57,10 +57,8 @@ C:\Users\Cristina.DESKTOP-QPL135E\Documents\GitHub\flickers_biblioteca\Proyecto-
 C:\Users\Cristina.DESKTOP-QPL135E\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.vbproj.GenerateResource.Cache
 C:\Users\Cristina.DESKTOP-QPL135E\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Inicio_UsuariosV2.resources
 C:\Users\Usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.exe
-C:\Users\Usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.xml
 C:\Users\Usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.pdb
 C:\Users\Usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\Proyecto-Biblioteca.pdb
-C:\Users\Usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\Proyecto-Biblioteca.xml
 C:\Users\Usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.vbprojResolveAssemblyReference.cache
 C:\Users\Usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Form1.resources
 C:\Users\Usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Inicio_UsuariosV2.resources
@@ -171,7 +169,6 @@ C:\Users\Matias\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Deb
 C:\Users\Matias\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.NotasUsuario.resources
 C:\Users\rex\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.NotasUsuario.resources
 C:\Users\usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.ConfigAdmin.resources
-C:\Users\usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Form3.resources
 C:\Users\usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.NotasUsuario.resources
 C:\Users\usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.FichaSocio.resources
 C:\Users\usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.PantallaDeBloqueo.resources
@@ -179,3 +176,9 @@ C:\Users\PC Guille\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\
 C:\Users\guill\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.TomarFoto.resources
 C:\Users\Matias\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.TomarFoto.resources
 C:\Users\Matias\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.ConfiguracionAdminV2.resources
+C:\Users\usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\mysql.data.dll
+C:\Users\usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.ConfiguracionAdminV2.resources
+C:\Users\usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.TomarFoto.resources
+C:\Users\usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\Proyecto-Biblioteca.xml
+C:\Users\usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.xml
+C:\Users\usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.FichaParaImprimir.resources
