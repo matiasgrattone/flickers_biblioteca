@@ -153,9 +153,10 @@
 
     Private Sub PictureBox3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox3.Click
 
-        FichaParaImprimir.Show()
-
+        FichaParaImprimir2.Show()
+        FichaParaImprimir2.Hide()
 
        
     End Sub
+
 End Class

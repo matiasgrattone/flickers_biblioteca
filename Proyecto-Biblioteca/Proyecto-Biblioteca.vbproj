@@ -117,6 +117,12 @@
     <Compile Include="Betas\FichaParaImprimir.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Betas\FichaParaImprimirNumero2.Designer.vb">
+      <DependentUpon>FichaParaImprimirNumero2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Betas\FichaParaImprimirNumero2.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Betas\PrestamoRevistas.Designer.vb">
       <DependentUpon>PrestamoRevistas.vb</DependentUpon>
     </Compile>
@@ -286,6 +292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Betas\FichaParaImprimir.resx">
       <DependentUpon>FichaParaImprimir.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Betas\FichaParaImprimirNumero2.resx">
+      <DependentUpon>FichaParaImprimirNumero2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Betas\PrestamoRevistas.resx">
       <DependentUpon>PrestamoRevistas.vb</DependentUpon>

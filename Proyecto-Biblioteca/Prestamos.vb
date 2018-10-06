@@ -982,6 +982,6 @@
     End Sub
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        FichaParaImprimir.Show()
+        FichaParaImprimir2.Show()
     End Sub
 End Class
