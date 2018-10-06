@@ -26,6 +26,8 @@ Partial Class PantallaDeBloqueo
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -50,6 +52,16 @@ Partial Class PantallaDeBloqueo
         '
         Me.Timer1.Interval = 60
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.Sin_título_1
+        Me.PictureBox1.Location = New System.Drawing.Point(0, 100)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(1127, 555)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 2
+        Me.PictureBox1.TabStop = False
+        '
         'PantallaDeBloqueo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -57,10 +69,12 @@ Partial Class PantallaDeBloqueo
         Me.ClientSize = New System.Drawing.Size(1126, 653)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.PictureBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "PantallaDeBloqueo"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "PantallaDeBloqueo"
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -68,4 +82,5 @@ Partial Class PantallaDeBloqueo
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
 End Class
