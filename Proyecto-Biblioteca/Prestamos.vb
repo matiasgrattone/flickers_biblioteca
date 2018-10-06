@@ -47,7 +47,6 @@
         BotonParaBuscarCedula.Visible = True
 
 
-
         '//////////////////////////////////////VARIABLES PARA RALIZAR "CONSULTAS Y IFs" SIN ERRORES///////////////////////
 
         Dim Contador As Integer = 0
