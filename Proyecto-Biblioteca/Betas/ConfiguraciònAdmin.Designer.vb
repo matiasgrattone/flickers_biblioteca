@@ -29,6 +29,9 @@ Partial Class ConfigAdmin
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ConfigAdmin))
         Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
@@ -57,6 +60,7 @@ Partial Class ConfigAdmin
         Me.nombre_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.direccion_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.dgveditar = New System.Windows.Forms.DataGridView()
         Me.direccion = New Proyecto_Biblioteca.PlaceHolder()
         Me.telefono = New Proyecto_Biblioteca.PlaceHolder()
         Me.cedula = New Proyecto_Biblioteca.PlaceHolder()
@@ -64,7 +68,6 @@ Partial Class ConfigAdmin
         Me.nombre = New Proyecto_Biblioteca.PlaceHolder()
         Me.btn_editar_perfil = New System.Windows.Forms.Button()
         Me.ptb_perfil_editar = New System.Windows.Forms.PictureBox()
-        Me.dgveditar = New System.Windows.Forms.DataGridView()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.cb_dia_editar = New System.Windows.Forms.ComboBox()
         Me.cb_mes_editar = New System.Windows.Forms.ComboBox()
@@ -104,8 +107,8 @@ Partial Class ConfigAdmin
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
         Me.TabPage3.SuspendLayout()
-        CType(Me.ptb_perfil_editar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgveditar, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ptb_perfil_editar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage4.SuspendLayout()
         CType(Me.Dgv_Baja, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -436,6 +439,7 @@ Partial Class ConfigAdmin
         '
         'TabPage3
         '
+        Me.TabPage3.Controls.Add(Me.dgveditar)
         Me.TabPage3.Controls.Add(Me.direccion)
         Me.TabPage3.Controls.Add(Me.telefono)
         Me.TabPage3.Controls.Add(Me.cedula)
@@ -443,7 +447,6 @@ Partial Class ConfigAdmin
         Me.TabPage3.Controls.Add(Me.nombre)
         Me.TabPage3.Controls.Add(Me.btn_editar_perfil)
         Me.TabPage3.Controls.Add(Me.ptb_perfil_editar)
-        Me.TabPage3.Controls.Add(Me.dgveditar)
         Me.TabPage3.Controls.Add(Me.Label10)
         Me.TabPage3.Controls.Add(Me.cb_dia_editar)
         Me.TabPage3.Controls.Add(Me.cb_mes_editar)
@@ -462,6 +465,51 @@ Partial Class ConfigAdmin
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Editar"
         Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'dgveditar
+        '
+        Me.dgveditar.AllowUserToAddRows = False
+        Me.dgveditar.AllowUserToDeleteRows = False
+        Me.dgveditar.AllowUserToResizeColumns = False
+        Me.dgveditar.AllowUserToResizeRows = False
+        Me.dgveditar.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.dgveditar.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgveditar.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        Me.dgveditar.ColumnHeadersHeight = 40
+        Me.dgveditar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.dgveditar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.dgveditar.EnableHeadersVisualStyles = False
+        Me.dgveditar.Location = New System.Drawing.Point(0, 0)
+        Me.dgveditar.Name = "dgveditar"
+        Me.dgveditar.ReadOnly = True
+        Me.dgveditar.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgveditar.RowHeadersDefaultCellStyle = DataGridViewCellStyle5
+        Me.dgveditar.RowHeadersVisible = False
+        Me.dgveditar.RowHeadersWidth = 50
+        Me.dgveditar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White
+        Me.dgveditar.RowsDefaultCellStyle = DataGridViewCellStyle6
+        Me.dgveditar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgveditar.Size = New System.Drawing.Size(219, 415)
+        Me.dgveditar.TabIndex = 19
         '
         'direccion
         '
@@ -531,14 +579,6 @@ Partial Class ConfigAdmin
         Me.ptb_perfil_editar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.ptb_perfil_editar.TabIndex = 91
         Me.ptb_perfil_editar.TabStop = False
-        '
-        'dgveditar
-        '
-        Me.dgveditar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgveditar.Location = New System.Drawing.Point(0, 0)
-        Me.dgveditar.Name = "dgveditar"
-        Me.dgveditar.Size = New System.Drawing.Size(219, 415)
-        Me.dgveditar.TabIndex = 90
         '
         'Label10
         '
@@ -670,14 +710,14 @@ Partial Class ConfigAdmin
         Me.Dgv_Baja.AllowUserToResizeRows = False
         Me.Dgv_Baja.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.Dgv_Baja.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Dgv_Baja.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Dgv_Baja.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
         Me.Dgv_Baja.ColumnHeadersHeight = 40
         Me.Dgv_Baja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.Dgv_Baja.Cursor = System.Windows.Forms.Cursors.Hand
@@ -686,23 +726,23 @@ Partial Class ConfigAdmin
         Me.Dgv_Baja.Name = "Dgv_Baja"
         Me.Dgv_Baja.ReadOnly = True
         Me.Dgv_Baja.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.Gray
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Dgv_Baja.RowHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle8.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Dgv_Baja.RowHeadersDefaultCellStyle = DataGridViewCellStyle8
         Me.Dgv_Baja.RowHeadersVisible = False
         Me.Dgv_Baja.RowHeadersWidth = 50
         Me.Dgv_Baja.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.Gray
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White
-        Me.Dgv_Baja.RowsDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle9.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White
+        Me.Dgv_Baja.RowsDefaultCellStyle = DataGridViewCellStyle9
         Me.Dgv_Baja.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.Dgv_Baja.Size = New System.Drawing.Size(492, 344)
         Me.Dgv_Baja.TabIndex = 18
@@ -929,8 +969,8 @@ Partial Class ConfigAdmin
         Me.TabPage2.PerformLayout()
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage3.PerformLayout()
-        CType(Me.ptb_perfil_editar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgveditar, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ptb_perfil_editar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage4.ResumeLayout(False)
         Me.TabPage4.PerformLayout()
         CType(Me.Dgv_Baja, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1003,7 +1043,6 @@ Partial Class ConfigAdmin
     Friend WithEvents Label16 As System.Windows.Forms.Label
     Friend WithEvents Label19 As System.Windows.Forms.Label
     Friend WithEvents Label20 As System.Windows.Forms.Label
-    Friend WithEvents dgveditar As System.Windows.Forms.DataGridView
     Friend WithEvents direccion As Proyecto_Biblioteca.PlaceHolder
     Friend WithEvents telefono As Proyecto_Biblioteca.PlaceHolder
     Friend WithEvents cedula As Proyecto_Biblioteca.PlaceHolder
@@ -1012,4 +1051,5 @@ Partial Class ConfigAdmin
     Friend WithEvents btn_editar_perfil As System.Windows.Forms.Button
     Friend WithEvents ptb_perfil_editar As System.Windows.Forms.PictureBox
     Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents dgveditar As System.Windows.Forms.DataGridView
 End Class

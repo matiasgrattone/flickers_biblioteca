@@ -169,6 +169,8 @@ Public Class ConfigAdmin
         Consulta = "select cedula As 'Cedula', nombre As 'Nombre' from usuarios where tipo = 1"
         consultar()
         dgveditar.DataSource = Tabla
+        DatagridModulo = dgveditar
+        Datagrid_Align()
 
         btn_guardar_editar.Visible = False
         btn_editar_perfil.Visible = False
@@ -621,10 +623,6 @@ Public Class ConfigAdmin
         End If
     End Sub
 
-    Private Sub dgveditar_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgveditar.CellContentClick
-
-    End Sub
-
     Private Sub dgveditar_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgveditar.CellDoubleClick
         cedu_editar = dgveditar.Item(0, dgveditar.CurrentRow.Index).Value
 
@@ -680,5 +678,9 @@ Public Class ConfigAdmin
 
     Private Sub RadioButton4_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton4.CheckedChanged
         graficaseleccionada = 4
+    End Sub
+
+    Private Sub Panel2_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles Panel2.Paint
+
     End Sub
 End Class

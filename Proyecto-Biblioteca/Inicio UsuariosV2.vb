@@ -90,7 +90,7 @@
     End Sub
 
     Private Sub PlaceHolder1_TextChanged(sender As System.Object, e As System.EventArgs) Handles PlaceHolder1.TextChanged
-        Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento from usuarios where cedula like '" & PlaceHolder1.Text & "%' and estado = 1 and tipo = 1"
+        Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento from usuarios where cedula like '" & PlaceHolder1.Text & "%' and estado = 1 and tipo = 2"
         consultar()
         DataGridView1.DataSource = Tabla
     End Sub
@@ -98,6 +98,12 @@
     Private Sub PictureBox1_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox1.Click
         seleccionado = 1
         PanelMenu()
+        nombre_txt.Clear()
+        apellido_txt.Clear()
+        cedula_txt.Clear()
+        telefono_txt.Clear()
+        direccion_txt.Clear()
+        PlaceHolderMail.Clear()
     End Sub
 
     Private Sub PictureBox3_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox3.Click
@@ -210,9 +216,15 @@
                         '///////////////////////////////////////DIA////////////////////////////////////////////
                         For i As Integer = 0 To 31
                             If i = 0 Then
+
                                 ComboBox4.Items.Add("Dia")
                             Else
-                                ComboBox4.Items.Add(i)
+                                If i.ToString.Length = 1 Then
+                                    ComboBox4.Items.Add("0" & i)
+                                Else
+                                    ComboBox4.Items.Add(i)
+                                End If
+
                             End If
                         Next
                         '//////////////////////////////////////////////////////////////////////////////////////////
@@ -370,6 +382,9 @@
                     End If
                     x = x + 1
                 Next
+
+
+                ComboBox4.SelectedText = dia_datagrid.ToString
 
                 x = 1
 
@@ -729,15 +744,15 @@
         Try
             If mouse = 0 Then
 
-                Dim nombre1 As String = ""
-                Dim apellido1 As String = ""
-                Dim cedula1 As String = ""
-                Dim telefono1 As String = ""
-                Dim direccion1 As String = ""
-                Dim dia2 As String = ""
-                Dim mes2 As String = ""
-                Dim año2 As String = ""
-                Dim dianum As String
+                Dim nombre1 As String = "0"
+                Dim apellido1 As String = "0"
+                Dim cedula1 As String = "0"
+                Dim telefono1 As String = "0"
+                Dim direccion1 As String = "0"
+                Dim dia2 As String = "0"
+                Dim mes2 As String = "0"
+                Dim año2 As String = "0"
+                Dim dianum As String = "0"
                 Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento , tipo from usuarios where cedula = '" & DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value & "'"
                 consultar()
 
@@ -1050,13 +1065,12 @@
 
     End Sub
 
-    Private Sub DataGridView1_CellMouseUp(sender As System.Object, e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles DataGridView1.CellMouseDown
-
-
-
+    Private Sub RadioButton2_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton2.CheckedChanged
+        PlaceHolderMail.Visible = False
+        Label_Mail.Visible = False
     End Sub
-
-    Private Sub DataGridView1_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-
+    Private Sub RadioButton1_CheckedChanged_1(sender As System.Object, e As System.EventArgs) Handles RadioButton1.CheckedChanged
+        PlaceHolderMail.Visible = True
+        Label_Mail.Visible = True
     End Sub
 End Class
