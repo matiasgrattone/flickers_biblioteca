@@ -67,8 +67,8 @@ Partial Class NotasUsuario
         Me.TextoParaRecordar3 = New System.Windows.Forms.TextBox()
         Me.PanelRecordatorios = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Labels_transparentes1 = New Proyecto_Biblioteca.labels_transparentes()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Labels_transparentes1 = New Proyecto_Biblioteca.labels_transparentes()
         Me.PanelEditroDeTexto.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.PanelNotas.SuspendLayout()
@@ -467,16 +467,6 @@ Partial Class NotasUsuario
         Me.Panel1.Size = New System.Drawing.Size(1039, 53)
         Me.Panel1.TabIndex = 4
         '
-        'Labels_transparentes1
-        '
-        Me.Labels_transparentes1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 14.25!)
-        Me.Labels_transparentes1.ForeColor = System.Drawing.Color.White
-        Me.Labels_transparentes1.Location = New System.Drawing.Point(398, 13)
-        Me.Labels_transparentes1.Name = "Labels_transparentes1"
-        Me.Labels_transparentes1.Size = New System.Drawing.Size(194, 23)
-        Me.Labels_transparentes1.TabIndex = 3
-        Me.Labels_transparentes1.Text = "Biblioteca Municipal"
-        '
         'PictureBox1
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(67, Byte), Integer), CType(CType(67, Byte), Integer))
@@ -489,12 +479,22 @@ Partial Class NotasUsuario
         Me.PictureBox1.TabIndex = 4
         Me.PictureBox1.TabStop = False
         '
+        'Labels_transparentes1
+        '
+        Me.Labels_transparentes1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 14.25!)
+        Me.Labels_transparentes1.ForeColor = System.Drawing.Color.White
+        Me.Labels_transparentes1.Location = New System.Drawing.Point(398, 13)
+        Me.Labels_transparentes1.Name = "Labels_transparentes1"
+        Me.Labels_transparentes1.Size = New System.Drawing.Size(194, 23)
+        Me.Labels_transparentes1.TabIndex = 3
+        Me.Labels_transparentes1.Text = "Biblioteca Municipal"
+        '
         'NotasUsuario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(181, Byte), Integer), CType(CType(126, Byte), Integer), CType(CType(220, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1043, 654)
+        Me.ClientSize = New System.Drawing.Size(1044, 654)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.PanelNotas)
         Me.Controls.Add(Me.PanelEditroDeTexto)
