@@ -42,29 +42,22 @@ Partial Class ingresolibro
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Peditorial = New System.Windows.Forms.Panel()
         Me.Paneleditorial = New System.Windows.Forms.Panel()
-        Me.txtanioe = New Proyecto_Biblioteca.PlaceHolder()
-        Me.txtpais = New Proyecto_Biblioteca.PlaceHolder()
-        Me.txtnombree = New Proyecto_Biblioteca.PlaceHolder()
         Me.btnnweditorial = New System.Windows.Forms.Button()
         Me.lblanio = New System.Windows.Forms.Label()
         Me.lblpais = New System.Windows.Forms.Label()
         Me.lblnombreeditorial = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.dgveditorial = New System.Windows.Forms.DataGridView()
-        Me.txtbuscareditorial = New Proyecto_Biblioteca.PlaceHolder()
         Me.btnvolver = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btningeditorial = New System.Windows.Forms.Button()
         Me.btncancelaredi = New System.Windows.Forms.Button()
         Me.Pautor = New System.Windows.Forms.Panel()
         Me.panelautor = New System.Windows.Forms.Panel()
-        Me.txtpaisau = New Proyecto_Biblioteca.PlaceHolder()
-        Me.txtnombreau = New Proyecto_Biblioteca.PlaceHolder()
         Me.btnnwautor = New System.Windows.Forms.Button()
         Me.lblnacionalidad = New System.Windows.Forms.Label()
         Me.lblnombre = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.txtbuscarautor = New Proyecto_Biblioteca.PlaceHolder()
         Me.btnvolver2 = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.dgvautor = New System.Windows.Forms.DataGridView()
@@ -78,19 +71,30 @@ Partial Class ingresolibro
         Me.Pclasificacion = New System.Windows.Forms.Panel()
         Me.cmbclasificacion = New System.Windows.Forms.ComboBox()
         Me.panelclasificacion = New System.Windows.Forms.Panel()
-        Me.txtnombreclas = New Proyecto_Biblioteca.PlaceHolder()
-        Me.txtcodclas = New Proyecto_Biblioteca.PlaceHolder()
         Me.btnnwclas = New System.Windows.Forms.Button()
         Me.lblnombreclas = New System.Windows.Forms.Label()
         Me.lblcodclas = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.txtbuscarclas = New Proyecto_Biblioteca.PlaceHolder()
         Me.btnvolver3 = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.dgvclasificacion = New System.Windows.Forms.DataGridView()
         Me.btninclas = New System.Windows.Forms.Button()
         Me.btncancelarclas = New System.Windows.Forms.Button()
         Me.timerclasificacion = New System.Windows.Forms.Timer(Me.components)
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.cmbsala = New System.Windows.Forms.ComboBox()
+        Me.txtpaisau = New Proyecto_Biblioteca.PlaceHolder()
+        Me.txtnombreau = New Proyecto_Biblioteca.PlaceHolder()
+        Me.txtbuscarautor = New Proyecto_Biblioteca.PlaceHolder()
+        Me.txtanioe = New Proyecto_Biblioteca.PlaceHolder()
+        Me.txtpais = New Proyecto_Biblioteca.PlaceHolder()
+        Me.txtnombree = New Proyecto_Biblioteca.PlaceHolder()
+        Me.txtbuscareditorial = New Proyecto_Biblioteca.PlaceHolder()
+        Me.txtnombreclas = New Proyecto_Biblioteca.PlaceHolder()
+        Me.txtcodclas = New Proyecto_Biblioteca.PlaceHolder()
+        Me.txtbuscarclas = New Proyecto_Biblioteca.PlaceHolder()
+        Me.txtubicacion = New Proyecto_Biblioteca.PlaceHolder()
         Me.txtclasificacion = New Proyecto_Biblioteca.PlaceHolder()
         Me.txttitulo = New Proyecto_Biblioteca.PlaceHolder()
         Me.txtanio = New Proyecto_Biblioteca.PlaceHolder()
@@ -135,7 +139,7 @@ Partial Class ingresolibro
         'ingresar_boton
         '
         Me.ingresar_boton.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ingresar_boton.Location = New System.Drawing.Point(347, 250)
+        Me.ingresar_boton.Location = New System.Drawing.Point(566, 250)
         Me.ingresar_boton.Name = "ingresar_boton"
         Me.ingresar_boton.Size = New System.Drawing.Size(183, 34)
         Me.ingresar_boton.TabIndex = 20
@@ -290,7 +294,7 @@ Partial Class ingresolibro
         Me.Peditorial.Controls.Add(Me.Label3)
         Me.Peditorial.Controls.Add(Me.btningeditorial)
         Me.Peditorial.Controls.Add(Me.btncancelaredi)
-        Me.Peditorial.Location = New System.Drawing.Point(458, 340)
+        Me.Peditorial.Location = New System.Drawing.Point(462, 340)
         Me.Peditorial.Name = "Peditorial"
         Me.Peditorial.Size = New System.Drawing.Size(421, 285)
         Me.Peditorial.TabIndex = 45
@@ -310,36 +314,6 @@ Partial Class ingresolibro
         Me.Paneleditorial.Name = "Paneleditorial"
         Me.Paneleditorial.Size = New System.Drawing.Size(180, 231)
         Me.Paneleditorial.TabIndex = 46
-        '
-        'txtanioe
-        '
-        Me.txtanioe.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.txtanioe.Location = New System.Drawing.Point(64, 96)
-        Me.txtanioe.Name = "txtanioe"
-        Me.txtanioe.Size = New System.Drawing.Size(100, 20)
-        Me.txtanioe.TabIndex = 59
-        Me.txtanioe.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txtanioe.WaterMarkText = "Año"
-        '
-        'txtpais
-        '
-        Me.txtpais.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.txtpais.Location = New System.Drawing.Point(65, 67)
-        Me.txtpais.Name = "txtpais"
-        Me.txtpais.Size = New System.Drawing.Size(100, 20)
-        Me.txtpais.TabIndex = 58
-        Me.txtpais.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txtpais.WaterMarkText = "Pais"
-        '
-        'txtnombree
-        '
-        Me.txtnombree.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.txtnombree.Location = New System.Drawing.Point(64, 35)
-        Me.txtnombree.Name = "txtnombree"
-        Me.txtnombree.Size = New System.Drawing.Size(100, 20)
-        Me.txtnombree.TabIndex = 57
-        Me.txtnombree.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txtnombree.WaterMarkText = "Nombre"
         '
         'btnnweditorial
         '
@@ -404,16 +378,6 @@ Partial Class ingresolibro
         Me.dgveditorial.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgveditorial.Size = New System.Drawing.Size(410, 231)
         Me.dgveditorial.TabIndex = 1
-        '
-        'txtbuscareditorial
-        '
-        Me.txtbuscareditorial.Font = New System.Drawing.Font("Lucida Sans", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbuscareditorial.Location = New System.Drawing.Point(246, 4)
-        Me.txtbuscareditorial.Name = "txtbuscareditorial"
-        Me.txtbuscareditorial.Size = New System.Drawing.Size(165, 20)
-        Me.txtbuscareditorial.TabIndex = 56
-        Me.txtbuscareditorial.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txtbuscareditorial.WaterMarkText = "Buscar Editorial"
         '
         'btnvolver
         '
@@ -482,26 +446,6 @@ Partial Class ingresolibro
         Me.panelautor.Size = New System.Drawing.Size(162, 227)
         Me.panelautor.TabIndex = 46
         '
-        'txtpaisau
-        '
-        Me.txtpaisau.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.txtpaisau.Location = New System.Drawing.Point(31, 100)
-        Me.txtpaisau.Name = "txtpaisau"
-        Me.txtpaisau.Size = New System.Drawing.Size(100, 20)
-        Me.txtpaisau.TabIndex = 59
-        Me.txtpaisau.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txtpaisau.WaterMarkText = "Nacionalidad"
-        '
-        'txtnombreau
-        '
-        Me.txtnombreau.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.txtnombreau.Location = New System.Drawing.Point(31, 58)
-        Me.txtnombreau.Name = "txtnombreau"
-        Me.txtnombreau.Size = New System.Drawing.Size(100, 20)
-        Me.txtnombreau.TabIndex = 58
-        Me.txtnombreau.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txtnombreau.WaterMarkText = "Nombre"
-        '
         'btnnwautor
         '
         Me.btnnwautor.Location = New System.Drawing.Point(42, 136)
@@ -540,16 +484,6 @@ Partial Class ingresolibro
         Me.Label15.Size = New System.Drawing.Size(130, 16)
         Me.Label15.TabIndex = 11
         Me.Label15.Text = "Ingrese Nuevo Autor"
-        '
-        'txtbuscarautor
-        '
-        Me.txtbuscarautor.Font = New System.Drawing.Font("Lucida Sans", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbuscarautor.Location = New System.Drawing.Point(250, 5)
-        Me.txtbuscarautor.Name = "txtbuscarautor"
-        Me.txtbuscarautor.Size = New System.Drawing.Size(163, 20)
-        Me.txtbuscarautor.TabIndex = 55
-        Me.txtbuscarautor.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txtbuscarautor.WaterMarkText = "Buscar Autor"
         '
         'btnvolver2
         '
@@ -648,7 +582,7 @@ Partial Class ingresolibro
         Me.Pclasificacion.Controls.Add(Me.dgvclasificacion)
         Me.Pclasificacion.Controls.Add(Me.btninclas)
         Me.Pclasificacion.Controls.Add(Me.btncancelarclas)
-        Me.Pclasificacion.Location = New System.Drawing.Point(467, 341)
+        Me.Pclasificacion.Location = New System.Drawing.Point(463, 341)
         Me.Pclasificacion.Name = "Pclasificacion"
         Me.Pclasificacion.Size = New System.Drawing.Size(422, 285)
         Me.Pclasificacion.TabIndex = 62
@@ -671,30 +605,10 @@ Partial Class ingresolibro
         Me.panelclasificacion.Controls.Add(Me.lblnombreclas)
         Me.panelclasificacion.Controls.Add(Me.lblcodclas)
         Me.panelclasificacion.Controls.Add(Me.Label8)
-        Me.panelclasificacion.Location = New System.Drawing.Point(349, 30)
+        Me.panelclasificacion.Location = New System.Drawing.Point(422, 30)
         Me.panelclasificacion.Name = "panelclasificacion"
         Me.panelclasificacion.Size = New System.Drawing.Size(181, 227)
         Me.panelclasificacion.TabIndex = 46
-        '
-        'txtnombreclas
-        '
-        Me.txtnombreclas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.txtnombreclas.Location = New System.Drawing.Point(41, 102)
-        Me.txtnombreclas.Name = "txtnombreclas"
-        Me.txtnombreclas.Size = New System.Drawing.Size(100, 20)
-        Me.txtnombreclas.TabIndex = 59
-        Me.txtnombreclas.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txtnombreclas.WaterMarkText = "Nombre Clasif"
-        '
-        'txtcodclas
-        '
-        Me.txtcodclas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.txtcodclas.Location = New System.Drawing.Point(41, 60)
-        Me.txtcodclas.Name = "txtcodclas"
-        Me.txtcodclas.Size = New System.Drawing.Size(100, 20)
-        Me.txtcodclas.TabIndex = 58
-        Me.txtcodclas.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txtcodclas.WaterMarkText = "Numero Clasificacion"
         '
         'btnnwclas
         '
@@ -734,16 +648,6 @@ Partial Class ingresolibro
         Me.Label8.Size = New System.Drawing.Size(178, 16)
         Me.Label8.TabIndex = 11
         Me.Label8.Text = "Ingrese Nueva Clasificacion:"
-        '
-        'txtbuscarclas
-        '
-        Me.txtbuscarclas.Font = New System.Drawing.Font("Lucida Sans", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbuscarclas.Location = New System.Drawing.Point(268, 5)
-        Me.txtbuscarclas.Name = "txtbuscarclas"
-        Me.txtbuscarclas.Size = New System.Drawing.Size(145, 20)
-        Me.txtbuscarclas.TabIndex = 55
-        Me.txtbuscarclas.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txtbuscarclas.WaterMarkText = "Buscar Clasificaion"
         '
         'btnvolver3
         '
@@ -802,6 +706,147 @@ Partial Class ingresolibro
         '
         Me.timerclasificacion.Interval = 1
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(126, 214)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(86, 17)
+        Me.Label4.TabIndex = 63
+        Me.Label4.Text = "Ubicacion:"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(141, 243)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(64, 17)
+        Me.Label5.TabIndex = 65
+        Me.Label5.Text = "En Sala:"
+        '
+        'cmbsala
+        '
+        Me.cmbsala.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbsala.Font = New System.Drawing.Font("Lucida Sans", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbsala.FormattingEnabled = True
+        Me.cmbsala.Items.AddRange(New Object() {"No", "Si"})
+        Me.cmbsala.Location = New System.Drawing.Point(207, 241)
+        Me.cmbsala.Name = "cmbsala"
+        Me.cmbsala.Size = New System.Drawing.Size(180, 26)
+        Me.cmbsala.TabIndex = 66
+        '
+        'txtpaisau
+        '
+        Me.txtpaisau.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.txtpaisau.Location = New System.Drawing.Point(31, 100)
+        Me.txtpaisau.Name = "txtpaisau"
+        Me.txtpaisau.Size = New System.Drawing.Size(100, 20)
+        Me.txtpaisau.TabIndex = 59
+        Me.txtpaisau.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txtpaisau.WaterMarkText = "Nacionalidad"
+        '
+        'txtnombreau
+        '
+        Me.txtnombreau.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.txtnombreau.Location = New System.Drawing.Point(31, 58)
+        Me.txtnombreau.Name = "txtnombreau"
+        Me.txtnombreau.Size = New System.Drawing.Size(100, 20)
+        Me.txtnombreau.TabIndex = 58
+        Me.txtnombreau.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txtnombreau.WaterMarkText = "Nombre"
+        '
+        'txtbuscarautor
+        '
+        Me.txtbuscarautor.Font = New System.Drawing.Font("Lucida Sans", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbuscarautor.Location = New System.Drawing.Point(250, 5)
+        Me.txtbuscarautor.Name = "txtbuscarautor"
+        Me.txtbuscarautor.Size = New System.Drawing.Size(163, 20)
+        Me.txtbuscarautor.TabIndex = 55
+        Me.txtbuscarautor.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txtbuscarautor.WaterMarkText = "Ej: Edgar Alan Poe"
+        '
+        'txtanioe
+        '
+        Me.txtanioe.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.txtanioe.Location = New System.Drawing.Point(64, 96)
+        Me.txtanioe.Name = "txtanioe"
+        Me.txtanioe.Size = New System.Drawing.Size(100, 20)
+        Me.txtanioe.TabIndex = 59
+        Me.txtanioe.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txtanioe.WaterMarkText = "Año"
+        '
+        'txtpais
+        '
+        Me.txtpais.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.txtpais.Location = New System.Drawing.Point(65, 67)
+        Me.txtpais.Name = "txtpais"
+        Me.txtpais.Size = New System.Drawing.Size(100, 20)
+        Me.txtpais.TabIndex = 58
+        Me.txtpais.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txtpais.WaterMarkText = "Pais"
+        '
+        'txtnombree
+        '
+        Me.txtnombree.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.txtnombree.Location = New System.Drawing.Point(64, 35)
+        Me.txtnombree.Name = "txtnombree"
+        Me.txtnombree.Size = New System.Drawing.Size(100, 20)
+        Me.txtnombree.TabIndex = 57
+        Me.txtnombree.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txtnombree.WaterMarkText = "Nombre"
+        '
+        'txtbuscareditorial
+        '
+        Me.txtbuscareditorial.Font = New System.Drawing.Font("Lucida Sans", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbuscareditorial.Location = New System.Drawing.Point(246, 4)
+        Me.txtbuscareditorial.Name = "txtbuscareditorial"
+        Me.txtbuscareditorial.Size = New System.Drawing.Size(165, 20)
+        Me.txtbuscareditorial.TabIndex = 56
+        Me.txtbuscareditorial.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txtbuscareditorial.WaterMarkText = "Ej: Editorial Del Lago"
+        '
+        'txtnombreclas
+        '
+        Me.txtnombreclas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.txtnombreclas.Location = New System.Drawing.Point(41, 102)
+        Me.txtnombreclas.Name = "txtnombreclas"
+        Me.txtnombreclas.Size = New System.Drawing.Size(100, 20)
+        Me.txtnombreclas.TabIndex = 59
+        Me.txtnombreclas.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txtnombreclas.WaterMarkText = "Nombre Clasif"
+        '
+        'txtcodclas
+        '
+        Me.txtcodclas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.txtcodclas.Location = New System.Drawing.Point(41, 60)
+        Me.txtcodclas.Name = "txtcodclas"
+        Me.txtcodclas.Size = New System.Drawing.Size(100, 20)
+        Me.txtcodclas.TabIndex = 58
+        Me.txtcodclas.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txtcodclas.WaterMarkText = "Numero Clasificacion"
+        '
+        'txtbuscarclas
+        '
+        Me.txtbuscarclas.Font = New System.Drawing.Font("Lucida Sans", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbuscarclas.Location = New System.Drawing.Point(268, 5)
+        Me.txtbuscarclas.Name = "txtbuscarclas"
+        Me.txtbuscarclas.Size = New System.Drawing.Size(145, 20)
+        Me.txtbuscarclas.TabIndex = 55
+        Me.txtbuscarclas.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txtbuscarclas.WaterMarkText = "Ej: Historia Del Uruguay"
+        '
+        'txtubicacion
+        '
+        Me.txtubicacion.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtubicacion.Location = New System.Drawing.Point(208, 211)
+        Me.txtubicacion.Name = "txtubicacion"
+        Me.txtubicacion.Size = New System.Drawing.Size(179, 25)
+        Me.txtubicacion.TabIndex = 64
+        Me.txtubicacion.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txtubicacion.WaterMarkText = "Ej: Biblioteca Municipal"
+        '
         'txtclasificacion
         '
         Me.txtclasificacion.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -811,7 +856,7 @@ Partial Class ingresolibro
         Me.txtclasificacion.Size = New System.Drawing.Size(203, 25)
         Me.txtclasificacion.TabIndex = 61
         Me.txtclasificacion.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txtclasificacion.WaterMarkText = "Clasificacion"
+        Me.txtclasificacion.WaterMarkText = "Ej: 1.12"
         '
         'txttitulo
         '
@@ -821,7 +866,7 @@ Partial Class ingresolibro
         Me.txttitulo.Size = New System.Drawing.Size(178, 25)
         Me.txttitulo.TabIndex = 54
         Me.txttitulo.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txttitulo.WaterMarkText = "Titulo"
+        Me.txttitulo.WaterMarkText = "Ej: Historia de un viejo"
         '
         'txtanio
         '
@@ -831,7 +876,7 @@ Partial Class ingresolibro
         Me.txtanio.Size = New System.Drawing.Size(178, 25)
         Me.txtanio.TabIndex = 53
         Me.txtanio.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txtanio.WaterMarkText = "Año"
+        Me.txtanio.WaterMarkText = "Ej: 2001"
         '
         'txtorigen
         '
@@ -841,7 +886,7 @@ Partial Class ingresolibro
         Me.txtorigen.Size = New System.Drawing.Size(178, 25)
         Me.txtorigen.TabIndex = 52
         Me.txtorigen.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txtorigen.WaterMarkText = "Origen"
+        Me.txtorigen.WaterMarkText = "Ej: Uruguay"
         '
         'txtobservaciones
         '
@@ -852,7 +897,7 @@ Partial Class ingresolibro
         Me.txtobservaciones.Size = New System.Drawing.Size(333, 84)
         Me.txtobservaciones.TabIndex = 51
         Me.txtobservaciones.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txtobservaciones.WaterMarkText = "Observaciones"
+        Me.txtobservaciones.WaterMarkText = "El Libro esta en un mal estado"
         '
         'txtcasa_editorial
         '
@@ -863,7 +908,7 @@ Partial Class ingresolibro
         Me.txtcasa_editorial.Size = New System.Drawing.Size(202, 25)
         Me.txtcasa_editorial.TabIndex = 50
         Me.txtcasa_editorial.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txtcasa_editorial.WaterMarkText = "Editorial"
+        Me.txtcasa_editorial.WaterMarkText = "Ej: Del Lago"
         '
         'txtvolumen
         '
@@ -873,7 +918,7 @@ Partial Class ingresolibro
         Me.txtvolumen.Size = New System.Drawing.Size(179, 25)
         Me.txtvolumen.TabIndex = 49
         Me.txtvolumen.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txtvolumen.WaterMarkText = "Volumen"
+        Me.txtvolumen.WaterMarkText = "Ej: 1"
         '
         'txtautor
         '
@@ -883,8 +928,8 @@ Partial Class ingresolibro
         Me.txtautor.ReadOnly = True
         Me.txtautor.Size = New System.Drawing.Size(203, 25)
         Me.txtautor.TabIndex = 48
-        Me.txtautor.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txtautor.WaterMarkText = "Autor"
+        Me.txtautor.WaterMarkColor = System.Drawing.SystemColors.GrayText
+        Me.txtautor.WaterMarkText = "Ej: Garcia Marques"
         '
         'txtcod_libro
         '
@@ -894,7 +939,7 @@ Partial Class ingresolibro
         Me.txtcod_libro.Size = New System.Drawing.Size(178, 25)
         Me.txtcod_libro.TabIndex = 47
         Me.txtcod_libro.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txtcod_libro.WaterMarkText = "Cod. Libro"
+        Me.txtcod_libro.WaterMarkText = "Ej: 51"
         '
         'ingresolibro
         '
@@ -902,8 +947,13 @@ Partial Class ingresolibro
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Teal
         Me.ClientSize = New System.Drawing.Size(884, 625)
-        Me.Controls.Add(Me.Pclasificacion)
+        Me.Controls.Add(Me.Pautor)
         Me.Controls.Add(Me.Peditorial)
+        Me.Controls.Add(Me.Pclasificacion)
+        Me.Controls.Add(Me.cmbsala)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.txtubicacion)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txtclasificacion)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnselectclas)
@@ -915,7 +965,6 @@ Partial Class ingresolibro
         Me.Controls.Add(Me.txtvolumen)
         Me.Controls.Add(Me.txtautor)
         Me.Controls.Add(Me.txtcod_libro)
-        Me.Controls.Add(Me.Pautor)
         Me.Controls.Add(Me.btnselectautor)
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.PictureBox2)
@@ -1035,4 +1084,8 @@ Partial Class ingresolibro
     Friend WithEvents btninclas As System.Windows.Forms.Button
     Friend WithEvents timerclasificacion As System.Windows.Forms.Timer
     Friend WithEvents cmbclasificacion As System.Windows.Forms.ComboBox
+    Friend WithEvents cmbsala As System.Windows.Forms.ComboBox
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents txtubicacion As Proyecto_Biblioteca.PlaceHolder
+    Friend WithEvents Label4 As System.Windows.Forms.Label
 End Class
