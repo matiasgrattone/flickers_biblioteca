@@ -243,10 +243,10 @@ Partial Class NotasUsuario
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(6, 7)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(147, 15)
+        Me.Label1.Size = New System.Drawing.Size(146, 16)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "NOTAS DISPONIBLES"
         '
@@ -481,7 +481,7 @@ Partial Class NotasUsuario
         '
         'Labels_transparentes1
         '
-        Me.Labels_transparentes1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 14.25!)
+        Me.Labels_transparentes1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!)
         Me.Labels_transparentes1.ForeColor = System.Drawing.Color.White
         Me.Labels_transparentes1.Location = New System.Drawing.Point(398, 13)
         Me.Labels_transparentes1.Name = "Labels_transparentes1"

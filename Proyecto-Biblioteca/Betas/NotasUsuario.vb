@@ -71,9 +71,7 @@ Public Class NotasUsuario
         '///////Ah  los recordatorios se le asigna una ruta del archivo.txt gurdada con anterioridad en la base de datos///////
         Consulta = "select recordar from notas where cedula = '" & MENU3.lbl_cedula.Text & "' and recordar is NOT NULL"
         consultar()
-        If (Tabla.Rows.Count = 0) Then
-
-        Else
+        If (Tabla.Rows.Count <> 0) Then
 
             If Ubicacion1 <> "" Then
                 Try
@@ -81,12 +79,6 @@ Public Class NotasUsuario
                     TextoParaRecordar1.Text = Recordatorio1.ReadToEnd() 'Igualamos la variable "Texto" ah a el contenido del archivo con el comando ReadToEnd del archivo que ya buscamos con anterioridad con la variable "Ubicacion" 
                     Recordatorio1.Close()
                 Catch ex As Exception
-                    Dim ms As String
-                    ms = MsgBox("La nota que se desea recordar ya no se encuntra, desea dejar de recordarlas? ", MsgBoxStyle.YesNoCancel, Title:="Notas")
-                    If ms = vbYes Then
-                        Consulta = "DELETE FROM notas WHERE cedula = '" & MENU3.lbl_cedula.Text & "' and recordar = 1"
-                        consultar()
-                    End If
                 End Try
 
 
@@ -99,12 +91,6 @@ Public Class NotasUsuario
                     TextoParaRecordar2.Text = Recordatorio2.ReadToEnd() 'Igualamos la variable "Texto" ah a el contenido del archivo con el comando ReadToEnd del archivo que ya buscamos con anterioridad con la variable "Ubicacion" 
                     Recordatorio2.Close()
                 Catch ex As Exception
-                    Dim ms As String
-                    ms = MsgBox("La nota que se desea recordar ya no se encuntra, desea dejar de recordarlas? ", MsgBoxStyle.YesNoCancel, Title:="Notas")
-                    If ms = vbYes Then
-                        Consulta = "DELETE FROM notas WHERE cedula = '" & MENU3.lbl_cedula.Text & "' and recordar = 2"
-                        consultar()
-                    End If
                 End Try
 
                 '////////Igualamos El textbox1 a el contenido de la variabe "Texto"
@@ -115,12 +101,6 @@ Public Class NotasUsuario
                     TextoParaRecordar3.Text = Recordatorio3.ReadToEnd() 'Igualamos la variable "Texto" ah a el contenido del archivo con el comando ReadToEnd del archivo que ya buscamos con anterioridad con la variable "Ubicacion" 
                     Recordatorio3.Close()
                 Catch ex As Exception
-                    Dim ms As String
-                    ms = MsgBox("La nota que se desea recordar ya no se encuntra, desea dejar de recordarlas? ", MsgBoxStyle.YesNoCancel, Title:="Notas")
-                    If ms = vbYes Then
-                        Consulta = "DELETE FROM notas WHERE cedula = '" & MENU3.lbl_cedula.Text & "' and recordar = 3"
-                        consultar()
-                    End If
                 End Try
 
                 '////////Igualamos El textbox1 a el contenido de la variabe "Texto"
@@ -244,7 +224,7 @@ Public Class NotasUsuario
                 RecordatorioValor = "1"
             End If
         End If
-
+        ActualizarNotas()
     End Sub
 
     Private Sub CrearRecordatorio2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CrearRecordatorio2.Click
@@ -259,7 +239,7 @@ Public Class NotasUsuario
                 RecordatorioValor = "2"
             End If
         End If
-
+        ActualizarNotas()
     End Sub
 
     Private Sub CrearRecordatorio3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CrearRecordatorio3.Click
@@ -274,7 +254,7 @@ Public Class NotasUsuario
                 RecordatorioValor = "3"
             End If
         End If
-
+        ActualizarNotas()
 
     End Sub
 
@@ -320,18 +300,23 @@ Public Class NotasUsuario
                 Fecha3.Text = " "
             End If
         End If
+        ActualizarNotas()
     End Sub
 
     '//////////////////////////FUNCION////////////////////////////////
     Public Sub ActualizarNotas()
-        DatagridModulo = DataGridViewParaVerNotasDisponibles
-        Datagrid_Align()
+        AhUsar = MENU3.lbl_cedula.Text
 
-        Consulta = "Select NombreNota, texto from notas where cedula= '" + AhUsar + "'"
+        cedula = MENU3.lbl_cedula.Text
+        Consulta = "Select NombreNota, texto from notas where cedula= '" + MENU3.lbl_cedula.Text + "'"
         consultar()
 
         DataGridViewParaVerNotasDisponibles.DataSource = Tabla
         DataGridViewParaVerNotasDisponibles.Columns(1).Visible = False
+
+        Dim RutaDeGuardadoDeNotas As String = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\DATOS\Notas" 'Ruta en la que se guardarán las imágenes cargadas: "Documentos\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\DATOS\Notas"
+        My.Computer.FileSystem.CreateDirectory(RutaDeGuardadoDeNotas) 'Crea la carpeta "Notas" en la ruta especificada si esta no existe
+
 
         Dim Ubicacion1 As String = ""
         Dim Ubicacion2 As String = ""
@@ -339,6 +324,7 @@ Public Class NotasUsuario
 
         Consulta = "Select * from notas where cedula ='" & AhUsar & "' and recordar = 1"
         consultar()
+
         If (Tabla.Rows.Count <> 0) Then
             For Each row As DataRow In Tabla.Rows
                 Ubicacion1 = row("texto")
@@ -369,11 +355,9 @@ Public Class NotasUsuario
         End If
 
         '///////Ah  los recordatorios se le asigna una ruta del archivo.txt gurdada con anterioridad en la base de datos///////
-        Consulta = "select recordar from notas where cedula = '" & AhUsar & "' and recordar is NOT NULL"
+        Consulta = "select recordar from notas where cedula = '" & MENU3.lbl_cedula.Text & "' and recordar is NOT NULL"
         consultar()
-        If (Tabla.Rows.Count = 0) Then
-
-        Else
+        If (Tabla.Rows.Count <> 0) Then
 
             If Ubicacion1 <> "" Then
                 Try
@@ -381,12 +365,6 @@ Public Class NotasUsuario
                     TextoParaRecordar1.Text = Recordatorio1.ReadToEnd() 'Igualamos la variable "Texto" ah a el contenido del archivo con el comando ReadToEnd del archivo que ya buscamos con anterioridad con la variable "Ubicacion" 
                     Recordatorio1.Close()
                 Catch ex As Exception
-                    Dim ms As String
-                    ms = MsgBox("La nota que se desea recordar ya no se encuntra, desea dejar de recordarlas? ", MsgBoxStyle.YesNoCancel, Title:="Notas")
-                    If ms = vbYes Then
-                        Consulta = "DELETE FROM notas WHERE cedula = '" & MENU3.lbl_cedula.Text & "' and recordar = 1"
-                        consultar()
-                    End If
                 End Try
 
 
@@ -399,12 +377,6 @@ Public Class NotasUsuario
                     TextoParaRecordar2.Text = Recordatorio2.ReadToEnd() 'Igualamos la variable "Texto" ah a el contenido del archivo con el comando ReadToEnd del archivo que ya buscamos con anterioridad con la variable "Ubicacion" 
                     Recordatorio2.Close()
                 Catch ex As Exception
-                    Dim ms As String
-                    ms = MsgBox("La nota que se desea recordar ya no se encuntra, desea dejar de recordarlas? ", MsgBoxStyle.YesNoCancel, Title:="Notas")
-                    If ms = vbYes Then
-                        Consulta = "DELETE FROM notas WHERE cedula = '" & MENU3.lbl_cedula.Text & "' and recordar = 2"
-                        consultar()
-                    End If
                 End Try
 
                 '////////Igualamos El textbox1 a el contenido de la variabe "Texto"
@@ -415,12 +387,6 @@ Public Class NotasUsuario
                     TextoParaRecordar3.Text = Recordatorio3.ReadToEnd() 'Igualamos la variable "Texto" ah a el contenido del archivo con el comando ReadToEnd del archivo que ya buscamos con anterioridad con la variable "Ubicacion" 
                     Recordatorio3.Close()
                 Catch ex As Exception
-                    Dim ms As String
-                    ms = MsgBox("La nota que se desea recordar ya no se encuntra, desea dejar de recordarlas? ", MsgBoxStyle.YesNoCancel, Title:="Notas")
-                    If ms = vbYes Then
-                        Consulta = "DELETE FROM notas WHERE cedula = '" & MENU3.lbl_cedula.Text & "' and recordar = 3"
-                        consultar()
-                    End If
                 End Try
 
                 '////////Igualamos El textbox1 a el contenido de la variabe "Texto"
