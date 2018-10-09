@@ -64,6 +64,7 @@ Partial Class FichaSocio
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBoxEstado = New System.Windows.Forms.PictureBox()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.LabelFecha_Ingreso = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.PrintForm1 = New Microsoft.VisualBasic.PowerPacks.Printing.PrintForm(Me.components)
@@ -133,12 +134,12 @@ Partial Class FichaSocio
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HolaToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(92, 26)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(91, 26)
         '
         'HolaToolStripMenuItem
         '
         Me.HolaToolStripMenuItem.Name = "HolaToolStripMenuItem"
-        Me.HolaToolStripMenuItem.Size = New System.Drawing.Size(91, 22)
+        Me.HolaToolStripMenuItem.Size = New System.Drawing.Size(90, 22)
         Me.HolaToolStripMenuItem.Text = "Ver"
         '
         'LabelDireccion
@@ -357,27 +358,30 @@ Partial Class FichaSocio
         '
         'cmbaño
         '
+        Me.cmbaño.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbaño.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbaño.FormattingEnabled = True
-        Me.cmbaño.Location = New System.Drawing.Point(688, 172)
+        Me.cmbaño.Location = New System.Drawing.Point(606, 168)
         Me.cmbaño.Name = "cmbaño"
         Me.cmbaño.Size = New System.Drawing.Size(68, 23)
         Me.cmbaño.TabIndex = 21
         '
         'cmbmes
         '
+        Me.cmbmes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbmes.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbmes.FormattingEnabled = True
-        Me.cmbmes.Location = New System.Drawing.Point(566, 172)
+        Me.cmbmes.Location = New System.Drawing.Point(484, 168)
         Me.cmbmes.Name = "cmbmes"
         Me.cmbmes.Size = New System.Drawing.Size(116, 23)
         Me.cmbmes.TabIndex = 22
         '
         'cmbdia
         '
+        Me.cmbdia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbdia.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbdia.FormattingEnabled = True
-        Me.cmbdia.Location = New System.Drawing.Point(502, 172)
+        Me.cmbdia.Location = New System.Drawing.Point(420, 168)
         Me.cmbdia.Name = "cmbdia"
         Me.cmbdia.Size = New System.Drawing.Size(58, 23)
         Me.cmbdia.TabIndex = 23
@@ -385,7 +389,7 @@ Partial Class FichaSocio
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(407, 176)
+        Me.Label3.Location = New System.Drawing.Point(325, 172)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(89, 13)
         Me.Label3.TabIndex = 24
@@ -464,6 +468,7 @@ Partial Class FichaSocio
         'Panel5
         '
         Me.Panel5.BackColor = System.Drawing.SystemColors.Control
+        Me.Panel5.Controls.Add(Me.Button1)
         Me.Panel5.Controls.Add(Me.LabelFecha_Ingreso)
         Me.Panel5.Controls.Add(Me.Label4)
         Me.Panel5.Controls.Add(Me.PictureBox3)
@@ -495,6 +500,15 @@ Partial Class FichaSocio
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(957, 628)
         Me.Panel5.TabIndex = 32
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(684, 168)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 34
+        Me.Button1.Text = "Filtrar"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'LabelFecha_Ingreso
         '
@@ -596,4 +610,5 @@ Partial Class FichaSocio
     Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
     Friend WithEvents PrintForm1 As Microsoft.VisualBasic.PowerPacks.Printing.PrintForm
     Friend WithEvents Timer2 As System.Windows.Forms.Timer
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class

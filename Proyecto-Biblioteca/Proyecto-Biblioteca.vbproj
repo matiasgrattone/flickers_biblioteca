@@ -123,6 +123,12 @@
     <Compile Include="Betas\FichaParaImprimirNumero2.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Betas\Mail.Designer.vb">
+      <DependentUpon>Mail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Betas\Mail.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Betas\PrestamoRevistas.Designer.vb">
       <DependentUpon>PrestamoRevistas.vb</DependentUpon>
     </Compile>
@@ -190,12 +196,6 @@
     <Compile Include="Clases\PanelOpacity.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Form1.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Info_usuario.Designer.vb">
       <DependentUpon>Info_usuario.vb</DependentUpon>
     </Compile>
@@ -212,12 +212,6 @@
       <DependentUpon>buscarlibro.vb</DependentUpon>
     </Compile>
     <Compile Include="buscarlibro.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PantallaDeBloqueo.Designer.vb">
-      <DependentUpon>PantallaDeBloqueo.vb</DependentUpon>
-    </Compile>
-    <Compile Include="PantallaDeBloqueo.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Prestamos.Designer.vb">
@@ -296,6 +290,9 @@
     <EmbeddedResource Include="Betas\FichaParaImprimirNumero2.resx">
       <DependentUpon>FichaParaImprimirNumero2.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Betas\Mail.resx">
+      <DependentUpon>Mail.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Betas\PrestamoRevistas.resx">
       <DependentUpon>PrestamoRevistas.vb</DependentUpon>
     </EmbeddedResource>
@@ -323,9 +320,6 @@
     <EmbeddedResource Include="Betas\Seleccion_Revistas.resx">
       <DependentUpon>Seleccion_Revistas.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Info_usuario.resx">
       <DependentUpon>Info_usuario.vb</DependentUpon>
     </EmbeddedResource>
@@ -334,9 +328,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="buscarlibro.resx">
       <DependentUpon>buscarlibro.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PantallaDeBloqueo.resx">
-      <DependentUpon>PantallaDeBloqueo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Prestamos.resx">
       <DependentUpon>Prestamos.vb</DependentUpon>
