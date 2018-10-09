@@ -29,6 +29,8 @@
 
     Dim seleccionado As Integer = 0
     Dim error10 As Integer = 0
+
+    Dim ensala As Integer
     Private Sub ingresar_boton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ingresar_boton.Click
         If bandera = 1 Then
             Try
@@ -64,6 +66,10 @@
                     ErrorProvider1.SetError(txtcasa_editorial, "El campo se encuentra vacio")
                     contadoringreso = contadoringreso + 1
                 End If
+                If Trim(txtubicacion.Text) = "" Then
+                    ErrorProvider1.SetError(txtubicacion, "El campo se encuentra vacio")
+                    contadoringreso = contadoringreso + 1
+                End If
 
                 If error10 = 0 Then
                     If contadoringreso <> 0 Then
@@ -92,14 +98,22 @@
                             Try
                                 '/// Permite ingresar un nuevo dato a la tabla libros ///'
                                 'Consulta = "INSERT INTO libro VALUES('" + txtcod_libro.Text + "',concat(upper(left('" + txttitulo.Text + "',1)),lower(substr('" + txttitulo.Text + "',2))),'" + autor + "','" + editorial + "','" + txtvolumen.Text + "','" + txtanio.Text + " ',concat(upper(left('" + txtorigen.Text + "',1)),lower(substr('" + txtorigen.Text + "',2))),concat(upper(left('" + txtobservaciones.Text + "',1)),lower(substr('" + txtobservaciones.Text + "',2))), '0','" + clasificacion + "')"
-                                Consulta = "insert into libro values('" + txtcod_libro.Text + "','" + txttitulo.Text + "','" & autor & "','" & editorial & "','" + txtvolumen.Text + "','" + txtanio.Text + "','" + txtorigen.Text + "','" + txtobservaciones.Text + "','0','" & clasificacion & "','Biblioteca Municipal')"
-                                consultar()
+
+                                If cmbsala.SelectedItem = "No" Then
+                                    Consulta = "insert into libro values('" + txtcod_libro.Text + "',concat(upper(left('" + txttitulo.Text + "',1)),lower(substr('" + txttitulo.Text + "',2))), concat(upper(left('" & autor & "',1)),lower(substr('" & autor & "',2))), concat(upper(left('" & editorial & "',1)),lower(substr('" & editorial & "',2))),'" + txtvolumen.Text + "','" + txtanio.Text + "', concat(upper(left('" + txtorigen.Text + "',1)),lower(substr('" + txtorigen.Text + "',2))), concat(upper(left('" + txtobservaciones.Text + "' ,1)),lower(substr('" + txtobservaciones.Text + "' ,2))),'0', concat(upper(left('" & clasificacion & "',1)),lower(substr('" & clasificacion & "',2))),concat(upper(left('" + txtubicacion.Text + "',1)),lower(substr('" + txtubicacion.Text + "',2))),'0')"
+                                    consultar()
+                                ElseIf cmbsala.SelectedItem = "Si" Then
+                                    Consulta = "insert into libro values('" + txtcod_libro.Text + "',concat(upper(left('" + txttitulo.Text + "',1)),lower(substr('" + txttitulo.Text + "',2))), concat(upper(left('" & autor & "',1)),lower(substr('" & autor & "',2))), concat(upper(left('" & editorial & "',1)),lower(substr('" & editorial & "',2))),'" + txtvolumen.Text + "','" + txtanio.Text + "', concat(upper(left('" + txtorigen.Text + "',1)),lower(substr('" + txtorigen.Text + "',2))), concat(upper(left('" + txtobservaciones.Text + "' ,1)),lower(substr('" + txtobservaciones.Text + "' ,2))),'0', concat(upper(left('" & clasificacion & "',1)),lower(substr('" & clasificacion & "',2))),concat(upper(left('" + txtubicacion.Text + "',1)),lower(substr('" + txtubicacion.Text + "',2))),'1')"
+                                    consultar()
+                                End If
+                                
+
 
 
                                 '///////////////////////////////////////////
                                 '//// Muestra Los Datos en el DataGrid//////
                                 '///////////////////////////////////////////
-                                Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo' , autor.nombre, libro.volumen as 'Volumen' ,editorial.nombre, libro.anio, libro.origen as 'Origen', libro.observaciones as 'Observaciones',libro.cod_clas,clasificacion.nom_clas from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial inner join clasificacion on libro.cod_clas = clasificacion.cod_clas"
+                                Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo' , autor.nombre, libro.volumen as 'Volumen' ,editorial.nombre, libro.anio, libro.origen as 'Origen', libro.observaciones as 'Observaciones',libro.ubicacion,libro.ensala,libro.cod_clas,clasificacion.nom_clas from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial inner join clasificacion on libro.cod_clas = clasificacion.cod_clas"
                                 consultar()
                                 dgvlibro.DataSource = Tabla
                                 '///////////////////////////////////////////////////////////////////////////// 
@@ -114,6 +128,7 @@
                                 txtorigen.Clear()
                                 txtobservaciones.Clear()
                                 txtclasificacion.Clear()
+                                txtubicacion.Clear()
                                 '/////////////////////////////////////////////////////
 
                                 primeringreso = 0
@@ -125,6 +140,7 @@
                                 ErrorProvider1.SetError(txtvolumen, "")
                                 ErrorProvider1.SetError(txtcasa_editorial, "")
                                 ErrorProvider1.SetError(txtclasificacion, "")
+                                ErrorProvider1.SetError(txtubicacion, "")
 
                                 MsgBox("se ha ingresado el libro en el inventario")
                             Catch ex As Exception
@@ -280,6 +296,8 @@
             Catch ex As Exception
                 MsgBox("Base de datos no disponible")
             End Try
+
+            cmbsala.SelectedIndex = 0
 
             'Alinear celdas en el datagridview1'
             Dim z As Integer
@@ -1157,5 +1175,38 @@
         Else
             ErrorProvider1.SetError(txtcasa_editorial, "")
         End If
+    End Sub
+
+    Private Sub txtubicacion_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtubicacion.TextChanged
+        'Activa el mensaje de error al fallar el ingreso.
+        If primeringreso = 1 Then
+            If txtubicacion.Text = "" Then
+                ErrorProvider1.SetError(txtubicacion, "El campo se encuentra vacio")
+            Else
+                'En caso de escribir algo en el textbox este se desactiva
+                ErrorProvider1.SetError(txtubicacion, "")
+            End If
+        Else
+            ErrorProvider1.SetError(txtubicacion, "")
+        End If
+    End Sub
+
+    Private Sub txtubicacion_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtubicacion.KeyUp
+        txtubicacion.MaxLength = 50
+        If IsNumeric(txtubicacion.Text) And txtubicacion.Text <> "" Then
+            ErrorProvider1.SetError(txtubicacion, "ingrese solo numeros")
+            error10 = 1
+        Else
+            error10 = 0
+        End If
+    End Sub
+
+    Private Sub cmbsala_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbsala.SelectedIndexChanged
+        Select Case cmbsala.SelectedIndex
+            Case 0
+                ensala = 0
+            Case 1
+                ensala = 1
+        End Select
     End Sub
 End Class

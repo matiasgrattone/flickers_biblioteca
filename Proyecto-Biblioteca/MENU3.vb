@@ -1,19 +1,17 @@
 Imports System.Threading
 Imports System.Text.RegularExpressions
-
 Public Class MENU3
-
     Dim a As Integer = 0
     Public xco, yco As Integer
     Dim resultx, resulty As Integer
     Dim xc, yc As Integer
     Dim xf, yf As Integer
     Dim holax, holay As Integer
+
     Dim seleccionado As String = "Inicio"
 
-
-
     Public F3 As New Seleccion_Libro
+
     Dim PrimerInicio As Integer = 1
     Dim ContadorDia As Integer = 0
     Dim ContadorMes As Integer = 0
@@ -114,13 +112,9 @@ Public Class MENU3
             ComboBox2.SelectedItem = i
         Next
 
-
-
         '///////////////////VENTANA DE LIBROS QUE SE DEVUELVEN EN EL DIA///////////////////////
-        'Aviso_de_prestamos.Show()
         Pbadvertenciaprestamos.Visible = False
         Panel_prestamosdia.Visible = False
-
 
         label_usuarios.Left = 72
         label_libros.Left = 72
@@ -128,7 +122,6 @@ Public Class MENU3
         LabelRevistas.Left = 72
         label_prestamos.Left = 72
         label_navegador.Left = 72
-
 
         Preparar_Form()
 
@@ -144,13 +137,10 @@ Public Class MENU3
     Private Sub ComboBox1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBox1.SelectedIndexChanged
         Chart()
     End Sub
-
     '////////////////////////////////Movimiento de Ventana//////////////////////////////////////////////////
-
     Private Sub Panel1_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Phoraencabezado.MouseDown
         a = 1
     End Sub
-
     Private Sub Panel1_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Phoraencabezado.MouseMove
         If a = 1 Then
             xc = Cursor.Position.X
@@ -167,48 +157,24 @@ Public Class MENU3
             Timer_Prestamos_LIVE.Enabled = True
         End If
     End Sub
-
     Private Sub Panel1_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Phoraencabezado.MouseUp
         xf = Me.Location.X
         yf = Me.Location.Y
         a = 0
         Me.Opacity = 1
     End Sub
-
-    '//////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-    '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    '//////////////////////////////////////////ANIMACION LABELS Y PANELES EN MENU3 //////////////////////////////////////////
-    '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-    '///////////////////////////////////////////////////// USUARIOS/////////////////////////////////////////////////////////////
-
     Private Sub panel_usuarios_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles panel_usuarios.MouseEnter
-
-
         If seleccionado = "usuarios" Then
         Else
             panel_usuarios.BackColor = Drawing.Color.LightGray
         End If
     End Sub
-
     Private Sub panel_usuarios_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles panel_usuarios.MouseLeave
         If seleccionado = "usuarios" Then
         Else
             panel_usuarios.BackColor = Drawing.Color.Silver
         End If
     End Sub
-
     Private Sub panel_usuarios_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles panel_usuarios.MouseClick
         seleccionado = "usuarios"
 
@@ -220,8 +186,6 @@ Public Class MENU3
 
         Preparar_Form()
 
-
-
         panel_usuarios.BackColor = Drawing.Color.LightGray
         panel_libros.BackColor = Drawing.Color.Silver
         panel_prestamos.BackColor = Drawing.Color.Silver
@@ -229,21 +193,16 @@ Public Class MENU3
         Panel_Revistas.BackColor = Drawing.Color.Silver
         Panel_Inicio.BackColor = Drawing.Color.Silver
 
-
     End Sub
-
     Private Sub PictureBox1_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles Pbusuarios.MouseEnter
 
-                If seleccionado = "usuarios" Then
-                Else
-                    panel_usuarios.BackColor = Drawing.Color.LightGray
-                End If
-
+        If seleccionado = "usuarios" Then
+        Else
+            panel_usuarios.BackColor = Drawing.Color.LightGray
+        End If
 
     End Sub
-
     Private Sub PictureBox1_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Pbusuarios.MouseLeave
-
 
         If seleccionado = "usuarios" Then
         Else
@@ -251,9 +210,10 @@ Public Class MENU3
         End If
 
     End Sub
-
     Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbusuarios.Click
+
         seleccionado = "usuarios"
+
         Timer_Prestamos_LIVE.Enabled = False
 
         panel_usuarios.BackColor = Drawing.Color.LightGray
@@ -262,7 +222,6 @@ Public Class MENU3
         panel_navegador.BackColor = Drawing.Color.Silver
         Panel_Revistas.BackColor = Drawing.Color.Silver
         Panel_Inicio.BackColor = Drawing.Color.Silver
-
 
         Dim F1 As New Inicio_UsuariosV2
         panel_menu.Controls.Clear()
@@ -272,15 +231,7 @@ Public Class MENU3
 
         Preparar_Form()
 
-
     End Sub
-
-
-    '/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-    '//////////////////////////////////////////////////// LIBROS /////////////////////////////////////////////////////////////
-
     Private Sub panel_libros_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles panel_libros.MouseEnter
 
         If seleccionado = "libros" Then
@@ -289,7 +240,6 @@ Public Class MENU3
         End If
 
     End Sub
-
     Private Sub panel_libros_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles panel_libros.MouseLeave
 
         If seleccionado = "libros" Then
@@ -298,19 +248,16 @@ Public Class MENU3
         End If
 
     End Sub
-
     Private Sub panel_libros_Mouseclick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles panel_libros.MouseClick
 
         seleccionado = "libros"
         Timer_Prestamos_LIVE.Enabled = False
-
 
         panel_menu.Controls.Clear()
         F3.TopLevel = False
         F3.Parent = panel_menu
         F3.Dock = DockStyle.Fill
         F3.Show()
-
 
         panel_usuarios.BackColor = Drawing.Color.Silver
         panel_libros.BackColor = Drawing.Color.LightGray
@@ -319,26 +266,18 @@ Public Class MENU3
         Panel_Revistas.BackColor = Drawing.Color.Silver
         Panel_Inicio.BackColor = Drawing.Color.Silver
 
-
         Preparar_Form()
 
-
-
     End Sub
-
     Private Sub PictureBox2_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles Pblibros.MouseEnter
-
 
         If seleccionado = "libros" Then
         Else
             panel_libros.BackColor = Drawing.Color.LightGray
         End If
 
-
     End Sub
-
     Private Sub PictureBox2_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Pblibros.MouseLeave
-
 
         If seleccionado = "libros" Then
         Else
@@ -346,19 +285,16 @@ Public Class MENU3
         End If
 
     End Sub
-
     Public Sub PictureBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pblibros.Click
 
         seleccionado = "libros"
         Timer_Prestamos_LIVE.Enabled = False
-
 
         panel_menu.Controls.Clear()
         F3.TopLevel = False
         F3.Parent = panel_menu
         F3.Dock = DockStyle.Fill
         F3.Show()
-
 
         panel_usuarios.BackColor = Drawing.Color.Silver
         panel_libros.BackColor = Drawing.Color.LightGray
@@ -367,29 +303,17 @@ Public Class MENU3
         Panel_Revistas.BackColor = Drawing.Color.Silver
         Panel_Inicio.BackColor = Drawing.Color.Silver
 
-
         Preparar_Form()
 
-
-
-
     End Sub
-
-
-    '/////////////////////////////////////////////  PRESTAMOS ///////////////////////////////////////////////////////////
-
-
     Private Sub panel_prestamos_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles panel_prestamos.MouseEnter
-
 
         If seleccionado = "prestamos" Then
         Else
             panel_prestamos.BackColor = Drawing.Color.LightGray
         End If
 
-  
     End Sub
-
     Private Sub panel_prestamos_MouseClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles panel_prestamos.MouseClick
         seleccionado = "prestamos"
 
@@ -399,8 +323,6 @@ Public Class MENU3
         F4.Parent = panel_menu
         F4.Show()
 
-
-
         Preparar_Form()
 
         panel_usuarios.BackColor = Drawing.Color.Silver
@@ -411,15 +333,14 @@ Public Class MENU3
         Panel_Inicio.BackColor = Drawing.Color.Silver
 
     End Sub
-
     Private Sub panel_prestamos_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles panel_prestamos.MouseLeave
+
         If seleccionado = "prestamos" Then
         Else
             panel_prestamos.BackColor = Drawing.Color.Silver
         End If
 
     End Sub
-
     Private Sub PictureBox3_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles Pbprestamos.MouseEnter
 
         If seleccionado = "prestamos" Then
@@ -428,22 +349,18 @@ Public Class MENU3
         End If
 
     End Sub
-
     Private Sub PictureBox3_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Pbprestamos.MouseLeave
-
 
         If seleccionado = "prestamos" Then
         Else
             panel_prestamos.BackColor = Drawing.Color.Silver
         End If
 
-
     End Sub
-
     Private Sub PictureBox3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbprestamos.Click
+
         seleccionado = "prestamos"
         Timer_Prestamos_LIVE.Enabled = False
-
 
         Dim F4 As New Prestamos
         panel_menu.Controls.Clear()
@@ -451,10 +368,7 @@ Public Class MENU3
         F4.Parent = panel_menu
         F4.Show()
 
-
-
         Preparar_Form()
-
 
         panel_usuarios.BackColor = Drawing.Color.Silver
         panel_libros.BackColor = Drawing.Color.Silver
@@ -464,13 +378,7 @@ Public Class MENU3
         Panel_Inicio.BackColor = Drawing.Color.Silver
 
     End Sub
-
-
-    '/////////////////////////////////////////////////// PANEL NAVEGADOR ////////////////////////////////////////////////////////////
-
-
     Private Sub panel_navegador_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles panel_navegador.MouseEnter
-
 
         If seleccionado = "navegador" Then
         Else
@@ -478,46 +386,35 @@ Public Class MENU3
         End If
 
     End Sub
-
-
     Private Sub panel_navegador_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles panel_navegador.MouseLeave
+
         If seleccionado = "navegador" Then
         Else
             panel_navegador.BackColor = Drawing.Color.Silver
         End If
 
     End Sub
-
-    '////////////////////////////////////////////////// PICTUREBOX NAVEGADOR //////////////////////////////////////////////////////
 
     Private Sub PictureBox5_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles Pbnavegador.MouseEnter
 
-
         If seleccionado = "navegador" Then
         Else
             panel_navegador.BackColor = Drawing.Color.LightGray
         End If
 
-
     End Sub
-
     Private Sub PictureBox5_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Pbnavegador.MouseLeave
-
 
         If seleccionado = "navegador" Then
         Else
             panel_navegador.BackColor = Drawing.Color.Silver
         End If
 
-
-
     End Sub
-
     Private Sub PictureBox5_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbnavegador.Click
+
         seleccionado = "navegador"
         Timer_Prestamos_LIVE.Enabled = False
-
-
 
         panel_usuarios.BackColor = Drawing.Color.Silver
         panel_libros.BackColor = Drawing.Color.Silver
@@ -528,20 +425,10 @@ Public Class MENU3
 
         Preparar_Form()
 
-
-
     End Sub
-
-
-    '///////////////////////////////////////////////////////////////////////////////////////////////////////
-    '/////////////////////////////////////////// NAVEGADOR /////////////////////////////////////////////////
-    '///////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
     Private Sub WebBrowser1_DocumentCompleted(ByVal sender As System.Object, ByVal e As System.Windows.Forms.WebBrowserDocumentCompletedEventArgs) Handles Wbnavegador.DocumentCompleted
         txtbuscar.Text = Wbnavegador.Document.Url.ToString()
     End Sub
-
     Public Function ValidarURL(ByVal url As String) As Boolean
         Dim re As Regex = New Regex("^(https?|ftp|file)://[-A-Z0-9+&@#/%?=~_|!:,.;]*[-A-Z0-9+&@#/%=~_|]", RegexOptions.IgnoreCase)
         Dim m As Match = re.Match(url)
@@ -551,7 +438,6 @@ Public Class MENU3
             Return True
         End If
     End Function
-
     Public Sub Navegar(ByVal url As String)
         Try
             Wbnavegador.Navigate(url)
@@ -559,7 +445,6 @@ Public Class MENU3
             MsgBox("Lo siento. Si has llegado hasta este mensaje ocurrió un error, pero tranquilo que no pasa nada", "Genesis Navigator")
         End Try
     End Sub
-
     Private Sub TextBox1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtbuscar.KeyDown
         If e.KeyCode = Keys.Enter Then
             If (ValidarURL(txtbuscar.Text) = True) Then
@@ -569,27 +454,22 @@ Public Class MENU3
             End If
         End If
     End Sub
-
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnatras.Click
         Wbnavegador.GoBack()
     End Sub
-
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnadelante.Click
         Wbnavegador.GoForward()
     End Sub
-
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnpaginainicio.Click
         Wbnavegador.Navigate("www.ecosia.org")
     End Sub
-
     Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnrecargar.Click
         Wbnavegador.Refresh()
     End Sub
-
     Private Sub panel_navegador_MouseClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles panel_navegador.MouseClick
+
         seleccionado = "navegador"
         Timer_Prestamos_LIVE.Enabled = False
-
 
         panel_usuarios.BackColor = Drawing.Color.Silver
         panel_libros.BackColor = Drawing.Color.Silver
@@ -600,14 +480,11 @@ Public Class MENU3
 
         Preparar_Form()
 
-
-
     End Sub
-
     Private Sub PictureBox1_Click_2(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbrevistas.Click
+
         seleccionado = "Revistas"
         Timer_Prestamos_LIVE.Enabled = False
-
 
         Dim F5 As New Seleccion_Revistas
         panel_menu.Controls.Clear()
@@ -615,9 +492,7 @@ Public Class MENU3
         F5.Parent = panel_menu
         F5.Show()
 
-
         Preparar_Form()
-
 
         panel_usuarios.BackColor = Drawing.Color.Silver
         panel_libros.BackColor = Drawing.Color.Silver
@@ -627,7 +502,6 @@ Public Class MENU3
         Panel_Inicio.BackColor = Drawing.Color.Silver
 
     End Sub
-
     Private Sub PictureBox1_MouseEnter1(ByVal sender As Object, ByVal e As System.EventArgs) Handles Pbrevistas.MouseEnter
 
         If seleccionado = "Revistas" Then
@@ -636,7 +510,6 @@ Public Class MENU3
         End If
 
     End Sub
-
     Private Sub PictureBox1_MouseLeave_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbrevistas.MouseLeave
 
         If seleccionado = "Revistas" Then
@@ -645,10 +518,8 @@ Public Class MENU3
         End If
 
     End Sub
-
     Private Sub PanelRevistas_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         seleccionado = "Revistas"
-
 
         Dim F5 As New Seleccion_Revistas
         panel_menu.Controls.Clear()
@@ -658,16 +529,13 @@ Public Class MENU3
 
         Preparar_Form()
 
-
         panel_usuarios.BackColor = Drawing.Color.Silver
         panel_libros.BackColor = Drawing.Color.Silver
         panel_prestamos.BackColor = Drawing.Color.LightGray
         panel_navegador.BackColor = Drawing.Color.Silver
 
     End Sub
-
     Private Sub PanelRevistas_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Panel_Revistas.MouseEnter
-
 
         If seleccionado = "Revistas" Then
         Else
@@ -675,7 +543,6 @@ Public Class MENU3
         End If
 
     End Sub
-
     Private Sub PanelRevistas_MouseLeave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Panel_Revistas.MouseLeave
 
         If seleccionado = "Revistas" Then
@@ -683,14 +550,9 @@ Public Class MENU3
             Panel_Revistas.BackColor = Drawing.Color.Silver
         End If
 
-
     End Sub
-
     Private Sub Panel_Revistas_MouseClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Panel_Revistas.MouseClick
         seleccionado = "Revistas"
-
-
-
 
         Dim F5 As New Seleccion_Revistas
         panel_menu.Controls.Clear()
@@ -717,22 +579,13 @@ Public Class MENU3
 
 
         Panel_Graficos.Visible = False
-
     End Sub
-
-
-
-
-
     Private Sub PbInicio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PbInicio.Click
         seleccionado = "Inicio"
         Chart()
         Timer_Prestamos_LIVE.Enabled = True
 
-
-
         Preparar_Form()
-
 
         panel_usuarios.BackColor = Drawing.Color.Silver
         panel_libros.BackColor = Drawing.Color.Silver
@@ -741,48 +594,31 @@ Public Class MENU3
         Panel_Revistas.BackColor = Drawing.Color.Silver
         Panel_Inicio.BackColor = Drawing.Color.LightGray
 
-
-
-
     End Sub
-
     Private Sub PbInicio_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PbInicio.MouseEnter
 
-
         If seleccionado = "Inicio" Then
         Else
             Panel_Inicio.BackColor = Drawing.Color.LightGray
         End If
 
-
-
-
     End Sub
-
     Private Sub PbInicio_MouseLeave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PbInicio.MouseLeave
 
-
-                If seleccionado = "Inicio" Then
-                Else
-                    Panel_Inicio.BackColor = Drawing.Color.Silver
-                End If
+        If seleccionado = "Inicio" Then
+        Else
+            Panel_Inicio.BackColor = Drawing.Color.Silver
+        End If
 
     End Sub
-
     Private Sub Panel_Inicio_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Panel_Inicio.MouseEnter
-
 
         If seleccionado = "Inicio" Then
         Else
             Panel_Inicio.BackColor = Drawing.Color.LightGray
         End If
 
-
     End Sub
-
-
-
-    '/////////////////////// CONFIGURACION ADMINISTRADOR ///////////////////////////////////////////////////////
 
     Private Sub Pbconfig_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbconfig.Click
 
@@ -799,16 +635,10 @@ Public Class MENU3
         Dim cedula As Integer = 0
         If open = 0 Then
             Try
-
-
-
                 Dim contraseniaAdmin As String
-
                 contraseniaAdmin = InputBox("Por favor ingrese la cedula de un administrador", Title:="Biblioteca")
-
                 Consulta = "select * from usuarios where tipo < 2"
                 consultar()
-
                 For Each row As DataRow In Tabla.Rows
                     If row("cedula") = contraseniaAdmin Then
                         cedula = 1
@@ -822,15 +652,11 @@ Public Class MENU3
                         MsgBox("Cedula Incorrecta")
                     End If
                 Next
-
-
                 If cedula = 1 Then
                     ConfigAdmin.Show()
                 ElseIf cedula = 0 Then
                     MsgBox("Cedula Incorrecta")
                 End If
-
-
             Catch ex As Exception
                 If (ex.Message.ToLowerInvariant().Contains("double")) Then
                     MsgBox("Cedula Incorrecta")
@@ -839,55 +665,37 @@ Public Class MENU3
                 End If
             End Try
         End If
-
-
     End Sub 'Evento clik
-
     Private Sub Pbconfig_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbconfig.MouseEnter
         Me.Cursor = Cursors.Hand
     End Sub 'Evento Mouse enter
-
     Private Sub Pbconfig_MouseLeave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbconfig.MouseLeave
         Me.Cursor = Cursors.Default
     End Sub 'Evento Mouse leave
-
     '/////////////////////////////////////// INFORMACION DEL USUARIO LOGEADO ////////////////////////////////////
-
     Private Sub PictureBox4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)  'Evento clik
         info_usuario.Show()
         info_usuario.Text = Nombre.Text
     End Sub
-
     Private Sub PictureBox4_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs)  'Evento Mouse enter
         Me.Cursor = Cursors.Hand
     End Sub
-
     Private Sub PictureBox4_MouseLeave(ByVal sender As System.Object, ByVal e As System.EventArgs)  'Evento Mouse leave
         Me.Cursor = Cursors.Default
     End Sub
-
-
     '////////////////////////////////////////////////////////////TIMER HORA ///////////////////////////////////////////////////////
-
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
         lblhora.Text = Date.Now.ToString("hh:mm:ss")
         substring = Date.Now.ToString("MM")
         mes()
         lblfecha.Text = fecha
-
     End Sub
-
-
     '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
     Private Sub Preparar_Form()
 
         Select Case seleccionado
 
             Case "Inicio"
-
                 Panel_Graficos.Visible = True
                 panel_menu.Visible = False
                 txtbuscar.Visible = False
@@ -899,13 +707,10 @@ Public Class MENU3
                 Wbnavegador.Visible = False
 
             Case "navegador"
-
                 Pnavegador.Visible = True
                 panel_navegador.Visible = True
                 panel_menu.Visible = False
                 Panel_Graficos.Visible = False
-
-
                 txtbuscar.Visible = True
                 btnatras.Visible = True
                 btnadelante.Visible = True
@@ -913,12 +718,9 @@ Public Class MENU3
                 btnrecargar.Visible = True
                 Wbnavegador.Visible = True
                 Wbnavegador.Navigate("www.ecosia.org")
-
-
         End Select
 
         If seleccionado <> "navegador" And seleccionado <> "Inicio" Then
-
             Panel_Graficos.Visible = False
             panel_menu.Visible = True
             txtbuscar.Visible = False
@@ -928,15 +730,8 @@ Public Class MENU3
             btnrecargar.Visible = False
             Pnavegador.Visible = False
             Wbnavegador.Visible = False
-
         End If
-
-
-
-
     End Sub
-
-
     Public Sub Chart()
         If ERROR1 = 2 Then
 
@@ -953,39 +748,28 @@ Public Class MENU3
 
             ComboBox1.Enabled = True
             ComboBox2.Enabled = True
-
-
             Chart_Prestamos.Series.Clear()
             Chart_Prestamos.ChartAreas.Clear()
-
             If ComboBox2.SelectedItem = Nothing Then
                 substring = Date.Now.ToString("yyyy")
             Else
                 substring = ComboBox2.SelectedItem
             End If
-
-
-
             '/////////////////////////////// CHART DE PRESTAMOS Y USUARIOS //////////////////////////////////
             Consulta = "select count(prestamolibro.cod_libro) , month(prestamolibro.fecha_salida) from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where fecha_salida IS NOT NULL and  year(fecha_salida) = '" & substring & "'group by month(fecha_salida)"
             consultar()
             Chart_Prestamos.ChartAreas.Add("Prestamos")
             Chart_Prestamos.Series.Add("Prestamos")
-
             '/////////////////////////////////////////////////////////////////////////////////////////////////
             For Each row As DataRow In Tabla.Rows
-
                 substring = row("month(prestamolibro.fecha_salida)")
                 If substring.Length = 1 Then
                     substring = "0" & row("month(prestamolibro.fecha_salida)")
                 End If
                 mes()
                 Chart_Prestamos.Series("Prestamos").Points.AddXY(substring, row("count(prestamolibro.cod_libro)"))
-
-
             Next
             '////////////////////////////////////////////////////////////////////////////////////////////////
-
 
             Chart_Prestamos.Series("Prestamos").Label = "Libros : " + "#VALY"
             Chart_Prestamos.ChartAreas(0).AxisX.MajorGrid.Enabled = False
@@ -997,11 +781,8 @@ Public Class MENU3
                 ChartPrestamosDia.Series.Clear()
                 ChartPrestamosDia.ChartAreas.Clear()
 
-
-
                 ChartPrestamosDia.ChartAreas.Add("Prestamos Del Dia")
                 ChartPrestamosDia.Series.Add("Prestamos Del Dia")
-
 
                 Consulta = "select cod_grafica from MenuConfig where cod_usuario = '" & lbl_cedula.Text & "'"
                 consultar()
@@ -1030,18 +811,12 @@ Public Class MENU3
                             ChartPrestamosDia.Series("Prestamos Del Dia").ChartType = DataVisualization.Charting.SeriesChartType.Pie
 
                     End Select
-
-
                 Next
-
 
                 substring = ComboBox1.SelectedItem
                 mestonum()
                 Consulta = "select count(prestamolibro.cod_libro) , day(prestamolibro.fecha_salida) from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where month(prestamolibro.fecha_salida) = '" & substring & "' group by day(fecha_salida)"
                 consultar()
-
-
-           
                 ContadorDia = 0
 
                 For Each row As DataRow In Tabla.Rows
@@ -1061,23 +836,22 @@ Public Class MENU3
                 ChartTOP.Series.Add("TOP")
                 ChartTOP.ChartAreas.Add("TOP")
 
-                Consulta = "select count(prestamolibro.cod_libro) , libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro group by prestamolibro.cod_libro limit 5"
+                Consulta = "select count(prestamolibro.cod_libro) , libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro group by prestamolibro.cod_libro ORDER BY count(prestamolibro.cod_libro) DESC limit 5"
                 consultar()
 
                 For Each row As DataRow In Tabla.Rows
                     ChartTOP.Series("TOP").Points.AddXY(row("titulo"), row("count(prestamolibro.cod_libro)"))
                 Next
 
+                ChartTOP.Series("TOP").Label = "#VALY"
+                ChartTOP.ChartAreas(0).AxisX.MajorGrid.Enabled = False
+
             Catch ex As Exception
                 MsgBox(ex.ToString)
 
             End Try
-
-
         End If
-
     End Sub
-
     Private Sub Timer_Prestamos_LIVE_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer_Prestamos_LIVE.Tick
 
         If ERROR1 = 2 Then ' SI HAY UN ERROR EN LA BASE NO VA A HACER NADA HASTA QUE SE RETOME LA CONEXIÒN
@@ -1099,9 +873,6 @@ Public Class MENU3
             Else
             End If
         End If
-
-
-
     End Sub
     Dim x1 As Integer = 1
     Private Sub PictureBox1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox1.Click
@@ -1130,11 +901,7 @@ Public Class MENU3
 
             x1 = 0
         End If
-
-
-
     End Sub
-
     Private Sub Pbadvertenciaprestamos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbadvertenciaprestamos.Click
 
         If Panel_prestamosdia.Visible = False Then
@@ -1169,14 +936,11 @@ Public Class MENU3
         End Select
 
     End Sub
-
     Private Sub verificarBD()
 
         Consulta = "select * from usuarios"
         consultar()
         DataGridView1.DataSource = Tabla
-
-
         If DataGridView1.Rows.Count() = 0 Then
             Pbnube.Image = Image.FromFile("imagenes\cloud-error.png")
             ConfigAdmin.Label_BDestadoTXT.Text = lblhora.Text
@@ -1191,22 +955,16 @@ Public Class MENU3
                 Timer_BD.Interval = 10
             End If
         End If
-
     End Sub
     Dim koko As Integer = 0
     Private Sub Timer_BD_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer_BD.Tick
-
         If primeriniciotimer = 0 Then
             Timer_BD.Interval = 6000
         End If
-
         primeriniciotimer = 0
-
-
         verificarBD()
 
         Select Case ERROR1
-
             Case 2
 
                 Timer_Prestamos_LIVE.Enabled = False
@@ -1218,26 +976,15 @@ Public Class MENU3
             Case 0
 
                 If seleccionado = "Inicio" Then
-
-
                     Timer_Prestamos_LIVE.Enabled = True
-
                 Else
-
                     Timer_BD.Interval = 6000
-
                 End If
 
-
         End Select
-
-
-
     End Sub
-
     Dim notasopen As Integer
     Private Sub PictureBox2_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox2.Click
-
         For Each notas As Form In Application.OpenForms
             If notas.Name = "Notas" Then
                 notasopen = 1
@@ -1245,11 +992,9 @@ Public Class MENU3
                 notasopen = 0
             End If
         Next
-
         If notasopen = 0 Then
             NotasUsuario.Show()
         End If
-
     End Sub
     Private Sub Panel_Inicio_MouseLeave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Panel_Inicio.MouseLeave
         If seleccionado = "Inicio" Then
@@ -1270,30 +1015,22 @@ Public Class MENU3
         End If
         contadorAnimacionBD = contadorAnimacionBD + 1
     End Sub
-
     Private Sub RadioButton1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Chart()
     End Sub
-
     Private Sub RadioButton2_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Chart()
     End Sub
-
     Private Sub RadioButton3_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Chart()
     End Sub
-
     Private Sub TrackBar1_Scroll(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Chart()
-
     End Sub
-
     Private Sub RadioButton4_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Chart()
     End Sub
-
     Private Sub Pbusuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbusuario.Click
-
         Consulta = "select cedula , nombre , mail , tipo from usuarios where cedula = '" & lbl_cedula.Text & "'"
         consultar()
         For Each row As DataRow In Tabla.Rows
@@ -1312,4 +1049,7 @@ Public Class MENU3
         info_usuario.Show()
     End Sub
 
+    Private Sub PictureBox3_Click_1(sender As System.Object, e As System.EventArgs) Handles PictureBox3.Click
+        Me.Close()
+    End Sub
 End Class

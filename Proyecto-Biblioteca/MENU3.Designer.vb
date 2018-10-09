@@ -101,6 +101,7 @@ Partial Class MENU3
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Timer_BD = New System.Windows.Forms.Timer(Me.components)
         Me.Timer_RuedaDeCarga = New System.Windows.Forms.Timer(Me.components)
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.Phoraencabezado.SuspendLayout()
         CType(Me.Pbusuario, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -134,11 +135,13 @@ Partial Class MENU3
         CType(Me.ChartPrestamosDia, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.Chart_Prestamos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Phoraencabezado
         '
         Me.Phoraencabezado.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Phoraencabezado.Controls.Add(Me.PictureBox3)
         Me.Phoraencabezado.Controls.Add(Me.Pbusuario)
         Me.Phoraencabezado.Controls.Add(Me.PictureBox2)
         Me.Phoraencabezado.Controls.Add(Me.lbl_cedula)
@@ -157,7 +160,7 @@ Partial Class MENU3
         Me.Pbusuario.BackColor = System.Drawing.Color.DarkGray
         Me.Pbusuario.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Pbusuario.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.boss
-        Me.Pbusuario.Location = New System.Drawing.Point(995, 3)
+        Me.Pbusuario.Location = New System.Drawing.Point(977, 3)
         Me.Pbusuario.Name = "Pbusuario"
         Me.Pbusuario.Size = New System.Drawing.Size(42, 40)
         Me.Pbusuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -168,7 +171,7 @@ Partial Class MENU3
         '
         Me.PictureBox2.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBox2.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.file
-        Me.PictureBox2.Location = New System.Drawing.Point(940, 4)
+        Me.PictureBox2.Location = New System.Drawing.Point(922, 4)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(45, 43)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -180,7 +183,7 @@ Partial Class MENU3
         Me.lbl_cedula.AutoSize = True
         Me.lbl_cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_cedula.ForeColor = System.Drawing.Color.White
-        Me.lbl_cedula.Location = New System.Drawing.Point(1043, 31)
+        Me.lbl_cedula.Location = New System.Drawing.Point(1025, 31)
         Me.lbl_cedula.Name = "lbl_cedula"
         Me.lbl_cedula.Size = New System.Drawing.Size(45, 13)
         Me.lbl_cedula.TabIndex = 8
@@ -190,7 +193,7 @@ Partial Class MENU3
         '
         Me.Pbadvertenciaprestamos.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Pbadvertenciaprestamos.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.warning
-        Me.Pbadvertenciaprestamos.Location = New System.Drawing.Point(865, 4)
+        Me.Pbadvertenciaprestamos.Location = New System.Drawing.Point(847, 4)
         Me.Pbadvertenciaprestamos.Name = "Pbadvertenciaprestamos"
         Me.Pbadvertenciaprestamos.Size = New System.Drawing.Size(45, 43)
         Me.Pbadvertenciaprestamos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -234,7 +237,7 @@ Partial Class MENU3
         Me.Nombre.AutoSize = True
         Me.Nombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Nombre.ForeColor = System.Drawing.Color.White
-        Me.Nombre.Location = New System.Drawing.Point(1041, 6)
+        Me.Nombre.Location = New System.Drawing.Point(1023, 6)
         Me.Nombre.Name = "Nombre"
         Me.Nombre.Size = New System.Drawing.Size(81, 26)
         Me.Nombre.TabIndex = 3
@@ -595,7 +598,7 @@ Partial Class MENU3
         Me.Panel_prestamosdia.Controls.Add(Me.Button1)
         Me.Panel_prestamosdia.Controls.Add(Me.Label3)
         Me.Panel_prestamosdia.Controls.Add(Me.LbPrestamos)
-        Me.Panel_prestamosdia.Location = New System.Drawing.Point(654, 1)
+        Me.Panel_prestamosdia.Location = New System.Drawing.Point(636, 1)
         Me.Panel_prestamosdia.Name = "Panel_prestamosdia"
         Me.Panel_prestamosdia.Size = New System.Drawing.Size(200, 247)
         Me.Panel_prestamosdia.TabIndex = 3
@@ -828,6 +831,18 @@ Partial Class MENU3
         '
         Me.Timer_RuedaDeCarga.Interval = 500
         '
+        'PictureBox3
+        '
+        Me.PictureBox3.BackColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(67, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.PictureBox3.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureBox3.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.cancel
+        Me.PictureBox3.Location = New System.Drawing.Point(1104, 6)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(30, 31)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox3.TabIndex = 11
+        Me.PictureBox3.TabStop = False
+        '
         'MENU3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -889,6 +904,7 @@ Partial Class MENU3
         CType(Me.ChartPrestamosDia, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         CType(Me.Chart_Prestamos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -957,4 +973,5 @@ Partial Class MENU3
     Friend WithEvents Timer_RuedaDeCarga As System.Windows.Forms.Timer
     Friend WithEvents DataGridViewLibros As System.Windows.Forms.DataGridView
     Friend WithEvents Pbusuario As Proyecto_Biblioteca.PictureboxBordesRedondos
+    Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
 End Class
