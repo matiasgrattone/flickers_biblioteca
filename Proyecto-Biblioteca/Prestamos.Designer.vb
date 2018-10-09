@@ -47,6 +47,7 @@ Partial Class Prestamos
         Me.LabelIDLIBRO = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GrupBoxDevolucion = New System.Windows.Forms.GroupBox()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.DataGridParaDevolucion = New System.Windows.Forms.DataGridView()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.ENPODER = New System.Windows.Forms.Label()
@@ -70,7 +71,6 @@ Partial Class Prestamos
         Me.ButtonVERREGISTRO = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.LabelSELECCION_DE_FUNCION = New System.Windows.Forms.Label()
-        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.PictureCrearReservacion = New System.Windows.Forms.PictureBox()
         Me.PictureReservacion = New System.Windows.Forms.PictureBox()
         Me.PictureDevolucion = New System.Windows.Forms.PictureBox()
@@ -85,6 +85,7 @@ Partial Class Prestamos
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.PanelDelCarrito.SuspendLayout()
         Me.GrupBoxDevolucion.SuspendLayout()
         CType(Me.DataGridParaDevolucion, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -234,6 +235,7 @@ Partial Class Prestamos
         'GrupBoxDevolucion
         '
         Me.GrupBoxDevolucion.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.GrupBoxDevolucion.Controls.Add(Me.Button2)
         Me.GrupBoxDevolucion.Controls.Add(Me.DataGridParaDevolucion)
         Me.GrupBoxDevolucion.Controls.Add(Me.Label11)
         Me.GrupBoxDevolucion.Controls.Add(Me.ENPODER)
@@ -243,6 +245,16 @@ Partial Class Prestamos
         Me.GrupBoxDevolucion.TabIndex = 67
         Me.GrupBoxDevolucion.TabStop = False
         Me.GrupBoxDevolucion.Text = "DEVOLUCION"
+        '
+        'Button2
+        '
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Location = New System.Drawing.Point(304, 85)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(126, 29)
+        Me.Button2.TabIndex = 83
+        Me.Button2.Text = "Renovar Libros"
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'DataGridParaDevolucion
         '
@@ -596,16 +608,6 @@ Partial Class Prestamos
         Me.LabelSELECCION_DE_FUNCION.TabIndex = 66
         Me.LabelSELECCION_DE_FUNCION.Text = "SELECCION " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      DE " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FUNCION "
         '
-        'Cedula
-        '
-        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Cedula.Location = New System.Drawing.Point(3, 50)
-        Me.Cedula.Name = "Cedula"
-        Me.Cedula.Size = New System.Drawing.Size(259, 20)
-        Me.Cedula.TabIndex = 0
-        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
-        Me.Cedula.WaterMarkText = "Cedula"
-        '
         'PictureCrearReservacion
         '
         Me.PictureCrearReservacion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.crear_reserva
@@ -783,6 +785,16 @@ Partial Class Prestamos
         Me.Panel2.Size = New System.Drawing.Size(1016, 38)
         Me.Panel2.TabIndex = 78
         '
+        'Cedula
+        '
+        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.Cedula.Location = New System.Drawing.Point(3, 50)
+        Me.Cedula.Name = "Cedula"
+        Me.Cedula.Size = New System.Drawing.Size(259, 20)
+        Me.Cedula.TabIndex = 0
+        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
+        Me.Cedula.WaterMarkText = "Cedula"
+        '
         'Prestamos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -792,10 +804,10 @@ Partial Class Prestamos
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.PanelDelCarrito)
-        Me.Controls.Add(Me.ReservacionGrupBox)
         Me.Controls.Add(Me.GrupBoxExtraccion)
         Me.Controls.Add(Me.GrupBoxDevolucion)
         Me.Controls.Add(Me.CrearReservacionGrupBox)
+        Me.Controls.Add(Me.ReservacionGrupBox)
         Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Prestamos"
@@ -878,4 +890,5 @@ Partial Class Prestamos
     Friend WithEvents DataGridParaDevolucion As System.Windows.Forms.DataGridView
     Friend WithEvents LibrosParaReservar As System.Windows.Forms.DataGridView
     Friend WithEvents VerLibrosReservados2 As System.Windows.Forms.DataGridView
+    Friend WithEvents Button2 As System.Windows.Forms.Button
 End Class

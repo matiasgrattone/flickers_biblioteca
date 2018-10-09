@@ -8,6 +8,12 @@
 
     Dim Contador As Integer = 0
 
+    Dim librorenovar As String
+
+    Dim fecha_actual As Date
+    Dim fecha_estimada As String
+    Dim dia, mes, anio, diferenciaDia As Integer
+
     Dim VALIDADOR As String
 
     '///PARA QUE LA CEDULA SE PUEDA EDITAR///
@@ -338,9 +344,7 @@
         '///////////////////////////////////////////////////////////////////////////////////
         '///////////////Calcula la fecha en que deberia entregarse el libro/////////////////
         '///////////////////////////////////////////////////////////////////////////////////
-        Dim fecha_actual As Date = DateTime.Now.ToString("yyyy/MM/dd")
-        Dim fecha_estimada As String
-        Dim dia, mes, anio, diferenciaDia As Integer
+        fecha_actual = DateTime.Now.ToString("yyyy/MM/dd")
 
         dia = Val(DateTime.Now.ToString("dd")) + 14
         mes = Val(DateTime.Now.ToString("MM"))
@@ -984,4 +988,151 @@
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         FichaParaImprimir2.Show()
     End Sub
+
+    Private Sub Button2_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+
+        librorenovar = DataGridParaDevolucion.Item(0, DataGridParaDevolucion.CurrentRow.Index).Value
+
+        '///////////////////////////////////////////////////////////////////////////////////
+        '///////////////Calcula la fecha en que deberia entregarse el libro/////////////////
+        '///////////////////////////////////////////////////////////////////////////////////
+        fecha_actual = DateTime.Now.ToString("yyyy/MM/dd")
+
+        dia = Val(DateTime.Now.ToString("dd")) + 14
+        mes = Val(DateTime.Now.ToString("MM"))
+        anio = Val(DateTime.Now.ToString("yyyy"))
+
+        If mes = 1 Then ' Mes de Enero
+            If dia >= 31 Then
+                diferenciaDia = dia - 31
+                dia = dia - diferenciaDia
+                mes = mes + 1
+                fecha_estimada = anio & "-" & mes & "-" & dia
+            Else
+                fecha_estimada = anio & "-" & mes & "-" & dia
+            End If
+        End If
+        If mes = 2 Then ' Mes de febrero
+            If dia >= 28 Then
+                diferenciaDia = dia - 28
+                dia = dia - diferenciaDia
+                mes = mes + 1
+                fecha_estimada = anio & "-" & mes & "-" & dia
+            Else
+                fecha_estimada = anio & "-" & mes & "-" & dia
+            End If
+        End If
+        If mes = 3 Then ' Mes de marzo
+            If dia >= 31 Then
+                diferenciaDia = dia - 31
+                dia = dia - diferenciaDia
+                mes = mes + 1
+                fecha_estimada = anio & "-" & mes & "-" & dia
+            Else
+                fecha_estimada = anio & "-" & mes & "-" & dia
+            End If
+        End If
+        If mes = 4 Then ' Mes de abril
+            If dia >= 30 Then
+                diferenciaDia = dia - 30
+                dia = dia - diferenciaDia
+                mes = mes + 1
+                fecha_estimada = anio & "-" & mes & "-" & dia
+            Else
+                fecha_estimada = anio & "-" & mes & "-" & dia
+            End If
+        End If
+        If mes = 5 Then ' Mes de mayo
+            If dia >= 31 Then
+                diferenciaDia = dia - 31
+                dia = dia - diferenciaDia
+                mes = mes + 1
+                fecha_estimada = anio & "-" & mes & "-" & dia
+            Else
+                fecha_estimada = anio & "-" & mes & "-" & dia
+            End If
+        End If
+        If mes = 6 Then ' Mes de junio
+            If dia >= 30 Then
+                diferenciaDia = dia - 30
+                dia = dia - diferenciaDia
+                mes = mes + 1
+                fecha_estimada = anio & "-" & mes & "-" & dia
+            Else
+                fecha_estimada = anio & "-" & mes & "-" & dia
+            End If
+        End If
+        If mes = 7 Then ' Mes de julio
+            If dia >= 31 Then
+                diferenciaDia = dia - 31
+                dia = dia - diferenciaDia
+                mes = mes + 1
+                fecha_estimada = anio & "-" & mes & "-" & dia
+            Else
+                fecha_estimada = anio & "-" & mes & "-" & dia
+            End If
+        End If
+        If mes = 8 Then ' Mes de agosto
+            If dia >= 31 Then
+                diferenciaDia = dia - 31
+                dia = dia - diferenciaDia
+                mes = mes + 1
+                fecha_estimada = anio & "-" & mes & "-" & dia
+            Else
+                fecha_estimada = anio & "-" & mes & "-" & dia
+            End If
+        End If
+        If mes = 9 Then ' Mes de setiembre
+            If dia >= 30 Then
+                diferenciaDia = dia - 30
+                dia = dia - diferenciaDia
+                mes = mes + 1
+                fecha_estimada = anio & "-" & mes & "-" & dia
+            Else
+                fecha_estimada = anio & "-" & mes & "-" & dia
+            End If
+        End If
+        If mes = 10 Then ' Mes de octubre
+            If dia >= 31 Then
+                diferenciaDia = dia - 31
+                dia = dia - diferenciaDia
+                mes = mes + 1
+                fecha_estimada = anio & "-" & mes & "-" & dia
+            Else
+                fecha_estimada = anio & "-" & mes & "-" & dia
+            End If
+        End If
+        If mes = 11 Then ' Mes de noviembre
+            If dia >= 30 Then
+                diferenciaDia = dia - 30
+                dia = dia - diferenciaDia
+                mes = mes + 1
+                fecha_estimada = anio & "-" & mes & "-" & dia
+            Else
+                fecha_estimada = anio & "-" & mes & "-" & dia
+            End If
+        End If
+        If mes = 12 Then ' Mes de diciembre
+            If dia >= 31 Then
+                diferenciaDia = dia - 31
+                dia = dia - diferenciaDia
+                mes = 1
+                anio = anio + 1
+                fecha_estimada = anio & "-" & mes & "-" & dia
+            Else
+                fecha_estimada = anio & "-" & mes & "-" & dia
+            End If
+        End If
+        '////////////////////////////////////////////////////////////////////////
+
+        Try
+            Consulta = "update prestamolibro set fecha_salida = '" + fecha + "', fecha_estimada = '" + fecha_estimada + "', cod_prestado = '" + MENU3.cedulaIngre + "' where fecha_entrada is NULL and cedula = '" + Cedula.Text + "' and cod_libro = '" + librorenovar + "'"
+            consultar()
+            MsgBox("Se renovo el prestamo")
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+    End Sub
+
 End Class
