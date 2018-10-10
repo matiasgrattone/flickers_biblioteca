@@ -15,17 +15,19 @@ Public Class MENU3
     Public BD_ONLINE As Integer = 0 'verificar si la base de datos esta online
     Dim primeriniciotimer As Integer = 1 'verifcar si es el primer inicio para el timer
 
+    Public F3 As New Seleccion_Libro
+
     Public cedulaIngre As String ' Variable para actualizar foto de perfil, se carga en el load
     Public cedulaAdmin As String ' Variable para cargar foto de perfil en admin, se carga al abrir config admin
-    Private Sub inicio()
+    Private Sub inicio() 'metodo para verificar si hay un libro que se tiene que entregar en el dia
         If ERROR1 = 0 Then
             Try
-                Chart()
-                Dim fecha As String = DateTime.Now.ToString("yyyy/MM/dd")
+                Chart() 'llama al metodo para cargar los graficos
+                Dim fecha As String = DateTime.Now.ToString("yyyy/MM/dd") 'variable para filtrar la fecha estimada para entregar el libro
                 Consulta = "select titulo from prestamolibro p inner join libro l on p.cod_libro=l.cod_libro where fecha_estimada='" + fecha + "'"
                 consultar()
                 For Each row As DataRow In Tabla.Rows
-                    If Not IsDBNull(row("titulo")) Then
+                    If Not IsDBNull(row("titulo")) Then 'verifica si titulo no es nulo para poder activar el panel de libros que hay que entregar en el dia
                         Pbadvertenciaprestamos.Visible = True
                     End If
                 Next
@@ -35,17 +37,17 @@ Public Class MENU3
     End Sub
     Private Sub MENU3_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
-        xf = Me.Location.X
-        yf = Me.Location.Y
+        xf = Me.Location.X 'obtiene la ubicacion Y del formulario
+        yf = Me.Location.Y 'obtiene la ubicacion X del forumario
 
-        Rueda_de_carga1.Visible = False
-        verificarBD()
+        Rueda_de_carga1.Visible = False 'desactiva la rueda de carga
+        verificarBD() 'llama al metodo para verificar si esta ONLINE la base de datos
 
         Consulta = "select prestamolibro.cod_libro as Libros, libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where fecha_entrada is null"
         consultar()
         DataGridViewLibros.DataSource = Tabla
-        DatagridModulo = DataGridViewLibros
-        Datagrid_Align()
+        DatagridModulo = DataGridViewLibros 'iguala la varible publica de tipo datagrid al datagrid que recibe los datos de la consulta
+        Datagrid_Align() 'llama al metodo para alinear las filas y las columnas del datagrid
 
         cedulaIngre = lbl_cedula.Text ' Variable para actualizar foto de perfil
 
@@ -54,13 +56,13 @@ Public Class MENU3
             consultar()
 
             For Each row As DataRow In Tabla.Rows
-                Pbusuario.ImageLocation = Convert.ToString(row("rutaperfil"))
+                Pbusuario.ImageLocation = Convert.ToString(row("rutaperfil")) 'iguala el picturebox de MENU3 con la ubicacion de la imagen guardada en la base
             Next
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
 
-        If ERROR1 = 0 Then
+        If ERROR1 = 0 Then 'si no hay error , llama al metodo chart para cargar las graficas , activa el timer_Prestamos  y llama al metodo inicio para verificar si hay libros para devolver en el dia
             Chart()
             inicio()
             Timer_Prestamos_LIVE.Enabled = True
@@ -108,6 +110,8 @@ Public Class MENU3
         Pbadvertenciaprestamos.Visible = False
         Panel_prestamosdia.Visible = False
 
+        'mueve todos los labels de seleccion al left 72
+
         label_usuarios.Left = 72
         label_libros.Left = 72
         LabelInicio.Left = 72
@@ -116,6 +120,8 @@ Public Class MENU3
         label_navegador.Left = 72
 
         Preparar_Form()
+
+        'todos los paneles de seleccion con backcolor silver
 
         panel_usuarios.BackColor = Drawing.Color.Silver
         panel_libros.BackColor = Drawing.Color.Silver
@@ -132,50 +138,52 @@ Public Class MENU3
         a = 1
     End Sub
     Private Sub Panel1_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Phoraencabezado.MouseMove
-        If a = 1 Then
-            xc = Cursor.Position.X
-            yc = Cursor.Position.Y
-            holax = xc - xco
-            holay = yc - yco
-            Me.Location = New Point(xf + holax, yf + holay)
-            Me.Opacity = 0.9
+        If a = 1 Then 'si el mouse esta presionado
+            xc = Cursor.Position.X 'iguala la variable xc a la posicion del cursor X
+            yc = Cursor.Position.Y 'iguala la varibale yc a la posicion del cursor Y
+            holax = xc - xco 'resta la antigua posicion X del mouse con la nueva ubicacion para obtener cuanta distancia se movio el mouse
+            holay = yc - yco 'resta la antigua posicion Y del mouse con la nueva ubicacion para obtener cuanta distancia se movio el mouse
+            Me.Location = New Point(xf + holax, yf + holay) 'fija la nueva ubicacion del formulario a la suma de la ubicacion del formulario XY con la resta de la ubicacion del mouse XY
+            Me.Opacity = 0.9 'cambia la propiedad del opacity del formulario a 0.9
             Timer_Prestamos_LIVE.Enabled = False
         End If
-        If a = 0 Then
-            xco = Cursor.Position.X
-            yco = Cursor.Position.Y
-            Timer_Prestamos_LIVE.Enabled = True
+        If a = 0 Then 'si el mouse no esta presionado
+            xco = Cursor.Position.X 'nueva posicion del cursor Y
+            yco = Cursor.Position.Y 'nueva posicion del cursor X
+            Timer_Prestamos_LIVE.Enabled = True 'activa el timer prestamos
         End If
     End Sub
     Private Sub Panel1_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Phoraencabezado.MouseUp
-        xf = Me.Location.X
-        yf = Me.Location.Y
-        a = 0
-        Me.Opacity = 1
+        xf = Me.Location.X 'iguala la variable xf a la ubicacion X del formulario
+        yf = Me.Location.Y 'iguala la variable yf a la ubicacion Y del formulario
+        a = 0 'si el mouse no esta presionado
+        Me.Opacity = 1 'fija la opacidad del fomulario a 1
     End Sub
     Private Sub panel_usuarios_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles panel_usuarios.MouseEnter
-        If seleccionado = "usuarios" Then
+        If seleccionado = "usuarios" Then 'si esta seleccionado el sector usuarios
         Else
-            panel_usuarios.BackColor = Drawing.Color.LightGray
+            panel_usuarios.BackColor = Drawing.Color.LightGray 'si no esta seleccionado el sector usuarios
         End If
     End Sub
     Private Sub panel_usuarios_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles panel_usuarios.MouseLeave
-        If seleccionado = "usuarios" Then
+        If seleccionado = "usuarios" Then 'si esta seleccionado el sector usuarios
         Else
-            panel_usuarios.BackColor = Drawing.Color.Silver
+            panel_usuarios.BackColor = Drawing.Color.Silver 'si no esta seleccionado el sector usuarios
         End If
     End Sub
     Private Sub panel_usuarios_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles panel_usuarios.MouseClick
-        seleccionado = "usuarios"
+        seleccionado = "usuarios" 'fija la varibale seleccionado a usuarios
 
-        Dim F1 As New Inicio_UsuariosV2
-        panel_menu.Controls.Clear()
-        F1.TopLevel = False
-        F1.Parent = panel_menu
-        F1.Show()
+        Dim F1 As New Inicio_UsuariosV2 'declara una variable F1 como un tipo formulario , en este caso inicio_usuariosV2 
+        panel_menu.Controls.Clear() 'limpia el panelMenu 
+        F1.TopLevel = False 'declara el nivel del formulario Child como false
+        F1.Parent = panel_menu 'declara como padre al panel menu
+        F1.Show() 'muestra en el panel menu a la variable F1 que es el formulario inicio_usuariosV2
 
-        Preparar_Form()
+        Preparar_Form() 'llama al metodo preparar form para que este listo para mostrar el formulario F1
 
+
+        'fija todos los backcolor de los paneles de seleccion en silver menos el seleccionado
         panel_usuarios.BackColor = Drawing.Color.LightGray
         panel_libros.BackColor = Drawing.Color.Silver
         panel_prestamos.BackColor = Drawing.Color.Silver
@@ -185,22 +193,23 @@ Public Class MENU3
 
     End Sub
     Private Sub PictureBox1_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles Pbusuarios.MouseEnter
-        If seleccionado = "usuarios" Then
+        If seleccionado = "usuarios" Then 'si esta seleccionado el sector usuarios
         Else
-            panel_usuarios.BackColor = Drawing.Color.LightGray
+            panel_usuarios.BackColor = Drawing.Color.LightGray 'si no esta seleccionado usuarios , fija el backcolor como lightgray
         End If
     End Sub
     Private Sub PictureBox1_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Pbusuarios.MouseLeave
-        If seleccionado = "usuarios" Then
+        If seleccionado = "usuarios" Then 'si esta seleccionado el sector usuarios
         Else
-            panel_usuarios.BackColor = Drawing.Color.Silver
+            panel_usuarios.BackColor = Drawing.Color.Silver 'si no esta seleccionado usuarios , fija el backcolor como silver
         End If
     End Sub
     Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbusuarios.Click
-        seleccionado = "usuarios"
+        seleccionado = "usuarios" 'fija seleccion como usuarios
 
-        Timer_Prestamos_LIVE.Enabled = False
+        Timer_Prestamos_LIVE.Enabled = False 'desactiva el timer_Prestamos
 
+        'fija todos los backcolors de los paneles de seleccion como silver , menos el que esta seleccionado
         panel_usuarios.BackColor = Drawing.Color.LightGray
         panel_libros.BackColor = Drawing.Color.Silver
         panel_prestamos.BackColor = Drawing.Color.Silver
@@ -208,37 +217,36 @@ Public Class MENU3
         Panel_Revistas.BackColor = Drawing.Color.Silver
         Panel_Inicio.BackColor = Drawing.Color.Silver
 
-        Dim F1 As New Inicio_UsuariosV2
-        panel_menu.Controls.Clear()
-        F1.TopLevel = False
-        F1.Parent = panel_menu
-        F1.Show()
+        Dim F1 As New Inicio_UsuariosV2 'declara la varibale F1 como tipo formulario en este caso como inicio_usuariosV2
+        panel_menu.Controls.Clear() 'limpia el panel donde va a estar alojado el formulario
+        F1.TopLevel = False 'pone en tipo false el nivel de la variable
+        F1.Parent = panel_menu 'declara como padre al formulario que aloja a la variable F1
+        F1.Show() 'mustra la varible F1
 
-        Preparar_Form()
+        Preparar_Form() 'prepara los formulario para cargar la variable
     End Sub
     Private Sub panel_libros_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles panel_libros.MouseEnter
-        If seleccionado = "libros" Then
+        If seleccionado = "libros" Then 'selecciona libros
         Else
-            panel_libros.BackColor = Drawing.Color.LightGray
+            panel_libros.BackColor = Drawing.Color.LightGray 'si no esta seleccionado pone el backcolor en lightgray
         End If
     End Sub
     Private Sub panel_libros_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles panel_libros.MouseLeave
-        If seleccionado = "libros" Then
+        If seleccionado = "libros" Then 'selecciona libros
         Else
-            panel_libros.BackColor = Drawing.Color.Silver
+            panel_libros.BackColor = Drawing.Color.Silver 'si no esta seleccionado pone el backcolor en silver
         End If
     End Sub
     Private Sub panel_libros_Mouseclick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles panel_libros.MouseClick
-        Dim F3 As New Seleccion_Libro
-        seleccionado = "libros"
-        Timer_Prestamos_LIVE.Enabled = False
+        seleccionado = "libros" 'selecciona libros
+        Timer_Prestamos_LIVE.Enabled = False 'desactiva el timer prestamos
 
-        panel_menu.Controls.Clear()
-        F3.TopLevel = False
-        F3.Parent = panel_menu
-        F3.Dock = DockStyle.Fill
-        F3.Show()
-
+        panel_menu.Controls.Clear() 'limpia el panel_menu 
+        F3.TopLevel = False 'declara el nivel del la variable F3 como false
+        F3.Parent = panel_menu 'declara el padre como el panel_menu
+        F3.Dock = DockStyle.Fill 'completa el panel_menu con la varibale F3 
+        F3.Show() 'muestra la variable F3
+        'declara como backcolor silver a todos los paneles de seleccion , menos el seleccionado
         panel_usuarios.BackColor = Drawing.Color.Silver
         panel_libros.BackColor = Drawing.Color.LightGray
         panel_prestamos.BackColor = Drawing.Color.Silver
@@ -246,31 +254,30 @@ Public Class MENU3
         Panel_Revistas.BackColor = Drawing.Color.Silver
         Panel_Inicio.BackColor = Drawing.Color.Silver
 
-        Preparar_Form()
+        Preparar_Form() 'llama al metodo preparar_form
     End Sub
     Private Sub PictureBox2_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles Pblibros.MouseEnter
-        If seleccionado = "libros" Then
+        If seleccionado = "libros" Then 'si esta seleccioado libros
         Else
-            panel_libros.BackColor = Drawing.Color.LightGray
+            panel_libros.BackColor = Drawing.Color.LightGray 'si no esta seleccionado el panel , pone como backcolor a lightgray
         End If
     End Sub
     Private Sub PictureBox2_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Pblibros.MouseLeave
-        If seleccionado = "libros" Then
+        If seleccionado = "libros" Then 'si esta seleccionado libros
         Else
-            panel_libros.BackColor = Drawing.Color.Silver
+            panel_libros.BackColor = Drawing.Color.Silver 'si no esta seleccioado libros entonces pone el backcolor como silver
         End If
     End Sub
     Public Sub PictureBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pblibros.Click
-        Dim F3 As Seleccion_Libro
-        seleccionado = "libros"
-        Timer_Prestamos_LIVE.Enabled = False
+        seleccionado = "libros" 'seleciona libros
+        Timer_Prestamos_LIVE.Enabled = False 'desactiva el timer prestamos
 
-        panel_menu.Controls.Clear()
-        F3.TopLevel = False
-        F3.Parent = panel_menu
-        F3.Dock = DockStyle.Fill
-        F3.Show()
-
+        panel_menu.Controls.Clear() 'limpia el panel_menu
+        F3.TopLevel = False 'declara en false el nivel de la variable F3
+        F3.Parent = panel_menu 'declara como padre al panel_menu
+        F3.Dock = DockStyle.Fill 'completa el panel con la varibale F3
+        F3.Show() 'muestra la varible de tipo formulario llamada F3
+        'declara todos los backcolor de los paneles de seleccion en silver , menos el seleccionado
         panel_usuarios.BackColor = Drawing.Color.Silver
         panel_libros.BackColor = Drawing.Color.LightGray
         panel_prestamos.BackColor = Drawing.Color.Silver
@@ -278,16 +285,16 @@ Public Class MENU3
         Panel_Revistas.BackColor = Drawing.Color.Silver
         Panel_Inicio.BackColor = Drawing.Color.Silver
 
-        Preparar_Form()
+        Preparar_Form() 'prepara el formualario para cargar la variable F3
     End Sub
     Private Sub panel_prestamos_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles panel_prestamos.MouseEnter
-        If seleccionado = "prestamos" Then
+        If seleccionado = "prestamos" Then 'si esta seleccionado prestamos
         Else
-            panel_prestamos.BackColor = Drawing.Color.LightGray
+            panel_prestamos.BackColor = Drawing.Color.LightGray 'si no esta seleccionado prestamos , el backcolor lo define en lightgray
         End If
     End Sub
     Private Sub panel_prestamos_MouseClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles panel_prestamos.MouseClick
-        seleccionado = "prestamos"
+        seleccionado = "prestamos" 'seleccioado prestamos
 
         Dim F4 As New Prestamos
         panel_menu.Controls.Clear()

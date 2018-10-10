@@ -231,7 +231,7 @@ Module Modulo
             'Puerto SMTP de nuestro server
             SMTPServer.Port = 587
             'Credenciales de acceso de la cuenta de envio
-            SMTPServer.Credentials = New System.Net.NetworkCredential("flickers.srl.uy@gmail.com", "fli1234.ckers")
+            SMTPServer.Credentials = New System.Net.NetworkCredential("flickers.srl.uy@gmail.com", "Falcon1234.Flickers")
             'Si nuestro servidor de correo admite SSL
             SMTPServer.EnableSsl = True
             'Enviamos el correo
@@ -241,7 +241,7 @@ Module Modulo
             Email.Dispose()
 
             MsgBox("Correo Enviado", MsgBoxStyle.OkOnly & MsgBoxStyle.Information, Title:="Correo enviado")
-
+            Mail.Close()
         Catch ex As Exception
             MsgBox(ex.ToString)
             'MsgBox("Ocurrio un error al enviar el correo: " & ex.Message,
