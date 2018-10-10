@@ -22,16 +22,24 @@ Partial Class PrestamoRevistas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.LabelSELECCION_DE_FUNCION = New System.Windows.Forms.Label()
         Me.ButtonVerRegistro = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.LabelREVISTAS = New System.Windows.Forms.Label()
+        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.BotonParaBuscarCedula = New System.Windows.Forms.Button()
         Me.PictureDevolucion = New System.Windows.Forms.PictureBox()
         Me.PictureExtraccion = New System.Windows.Forms.PictureBox()
         Me.ExtCombo = New System.Windows.Forms.GroupBox()
+        Me.DataGridView_VerRevistasEnExtraccion_ = New System.Windows.Forms.DataGridView()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -39,7 +47,6 @@ Partial Class PrestamoRevistas
         Me.ButonParaExtreaer = New System.Windows.Forms.Button()
         Me.TextboxBuscador = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.DataGridView_VerRevistasEnExtraccion_ = New System.Windows.Forms.DataGridView()
         Me.PanelDelCarrito = New System.Windows.Forms.Panel()
         Me.LabelAlmacenTemporalParaLaCedula = New System.Windows.Forms.Label()
         Me.LabelCI = New System.Windows.Forms.Label()
@@ -54,19 +61,18 @@ Partial Class PrestamoRevistas
         Me.LabelIDREVISTAS = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.devoCOMBO = New System.Windows.Forms.GroupBox()
+        Me.DataGridParaDevolucion = New System.Windows.Forms.DataGridView()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.DataGridParaDevolucion = New System.Windows.Forms.DataGridView()
         Me.ENPODER = New System.Windows.Forms.Label()
-        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
         CType(Me.PictureDevolucion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureExtraccion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ExtCombo.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView_VerRevistasEnExtraccion_, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelDelCarrito.SuspendLayout()
         Me.devoCOMBO.SuspendLayout()
         CType(Me.DataGridParaDevolucion, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -126,6 +132,16 @@ Partial Class PrestamoRevistas
         Me.LabelREVISTAS.TabIndex = 66
         Me.LabelREVISTAS.Text = "REVISTAS"
         '
+        'Cedula
+        '
+        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.Cedula.Location = New System.Drawing.Point(3, 50)
+        Me.Cedula.Name = "Cedula"
+        Me.Cedula.Size = New System.Drawing.Size(259, 20)
+        Me.Cedula.TabIndex = 75
+        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
+        Me.Cedula.WaterMarkText = "Cedula"
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -168,6 +184,7 @@ Partial Class PrestamoRevistas
         'ExtCombo
         '
         Me.ExtCombo.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.ExtCombo.Controls.Add(Me.DataGridView_VerRevistasEnExtraccion_)
         Me.ExtCombo.Controls.Add(Me.PictureBox1)
         Me.ExtCombo.Controls.Add(Me.Label7)
         Me.ExtCombo.Controls.Add(Me.Label3)
@@ -175,13 +192,57 @@ Partial Class PrestamoRevistas
         Me.ExtCombo.Controls.Add(Me.ButonParaExtreaer)
         Me.ExtCombo.Controls.Add(Me.TextboxBuscador)
         Me.ExtCombo.Controls.Add(Me.Label6)
-        Me.ExtCombo.Controls.Add(Me.DataGridView_VerRevistasEnExtraccion_)
         Me.ExtCombo.Location = New System.Drawing.Point(263, 98)
         Me.ExtCombo.Name = "ExtCombo"
         Me.ExtCombo.Size = New System.Drawing.Size(737, 550)
         Me.ExtCombo.TabIndex = 77
         Me.ExtCombo.TabStop = False
         Me.ExtCombo.Text = "EXTRACCION"
+        '
+        'DataGridView_VerRevistasEnExtraccion_
+        '
+        Me.DataGridView_VerRevistasEnExtraccion_.AllowUserToAddRows = False
+        Me.DataGridView_VerRevistasEnExtraccion_.AllowUserToDeleteRows = False
+        Me.DataGridView_VerRevistasEnExtraccion_.AllowUserToResizeColumns = False
+        Me.DataGridView_VerRevistasEnExtraccion_.AllowUserToResizeRows = False
+        Me.DataGridView_VerRevistasEnExtraccion_.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.DataGridView_VerRevistasEnExtraccion_.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView_VerRevistasEnExtraccion_.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.DataGridView_VerRevistasEnExtraccion_.ColumnHeadersHeight = 40
+        Me.DataGridView_VerRevistasEnExtraccion_.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.DataGridView_VerRevistasEnExtraccion_.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.DataGridView_VerRevistasEnExtraccion_.EnableHeadersVisualStyles = False
+        Me.DataGridView_VerRevistasEnExtraccion_.Location = New System.Drawing.Point(5, 140)
+        Me.DataGridView_VerRevistasEnExtraccion_.Name = "DataGridView_VerRevistasEnExtraccion_"
+        Me.DataGridView_VerRevistasEnExtraccion_.ReadOnly = True
+        Me.DataGridView_VerRevistasEnExtraccion_.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView_VerRevistasEnExtraccion_.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.DataGridView_VerRevistasEnExtraccion_.RowHeadersVisible = False
+        Me.DataGridView_VerRevistasEnExtraccion_.RowHeadersWidth = 50
+        Me.DataGridView_VerRevistasEnExtraccion_.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White
+        Me.DataGridView_VerRevistasEnExtraccion_.RowsDefaultCellStyle = DataGridViewCellStyle3
+        Me.DataGridView_VerRevistasEnExtraccion_.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridView_VerRevistasEnExtraccion_.Size = New System.Drawing.Size(727, 401)
+        Me.DataGridView_VerRevistasEnExtraccion_.TabIndex = 82
         '
         'PictureBox1
         '
@@ -249,21 +310,6 @@ Partial Class PrestamoRevistas
         Me.Label6.Size = New System.Drawing.Size(106, 16)
         Me.Label6.TabIndex = 19
         Me.Label6.Text = "BUSCAR LIBRO"
-        '
-        'DataGridView_VerRevistasEnExtraccion_
-        '
-        Me.DataGridView_VerRevistasEnExtraccion_.AllowUserToAddRows = False
-        Me.DataGridView_VerRevistasEnExtraccion_.AllowUserToDeleteRows = False
-        Me.DataGridView_VerRevistasEnExtraccion_.AllowUserToResizeColumns = False
-        Me.DataGridView_VerRevistasEnExtraccion_.AllowUserToResizeRows = False
-        Me.DataGridView_VerRevistasEnExtraccion_.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView_VerRevistasEnExtraccion_.Location = New System.Drawing.Point(4, 140)
-        Me.DataGridView_VerRevistasEnExtraccion_.Name = "DataGridView_VerRevistasEnExtraccion_"
-        Me.DataGridView_VerRevistasEnExtraccion_.ReadOnly = True
-        Me.DataGridView_VerRevistasEnExtraccion_.RowHeadersVisible = False
-        Me.DataGridView_VerRevistasEnExtraccion_.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView_VerRevistasEnExtraccion_.Size = New System.Drawing.Size(727, 401)
-        Me.DataGridView_VerRevistasEnExtraccion_.TabIndex = 17
         '
         'PanelDelCarrito
         '
@@ -407,10 +453,10 @@ Partial Class PrestamoRevistas
         'devoCOMBO
         '
         Me.devoCOMBO.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.devoCOMBO.Controls.Add(Me.DataGridParaDevolucion)
         Me.devoCOMBO.Controls.Add(Me.Button4)
         Me.devoCOMBO.Controls.Add(Me.Button5)
         Me.devoCOMBO.Controls.Add(Me.Label11)
-        Me.devoCOMBO.Controls.Add(Me.DataGridParaDevolucion)
         Me.devoCOMBO.Controls.Add(Me.ENPODER)
         Me.devoCOMBO.Location = New System.Drawing.Point(263, 98)
         Me.devoCOMBO.Name = "devoCOMBO"
@@ -418,6 +464,51 @@ Partial Class PrestamoRevistas
         Me.devoCOMBO.TabIndex = 79
         Me.devoCOMBO.TabStop = False
         Me.devoCOMBO.Text = "DEVOLUCION"
+        '
+        'DataGridParaDevolucion
+        '
+        Me.DataGridParaDevolucion.AllowUserToAddRows = False
+        Me.DataGridParaDevolucion.AllowUserToDeleteRows = False
+        Me.DataGridParaDevolucion.AllowUserToResizeColumns = False
+        Me.DataGridParaDevolucion.AllowUserToResizeRows = False
+        Me.DataGridParaDevolucion.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.DataGridParaDevolucion.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridParaDevolucion.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        Me.DataGridParaDevolucion.ColumnHeadersHeight = 40
+        Me.DataGridParaDevolucion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.DataGridParaDevolucion.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.DataGridParaDevolucion.EnableHeadersVisualStyles = False
+        Me.DataGridParaDevolucion.Location = New System.Drawing.Point(6, 125)
+        Me.DataGridParaDevolucion.Name = "DataGridParaDevolucion"
+        Me.DataGridParaDevolucion.ReadOnly = True
+        Me.DataGridParaDevolucion.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridParaDevolucion.RowHeadersDefaultCellStyle = DataGridViewCellStyle5
+        Me.DataGridParaDevolucion.RowHeadersVisible = False
+        Me.DataGridParaDevolucion.RowHeadersWidth = 50
+        Me.DataGridParaDevolucion.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White
+        Me.DataGridParaDevolucion.RowsDefaultCellStyle = DataGridViewCellStyle6
+        Me.DataGridParaDevolucion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridParaDevolucion.Size = New System.Drawing.Size(727, 401)
+        Me.DataGridParaDevolucion.TabIndex = 82
         '
         'Button4
         '
@@ -447,21 +538,6 @@ Partial Class PrestamoRevistas
         Me.Label11.TabIndex = 62
         Me.Label11.Text = "DEVOLUCION"
         '
-        'DataGridParaDevolucion
-        '
-        Me.DataGridParaDevolucion.AllowUserToAddRows = False
-        Me.DataGridParaDevolucion.AllowUserToDeleteRows = False
-        Me.DataGridParaDevolucion.AllowUserToResizeColumns = False
-        Me.DataGridParaDevolucion.AllowUserToResizeRows = False
-        Me.DataGridParaDevolucion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridParaDevolucion.Location = New System.Drawing.Point(6, 125)
-        Me.DataGridParaDevolucion.Name = "DataGridParaDevolucion"
-        Me.DataGridParaDevolucion.ReadOnly = True
-        Me.DataGridParaDevolucion.RowHeadersVisible = False
-        Me.DataGridParaDevolucion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridParaDevolucion.Size = New System.Drawing.Size(726, 416)
-        Me.DataGridParaDevolucion.TabIndex = 0
-        '
         'ENPODER
         '
         Me.ENPODER.AutoSize = True
@@ -472,16 +548,6 @@ Partial Class PrestamoRevistas
         Me.ENPODER.Size = New System.Drawing.Size(216, 34)
         Me.ENPODER.TabIndex = 61
         Me.ENPODER.Text = "Revistas en poder"
-        '
-        'Cedula
-        '
-        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Cedula.Location = New System.Drawing.Point(3, 50)
-        Me.Cedula.Name = "Cedula"
-        Me.Cedula.Size = New System.Drawing.Size(259, 20)
-        Me.Cedula.TabIndex = 75
-        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
-        Me.Cedula.WaterMarkText = "Cedula"
         '
         'PrestamoRevistas
         '
@@ -503,8 +569,8 @@ Partial Class PrestamoRevistas
         CType(Me.PictureExtraccion, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ExtCombo.ResumeLayout(False)
         Me.ExtCombo.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView_VerRevistasEnExtraccion_, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelDelCarrito.ResumeLayout(False)
         Me.PanelDelCarrito.PerformLayout()
         Me.devoCOMBO.ResumeLayout(False)
@@ -530,7 +596,6 @@ Partial Class PrestamoRevistas
     Friend WithEvents ButonParaExtreaer As System.Windows.Forms.Button
     Friend WithEvents TextboxBuscador As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents DataGridView_VerRevistasEnExtraccion_ As System.Windows.Forms.DataGridView
     Friend WithEvents PanelDelCarrito As System.Windows.Forms.Panel
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents ButtonMoroso As System.Windows.Forms.Button
@@ -547,8 +612,9 @@ Partial Class PrestamoRevistas
     Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents Label11 As System.Windows.Forms.Label
-    Friend WithEvents DataGridParaDevolucion As System.Windows.Forms.DataGridView
     Friend WithEvents ENPODER As System.Windows.Forms.Label
     Friend WithEvents LabelAlmacenTemporalParaLaCedula As System.Windows.Forms.Label
     Friend WithEvents LabelCI As System.Windows.Forms.Label
+    Friend WithEvents DataGridParaDevolucion As System.Windows.Forms.DataGridView
+    Friend WithEvents DataGridView_VerRevistasEnExtraccion_ As System.Windows.Forms.DataGridView
 End Class

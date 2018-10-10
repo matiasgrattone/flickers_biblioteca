@@ -281,7 +281,7 @@
                 Select Case FechaEntradaPrestamo
                     Case 1
 
-                While contador < list
+                        While contador < list
                             contador = Val(contador) + 1
 
                             Consulta = "insert into prestamorevistas(id_revistas,cedula,fecha_salida) values('" + ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items(libros) + "','" + LabelAlmacenTemporalParaLaCedula.Text + "','" + Date.Now.ToString("yyyy-MM-dd") + "')"
@@ -447,4 +447,5 @@
         CarritoDeRevistas.Items.Clear()
         ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Clear()
     End Sub
+
 End Class
