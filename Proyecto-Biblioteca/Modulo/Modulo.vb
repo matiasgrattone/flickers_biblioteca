@@ -32,8 +32,8 @@ Module Modulo
 
         If invitado = 0 Then
             'ubicacion = "server=localhost; user id=root; password=''; database=biblioteca"
-            ubicacion = "server=192.168.1.12; user id=admin; password=admin; database=biblioteca" ' NO BORRAR, YO USO ESTA PARA PROGRAMAR EN CASA, GUILLE (NO PUEDO USAR EL DOMINIO EN LAN)
-            'ubicacion = "server=bibliotecadb.ddns.net; user id=admin; password=admin; database=biblioteca"
+            'ubicacion = "server=192.168.1.12; user id=admin; password=admin; database=biblioteca" ' NO BORRAR, YO USO ESTA PARA PROGRAMAR EN CASA, GUILLE (NO PUEDO USAR EL DOMINIO EN LAN)
+            ubicacion = "server=bibliotecadb.ddns.net; user id=admin; password=admin; database=biblioteca"
         Else
             'ubicacion = "server=192.168.1.12; user id=invitado; password=invitado; database=biblioteca"
             'ubicacion = "server=bibliotecadb.ddns.net; user id=invitado; password=invitado; database=biblioteca"
@@ -240,11 +240,12 @@ Module Modulo
             'Destruimos el objeto de correo
             Email.Dispose()
 
-            MsgBox("Correo enviado.", "Mail Sender", MsgBoxStyle.OkOnly & MsgBoxStyle.Information)
+            MsgBox("Correo Enviado", MsgBoxStyle.OkOnly & MsgBoxStyle.Information, Title:="Correo enviado")
 
         Catch ex As Exception
-            MsgBox("Ocurrio un error al enviar el correo: " & ex.Message,
-            "Mail Sender", MsgBoxStyle.OkOnly & MsgBoxStyle.Critical)
+            MsgBox(ex.ToString)
+            'MsgBox("Ocurrio un error al enviar el correo: " & ex.Message,
+            '"Mail Sender", MsgBoxStyle.OkOnly & MsgBoxStyle.Critical)
         End Try
 
     End Sub

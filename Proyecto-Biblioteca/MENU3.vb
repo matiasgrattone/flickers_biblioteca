@@ -1,29 +1,24 @@
 Imports System.Threading
 Imports System.Text.RegularExpressions
 Public Class MENU3
-    Dim a As Integer = 0
-    Public xco, yco As Integer
-    Dim resultx, resulty As Integer
-    Dim xc, yc As Integer
-    Dim xf, yf As Integer
-    Dim holax, holay As Integer
+    Dim a As Integer = 0 'mouse activado para mover la ventana
+    Public xco, yco As Integer 'nueva ubicacion del el cursor
+    Dim xc, yc As Integer 'primer ubicacion del cursor
+    Dim xf, yf As Integer 'primer ubicacion del formulario
+    Dim holax, holay As Integer '
 
-    Dim seleccionado As String = "Inicio"
+    Dim seleccionado As String = "Inicio" 'variable para verificar que opcion del menu esta seleccionada
 
-    Public F3 As New Seleccion_Libro
-
-    Dim PrimerInicio As Integer = 1
-    Dim ContadorDia As Integer = 0
-    Dim ContadorMes As Integer = 0
+    Dim PrimerInicio As Integer = 1 'verificar si es el primer inicio del programa
+    Dim ContadorDia As Integer = 0 'contador para poder ingresar los dias en los graficos
+    Dim ContadorMes As Integer = 0 'contador para poder ingresar los meses en los graficos
     Public BD_ONLINE As Integer = 0 'verificar si la base de datos esta online
-    Dim primeriniciotimer As Integer = 1
+    Dim primeriniciotimer As Integer = 1 'verifcar si es el primer inicio para el timer
 
     Public cedulaIngre As String ' Variable para actualizar foto de perfil, se carga en el load
     Public cedulaAdmin As String ' Variable para cargar foto de perfil en admin, se carga al abrir config admin
-
     Private Sub inicio()
         If ERROR1 = 0 Then
-
             Try
                 Chart()
                 Dim fecha As String = DateTime.Now.ToString("yyyy/MM/dd")
@@ -37,10 +32,7 @@ Public Class MENU3
             Catch ex As Exception
             End Try
         End If
-
     End Sub
-
-
     Private Sub MENU3_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
         xf = Me.Location.X
@@ -131,9 +123,7 @@ Public Class MENU3
         panel_navegador.BackColor = Drawing.Color.Silver
         Panel_Revistas.BackColor = Drawing.Color.Silver
         Panel_Inicio.BackColor = Drawing.Color.LightGray
-
     End Sub
-
     Private Sub ComboBox1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBox1.SelectedIndexChanged
         Chart()
     End Sub
@@ -195,23 +185,18 @@ Public Class MENU3
 
     End Sub
     Private Sub PictureBox1_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles Pbusuarios.MouseEnter
-
         If seleccionado = "usuarios" Then
         Else
             panel_usuarios.BackColor = Drawing.Color.LightGray
         End If
-
     End Sub
     Private Sub PictureBox1_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Pbusuarios.MouseLeave
-
         If seleccionado = "usuarios" Then
         Else
             panel_usuarios.BackColor = Drawing.Color.Silver
         End If
-
     End Sub
     Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbusuarios.Click
-
         seleccionado = "usuarios"
 
         Timer_Prestamos_LIVE.Enabled = False
@@ -230,26 +215,21 @@ Public Class MENU3
         F1.Show()
 
         Preparar_Form()
-
     End Sub
     Private Sub panel_libros_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles panel_libros.MouseEnter
-
         If seleccionado = "libros" Then
         Else
             panel_libros.BackColor = Drawing.Color.LightGray
         End If
-
     End Sub
     Private Sub panel_libros_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles panel_libros.MouseLeave
-
         If seleccionado = "libros" Then
         Else
             panel_libros.BackColor = Drawing.Color.Silver
         End If
-
     End Sub
     Private Sub panel_libros_Mouseclick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles panel_libros.MouseClick
-
+        Dim F3 As New Seleccion_Libro
         seleccionado = "libros"
         Timer_Prestamos_LIVE.Enabled = False
 
@@ -267,26 +247,21 @@ Public Class MENU3
         Panel_Inicio.BackColor = Drawing.Color.Silver
 
         Preparar_Form()
-
     End Sub
     Private Sub PictureBox2_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles Pblibros.MouseEnter
-
         If seleccionado = "libros" Then
         Else
             panel_libros.BackColor = Drawing.Color.LightGray
         End If
-
     End Sub
     Private Sub PictureBox2_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Pblibros.MouseLeave
-
         If seleccionado = "libros" Then
         Else
             panel_libros.BackColor = Drawing.Color.Silver
         End If
-
     End Sub
     Public Sub PictureBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pblibros.Click
-
+        Dim F3 As Seleccion_Libro
         seleccionado = "libros"
         Timer_Prestamos_LIVE.Enabled = False
 
@@ -304,15 +279,12 @@ Public Class MENU3
         Panel_Inicio.BackColor = Drawing.Color.Silver
 
         Preparar_Form()
-
     End Sub
     Private Sub panel_prestamos_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles panel_prestamos.MouseEnter
-
         If seleccionado = "prestamos" Then
         Else
             panel_prestamos.BackColor = Drawing.Color.LightGray
         End If
-
     End Sub
     Private Sub panel_prestamos_MouseClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles panel_prestamos.MouseClick
         seleccionado = "prestamos"
@@ -331,34 +303,26 @@ Public Class MENU3
         panel_navegador.BackColor = Drawing.Color.Silver
         Panel_Revistas.BackColor = Drawing.Color.Silver
         Panel_Inicio.BackColor = Drawing.Color.Silver
-
     End Sub
     Private Sub panel_prestamos_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles panel_prestamos.MouseLeave
-
         If seleccionado = "prestamos" Then
         Else
             panel_prestamos.BackColor = Drawing.Color.Silver
         End If
-
     End Sub
     Private Sub PictureBox3_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles Pbprestamos.MouseEnter
-
         If seleccionado = "prestamos" Then
         Else
             panel_prestamos.BackColor = Drawing.Color.LightGray
         End If
-
     End Sub
     Private Sub PictureBox3_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Pbprestamos.MouseLeave
-
         If seleccionado = "prestamos" Then
         Else
             panel_prestamos.BackColor = Drawing.Color.Silver
         End If
-
     End Sub
     Private Sub PictureBox3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbprestamos.Click
-
         seleccionado = "prestamos"
         Timer_Prestamos_LIVE.Enabled = False
 
@@ -376,43 +340,32 @@ Public Class MENU3
         panel_navegador.BackColor = Drawing.Color.Silver
         Panel_Revistas.BackColor = Drawing.Color.Silver
         Panel_Inicio.BackColor = Drawing.Color.Silver
-
     End Sub
     Private Sub panel_navegador_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles panel_navegador.MouseEnter
-
         If seleccionado = "navegador" Then
         Else
             panel_navegador.BackColor = Drawing.Color.LightGray
         End If
-
     End Sub
     Private Sub panel_navegador_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles panel_navegador.MouseLeave
-
         If seleccionado = "navegador" Then
         Else
             panel_navegador.BackColor = Drawing.Color.Silver
         End If
-
     End Sub
-
     Private Sub PictureBox5_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles Pbnavegador.MouseEnter
-
         If seleccionado = "navegador" Then
         Else
             panel_navegador.BackColor = Drawing.Color.LightGray
         End If
-
     End Sub
     Private Sub PictureBox5_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Pbnavegador.MouseLeave
-
         If seleccionado = "navegador" Then
         Else
             panel_navegador.BackColor = Drawing.Color.Silver
         End If
-
     End Sub
     Private Sub PictureBox5_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbnavegador.Click
-
         seleccionado = "navegador"
         Timer_Prestamos_LIVE.Enabled = False
 
@@ -424,7 +377,6 @@ Public Class MENU3
         Panel_Inicio.BackColor = Drawing.Color.Silver
 
         Preparar_Form()
-
     End Sub
     Private Sub WebBrowser1_DocumentCompleted(ByVal sender As System.Object, ByVal e As System.Windows.Forms.WebBrowserDocumentCompletedEventArgs) Handles Wbnavegador.DocumentCompleted
         txtbuscar.Text = Wbnavegador.Document.Url.ToString()
@@ -467,7 +419,6 @@ Public Class MENU3
         Wbnavegador.Refresh()
     End Sub
     Private Sub panel_navegador_MouseClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles panel_navegador.MouseClick
-
         seleccionado = "navegador"
         Timer_Prestamos_LIVE.Enabled = False
 
@@ -479,10 +430,8 @@ Public Class MENU3
         Panel_Inicio.BackColor = Drawing.Color.Silver
 
         Preparar_Form()
-
     End Sub
     Private Sub PictureBox1_Click_2(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbrevistas.Click
-
         seleccionado = "Revistas"
         Timer_Prestamos_LIVE.Enabled = False
 
@@ -500,23 +449,18 @@ Public Class MENU3
         panel_navegador.BackColor = Drawing.Color.Silver
         Panel_Revistas.BackColor = Drawing.Color.LightGray
         Panel_Inicio.BackColor = Drawing.Color.Silver
-
     End Sub
     Private Sub PictureBox1_MouseEnter1(ByVal sender As Object, ByVal e As System.EventArgs) Handles Pbrevistas.MouseEnter
-
         If seleccionado = "Revistas" Then
         Else
             Panel_Revistas.BackColor = Drawing.Color.LightGray
         End If
-
     End Sub
     Private Sub PictureBox1_MouseLeave_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbrevistas.MouseLeave
-
         If seleccionado = "Revistas" Then
         Else
             Panel_Revistas.BackColor = Drawing.Color.Silver
         End If
-
     End Sub
     Private Sub PanelRevistas_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         seleccionado = "Revistas"
@@ -533,23 +477,18 @@ Public Class MENU3
         panel_libros.BackColor = Drawing.Color.Silver
         panel_prestamos.BackColor = Drawing.Color.LightGray
         panel_navegador.BackColor = Drawing.Color.Silver
-
     End Sub
     Private Sub PanelRevistas_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Panel_Revistas.MouseEnter
-
         If seleccionado = "Revistas" Then
         Else
             Panel_Revistas.BackColor = Drawing.Color.LightGray
         End If
-
     End Sub
     Private Sub PanelRevistas_MouseLeave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Panel_Revistas.MouseLeave
-
         If seleccionado = "Revistas" Then
         Else
             Panel_Revistas.BackColor = Drawing.Color.Silver
         End If
-
     End Sub
     Private Sub Panel_Revistas_MouseClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Panel_Revistas.MouseClick
         seleccionado = "Revistas"
@@ -593,35 +532,26 @@ Public Class MENU3
         panel_navegador.BackColor = Drawing.Color.Silver
         Panel_Revistas.BackColor = Drawing.Color.Silver
         Panel_Inicio.BackColor = Drawing.Color.LightGray
-
     End Sub
     Private Sub PbInicio_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PbInicio.MouseEnter
-
         If seleccionado = "Inicio" Then
         Else
             Panel_Inicio.BackColor = Drawing.Color.LightGray
         End If
-
     End Sub
     Private Sub PbInicio_MouseLeave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PbInicio.MouseLeave
-
         If seleccionado = "Inicio" Then
         Else
             Panel_Inicio.BackColor = Drawing.Color.Silver
         End If
-
     End Sub
     Private Sub Panel_Inicio_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Panel_Inicio.MouseEnter
-
         If seleccionado = "Inicio" Then
         Else
             Panel_Inicio.BackColor = Drawing.Color.LightGray
         End If
-
     End Sub
-
     Private Sub Pbconfig_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbconfig.Click
-
         Dim open As Integer
         For Each f As Form In Application.OpenForms
 
@@ -853,7 +783,6 @@ Public Class MENU3
         End If
     End Sub
     Private Sub Timer_Prestamos_LIVE_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer_Prestamos_LIVE.Tick
-
         If ERROR1 = 2 Then ' SI HAY UN ERROR EN LA BASE NO VA A HACER NADA HASTA QUE SE RETOME LA CONEXIÒN
             Timer_Prestamos_LIVE.Enabled = False
         ElseIf ERROR1 = 0 Then
@@ -956,7 +885,6 @@ Public Class MENU3
             End If
         End If
     End Sub
-    Dim koko As Integer = 0
     Private Sub Timer_BD_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer_BD.Tick
         If primeriniciotimer = 0 Then
             Timer_BD.Interval = 6000
