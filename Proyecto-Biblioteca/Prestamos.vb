@@ -1,10 +1,13 @@
 ﻿Public Class Prestamos
-    '//////////////VARIABLE ESPECIAL PARA REALIZAR CONSULTAS (preguntarle a Gastesi su función)//////////
+    '//////////////VARIABLE ESPECIAL PARA REALIZAR MSGBOX YES O NO//////////
     Dim z As MsgBoxResult
 
+    '//////////////VARIABLE PARA GUARDAR TEMPORALMENTE EL NOMBRE DEL LIBRO MAS ADELANTE//////////
     Dim Libro1 As String
 
+    '//////////////VARIABLE PARA GUARDAR TEMPORALMENTE LA ID DEL LIBRO MAS ADELANTE//////////
     Dim cod_libros As String
+
 
     Dim Contador As Integer = 0
 
@@ -21,7 +24,7 @@
     'Dim panelnombre As Integer = 0
   
     Private Sub Prestamos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-
+        'Alineamos todo los datagridviews para que queden mas lindos :3
         DatagridModulo = VerLibrosReservados2
         Datagrid_Align()
         DatagridModulo = DataGridViewlllllVerLibrosEnExtraccionlllll
@@ -37,25 +40,23 @@
         DataGridParaDevolucion.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill ' ajusta las columnas al tamaño del datagrid
 
         '/////////////////////////////////////////////GRUPBOX CON FUNCIONES////////////////////
+        'OCULTAMOS LOS GRUPOBOX
         GrupBoxExtraccion.Visible = False
         GrupBoxDevolucion.Visible = False
         ReservacionGrupBox.Visible = False
         CrearReservacionGrupBox.Visible = False
         GroupBoxRenovacion.Visible = False
         '//////////IMAGENES DEL MENU DE OPCIONES/////////
+
+        'OCULTAMOS LAS IMAAGENES DEL MENU DE POCIONES
         PictureExtraccion.Visible = False
         PictureDevolucion.Visible = False
         PictureCrearReservacion.Visible = False
         PictureReservacion.Visible = False
         ptbRenovar.Visible = False
 
-
-
-
-
-        ButtonEditarCedula.Visible = False
-        BotonParaBuscarCedula.Visible = True
-
+        'Ocultamos el boton de ver ficha
+        ButtonVerFicha.Visible = False
 
         '//////////////////////////////////////VARIABLES PARA RALIZAR "CONSULTAS Y IFs" SIN ERRORES///////////////////////
 
@@ -72,35 +73,43 @@
 
     Dim errorcedula As Integer = 0
     Private Sub BotonParaBuscarCedula_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BotonParaBuscarCedula.Click
+        'Si el ModoCedula esta en modo "Buscar" ahi se llamara a ActuaizarCedula para poder iniciar las funciones de el menu 
         If ModoCedula = "Buscar" Then
             ActualizarCedula()
-        Else
+        Else 'En caso que no este en "Buscar" se le preguntara al usuario si quiere cambiar la cedula ya ingresada 
             z = 0
             z = MsgBox("Editar la cedula reiniciara lo echo hasta el momento, desea continuar ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
 
-            If z = MsgBoxResult.Yes Then
+            If z = MsgBoxResult.Yes Then 'Si dice que si todas las funciones volveran a las del inicio, como si nada hubiera pasado
                 Cedula.ReadOnly = False
                 ModoCedula = "Buscar"
                 BotonParaBuscarCedula.Text = "Buscar"
 
                 '///REINICIO DE FUNCIONES///
-                CarritoDeLibros.Items.Clear()
-                ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
-                Cedula.Clear()
-                PanelDelCarrito.Left = -268
+                CarritoDeLibros.Items.Clear() 'Borra los items del ListBox carrito de libros 
+                ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear() 'Borra los items del ListBox carrito para almacenar ids
+                Cedula.Clear() 'Borramos el contenido del textbox cedula 
+                PanelDelCarrito.Left = -268 'Regresamos el carrito a la ubicacion del inicio
 
+                'Ocultamos los grupbox por seguridad
                 ReservacionGrupBox.Visible = False
                 GrupBoxExtraccion.Visible = False
                 GrupBoxDevolucion.Visible = False
                 CrearReservacionGrupBox.Visible = False
                 GroupBoxRenovacion.Visible = False
 
+                'Ocultamos los botones del menu con las funciones 
                 PictureExtraccion.Visible = False
                 PictureDevolucion.Visible = False
                 PictureCrearReservacion.Visible = False
                 PictureReservacion.Visible = False
                 ptbRenovar.Visible = False
+
+                'Ocultamos el label que muestra la cedula del socio en el carrio
                 LabelParaAlmacenarLaCedulaIngresada.Visible = False
+
+                'Ocultamos el boton de ver ficha
+                ButtonVerFicha.Visible = False
             End If
         End If
 
@@ -108,69 +117,81 @@
 
     '///BUSCAR CEDULA AL PRECIONAR ENTER///
     Private Sub Cedula_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Cedula.KeyDown
-        If ModoCedula = "Buscar" Then
+        If ModoCedula = "Buscar" Then 'Si el ModoCedula esta en modo "Buscar" ahi se llamara a ActuaizarCedula para poder iniciar las funciones de el menu 
             If e.KeyCode = Keys.Enter Then
                 ActualizarCedula()
             End If
 
-        Else
+        Else 'En caso que no este en "Buscar" se le preguntara al usuario si quiere cambiar la cedula ya ingresada 
             z = 0
             z = MsgBox("Editar la cedula reiniciara lo echo hasta el momento, desea continuar ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
 
-            If z = MsgBoxResult.Yes Then
+            If z = MsgBoxResult.Yes Then 'Si dice que si todas las funciones volveran a las del inicio, como si nada hubiera pasado
                 Cedula.ReadOnly = False
                 ModoCedula = "Buscar"
                 BotonParaBuscarCedula.Text = "Buscar"
 
                 '///REINICIO DE FUNCIONES///
-                CarritoDeLibros.Items.Clear()
-                ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
-                Cedula.Clear()
-                PanelDelCarrito.Left = -268
+                CarritoDeLibros.Items.Clear() 'Borra los items del ListBox carrito de libros 
+                ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear() 'Borra los items del ListBox carrito para almacenar ids
+                Cedula.Clear() 'Borramos el contenido del textbox cedula 
+                PanelDelCarrito.Left = -268 'Regresamos el carrito a la ubicacion del inicio
 
+                'Ocultamos los grupbox por seguridad
                 ReservacionGrupBox.Visible = False
                 GrupBoxExtraccion.Visible = False
                 GrupBoxDevolucion.Visible = False
                 CrearReservacionGrupBox.Visible = False
                 GroupBoxRenovacion.Visible = False
 
+                'Ocultamos los botones del menu con las funciones 
                 PictureExtraccion.Visible = False
                 PictureDevolucion.Visible = False
                 PictureCrearReservacion.Visible = False
                 PictureReservacion.Visible = False
                 ptbRenovar.Visible = False
+
+                'Ocultamos el label que muestra la cedula del socio en el carrio
                 LabelParaAlmacenarLaCedulaIngresada.Visible = False
-            End If
+
+                'Ocultamos el boton de ver ficha
+                ButtonVerFicha.Visible = False
         End If
     End Sub
 
     '///ACTUALIZAR CEDULA///
     Public Sub ActualizarCedula()
-        'Se cambia el label solo cuando haya un valor en el textbox CEDULA
+        'Si la cedula esta vacia se ocultan los Grupbox, Botones y se regresan las funciones como al inicio
         If Cedula.Text = "" Then
 
-            '//////////////////////Oculta los picturebox y la interfaz de las funciones///////////////////////////////
+            'Ocultamos los grupbox por seguridad
+            ReservacionGrupBox.Visible = False
             GrupBoxExtraccion.Visible = False
             GrupBoxDevolucion.Visible = False
-            ReservacionGrupBox.Visible = False
             CrearReservacionGrupBox.Visible = False
             GroupBoxRenovacion.Visible = False
-            '//////////IMAGENES DEL MENU DE OPCIONES/////////
+
+            'Ocultamos los botones del menu con las funciones 
             PictureExtraccion.Visible = False
             PictureDevolucion.Visible = False
             PictureCrearReservacion.Visible = False
             PictureReservacion.Visible = False
             ptbRenovar.Visible = False
+
+            'Ocultamos el label que muestra la cedula del socio en el carrio
             LabelParaAlmacenarLaCedulaIngresada.Visible = False
-            '///PARA QUE NO SE PUEDA EDITAR LA CEDULA///
+
+            '///PARA QUE SE PUEDA EDITAR LA CEDULA LA PONEMOS EN READONLY = FALSE///
             Cedula.ReadOnly = False
             '///////////////////////////////////////////
-            CarritoDeLibros.Items.Clear()
-            ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
-            PanelDelCarrito.Left = -268
-            Cedula.Clear()
+
+            CarritoDeLibros.Items.Clear() 'Borra los items del ListBox carrito de libros 
+            ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear() 'Borra los items del ListBox carrito para almacenar ids
+            Cedula.Clear() 'Borramos el contenido del textbox cedula 
+            PanelDelCarrito.Left = -268 'Regresamos el carrito a la ubicacion del inicio
 
             MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
+            'Ocultamos el boton de ver ficha
             ButtonVerFicha.Visible = False
             '/////////////////////////////////////////////////////////////////////////////////////////////////////////
         Else
@@ -179,67 +200,79 @@
 
             If Tabla.Rows.Count = 0 Then ' VERFICAR SI ES NULO EL RESULTADO DE LA CONSULTA
 
-                '//////////////////////Oculta los picturebox y la interfaz de las funciones///////////////////////////////
+
+                'Ocultamos los grupbox por seguridad
+                ReservacionGrupBox.Visible = False
                 GrupBoxExtraccion.Visible = False
                 GrupBoxDevolucion.Visible = False
-                ReservacionGrupBox.Visible = False
                 CrearReservacionGrupBox.Visible = False
                 GroupBoxRenovacion.Visible = False
-                '//////////IMAGENES DEL MENU DE OPCIONES/////////
+
+                'Ocultamos los botones del menu con las funciones 
                 PictureExtraccion.Visible = False
                 PictureDevolucion.Visible = False
                 PictureCrearReservacion.Visible = False
                 PictureReservacion.Visible = False
                 ptbRenovar.Visible = False
+
+                'Ocultamos el label que muestra la cedula del socio en el carrio
                 LabelParaAlmacenarLaCedulaIngresada.Visible = False
-                '///PARA QUE NO SE PUEDA EDITAR LA CEDULA///
+
+                '///PARA QUE SE PUEDA EDITAR LA CEDULA LA PONEMOS EN READONLY = FALSE///
                 Cedula.ReadOnly = False
                 '///////////////////////////////////////////
-                CarritoDeLibros.Items.Clear()
-                ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
-                PanelDelCarrito.Left = -268
-                Cedula.Clear()
+
+                CarritoDeLibros.Items.Clear() 'Borra los items del ListBox carrito de libros 
+                ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear() 'Borra los items del ListBox carrito para almacenar ids
+                Cedula.Clear() 'Borramos el contenido del textbox cedula 
+                PanelDelCarrito.Left = -268 'Regresamos el carrito a la ubicacion del inicio
 
                 MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
+                'Ocultamos el boton de ver ficha
                 ButtonVerFicha.Visible = False
 
             Else
 
+                'Hacemos una consulta a usuarios cuando la cedula sea igual a la ingresada por el programa
                 Consulta = "select cedula , nombre from usuarios where cedula like '" & Cedula.Text & "'"
                 consultar()
                 Try
                     For Each row As DataRow In Tabla.Rows
-                        NOMBRE.Text = row("nombre")
+                        NOMBRE.Text = row("nombre") 'Hacemos un for each y iguaamos el label nombre al nombre dado por la consulta echa ya
                     Next
                 Catch ex As Exception
                     MsgBox(ex.ToString)
                 End Try
 
-                '/////////////////////////////////////////////////////////////////////////////////////////////
-                '////////////////////////////////Muestra los picturebox y la interfaz de las funciones////////
-                '/////////////////////////////////////////////////////////////////////////////////////////////
+                '////////////////////////////////////////////////////////////////////////////////////////////////////////
+                '///////////////////////Muestra los picturebox y la prepara la interfaz de las funciones/////////////////
+                '////////////////////////////////////////////////////////////////////////////////////////////////////////
+                'Ocultamos los grupbox para evitar errores
                 GrupBoxExtraccion.Visible = False
                 GrupBoxDevolucion.Visible = False
                 ReservacionGrupBox.Visible = False
                 CrearReservacionGrupBox.Visible = False
                 GroupBoxRenovacion.Visible = False
 
+                'Mostramos los botones para reaizar las funcioes 
                 PictureExtraccion.Visible = True
                 PictureDevolucion.Visible = True
                 PictureCrearReservacion.Visible = True
                 PictureReservacion.Visible = True
                 ptbRenovar.Visible = True
 
-                CarritoDeLibros.Items.Clear()
-                ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
-                PanelDelCarrito.Left = -5
 
-                BotonParaBuscarCedula.Text = "Editar"
-                ModoCedula = "Editar"
-                Cedula.ReadOnly = True
-                ButtonVerFicha.Visible = True
-                LabelParaAlmacenarLaCedulaIngresada.Visible = True
-                LabelParaAlmacenarLaCedulaIngresada.Text = Cedula.Text
+                CarritoDeLibros.Items.Clear() 'Borramos los items de listbox carrito de libros 
+                ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear() 'Borramos los items de listbox carrito de libros 
+                PanelDelCarrito.Left = -5 'Mostramos el carrito
+
+                BotonParaBuscarCedula.Text = "Editar" 'Ponemos el texto de buscar cedula en "editar"
+                ModoCedula = "Editar" 'Ponemos el ModoCedula en modo "editar"
+                Cedula.ReadOnly = True 'Ponemos el textbox para la cedula en modo readOnly
+                ButtonVerFicha.Visible = True 'Mostramos el boton para ver la ficha
+                LabelParaAlmacenarLaCedulaIngresada.Visible = True 'Mostramos el label que muestra la cedula ingresada con la cual hacer las funciones
+                LabelParaAlmacenarLaCedulaIngresada.Text = Cedula.Text 'Lo igualamos al textbox 
+
                 '/////////////////////////////////////////////////////////////////////////////////////////////
             End If
         End If

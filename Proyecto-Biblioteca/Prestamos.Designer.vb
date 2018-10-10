@@ -74,11 +74,11 @@ Partial Class Prestamos
         Me.ButtonVERREGISTRO = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.LabelSELECCION_DE_FUNCION = New System.Windows.Forms.Label()
+        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.PictureCrearReservacion = New System.Windows.Forms.PictureBox()
         Me.PictureReservacion = New System.Windows.Forms.PictureBox()
         Me.PictureDevolucion = New System.Windows.Forms.PictureBox()
         Me.PictureExtraccion = New System.Windows.Forms.PictureBox()
-        Me.ButtonEditarCedula = New System.Windows.Forms.Button()
         Me.CrearReservacionGrupBox = New System.Windows.Forms.GroupBox()
         Me.LibrosParaReservar = New System.Windows.Forms.DataGridView()
         Me.LupitaParaBuscarLibrosEnReservacion = New System.Windows.Forms.PictureBox()
@@ -89,10 +89,9 @@ Partial Class Prestamos
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.GroupBoxRenovacion = New System.Windows.Forms.GroupBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.dgvRenovacion = New System.Windows.Forms.DataGridView()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.PanelDelCarrito.SuspendLayout()
         Me.GrupBoxDevolucion.SuspendLayout()
         CType(Me.DataGridParaDevolucion, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -126,7 +125,7 @@ Partial Class Prestamos
         '
         'BotonParaBuscarCedula
         '
-        Me.BotonParaBuscarCedula.Location = New System.Drawing.Point(268, 50)
+        Me.BotonParaBuscarCedula.Location = New System.Drawing.Point(268, 49)
         Me.BotonParaBuscarCedula.Name = "BotonParaBuscarCedula"
         Me.BotonParaBuscarCedula.Size = New System.Drawing.Size(71, 21)
         Me.BotonParaBuscarCedula.TabIndex = 74
@@ -556,7 +555,6 @@ Partial Class Prestamos
         Me.Panel3.Controls.Add(Me.PictureReservacion)
         Me.Panel3.Controls.Add(Me.PictureDevolucion)
         Me.Panel3.Controls.Add(Me.PictureExtraccion)
-        Me.Panel3.Controls.Add(Me.ButtonEditarCedula)
         Me.Panel3.Location = New System.Drawing.Point(-2, -2)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(1016, 112)
@@ -618,6 +616,16 @@ Partial Class Prestamos
         Me.LabelSELECCION_DE_FUNCION.TabIndex = 66
         Me.LabelSELECCION_DE_FUNCION.Text = "SELECCION " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      DE " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FUNCION "
         '
+        'Cedula
+        '
+        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.Cedula.Location = New System.Drawing.Point(3, 50)
+        Me.Cedula.Name = "Cedula"
+        Me.Cedula.Size = New System.Drawing.Size(259, 20)
+        Me.Cedula.TabIndex = 0
+        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
+        Me.Cedula.WaterMarkText = "Cedula"
+        '
         'PictureCrearReservacion
         '
         Me.PictureCrearReservacion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.crear_reserva
@@ -657,15 +665,6 @@ Partial Class Prestamos
         Me.PictureExtraccion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureExtraccion.TabIndex = 0
         Me.PictureExtraccion.TabStop = False
-        '
-        'ButtonEditarCedula
-        '
-        Me.ButtonEditarCedula.Location = New System.Drawing.Point(268, 50)
-        Me.ButtonEditarCedula.Name = "ButtonEditarCedula"
-        Me.ButtonEditarCedula.Size = New System.Drawing.Size(71, 21)
-        Me.ButtonEditarCedula.TabIndex = 80
-        Me.ButtonEditarCedula.Text = "Editar"
-        Me.ButtonEditarCedula.UseVisualStyleBackColor = True
         '
         'CrearReservacionGrupBox
         '
@@ -808,6 +807,17 @@ Partial Class Prestamos
         Me.GroupBoxRenovacion.TabStop = False
         Me.GroupBoxRenovacion.Text = "RENOVACION"
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Impact", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.DarkViolet
+        Me.Label4.Location = New System.Drawing.Point(15, 32)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(187, 34)
+        Me.Label4.TabIndex = 84
+        Me.Label4.Text = "Libros en poder"
+        '
         'dgvRenovacion
         '
         Me.dgvRenovacion.AllowUserToAddRows = False
@@ -862,27 +872,6 @@ Partial Class Prestamos
         Me.Label2.Size = New System.Drawing.Size(196, 34)
         Me.Label2.TabIndex = 63
         Me.Label2.Text = "RENOVAR LIBROS"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Impact", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.DarkViolet
-        Me.Label4.Location = New System.Drawing.Point(15, 32)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(187, 34)
-        Me.Label4.TabIndex = 84
-        Me.Label4.Text = "Libros en poder"
-        '
-        'Cedula
-        '
-        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Cedula.Location = New System.Drawing.Point(3, 50)
-        Me.Cedula.Name = "Cedula"
-        Me.Cedula.Size = New System.Drawing.Size(259, 20)
-        Me.Cedula.TabIndex = 0
-        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
-        Me.Cedula.WaterMarkText = "Cedula"
         '
         'Prestamos
         '
@@ -979,7 +968,6 @@ Partial Class Prestamos
     Friend WithEvents LabelParaAlmacenarLaCedulaIngresada As System.Windows.Forms.Label
     Friend WithEvents LabelCI As System.Windows.Forms.Label
     Friend WithEvents ButtonVerFicha As System.Windows.Forms.Button
-    Friend WithEvents ButtonEditarCedula As System.Windows.Forms.Button
     Friend WithEvents DataGridViewlllllVerLibrosEnExtraccionlllll As System.Windows.Forms.DataGridView
     Friend WithEvents DataGridParaDevolucion As System.Windows.Forms.DataGridView
     Friend WithEvents LibrosParaReservar As System.Windows.Forms.DataGridView
