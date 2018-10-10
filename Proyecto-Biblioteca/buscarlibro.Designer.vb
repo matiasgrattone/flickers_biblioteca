@@ -24,10 +24,12 @@ Partial Class buscarlibro
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(buscarlibro))
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.cmbdatos = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.dgvlibros = New System.Windows.Forms.DataGridView()
         Me.Pmostrar = New System.Windows.Forms.Panel()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.clasificacio_label = New System.Windows.Forms.Label()
@@ -81,13 +83,10 @@ Partial Class buscarlibro
         Me.cmbestado = New System.Windows.Forms.ComboBox()
         Me.Pautor = New System.Windows.Forms.Panel()
         Me.panelautor = New System.Windows.Forms.Panel()
-        Me.txtpaisau = New Proyecto_Biblioteca.PlaceHolder()
-        Me.txtnombreau = New Proyecto_Biblioteca.PlaceHolder()
         Me.btnnwautor = New System.Windows.Forms.Button()
         Me.lblnacionalidad = New System.Windows.Forms.Label()
         Me.lblnombre = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtbuscarautor = New Proyecto_Biblioteca.PlaceHolder()
         Me.btnvolver2 = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.btningautor = New System.Windows.Forms.Button()
@@ -97,9 +96,6 @@ Partial Class buscarlibro
         Me.timerautor = New System.Windows.Forms.Timer(Me.components)
         Me.Peditorial = New System.Windows.Forms.Panel()
         Me.Paneleditorial = New System.Windows.Forms.Panel()
-        Me.txtanioe = New Proyecto_Biblioteca.PlaceHolder()
-        Me.txtpais = New Proyecto_Biblioteca.PlaceHolder()
-        Me.txtnombree = New Proyecto_Biblioteca.PlaceHolder()
         Me.btnnweditorial = New System.Windows.Forms.Button()
         Me.lblanio = New System.Windows.Forms.Label()
         Me.lblpais = New System.Windows.Forms.Label()
@@ -107,20 +103,16 @@ Partial Class buscarlibro
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.dgveditorial = New System.Windows.Forms.DataGridView()
-        Me.txtbuscareditorial = New Proyecto_Biblioteca.PlaceHolder()
         Me.btnvolver = New System.Windows.Forms.Button()
         Me.btningeditorial = New System.Windows.Forms.Button()
         Me.btncancelar = New System.Windows.Forms.Button()
         Me.Pclasificacion = New System.Windows.Forms.Panel()
         Me.cmbclasificacion = New System.Windows.Forms.ComboBox()
         Me.panelclasificacion = New System.Windows.Forms.Panel()
-        Me.txtnombreclas = New Proyecto_Biblioteca.PlaceHolder()
-        Me.txtcodclas = New Proyecto_Biblioteca.PlaceHolder()
         Me.btnnwclas = New System.Windows.Forms.Button()
         Me.lblnombreclas = New System.Windows.Forms.Label()
         Me.lblcodclas = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
-        Me.txtbuscarclas = New Proyecto_Biblioteca.PlaceHolder()
         Me.btnvolver3 = New System.Windows.Forms.Button()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.dgvclasificacion = New System.Windows.Forms.DataGridView()
@@ -128,10 +120,20 @@ Partial Class buscarlibro
         Me.btncancelarclas = New System.Windows.Forms.Button()
         Me.timerclasificacion = New System.Windows.Forms.Timer(Me.components)
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.txtbusqueda = New Proyecto_Biblioteca.PlaceHolder()
         Me.cmbsala = New System.Windows.Forms.ComboBox()
         Me.Label23 = New System.Windows.Forms.Label()
-        CType(Me.dgvlibros, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.txtanioe = New Proyecto_Biblioteca.PlaceHolder()
+        Me.txtpais = New Proyecto_Biblioteca.PlaceHolder()
+        Me.txtnombree = New Proyecto_Biblioteca.PlaceHolder()
+        Me.txtbuscareditorial = New Proyecto_Biblioteca.PlaceHolder()
+        Me.txtnombreclas = New Proyecto_Biblioteca.PlaceHolder()
+        Me.txtcodclas = New Proyecto_Biblioteca.PlaceHolder()
+        Me.txtbuscarclas = New Proyecto_Biblioteca.PlaceHolder()
+        Me.txtpaisau = New Proyecto_Biblioteca.PlaceHolder()
+        Me.txtnombreau = New Proyecto_Biblioteca.PlaceHolder()
+        Me.txtbuscarautor = New Proyecto_Biblioteca.PlaceHolder()
+        Me.txtbusqueda = New Proyecto_Biblioteca.PlaceHolder()
+        Me.dgvlibros = New System.Windows.Forms.DataGridView()
         Me.Pmostrar.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Pactualizar.SuspendLayout()
@@ -146,6 +148,7 @@ Partial Class buscarlibro
         Me.panelclasificacion.SuspendLayout()
         CType(Me.dgvclasificacion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvlibros, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cmbdatos
@@ -178,24 +181,6 @@ Partial Class buscarlibro
         Me.Label2.Size = New System.Drawing.Size(171, 25)
         Me.Label2.TabIndex = 26
         Me.Label2.Text = "Buscar un libro"
-        '
-        'dgvlibros
-        '
-        Me.dgvlibros.AllowUserToAddRows = False
-        Me.dgvlibros.AllowUserToDeleteRows = False
-        Me.dgvlibros.AllowUserToResizeColumns = False
-        Me.dgvlibros.AllowUserToResizeRows = False
-        Me.dgvlibros.BackgroundColor = System.Drawing.Color.Silver
-        Me.dgvlibros.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.dgvlibros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvlibros.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.dgvlibros.Location = New System.Drawing.Point(12, 123)
-        Me.dgvlibros.Name = "dgvlibros"
-        Me.dgvlibros.ReadOnly = True
-        Me.dgvlibros.RowHeadersVisible = False
-        Me.dgvlibros.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvlibros.Size = New System.Drawing.Size(614, 461)
-        Me.dgvlibros.TabIndex = 25
         '
         'Pmostrar
         '
@@ -779,26 +764,6 @@ Partial Class buscarlibro
         Me.panelautor.Size = New System.Drawing.Size(162, 232)
         Me.panelautor.TabIndex = 46
         '
-        'txtpaisau
-        '
-        Me.txtpaisau.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.txtpaisau.Location = New System.Drawing.Point(31, 100)
-        Me.txtpaisau.Name = "txtpaisau"
-        Me.txtpaisau.Size = New System.Drawing.Size(100, 20)
-        Me.txtpaisau.TabIndex = 59
-        Me.txtpaisau.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txtpaisau.WaterMarkText = "Nacionalidad"
-        '
-        'txtnombreau
-        '
-        Me.txtnombreau.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.txtnombreau.Location = New System.Drawing.Point(31, 58)
-        Me.txtnombreau.Name = "txtnombreau"
-        Me.txtnombreau.Size = New System.Drawing.Size(100, 20)
-        Me.txtnombreau.TabIndex = 58
-        Me.txtnombreau.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txtnombreau.WaterMarkText = "Nombre"
-        '
         'btnnwautor
         '
         Me.btnnwautor.Location = New System.Drawing.Point(42, 136)
@@ -837,16 +802,6 @@ Partial Class buscarlibro
         Me.Label3.Size = New System.Drawing.Size(130, 16)
         Me.Label3.TabIndex = 11
         Me.Label3.Text = "Ingrese Nuevo Autor"
-        '
-        'txtbuscarautor
-        '
-        Me.txtbuscarautor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbuscarautor.Location = New System.Drawing.Point(261, 5)
-        Me.txtbuscarautor.Name = "txtbuscarautor"
-        Me.txtbuscarautor.Size = New System.Drawing.Size(165, 21)
-        Me.txtbuscarautor.TabIndex = 55
-        Me.txtbuscarautor.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txtbuscarautor.WaterMarkText = "Buscar Autor"
         '
         'btnvolver2
         '
@@ -938,36 +893,6 @@ Partial Class buscarlibro
         Me.Paneleditorial.Size = New System.Drawing.Size(180, 231)
         Me.Paneleditorial.TabIndex = 46
         '
-        'txtanioe
-        '
-        Me.txtanioe.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.txtanioe.Location = New System.Drawing.Point(64, 96)
-        Me.txtanioe.Name = "txtanioe"
-        Me.txtanioe.Size = New System.Drawing.Size(100, 20)
-        Me.txtanioe.TabIndex = 59
-        Me.txtanioe.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txtanioe.WaterMarkText = "Año"
-        '
-        'txtpais
-        '
-        Me.txtpais.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.txtpais.Location = New System.Drawing.Point(65, 67)
-        Me.txtpais.Name = "txtpais"
-        Me.txtpais.Size = New System.Drawing.Size(100, 20)
-        Me.txtpais.TabIndex = 58
-        Me.txtpais.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txtpais.WaterMarkText = "Pais"
-        '
-        'txtnombree
-        '
-        Me.txtnombree.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.txtnombree.Location = New System.Drawing.Point(64, 35)
-        Me.txtnombree.Name = "txtnombree"
-        Me.txtnombree.Size = New System.Drawing.Size(100, 20)
-        Me.txtnombree.TabIndex = 57
-        Me.txtnombree.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txtnombree.WaterMarkText = "Nombre"
-        '
         'btnnweditorial
         '
         Me.btnnweditorial.Location = New System.Drawing.Point(65, 136)
@@ -1041,16 +966,6 @@ Partial Class buscarlibro
         Me.dgveditorial.Size = New System.Drawing.Size(421, 231)
         Me.dgveditorial.TabIndex = 1
         '
-        'txtbuscareditorial
-        '
-        Me.txtbuscareditorial.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbuscareditorial.Location = New System.Drawing.Point(261, 5)
-        Me.txtbuscareditorial.Name = "txtbuscareditorial"
-        Me.txtbuscareditorial.Size = New System.Drawing.Size(165, 21)
-        Me.txtbuscareditorial.TabIndex = 56
-        Me.txtbuscareditorial.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txtbuscareditorial.WaterMarkText = "Buscar Editorial"
-        '
         'btnvolver
         '
         Me.btnvolver.Location = New System.Drawing.Point(10, 261)
@@ -1117,26 +1032,6 @@ Partial Class buscarlibro
         Me.panelclasificacion.Size = New System.Drawing.Size(181, 227)
         Me.panelclasificacion.TabIndex = 46
         '
-        'txtnombreclas
-        '
-        Me.txtnombreclas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.txtnombreclas.Location = New System.Drawing.Point(41, 102)
-        Me.txtnombreclas.Name = "txtnombreclas"
-        Me.txtnombreclas.Size = New System.Drawing.Size(100, 20)
-        Me.txtnombreclas.TabIndex = 59
-        Me.txtnombreclas.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txtnombreclas.WaterMarkText = "Nombre Clasif"
-        '
-        'txtcodclas
-        '
-        Me.txtcodclas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.txtcodclas.Location = New System.Drawing.Point(41, 60)
-        Me.txtcodclas.Name = "txtcodclas"
-        Me.txtcodclas.Size = New System.Drawing.Size(100, 20)
-        Me.txtcodclas.TabIndex = 58
-        Me.txtcodclas.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txtcodclas.WaterMarkText = "Numero Clasificacion"
-        '
         'btnnwclas
         '
         Me.btnnwclas.Location = New System.Drawing.Point(52, 138)
@@ -1175,16 +1070,6 @@ Partial Class buscarlibro
         Me.Label20.Size = New System.Drawing.Size(178, 16)
         Me.Label20.TabIndex = 11
         Me.Label20.Text = "Ingrese Nueva Clasificacion:"
-        '
-        'txtbuscarclas
-        '
-        Me.txtbuscarclas.Font = New System.Drawing.Font("Lucida Sans", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbuscarclas.Location = New System.Drawing.Point(268, 5)
-        Me.txtbuscarclas.Name = "txtbuscarclas"
-        Me.txtbuscarclas.Size = New System.Drawing.Size(145, 20)
-        Me.txtbuscarclas.TabIndex = 55
-        Me.txtbuscarclas.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txtbuscarclas.WaterMarkText = "Buscar Clasificaion"
         '
         'btnvolver3
         '
@@ -1247,16 +1132,6 @@ Partial Class buscarlibro
         '
         Me.ErrorProvider1.ContainerControl = Me
         '
-        'txtbusqueda
-        '
-        Me.txtbusqueda.Font = New System.Drawing.Font("Lucida Sans", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbusqueda.Location = New System.Drawing.Point(13, 87)
-        Me.txtbusqueda.Name = "txtbusqueda"
-        Me.txtbusqueda.Size = New System.Drawing.Size(257, 30)
-        Me.txtbusqueda.TabIndex = 48
-        Me.txtbusqueda.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txtbusqueda.WaterMarkText = "Buscar"
-        '
         'cmbsala
         '
         Me.cmbsala.BackColor = System.Drawing.Color.LimeGreen
@@ -1280,6 +1155,163 @@ Partial Class buscarlibro
         Me.Label23.TabIndex = 65
         Me.Label23.Text = "En Sala:"
         '
+        'txtanioe
+        '
+        Me.txtanioe.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.txtanioe.Location = New System.Drawing.Point(64, 96)
+        Me.txtanioe.Name = "txtanioe"
+        Me.txtanioe.Size = New System.Drawing.Size(100, 20)
+        Me.txtanioe.TabIndex = 59
+        Me.txtanioe.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txtanioe.WaterMarkText = "Año"
+        '
+        'txtpais
+        '
+        Me.txtpais.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.txtpais.Location = New System.Drawing.Point(65, 67)
+        Me.txtpais.Name = "txtpais"
+        Me.txtpais.Size = New System.Drawing.Size(100, 20)
+        Me.txtpais.TabIndex = 58
+        Me.txtpais.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txtpais.WaterMarkText = "Pais"
+        '
+        'txtnombree
+        '
+        Me.txtnombree.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.txtnombree.Location = New System.Drawing.Point(64, 35)
+        Me.txtnombree.Name = "txtnombree"
+        Me.txtnombree.Size = New System.Drawing.Size(100, 20)
+        Me.txtnombree.TabIndex = 57
+        Me.txtnombree.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txtnombree.WaterMarkText = "Nombre"
+        '
+        'txtbuscareditorial
+        '
+        Me.txtbuscareditorial.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbuscareditorial.Location = New System.Drawing.Point(261, 5)
+        Me.txtbuscareditorial.Name = "txtbuscareditorial"
+        Me.txtbuscareditorial.Size = New System.Drawing.Size(165, 21)
+        Me.txtbuscareditorial.TabIndex = 56
+        Me.txtbuscareditorial.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txtbuscareditorial.WaterMarkText = "Buscar Editorial"
+        '
+        'txtnombreclas
+        '
+        Me.txtnombreclas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.txtnombreclas.Location = New System.Drawing.Point(41, 102)
+        Me.txtnombreclas.Name = "txtnombreclas"
+        Me.txtnombreclas.Size = New System.Drawing.Size(100, 20)
+        Me.txtnombreclas.TabIndex = 59
+        Me.txtnombreclas.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txtnombreclas.WaterMarkText = "Nombre Clasif"
+        '
+        'txtcodclas
+        '
+        Me.txtcodclas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.txtcodclas.Location = New System.Drawing.Point(41, 60)
+        Me.txtcodclas.Name = "txtcodclas"
+        Me.txtcodclas.Size = New System.Drawing.Size(100, 20)
+        Me.txtcodclas.TabIndex = 58
+        Me.txtcodclas.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txtcodclas.WaterMarkText = "Numero Clasificacion"
+        '
+        'txtbuscarclas
+        '
+        Me.txtbuscarclas.Font = New System.Drawing.Font("Lucida Sans", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbuscarclas.Location = New System.Drawing.Point(268, 5)
+        Me.txtbuscarclas.Name = "txtbuscarclas"
+        Me.txtbuscarclas.Size = New System.Drawing.Size(145, 20)
+        Me.txtbuscarclas.TabIndex = 55
+        Me.txtbuscarclas.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txtbuscarclas.WaterMarkText = "Buscar Clasificaion"
+        '
+        'txtpaisau
+        '
+        Me.txtpaisau.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.txtpaisau.Location = New System.Drawing.Point(31, 100)
+        Me.txtpaisau.Name = "txtpaisau"
+        Me.txtpaisau.Size = New System.Drawing.Size(100, 20)
+        Me.txtpaisau.TabIndex = 59
+        Me.txtpaisau.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txtpaisau.WaterMarkText = "Nacionalidad"
+        '
+        'txtnombreau
+        '
+        Me.txtnombreau.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.txtnombreau.Location = New System.Drawing.Point(31, 58)
+        Me.txtnombreau.Name = "txtnombreau"
+        Me.txtnombreau.Size = New System.Drawing.Size(100, 20)
+        Me.txtnombreau.TabIndex = 58
+        Me.txtnombreau.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txtnombreau.WaterMarkText = "Nombre"
+        '
+        'txtbuscarautor
+        '
+        Me.txtbuscarautor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbuscarautor.Location = New System.Drawing.Point(261, 5)
+        Me.txtbuscarautor.Name = "txtbuscarautor"
+        Me.txtbuscarautor.Size = New System.Drawing.Size(165, 21)
+        Me.txtbuscarautor.TabIndex = 55
+        Me.txtbuscarautor.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txtbuscarautor.WaterMarkText = "Buscar Autor"
+        '
+        'txtbusqueda
+        '
+        Me.txtbusqueda.Font = New System.Drawing.Font("Lucida Sans", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbusqueda.Location = New System.Drawing.Point(13, 87)
+        Me.txtbusqueda.Name = "txtbusqueda"
+        Me.txtbusqueda.Size = New System.Drawing.Size(257, 30)
+        Me.txtbusqueda.TabIndex = 48
+        Me.txtbusqueda.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txtbusqueda.WaterMarkText = "Buscar"
+        '
+        'dgvlibros
+        '
+        Me.dgvlibros.AllowUserToAddRows = False
+        Me.dgvlibros.AllowUserToDeleteRows = False
+        Me.dgvlibros.AllowUserToResizeColumns = False
+        Me.dgvlibros.AllowUserToResizeRows = False
+        Me.dgvlibros.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.dgvlibros.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvlibros.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgvlibros.ColumnHeadersHeight = 40
+        Me.dgvlibros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.dgvlibros.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.dgvlibros.EnableHeadersVisualStyles = False
+        Me.dgvlibros.Location = New System.Drawing.Point(12, 123)
+        Me.dgvlibros.MultiSelect = False
+        Me.dgvlibros.Name = "dgvlibros"
+        Me.dgvlibros.ReadOnly = True
+        Me.dgvlibros.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvlibros.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.dgvlibros.RowHeadersVisible = False
+        Me.dgvlibros.RowHeadersWidth = 50
+        Me.dgvlibros.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White
+        Me.dgvlibros.RowsDefaultCellStyle = DataGridViewCellStyle3
+        Me.dgvlibros.RowTemplate.Height = 32
+        Me.dgvlibros.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvlibros.Size = New System.Drawing.Size(614, 461)
+        Me.dgvlibros.TabIndex = 66
+        '
         'buscarlibro
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1296,13 +1328,12 @@ Partial Class buscarlibro
         Me.Controls.Add(Me.cmbdatos)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.dgvlibros)
         Me.Controls.Add(Me.Pmostrar)
         Me.Controls.Add(Me.Pactualizar)
+        Me.Controls.Add(Me.dgvlibros)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "buscarlibro"
         Me.Text = "Form2"
-        CType(Me.dgvlibros, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Pmostrar.ResumeLayout(False)
         Me.Pmostrar.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1325,13 +1356,13 @@ Partial Class buscarlibro
         Me.panelclasificacion.PerformLayout()
         CType(Me.dgvclasificacion, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvlibros, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents dgvlibros As System.Windows.Forms.DataGridView
     Friend WithEvents Pmostrar As System.Windows.Forms.Panel
     Friend WithEvents btnmodificar As System.Windows.Forms.Button
     Friend WithEvents volumen_label As System.Windows.Forms.Label
@@ -1436,4 +1467,5 @@ Partial Class buscarlibro
     Friend WithEvents ErrorProvider1 As System.Windows.Forms.ErrorProvider
     Friend WithEvents Label23 As System.Windows.Forms.Label
     Private WithEvents cmbsala As System.Windows.Forms.ComboBox
+    Friend WithEvents dgvlibros As System.Windows.Forms.DataGridView
 End Class
