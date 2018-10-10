@@ -30,6 +30,8 @@
         Datagrid_Align()
         DatagridModulo = LibrosParaReservar
         Datagrid_Align()
+        DatagridModulo = dgvRenovacion
+        Datagrid_Align()
 
         ButtonVerFicha.Visible = False
         DataGridParaDevolucion.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill ' ajusta las columnas al tamaño del datagrid
@@ -39,11 +41,13 @@
         GrupBoxDevolucion.Visible = False
         ReservacionGrupBox.Visible = False
         CrearReservacionGrupBox.Visible = False
+        GroupBoxRenovacion.Visible = False
         '//////////IMAGENES DEL MENU DE OPCIONES/////////
         PictureExtraccion.Visible = False
         PictureDevolucion.Visible = False
         PictureCrearReservacion.Visible = False
         PictureReservacion.Visible = False
+        ptbRenovar.Visible = False
 
 
 
@@ -89,11 +93,13 @@
                 GrupBoxExtraccion.Visible = False
                 GrupBoxDevolucion.Visible = False
                 CrearReservacionGrupBox.Visible = False
+                GroupBoxRenovacion.Visible = False
 
                 PictureExtraccion.Visible = False
                 PictureDevolucion.Visible = False
                 PictureCrearReservacion.Visible = False
                 PictureReservacion.Visible = False
+                ptbRenovar.Visible = False
                 LabelParaAlmacenarLaCedulaIngresada.Visible = False
             End If
         End If
@@ -126,11 +132,13 @@
                 GrupBoxExtraccion.Visible = False
                 GrupBoxDevolucion.Visible = False
                 CrearReservacionGrupBox.Visible = False
+                GroupBoxRenovacion.Visible = False
 
                 PictureExtraccion.Visible = False
                 PictureDevolucion.Visible = False
                 PictureCrearReservacion.Visible = False
                 PictureReservacion.Visible = False
+                ptbRenovar.Visible = False
                 LabelParaAlmacenarLaCedulaIngresada.Visible = False
             End If
         End If
@@ -146,11 +154,13 @@
             GrupBoxDevolucion.Visible = False
             ReservacionGrupBox.Visible = False
             CrearReservacionGrupBox.Visible = False
+            GroupBoxRenovacion.Visible = False
             '//////////IMAGENES DEL MENU DE OPCIONES/////////
             PictureExtraccion.Visible = False
             PictureDevolucion.Visible = False
             PictureCrearReservacion.Visible = False
             PictureReservacion.Visible = False
+            ptbRenovar.Visible = False
             LabelParaAlmacenarLaCedulaIngresada.Visible = False
             '///PARA QUE NO SE PUEDA EDITAR LA CEDULA///
             Cedula.ReadOnly = False
@@ -174,11 +184,13 @@
                 GrupBoxDevolucion.Visible = False
                 ReservacionGrupBox.Visible = False
                 CrearReservacionGrupBox.Visible = False
+                GroupBoxRenovacion.Visible = False
                 '//////////IMAGENES DEL MENU DE OPCIONES/////////
                 PictureExtraccion.Visible = False
                 PictureDevolucion.Visible = False
                 PictureCrearReservacion.Visible = False
                 PictureReservacion.Visible = False
+                ptbRenovar.Visible = False
                 LabelParaAlmacenarLaCedulaIngresada.Visible = False
                 '///PARA QUE NO SE PUEDA EDITAR LA CEDULA///
                 Cedula.ReadOnly = False
@@ -210,12 +222,13 @@
                 GrupBoxDevolucion.Visible = False
                 ReservacionGrupBox.Visible = False
                 CrearReservacionGrupBox.Visible = False
+                GroupBoxRenovacion.Visible = False
 
                 PictureExtraccion.Visible = True
                 PictureDevolucion.Visible = True
                 PictureCrearReservacion.Visible = True
                 PictureReservacion.Visible = True
-
+                ptbRenovar.Visible = True
 
                 CarritoDeLibros.Items.Clear()
                 ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
@@ -246,6 +259,7 @@
                 GrupBoxDevolucion.Visible = False
                 ReservacionGrupBox.Visible = False
                 CrearReservacionGrupBox.Visible = False
+                GroupBoxRenovacion.Visible = False
                 '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -556,7 +570,7 @@
     Private Sub PictureDevolucion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureDevolucion.Click
         If CarritoDeLibros.Items.Count = 0 Then
 
-            Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
+            Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion', fecha_estimada as 'Fecha Maxima de Prestamo' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
             consultar()
             DataGridParaDevolucion.DataSource = Tabla
 
@@ -565,7 +579,7 @@
             GrupBoxExtraccion.Visible = False
             ReservacionGrupBox.Visible = False
             CrearReservacionGrupBox.Visible = False
-
+            GroupBoxRenovacion.Visible = False
 
 
             '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -981,158 +995,187 @@
         PrestamoRevistas.Show()
     End Sub
 
-    Private Sub DataGridViewlllllVerLibrosEnExtraccionlllll_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridViewlllllVerLibrosEnExtraccionlllll.CellContentClick
-
-    End Sub
-
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         FichaParaImprimir2.Show()
     End Sub
 
-    Private Sub Button2_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+    Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ptbRenovar.Click
 
-        librorenovar = DataGridParaDevolucion.Item(0, DataGridParaDevolucion.CurrentRow.Index).Value
+        If CarritoDeLibros.Items.Count = 0 Then
 
-        '///////////////////////////////////////////////////////////////////////////////////
-        '///////////////Calcula la fecha en que deberia entregarse el libro/////////////////
-        '///////////////////////////////////////////////////////////////////////////////////
-        fecha_actual = DateTime.Now.ToString("yyyy/MM/dd")
-
-        dia = Val(DateTime.Now.ToString("dd")) + 14
-        mes = Val(DateTime.Now.ToString("MM"))
-        anio = Val(DateTime.Now.ToString("yyyy"))
-
-        If mes = 1 Then ' Mes de Enero
-            If dia >= 31 Then
-                diferenciaDia = dia - 31
-                dia = dia - diferenciaDia
-                mes = mes + 1
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            End If
-        End If
-        If mes = 2 Then ' Mes de febrero
-            If dia >= 28 Then
-                diferenciaDia = dia - 28
-                dia = dia - diferenciaDia
-                mes = mes + 1
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            End If
-        End If
-        If mes = 3 Then ' Mes de marzo
-            If dia >= 31 Then
-                diferenciaDia = dia - 31
-                dia = dia - diferenciaDia
-                mes = mes + 1
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            End If
-        End If
-        If mes = 4 Then ' Mes de abril
-            If dia >= 30 Then
-                diferenciaDia = dia - 30
-                dia = dia - diferenciaDia
-                mes = mes + 1
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            End If
-        End If
-        If mes = 5 Then ' Mes de mayo
-            If dia >= 31 Then
-                diferenciaDia = dia - 31
-                dia = dia - diferenciaDia
-                mes = mes + 1
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            End If
-        End If
-        If mes = 6 Then ' Mes de junio
-            If dia >= 30 Then
-                diferenciaDia = dia - 30
-                dia = dia - diferenciaDia
-                mes = mes + 1
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            End If
-        End If
-        If mes = 7 Then ' Mes de julio
-            If dia >= 31 Then
-                diferenciaDia = dia - 31
-                dia = dia - diferenciaDia
-                mes = mes + 1
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            End If
-        End If
-        If mes = 8 Then ' Mes de agosto
-            If dia >= 31 Then
-                diferenciaDia = dia - 31
-                dia = dia - diferenciaDia
-                mes = mes + 1
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            End If
-        End If
-        If mes = 9 Then ' Mes de setiembre
-            If dia >= 30 Then
-                diferenciaDia = dia - 30
-                dia = dia - diferenciaDia
-                mes = mes + 1
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            End If
-        End If
-        If mes = 10 Then ' Mes de octubre
-            If dia >= 31 Then
-                diferenciaDia = dia - 31
-                dia = dia - diferenciaDia
-                mes = mes + 1
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            End If
-        End If
-        If mes = 11 Then ' Mes de noviembre
-            If dia >= 30 Then
-                diferenciaDia = dia - 30
-                dia = dia - diferenciaDia
-                mes = mes + 1
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            End If
-        End If
-        If mes = 12 Then ' Mes de diciembre
-            If dia >= 31 Then
-                diferenciaDia = dia - 31
-                dia = dia - diferenciaDia
-                mes = 1
-                anio = anio + 1
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            End If
-        End If
-        '////////////////////////////////////////////////////////////////////////
-
-        Try
-            Consulta = "update prestamolibro set fecha_salida = '" + fecha + "', fecha_estimada = '" + fecha_estimada + "', cod_prestado = '" + MENU3.cedulaIngre + "' where fecha_entrada is NULL and cedula = '" + Cedula.Text + "' and cod_libro = '" + librorenovar + "'"
+            Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion', fecha_estimada as 'Fecha Maxima de Prestamo' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
             consultar()
-            MsgBox("Se renovo el prestamo")
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+            dgvRenovacion.DataSource = Tabla
+
+            '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            GrupBoxExtraccion.Visible = False
+            ReservacionGrupBox.Visible = False
+            CrearReservacionGrupBox.Visible = False
+            GrupBoxDevolucion.Visible = False
+
+            '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            GroupBoxRenovacion.Visible = True
+
+            '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        Else
+            MsgBox("Para cambiar de tarea debe tener el carrito vacio", Title:="Error")
+
+        End If
 
     End Sub
 
+    Private Sub dgvRenovacion_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvRenovacion.CellDoubleClick
+        librorenovar = dgvRenovacion.Item(0, dgvRenovacion.CurrentRow.Index).Value
+
+        If MsgBox("Desea renovar el libro " & dgvRenovacion.Item(1, dgvRenovacion.CurrentRow.Index).Value & "?", MsgBoxStyle.YesNo, Title:="PRESTAMOS") = vbYes Then
+
+            '///////////////////////////////////////////////////////////////////////////////////
+            '///////////////Calcula la fecha en que deberia entregarse el libro/////////////////
+            '///////////////////////////////////////////////////////////////////////////////////
+            fecha_actual = DateTime.Now.ToString("yyyy/MM/dd")
+
+            dia = Val(DateTime.Now.ToString("dd")) + 7
+            mes = Val(DateTime.Now.ToString("MM"))
+            anio = Val(DateTime.Now.ToString("yyyy"))
+
+            If mes = 1 Then ' Mes de Enero
+                If dia >= 31 Then
+                    diferenciaDia = dia - 31
+                    dia = dia - diferenciaDia
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            If mes = 2 Then ' Mes de febrero
+                If dia >= 28 Then
+                    diferenciaDia = dia - 28
+                    dia = dia - diferenciaDia
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            If mes = 3 Then ' Mes de marzo
+                If dia >= 31 Then
+                    diferenciaDia = dia - 31
+                    dia = dia - diferenciaDia
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            If mes = 4 Then ' Mes de abril
+                If dia >= 30 Then
+                    diferenciaDia = dia - 30
+                    dia = dia - diferenciaDia
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            If mes = 5 Then ' Mes de mayo
+                If dia >= 31 Then
+                    diferenciaDia = dia - 31
+                    dia = dia - diferenciaDia
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            If mes = 6 Then ' Mes de junio
+                If dia >= 30 Then
+                    diferenciaDia = dia - 30
+                    dia = dia - diferenciaDia
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            If mes = 7 Then ' Mes de julio
+                If dia >= 31 Then
+                    diferenciaDia = dia - 31
+                    dia = dia - diferenciaDia
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            If mes = 8 Then ' Mes de agosto
+                If dia >= 31 Then
+                    diferenciaDia = dia - 31
+                    dia = dia - diferenciaDia
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            If mes = 9 Then ' Mes de setiembre
+                If dia >= 30 Then
+                    diferenciaDia = dia - 30
+                    dia = dia - diferenciaDia
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            If mes = 10 Then ' Mes de octubre
+                If dia >= 31 Then
+                    diferenciaDia = dia - 31
+                    dia = dia - diferenciaDia
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            If mes = 11 Then ' Mes de noviembre
+                If dia >= 30 Then
+                    diferenciaDia = dia - 30
+                    dia = dia - diferenciaDia
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            If mes = 12 Then ' Mes de diciembre
+                If dia >= 31 Then
+                    diferenciaDia = dia - 31
+                    dia = dia - diferenciaDia
+                    mes = 1
+                    anio = anio + 1
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            '////////////////////////////////////////////////////////////////////////
+
+            Try
+                'Renovacion sera 1 en la base de datos, 0 para cuando no lo se lo haya hecho
+                Consulta = "update prestamolibro set fecha_estimada = '" + fecha_estimada + "', cod_prestado = '" + MENU3.cedulaIngre + "', renovacion = 1 where fecha_entrada is NULL and cedula = '" + Cedula.Text + "' and cod_libro = '" + librorenovar + "'"
+                consultar()
+                MsgBox("Se renovo el prestamo")
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+
+        End If
+    End Sub
+
+    Private Sub ptbRenovar_MouseHover(ByVal sender As Object, ByVal e As System.EventArgs) Handles ptbRenovar.MouseHover
+        LabelSELECCION_DE_FUNCION.Text = "Renovar Libros"
+    End Sub
 End Class

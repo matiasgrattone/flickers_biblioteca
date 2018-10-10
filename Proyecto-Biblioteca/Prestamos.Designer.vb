@@ -34,6 +34,9 @@ Partial Class Prestamos
         Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.ButonParaExtreaer = New System.Windows.Forms.Button()
         Me.BotonParaBuscarCedula = New System.Windows.Forms.Button()
         Me.PanelDelCarrito = New System.Windows.Forms.Panel()
@@ -47,7 +50,6 @@ Partial Class Prestamos
         Me.LabelIDLIBRO = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GrupBoxDevolucion = New System.Windows.Forms.GroupBox()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.DataGridParaDevolucion = New System.Windows.Forms.DataGridView()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.ENPODER = New System.Windows.Forms.Label()
@@ -66,6 +68,7 @@ Partial Class Prestamos
         Me.Label19 = New System.Windows.Forms.Label()
         Me.BotonExtrearReservados = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.ptbRenovar = New System.Windows.Forms.PictureBox()
         Me.ButtonVerFicha = New System.Windows.Forms.Button()
         Me.ButtonRevistas = New System.Windows.Forms.Button()
         Me.ButtonVERREGISTRO = New System.Windows.Forms.Button()
@@ -85,6 +88,10 @@ Partial Class Prestamos
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.GroupBoxRenovacion = New System.Windows.Forms.GroupBox()
+        Me.dgvRenovacion = New System.Windows.Forms.DataGridView()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.PanelDelCarrito.SuspendLayout()
         Me.GrupBoxDevolucion.SuspendLayout()
@@ -95,6 +102,7 @@ Partial Class Prestamos
         Me.ReservacionGrupBox.SuspendLayout()
         CType(Me.VerLibrosReservados2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
+        CType(Me.ptbRenovar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel4.SuspendLayout()
         CType(Me.PictureCrearReservacion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureReservacion, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -103,6 +111,8 @@ Partial Class Prestamos
         Me.CrearReservacionGrupBox.SuspendLayout()
         CType(Me.LibrosParaReservar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LupitaParaBuscarLibrosEnReservacion, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBoxRenovacion.SuspendLayout()
+        CType(Me.dgvRenovacion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ButonParaExtreaer
@@ -235,7 +245,6 @@ Partial Class Prestamos
         'GrupBoxDevolucion
         '
         Me.GrupBoxDevolucion.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.GrupBoxDevolucion.Controls.Add(Me.Button2)
         Me.GrupBoxDevolucion.Controls.Add(Me.DataGridParaDevolucion)
         Me.GrupBoxDevolucion.Controls.Add(Me.Label11)
         Me.GrupBoxDevolucion.Controls.Add(Me.ENPODER)
@@ -245,16 +254,6 @@ Partial Class Prestamos
         Me.GrupBoxDevolucion.TabIndex = 67
         Me.GrupBoxDevolucion.TabStop = False
         Me.GrupBoxDevolucion.Text = "DEVOLUCION"
-        '
-        'Button2
-        '
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(304, 85)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(126, 29)
-        Me.Button2.TabIndex = 83
-        Me.Button2.Text = "Renovar Libros"
-        Me.Button2.UseVisualStyleBackColor = True
         '
         'DataGridParaDevolucion
         '
@@ -276,7 +275,7 @@ Partial Class Prestamos
         Me.DataGridParaDevolucion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.DataGridParaDevolucion.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DataGridParaDevolucion.EnableHeadersVisualStyles = False
-        Me.DataGridParaDevolucion.Location = New System.Drawing.Point(6, 138)
+        Me.DataGridParaDevolucion.Location = New System.Drawing.Point(6, 130)
         Me.DataGridParaDevolucion.Name = "DataGridParaDevolucion"
         Me.DataGridParaDevolucion.ReadOnly = True
         Me.DataGridParaDevolucion.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
@@ -298,7 +297,7 @@ Partial Class Prestamos
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White
         Me.DataGridParaDevolucion.RowsDefaultCellStyle = DataGridViewCellStyle3
         Me.DataGridParaDevolucion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridParaDevolucion.Size = New System.Drawing.Size(727, 401)
+        Me.DataGridParaDevolucion.Size = New System.Drawing.Size(727, 409)
         Me.DataGridParaDevolucion.TabIndex = 82
         '
         'Label11
@@ -324,7 +323,7 @@ Partial Class Prestamos
         '
         'GrupBoxExtraccion
         '
-        Me.GrupBoxExtraccion.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.GrupBoxExtraccion.BackColor = System.Drawing.Color.White
         Me.GrupBoxExtraccion.Controls.Add(Me.DataGridViewlllllVerLibrosEnExtraccionlllll)
         Me.GrupBoxExtraccion.Controls.Add(Me.ButtonLupita)
         Me.GrupBoxExtraccion.Controls.Add(Me.Label7)
@@ -545,6 +544,7 @@ Partial Class Prestamos
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.SystemColors.ScrollBar
+        Me.Panel3.Controls.Add(Me.ptbRenovar)
         Me.Panel3.Controls.Add(Me.ButtonVerFicha)
         Me.Panel3.Controls.Add(Me.ButtonRevistas)
         Me.Panel3.Controls.Add(Me.ButtonVERREGISTRO)
@@ -561,6 +561,16 @@ Partial Class Prestamos
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(1016, 112)
         Me.Panel3.TabIndex = 75
+        '
+        'ptbRenovar
+        '
+        Me.ptbRenovar.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.RenovarLibro
+        Me.ptbRenovar.Location = New System.Drawing.Point(573, 11)
+        Me.ptbRenovar.Name = "ptbRenovar"
+        Me.ptbRenovar.Size = New System.Drawing.Size(82, 85)
+        Me.ptbRenovar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.ptbRenovar.TabIndex = 81
+        Me.ptbRenovar.TabStop = False
         '
         'ButtonVerFicha
         '
@@ -621,7 +631,7 @@ Partial Class Prestamos
         'PictureReservacion
         '
         Me.PictureReservacion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.reservar
-        Me.PictureReservacion.Location = New System.Drawing.Point(663, 13)
+        Me.PictureReservacion.Location = New System.Drawing.Point(684, 13)
         Me.PictureReservacion.Name = "PictureReservacion"
         Me.PictureReservacion.Size = New System.Drawing.Size(82, 85)
         Me.PictureReservacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -631,7 +641,7 @@ Partial Class Prestamos
         'PictureDevolucion
         '
         Me.PictureDevolucion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.devolcion
-        Me.PictureDevolucion.Location = New System.Drawing.Point(516, 13)
+        Me.PictureDevolucion.Location = New System.Drawing.Point(466, 13)
         Me.PictureDevolucion.Name = "PictureDevolucion"
         Me.PictureDevolucion.Size = New System.Drawing.Size(82, 85)
         Me.PictureDevolucion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -641,7 +651,7 @@ Partial Class Prestamos
         'PictureExtraccion
         '
         Me.PictureExtraccion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.extraccion
-        Me.PictureExtraccion.Location = New System.Drawing.Point(372, 13)
+        Me.PictureExtraccion.Location = New System.Drawing.Point(359, 14)
         Me.PictureExtraccion.Name = "PictureExtraccion"
         Me.PictureExtraccion.Size = New System.Drawing.Size(82, 85)
         Me.PictureExtraccion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -785,6 +795,85 @@ Partial Class Prestamos
         Me.Panel2.Size = New System.Drawing.Size(1016, 38)
         Me.Panel2.TabIndex = 78
         '
+        'GroupBoxRenovacion
+        '
+        Me.GroupBoxRenovacion.BackColor = System.Drawing.Color.White
+        Me.GroupBoxRenovacion.Controls.Add(Me.Label4)
+        Me.GroupBoxRenovacion.Controls.Add(Me.dgvRenovacion)
+        Me.GroupBoxRenovacion.Controls.Add(Me.Label2)
+        Me.GroupBoxRenovacion.Location = New System.Drawing.Point(263, 98)
+        Me.GroupBoxRenovacion.Name = "GroupBoxRenovacion"
+        Me.GroupBoxRenovacion.Size = New System.Drawing.Size(738, 547)
+        Me.GroupBoxRenovacion.TabIndex = 84
+        Me.GroupBoxRenovacion.TabStop = False
+        Me.GroupBoxRenovacion.Text = "RENOVACION"
+        '
+        'dgvRenovacion
+        '
+        Me.dgvRenovacion.AllowUserToAddRows = False
+        Me.dgvRenovacion.AllowUserToDeleteRows = False
+        Me.dgvRenovacion.AllowUserToResizeColumns = False
+        Me.dgvRenovacion.AllowUserToResizeRows = False
+        Me.dgvRenovacion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvRenovacion.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.dgvRenovacion.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle13.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvRenovacion.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle13
+        Me.dgvRenovacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvRenovacion.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.dgvRenovacion.EnableHeadersVisualStyles = False
+        Me.dgvRenovacion.Location = New System.Drawing.Point(5, 131)
+        Me.dgvRenovacion.Name = "dgvRenovacion"
+        Me.dgvRenovacion.ReadOnly = True
+        Me.dgvRenovacion.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle14.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle14.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvRenovacion.RowHeadersDefaultCellStyle = DataGridViewCellStyle14
+        Me.dgvRenovacion.RowHeadersVisible = False
+        Me.dgvRenovacion.RowHeadersWidth = 50
+        Me.dgvRenovacion.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        DataGridViewCellStyle15.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle15.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.White
+        Me.dgvRenovacion.RowsDefaultCellStyle = DataGridViewCellStyle15
+        Me.dgvRenovacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvRenovacion.Size = New System.Drawing.Size(727, 409)
+        Me.dgvRenovacion.TabIndex = 83
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Impact", 20.25!)
+        Me.Label2.Location = New System.Drawing.Point(514, 33)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(196, 34)
+        Me.Label2.TabIndex = 63
+        Me.Label2.Text = "RENOVAR LIBROS"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Impact", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.DarkViolet
+        Me.Label4.Location = New System.Drawing.Point(15, 32)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(187, 34)
+        Me.Label4.TabIndex = 84
+        Me.Label4.Text = "Libros en poder"
+        '
         'Cedula
         '
         Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
@@ -804,10 +893,11 @@ Partial Class Prestamos
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.PanelDelCarrito)
-        Me.Controls.Add(Me.GrupBoxExtraccion)
+        Me.Controls.Add(Me.GroupBoxRenovacion)
         Me.Controls.Add(Me.GrupBoxDevolucion)
         Me.Controls.Add(Me.CrearReservacionGrupBox)
         Me.Controls.Add(Me.ReservacionGrupBox)
+        Me.Controls.Add(Me.GrupBoxExtraccion)
         Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Prestamos"
@@ -826,6 +916,7 @@ Partial Class Prestamos
         CType(Me.VerLibrosReservados2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
+        CType(Me.ptbRenovar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
         CType(Me.PictureCrearReservacion, System.ComponentModel.ISupportInitialize).EndInit()
@@ -836,6 +927,9 @@ Partial Class Prestamos
         Me.CrearReservacionGrupBox.PerformLayout()
         CType(Me.LibrosParaReservar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LupitaParaBuscarLibrosEnReservacion, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBoxRenovacion.ResumeLayout(False)
+        Me.GroupBoxRenovacion.PerformLayout()
+        CType(Me.dgvRenovacion, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -890,5 +984,9 @@ Partial Class Prestamos
     Friend WithEvents DataGridParaDevolucion As System.Windows.Forms.DataGridView
     Friend WithEvents LibrosParaReservar As System.Windows.Forms.DataGridView
     Friend WithEvents VerLibrosReservados2 As System.Windows.Forms.DataGridView
-    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents GroupBoxRenovacion As System.Windows.Forms.GroupBox
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Private WithEvents ptbRenovar As System.Windows.Forms.PictureBox
+    Friend WithEvents dgvRenovacion As System.Windows.Forms.DataGridView
+    Friend WithEvents Label4 As System.Windows.Forms.Label
 End Class

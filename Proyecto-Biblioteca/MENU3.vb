@@ -978,6 +978,6 @@ Public Class MENU3
     End Sub
 
     Private Sub PictureBox3_Click_1(sender As System.Object, e As System.EventArgs) Handles PictureBox3.Click
-        Me.Close()
+        Me.Dispose()
     End Sub
 End Class

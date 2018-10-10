@@ -22,7 +22,6 @@ C:\Users\PC Guille\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\
 C:\Users\PC Guille\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\Proyecto-Biblioteca.pdb
 C:\Users\PC Guille\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\Proyecto-Biblioteca.xml
 C:\Users\PC Guille\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.vbprojResolveAssemblyReference.cache
-C:\Users\PC Guille\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Form1.resources
 C:\Users\PC Guille\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.info_usuario.resources
 C:\Users\PC Guille\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.ingresolibro.resources
 C:\Users\PC Guille\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.buscarlibro.resources
@@ -132,7 +131,6 @@ C:\Users\rex\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\De
 C:\Users\rex\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\mysql.data.dll
 C:\Users\PC Guille\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\mysql.data.dll
 C:\Users\PC Guille\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.ConfigAdmin.resources
-C:\Users\PC Guille\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.PantallaDeBloqueo.resources
 C:\Users\Matias\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.exe
 C:\Users\Matias\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.xml
 C:\Users\Matias\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.pdb
@@ -190,3 +188,4 @@ C:\Users\guill\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\
 C:\Users\rex\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.FichaParaImprimir2.resources
 C:\Users\rex\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.FichaParaImprimirNumero2.resources
 C:\Users\rex\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Mail.resources
+C:\Users\PC Guille\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Mail.resources
