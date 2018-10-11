@@ -26,19 +26,18 @@ Partial Class LOGIN
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(LOGIN))
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Labels_transparentes3 = New Proyecto_Biblioteca.labels_transparentes()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.contrasenia = New Proyecto_Biblioteca.PlaceHolder()
+        Me.usuario = New Proyecto_Biblioteca.PlaceHolder()
+        Me.Labels_transparentes4 = New Proyecto_Biblioteca.labels_transparentes()
+        Me.TransPicBox1 = New Proyecto_Biblioteca.TransPicBox()
         Me.Labels_transparentes2 = New Proyecto_Biblioteca.labels_transparentes()
         Me.Labels_transparentes1 = New Proyecto_Biblioteca.labels_transparentes()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.TransPicBox1 = New Proyecto_Biblioteca.TransPicBox()
-        Me.Labels_transparentes4 = New Proyecto_Biblioteca.labels_transparentes()
-        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.usuario = New Proyecto_Biblioteca.PlaceHolder()
-        Me.contrasenia = New Proyecto_Biblioteca.PlaceHolder()
-        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TransPicBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TransPicBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button1
@@ -59,14 +58,67 @@ Partial Class LOGIN
         Me.Panel2.Size = New System.Drawing.Size(3, 252)
         Me.Panel2.TabIndex = 0
         '
-        'Labels_transparentes3
+        'PictureBox1
         '
-        Me.Labels_transparentes3.ForeColor = System.Drawing.Color.LightSeaGreen
-        Me.Labels_transparentes3.Location = New System.Drawing.Point(771, 307)
-        Me.Labels_transparentes3.Name = "Labels_transparentes3"
-        Me.Labels_transparentes3.Size = New System.Drawing.Size(140, 23)
-        Me.Labels_transparentes3.TabIndex = 15
-        Me.Labels_transparentes3.Text = "Ingresar como invitado"
+        Me.PictureBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.Sin_título_1
+        Me.PictureBox1.Location = New System.Drawing.Point(-7, -1)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(984, 563)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 18
+        Me.PictureBox1.TabStop = False
+        '
+        'ErrorProvider1
+        '
+        Me.ErrorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
+        Me.ErrorProvider1.ContainerControl = Me
+        '
+        'BackgroundWorker1
+        '
+        '
+        'contrasenia
+        '
+        Me.contrasenia.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.contrasenia.Location = New System.Drawing.Point(496, 276)
+        Me.contrasenia.Name = "contrasenia"
+        Me.contrasenia.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.contrasenia.Size = New System.Drawing.Size(237, 26)
+        Me.contrasenia.TabIndex = 1
+        Me.contrasenia.WaterMarkColor = System.Drawing.Color.LightGray
+        Me.contrasenia.WaterMarkText = "Contraseña"
+        '
+        'usuario
+        '
+        Me.usuario.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.usuario.Location = New System.Drawing.Point(496, 234)
+        Me.usuario.Name = "usuario"
+        Me.usuario.Size = New System.Drawing.Size(237, 26)
+        Me.usuario.TabIndex = 0
+        Me.usuario.WaterMarkColor = System.Drawing.Color.LightGray
+        Me.usuario.WaterMarkText = "Cedula"
+        '
+        'Labels_transparentes4
+        '
+        Me.Labels_transparentes4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Labels_transparentes4.ForeColor = System.Drawing.Color.White
+        Me.Labels_transparentes4.Location = New System.Drawing.Point(496, 308)
+        Me.Labels_transparentes4.Name = "Labels_transparentes4"
+        Me.Labels_transparentes4.Size = New System.Drawing.Size(133, 23)
+        Me.Labels_transparentes4.TabIndex = 20
+        Me.Labels_transparentes4.Text = "Olvide mi contraseña"
+        '
+        'TransPicBox1
+        '
+        Me.TransPicBox1.BackColor = System.Drawing.Color.Transparent
+        Me.TransPicBox1.ErrorImage = Nothing
+        Me.TransPicBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.IMG_3252
+        Me.TransPicBox1.InitialImage = Nothing
+        Me.TransPicBox1.Location = New System.Drawing.Point(81, 195)
+        Me.TransPicBox1.Name = "TransPicBox1"
+        Me.TransPicBox1.Size = New System.Drawing.Size(250, 136)
+        Me.TransPicBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.TransPicBox1.TabIndex = 19
+        Me.TransPicBox1.TabStop = False
         '
         'Labels_transparentes2
         '
@@ -88,68 +140,6 @@ Partial Class LOGIN
         Me.Labels_transparentes1.TabIndex = 11
         Me.Labels_transparentes1.Text = "Cedula"
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.Sin_título_1
-        Me.PictureBox1.Location = New System.Drawing.Point(-7, -1)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(984, 563)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 18
-        Me.PictureBox1.TabStop = False
-        '
-        'TransPicBox1
-        '
-        Me.TransPicBox1.BackColor = System.Drawing.Color.Transparent
-        Me.TransPicBox1.ErrorImage = Nothing
-        Me.TransPicBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.IMG_3252
-        Me.TransPicBox1.InitialImage = Nothing
-        Me.TransPicBox1.Location = New System.Drawing.Point(81, 195)
-        Me.TransPicBox1.Name = "TransPicBox1"
-        Me.TransPicBox1.Size = New System.Drawing.Size(250, 136)
-        Me.TransPicBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.TransPicBox1.TabIndex = 19
-        Me.TransPicBox1.TabStop = False
-        '
-        'Labels_transparentes4
-        '
-        Me.Labels_transparentes4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Labels_transparentes4.ForeColor = System.Drawing.Color.White
-        Me.Labels_transparentes4.Location = New System.Drawing.Point(496, 308)
-        Me.Labels_transparentes4.Name = "Labels_transparentes4"
-        Me.Labels_transparentes4.Size = New System.Drawing.Size(133, 23)
-        Me.Labels_transparentes4.TabIndex = 20
-        Me.Labels_transparentes4.Text = "Olvide mi contraseña"
-        '
-        'ErrorProvider1
-        '
-        Me.ErrorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
-        Me.ErrorProvider1.ContainerControl = Me
-        '
-        'usuario
-        '
-        Me.usuario.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.usuario.Location = New System.Drawing.Point(496, 234)
-        Me.usuario.Name = "usuario"
-        Me.usuario.Size = New System.Drawing.Size(237, 26)
-        Me.usuario.TabIndex = 0
-        Me.usuario.WaterMarkColor = System.Drawing.Color.LightGray
-        Me.usuario.WaterMarkText = "Cedula"
-        '
-        'contrasenia
-        '
-        Me.contrasenia.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.contrasenia.Location = New System.Drawing.Point(496, 276)
-        Me.contrasenia.Name = "contrasenia"
-        Me.contrasenia.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.contrasenia.Size = New System.Drawing.Size(237, 26)
-        Me.contrasenia.TabIndex = 1
-        Me.contrasenia.WaterMarkColor = System.Drawing.Color.LightGray
-        Me.contrasenia.WaterMarkText = "Contraseña"
-        '
-        'BackgroundWorker1
-        '
-        '
         'LOGIN
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -160,7 +150,6 @@ Partial Class LOGIN
         Me.Controls.Add(Me.usuario)
         Me.Controls.Add(Me.Labels_transparentes4)
         Me.Controls.Add(Me.TransPicBox1)
-        Me.Controls.Add(Me.Labels_transparentes3)
         Me.Controls.Add(Me.Labels_transparentes2)
         Me.Controls.Add(Me.Labels_transparentes1)
         Me.Controls.Add(Me.Panel2)
@@ -172,8 +161,8 @@ Partial Class LOGIN
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "login"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TransPicBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TransPicBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -182,7 +171,6 @@ Partial Class LOGIN
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Labels_transparentes1 As Proyecto_Biblioteca.labels_transparentes
     Friend WithEvents Labels_transparentes2 As Proyecto_Biblioteca.labels_transparentes
-    Friend WithEvents Labels_transparentes3 As Proyecto_Biblioteca.labels_transparentes
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents TransPicBox1 As Proyecto_Biblioteca.TransPicBox
     Friend WithEvents Labels_transparentes4 As Proyecto_Biblioteca.labels_transparentes

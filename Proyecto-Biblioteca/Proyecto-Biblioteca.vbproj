@@ -227,12 +227,6 @@
       <DependentUpon>Inicio Usuarios.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Carga.Designer.vb">
-      <DependentUpon>Carga.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Carga.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Clases\labels_transparentes.vb">
       <SubType>Component</SubType>
     </Compile>
@@ -334,9 +328,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Alphas\Inicio Usuarios.resx">
       <DependentUpon>Inicio Usuarios.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Carga.resx">
-      <DependentUpon>Carga.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LOGIN.resx">
       <DependentUpon>LOGIN.vb</DependentUpon>
