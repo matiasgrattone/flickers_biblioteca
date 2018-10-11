@@ -28,7 +28,7 @@
             ErrorProvider1.SetError(contrasenia, "Contraseña no puede estar vacía")
             i = 1
         Else
-            pass = contrasenia.Text
+            pass = Encriptar(contrasenia.Text)
         End If
 
         If i = 0 Then
@@ -196,7 +196,7 @@
         Consulta = "select * from usuarios where cedula = '" & mailrecuperar & "'"
         consultar()
         For Each row As DataRow In Tabla.Rows
-            enviarEmail(row("mail"), "recuperación contraseña", "Su Contraseña es : " & row("contrasenia"))
+            enviarEmail(row("mail"), "recuperación contraseña", "Su Contraseña es : " & Desencriptar(row("contrasenia")))
         Next
     End Sub
     Private Sub PictureBox1_MouseUp(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles PictureBox1.MouseUp

@@ -255,7 +255,7 @@ Module Modulo
 
     End Sub
 
-    'Funcion para el Encriptado de Cadenas de Texto
+    'Funcion para el Encriptado de Cadenas de Texto ( MD5)
     Public Function Encriptar(ByVal texto As String) As String
 
         If Trim(texto) = "" Then
@@ -272,7 +272,7 @@ Module Modulo
     End Function
 
 
-    'Funcion para el Desencriptado de Cadenas de Texto
+    'Funcion para el Desencriptado de Cadenas de Texto ( MD5 )
     Public Function Desencriptar(ByVal texto As String) As String
         If Trim(texto) = "" Then
             Desencriptar = ""

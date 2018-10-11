@@ -156,6 +156,7 @@
 
                 'Ocultamos el boton de ver ficha
                 ButtonVerFicha.Visible = False
+            End If
         End If
     End Sub
 

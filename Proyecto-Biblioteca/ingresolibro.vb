@@ -96,9 +96,8 @@
                         Else
 
                             Try
-                                '/// Permite ingresar un nuevo dato a la tabla libros ///'
-                                'Consulta = "INSERT INTO libro VALUES('" + txtcod_libro.Text + "',concat(upper(left('" + txttitulo.Text + "',1)),lower(substr('" + txttitulo.Text + "',2))),'" + autor + "','" + editorial + "','" + txtvolumen.Text + "','" + txtanio.Text + " ',concat(upper(left('" + txtorigen.Text + "',1)),lower(substr('" + txtorigen.Text + "',2))),concat(upper(left('" + txtobservaciones.Text + "',1)),lower(substr('" + txtobservaciones.Text + "',2))), '0','" + clasificacion + "')"
-
+                                '/// Permite ingresar un nuevo dato a la tabla libros ///
+                                '/// Dependiendo si el usuario eligio No (0) o Si(1) en el combobox en sala, se realiza el if que le dara el valor de 0 o 1 al ingresarlo///
                                 If cmbsala.SelectedItem = "No" Then
                                     Consulta = "insert into libro values('" + txtcod_libro.Text + "',concat(upper(left('" + txttitulo.Text + "',1)),lower(substr('" + txttitulo.Text + "',2))), concat(upper(left('" & autor & "',1)),lower(substr('" & autor & "',2))), concat(upper(left('" & editorial & "',1)),lower(substr('" & editorial & "',2))),'" + txtvolumen.Text + "','" + txtanio.Text + "', concat(upper(left('" + txtorigen.Text + "',1)),lower(substr('" + txtorigen.Text + "',2))), concat(upper(left('" + txtobservaciones.Text + "' ,1)),lower(substr('" + txtobservaciones.Text + "' ,2))),'0', concat(upper(left('" & clasificacion & "',1)),lower(substr('" & clasificacion & "',2))),concat(upper(left('" + txtubicacion.Text + "',1)),lower(substr('" + txtubicacion.Text + "',2))),'0')"
                                     consultar()
