@@ -69,6 +69,8 @@ Partial Class FichaSocio
         Me.Label4 = New System.Windows.Forms.Label()
         Me.PrintForm1 = New Microsoft.VisualBasic.PowerPacks.Printing.PrintForm(Me.components)
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
+        Me.labelLibroFavorito = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -359,31 +361,31 @@ Partial Class FichaSocio
         'cmbaño
         '
         Me.cmbaño.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbaño.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbaño.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbaño.FormattingEnabled = True
         Me.cmbaño.Location = New System.Drawing.Point(606, 168)
         Me.cmbaño.Name = "cmbaño"
-        Me.cmbaño.Size = New System.Drawing.Size(68, 23)
+        Me.cmbaño.Size = New System.Drawing.Size(68, 24)
         Me.cmbaño.TabIndex = 21
         '
         'cmbmes
         '
         Me.cmbmes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbmes.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbmes.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbmes.FormattingEnabled = True
         Me.cmbmes.Location = New System.Drawing.Point(484, 168)
         Me.cmbmes.Name = "cmbmes"
-        Me.cmbmes.Size = New System.Drawing.Size(116, 23)
+        Me.cmbmes.Size = New System.Drawing.Size(116, 24)
         Me.cmbmes.TabIndex = 22
         '
         'cmbdia
         '
         Me.cmbdia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbdia.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbdia.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbdia.FormattingEnabled = True
         Me.cmbdia.Location = New System.Drawing.Point(420, 168)
         Me.cmbdia.Name = "cmbdia"
-        Me.cmbdia.Size = New System.Drawing.Size(58, 23)
+        Me.cmbdia.Size = New System.Drawing.Size(58, 24)
         Me.cmbdia.TabIndex = 23
         '
         'Label3
@@ -468,6 +470,8 @@ Partial Class FichaSocio
         'Panel5
         '
         Me.Panel5.BackColor = System.Drawing.SystemColors.Control
+        Me.Panel5.Controls.Add(Me.labelLibroFavorito)
+        Me.Panel5.Controls.Add(Me.Label6)
         Me.Panel5.Controls.Add(Me.Button1)
         Me.Panel5.Controls.Add(Me.LabelFecha_Ingreso)
         Me.Panel5.Controls.Add(Me.Label4)
@@ -543,6 +547,26 @@ Partial Class FichaSocio
         Me.Timer2.Enabled = True
         Me.Timer2.Interval = 600
         '
+        'labelLibroFavorito
+        '
+        Me.labelLibroFavorito.AutoSize = True
+        Me.labelLibroFavorito.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.labelLibroFavorito.Location = New System.Drawing.Point(751, 40)
+        Me.labelLibroFavorito.Name = "labelLibroFavorito"
+        Me.labelLibroFavorito.Size = New System.Drawing.Size(95, 15)
+        Me.labelLibroFavorito.TabIndex = 36
+        Me.labelLibroFavorito.Text = "......................"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(654, 40)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(103, 15)
+        Me.Label6.TabIndex = 35
+        Me.Label6.Text = "Libro Favorito :"
+        '
         'FichaSocio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -611,4 +635,6 @@ Partial Class FichaSocio
     Friend WithEvents PrintForm1 As Microsoft.VisualBasic.PowerPacks.Printing.PrintForm
     Friend WithEvents Timer2 As System.Windows.Forms.Timer
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents labelLibroFavorito As System.Windows.Forms.Label
+    Friend WithEvents Label6 As System.Windows.Forms.Label
 End Class

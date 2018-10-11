@@ -238,7 +238,9 @@ Public Class ConfigAdmin
             ErrorProvider1.SetError(contrasenia_txt, "Debe de tener una contraseña")
             i_ingresar = 1
         Else
-            cont_ingresar = contrasenia_txt.Text
+
+            cont_ingresar = Encriptar(contrasenia_txt.Text)
+
         End If
 
         If cb_dia.Text = "Dia" Then

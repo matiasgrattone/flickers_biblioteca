@@ -6,6 +6,8 @@
     Dim xc, yc As Integer 'primer ubicacion del cursor
     Dim xf, yf As Integer 'primer ubicacion del formulario
     Dim holax, holay As Integer 'calculo para la ubicacion del formulario
+    Dim cedulaSocio As String 'Variable para consulta de libro favorito
+
     Private Sub RegistroSocio_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         xf = Me.Location.X
         yf = Me.Location.Y
@@ -53,6 +55,7 @@
                         Label_TIPO_txt.Text = "Socio"
                 End Select
 
+                cedulaSocio = Str(row("cedula"))
                 Label_Telefono_txt.Text = row("telefono")
                 LabelDirecciontxt.Text = row("direccion")
                 LabelNombretxt.Text = row("nombre") & " " & row("apellido")
@@ -109,6 +112,13 @@
             cmbdia.SelectedText = Date.Now.ToString("dd")
         Catch ex As Exception
         End Try
+
+        Consulta = "select p.cod_libro, cedula, l.titulo, count(*) as 'total' from prestamolibro p inner join libro l on p.cod_libro=l.cod_libro where cedula = '" + cedulaSocio + "' group by 1 order by total desc limit 1"
+        consultar()
+        For Each row As DataRow In Tabla.Rows
+            labelLibroFavorito.Text = Convert.ToString(row("titulo"))
+        Next
+
     End Sub
 
     Private Sub Timer1_Tick(sender As System.Object, e As System.EventArgs) Handles Timer1.Tick
@@ -162,4 +172,5 @@
         Mail.Txt_Destino.Text = LabelMailtxt.Text
         Mail.Show()
     End Sub
+
 End Class
