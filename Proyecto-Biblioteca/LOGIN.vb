@@ -36,7 +36,7 @@
                 Consulta = "select contrasenia , nombre , cedula from usuarios where cedula = '" + user + "' and tipo<'2';"
                 consultar()
                 For Each row As DataRow In Tabla.Rows
-                    If row("contrasenia").ToString = pass Then
+                    If Desencriptar(row("contrasenia").ToString) = pass Then
                         MENU3.Nombre.Text = row("nombre")
                         MENU3.lbl_cedula.Text = row("cedula")
 
@@ -88,7 +88,7 @@
                     consultar()
                     For Each row As DataRow In Tabla.Rows
 
-                        If row("contrasenia").ToString = pass Then
+                        If Desencriptar(row("contrasenia").ToString) = pass Then
                             MENU3.Nombre.Text = row("nombre")
                             MENU3.lbl_cedula.Text = row("cedula")
 
@@ -147,7 +147,7 @@
                     Consulta = "select contrasenia , nombre , cedula from usuarios where cedula = '" + user + "' and tipo<'2';"
                     consultar()
                     For Each row As DataRow In Tabla.Rows
-                        If row("contrasenia").ToString = pass Then
+                        If Desencriptar(row("contrasenia").ToString) = pass Then
                             MENU3.Nombre.Text = row("nombre")
                             MENU3.lbl_cedula.Text = row("cedula")
                             MENU3.cedulaIngre = row("cedula").ToString

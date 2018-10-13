@@ -99,11 +99,11 @@ Partial Class LOGIN
         '
         'Labels_transparentes4
         '
-        Me.Labels_transparentes4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Labels_transparentes4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Labels_transparentes4.ForeColor = System.Drawing.Color.White
         Me.Labels_transparentes4.Location = New System.Drawing.Point(496, 308)
         Me.Labels_transparentes4.Name = "Labels_transparentes4"
-        Me.Labels_transparentes4.Size = New System.Drawing.Size(133, 23)
+        Me.Labels_transparentes4.Size = New System.Drawing.Size(159, 23)
         Me.Labels_transparentes4.TabIndex = 20
         Me.Labels_transparentes4.Text = "Olvide mi contraseña"
         '

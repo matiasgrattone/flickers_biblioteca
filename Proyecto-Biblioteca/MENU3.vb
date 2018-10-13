@@ -669,35 +669,45 @@ Public Class MENU3
             Wbnavegador.Visible = False
         End If
     End Sub
+
     Public Sub Chart()
         If ERROR1 = 2 Then
 
             ChartPrestamosDia.Series.Clear()
             ChartPrestamosDia.ChartAreas.Clear()
+
             Chart_Prestamos.Series.Clear()
             Chart_Prestamos.ChartAreas.Clear()
+
             ChartTOP.Series.Clear()
             ChartTOP.ChartAreas.Clear()
-            ComboBox1.Enabled = False
-            ComboBox2.Enabled = False
+
+            If ComboBox1.Enabled = True And ComboBox2.Enabled = True Then
+                ComboBox1.Enabled = False
+                ComboBox2.Enabled = False
+            End If
+
 
         Else
+            If ComboBox1.Enabled = False And ComboBox2.Enabled = False Then
+                ComboBox1.Enabled = True
+                ComboBox2.Enabled = True
+            End If
 
-            ComboBox1.Enabled = True
-            ComboBox2.Enabled = True
             Chart_Prestamos.Series.Clear()
             Chart_Prestamos.ChartAreas.Clear()
+
             If ComboBox2.SelectedItem = Nothing Then
                 substring = Date.Now.ToString("yyyy")
             Else
                 substring = ComboBox2.SelectedItem
             End If
-            '/////////////////////////////// CHART DE PRESTAMOS Y USUARIOS //////////////////////////////////
-            Consulta = "select count(prestamolibro.cod_libro) , month(prestamolibro.fecha_salida) from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where fecha_salida IS NOT NULL and  year(fecha_salida) = '" & substring & "'group by month(fecha_salida)"
-            consultar()
+
             Chart_Prestamos.ChartAreas.Add("Prestamos")
             Chart_Prestamos.Series.Add("Prestamos")
-            '/////////////////////////////////////////////////////////////////////////////////////////////////
+
+            Consulta = "select count(prestamolibro.cod_libro) , month(prestamolibro.fecha_salida) from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where fecha_salida IS NOT NULL and  year(fecha_salida) = '" & substring & "'group by month(fecha_salida)"
+            consultar()
             For Each row As DataRow In Tabla.Rows
                 substring = row("month(prestamolibro.fecha_salida)")
                 If substring.Length = 1 Then
@@ -706,12 +716,9 @@ Public Class MENU3
                 mes()
                 Chart_Prestamos.Series("Prestamos").Points.AddXY(substring, row("count(prestamolibro.cod_libro)"))
             Next
-            '////////////////////////////////////////////////////////////////////////////////////////////////
 
             Chart_Prestamos.Series("Prestamos").Label = "Libros : " + "#VALY"
             Chart_Prestamos.ChartAreas(0).AxisX.MajorGrid.Enabled = False
-
-            '//////////////////////////////////////////////////////////////////////////////////////////////////
 
             Try
 
@@ -723,6 +730,7 @@ Public Class MENU3
 
                 Consulta = "select cod_grafica from MenuConfig where cod_usuario = '" & lbl_cedula.Text & "'"
                 consultar()
+
                 For Each row As DataRow In Tabla.Rows
                     Select Case row("cod_grafica")
                         Case 1
@@ -754,12 +762,17 @@ Public Class MENU3
                 mestonum()
                 Consulta = "select count(prestamolibro.cod_libro) , day(prestamolibro.fecha_salida) from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where month(prestamolibro.fecha_salida) = '" & substring & "' group by day(fecha_salida)"
                 consultar()
-                ContadorDia = 0
 
+                ContadorDia = 0
                 For Each row As DataRow In Tabla.Rows
+
                     ChartPrestamosDia.Series("Prestamos Del Dia").Points.AddXY(row("day(prestamolibro.fecha_salida)"), row("count(prestamolibro.cod_libro)"))
                     ChartPrestamosDia.Series("Prestamos Del Dia").Points(ContadorDia).AxisLabel = "Dia : " + "#VALX"
+                    'ChartPrestamosDia.Series("Prestamos Del Dia").Points(ContadorDia).MarkerStyle = DataVisualization.Charting.MarkerStyle.Triangle
+                    'ChartPrestamosDia.Series("Prestamos Del Dia").Points(ContadorDia).MarkerSize = 10
+
                     ContadorDia = ContadorDia + 1
+
                 Next
 
                 ChartPrestamosDia.Series("Prestamos Del Dia").Label = "Libros : " + "#VALY"
@@ -776,16 +789,25 @@ Public Class MENU3
                 Consulta = "select count(prestamolibro.cod_libro) , libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro group by prestamolibro.cod_libro ORDER BY count(prestamolibro.cod_libro) DESC limit 5"
                 consultar()
 
+                Dim X As Integer = 0
                 For Each row As DataRow In Tabla.Rows
-                    ChartTOP.Series("TOP").Points.AddXY(row("titulo"), row("count(prestamolibro.cod_libro)"))
-                Next
 
-                ChartTOP.Series("TOP").Label = "#VALY"
-                ChartTOP.ChartAreas(0).AxisX.MajorGrid.Enabled = False
+                    ChartTOP.Series("TOP").Points.AddXY(row("titulo"), row("count(prestamolibro.cod_libro)"))
+                    'ChartTOP.Series("TOP").Points(X).AxisLabel = row("count(prestamolibro.cod_libro)")
+                    ChartTOP.Series("TOP").Points(X).AxisLabel = " "
+                    ChartTOP.Series("TOP").Points(X).LegendText = row("count(prestamolibro.cod_libro)") & ": " & row("titulo")
+                    'ChartTOP.Series("TOP").Points(X).Font = New System.Drawing.Font("Arial Black", 10, FontStyle.Bold)
+
+                    X = X + 1
+
+                Next
+                ChartTOP.Legends(0).Font = New System.Drawing.Font("Arial", 10, FontStyle.Bold)
+                ChartTOP.Series("TOP").Palette = DataVisualization.Charting.ChartColorPalette.SemiTransparent
+                ChartTOP.ChartAreas("TOP").Area3DStyle.Enable3D = True
+                ChartTOP.Series(0).ChartType = DataVisualization.Charting.SeriesChartType.Pie
 
             Catch ex As Exception
-                MsgBox(ex.ToString)
-
+            MsgBox(ex.ToString)
             End Try
         End If
     End Sub
@@ -984,7 +1006,73 @@ Public Class MENU3
         info_usuario.Show()
     End Sub
 
-    Private Sub PictureBox3_Click_1(sender As System.Object, e As System.EventArgs) Handles PictureBox3.Click
-        End
+    Private Sub label_usuarios_MouseEnter(sender As System.Object, e As System.EventArgs) Handles label_usuarios.MouseEnter
+        If seleccionado = "usuarios" Then 'si esta seleccionado el sector usuarios
+        Else
+            panel_usuarios.BackColor = Drawing.Color.LightGray 'si no esta seleccionado el sector usuarios
+        End If
+    End Sub
+
+    Private Sub label_usuarios_MouseLeave(sender As System.Object, e As System.EventArgs) Handles label_usuarios.MouseLeave
+        If seleccionado = "usuarios" Then 'si esta seleccionado el sector usuarios
+        Else
+            panel_usuarios.BackColor = Drawing.Color.Silver 'si no esta seleccionado el sector usuarios
+        End If
+    End Sub
+
+    Private Sub label_libros_MouseEnter(sender As System.Object, e As System.EventArgs) Handles label_libros.MouseEnter
+        If seleccionado = "libros" Then 'selecciona libros
+        Else
+            panel_libros.BackColor = Drawing.Color.LightGray 'si no esta seleccionado pone el backcolor en lightgray
+        End If
+    End Sub
+
+    Private Sub label_libros_MouseLeave(sender As System.Object, e As System.EventArgs) Handles label_libros.MouseLeave
+        If seleccionado = "libros" Then 'selecciona libros
+        Else
+            panel_libros.BackColor = Drawing.Color.LightGray 'si no esta seleccionado pone el backcolor en lightgray
+        End If
+    End Sub
+
+    Private Sub label_prestamos_MouseEnter(sender As System.Object, e As System.EventArgs) Handles label_prestamos.MouseEnter
+        If seleccionado = "prestamos" Then 'si esta seleccionado prestamos
+        Else
+            panel_prestamos.BackColor = Drawing.Color.LightGray 'si no esta seleccionado prestamos , el backcolor lo define en lightgray
+        End If
+    End Sub
+
+    Private Sub label_prestamos_MouseLeave(sender As System.Object, e As System.EventArgs) Handles label_prestamos.MouseLeave
+        If seleccionado = "prestamos" Then 'si esta seleccionado prestamos
+        Else
+            panel_prestamos.BackColor = Drawing.Color.Silver 'si no esta seleccionado prestamos , el backcolor lo define en lightgray
+        End If
+    End Sub
+
+    Private Sub label_navegador_MouseEnter(sender As System.Object, e As System.EventArgs) Handles label_navegador.MouseEnter
+        If seleccionado = "navegador" Then
+        Else
+            panel_navegador.BackColor = Drawing.Color.lightgray
+        End If
+    End Sub
+
+    Private Sub label_navegador_MouseLeave(sender As System.Object, e As System.EventArgs) Handles label_navegador.MouseLeave
+        If seleccionado = "navegador" Then
+        Else
+            panel_navegador.BackColor = Drawing.Color.Silver
+        End If
+    End Sub
+
+    Private Sub LabelRevistas_MouseEnter(sender As System.Object, e As System.EventArgs) Handles LabelRevistas.MouseEnter
+        If seleccionado = "Revistas" Then
+        Else
+            Panel_Revistas.BackColor = Drawing.Color.LightGray
+        End If
+    End Sub
+
+    Private Sub LabelRevistas_MouseLeave(sender As System.Object, e As System.EventArgs) Handles LabelRevistas.MouseLeave
+        If seleccionado = "Revistas" Then
+        Else
+            Panel_Revistas.BackColor = Drawing.Color.Silver
+        End If
     End Sub
 End Class

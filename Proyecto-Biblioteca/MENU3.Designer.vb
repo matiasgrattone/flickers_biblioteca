@@ -736,6 +736,7 @@ Partial Class MENU3
         '
         'ChartTOP
         '
+        Me.ChartTOP.BorderSkin.BackColor = System.Drawing.Color.Transparent
         ChartArea1.Name = "ChartArea1"
         Me.ChartTOP.ChartAreas.Add(ChartArea1)
         Legend1.Name = "Legend1"
