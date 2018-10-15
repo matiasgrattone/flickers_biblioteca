@@ -24,9 +24,18 @@ Partial Class ingresolibro
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ingresolibro))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle109 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle110 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle111 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle112 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle113 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle114 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle115 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle116 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle117 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle118 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle119 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle120 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.ingresar_boton = New System.Windows.Forms.Button()
         Me.Editorial_label = New System.Windows.Forms.Label()
         Me.observaciones_label = New System.Windows.Forms.Label()
@@ -43,6 +52,7 @@ Partial Class ingresolibro
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Peditorial = New System.Windows.Forms.Panel()
+        Me.dgveditorial = New System.Windows.Forms.DataGridView()
         Me.Paneleditorial = New System.Windows.Forms.Panel()
         Me.txtanioe = New Proyecto_Biblioteca.PlaceHolder()
         Me.txtpais = New Proyecto_Biblioteca.PlaceHolder()
@@ -52,13 +62,13 @@ Partial Class ingresolibro
         Me.lblpais = New System.Windows.Forms.Label()
         Me.lblnombreeditorial = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.dgveditorial = New System.Windows.Forms.DataGridView()
         Me.txtbuscareditorial = New Proyecto_Biblioteca.PlaceHolder()
         Me.btnvolver = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btningeditorial = New System.Windows.Forms.Button()
         Me.btncancelaredi = New System.Windows.Forms.Button()
         Me.Pautor = New System.Windows.Forms.Panel()
+        Me.dgvautor = New System.Windows.Forms.DataGridView()
         Me.panelautor = New System.Windows.Forms.Panel()
         Me.txtpaisau = New Proyecto_Biblioteca.PlaceHolder()
         Me.txtnombreau = New Proyecto_Biblioteca.PlaceHolder()
@@ -69,7 +79,6 @@ Partial Class ingresolibro
         Me.txtbuscarautor = New Proyecto_Biblioteca.PlaceHolder()
         Me.btnvolver2 = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.dgvautor = New System.Windows.Forms.DataGridView()
         Me.btningautor = New System.Windows.Forms.Button()
         Me.btncancelarautor = New System.Windows.Forms.Button()
         Me.timereditorial = New System.Windows.Forms.Timer(Me.components)
@@ -78,6 +87,7 @@ Partial Class ingresolibro
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnselectclas = New System.Windows.Forms.Button()
         Me.Pclasificacion = New System.Windows.Forms.Panel()
+        Me.dgvclasificacion = New System.Windows.Forms.DataGridView()
         Me.cmbclasificacion = New System.Windows.Forms.ComboBox()
         Me.panelclasificacion = New System.Windows.Forms.Panel()
         Me.txtnombreclas = New Proyecto_Biblioteca.PlaceHolder()
@@ -89,7 +99,6 @@ Partial Class ingresolibro
         Me.txtbuscarclas = New Proyecto_Biblioteca.PlaceHolder()
         Me.btnvolver3 = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.dgvclasificacion = New System.Windows.Forms.DataGridView()
         Me.btninclas = New System.Windows.Forms.Button()
         Me.btncancelarclas = New System.Windows.Forms.Button()
         Me.timerclasificacion = New System.Windows.Forms.Timer(Me.components)
@@ -107,19 +116,20 @@ Partial Class ingresolibro
         Me.txtautor = New Proyecto_Biblioteca.PlaceHolder()
         Me.txtcod_libro = New Proyecto_Biblioteca.PlaceHolder()
         Me.dgvlibro = New System.Windows.Forms.DataGridView()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Peditorial.SuspendLayout()
-        Me.Paneleditorial.SuspendLayout()
         CType(Me.dgveditorial, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Paneleditorial.SuspendLayout()
         Me.Pautor.SuspendLayout()
-        Me.panelautor.SuspendLayout()
         CType(Me.dgvautor, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.panelautor.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Pclasificacion.SuspendLayout()
-        Me.panelclasificacion.SuspendLayout()
         CType(Me.dgvclasificacion, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.panelclasificacion.SuspendLayout()
         CType(Me.dgvlibro, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -273,22 +283,69 @@ Partial Class ingresolibro
         '
         'Peditorial
         '
-        Me.Peditorial.BackColor = System.Drawing.Color.DarkSlateGray
-        Me.Peditorial.Controls.Add(Me.Paneleditorial)
+        Me.Peditorial.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Peditorial.Controls.Add(Me.dgveditorial)
+        Me.Peditorial.Controls.Add(Me.Paneleditorial)
         Me.Peditorial.Controls.Add(Me.txtbuscareditorial)
         Me.Peditorial.Controls.Add(Me.btnvolver)
         Me.Peditorial.Controls.Add(Me.Label3)
         Me.Peditorial.Controls.Add(Me.btningeditorial)
         Me.Peditorial.Controls.Add(Me.btncancelaredi)
-        Me.Peditorial.Location = New System.Drawing.Point(462, 340)
+        Me.Peditorial.Location = New System.Drawing.Point(7, 12)
         Me.Peditorial.Name = "Peditorial"
         Me.Peditorial.Size = New System.Drawing.Size(421, 285)
         Me.Peditorial.TabIndex = 45
         '
+        'dgveditorial
+        '
+        Me.dgveditorial.AllowUserToAddRows = False
+        Me.dgveditorial.AllowUserToDeleteRows = False
+        Me.dgveditorial.AllowUserToResizeColumns = False
+        Me.dgveditorial.AllowUserToResizeRows = False
+        Me.dgveditorial.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.dgveditorial.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle109.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle109.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle109.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle109.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle109.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle109.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle109.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgveditorial.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle109
+        Me.dgveditorial.ColumnHeadersHeight = 40
+        Me.dgveditorial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.dgveditorial.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.dgveditorial.EnableHeadersVisualStyles = False
+        Me.dgveditorial.Location = New System.Drawing.Point(9, 29)
+        Me.dgveditorial.MultiSelect = False
+        Me.dgveditorial.Name = "dgveditorial"
+        Me.dgveditorial.ReadOnly = True
+        Me.dgveditorial.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle110.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle110.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle110.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle110.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle110.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle110.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle110.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgveditorial.RowHeadersDefaultCellStyle = DataGridViewCellStyle110
+        Me.dgveditorial.RowHeadersVisible = False
+        Me.dgveditorial.RowHeadersWidth = 50
+        Me.dgveditorial.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        DataGridViewCellStyle111.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle111.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle111.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle111.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle111.SelectionForeColor = System.Drawing.Color.White
+        Me.dgveditorial.RowsDefaultCellStyle = DataGridViewCellStyle111
+        Me.dgveditorial.RowTemplate.Height = 32
+        Me.dgveditorial.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgveditorial.Size = New System.Drawing.Size(403, 230)
+        Me.dgveditorial.TabIndex = 69
+        '
         'Paneleditorial
         '
-        Me.Paneleditorial.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.Paneleditorial.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Paneleditorial.Controls.Add(Me.txtanioe)
         Me.Paneleditorial.Controls.Add(Me.txtpais)
         Me.Paneleditorial.Controls.Add(Me.txtnombree)
@@ -297,6 +354,7 @@ Partial Class ingresolibro
         Me.Paneleditorial.Controls.Add(Me.lblpais)
         Me.Paneleditorial.Controls.Add(Me.lblnombreeditorial)
         Me.Paneleditorial.Controls.Add(Me.Label10)
+        Me.Paneleditorial.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Paneleditorial.Location = New System.Drawing.Point(428, 28)
         Me.Paneleditorial.Name = "Paneleditorial"
         Me.Paneleditorial.Size = New System.Drawing.Size(180, 231)
@@ -334,6 +392,7 @@ Partial Class ingresolibro
         '
         'btnnweditorial
         '
+        Me.btnnweditorial.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.btnnweditorial.Location = New System.Drawing.Point(65, 136)
         Me.btnnweditorial.Name = "btnnweditorial"
         Me.btnnweditorial.Size = New System.Drawing.Size(75, 23)
@@ -345,6 +404,7 @@ Partial Class ingresolibro
         '
         Me.lblanio.AutoSize = True
         Me.lblanio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblanio.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.lblanio.Location = New System.Drawing.Point(25, 99)
         Me.lblanio.Name = "lblanio"
         Me.lblanio.Size = New System.Drawing.Size(32, 16)
@@ -355,6 +415,7 @@ Partial Class ingresolibro
         '
         Me.lblpais.AutoSize = True
         Me.lblpais.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblpais.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.lblpais.Location = New System.Drawing.Point(21, 66)
         Me.lblpais.Name = "lblpais"
         Me.lblpais.Size = New System.Drawing.Size(38, 16)
@@ -365,6 +426,7 @@ Partial Class ingresolibro
         '
         Me.lblnombreeditorial.AutoSize = True
         Me.lblnombreeditorial.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblnombreeditorial.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.lblnombreeditorial.Location = New System.Drawing.Point(4, 34)
         Me.lblnombreeditorial.Name = "lblnombreeditorial"
         Me.lblnombreeditorial.Size = New System.Drawing.Size(60, 16)
@@ -375,26 +437,12 @@ Partial Class ingresolibro
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(13, 4)
+        Me.Label10.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label10.Location = New System.Drawing.Point(5, 4)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(144, 16)
+        Me.Label10.Size = New System.Drawing.Size(176, 16)
         Me.Label10.TabIndex = 11
-        Me.Label10.Text = "Ingrese nueva editorial"
-        '
-        'dgveditorial
-        '
-        Me.dgveditorial.AllowUserToAddRows = False
-        Me.dgveditorial.AllowUserToDeleteRows = False
-        Me.dgveditorial.AllowUserToResizeColumns = False
-        Me.dgveditorial.AllowUserToResizeRows = False
-        Me.dgveditorial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgveditorial.Location = New System.Drawing.Point(5, 24)
-        Me.dgveditorial.Name = "dgveditorial"
-        Me.dgveditorial.ReadOnly = True
-        Me.dgveditorial.RowHeadersVisible = False
-        Me.dgveditorial.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgveditorial.Size = New System.Drawing.Size(410, 231)
-        Me.dgveditorial.TabIndex = 1
+        Me.Label10.Text = "Ingresar una nueva editorial:"
         '
         'txtbuscareditorial
         '
@@ -446,22 +494,69 @@ Partial Class ingresolibro
         '
         'Pautor
         '
-        Me.Pautor.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.Pautor.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Pautor.Controls.Add(Me.dgvautor)
         Me.Pautor.Controls.Add(Me.panelautor)
         Me.Pautor.Controls.Add(Me.txtbuscarautor)
         Me.Pautor.Controls.Add(Me.btnvolver2)
         Me.Pautor.Controls.Add(Me.Label11)
-        Me.Pautor.Controls.Add(Me.dgvautor)
         Me.Pautor.Controls.Add(Me.btningautor)
         Me.Pautor.Controls.Add(Me.btncancelarautor)
-        Me.Pautor.Location = New System.Drawing.Point(464, 339)
+        Me.Pautor.Location = New System.Drawing.Point(10, 12)
         Me.Pautor.Name = "Pautor"
         Me.Pautor.Size = New System.Drawing.Size(416, 285)
         Me.Pautor.TabIndex = 46
         '
+        'dgvautor
+        '
+        Me.dgvautor.AllowUserToAddRows = False
+        Me.dgvautor.AllowUserToDeleteRows = False
+        Me.dgvautor.AllowUserToResizeColumns = False
+        Me.dgvautor.AllowUserToResizeRows = False
+        Me.dgvautor.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.dgvautor.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle112.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle112.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle112.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle112.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle112.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle112.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle112.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvautor.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle112
+        Me.dgvautor.ColumnHeadersHeight = 40
+        Me.dgvautor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.dgvautor.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.dgvautor.EnableHeadersVisualStyles = False
+        Me.dgvautor.Location = New System.Drawing.Point(6, 29)
+        Me.dgvautor.MultiSelect = False
+        Me.dgvautor.Name = "dgvautor"
+        Me.dgvautor.ReadOnly = True
+        Me.dgvautor.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle113.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle113.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle113.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle113.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle113.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle113.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle113.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvautor.RowHeadersDefaultCellStyle = DataGridViewCellStyle113
+        Me.dgvautor.RowHeadersVisible = False
+        Me.dgvautor.RowHeadersWidth = 50
+        Me.dgvautor.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        DataGridViewCellStyle114.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle114.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle114.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle114.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle114.SelectionForeColor = System.Drawing.Color.White
+        Me.dgvautor.RowsDefaultCellStyle = DataGridViewCellStyle114
+        Me.dgvautor.RowTemplate.Height = 32
+        Me.dgvautor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvautor.Size = New System.Drawing.Size(403, 226)
+        Me.dgvautor.TabIndex = 68
+        '
         'panelautor
         '
-        Me.panelautor.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.panelautor.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.panelautor.Controls.Add(Me.txtpaisau)
         Me.panelautor.Controls.Add(Me.txtnombreau)
         Me.panelautor.Controls.Add(Me.btnnwautor)
@@ -506,7 +601,8 @@ Partial Class ingresolibro
         '
         Me.lblnacionalidad.AutoSize = True
         Me.lblnacionalidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblnacionalidad.Location = New System.Drawing.Point(37, 81)
+        Me.lblnacionalidad.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.lblnacionalidad.Location = New System.Drawing.Point(39, 81)
         Me.lblnacionalidad.Name = "lblnacionalidad"
         Me.lblnacionalidad.Size = New System.Drawing.Size(92, 16)
         Me.lblnacionalidad.TabIndex = 13
@@ -516,6 +612,7 @@ Partial Class ingresolibro
         '
         Me.lblnombre.AutoSize = True
         Me.lblnombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblnombre.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.lblnombre.Location = New System.Drawing.Point(54, 35)
         Me.lblnombre.Name = "lblnombre"
         Me.lblnombre.Size = New System.Drawing.Size(60, 16)
@@ -526,11 +623,12 @@ Partial Class ingresolibro
         '
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(3, 10)
+        Me.Label15.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label15.Location = New System.Drawing.Point(5, 10)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(130, 16)
+        Me.Label15.Size = New System.Drawing.Size(150, 16)
         Me.Label15.TabIndex = 11
-        Me.Label15.Text = "Ingrese Nuevo Autor"
+        Me.Label15.Text = "Ingresar un nuevo autor:"
         '
         'txtbuscarautor
         '
@@ -561,21 +659,6 @@ Partial Class ingresolibro
         Me.Label11.Size = New System.Drawing.Size(211, 14)
         Me.Label11.TabIndex = 4
         Me.Label11.Text = "Doble Click para Seleccionar un autor"
-        '
-        'dgvautor
-        '
-        Me.dgvautor.AllowUserToAddRows = False
-        Me.dgvautor.AllowUserToDeleteRows = False
-        Me.dgvautor.AllowUserToResizeColumns = False
-        Me.dgvautor.AllowUserToResizeRows = False
-        Me.dgvautor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvautor.Location = New System.Drawing.Point(5, 30)
-        Me.dgvautor.Name = "dgvautor"
-        Me.dgvautor.ReadOnly = True
-        Me.dgvautor.RowHeadersVisible = False
-        Me.dgvautor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvautor.Size = New System.Drawing.Size(408, 227)
-        Me.dgvautor.TabIndex = 1
         '
         'btningautor
         '
@@ -630,22 +713,70 @@ Partial Class ingresolibro
         '
         'Pclasificacion
         '
-        Me.Pclasificacion.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.Pclasificacion.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Pclasificacion.Controls.Add(Me.dgvclasificacion)
         Me.Pclasificacion.Controls.Add(Me.cmbclasificacion)
         Me.Pclasificacion.Controls.Add(Me.panelclasificacion)
         Me.Pclasificacion.Controls.Add(Me.txtbuscarclas)
         Me.Pclasificacion.Controls.Add(Me.btnvolver3)
         Me.Pclasificacion.Controls.Add(Me.Label9)
-        Me.Pclasificacion.Controls.Add(Me.dgvclasificacion)
         Me.Pclasificacion.Controls.Add(Me.btninclas)
         Me.Pclasificacion.Controls.Add(Me.btncancelarclas)
-        Me.Pclasificacion.Location = New System.Drawing.Point(463, 341)
+        Me.Pclasificacion.Location = New System.Drawing.Point(8, 11)
         Me.Pclasificacion.Name = "Pclasificacion"
         Me.Pclasificacion.Size = New System.Drawing.Size(422, 285)
         Me.Pclasificacion.TabIndex = 62
         '
+        'dgvclasificacion
+        '
+        Me.dgvclasificacion.AllowUserToAddRows = False
+        Me.dgvclasificacion.AllowUserToDeleteRows = False
+        Me.dgvclasificacion.AllowUserToResizeColumns = False
+        Me.dgvclasificacion.AllowUserToResizeRows = False
+        Me.dgvclasificacion.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.dgvclasificacion.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle115.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle115.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle115.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle115.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle115.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle115.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle115.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvclasificacion.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle115
+        Me.dgvclasificacion.ColumnHeadersHeight = 40
+        Me.dgvclasificacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.dgvclasificacion.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.dgvclasificacion.EnableHeadersVisualStyles = False
+        Me.dgvclasificacion.Location = New System.Drawing.Point(10, 58)
+        Me.dgvclasificacion.MultiSelect = False
+        Me.dgvclasificacion.Name = "dgvclasificacion"
+        Me.dgvclasificacion.ReadOnly = True
+        Me.dgvclasificacion.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle116.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle116.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle116.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle116.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle116.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle116.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle116.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvclasificacion.RowHeadersDefaultCellStyle = DataGridViewCellStyle116
+        Me.dgvclasificacion.RowHeadersVisible = False
+        Me.dgvclasificacion.RowHeadersWidth = 50
+        Me.dgvclasificacion.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        DataGridViewCellStyle117.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle117.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle117.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle117.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle117.SelectionForeColor = System.Drawing.Color.White
+        Me.dgvclasificacion.RowsDefaultCellStyle = DataGridViewCellStyle117
+        Me.dgvclasificacion.RowTemplate.Height = 32
+        Me.dgvclasificacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvclasificacion.Size = New System.Drawing.Size(403, 197)
+        Me.dgvclasificacion.TabIndex = 69
+        '
         'cmbclasificacion
         '
+        Me.cmbclasificacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbclasificacion.FormattingEnabled = True
         Me.cmbclasificacion.Items.AddRange(New Object() {"Codigo de Clasificacion", "Clasificacion"})
         Me.cmbclasificacion.Location = New System.Drawing.Point(268, 31)
@@ -655,16 +786,16 @@ Partial Class ingresolibro
         '
         'panelclasificacion
         '
-        Me.panelclasificacion.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.panelclasificacion.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.panelclasificacion.Controls.Add(Me.txtnombreclas)
         Me.panelclasificacion.Controls.Add(Me.txtcodclas)
         Me.panelclasificacion.Controls.Add(Me.btnnwclas)
         Me.panelclasificacion.Controls.Add(Me.lblnombreclas)
         Me.panelclasificacion.Controls.Add(Me.lblcodclas)
         Me.panelclasificacion.Controls.Add(Me.Label8)
-        Me.panelclasificacion.Location = New System.Drawing.Point(422, 30)
+        Me.panelclasificacion.Location = New System.Drawing.Point(422, 53)
         Me.panelclasificacion.Name = "panelclasificacion"
-        Me.panelclasificacion.Size = New System.Drawing.Size(181, 227)
+        Me.panelclasificacion.Size = New System.Drawing.Size(181, 205)
         Me.panelclasificacion.TabIndex = 46
         '
         'txtnombreclas
@@ -700,6 +831,7 @@ Partial Class ingresolibro
         '
         Me.lblnombreclas.AutoSize = True
         Me.lblnombreclas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblnombreclas.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.lblnombreclas.Location = New System.Drawing.Point(23, 83)
         Me.lblnombreclas.Name = "lblnombreclas"
         Me.lblnombreclas.Size = New System.Drawing.Size(136, 16)
@@ -710,6 +842,7 @@ Partial Class ingresolibro
         '
         Me.lblcodclas.AutoSize = True
         Me.lblcodclas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblcodclas.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.lblcodclas.Location = New System.Drawing.Point(19, 35)
         Me.lblcodclas.Name = "lblcodclas"
         Me.lblcodclas.Size = New System.Drawing.Size(153, 16)
@@ -720,11 +853,12 @@ Partial Class ingresolibro
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label8.Location = New System.Drawing.Point(3, 10)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(178, 16)
+        Me.Label8.Size = New System.Drawing.Size(177, 16)
         Me.Label8.TabIndex = 11
-        Me.Label8.Text = "Ingrese Nueva Clasificacion:"
+        Me.Label8.Text = "Ingresar nueva clasificacion:"
         '
         'txtbuscarclas
         '
@@ -755,21 +889,6 @@ Partial Class ingresolibro
         Me.Label9.Size = New System.Drawing.Size(163, 28)
         Me.Label9.TabIndex = 4
         Me.Label9.Text = "Doble Click para Seleccionar" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "una clasificacion"
-        '
-        'dgvclasificacion
-        '
-        Me.dgvclasificacion.AllowUserToAddRows = False
-        Me.dgvclasificacion.AllowUserToDeleteRows = False
-        Me.dgvclasificacion.AllowUserToResizeColumns = False
-        Me.dgvclasificacion.AllowUserToResizeRows = False
-        Me.dgvclasificacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvclasificacion.Location = New System.Drawing.Point(5, 61)
-        Me.dgvclasificacion.Name = "dgvclasificacion"
-        Me.dgvclasificacion.ReadOnly = True
-        Me.dgvclasificacion.RowHeadersVisible = False
-        Me.dgvclasificacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvclasificacion.Size = New System.Drawing.Size(408, 196)
-        Me.dgvclasificacion.TabIndex = 1
         '
         'btninclas
         '
@@ -936,44 +1055,52 @@ Partial Class ingresolibro
         Me.dgvlibro.AllowUserToResizeRows = False
         Me.dgvlibro.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.dgvlibro.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvlibro.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle118.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle118.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle118.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle118.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle118.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle118.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle118.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvlibro.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle118
         Me.dgvlibro.ColumnHeadersHeight = 40
         Me.dgvlibro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgvlibro.Cursor = System.Windows.Forms.Cursors.Hand
         Me.dgvlibro.EnableHeadersVisualStyles = False
-        Me.dgvlibro.Location = New System.Drawing.Point(10, 303)
+        Me.dgvlibro.Location = New System.Drawing.Point(9, 303)
         Me.dgvlibro.MultiSelect = False
         Me.dgvlibro.Name = "dgvlibro"
         Me.dgvlibro.ReadOnly = True
         Me.dgvlibro.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Gray
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvlibro.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle119.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle119.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle119.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle119.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle119.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle119.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle119.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvlibro.RowHeadersDefaultCellStyle = DataGridViewCellStyle119
         Me.dgvlibro.RowHeadersVisible = False
         Me.dgvlibro.RowHeadersWidth = 50
         Me.dgvlibro.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.Gray
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White
-        Me.dgvlibro.RowsDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle120.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle120.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle120.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle120.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle120.SelectionForeColor = System.Drawing.Color.White
+        Me.dgvlibro.RowsDefaultCellStyle = DataGridViewCellStyle120
         Me.dgvlibro.RowTemplate.Height = 32
         Me.dgvlibro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvlibro.Size = New System.Drawing.Size(881, 299)
         Me.dgvlibro.TabIndex = 67
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.Gray
+        Me.Panel1.Location = New System.Drawing.Point(3, 296)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(894, 314)
+        Me.Panel1.TabIndex = 68
         '
         'ingresolibro
         '
@@ -1015,6 +1142,7 @@ Partial Class ingresolibro
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnselecteditorial)
         Me.Controls.Add(Me.dgvlibro)
+        Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "ingresolibro"
         Me.Text = "Form1"
@@ -1023,20 +1151,20 @@ Partial Class ingresolibro
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Peditorial.ResumeLayout(False)
         Me.Peditorial.PerformLayout()
+        CType(Me.dgveditorial, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Paneleditorial.ResumeLayout(False)
         Me.Paneleditorial.PerformLayout()
-        CType(Me.dgveditorial, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Pautor.ResumeLayout(False)
         Me.Pautor.PerformLayout()
+        CType(Me.dgvautor, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panelautor.ResumeLayout(False)
         Me.panelautor.PerformLayout()
-        CType(Me.dgvautor, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Pclasificacion.ResumeLayout(False)
         Me.Pclasificacion.PerformLayout()
+        CType(Me.dgvclasificacion, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panelclasificacion.ResumeLayout(False)
         Me.panelclasificacion.PerformLayout()
-        CType(Me.dgvclasificacion, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvlibro, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -1060,7 +1188,6 @@ Partial Class ingresolibro
     Friend WithEvents Peditorial As System.Windows.Forms.Panel
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents btningeditorial As System.Windows.Forms.Button
-    Friend WithEvents dgveditorial As System.Windows.Forms.DataGridView
     Friend WithEvents Paneleditorial As System.Windows.Forms.Panel
     Friend WithEvents btncancelaredi As System.Windows.Forms.Button
     Friend WithEvents btnnweditorial As System.Windows.Forms.Button
@@ -1070,7 +1197,6 @@ Partial Class ingresolibro
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents Pautor As System.Windows.Forms.Panel
     Friend WithEvents Label11 As System.Windows.Forms.Label
-    Friend WithEvents dgvautor As System.Windows.Forms.DataGridView
     Friend WithEvents panelautor As System.Windows.Forms.Panel
     Friend WithEvents btnnwautor As System.Windows.Forms.Button
     Friend WithEvents lblnacionalidad As System.Windows.Forms.Label
@@ -1112,7 +1238,6 @@ Partial Class ingresolibro
     Friend WithEvents txtbuscarclas As Proyecto_Biblioteca.PlaceHolder
     Friend WithEvents btnvolver3 As System.Windows.Forms.Button
     Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents dgvclasificacion As System.Windows.Forms.DataGridView
     Friend WithEvents btncancelarclas As System.Windows.Forms.Button
     Friend WithEvents btninclas As System.Windows.Forms.Button
     Friend WithEvents timerclasificacion As System.Windows.Forms.Timer
@@ -1122,4 +1247,8 @@ Partial Class ingresolibro
     Friend WithEvents txtubicacion As Proyecto_Biblioteca.PlaceHolder
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents dgvlibro As System.Windows.Forms.DataGridView
+    Friend WithEvents dgvautor As System.Windows.Forms.DataGridView
+    Friend WithEvents dgveditorial As System.Windows.Forms.DataGridView
+    Friend WithEvents dgvclasificacion As System.Windows.Forms.DataGridView
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
 End Class

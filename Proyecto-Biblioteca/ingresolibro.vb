@@ -29,6 +29,7 @@
 
     Dim seleccionado As Integer = 0
     Dim error10 As Integer = 0
+    Dim errorau As Integer = 0
 
     Dim ensala As Integer
     Private Sub ingresar_boton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ingresar_boton.Click
@@ -328,15 +329,15 @@
     Private Sub btnnwautor_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnnwautor.Click
         If bandera = 1 Then
             Try
-                If Trim(txtnombreau.Text) = "" Or error10 = 1 Then
-                    ErrorProvider1.SetError(txtnombreau, "El campo se encuentra vacio")
+                If Trim(txtnombreau.Text) = "" Or errorau = 1 Then
+                    ErrorProvider1.SetError(txtnombreau, "Compruebe que los datos ingresados son validos")
                     contadoringresoau = contadoringresoau + 1
                 End If
-                If Trim(txtpaisau.Text) = "" Or error10 = 1 Then
-                    ErrorProvider1.SetError(txtpaisau, "El campo se encuentra vacio")
+                If Trim(txtpaisau.Text) = "" Or errorau = 1 Then
+                    ErrorProvider1.SetError(txtpaisau, "Compruebe que los datos ingresados son validos")
                     contadoringresoau = contadoringresoau + 1
                 End If
-                If error10 = 0 Then
+                If errorau = 0 Then
                     If contadoringresoau <> 0 Then
                         contadoringresoau = 0
                         primeringresoau = 1
@@ -1207,5 +1208,13 @@
             Case 1
                 ensala = 1
         End Select
+    End Sub
+
+    Private Sub Pautor_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Pautor.Paint
+
+    End Sub
+
+    Private Sub Pclasificacion_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Pclasificacion.Paint
+
     End Sub
 End Class

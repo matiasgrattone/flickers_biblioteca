@@ -64,38 +64,11 @@
         If cmbdia.SelectedItem.ToString.Length = 1 Then
             cero = "0" & cmbdia.SelectedItem
         End If
-
-        If cmbdia.Text <> "" And cmbmes.Text <> "" And cmbaño.Text <> "" And cmbdia2.Text <> "" And cmbmes2.Text <> "" And cmbaño2.Text <> "" Then
-
-            Consulta = "Select revistas.id_revistas, revistas.titulo, usuarios.cedula, usuarios.nombre, prestamorevistas.fecha_salida, prestamorevistas.fecha_entrada, prestamorevistas.cod_prestado, prestamorevistas.cod_devuelto from revistas inner join prestamorevistas on revistas.id_revistas = prestamorevistas.id_revistas inner join usuarios on usuarios.cedula=prestamorevistas.cedula where prestamorevistas.fecha_salida >= '" & cmbaño.SelectedItem & "-" & substring & "-" & cmbdia.SelectedItem & "' and prestamorevistas.fecha_salida <= '" & cmbaño2.SelectedItem & "-" & substring & "-" & cmbdia2.SelectedItem & "'"
-            consultar()
-            dgvregistro.DataSource = Tabla
-        End If
     End Sub
 
     Private Sub cmbmes_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbmes.SelectedIndexChanged
         substring = cmbmes.SelectedItem
         mestonum()
-
-        If cmbdia.Text <> "" And cmbmes.Text <> "" And cmbaño.Text <> "" And cmbdia2.Text <> "" And cmbmes2.Text <> "" And cmbaño2.Text <> "" Then
-
-            Consulta = "Select revistas.id_revistas, revistas.titulo, usuarios.cedula, usuarios.nombre, prestamorevistas.fecha_salida, prestamorevistas.fecha_entrada, prestamorevistas.cod_prestado, prestamorevistas.cod_devuelto from revistas inner join prestamorevistas on revistas.id_revistas = prestamorevistas.id_revistas inner join usuarios on usuarios.cedula=prestamorevistas.cedula where prestamorevistas.fecha_salida >= '" & cmbaño.SelectedItem & "-" & substring & "-" & cmbdia.SelectedItem & "' and prestamorevistas.fecha_salida <= '" & cmbaño2.SelectedItem & "-" & substring & "-" & cmbdia2.SelectedItem & "'"
-            consultar()
-            dgvregistro.DataSource = Tabla
-
-
-        End If
-    End Sub
-
-    Private Sub cmbaño_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbaño.SelectedIndexChanged
-
-        If cmbdia.Text <> "" And cmbmes.Text <> "" And cmbaño.Text <> "" And cmbdia2.Text <> "" And cmbmes2.Text <> "" And cmbaño2.Text <> "" Then
-
-            Consulta = "Select revistas.id_revistas, revistas.titulo, usuarios.cedula, usuarios.nombre, prestamorevistas.fecha_salida, prestamorevistas.fecha_entrada, prestamorevistas.cod_prestado, prestamorevistas.cod_devuelto from revistas inner join prestamorevistas on revistas.id_revistas = prestamorevistas.id_revistas inner join usuarios on usuarios.cedula=prestamorevistas.cedula where prestamorevistas.fecha_salida >= '" & cmbaño.SelectedItem & "-" & substring & "-" & cmbdia.SelectedItem & "' and prestamorevistas.fecha_salida <= '" & cmbaño2.SelectedItem & "-" & substring & "-" & cmbdia2.SelectedItem & "'"
-            consultar()
-            dgvregistro.DataSource = Tabla
-
-        End If
     End Sub
 
     Private Sub registrorevistas_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -201,36 +174,29 @@
 
     End Sub
 
-    Private Sub cmbdia2_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbdia2.SelectedIndexChanged
-        If cmbdia.Text <> "" And cmbmes.Text <> "" And cmbaño.Text <> "" And cmbdia2.Text <> "" And cmbmes2.Text <> "" And cmbaño2.Text <> "" Then
-
-            Consulta = "Select revistas.id_revistas, revistas.titulo, usuarios.cedula, usuarios.nombre, prestamorevistas.fecha_salida, prestamorevistas.fecha_entrada, prestamorevistas.cod_prestado, prestamorevistas.cod_devuelto from revistas inner join prestamorevistas on revistas.id_revistas = prestamorevistas.id_revistas inner join usuarios on usuarios.cedula=prestamorevistas.cedula where prestamorevistas.fecha_salida >= '" & cmbaño.SelectedItem & "-" & substring & "-" & cmbdia.SelectedItem & "' and prestamorevistas.fecha_salida <= '" & cmbaño2.SelectedItem & "-" & substring & "-" & cmbdia2.SelectedItem & "'"
-            consultar()
-            dgvregistro.DataSource = Tabla
-
-        End If
-    End Sub
-
-    Private Sub cmbaño2_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbaño2.SelectedIndexChanged
-
-        If cmbdia.Text <> "" And cmbmes.Text <> "" And cmbaño.Text <> "" And cmbdia2.Text <> "" And cmbmes2.Text <> "" And cmbaño2.Text <> "" Then
-
-            Consulta = "Select revistas.id_revistas, revistas.titulo, usuarios.cedula, usuarios.nombre, prestamorevistas.fecha_salida, prestamorevistas.fecha_entrada, prestamorevistas.cod_prestado, prestamorevistas.cod_devuelto from revistas inner join prestamorevistas on revistas.id_revistas = prestamorevistas.id_revistas inner join usuarios on usuarios.cedula=prestamorevistas.cedula where prestamorevistas.fecha_salida >= '" & cmbaño.SelectedItem & "-" & substring & "-" & cmbdia.SelectedItem & "' and prestamorevistas.fecha_salida <= '" & cmbaño2.SelectedItem & "-" & substring & "-" & cmbdia2.SelectedItem & "'"
-            consultar()
-            dgvregistro.DataSource = Tabla
-
-        End If
-    End Sub
-
     Private Sub cmbmes2_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbmes2.SelectedIndexChanged
         substring = cmbmes2.SelectedItem
         mestonum()
+    End Sub
 
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         If cmbdia.Text <> "" And cmbmes.Text <> "" And cmbaño.Text <> "" And cmbdia2.Text <> "" And cmbmes2.Text <> "" And cmbaño2.Text <> "" Then
-
             Consulta = "Select revistas.id_revistas, revistas.titulo, usuarios.cedula, usuarios.nombre, prestamorevistas.fecha_salida, prestamorevistas.fecha_entrada, prestamorevistas.cod_prestado, prestamorevistas.cod_devuelto from revistas inner join prestamorevistas on revistas.id_revistas = prestamorevistas.id_revistas inner join usuarios on usuarios.cedula=prestamorevistas.cedula where prestamorevistas.fecha_salida >= '" & cmbaño.SelectedItem & "-" & substring & "-" & cmbdia.SelectedItem & "' and prestamorevistas.fecha_salida <= '" & cmbaño2.SelectedItem & "-" & substring & "-" & cmbdia2.SelectedItem & "'"
             consultar()
             dgvregistro.DataSource = Tabla
         End If
     End Sub
+
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+        txtbusqueda.Clear()
+        cmbbusqueda.SelectedIndex = 0
+        cmbmes2.SelectedItem = substring
+        cmbmes.SelectedItem = substring
+
+
+        Consulta = "Select revistas.id_revistas, revistas.titulo, usuarios.cedula, usuarios.nombre, prestamorevistas.fecha_salida, prestamorevistas.fecha_entrada, prestamorevistas.cod_prestado, prestamorevistas.cod_devuelto from revistas inner join prestamorevistas on revistas.id_revistas = prestamorevistas.id_revistas inner join usuarios on usuarios.cedula=prestamorevistas.cedula"
+        consultar()
+        dgvregistro.DataSource = Tabla
+    End Sub
+
 End Class
