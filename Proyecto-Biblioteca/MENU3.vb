@@ -1142,4 +1142,9 @@ Public Class MENU3
             Panel_PrestamosRevistas.BackColor = Drawing.Color.Silver 'si no esta seleccionado pone el backcolor en lightgray
         End If
     End Sub
+
+    Private Sub PictureBox3_Click_1(sender As System.Object, e As System.EventArgs) Handles PictureBox3.Click
+        Me.Close()
+        LOGIN.Close()
+    End Sub
 End Class
