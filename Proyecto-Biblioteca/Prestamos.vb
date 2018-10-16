@@ -1036,7 +1036,7 @@
     End Sub
 
     '///////////////////////////IR A MODO REVISTAS/////////////////////////////
-    Private Sub ButtonRevistas_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonRevistas.Click
+    Private Sub ButtonRevistas_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         PrestamoRevistas.Show()
     End Sub
 

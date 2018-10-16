@@ -118,7 +118,9 @@ Public Class MENU3
         LabelRevistas.Left = 72
         label_prestamos.Left = 72
         label_navegador.Left = 72
-
+        Label_Prestamos_Revistas.Left = 72
+        Label_Prestamos_Revistas.Text = "Prestamos" & vbNewLine & " Revistas"
+        label_prestamos.Text = "Prestamos" & vbNewLine & " Libros"
         Preparar_Form()
 
         'todos los paneles de seleccion con backcolor silver
@@ -172,25 +174,7 @@ Public Class MENU3
         End If
     End Sub
     Private Sub panel_usuarios_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles panel_usuarios.MouseClick
-        seleccionado = "usuarios" 'fija la varibale seleccionado a usuarios
-
-        Dim F1 As New Inicio_UsuariosV2 'declara una variable F1 como un tipo formulario , en este caso inicio_usuariosV2 
-        panel_menu.Controls.Clear() 'limpia el panelMenu 
-        F1.TopLevel = False 'declara el nivel del formulario Child como false
-        F1.Parent = panel_menu 'declara como padre al panel menu
-        F1.Show() 'muestra en el panel menu a la variable F1 que es el formulario inicio_usuariosV2
-
-        Preparar_Form() 'llama al metodo preparar form para que este listo para mostrar el formulario F1
-
-
-        'fija todos los backcolor de los paneles de seleccion en silver menos el seleccionado
-        panel_usuarios.BackColor = Drawing.Color.LightGray
-        panel_libros.BackColor = Drawing.Color.Silver
-        panel_prestamos.BackColor = Drawing.Color.Silver
-        panel_navegador.BackColor = Drawing.Color.Silver
-        Panel_Revistas.BackColor = Drawing.Color.Silver
-        Panel_Inicio.BackColor = Drawing.Color.Silver
-
+        usuariosForm()
     End Sub
     Private Sub PictureBox1_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles Pbusuarios.MouseEnter
         If seleccionado = "usuarios" Then 'si esta seleccionado el sector usuarios
@@ -205,25 +189,7 @@ Public Class MENU3
         End If
     End Sub
     Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbusuarios.Click
-        seleccionado = "usuarios" 'fija seleccion como usuarios
-
-        Timer_Prestamos_LIVE.Enabled = False 'desactiva el timer_Prestamos
-
-        'fija todos los backcolors de los paneles de seleccion como silver , menos el que esta seleccionado
-        panel_usuarios.BackColor = Drawing.Color.LightGray
-        panel_libros.BackColor = Drawing.Color.Silver
-        panel_prestamos.BackColor = Drawing.Color.Silver
-        panel_navegador.BackColor = Drawing.Color.Silver
-        Panel_Revistas.BackColor = Drawing.Color.Silver
-        Panel_Inicio.BackColor = Drawing.Color.Silver
-
-        Dim F1 As New Inicio_UsuariosV2 'declara la varibale F1 como tipo formulario en este caso como inicio_usuariosV2
-        panel_menu.Controls.Clear() 'limpia el panel donde va a estar alojado el formulario
-        F1.TopLevel = False 'pone en tipo false el nivel de la variable
-        F1.Parent = panel_menu 'declara como padre al formulario que aloja a la variable F1
-        F1.Show() 'mustra la varible F1
-
-        Preparar_Form() 'prepara los formulario para cargar la variable
+        usuariosForm()
     End Sub
     Private Sub panel_libros_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles panel_libros.MouseEnter
         If seleccionado = "libros" Then 'selecciona libros
@@ -238,23 +204,7 @@ Public Class MENU3
         End If
     End Sub
     Private Sub panel_libros_Mouseclick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles panel_libros.MouseClick
-        seleccionado = "libros" 'selecciona libros
-        Timer_Prestamos_LIVE.Enabled = False 'desactiva el timer prestamos
-
-        panel_menu.Controls.Clear() 'limpia el panel_menu 
-        F3.TopLevel = False 'declara el nivel del la variable F3 como false
-        F3.Parent = panel_menu 'declara el padre como el panel_menu
-        F3.Dock = DockStyle.Fill 'completa el panel_menu con la varibale F3 
-        F3.Show() 'muestra la variable F3
-        'declara como backcolor silver a todos los paneles de seleccion , menos el seleccionado
-        panel_usuarios.BackColor = Drawing.Color.Silver
-        panel_libros.BackColor = Drawing.Color.LightGray
-        panel_prestamos.BackColor = Drawing.Color.Silver
-        panel_navegador.BackColor = Drawing.Color.Silver
-        Panel_Revistas.BackColor = Drawing.Color.Silver
-        Panel_Inicio.BackColor = Drawing.Color.Silver
-
-        Preparar_Form() 'llama al metodo preparar_form
+        librosForm()
     End Sub
     Private Sub PictureBox2_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles Pblibros.MouseEnter
         If seleccionado = "libros" Then 'si esta seleccioado libros
@@ -269,23 +219,7 @@ Public Class MENU3
         End If
     End Sub
     Public Sub PictureBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pblibros.Click
-        seleccionado = "libros" 'seleciona libros
-        Timer_Prestamos_LIVE.Enabled = False 'desactiva el timer prestamos
-
-        panel_menu.Controls.Clear() 'limpia el panel_menu
-        F3.TopLevel = False 'declara en false el nivel de la variable F3
-        F3.Parent = panel_menu 'declara como padre al panel_menu
-        F3.Dock = DockStyle.Fill 'completa el panel con la varibale F3
-        F3.Show() 'muestra la varible de tipo formulario llamada F3
-        'declara todos los backcolor de los paneles de seleccion en silver , menos el seleccionado
-        panel_usuarios.BackColor = Drawing.Color.Silver
-        panel_libros.BackColor = Drawing.Color.LightGray
-        panel_prestamos.BackColor = Drawing.Color.Silver
-        panel_navegador.BackColor = Drawing.Color.Silver
-        Panel_Revistas.BackColor = Drawing.Color.Silver
-        Panel_Inicio.BackColor = Drawing.Color.Silver
-
-        Preparar_Form() 'prepara el formualario para cargar la variable F3
+        librosForm()
     End Sub
     Private Sub panel_prestamos_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles panel_prestamos.MouseEnter
         If seleccionado = "prestamos" Then 'si esta seleccionado prestamos
@@ -294,22 +228,7 @@ Public Class MENU3
         End If
     End Sub
     Private Sub panel_prestamos_MouseClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles panel_prestamos.MouseClick
-        seleccionado = "prestamos" 'seleccioado prestamos
-
-        Dim F4 As New Prestamos
-        panel_menu.Controls.Clear()
-        F4.TopLevel = False
-        F4.Parent = panel_menu
-        F4.Show()
-
-        Preparar_Form()
-
-        panel_usuarios.BackColor = Drawing.Color.Silver
-        panel_libros.BackColor = Drawing.Color.Silver
-        panel_prestamos.BackColor = Drawing.Color.LightGray
-        panel_navegador.BackColor = Drawing.Color.Silver
-        Panel_Revistas.BackColor = Drawing.Color.Silver
-        Panel_Inicio.BackColor = Drawing.Color.Silver
+        prestamosLibrosForm()
     End Sub
     Private Sub panel_prestamos_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles panel_prestamos.MouseLeave
         If seleccionado = "prestamos" Then
@@ -330,23 +249,7 @@ Public Class MENU3
         End If
     End Sub
     Private Sub PictureBox3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbprestamos.Click
-        seleccionado = "prestamos"
-        Timer_Prestamos_LIVE.Enabled = False
-
-        Dim F4 As New Prestamos
-        panel_menu.Controls.Clear()
-        F4.TopLevel = False
-        F4.Parent = panel_menu
-        F4.Show()
-
-        Preparar_Form()
-
-        panel_usuarios.BackColor = Drawing.Color.Silver
-        panel_libros.BackColor = Drawing.Color.Silver
-        panel_prestamos.BackColor = Drawing.Color.LightGray
-        panel_navegador.BackColor = Drawing.Color.Silver
-        Panel_Revistas.BackColor = Drawing.Color.Silver
-        Panel_Inicio.BackColor = Drawing.Color.Silver
+        prestamosLibrosForm()
     End Sub
     Private Sub panel_navegador_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles panel_navegador.MouseEnter
         If seleccionado = "navegador" Then
@@ -373,17 +276,7 @@ Public Class MENU3
         End If
     End Sub
     Private Sub PictureBox5_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbnavegador.Click
-        seleccionado = "navegador"
-        Timer_Prestamos_LIVE.Enabled = False
-
-        panel_usuarios.BackColor = Drawing.Color.Silver
-        panel_libros.BackColor = Drawing.Color.Silver
-        panel_prestamos.BackColor = Drawing.Color.Silver
-        panel_navegador.BackColor = Drawing.Color.LightGray
-        Panel_Revistas.BackColor = Drawing.Color.Silver
-        Panel_Inicio.BackColor = Drawing.Color.Silver
-
-        Preparar_Form()
+        navegadorForm()
     End Sub
     Private Sub WebBrowser1_DocumentCompleted(ByVal sender As System.Object, ByVal e As System.Windows.Forms.WebBrowserDocumentCompletedEventArgs) Handles Wbnavegador.DocumentCompleted
         txtbuscar.Text = Wbnavegador.Document.Url.ToString()
@@ -426,36 +319,10 @@ Public Class MENU3
         Wbnavegador.Refresh()
     End Sub
     Private Sub panel_navegador_MouseClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles panel_navegador.MouseClick
-        seleccionado = "navegador"
-        Timer_Prestamos_LIVE.Enabled = False
-
-        panel_usuarios.BackColor = Drawing.Color.Silver
-        panel_libros.BackColor = Drawing.Color.Silver
-        panel_prestamos.BackColor = Drawing.Color.Silver
-        panel_navegador.BackColor = Drawing.Color.LightGray
-        Panel_Revistas.BackColor = Drawing.Color.Silver
-        Panel_Inicio.BackColor = Drawing.Color.Silver
-
-        Preparar_Form()
+        navegadorForm()
     End Sub
     Private Sub PictureBox1_Click_2(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbrevistas.Click
-        seleccionado = "Revistas"
-        Timer_Prestamos_LIVE.Enabled = False
-
-        Dim F5 As New Seleccion_Revistas
-        panel_menu.Controls.Clear()
-        F5.TopLevel = False
-        F5.Parent = panel_menu
-        F5.Show()
-
-        Preparar_Form()
-
-        panel_usuarios.BackColor = Drawing.Color.Silver
-        panel_libros.BackColor = Drawing.Color.Silver
-        panel_prestamos.BackColor = Drawing.Color.Silver
-        panel_navegador.BackColor = Drawing.Color.Silver
-        Panel_Revistas.BackColor = Drawing.Color.LightGray
-        Panel_Inicio.BackColor = Drawing.Color.Silver
+        revistasForm()
     End Sub
     Private Sub PictureBox1_MouseEnter1(ByVal sender As Object, ByVal e As System.EventArgs) Handles Pbrevistas.MouseEnter
         If seleccionado = "Revistas" Then
@@ -498,47 +365,10 @@ Public Class MENU3
         End If
     End Sub
     Private Sub Panel_Revistas_MouseClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Panel_Revistas.MouseClick
-        seleccionado = "Revistas"
-
-        Dim F5 As New Seleccion_Revistas
-        panel_menu.Controls.Clear()
-        F5.TopLevel = False
-        F5.Parent = panel_menu
-
-        F5.Show()
-
-        panel_menu.Visible = True
-        txtbuscar.Visible = False
-        btnatras.Visible = False
-        btnadelante.Visible = False
-        btnpaginainicio.Visible = False
-        btnrecargar.Visible = False
-        Pnavegador.Visible = False
-        Wbnavegador.Visible = False
-
-        panel_usuarios.BackColor = Drawing.Color.Silver
-        panel_libros.BackColor = Drawing.Color.Silver
-        panel_prestamos.BackColor = Drawing.Color.Silver
-        panel_navegador.BackColor = Drawing.Color.Silver
-        Panel_Revistas.BackColor = Drawing.Color.LightGray
-        Panel_Inicio.BackColor = Drawing.Color.Silver
-
-
-        Panel_Graficos.Visible = False
+        revistasForm()
     End Sub
     Private Sub PbInicio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PbInicio.Click
-        seleccionado = "Inicio"
-        Chart()
-        Timer_Prestamos_LIVE.Enabled = True
-
-        Preparar_Form()
-
-        panel_usuarios.BackColor = Drawing.Color.Silver
-        panel_libros.BackColor = Drawing.Color.Silver
-        panel_prestamos.BackColor = Drawing.Color.Silver
-        panel_navegador.BackColor = Drawing.Color.Silver
-        Panel_Revistas.BackColor = Drawing.Color.Silver
-        Panel_Inicio.BackColor = Drawing.Color.LightGray
+        inicioForm()
     End Sub
     Private Sub PbInicio_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PbInicio.MouseEnter
         If seleccionado = "Inicio" Then
@@ -1074,5 +904,247 @@ Public Class MENU3
         Else
             Panel_Revistas.BackColor = Drawing.Color.Silver
         End If
+    End Sub
+
+    Private Sub LabelInicio_Click(sender As System.Object, e As System.EventArgs) Handles LabelInicio.Click
+        inicioForm()
+    End Sub
+
+    Private Sub librosForm()
+        seleccionado = "libros" 'seleciona libros
+        Timer_Prestamos_LIVE.Enabled = False 'desactiva el timer prestamos
+
+        panel_menu.Controls.Clear() 'limpia el panel_menu
+        F3.TopLevel = False 'declara en false el nivel de la variable F3
+        F3.Parent = panel_menu 'declara como padre al panel_menu
+        F3.Dock = DockStyle.Fill 'completa el panel con la varibale F3
+        F3.Show() 'muestra la varible de tipo formulario llamada F3
+        'declara todos los backcolor de los paneles de seleccion en silver , menos el seleccionado
+        panel_usuarios.BackColor = Drawing.Color.Silver
+        panel_libros.BackColor = Drawing.Color.LightGray
+        panel_prestamos.BackColor = Drawing.Color.Silver
+        panel_navegador.BackColor = Drawing.Color.Silver
+        Panel_Revistas.BackColor = Drawing.Color.Silver
+        Panel_Inicio.BackColor = Drawing.Color.Silver
+        Panel_PrestamosRevistas.BackColor = Drawing.Color.Silver
+        Preparar_Form() 'prepara el formualario para cargar la variable F3
+    End Sub
+
+    Private Sub usuariosForm()
+        seleccionado = "usuarios" 'fija seleccion como usuarios
+
+        Timer_Prestamos_LIVE.Enabled = False 'desactiva el timer_Prestamos
+
+        'fija todos los backcolors de los paneles de seleccion como silver , menos el que esta seleccionado
+        panel_usuarios.BackColor = Drawing.Color.LightGray
+        panel_libros.BackColor = Drawing.Color.Silver
+        panel_prestamos.BackColor = Drawing.Color.Silver
+        panel_navegador.BackColor = Drawing.Color.Silver
+        Panel_Revistas.BackColor = Drawing.Color.Silver
+        Panel_Inicio.BackColor = Drawing.Color.Silver
+        Panel_PrestamosRevistas.BackColor = Drawing.Color.Silver
+        Dim F1 As New Inicio_UsuariosV2 'declara la varibale F1 como tipo formulario en este caso como inicio_usuariosV2
+        panel_menu.Controls.Clear() 'limpia el panel donde va a estar alojado el formulario
+        F1.TopLevel = False 'pone en tipo false el nivel de la variable
+        F1.Parent = panel_menu 'declara como padre al formulario que aloja a la variable F1
+        F1.Show() 'mustra la varible F1
+
+        Preparar_Form() 'prepara los formulario para cargar la variable
+    End Sub
+
+    Private Sub inicioForm()
+        seleccionado = "Inicio"
+        Chart()
+        Timer_Prestamos_LIVE.Enabled = True
+
+        Preparar_Form()
+
+        panel_usuarios.BackColor = Drawing.Color.Silver
+        panel_libros.BackColor = Drawing.Color.Silver
+        panel_prestamos.BackColor = Drawing.Color.Silver
+        panel_navegador.BackColor = Drawing.Color.Silver
+        Panel_Revistas.BackColor = Drawing.Color.Silver
+        Panel_Inicio.BackColor = Drawing.Color.LightGray
+        Panel_PrestamosRevistas.BackColor = Drawing.Color.Silver
+    End Sub
+
+    Private Sub prestamosLibrosForm()
+        seleccionado = "prestamos"
+        Timer_Prestamos_LIVE.Enabled = False
+
+        Dim F4 As New Prestamos
+        panel_menu.Controls.Clear()
+        F4.TopLevel = False
+        F4.Parent = panel_menu
+        F4.Show()
+
+        Preparar_Form()
+
+        panel_usuarios.BackColor = Drawing.Color.Silver
+        panel_libros.BackColor = Drawing.Color.Silver
+        panel_prestamos.BackColor = Drawing.Color.LightGray
+        panel_navegador.BackColor = Drawing.Color.Silver
+        Panel_Revistas.BackColor = Drawing.Color.Silver
+        Panel_Inicio.BackColor = Drawing.Color.Silver
+        Panel_PrestamosRevistas.BackColor = Drawing.Color.Silver
+    End Sub
+
+    Private Sub prestamosRevistasForm()
+        seleccionado = "PrestamosRevistas"
+
+        Dim F6 As New PrestamoRevistas
+        panel_menu.Controls.Clear()
+        F6.TopLevel = False
+        F6.Parent = panel_menu
+
+        F6.Show()
+
+        panel_menu.Visible = True
+        txtbuscar.Visible = False
+        btnatras.Visible = False
+        btnadelante.Visible = False
+        btnpaginainicio.Visible = False
+        btnrecargar.Visible = False
+        Pnavegador.Visible = False
+        Wbnavegador.Visible = False
+
+        panel_usuarios.BackColor = Drawing.Color.Silver
+        panel_libros.BackColor = Drawing.Color.Silver
+        panel_prestamos.BackColor = Drawing.Color.Silver
+        panel_navegador.BackColor = Drawing.Color.Silver
+        Panel_Revistas.BackColor = Drawing.Color.Silver
+        Panel_Inicio.BackColor = Drawing.Color.Silver
+        Panel_PrestamosRevistas.BackColor = Drawing.Color.LightGray
+
+        Panel_Graficos.Visible = False
+    End Sub
+
+    Private Sub revistasForm()
+        seleccionado = "Revistas"
+
+        Dim F5 As New Seleccion_Revistas
+        panel_menu.Controls.Clear()
+        F5.TopLevel = False
+        F5.Parent = panel_menu
+
+        F5.Show()
+
+        panel_menu.Visible = True
+        txtbuscar.Visible = False
+        btnatras.Visible = False
+        btnadelante.Visible = False
+        btnpaginainicio.Visible = False
+        btnrecargar.Visible = False
+        Pnavegador.Visible = False
+        Wbnavegador.Visible = False
+
+        panel_usuarios.BackColor = Drawing.Color.Silver
+        panel_libros.BackColor = Drawing.Color.Silver
+        panel_prestamos.BackColor = Drawing.Color.Silver
+        panel_navegador.BackColor = Drawing.Color.Silver
+        Panel_Revistas.BackColor = Drawing.Color.LightGray
+        Panel_Inicio.BackColor = Drawing.Color.Silver
+        Panel_PrestamosRevistas.BackColor = Drawing.Color.Silver
+
+        Panel_Graficos.Visible = False
+    End Sub
+
+    Private Sub label_usuarios_Click(sender As System.Object, e As System.EventArgs) Handles label_usuarios.Click
+        usuariosForm()
+    End Sub
+
+    Private Sub label_libros_Click(sender As System.Object, e As System.EventArgs) Handles label_libros.Click
+        librosForm()
+    End Sub
+
+    Private Sub label_prestamos_Click(sender As System.Object, e As System.EventArgs) Handles label_prestamos.Click
+        prestamosLibrosForm()
+    End Sub
+
+    Private Sub PictureBox4_Click_1(sender As System.Object, e As System.EventArgs)
+        prestamosRevistasForm()
+    End Sub
+
+    Private Sub Label_Prestamos_Revistas_Click(sender As System.Object, e As System.EventArgs) Handles Label_Prestamos_Revistas.Click
+        prestamosRevistasForm()
+    End Sub
+
+    Private Sub LabelRevistas_Click(sender As System.Object, e As System.EventArgs) Handles LabelRevistas.Click
+        revistasForm()
+    End Sub
+
+    Private Sub Panel2_MouseClick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel_PrestamosRevistas.MouseClick
+        prestamosRevistasForm()
+    End Sub
+
+    Private Sub PictureBox_Prestamos_Revistas(sender As System.Object, e As System.EventArgs) Handles pb_PrestamosRevistas.Click
+        prestamosRevistasForm()
+    End Sub
+    Private Sub navegadorForm()
+        seleccionado = "navegador"
+        Timer_Prestamos_LIVE.Enabled = False
+
+        panel_usuarios.BackColor = Drawing.Color.Silver
+        panel_libros.BackColor = Drawing.Color.Silver
+        panel_prestamos.BackColor = Drawing.Color.Silver
+        panel_navegador.BackColor = Drawing.Color.LightGray
+        Panel_Revistas.BackColor = Drawing.Color.Silver
+        Panel_Inicio.BackColor = Drawing.Color.Silver
+        Panel_PrestamosRevistas.BackColor = Drawing.Color.Silver
+
+        Preparar_Form()
+    End Sub
+
+    Private Sub label_navegador_Click(sender As System.Object, e As System.EventArgs)
+        navegadorForm()
+    End Sub
+
+    Private Sub label_navegador_Click_1(sender As System.Object, e As System.EventArgs) Handles label_navegador.Click
+        navegadorForm()
+    End Sub
+
+    Private Sub Panel_PrestamosRevistas_MouseEnter(sender As System.Object, e As System.EventArgs) Handles Panel_PrestamosRevistas.MouseEnter
+        If seleccionado = "PrestamosRevistas" Then 'selecciona libros
+        Else
+            Panel_PrestamosRevistas.BackColor = Drawing.Color.LightGray  'si no esta seleccionado pone el backcolor en lightgray
+        End If
+    End Sub
+
+    Private Sub Panel_PrestamosRevistas_MouseLeave(sender As System.Object, e As System.EventArgs) Handles Panel_PrestamosRevistas.MouseLeave
+        If seleccionado = "PrestamosRevistas" Then 'selecciona libros
+        Else
+            Panel_PrestamosRevistas.BackColor = Drawing.Color.Silver 'si no esta seleccionado pone el backcolor en lightgray
+        End If
+    End Sub
+    Private Sub label_Prestamos_Revistas_MouseEnter(sender As System.Object, e As System.EventArgs) Handles Label_Prestamos_Revistas.MouseEnter
+        If seleccionado = "PrestamosRevistas" Then 'selecciona libros
+        Else
+            Panel_PrestamosRevistas.BackColor = Drawing.Color.LightGray  'si no esta seleccionado pone el backcolor en lightgray
+        End If
+    End Sub
+
+    Private Sub label_Prestamos_Revistas_MouseLeave(sender As System.Object, e As System.EventArgs) Handles Label_Prestamos_Revistas.MouseLeave
+        If seleccionado = "PrestamosRevistas" Then 'selecciona libros
+        Else
+            Panel_PrestamosRevistas.BackColor = Drawing.Color.Silver 'si no esta seleccionado pone el backcolor en lightgray
+        End If
+    End Sub
+    Private Sub PictureBox4_MouseEnter_1(sender As System.Object, e As System.EventArgs) Handles pb_PrestamosRevistas.MouseEnter
+        If seleccionado = "PrestamosRevistas" Then 'selecciona libros
+        Else
+            Panel_PrestamosRevistas.BackColor = Drawing.Color.LightGray  'si no esta seleccionado pone el backcolor en lightgray
+        End If
+    End Sub
+
+    Private Sub PictureBox4_MouseLeave_1(sender As System.Object, e As System.EventArgs) Handles pb_PrestamosRevistas.MouseLeave
+        If seleccionado = "PrestamosRevistas" Then 'selecciona libros
+        Else
+            Panel_PrestamosRevistas.BackColor = Drawing.Color.Silver 'si no esta seleccionado pone el backcolor en lightgray
+        End If
+    End Sub
+
+    Private Sub PictureBox3_Click_1(sender As System.Object, e As System.EventArgs) Handles PictureBox3.Click
+        Me.Close()
+        LOGIN.Close()
     End Sub
 End Class
