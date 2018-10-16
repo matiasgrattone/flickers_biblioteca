@@ -83,6 +83,7 @@ Partial Class registrorevistas
         '
         'cmbbusqueda
         '
+        Me.cmbbusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbbusqueda.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbbusqueda.FormattingEnabled = True
         Me.cmbbusqueda.Items.AddRange(New Object() {"Cedula de Socio", "Nombre de Socio", "Codigo de Inventario", "Titulo de Libro"})
