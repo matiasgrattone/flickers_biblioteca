@@ -64,13 +64,13 @@ Partial Class FichaSocio
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBoxEstado = New System.Windows.Forms.PictureBox()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.labelLibroFavorito = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.LabelFecha_Ingreso = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.PrintForm1 = New Microsoft.VisualBasic.PowerPacks.Printing.PrintForm(Me.components)
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
-        Me.labelLibroFavorito = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -505,6 +505,26 @@ Partial Class FichaSocio
         Me.Panel5.Size = New System.Drawing.Size(957, 628)
         Me.Panel5.TabIndex = 32
         '
+        'labelLibroFavorito
+        '
+        Me.labelLibroFavorito.AutoSize = True
+        Me.labelLibroFavorito.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.labelLibroFavorito.Location = New System.Drawing.Point(751, 40)
+        Me.labelLibroFavorito.Name = "labelLibroFavorito"
+        Me.labelLibroFavorito.Size = New System.Drawing.Size(95, 15)
+        Me.labelLibroFavorito.TabIndex = 36
+        Me.labelLibroFavorito.Text = "......................"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(654, 40)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(103, 15)
+        Me.Label6.TabIndex = 35
+        Me.Label6.Text = "Libro Favorito :"
+        '
         'Button1
         '
         Me.Button1.Location = New System.Drawing.Point(684, 168)
@@ -546,26 +566,6 @@ Partial Class FichaSocio
         '
         Me.Timer2.Enabled = True
         Me.Timer2.Interval = 600
-        '
-        'labelLibroFavorito
-        '
-        Me.labelLibroFavorito.AutoSize = True
-        Me.labelLibroFavorito.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.labelLibroFavorito.Location = New System.Drawing.Point(751, 40)
-        Me.labelLibroFavorito.Name = "labelLibroFavorito"
-        Me.labelLibroFavorito.Size = New System.Drawing.Size(95, 15)
-        Me.labelLibroFavorito.TabIndex = 36
-        Me.labelLibroFavorito.Text = "......................"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(654, 40)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(103, 15)
-        Me.Label6.TabIndex = 35
-        Me.Label6.Text = "Libro Favorito :"
         '
         'FichaSocio
         '
