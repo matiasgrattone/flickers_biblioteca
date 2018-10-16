@@ -53,6 +53,7 @@ Partial Class registrorevistas
         '
         'cmbdia
         '
+        Me.cmbdia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbdia.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbdia.FormattingEnabled = True
         Me.cmbdia.Location = New System.Drawing.Point(12, 62)
@@ -62,6 +63,7 @@ Partial Class registrorevistas
         '
         'cmbmes
         '
+        Me.cmbmes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbmes.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbmes.FormattingEnabled = True
         Me.cmbmes.Location = New System.Drawing.Point(76, 62)
@@ -71,6 +73,7 @@ Partial Class registrorevistas
         '
         'cmbaño
         '
+        Me.cmbaño.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbaño.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbaño.FormattingEnabled = True
         Me.cmbaño.Location = New System.Drawing.Point(198, 62)
@@ -90,6 +93,7 @@ Partial Class registrorevistas
         '
         'cmbdia2
         '
+        Me.cmbdia2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbdia2.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbdia2.FormattingEnabled = True
         Me.cmbdia2.Location = New System.Drawing.Point(302, 62)
@@ -99,6 +103,7 @@ Partial Class registrorevistas
         '
         'cmbmes2
         '
+        Me.cmbmes2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbmes2.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbmes2.FormattingEnabled = True
         Me.cmbmes2.Location = New System.Drawing.Point(366, 62)
@@ -108,6 +113,7 @@ Partial Class registrorevistas
         '
         'cmbaño2
         '
+        Me.cmbaño2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbaño2.Font = New System.Drawing.Font("Lucida Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbaño2.FormattingEnabled = True
         Me.cmbaño2.Location = New System.Drawing.Point(488, 62)

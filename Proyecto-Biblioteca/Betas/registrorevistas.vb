@@ -93,12 +93,15 @@
         'Ingresa los dias a cmbdia
         For i As Integer = 0 To 31
             If i = 0 Then
+                cmbdia.Items.Add("Dia")
+                cmbdia.SelectedIndex = 0
             Else
                 cmbdia.Items.Add(i)
             End If
         Next
 
         'Ingresa los datos de Meses al cmbmes
+        cmbmes.Items.Add("Mes")
         cmbmes.Items.Add("Enero")
         cmbmes.Items.Add("Febrero")
         cmbmes.Items.Add("Marzo")
@@ -111,32 +114,31 @@
         cmbmes.Items.Add("Octubre")
         cmbmes.Items.Add("Noviembre")
         cmbmes.Items.Add("Diciembre")
+        cmbmes.SelectedIndex = 0
 
         'Ingresa los datos cmbaño2
         For i As Integer = 1999 To Date.Now.ToString("yyyy")
-            If i = 1899 Then
+            If i = 1999 Then
+                cmbaño.Items.Add("Año")
+                cmbaño.SelectedIndex = 0
             Else
                 cmbaño.Items.Add(i)
             End If
         Next
-
-        If Date.Now.Month.ToString.Length = 1 Then
-            cero = "0" & Date.Now.Month
-        End If
-        substring = cero
-        mes()
-        cmbmes.SelectedItem = substring
         '//////////////////////////////////////////////////////
 
         'Ingresa los dias a cmbdia2
         For i As Integer = 0 To 31
             If i = 0 Then
+                cmbdia2.Items.Add("Dia")
+                cmbdia2.SelectedIndex = 0
             Else
                 cmbdia2.Items.Add(i)
             End If
         Next
 
         'Ingresa los datos de Meses al cmbmes2
+        cmbmes2.Items.Add("Mes")
         cmbmes2.Items.Add("Enero")
         cmbmes2.Items.Add("Febrero")
         cmbmes2.Items.Add("Marzo")
@@ -149,28 +151,19 @@
         cmbmes2.Items.Add("Octubre")
         cmbmes2.Items.Add("Noviembre")
         cmbmes2.Items.Add("Diciembre")
+        cmbmes2.SelectedIndex = 0
 
         'Ingresa los datos cmbaño2
         For i As Integer = 1999 To Date.Now.ToString("yyyy")
-            If i = 1899 Then
+            If i = 1999 Then
+                cmbaño2.Items.Add("Año")
+                cmbaño2.SelectedIndex = 0
             Else
                 cmbaño2.Items.Add(i)
             End If
         Next
 
-        cmbaño.SelectedItem = Date.Now.Year
-        cmbaño2.SelectedItem = Date.Now.Year
 
-        cmbdia.SelectedItem = Date.Now.Day
-        cmbdia2.SelectedItem = Date.Now.Day
-
-
-        If Date.Now.Month.ToString.Length = 1 Then
-            cero = "0" & Date.Now.Month
-        End If
-        substring = cero
-        mes()
-        cmbmes2.SelectedItem = substring
 
     End Sub
 
