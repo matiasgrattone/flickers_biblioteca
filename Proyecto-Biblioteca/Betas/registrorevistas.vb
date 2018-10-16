@@ -173,15 +173,8 @@
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        Dim mesdesde, meshasta As String
         If cmbdia.Text <> "" And cmbmes.Text <> "" And cmbaño.Text <> "" And cmbdia2.Text <> "" And cmbmes2.Text <> "" And cmbaño2.Text <> "" Then
-            substring = cmbmes.SelectedItem.ToString
-            mestonum()
-            mesdesde = substring
-            substring = cmbmes2.SelectedItem.ToString
-            mestonum()
-            meshasta = substring
-            Consulta = "Select revistas.id_revistas, revistas.titulo, usuarios.cedula, usuarios.nombre, prestamorevistas.fecha_salida, prestamorevistas.fecha_entrada, prestamorevistas.cod_prestado, prestamorevistas.cod_devuelto from revistas inner join prestamorevistas on revistas.id_revistas = prestamorevistas.id_revistas inner join usuarios on usuarios.cedula=prestamorevistas.cedula where prestamorevistas.fecha_salida >= '" & cmbaño.SelectedItem & "-" & mesdesde & "-" & cmbdia.SelectedItem & "' and prestamorevistas.fecha_salida <= '" & cmbaño2.SelectedItem & "-" & meshasta & "-" & cmbdia2.SelectedItem & "'"
+            Consulta = "Select revistas.id_revistas, revistas.titulo, usuarios.cedula, usuarios.nombre, prestamorevistas.fecha_salida, prestamorevistas.fecha_entrada, prestamorevistas.cod_prestado, prestamorevistas.cod_devuelto from revistas inner join prestamorevistas on revistas.id_revistas = prestamorevistas.id_revistas inner join usuarios on usuarios.cedula=prestamorevistas.cedula where prestamorevistas.fecha_salida >= '" & cmbaño.SelectedItem & "-" & substring & "-" & cmbdia.SelectedItem & "' and prestamorevistas.fecha_salida <= '" & cmbaño2.SelectedItem & "-" & substring & "-" & cmbdia2.SelectedItem & "'"
             consultar()
             dgvregistro.DataSource = Tabla
         End If
