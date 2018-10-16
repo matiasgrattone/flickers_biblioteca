@@ -448,4 +448,8 @@
         ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Clear()
     End Sub
 
+    Private Sub ButtonVerFicha_Click(sender As System.Object, e As System.EventArgs) Handles ButtonVerFicha.Click
+        FichaSocio.FichaCedulaSocio = Cedula.Text
+        FichaSocio.Show()
+    End Sub
 End Class

@@ -9,6 +9,7 @@
     Dim cedulaSocio As String 'Variable para consulta de libro favorito
 
     Private Sub RegistroSocio_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+
         xf = Me.Location.X
         yf = Me.Location.Y
         Try

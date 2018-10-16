@@ -70,7 +70,6 @@ Partial Class Prestamos
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.ptbRenovar = New System.Windows.Forms.PictureBox()
         Me.ButtonVerFicha = New System.Windows.Forms.Button()
-        Me.ButtonRevistas = New System.Windows.Forms.Button()
         Me.ButtonVERREGISTRO = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.LabelSELECCION_DE_FUNCION = New System.Windows.Forms.Label()
@@ -545,7 +544,6 @@ Partial Class Prestamos
         Me.Panel3.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.Panel3.Controls.Add(Me.ptbRenovar)
         Me.Panel3.Controls.Add(Me.ButtonVerFicha)
-        Me.Panel3.Controls.Add(Me.ButtonRevistas)
         Me.Panel3.Controls.Add(Me.ButtonVERREGISTRO)
         Me.Panel3.Controls.Add(Me.Panel4)
         Me.Panel3.Controls.Add(Me.Cedula)
@@ -578,15 +576,6 @@ Partial Class Prestamos
         Me.ButtonVerFicha.TabIndex = 79
         Me.ButtonVerFicha.Text = "Ver Ficha"
         Me.ButtonVerFicha.UseVisualStyleBackColor = True
-        '
-        'ButtonRevistas
-        '
-        Me.ButtonRevistas.Location = New System.Drawing.Point(184, 79)
-        Me.ButtonRevistas.Name = "ButtonRevistas"
-        Me.ButtonRevistas.Size = New System.Drawing.Size(75, 23)
-        Me.ButtonRevistas.TabIndex = 78
-        Me.ButtonRevistas.Text = "Revistas"
-        Me.ButtonRevistas.UseVisualStyleBackColor = True
         '
         'ButtonVERREGISTRO
         '
@@ -964,7 +953,6 @@ Partial Class Prestamos
     Friend WithEvents LabelSELECCION_DE_FUNCION As System.Windows.Forms.Label
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents ButtonVERREGISTRO As System.Windows.Forms.Button
-    Friend WithEvents ButtonRevistas As System.Windows.Forms.Button
     Friend WithEvents LabelParaAlmacenarLaCedulaIngresada As System.Windows.Forms.Label
     Friend WithEvents LabelCI As System.Windows.Forms.Label
     Friend WithEvents ButtonVerFicha As System.Windows.Forms.Button
