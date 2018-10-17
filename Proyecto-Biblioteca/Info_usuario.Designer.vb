@@ -91,6 +91,7 @@ Partial Class info_usuario
         'PictureBox2
         '
         Me.PictureBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(67, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.PictureBox2.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBox2.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.cancel
         Me.PictureBox2.Location = New System.Drawing.Point(352, 8)
         Me.PictureBox2.Name = "PictureBox2"
