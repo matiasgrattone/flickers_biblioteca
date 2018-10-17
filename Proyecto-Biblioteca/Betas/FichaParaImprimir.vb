@@ -5,7 +5,7 @@
         Dim SegundaParte As Integer
         Consulta = "SELECT count(*) as 'Cuantos' FROM prestamolibro WHERE cedula = '" & FichaSocio.FichaCedulaSocio & "'"
         consultar()
-        For Each row As DataRow In Tabla.Rows
+        For Each row As DataRow In Tabla.Tables(0).Rows
             SegundaParte = row("Cuantos")
         Next
 
@@ -23,7 +23,7 @@
 
         Consulta = "SELECT nombre,apellido FROM usuarios WHERE cedula ='" + FichaSocio.FichaCedulaSocio + "'"
         consultar()
-        For Each row As DataRow In Tabla.Rows
+        For Each row As DataRow In Tabla.Tables(0).Rows
             LabelNombreSocio.Text = row("nombre") + " " + row("apellido")
             LabelNombreSocio.Text = LabelNombreSocio.Text + "  CI:" + FichaSocio.FichaCedulaSocio.ToString
         Next
