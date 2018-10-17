@@ -15,7 +15,7 @@
 
     Dim fecha_actual As Date
     Dim fecha_estimada As String
-    Dim dia, mes, anio, diferenciaDia As Integer
+    Dim dia, mes, anio, diferenciaDia, diferenciaDia1 As Integer
 
     Dim VALIDADOR As String
 
@@ -639,43 +639,81 @@
             fecha_actual = DateTime.Now.ToString("yyyy/MM/dd")
 
             dia = (DataGridParaDevolucion.Item(4, DataGridParaDevolucion.CurrentRow.Index).Value).ToString.Substring(0, 2)
-            mes = Val(DateTime.Now.ToString("MM"))
+            mes = (DataGridParaDevolucion.Item(4, DataGridParaDevolucion.CurrentRow.Index).Value).ToString.Substring(3, 2)
             anio = Val(DateTime.Now.ToString("yyyy"))
 
             fecha_estimada = DataGridParaDevolucion.Item(4, DataGridParaDevolucion.CurrentRow.Index).Value
 
-            If dia > fecha_actual.ToString.Substring(0, 2) Then
+            If mes > fecha_actual.ToString.Substring(3, 2) Then
 
-            End If
-
-            z = 0
-            z = MsgBox("Desea devolver el libro " & Libro1 & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
-
-            '       1) Si se devuelve el libro con un si, se actualiza la Base da datos 
-            If z = vbYes Then
-
-
-                Consulta = "update libro set estado = 0 where cod_libro = '" & cod_libros & "'"
-                consultar()
-                Consulta = "UPDATE prestamolibro SET cod_devuelto = '" & MENU3.lbl_cedula.Text & "', fecha_entrada = '" & Date.Now.ToString("yyyy-MM-dd") & "' WHERE cedula = '" & Cedula.Text & "' and cod_libro ='" & cod_libros & "'"
-                consultar()
-                'Consulta = "UPDATE prestamolibro SET fecha_entrada = '" & Date.Now.ToString("yyyy-MM-dd") & "' WHERE cedula = '" & Cedula.Text & "' and cod_libro ='" & cod_libros & "'"
-                'consultar()
-                MsgBox("Se ha devuelto", Title:="PRESTAMO")
-
-                Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion', fecha_estimada as 'Fecha Maxima de Prestamo' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
-                consultar()
-                DataGridParaDevolucion.DataSource = Tabla
+                If dia >= 31 Then
+                    diferenciaDia = dia - 31
+                    dia = dia - diferenciaDia
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
 
             Else
 
-                MsgBox("Este libro no se devolvio", Title:="PRESTAMOS")
-
-                Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion', fecha_estimada as 'Fecha Maxima de Prestamo' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
-                consultar()
-                DataGridParaDevolucion.DataSource = Tabla
+                diferenciaDia = dia - fecha_actual.ToString.Substring(0, 2)
 
             End If
+
+            If diferenciaDia < 0 Then
+
+                diferenciaDia = diferenciaDia * (-2)
+
+                If diferenciaDia >= 31 Then
+                    diferenciaDia1 = diferenciaDia - 31
+                    diferenciaDia1 = diferenciaDia - diferenciaDia1
+                    mes = mes + 1
+                    dia = fecha_actual.ToString.Substring(0, 2) + diferenciaDia1
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                Else
+                    dia = fecha_actual.ToString.Substring(0, 2) + diferenciaDia
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+
+                Try
+                    Consulta = "update usuarios set moroso = '1', fecha_moroso = '" + fecha_estimada + "' where cedula = '" + Cedula.Text + "'"
+                    consultar()
+                    MsgBox("El usuario es ahora moroso hasta " & fecha_estimada & " por devolver el libro fuera de la fecha máxima")
+                Catch ex As Exception
+                    MsgBox(ex.Message)
+                End Try
+
+            End If
+
+                z = 0
+                z = MsgBox("Desea devolver el libro " & Libro1 & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
+
+                '       1) Si se devuelve el libro con un si, se actualiza la Base da datos 
+                If z = vbYes Then
+
+
+                    Consulta = "update libro set estado = 0 where cod_libro = '" & cod_libros & "'"
+                    consultar()
+                    Consulta = "UPDATE prestamolibro SET cod_devuelto = '" & MENU3.lbl_cedula.Text & "', fecha_entrada = '" & Date.Now.ToString("yyyy-MM-dd") & "' WHERE cedula = '" & Cedula.Text & "' and cod_libro ='" & cod_libros & "'"
+                    consultar()
+                    'Consulta = "UPDATE prestamolibro SET fecha_entrada = '" & Date.Now.ToString("yyyy-MM-dd") & "' WHERE cedula = '" & Cedula.Text & "' and cod_libro ='" & cod_libros & "'"
+                    'consultar()
+                    MsgBox("Se ha devuelto", Title:="PRESTAMO")
+
+                    Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion', fecha_estimada as 'Fecha Maxima de Prestamo' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
+                    consultar()
+                    DataGridParaDevolucion.DataSource = Tabla
+
+                Else
+
+                    MsgBox("Este libro no se devolvio", Title:="PRESTAMOS")
+
+                    Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion', fecha_estimada as 'Fecha Maxima de Prestamo' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
+                    consultar()
+                    DataGridParaDevolucion.DataSource = Tabla
+
+                End If
         Catch ex As Exception
 
             MsgBox("Este libro no se devolvio", Title:="PRESTAMOS")
@@ -1222,5 +1260,9 @@
 
     Private Sub ptbRenovar_MouseHover(ByVal sender As Object, ByVal e As System.EventArgs) Handles ptbRenovar.MouseHover
         LabelSELECCION_DE_FUNCION.Text = "Renovar Libros"
+    End Sub
+
+    Private Sub DataGridParaDevolucion_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridParaDevolucion.CellContentClick
+
     End Sub
 End Class
