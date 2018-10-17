@@ -133,7 +133,7 @@ Public Class MENU3
         Panel_Inicio.BackColor = Drawing.Color.LightGray
     End Sub
     Private Sub ComboBox1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBox1.SelectedIndexChanged
-
+        Chart()
     End Sub
     '////////////////////////////////Movimiento de Ventana//////////////////////////////////////////////////
     Private Sub Panel1_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Phoraencabezado.MouseDown
@@ -698,6 +698,7 @@ Public Class MENU3
             Dim fecha As String = DateTime.Now.ToString("yyyy/MM/dd")
             Consulta = "select titulo from prestamolibro p inner join libro l on p.cod_libro=l.cod_libro where fecha_estimada='" + fecha + "'"
             consultar()
+            LbPrestamos.Items.Clear()
             For Each row As DataRow In Tabla.Rows
                 If Not IsDBNull(row("titulo")) Then
                     LbPrestamos.Items.Add(row("titulo"))
@@ -1152,11 +1153,6 @@ Public Class MENU3
         Timer_Prestamos_LIVE.Enabled = False
         Timer_BD.Enabled = False
     End Sub
-
-    Private Sub ComboBox1_DropDownClosed(sender As System.Object, e As System.EventArgs) Handles ComboBox1.DropDownClosed
-        Chart()
-    End Sub
-
     Private Sub ComboBox1_MouseLeave(sender As System.Object, e As System.EventArgs) Handles ComboBox1.MouseLeave
         Timer_Prestamos_LIVE.Enabled = True
         Timer_BD.Enabled = True

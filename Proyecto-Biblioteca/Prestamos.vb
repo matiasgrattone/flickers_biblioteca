@@ -298,10 +298,12 @@
 
 
 
-                Consulta = "select * from prestamolibro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'; select cod_libro as 'Numero de Inventario', titulo as 'Titulo', volumen as 'Volumen', ubicacion as 'Ubicacion' from libro where estado ='0' "
+                Consulta = "select * from prestamolibro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
                 consultar()
                 If (Tabla.Rows.Count = 0) Then
                     GrupBoxExtraccion.Visible = True
+                    Consulta = "select cod_libro as 'Numero de Inventario', titulo as 'Titulo', volumen as 'Volumen', ubicacion as 'Ubicacion' from libro where estado ='0'"
+                    consultar()
                     DataGridViewlllllVerLibrosEnExtraccionlllll.DataSource = Tabla
                 Else
 
@@ -806,9 +808,12 @@
                 ReservacionGrupBox.Visible = True
                 '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-                Consulta = "select * from prestamolibro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'; select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado = '2' and cedula = '" + Cedula.Text + "' and p.fecha_salida is NULL and p.fecha_entrada is NULL"
+                Consulta = "select * from prestamolibro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
                 consultar()
                 If (Tabla.Rows.Count = 0) Then
+
+                    Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado = '2' and cedula = '" + Cedula.Text + "' and p.fecha_salida is NULL and p.fecha_entrada is NULL"
+                    consultar()
                     VerLibrosReservados2.DataSource = Tabla
                     modoExtraer = "On"
                     BotonExtrearReservados.Visible = True
