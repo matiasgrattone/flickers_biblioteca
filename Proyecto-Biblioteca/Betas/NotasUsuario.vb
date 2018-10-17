@@ -26,7 +26,7 @@ Public Class NotasUsuario
         Consulta = "Select NombreNota, texto from notas where cedula= '" + MENU3.lbl_cedula.Text + "'"
         consultar()
 
-        DataGridViewParaVerNotasDisponibles.DataSource = Tabla
+        DataGridViewParaVerNotasDisponibles.DataSource = Tabla.Tables(0)
         DataGridViewParaVerNotasDisponibles.Columns(1).Visible = False
 
         Dim RutaDeGuardadoDeNotas As String = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\DATOS\Notas" 'Ruta en la que se guardarán las imágenes cargadas: "Documentos\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\DATOS\Notas"
@@ -66,7 +66,7 @@ Public Class NotasUsuario
         '///////Ah  los recordatorios se le asigna una ruta del archivo.txt gurdada con anterioridad en la base de datos///////
         Consulta = "select recordar from notas where cedula = '" & MENU3.lbl_cedula.Text & "' and recordar is NOT NULL"
         consultar()
-        If (Tabla.Rows.Count <> 0) Then
+        If (Tabla.Tables(0).Rows.Count <> 0) Then
 
             If Ubicacion1 <> "" Then
                 Try
@@ -306,7 +306,7 @@ Public Class NotasUsuario
         Consulta = "Select NombreNota, texto from notas where cedula= '" + MENU3.lbl_cedula.Text + "'"
         consultar()
 
-        DataGridViewParaVerNotasDisponibles.DataSource = Tabla
+        DataGridViewParaVerNotasDisponibles.DataSource = Tabla.Tables(0)
         DataGridViewParaVerNotasDisponibles.Columns(1).Visible = False
 
         Dim RutaDeGuardadoDeNotas As String = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\DATOS\Notas" 'Ruta en la que se guardarán las imágenes cargadas: "Documentos\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\DATOS\Notas"
@@ -317,32 +317,26 @@ Public Class NotasUsuario
         Dim Ubicacion2 As String = ""
         Dim Ubicacion3 As String = ""
 
-        Consulta = "Select * from notas where cedula ='" & AhUsar & "' and recordar = 1"
+        Consulta = "Select * from notas where cedula ='" & AhUsar & "' and recordar = 1;Select * from notas where cedula ='" & AhUsar & "' and recordar = 2;Select * from notas where cedula ='" & AhUsar & "' and recordar = 3"
         consultar()
-
-        If (Tabla.Rows.Count <> 0) Then
-            For Each row As DataRow In Tabla.Rows
+        If (Tabla.Tables(0).Rows.Count <> 0) Then
+            For Each row As DataRow In Tabla.Tables(0).Rows
                 Ubicacion1 = row("texto")
                 Ubicacion1 = RutaDeDocumentos + Ubicacion1.ToString
                 Fecha1.Text = row("fecha")
             Next
         End If
 
-        Consulta = "Select * from notas where cedula ='" & AhUsar & "' and recordar = 2"
-        consultar()
-        If (Tabla.Rows.Count <> 0) Then
-            For Each row As DataRow In Tabla.Rows
+        If (Tabla.Tables(1).Rows.Count <> 0) Then
+            For Each row As DataRow In Tabla.Tables(1).Rows
                 Ubicacion2 = row("texto")
                 Ubicacion2 = RutaDeDocumentos + Ubicacion2.ToString
                 Fecha2.Text = row("fecha")
             Next
         End If
 
-
-        Consulta = "Select * from notas where cedula ='" & AhUsar & "' and recordar = 3"
-        consultar()
-        If (Tabla.Rows.Count <> 0) Then
-            For Each row As DataRow In Tabla.Rows
+        If (Tabla.Tables(2).Rows.Count <> 0) Then
+            For Each row As DataRow In Tabla.Tables(2).Rows
                 Ubicacion3 = row("texto")
                 Ubicacion3 = RutaDeDocumentos + Ubicacion3.ToString
                 Fecha3.Text = row("fecha")
@@ -352,7 +346,7 @@ Public Class NotasUsuario
         '///////Ah  los recordatorios se le asigna una ruta del archivo.txt gurdada con anterioridad en la base de datos///////
         Consulta = "select recordar from notas where cedula = '" & MENU3.lbl_cedula.Text & "' and recordar is NOT NULL"
         consultar()
-        If (Tabla.Rows.Count <> 0) Then
+        If (Tabla.Tables(0).Rows.Count <> 0) Then
 
             If Ubicacion1 <> "" Then
                 Try
@@ -537,5 +531,10 @@ Public Class NotasUsuario
 
     Private Sub PictureBox1_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox1.Click
         Me.Close()
+    End Sub
+
+
+    Private Sub DataGridViewParaVerNotasDisponibles_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridViewParaVerNotasDisponibles.CellContentClick
+
     End Sub
 End Class
