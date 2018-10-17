@@ -69,6 +69,7 @@ Partial Class FichaSocio
         Me.cmbaño = New System.Windows.Forms.ComboBox()
         Me.PrintForm1 = New Microsoft.VisualBasic.PowerPacks.Printing.PrintForm(Me.components)
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -545,6 +546,9 @@ Partial Class FichaSocio
         Me.Timer2.Enabled = True
         Me.Timer2.Interval = 600
         '
+        'BackgroundWorker1
+        '
+        '
         'FichaSocio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -613,4 +617,5 @@ Partial Class FichaSocio
     Friend WithEvents labelLibroFavorito As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents cmbaño As System.Windows.Forms.ComboBox
+    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
 End Class

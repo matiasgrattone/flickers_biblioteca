@@ -15,7 +15,7 @@ Module Modulo
     Public invitado As Integer = 0
     Public ERROR1 As Integer
     Public Conexion As MySqlDataAdapter
-    Public Tabla As DataTable
+    Public Tabla As DataSet
     Public Consulta As String
     Public MysqlConexion As MySqlConnection = New MySqlConnection(ubicacion)
 
@@ -46,7 +46,7 @@ Module Modulo
 
         Try
             Conexion = New MySqlDataAdapter(Consulta, ubicacion)
-            Tabla = New DataTable
+            Tabla = New DataSet
             Conexion.Fill(Tabla)
             MysqlConexion.Close()
             If ERROR1 = 2 Then
