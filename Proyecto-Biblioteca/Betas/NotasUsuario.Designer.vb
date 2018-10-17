@@ -30,7 +30,6 @@ Partial Class NotasUsuario
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AbrirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GuardarComoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator()
         Me.EditarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CortarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CopiarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -122,7 +121,7 @@ Partial Class NotasUsuario
         '
         'ArchivoToolStripMenuItem
         '
-        Me.ArchivoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.AbrirToolStripMenuItem, Me.GuardarComoToolStripMenuItem, Me.ToolStripMenuItem1})
+        Me.ArchivoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.AbrirToolStripMenuItem, Me.GuardarComoToolStripMenuItem})
         Me.ArchivoToolStripMenuItem.Name = "ArchivoToolStripMenuItem"
         Me.ArchivoToolStripMenuItem.Size = New System.Drawing.Size(60, 20)
         Me.ArchivoToolStripMenuItem.Text = "Archivo"
@@ -130,25 +129,20 @@ Partial Class NotasUsuario
         'NuevoToolStripMenuItem
         '
         Me.NuevoToolStripMenuItem.Name = "NuevoToolStripMenuItem"
-        Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.NuevoToolStripMenuItem.Text = "Nuevo"
         '
         'AbrirToolStripMenuItem
         '
         Me.AbrirToolStripMenuItem.Name = "AbrirToolStripMenuItem"
-        Me.AbrirToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.AbrirToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.AbrirToolStripMenuItem.Text = "Abrir"
         '
         'GuardarComoToolStripMenuItem
         '
         Me.GuardarComoToolStripMenuItem.Name = "GuardarComoToolStripMenuItem"
-        Me.GuardarComoToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
-        Me.GuardarComoToolStripMenuItem.Text = "Guardar como"
-        '
-        'ToolStripMenuItem1
-        '
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(147, 6)
+        Me.GuardarComoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.GuardarComoToolStripMenuItem.Text = "Guardar"
         '
         'EditarToolStripMenuItem
         '
@@ -202,13 +196,13 @@ Partial Class NotasUsuario
         'FuenteToolStripMenuItem
         '
         Me.FuenteToolStripMenuItem.Name = "FuenteToolStripMenuItem"
-        Me.FuenteToolStripMenuItem.Size = New System.Drawing.Size(110, 22)
+        Me.FuenteToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.FuenteToolStripMenuItem.Text = "Fuente"
         '
         'ColorToolStripMenuItem
         '
         Me.ColorToolStripMenuItem.Name = "ColorToolStripMenuItem"
-        Me.ColorToolStripMenuItem.Size = New System.Drawing.Size(110, 22)
+        Me.ColorToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ColorToolStripMenuItem.Text = "Color"
         '
         'PanelNotas
@@ -555,7 +549,6 @@ Partial Class NotasUsuario
     Friend WithEvents NuevoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AbrirToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents GuardarComoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents EditarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CortarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CopiarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem

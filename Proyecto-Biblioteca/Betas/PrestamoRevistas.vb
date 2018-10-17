@@ -10,13 +10,22 @@
     Dim modo As String = "devolucion"
     Dim panelnombre As Integer = 0
 
+    '//////////////VARIABLE PARA GUARDAR TEMPORALMENTE LA ID DEL LIBRO MAS ADELANTE//////////
+
+
+    Dim revisarenovar As String
+
+    Dim fecha_actual As Date
+    Dim fecha_estimada As String
+    Dim dia, mes, anio, diferenciaDia As Integer
+
     Dim FechaEntradaPrestamo As Integer
 
     Dim errorcedula As Integer = 0
 
     Private Sub Form3_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         '/////////////////////////////////////////////GRUPBOX OCULTOS////////////////////
-        ExtCombo.Visible = False
+        ExtGrup.Visible = False
         devoCOMBO.Visible = False
         ButonParaExtreaer.Visible = False
         LabelREVISTAS.Visible = False
@@ -40,7 +49,7 @@
         If Cedula.Text = "" Then
             '//////////////////////Oculta los picturebox y la interfaz de las funciones///////////////////////////////
 
-            ExtCombo.Visible = False
+            ExtGrup.Visible = False
             devoCOMBO.Visible = False
             PictureExtraccion.Visible = False
             PictureDevolucion.Visible = False
@@ -61,7 +70,7 @@
             If Tabla.Rows.Count = 0 Then ' VERFICAR SI ES NULO EL RESULTADO DE LA CONSULTA
                 '//////////////////////Oculta los picturebox y la interfaz de las funciones///////////////////////////////
 
-                ExtCombo.Visible = False
+                ExtGrup.Visible = False
                 devoCOMBO.Visible = False
                 PictureExtraccion.Visible = False
                 PictureDevolucion.Visible = False
@@ -93,7 +102,7 @@
                 '/////////////////////////////////////////////////////////////////////////////////////////////
 
                 LabelREVISTAS.Visible = True
-                ExtCombo.Visible = False
+                ExtGrup.Visible = False
                 devoCOMBO.Visible = False
                 PictureExtraccion.Visible = True
                 PictureDevolucion.Visible = True
@@ -192,7 +201,7 @@
                 Consulta = "select * from prestamorevistas where fecha_entrada is NULL and cedula= '" & LabelAlmacenTemporalParaLaCedula.Text & "'"
                 consultar()
                 If (Tabla.Rows.Count = 0) Then
-                    ExtCombo.Visible = True
+                    ExtGrup.Visible = True
                     Consulta = "select id_revistas as 'Codigo de Revista', titulo as 'Titulo', descripcion as 'Descripcion' from revistas where estado = '0'"
                     consultar()
                     DataGridView_VerRevistasEnExtraccion_.DataSource = Tabla
@@ -216,7 +225,7 @@
                             Consulta = "select * from libro where estado = '0'"
                             consultar()
                             DataGridView_VerRevistasEnExtraccion_.DataSource = Tabla
-                            ExtCombo.Visible = True
+                            ExtGrup.Visible = True
                     End Select
                 End If
             Else
@@ -225,36 +234,164 @@
     End Sub
     '///PARA EXTRAER LAS REVISTAS DEL CARRTIO///
     Private Sub ButonParaExtreaer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButonParaExtreaer.Click
-
         Dim list, contador, libros As Integer
         contador = 0
+
+        '///////////////////////////////////////////////////////////////////////////////////
+        '///////////////Calcula la fecha en que deberia entregarse el libro/////////////////
+        '///////////////////////////////////////////////////////////////////////////////////
+        fecha_actual = DateTime.Now.ToString("yyyy/MM/dd")
+
+        dia = Val(DateTime.Now.ToString("dd")) + 14
+        mes = Val(DateTime.Now.ToString("MM"))
+        anio = Val(DateTime.Now.ToString("yyyy"))
+
+        If mes() = 1 Then ' Mes de Enero
+            If dia >= 31 Then
+                diferenciaDia = dia - 31
+                dia = dia - diferenciaDia
+                mes = mes() + 1
+                fecha_estimada = anio & "-" & mes() & "-" & dia
+            Else
+                fecha_estimada = anio & "-" & mes() & "-" & dia
+            End If
+        End If
+        If mes() = 2 Then ' Mes de febrero
+            If dia >= 28 Then
+                diferenciaDia = dia - 28
+                dia = dia - diferenciaDia
+                mes = mes() + 1
+                fecha_estimada = anio & "-" & mes() & "-" & dia
+            Else
+                fecha_estimada = anio & "-" & mes() & "-" & dia
+            End If
+        End If
+        If mes() = 3 Then ' Mes de marzo
+            If dia >= 31 Then
+                diferenciaDia = dia - 31
+                dia = dia - diferenciaDia
+                mes = mes() + 1
+                fecha_estimada = anio & "-" & mes() & "-" & dia
+            Else
+                fecha_estimada = anio & "-" & mes() & "-" & dia
+            End If
+        End If
+        If mes() = 4 Then ' Mes de abril
+            If dia >= 30 Then
+                diferenciaDia = dia - 30
+                dia = dia - diferenciaDia
+                mes = mes() + 1
+                fecha_estimada = anio & "-" & mes() & "-" & dia
+            Else
+                fecha_estimada = anio & "-" & mes() & "-" & dia
+            End If
+        End If
+        If mes() = 5 Then ' Mes de mayo
+            If dia >= 31 Then
+                diferenciaDia = dia - 31
+                dia = dia - diferenciaDia
+                mes = mes() + 1
+                fecha_estimada = anio & "-" & mes() & "-" & dia
+            Else
+                fecha_estimada = anio & "-" & mes() & "-" & dia
+            End If
+        End If
+        If mes() = 6 Then ' Mes de junio
+            If dia >= 30 Then
+                diferenciaDia = dia - 30
+                dia = dia - diferenciaDia
+                mes = mes() + 1
+                fecha_estimada = anio & "-" & mes() & "-" & dia
+            Else
+                fecha_estimada = anio & "-" & mes() & "-" & dia
+            End If
+        End If
+        If mes() = 7 Then ' Mes de julio
+            If dia >= 31 Then
+                diferenciaDia = dia - 31
+                dia = dia - diferenciaDia
+                mes = mes() + 1
+                fecha_estimada = anio & "-" & mes() & "-" & dia
+            Else
+                fecha_estimada = anio & "-" & mes() & "-" & dia
+            End If
+        End If
+        If mes() = 8 Then ' Mes de agosto
+            If dia >= 31 Then
+                diferenciaDia = dia - 31
+                dia = dia - diferenciaDia
+                mes = mes() + 1
+                fecha_estimada = anio & "-" & mes() & "-" & dia
+            Else
+                fecha_estimada = anio & "-" & mes() & "-" & dia
+            End If
+        End If
+        If mes() = 9 Then ' Mes de setiembre
+            If dia >= 30 Then
+                diferenciaDia = dia - 30
+                dia = dia - diferenciaDia
+                mes = mes() + 1
+                fecha_estimada = anio & "-" & mes() & "-" & dia
+            Else
+                fecha_estimada = anio & "-" & mes() & "-" & dia
+            End If
+        End If
+        If mes() = 10 Then ' Mes de octubre
+            If dia >= 31 Then
+                diferenciaDia = dia - 31
+                dia = dia - diferenciaDia
+                mes = mes() + 1
+                fecha_estimada = anio & "-" & mes() & "-" & dia
+            Else
+                fecha_estimada = anio & "-" & mes() & "-" & dia
+            End If
+        End If
+        If mes() = 11 Then ' Mes de noviembre
+            If dia >= 30 Then
+                diferenciaDia = dia - 30
+                dia = dia - diferenciaDia
+                mes = mes() + 1
+                fecha_estimada = anio & "-" & mes() & "-" & dia
+            Else
+                fecha_estimada = anio & "-" & mes() & "-" & dia
+            End If
+        End If
+        If mes() = 12 Then ' Mes de diciembre
+            If dia >= 31 Then
+                diferenciaDia = dia - 31
+                dia = dia - diferenciaDia
+                mes = 1
+                anio = anio + 1
+                fecha_estimada = anio & "-" & mes() & "-" & dia
+            Else
+                fecha_estimada = anio & "-" & mes() & "-" & dia
+            End If
+        End If
+        '////////////////////////////////////////////////////////////////////////
 
         list = 0
         list = ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Count
         list = list
 
+        '1) El usario que puede extraer un libro SI ESTE NO TIENE NINGUN LIBROS EN PODER AHORA
+        '/////////////////////CASO UNO///////////////////
+        If Cedula.Text <> "" Then
 
 
 
-
-        'El usario puede extraer un libro SI ESTE NO TIENE NINGUN LIBROS EN PODER AHORA
-
-        If LabelAlmacenTemporalParaLaCedula.Text <> "" Then
-
-            Consulta = "select * from prestamorevistas where fecha_entrada is NULL and cedula= '" & LabelAlmacenTemporalParaLaCedula.Text & "'"
+            Consulta = "select * from prestamorevistas where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
             consultar()
-
-
 
             If (Tabla.Rows.Count = 0) Then
 
                 While contador < list
                     contador = Val(contador) + 1
 
-                    Consulta = "insert into prestamorevistas(id_revistas,cedula,fecha_salida) values('" + ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items(libros) + "','" + LabelAlmacenTemporalParaLaCedula.Text + "','" + Date.Now.ToString("yyyy-MM-dd") + "')"
+
+                    Consulta = "insert into prestamorevistas(cedula, cod_libro, fecha_salida, fecha_estimada, cod_prestado) values('" + Cedula.Text + "','" + ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items(Revista1) + "','" + Date.Now.ToString("yyyy-MM-dd") + "', '" + fecha_estimada + "','" + MENU3.lbl_cedula.Text + "')"
                     consultar()
 
-                    Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items(libros) & "';"
+                    Consulta = "update revistas set estado = 1 where id_revistas = '" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(Revista1) & "';"
                     consultar()
 
                     libros = libros + 1
@@ -263,15 +400,15 @@
 
                 CarritoDeRevistas.Items.Clear()
                 ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Clear()
-                MsgBox("Se extrajo correctamente las revistas", Title:="PRESTAMO")
-                ExtCombo.Visible = False
+                MsgBox("Se extrajo correctamente los libros", Title:="PRESTAMO")
+                GrupBoxExtraccion.Visible = False
 
 
             Else
 
 
                 For Each row As DataRow In Tabla.Rows
-                    If row("fecha_entrada") Is DBNull.Value Then
+                    If row("fecha_estimada") Is DBNull.Value Then
                         FechaEntradaPrestamo = 0
                     Else
                         FechaEntradaPrestamo = 1
@@ -284,10 +421,12 @@
                         While contador < list
                             contador = Val(contador) + 1
 
-                            Consulta = "insert into prestamorevistas(id_revistas,cedula,fecha_salida) values('" + ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items(libros) + "','" + LabelAlmacenTemporalParaLaCedula.Text + "','" + Date.Now.ToString("yyyy-MM-dd") + "')"
+
+                            Consulta = "insert into prestamorevistas(cedula, cod_libro, fecha_salida, fecha_estimada, cod_prestado) values('" + Cedula.Text + "','" + ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "', '" + fecha_estimada + "','" + MENU3.lbl_cedula.Text + "')"
                             consultar()
 
-                            Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items(libros) & "';"
+
+                            Consulta = "update revistas set estado = 1 where id_revistas = '" & ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items(libros) & "';"
                             consultar()
 
                             libros = libros + 1
@@ -296,13 +435,13 @@
 
                         CarritoDeRevistas.Items.Clear()
                         ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Clear()
-                        MsgBox("Se extrajo correctamente las revistas", Title:="PRESTAMO")
-                        ExtCombo.Visible = False
+                        MsgBox("Se extrajo correctamente los libros", Title:="PRESTAMO")
+                        ExtGrup.Visible = False
 
 
                     Case 0
 
-                        MsgBox("Este socios no puede retirar ninguna revista hasta devolver las prestadas", Title:="PRESTAMOS")
+                        MsgBox("Este socios no puede retirar libros hasta devolver los prestados", Title:="PRESTAMOS")
                 End Select
             End If
         End If
@@ -371,7 +510,7 @@
             Datagrid_Align()
 
             '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            ExtCombo.Visible = False
+            ExtGrup.Visible = False
             devoCOMBO.Visible = True
             '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Else
@@ -448,7 +587,7 @@
         ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Clear()
     End Sub
 
-    Private Sub ButtonVerFicha_Click(sender As System.Object, e As System.EventArgs) Handles ButtonVerFicha.Click
+    Private Sub ButtonVerFicha_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonVerFicha.Click
         FichaSocio.FichaCedulaSocio = Cedula.Text
         FichaSocio.Show()
     End Sub

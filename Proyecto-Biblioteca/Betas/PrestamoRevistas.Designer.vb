@@ -29,15 +29,17 @@ Partial Class PrestamoRevistas
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.ButtonVerFicha = New System.Windows.Forms.Button()
         Me.LabelSELECCION_DE_FUNCION = New System.Windows.Forms.Label()
         Me.ButtonVerRegistro = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.LabelREVISTAS = New System.Windows.Forms.Label()
+        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.BotonParaBuscarCedula = New System.Windows.Forms.Button()
         Me.PictureDevolucion = New System.Windows.Forms.PictureBox()
         Me.PictureExtraccion = New System.Windows.Forms.PictureBox()
-        Me.ExtCombo = New System.Windows.Forms.GroupBox()
+        Me.ExtGrup = New System.Windows.Forms.GroupBox()
         Me.DataGridView_VerRevistasEnExtraccion_ = New System.Windows.Forms.DataGridView()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -66,13 +68,11 @@ Partial Class PrestamoRevistas
         Me.Label11 = New System.Windows.Forms.Label()
         Me.ENPODER = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.ButtonVerFicha = New System.Windows.Forms.Button()
-        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
         CType(Me.PictureDevolucion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureExtraccion, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ExtCombo.SuspendLayout()
+        Me.ExtGrup.SuspendLayout()
         CType(Me.DataGridView_VerRevistasEnExtraccion_, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelDelCarrito.SuspendLayout()
@@ -96,6 +96,15 @@ Partial Class PrestamoRevistas
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(1016, 112)
         Me.Panel3.TabIndex = 76
+        '
+        'ButtonVerFicha
+        '
+        Me.ButtonVerFicha.Location = New System.Drawing.Point(12, 80)
+        Me.ButtonVerFicha.Name = "ButtonVerFicha"
+        Me.ButtonVerFicha.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonVerFicha.TabIndex = 80
+        Me.ButtonVerFicha.Text = "Ver Ficha"
+        Me.ButtonVerFicha.UseVisualStyleBackColor = True
         '
         'LabelSELECCION_DE_FUNCION
         '
@@ -135,6 +144,16 @@ Partial Class PrestamoRevistas
         Me.LabelREVISTAS.TabIndex = 66
         Me.LabelREVISTAS.Text = "REVISTAS"
         '
+        'Cedula
+        '
+        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.Cedula.Location = New System.Drawing.Point(3, 50)
+        Me.Cedula.Name = "Cedula"
+        Me.Cedula.Size = New System.Drawing.Size(259, 20)
+        Me.Cedula.TabIndex = 75
+        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
+        Me.Cedula.WaterMarkText = "Cedula"
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -167,30 +186,30 @@ Partial Class PrestamoRevistas
         'PictureExtraccion
         '
         Me.PictureExtraccion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.extraccionRevista
-        Me.PictureExtraccion.Location = New System.Drawing.Point(394, 14)
+        Me.PictureExtraccion.Location = New System.Drawing.Point(363, 14)
         Me.PictureExtraccion.Name = "PictureExtraccion"
         Me.PictureExtraccion.Size = New System.Drawing.Size(99, 85)
         Me.PictureExtraccion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureExtraccion.TabIndex = 0
         Me.PictureExtraccion.TabStop = False
         '
-        'ExtCombo
+        'ExtGrup
         '
-        Me.ExtCombo.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.ExtCombo.Controls.Add(Me.DataGridView_VerRevistasEnExtraccion_)
-        Me.ExtCombo.Controls.Add(Me.PictureBox1)
-        Me.ExtCombo.Controls.Add(Me.Label7)
-        Me.ExtCombo.Controls.Add(Me.Label3)
-        Me.ExtCombo.Controls.Add(Me.Label10)
-        Me.ExtCombo.Controls.Add(Me.ButonParaExtreaer)
-        Me.ExtCombo.Controls.Add(Me.TextboxBuscador)
-        Me.ExtCombo.Controls.Add(Me.Label6)
-        Me.ExtCombo.Location = New System.Drawing.Point(263, 98)
-        Me.ExtCombo.Name = "ExtCombo"
-        Me.ExtCombo.Size = New System.Drawing.Size(737, 550)
-        Me.ExtCombo.TabIndex = 77
-        Me.ExtCombo.TabStop = False
-        Me.ExtCombo.Text = "EXTRACCION"
+        Me.ExtGrup.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.ExtGrup.Controls.Add(Me.DataGridView_VerRevistasEnExtraccion_)
+        Me.ExtGrup.Controls.Add(Me.PictureBox1)
+        Me.ExtGrup.Controls.Add(Me.Label7)
+        Me.ExtGrup.Controls.Add(Me.Label3)
+        Me.ExtGrup.Controls.Add(Me.Label10)
+        Me.ExtGrup.Controls.Add(Me.ButonParaExtreaer)
+        Me.ExtGrup.Controls.Add(Me.TextboxBuscador)
+        Me.ExtGrup.Controls.Add(Me.Label6)
+        Me.ExtGrup.Location = New System.Drawing.Point(263, 98)
+        Me.ExtGrup.Name = "ExtGrup"
+        Me.ExtGrup.Size = New System.Drawing.Size(737, 550)
+        Me.ExtGrup.TabIndex = 77
+        Me.ExtGrup.TabStop = False
+        Me.ExtGrup.Text = "EXTRACCION"
         '
         'DataGridView_VerRevistasEnExtraccion_
         '
@@ -550,25 +569,6 @@ Partial Class PrestamoRevistas
         Me.Panel2.Size = New System.Drawing.Size(1016, 38)
         Me.Panel2.TabIndex = 80
         '
-        'ButtonVerFicha
-        '
-        Me.ButtonVerFicha.Location = New System.Drawing.Point(12, 80)
-        Me.ButtonVerFicha.Name = "ButtonVerFicha"
-        Me.ButtonVerFicha.Size = New System.Drawing.Size(75, 23)
-        Me.ButtonVerFicha.TabIndex = 80
-        Me.ButtonVerFicha.Text = "Ver Ficha"
-        Me.ButtonVerFicha.UseVisualStyleBackColor = True
-        '
-        'Cedula
-        '
-        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Cedula.Location = New System.Drawing.Point(3, 50)
-        Me.Cedula.Name = "Cedula"
-        Me.Cedula.Size = New System.Drawing.Size(259, 20)
-        Me.Cedula.TabIndex = 75
-        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
-        Me.Cedula.WaterMarkText = "Cedula"
-        '
         'PrestamoRevistas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -577,8 +577,8 @@ Partial Class PrestamoRevistas
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.PanelDelCarrito)
         Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.ExtGrup)
         Me.Controls.Add(Me.devoCOMBO)
-        Me.Controls.Add(Me.ExtCombo)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "PrestamoRevistas"
         Me.Text = "PrestamoRevistas"
@@ -588,8 +588,8 @@ Partial Class PrestamoRevistas
         Me.Panel4.PerformLayout()
         CType(Me.PictureDevolucion, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureExtraccion, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ExtCombo.ResumeLayout(False)
-        Me.ExtCombo.PerformLayout()
+        Me.ExtGrup.ResumeLayout(False)
+        Me.ExtGrup.PerformLayout()
         CType(Me.DataGridView_VerRevistasEnExtraccion_, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelDelCarrito.ResumeLayout(False)
@@ -609,7 +609,7 @@ Partial Class PrestamoRevistas
     Friend WithEvents BotonParaBuscarCedula As System.Windows.Forms.Button
     Private WithEvents PictureDevolucion As System.Windows.Forms.PictureBox
     Friend WithEvents PictureExtraccion As System.Windows.Forms.PictureBox
-    Friend WithEvents ExtCombo As System.Windows.Forms.GroupBox
+    Friend WithEvents ExtGrup As System.Windows.Forms.GroupBox
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label

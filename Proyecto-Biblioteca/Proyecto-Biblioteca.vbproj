@@ -436,6 +436,7 @@
     <None Include="bin\Debug\imagenes\cancel-music.png" />
     <None Include="bin\Debug\imagenes\cancel.png" />
     <None Include="bin\Debug\imagenes\minimize.png" />
+    <None Include="bin\Debug\imagenes\magazine.png" />
     <Content Include="Resources\navigator.png" />
     <None Include="Resources\Sin título-1.jpg" />
     <None Include="Resources\reading.png" />
