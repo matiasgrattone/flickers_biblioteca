@@ -67,7 +67,7 @@
             Consulta = "select cedula from usuarios where cedula like '" & Cedula.Text & "'"
             consultar()
 
-            If Tabla.Rows.Count = 0 Then ' VERFICAR SI ES NULO EL RESULTADO DE LA CONSULTA
+            If Tabla.Tables(0).Rows.Count = 0 Then ' VERFICAR SI ES NULO EL RESULTADO DE LA CONSULTA
                 '//////////////////////Oculta los picturebox y la interfaz de las funciones///////////////////////////////
 
                 ExtGrup.Visible = False
@@ -89,7 +89,7 @@
                 Consulta = "select cedula , nombre , tipo from usuarios where cedula like '" & Cedula.Text & "'"
                 consultar()
                 Try
-                    For Each row As DataRow In Tabla.Rows
+                    For Each row As DataRow In Tabla.Tables(0).Rows
                         NOMBRE.Text = row("nombre")
                         Label12.Text = row("tipo")
                     Next
@@ -143,7 +143,7 @@
 
         Consulta = "select cedula , nombre from usuarios where cedula like '" & LabelAlmacenTemporalParaLaCedula.Text & "'  "
         consultar()
-        For Each row As DataRow In Tabla.Rows
+        For Each row As DataRow In Tabla.Tables(0).Rows
             NOMBRE.Text = row("nombre")
         Next
 
@@ -200,17 +200,17 @@
 
                 Consulta = "select * from prestamorevistas where fecha_entrada is NULL and cedula= '" & LabelAlmacenTemporalParaLaCedula.Text & "'"
                 consultar()
-                If (Tabla.Rows.Count = 0) Then
+                If (Tabla.Tables(0).Rows.Count = 0) Then
                     ExtGrup.Visible = True
                     Consulta = "select id_revistas as 'Codigo de Revista', titulo as 'Titulo', descripcion as 'Descripcion' from revistas where estado = '0'"
                     consultar()
-                    DataGridView_VerRevistasEnExtraccion_.DataSource = Tabla
+                    DataGridView_VerRevistasEnExtraccion_.DataSource = Tabla.Tables(0)
 
                     DatagridModulo = DataGridView_VerRevistasEnExtraccion_
                     Datagrid_Align()
                 Else
 
-                    For Each row As DataRow In Tabla.Rows
+                    For Each row As DataRow In Tabla.Tables(0).Rows
                         If row("fecha_entrada") Is DBNull.Value Then
                             FechaEntradaPrestamo = 1
                         Else
@@ -224,7 +224,7 @@
                         Case 0
                             Consulta = "select * from libro where estado = '0'"
                             consultar()
-                            DataGridView_VerRevistasEnExtraccion_.DataSource = Tabla
+                            DataGridView_VerRevistasEnExtraccion_.DataSource = Tabla.Tables(0)
                             ExtGrup.Visible = True
                     End Select
                 End If
@@ -504,7 +504,7 @@
 
             Consulta = "select p.cedula as 'Cedula de Socio', p.id_revistas as 'Codigo de Revista', r.titulo as 'Titulo', p.fecha_salida as 'Fecha de Prestamo', p.fecha_entrada as 'Fecha de Devolucion' from prestamorevistas p INNER JOIN revistas r on p.id_revistas=r.id_revistas where fecha_entrada is NULL and cedula= '" & LabelAlmacenTemporalParaLaCedula.Text & "'"
             consultar()
-            DataGridParaDevolucion.DataSource = Tabla
+            DataGridParaDevolucion.DataSource = Tabla.Tables(0)
 
             DatagridModulo = DataGridParaDevolucion
             Datagrid_Align()
@@ -543,7 +543,7 @@
 
                     Consulta = "select p.cedula as 'Cedula de Socio', p.id_revistas as 'Codigo de Revista', r.titulo as 'Titulo', p.fecha_salida as 'Fecha de Prestamo', p.fecha_entrada as 'Fecha de Devolucion' from prestamorevistas p INNER JOIN revistas r on p.id_revistas=r.id_revistas where fecha_entrada is NULL and cedula= '" & LabelAlmacenTemporalParaLaCedula.Text & "'"
                     consultar()
-                    DataGridParaDevolucion.DataSource = Tabla
+                    DataGridParaDevolucion.DataSource = Tabla.Tables(0)
 
                 Else
 
@@ -551,7 +551,7 @@
 
                     Consulta = "select p.cedula as 'Cedula de Socio', p.id_revistas as 'Codigo de Revista', r.titulo as 'Titulo', p.fecha_salida as 'Fecha de Prestamo', p.fecha_entrada as 'Fecha de Devolucion' from prestamorevistas p INNER JOIN revistas r on p.id_revistas=r.id_revistas where fecha_entrada is NULL and cedula= '" & LabelAlmacenTemporalParaLaCedula.Text & "'"
                     consultar()
-                    DataGridParaDevolucion.DataSource = Tabla
+                    DataGridParaDevolucion.DataSource = Tabla.Tables(0)
 
                 End If
 
@@ -570,14 +570,14 @@
     Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
         Consulta = "select p.cedula as 'Cedula de Socio', p.id_revistas as 'Codigo de Revista', r.titulo as 'Titulo', p.fecha_salida as 'Fecha de Prestamo', p.fecha_entrada as 'Fecha de Devolucion' from prestamorevistas p INNER JOIN revistas r on p.id_revistas=r.id_revistas where cedula= '" & LabelAlmacenTemporalParaLaCedula.Text & "'"
         consultar()
-        DataGridParaDevolucion.DataSource = Tabla
+        DataGridParaDevolucion.DataSource = Tabla.Tables(0)
         modo = "registro"
     End Sub
     '///PARA IR A MODO "VER REGISTRO DEL SOCIO"///
     Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
         Consulta = "select p.cedula as 'Cedula de Socio', p.id_revistas as 'Codigo de Revista', r.titulo as 'Titulo', p.fecha_salida as 'Fecha de Prestamo', p.fecha_entrada as 'Fecha de Devolucion' from prestamorevistas p INNER JOIN revistas r on p.id_revistas=r.id_revistas where fecha_entrada is NULL and cedula= '" & LabelAlmacenTemporalParaLaCedula.Text & "'"
         consultar()
-        DataGridParaDevolucion.DataSource = Tabla
+        DataGridParaDevolucion.DataSource = Tabla.Tables(0)
         modo = "devolucion"
     End Sub
     '/////////////////////////////////////////////////////////FIN DE DEVOLUCION///////////////////////////////////////////////////////////////

@@ -14,12 +14,12 @@
 
                     Consulta = "Select libro.cod_libro,libro.titulo, usuarios.cedula, usuarios.nombre, prestamolibro.fecha_salida, prestamolibro.fecha_entrada, prestamolibro.cod_prestado, prestamolibro.cod_devuelto from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro inner join usuarios on usuarios.cedula = prestamolibro.cedula where prestamolibro.fecha_salida >= '" & cmbaño.SelectedItem & "-" & mesdesde & "-" & cmbdia.SelectedItem & "' and prestamolibro.fecha_salida <= '" & cmbaño2.SelectedItem & "-" & meshasta & "-" & cmbdia2.SelectedItem & "' and usuarios.cedula like '" & txtbusqueda.Text & "%'"
                     consultar()
-                    dgvregistro.DataSource = Tabla
+                    dgvregistro.DataSource = Tabla.Tables(0)
 
                 Else
                     Consulta = "Select libro.cod_libro,libro.titulo, usuarios.cedula, usuarios.nombre, prestamolibro.fecha_salida, prestamolibro.fecha_entrada, prestamolibro.cod_prestado, prestamolibro.cod_devuelto from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro inner join usuarios on usuarios.cedula = prestamolibro.cedula where usuarios.cedula like '" & txtbusqueda.Text & "%'"
                     consultar()
-                    dgvregistro.DataSource = Tabla
+                    dgvregistro.DataSource = Tabla.Tables(0)
                 End If
 
             Case 1
@@ -34,12 +34,12 @@
 
                     Consulta = "Select libro.cod_libro,libro.titulo, usuarios.cedula, usuarios.nombre, prestamolibro.fecha_salida, prestamolibro.fecha_entrada, prestamolibro.cod_prestado, prestamolibro.cod_devuelto from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro inner join usuarios on usuarios.cedula = prestamolibro.cedula where prestamolibro.fecha_salida >= '" & cmbaño.SelectedItem & "-" & mesdesde & "-" & cmbdia.SelectedItem & "' and prestamolibro.fecha_salida <= '" & cmbaño2.SelectedItem & "-" & meshasta & "-" & cmbdia2.SelectedItem & "' and usuarios.nombre like '" & txtbusqueda.Text & "%'"
                     consultar()
-                    dgvregistro.DataSource = Tabla
+                    dgvregistro.DataSource = Tabla.Tables(0)
 
                 Else
                     Consulta = "Select libro.cod_libro,libro.titulo, usuarios.cedula, usuarios.nombre, prestamolibro.fecha_salida, prestamolibro.fecha_entrada, prestamolibro.cod_prestado, prestamolibro.cod_devuelto from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro inner join usuarios on usuarios.cedula = prestamolibro.cedula where usuarios.nombre like '" & txtbusqueda.Text & "%'"
                     consultar()
-                    dgvregistro.DataSource = Tabla
+                    dgvregistro.DataSource = Tabla.Tables(0)
                 End If
             Case 2
                 Dim mesdesde, meshasta As String
@@ -52,12 +52,12 @@
                     meshasta = substring
                     Consulta = "Select libro.cod_libro,libro.titulo, usuarios.cedula, usuarios.nombre, prestamolibro.fecha_salida, prestamolibro.fecha_entrada, prestamolibro.cod_prestado, prestamolibro.cod_devuelto from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro inner join usuarios on usuarios.cedula = prestamolibro.cedula where prestamolibro.fecha_salida >= '" & cmbaño.SelectedItem & "-" & mesdesde & "-" & cmbdia.SelectedItem & "' and prestamolibro.fecha_salida <= '" & cmbaño2.SelectedItem & "-" & meshasta & "-" & cmbdia2.SelectedItem & "' and libro.cod_libro like '" & txtbusqueda.Text & "%'"
                     consultar()
-                    dgvregistro.DataSource = Tabla
+                    dgvregistro.DataSource = Tabla.Tables(0)
 
                 Else
                     Consulta = "Select libro.cod_libro,libro.titulo, usuarios.cedula, usuarios.nombre, prestamolibro.fecha_salida, prestamolibro.fecha_entrada, prestamolibro.cod_prestado, prestamolibro.cod_devuelto from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro inner join usuarios on usuarios.cedula = prestamolibro.cedula where libro.titulo like '" & txtbusqueda.Text & "%'"
                     consultar()
-                    dgvregistro.DataSource = Tabla
+                    dgvregistro.DataSource = Tabla.Tables(0)
                 End If
             Case 3
                 Dim mesdesde, meshasta As String
@@ -70,19 +70,19 @@
                     meshasta = substring
                     Consulta = "Select libro.cod_libro,libro.titulo, usuarios.cedula, usuarios.nombre, prestamolibro.fecha_salida, prestamolibro.fecha_entrada, prestamolibro.cod_prestado, prestamolibro.cod_devuelto from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro inner join usuarios on usuarios.cedula = prestamolibro.cedula where prestamolibro.fecha_salida >= '" & cmbaño.SelectedItem & "-" & mesdesde & "-" & cmbdia.SelectedItem & "' and prestamolibro.fecha_salida <= '" & cmbaño2.SelectedItem & "-" & meshasta & "-" & cmbdia2.SelectedItem & "' and libro.titulo like '" & txtbusqueda.Text & "%'"
                     consultar()
-                    dgvregistro.DataSource = Tabla
+                    dgvregistro.DataSource = Tabla.Tables(0)
 
                 Else
                     Consulta = "Select libro.cod_libro,libro.titulo, usuarios.cedula, usuarios.nombre, prestamolibro.fecha_salida, prestamolibro.fecha_entrada, prestamolibro.cod_prestado, prestamolibro.cod_devuelto from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro inner join usuarios on usuarios.cedula = prestamolibro.cedula where libro.titulo like '" & txtbusqueda.Text & "%'"
                     consultar()
-                    dgvregistro.DataSource = Tabla
+                    dgvregistro.DataSource = Tabla.Tables(0)
                 End If
 
             Case Else
 
                 Consulta = "Select libro.cod_libro,libro.titulo, usuarios.cedula, usuarios.nombre, prestamolibro.fecha_salida, prestamolibro.fecha_entrada, prestamolibro.cod_prestado, prestamolibro.cod_devuelto from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro inner join usuarios on usuarios.cedula = prestamolibro.cedula"
                 consultar()
-                dgvregistro.DataSource = Tabla
+                dgvregistro.DataSource = Tabla.Tables(0)
         End Select
     End Sub
 
@@ -100,7 +100,7 @@
     Private Sub registroprestamos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Consulta = "Select libro.cod_libro,libro.titulo, usuarios.cedula, usuarios.nombre, prestamolibro.fecha_salida, prestamolibro.fecha_entrada, prestamolibro.cod_prestado, prestamolibro.cod_devuelto from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro inner join usuarios on usuarios.cedula = prestamolibro.cedula"
         consultar()
-        dgvregistro.DataSource = Tabla
+        dgvregistro.DataSource = Tabla.Tables(0)
         DatagridModulo = dgvregistro
         Datagrid_Align()
         dgvregistro.Columns(0).HeaderText = "Codigo de inventario"
@@ -208,7 +208,7 @@
 
                         Consulta = "Select libro.cod_libro,libro.titulo, usuarios.cedula, usuarios.nombre, prestamolibro.fecha_salida, prestamolibro.fecha_entrada, prestamolibro.cod_prestado, prestamolibro.cod_devuelto from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro inner join usuarios on usuarios.cedula = prestamolibro.cedula where prestamolibro.fecha_salida >= '" & cmbaño.SelectedItem & "-" & mesdesde & "-" & cmbdia.SelectedItem & "' and prestamolibro.fecha_salida <= '" & cmbaño2.SelectedItem & "-" & meshasta & "-" & cmbdia2.SelectedItem & "' and usuarios.cedula like '" & txtbusqueda.Text & "%'"
                         consultar()
-                        dgvregistro.DataSource = Tabla
+                        dgvregistro.DataSource = Tabla.Tables(0)
                     End If
                 Case 1
                     Dim mesdesde, meshasta As String
@@ -222,7 +222,7 @@
 
                         Consulta = "Select libro.cod_libro,libro.titulo, usuarios.cedula, usuarios.nombre, prestamolibro.fecha_salida, prestamolibro.fecha_entrada, prestamolibro.cod_prestado, prestamolibro.cod_devuelto from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro inner join usuarios on usuarios.cedula = prestamolibro.cedula where prestamolibro.fecha_salida >= '" & cmbaño.SelectedItem & "-" & mesdesde & "-" & cmbdia.SelectedItem & "' and prestamolibro.fecha_salida <= '" & cmbaño2.SelectedItem & "-" & meshasta & "-" & cmbdia2.SelectedItem & "' and usuarios.nombre like '" & txtbusqueda.Text & "%'"
                         consultar()
-                        dgvregistro.DataSource = Tabla
+                        dgvregistro.DataSource = Tabla.Tables(0)
                     End If
                 Case 2
                     Dim mesdesde, meshasta As String
@@ -235,7 +235,7 @@
                         meshasta = substring
                         Consulta = "Select libro.cod_libro,libro.titulo, usuarios.cedula, usuarios.nombre, prestamolibro.fecha_salida, prestamolibro.fecha_entrada, prestamolibro.cod_prestado, prestamolibro.cod_devuelto from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro inner join usuarios on usuarios.cedula = prestamolibro.cedula where prestamolibro.fecha_salida >= '" & cmbaño.SelectedItem & "-" & mesdesde & "-" & cmbdia.SelectedItem & "' and prestamolibro.fecha_salida <= '" & cmbaño2.SelectedItem & "-" & meshasta & "-" & cmbdia2.SelectedItem & "' and libro.cod_libro like '" & txtbusqueda.Text & "%'"
                         consultar()
-                        dgvregistro.DataSource = Tabla
+                        dgvregistro.DataSource = Tabla.Tables(0)
                     End If
                 Case 3
                     Dim mesdesde, meshasta As String
@@ -248,7 +248,7 @@
                         meshasta = substring
                         Consulta = "Select libro.cod_libro,libro.titulo, usuarios.cedula, usuarios.nombre, prestamolibro.fecha_salida, prestamolibro.fecha_entrada, prestamolibro.cod_prestado, prestamolibro.cod_devuelto from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro inner join usuarios on usuarios.cedula = prestamolibro.cedula where prestamolibro.fecha_salida >= '" & cmbaño.SelectedItem & "-" & mesdesde & "-" & cmbdia.SelectedItem & "' and prestamolibro.fecha_salida <= '" & cmbaño2.SelectedItem & "-" & meshasta & "-" & cmbdia2.SelectedItem & "' and libro.titulo like '" & txtbusqueda.Text & "%'"
                         consultar()
-                        dgvregistro.DataSource = Tabla
+                        dgvregistro.DataSource = Tabla.Tables(0)
                     End If
             End Select
 
@@ -264,7 +264,7 @@
                 meshasta = substring
                 Consulta = "Select libro.cod_libro,libro.titulo, usuarios.cedula, usuarios.nombre, prestamolibro.fecha_salida, prestamolibro.fecha_entrada, prestamolibro.cod_prestado, prestamolibro.cod_devuelto from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro inner join usuarios on usuarios.cedula = prestamolibro.cedula where prestamolibro.fecha_salida >= '" & cmbaño.SelectedItem & "-" & mesdesde & "-" & cmbdia.SelectedItem & "' and prestamolibro.fecha_salida <= '" & cmbaño2.SelectedItem & "-" & meshasta & "-" & cmbdia2.SelectedItem & "'"
                 consultar()
-                dgvregistro.DataSource = Tabla
+                dgvregistro.DataSource = Tabla.Tables(0)
             End If
         End If
     End Sub
@@ -283,7 +283,7 @@
 
         Consulta = "Select libro.cod_libro,libro.titulo, usuarios.cedula, usuarios.nombre, prestamolibro.fecha_salida, prestamolibro.fecha_entrada, prestamolibro.cod_prestado, prestamolibro.cod_devuelto from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro inner join usuarios on usuarios.cedula = prestamolibro.cedula"
         consultar()
-        dgvregistro.DataSource = Tabla
+        dgvregistro.DataSource = Tabla.Tables(0)
     End Sub
 
     Private Sub cmbbusqueda_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbbusqueda.SelectedIndexChanged
