@@ -247,5 +247,4 @@ C:\Users\rex\Downloads\flickers_biblioteca-f439121b52202e9267e1b5d3ac65ea5bdf1fa
 C:\Users\rex\Downloads\flickers_biblioteca-f439121b52202e9267e1b5d3ac65ea5bdf1fa78b\flickers_biblioteca-f439121b52202e9267e1b5d3ac65ea5bdf1fa78b\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Resources.resources
 C:\Users\rex\Downloads\flickers_biblioteca-f439121b52202e9267e1b5d3ac65ea5bdf1fa78b\flickers_biblioteca-f439121b52202e9267e1b5d3ac65ea5bdf1fa78b\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Seleccion_Libro.resources
 C:\Users\rex\Downloads\flickers_biblioteca-f439121b52202e9267e1b5d3ac65ea5bdf1fa78b\flickers_biblioteca-f439121b52202e9267e1b5d3ac65ea5bdf1fa78b\Proyecto-Biblioteca\obj\x86\Debug\Proyecto-Biblioteca.vbproj.GenerateResource.Cache
-C:\Users\usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\mysql.data.dll
 C:\Users\usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.Mail.resources

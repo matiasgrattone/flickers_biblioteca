@@ -14,8 +14,6 @@ Public Class NotasUsuario
 
 
     Private Sub Notas_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        AhUsar = MENU3.lbl_cedula.Text
-
         xf = Me.Location.X
         yf = Me.Location.Y
 
@@ -37,7 +35,7 @@ Public Class NotasUsuario
         Dim Ubicacion2 As String = ""
         Dim Ubicacion3 As String = ""
 
-        Consulta = "Select * from notas where cedula ='" & AhUsar & "' and recordar = 1;Select * from notas where cedula ='" & AhUsar & "' and recordar = 2;Select * from notas where cedula ='" & AhUsar & "' and recordar = 3"
+        Consulta = "Select * from notas where cedula ='" & MENU3.lbl_cedula.Text & "' and recordar = 1"
         consultar()
         If (Tabla.Rows.Count <> 0) Then
             For Each row As DataRow In Tabla.Rows
@@ -47,6 +45,8 @@ Public Class NotasUsuario
             Next
         End If
 
+        Consulta = "Select * from notas where cedula ='" & MENU3.lbl_cedula.Text & "' and recordar = 2"
+        consultar()
         If (Tabla.Rows.Count <> 0) Then
             For Each row As DataRow In Tabla.Rows
                 Ubicacion2 = row("texto")
@@ -55,6 +55,8 @@ Public Class NotasUsuario
             Next
         End If
 
+        Consulta = "Select * from notas where cedula ='" & MENU3.lbl_cedula.Text & "' and recordar = 3"
+        consultar()
         If (Tabla.Rows.Count <> 0) Then
             For Each row As DataRow In Tabla.Rows
                 Ubicacion3 = row("texto")
@@ -62,6 +64,7 @@ Public Class NotasUsuario
                 Fecha3.Text = row("fecha")
             Next
         End If
+
 
         '///////Ah  los recordatorios se le asigna una ruta del archivo.txt gurdada con anterioridad en la base de datos///////
         Consulta = "select recordar from notas where cedula = '" & MENU3.lbl_cedula.Text & "' and recordar is NOT NULL"
@@ -215,7 +218,7 @@ Public Class NotasUsuario
             A = MsgBox("Desea recordar alguna nota ?", MsgBoxStyle.YesNoCancel, Title:="NOTAS")
             If A = vbYes Then
                 modo = "recordar"
-                PanelNotas.Top = 0
+                PanelNotas.Top = 53
                 RecordatorioValor = "1"
             End If
         End If
@@ -230,7 +233,7 @@ Public Class NotasUsuario
             A = MsgBox("Desea recordar alguna nota ?", MsgBoxStyle.YesNoCancel, Title:="NOTAS")
             If A = vbYes Then
                 modo = "recordar"
-                PanelNotas.Top = 0
+                PanelNotas.Top = 53
                 RecordatorioValor = "2"
             End If
         End If
@@ -245,7 +248,7 @@ Public Class NotasUsuario
             A = MsgBox("Desea recordar alguna nota ?", MsgBoxStyle.YesNoCancel, Title:="NOTAS")
             If A = vbYes Then
                 modo = "recordar"
-                PanelNotas.Top = 0
+                PanelNotas.Top = 53
                 RecordatorioValor = "3"
             End If
         End If
@@ -261,7 +264,7 @@ Public Class NotasUsuario
             Dim A As String
             A = MsgBox("Desea eliminar el recordatorio ?", MsgBoxStyle.YesNoCancel, Title:="NOTAS")
             If A = vbYes Then
-                Consulta = "delete from notas WHERE recordar = 1 and cedula = '" & AhUsar & "';"
+                Consulta = "update notas set recordar = 0 WHERE recordar = '1' and cedula = '" & MENU3.lbl_cedula.Text & "';"
                 consultar()
                 TextoParaRecordar1.Clear()
                 Fecha1.Text = " "
@@ -275,7 +278,7 @@ Public Class NotasUsuario
         If TextoParaRecordar2.Text <> "" Then
             A = MsgBox("Desea eliminar el recordatorio ?", MsgBoxStyle.YesNoCancel, Title:="NOTAS")
             If A = vbYes Then
-                Consulta = "delete from notas WHERE recordar = 2 and cedula = '" & AhUsar & "';"
+                Consulta = "update notas set recordar = 0 WHERE recordar = '2' and cedula = '" & MENU3.lbl_cedula.Text & "';"
                 consultar()
                 TextoParaRecordar2.Clear()
                 Fecha2.Text = " "
@@ -289,7 +292,7 @@ Public Class NotasUsuario
         If TextoParaRecordar3.Text <> "" Then
             A = MsgBox("Desea eliminar el recordatorio ?", MsgBoxStyle.YesNoCancel, Title:="NOTAS")
             If A = vbYes Then
-                Consulta = "delete from notas WHERE recordar = 3 and cedula = '" & AhUsar & "';"
+                Consulta = "update notas set recordar = 0 WHERE recordar = '3' and cedula = '" & MENU3.lbl_cedula.Text & "';"
                 consultar()
                 TextoParaRecordar3.Clear()
                 Fecha3.Text = " "
@@ -300,8 +303,6 @@ Public Class NotasUsuario
 
     '//////////////////////////FUNCION////////////////////////////////
     Public Sub ActualizarNotas()
-        AhUsar = MENU3.lbl_cedula.Text
-
         cedula = MENU3.lbl_cedula.Text
         Consulta = "Select NombreNota, texto from notas where cedula= '" + MENU3.lbl_cedula.Text + "'"
         consultar()
@@ -313,11 +314,13 @@ Public Class NotasUsuario
         My.Computer.FileSystem.CreateDirectory(RutaDeGuardadoDeNotas) 'Crea la carpeta "Notas" en la ruta especificada si esta no existe
 
 
+
+
         Dim Ubicacion1 As String = ""
         Dim Ubicacion2 As String = ""
         Dim Ubicacion3 As String = ""
 
-        Consulta = "Select * from notas where cedula ='" & AhUsar & "' and recordar = 1;Select * from notas where cedula ='" & AhUsar & "' and recordar = 2;Select * from notas where cedula ='" & AhUsar & "' and recordar = 3"
+        Consulta = "Select * from notas where cedula ='" & MENU3.lbl_cedula.Text & "' and recordar = 1"
         consultar()
         If (Tabla.Rows.Count <> 0) Then
             For Each row As DataRow In Tabla.Rows
@@ -327,6 +330,8 @@ Public Class NotasUsuario
             Next
         End If
 
+        Consulta = "Select * from notas where cedula ='" & MENU3.lbl_cedula.Text & "' and recordar = 2"
+        consultar()
         If (Tabla.Rows.Count <> 0) Then
             For Each row As DataRow In Tabla.Rows
                 Ubicacion2 = row("texto")
@@ -335,6 +340,8 @@ Public Class NotasUsuario
             Next
         End If
 
+        Consulta = "Select * from notas where cedula ='" & MENU3.lbl_cedula.Text & "' and recordar = 3"
+        consultar()
         If (Tabla.Rows.Count <> 0) Then
             For Each row As DataRow In Tabla.Rows
                 Ubicacion3 = row("texto")
@@ -435,12 +442,12 @@ Public Class NotasUsuario
         PanelNotas.Top = -306
         modo = "NULL"
     End Sub
-  
+
     Dim a As String = "2"
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonRecordatorio.Click
 
 
-       
+
         If a = "1" Then
 
             a = "2"
@@ -477,14 +484,14 @@ Public Class NotasUsuario
 
     End Sub
 
-    Private Sub Panel1_MouseUp(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseUp
+    Private Sub Panel1_MouseUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseUp
         xf = Me.Location.X
         yf = Me.Location.Y
         ventanaActiva = 0
         Me.Opacity = 1
     End Sub
 
-    Private Sub Panel1_MouseMove(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseMove
+    Private Sub Panel1_MouseMove(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseMove
         If ventanaActiva = 1 Then
             xc = Cursor.Position.X
             yc = Cursor.Position.Y
@@ -499,18 +506,18 @@ Public Class NotasUsuario
         End If
     End Sub
 
-    Private Sub Panel1_MouseDown(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseDown
+    Private Sub Panel1_MouseDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseDown
         ventanaActiva = 1
     End Sub
 
-    Private Sub Labels_transparentes1_MouseUp(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles Labels_transparentes1.MouseUp
+    Private Sub Labels_transparentes1_MouseUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Labels_transparentes1.MouseUp
         xf = Me.Location.X
         yf = Me.Location.Y
         ventanaActiva = 0
         Me.Opacity = 1
     End Sub
 
-    Private Sub Labels_transparentes1_MouseMove(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles Labels_transparentes1.MouseMove
+    Private Sub Labels_transparentes1_MouseMove(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Labels_transparentes1.MouseMove
         If ventanaActiva = 1 Then
             xc = Cursor.Position.X
             yc = Cursor.Position.Y
@@ -525,11 +532,11 @@ Public Class NotasUsuario
         End If
     End Sub
 
-    Private Sub Labels_transparentes1_MouseDown(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles Labels_transparentes1.MouseDown
+    Private Sub Labels_transparentes1_MouseDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Labels_transparentes1.MouseDown
         ventanaActiva = 1
     End Sub
 
-    Private Sub PictureBox1_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox1.Click
+    Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox1.Click
         Me.Close()
     End Sub
 End Class
