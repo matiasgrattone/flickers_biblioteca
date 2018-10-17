@@ -246,125 +246,125 @@
         mes = Val(DateTime.Now.ToString("MM"))
         anio = Val(DateTime.Now.ToString("yyyy"))
 
-        If mes() = 1 Then ' Mes de Enero
+        If mes = 1 Then ' Mes de Enero
             If dia >= 31 Then
                 diferenciaDia = dia - 31
                 dia = dia - diferenciaDia
-                mes = mes() + 1
-                fecha_estimada = anio & "-" & mes() & "-" & dia
+                mes = mes + 1
+                fecha_estimada = anio & "-" & mes & "-" & dia
             Else
-                fecha_estimada = anio & "-" & mes() & "-" & dia
+                fecha_estimada = anio & "-" & mes & "-" & dia
             End If
         End If
-        If mes() = 2 Then ' Mes de febrero
+        If mes = 2 Then ' Mes de febrero
             If dia >= 28 Then
                 diferenciaDia = dia - 28
                 dia = dia - diferenciaDia
-                mes = mes() + 1
-                fecha_estimada = anio & "-" & mes() & "-" & dia
+                mes = mes + 1
+                fecha_estimada = anio & "-" & mes & "-" & dia
             Else
-                fecha_estimada = anio & "-" & mes() & "-" & dia
+                fecha_estimada = anio & "-" & mes & "-" & dia
             End If
         End If
-        If mes() = 3 Then ' Mes de marzo
+        If mes = 3 Then ' Mes de marzo
             If dia >= 31 Then
                 diferenciaDia = dia - 31
                 dia = dia - diferenciaDia
-                mes = mes() + 1
-                fecha_estimada = anio & "-" & mes() & "-" & dia
+                mes = mes + 1
+                fecha_estimada = anio & "-" & mes & "-" & dia
             Else
-                fecha_estimada = anio & "-" & mes() & "-" & dia
+                fecha_estimada = anio & "-" & mes & "-" & dia
             End If
         End If
-        If mes() = 4 Then ' Mes de abril
+        If mes = 4 Then ' Mes de abril
             If dia >= 30 Then
                 diferenciaDia = dia - 30
                 dia = dia - diferenciaDia
-                mes = mes() + 1
-                fecha_estimada = anio & "-" & mes() & "-" & dia
+                mes = mes + 1
+                fecha_estimada = anio & "-" & mes & "-" & dia
             Else
-                fecha_estimada = anio & "-" & mes() & "-" & dia
+                fecha_estimada = anio & "-" & mes & "-" & dia
             End If
         End If
-        If mes() = 5 Then ' Mes de mayo
+        If mes = 5 Then ' Mes de mayo
             If dia >= 31 Then
                 diferenciaDia = dia - 31
                 dia = dia - diferenciaDia
-                mes = mes() + 1
-                fecha_estimada = anio & "-" & mes() & "-" & dia
+                mes = mes + 1
+                fecha_estimada = anio & "-" & mes & "-" & dia
             Else
-                fecha_estimada = anio & "-" & mes() & "-" & dia
+                fecha_estimada = anio & "-" & mes & "-" & dia
             End If
         End If
-        If mes() = 6 Then ' Mes de junio
+        If mes = 6 Then ' Mes de junio
             If dia >= 30 Then
                 diferenciaDia = dia - 30
                 dia = dia - diferenciaDia
-                mes = mes() + 1
-                fecha_estimada = anio & "-" & mes() & "-" & dia
+                mes = mes + 1
+                fecha_estimada = anio & "-" & mes & "-" & dia
             Else
-                fecha_estimada = anio & "-" & mes() & "-" & dia
+                fecha_estimada = anio & "-" & mes & "-" & dia
             End If
         End If
-        If mes() = 7 Then ' Mes de julio
+        If mes = 7 Then ' Mes de julio
             If dia >= 31 Then
                 diferenciaDia = dia - 31
                 dia = dia - diferenciaDia
-                mes = mes() + 1
-                fecha_estimada = anio & "-" & mes() & "-" & dia
+                mes = mes + 1
+                fecha_estimada = anio & "-" & mes & "-" & dia
             Else
-                fecha_estimada = anio & "-" & mes() & "-" & dia
+                fecha_estimada = anio & "-" & mes & "-" & dia
             End If
         End If
-        If mes() = 8 Then ' Mes de agosto
+        If mes = 8 Then ' Mes de agosto
             If dia >= 31 Then
                 diferenciaDia = dia - 31
                 dia = dia - diferenciaDia
-                mes = mes() + 1
-                fecha_estimada = anio & "-" & mes() & "-" & dia
+                mes = mes + 1
+                fecha_estimada = anio & "-" & mes & "-" & dia
             Else
-                fecha_estimada = anio & "-" & mes() & "-" & dia
+                fecha_estimada = anio & "-" & mes & "-" & dia
             End If
         End If
-        If mes() = 9 Then ' Mes de setiembre
+        If mes = 9 Then ' Mes de setiembre
             If dia >= 30 Then
                 diferenciaDia = dia - 30
                 dia = dia - diferenciaDia
-                mes = mes() + 1
-                fecha_estimada = anio & "-" & mes() & "-" & dia
+                mes = mes + 1
+                fecha_estimada = anio & "-" & mes & "-" & dia
             Else
-                fecha_estimada = anio & "-" & mes() & "-" & dia
+                fecha_estimada = anio & "-" & mes & "-" & dia
             End If
         End If
-        If mes() = 10 Then ' Mes de octubre
+        If mes = 10 Then ' Mes de octubre
             If dia >= 31 Then
                 diferenciaDia = dia - 31
                 dia = dia - diferenciaDia
-                mes = mes() + 1
-                fecha_estimada = anio & "-" & mes() & "-" & dia
+                mes = mes + 1
+                fecha_estimada = anio & "-" & mes & "-" & dia
             Else
-                fecha_estimada = anio & "-" & mes() & "-" & dia
+                fecha_estimada = anio & "-" & mes & "-" & dia
             End If
         End If
-        If mes() = 11 Then ' Mes de noviembre
+        If mes = 11 Then ' Mes de noviembre
             If dia >= 30 Then
                 diferenciaDia = dia - 30
                 dia = dia - diferenciaDia
-                mes = mes() + 1
-                fecha_estimada = anio & "-" & mes() & "-" & dia
+                mes = mes + 1
+                fecha_estimada = anio & "-" & mes & "-" & dia
             Else
-                fecha_estimada = anio & "-" & mes() & "-" & dia
+                fecha_estimada = anio & "-" & mes & "-" & dia
             End If
         End If
-        If mes() = 12 Then ' Mes de diciembre
+        If mes = 12 Then ' Mes de diciembre
             If dia >= 31 Then
                 diferenciaDia = dia - 31
                 dia = dia - diferenciaDia
                 mes = 1
                 anio = anio + 1
-                fecha_estimada = anio & "-" & mes() & "-" & dia
+                fecha_estimada = anio & "-" & mes & "-" & dia
             Else
-                fecha_estimada = anio & "-" & mes() & "-" & dia
+                fecha_estimada = anio & "-" & mes & "-" & dia
             End If
         End If
         '////////////////////////////////////////////////////////////////////////
@@ -382,7 +382,7 @@
             Consulta = "select * from prestamorevistas where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
             consultar()
 
-            If (Tabla.Rows.Count = 0) Then
+            If (Tabla.Tables(0).Rows.Count = 0) Then
 
                 While contador < list
                     contador = Val(contador) + 1
@@ -391,7 +391,7 @@
                     Consulta = "insert into prestamorevistas(cedula, cod_libro, fecha_salida, fecha_estimada, cod_prestado) values('" + Cedula.Text + "','" + ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items(Revista1) + "','" + Date.Now.ToString("yyyy-MM-dd") + "', '" + fecha_estimada + "','" + MENU3.lbl_cedula.Text + "')"
                     consultar()
 
-                    Consulta = "update revistas set estado = 1 where id_revistas = '" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(Revista1) & "';"
+                    Consulta = "update revistas set estado = 1 where id_revistas = '" & ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items(Revista1) & "';"
                     consultar()
 
                     libros = libros + 1
@@ -401,13 +401,13 @@
                 CarritoDeRevistas.Items.Clear()
                 ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Clear()
                 MsgBox("Se extrajo correctamente los libros", Title:="PRESTAMO")
-                GrupBoxExtraccion.Visible = False
+                ExtGrup.Visible = False
 
 
             Else
 
 
-                For Each row As DataRow In Tabla.Rows
+                For Each row As DataRow In Tabla.Tables(0).Rows
                     If row("fecha_estimada") Is DBNull.Value Then
                         FechaEntradaPrestamo = 0
                     Else

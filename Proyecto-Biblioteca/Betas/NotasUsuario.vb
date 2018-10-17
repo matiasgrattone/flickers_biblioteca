@@ -37,31 +37,26 @@ Public Class NotasUsuario
         Dim Ubicacion2 As String = ""
         Dim Ubicacion3 As String = ""
 
-        Consulta = "Select * from notas where cedula ='" & AhUsar & "' and recordar = 1"
+        Consulta = "Select * from notas where cedula ='" & AhUsar & "' and recordar = 1;Select * from notas where cedula ='" & AhUsar & "' and recordar = 2;Select * from notas where cedula ='" & AhUsar & "' and recordar = 3"
         consultar()
-        If (Tabla.Rows.Count <> 0) Then
-            For Each row As DataRow In Tabla.Rows
+        If (Tabla.Tables(0).Rows.Count <> 0) Then
+            For Each row As DataRow In Tabla.Tables(0).Rows
                 Ubicacion1 = row("texto")
                 Ubicacion1 = RutaDeDocumentos + Ubicacion1.ToString
                 Fecha1.Text = row("fecha")
             Next
         End If
 
-        Consulta = "Select * from notas where cedula ='" & AhUsar & "' and recordar = 2"
-        consultar()
-        If (Tabla.Rows.Count <> 0) Then
-            For Each row As DataRow In Tabla.Rows
+        If (Tabla.Tables(1).Rows.Count <> 0) Then
+            For Each row As DataRow In Tabla.Tables(1).Rows
                 Ubicacion2 = row("texto")
                 Ubicacion2 = RutaDeDocumentos + Ubicacion2.ToString
                 Fecha2.Text = row("fecha")
             Next
         End If
 
-
-        Consulta = "Select * from notas where cedula ='" & AhUsar & "' and recordar = 3"
-        consultar()
-        If (Tabla.Rows.Count <> 0) Then
-            For Each row As DataRow In Tabla.Rows
+        If (Tabla.Tables(2).Rows.Count <> 0) Then
+            For Each row As DataRow In Tabla.Tables(2).Rows
                 Ubicacion3 = row("texto")
                 Ubicacion3 = RutaDeDocumentos + Ubicacion3.ToString
                 Fecha3.Text = row("fecha")
