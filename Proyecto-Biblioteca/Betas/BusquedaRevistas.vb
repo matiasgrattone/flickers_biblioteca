@@ -10,22 +10,22 @@
                     Case "ocupado"
                         Consulta = "select titulo,anio,origen,descripcion,estado from revistas where revistas.estado like '1'"
                         consultar()
-                        dgvrevistas.DataSource = Tabla
+                        dgvrevistas.DataSource = Tabla.Tables(0)
 
                     Case "disponible"
                         Consulta = "select titulo,anio,origen,descripcion,estado from revistas where revistas.estado like '0'"
                         consultar()
-                        dgvrevistas.DataSource = Tabla
+                        dgvrevistas.DataSource = Tabla.Tables(0)
 
                     Case "reservado"
                         Consulta = "select titulo,anio,origen,descripcion,estado from revistas where revistas.estado like '2'"
                         consultar()
-                        dgvrevistas.DataSource = Tabla
+                        dgvrevistas.DataSource = Tabla.Tables(0)
 
                     Case "descontinuado"
                         Consulta = "select titulo,anio,origen,descripcion,estado from revistas where revistas.estado like '3'"
                         consultar()
-                        dgvrevistas.DataSource = Tabla
+                        dgvrevistas.DataSource = Tabla.Tables(0)
                 End Select
             Catch ex As Exception
                 MsgBox("Accion imposible de realizar")
@@ -41,7 +41,7 @@
         '--------------------Comprobacion de si la base de datos funciona---------------------
         Consulta = "select * from usuarios"
         consultar()
-        For Each row As DataRow In Tabla.Rows
+        For Each row As DataRow In Tabla.Tables(0).Rows
             If row("nombre") <> "" Then
                 bandera = 1
             Else
@@ -54,7 +54,7 @@
             Dim contadoringreso As Integer = 0
             Consulta = "select * from revistas order by id_revistas ASC"
             consultar()
-            dgvrevistas.DataSource = Tabla
+            dgvrevistas.DataSource = Tabla.Tables(0)
             DatagridModulo = dgvrevistas
             Datagrid_Align()
             dgvrevistas.Columns(0).HeaderText = "ID"
@@ -173,19 +173,19 @@
                             Case "disponible"
                                 Consulta = "select titulo,anio,origen,descripcion,estado from revistas where estado like '0' and titulo like '" & txtbusqueda.Text & "%'"
                                 consultar()
-                                dgvrevistas.DataSource = Tabla
+                                dgvrevistas.DataSource = Tabla.Tables(0)
                             Case "ocupado"
                                 Consulta = "select titulo,anio,origen,descripcion,estado from revistas where estado like '1' and titulo like '" & txtbusqueda.Text & "%'"
                                 consultar()
-                                dgvrevistas.DataSource = Tabla
+                                dgvrevistas.DataSource = Tabla.Tables(0)
                             Case "reservado"
                                 Consulta = "select titulo,anio,origen,descripcion,estado from revistas where estado like '2' and titulo like '" & txtbusqueda.Text & "%'"
                                 consultar()
-                                dgvrevistas.DataSource = Tabla
+                                dgvrevistas.DataSource = Tabla.Tables(0)
                             Case "descontinuado"
                                 Consulta = "select titulo,anio,origen,descripcion,estado from revistas where estado like '3' and titulo like '" & txtbusqueda.Text & "%'"
                                 consultar()
-                                dgvrevistas.DataSource = Tabla
+                                dgvrevistas.DataSource = Tabla.Tables(0)
                         End Select
 
                     Case "Año"
@@ -193,19 +193,19 @@
                             Case "disponible"
                                 Consulta = "select titulo,anio,origen,descripcion,estado from revistas where estado like '0' and anio like '" & txtbusqueda.Text & "%'"
                                 consultar()
-                                dgvrevistas.DataSource = Tabla
+                                dgvrevistas.DataSource = Tabla.Tables(0)
                             Case "ocupado"
                                 Consulta = "select titulo,anio,origen,descripcion,estado from revistas where estado like '1' and anio like '" & txtbusqueda.Text & "%'"
                                 consultar()
-                                dgvrevistas.DataSource = Tabla
+                                dgvrevistas.DataSource = Tabla.Tables(0)
                             Case "reservado"
                                 Consulta = "select titulo,anio,origen,descripcion,estado from revistas where estado like '2' and anio like '" & txtbusqueda.Text & "%'"
                                 consultar()
-                                dgvrevistas.DataSource = Tabla
+                                dgvrevistas.DataSource = Tabla.Tables(0)
                             Case "descontinuado"
                                 Consulta = "select titulo,anio,origen,descripcion,estado from revistas where estado like '3' and anio like '" & txtbusqueda.Text & "%'"
                                 consultar()
-                                dgvrevistas.DataSource = Tabla
+                                dgvrevistas.DataSource = Tabla.Tables(0)
                         End Select
 
                     Case "Origen"
@@ -213,19 +213,19 @@
                             Case "disponible"
                                 Consulta = "select titulo,anio,origen,descripcion,estado from revistas where estado like '0' and origen like '" & txtbusqueda.Text & "%'"
                                 consultar()
-                                dgvrevistas.DataSource = Tabla
+                                dgvrevistas.DataSource = Tabla.Tables(0)
                             Case "ocupado"
                                 Consulta = "select titulo,anio,origen,descripcion,estado from revistas where estado like '1' and origen like '" & txtbusqueda.Text & "%'"
                                 consultar()
-                                dgvrevistas.DataSource = Tabla
+                                dgvrevistas.DataSource = Tabla.Tables(0)
                             Case "reservado"
                                 Consulta = "select titulo,anio,origen,descripcion,estado from revistas where estado like '2' and origen like '" & txtbusqueda.Text & "%'"
                                 consultar()
-                                dgvrevistas.DataSource = Tabla
+                                dgvrevistas.DataSource = Tabla.Tables(0)
                             Case "descontinuado"
                                 Consulta = "select titulo,anio,origen,descripcion,estado from revistas where estado like '3' and origen like '" & txtbusqueda.Text & "%'"
                                 consultar()
-                                dgvrevistas.DataSource = Tabla
+                                dgvrevistas.DataSource = Tabla.Tables(0)
                         End Select
 
                     Case "Descripcion"
@@ -233,19 +233,19 @@
                             Case "disponible"
                                 Consulta = "select titulo,anio,origen,descripcion,estado from revistas where estado like '0' and descripcion like '" & txtbusqueda.Text & "%'"
                                 consultar()
-                                dgvrevistas.DataSource = Tabla
+                                dgvrevistas.DataSource = Tabla.Tables(0)
                             Case "ocupado"
                                 Consulta = "select titulo,anio,origen,descripcion,estado from revistas where estado like '1' and descripcion like '" & txtbusqueda.Text & "%'"
                                 consultar()
-                                dgvrevistas.DataSource = Tabla
+                                dgvrevistas.DataSource = Tabla.Tables(0)
                             Case "reservado"
                                 Consulta = "select titulo,anio,origen,descripcion,estado from revistas where estado like '2' and descripcion like '" & txtbusqueda.Text & "%'"
                                 consultar()
-                                dgvrevistas.DataSource = Tabla
+                                dgvrevistas.DataSource = Tabla.Tables(0)
                             Case "descontinuado"
                                 Consulta = "select titulo,anio,origen,descripcion,estado from revistas where estado like '3' and descripcion like '" & txtbusqueda.Text & "%'"
                                 consultar()
-                                dgvrevistas.DataSource = Tabla
+                                dgvrevistas.DataSource = Tabla.Tables(0)
                         End Select
                         End Select
             Catch ex As Exception
@@ -283,7 +283,7 @@
         '-------Obtener el codigo de la revista--------
         Consulta = "select * from revistas"
         consultar()
-        For Each row As DataRow In Tabla.Rows
+        For Each row As DataRow In Tabla.Tables(0).Rows
             id = Val(row("id_revistas"))
         Next
         '----------------------------------------------
@@ -328,7 +328,7 @@
                 MsgBox("Se actualizaron los datos correctamente")
                 Consulta = "select * from revistas"
                 consultar()
-                dgvrevistas.DataSource = Tabla
+                dgvrevistas.DataSource = Tabla.Tables(0)
             Catch ex As Exception
                 MsgBox("No se pudo actualizar la informacion")
             End Try
