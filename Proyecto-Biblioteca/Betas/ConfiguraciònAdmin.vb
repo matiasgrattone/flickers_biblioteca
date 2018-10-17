@@ -38,7 +38,7 @@ Public Class ConfigAdmin
         TreeView1.Nodes.Add("Administradores")
         Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where estado='1' and tipo < '2'"
         consultar()
-        For Each row As DataRow In Tabla.Rows
+        For Each row As DataRow In Tabla.Tables(0).Rows
 
             Select Case row("tipo").ToString
 
@@ -67,7 +67,7 @@ Public Class ConfigAdmin
 
         Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where estado='1' and tipo = '1'"
         consultar()
-        DataGridView1.DataSource = Tabla
+        DataGridView1.DataSource = Tabla.Tables(0)
         DatagridModulo = DataGridView1
         Datagrid_Align()
         DataGridView1.Columns.Item("Tipo").Visible = False
@@ -78,7 +78,7 @@ Public Class ConfigAdmin
 
         Consulta = "select cod_grafica from MenuConfig where cod_usuario = '" & cedulaFotoPerfil & "'"
         consultar()
-        For Each row As DataRow In Tabla.Rows
+        For Each row As DataRow In Tabla.Tables(0).Rows
             Select Case row("cod_grafica")
                 Case 1
                     RadioButton1.Checked = True
@@ -168,7 +168,7 @@ Public Class ConfigAdmin
         'Llenar DataGrid de Editar
         Consulta = "select cedula As 'Cedula', nombre As 'Nombre' from usuarios where tipo = 1"
         consultar()
-        dgveditar.DataSource = Tabla
+        dgveditar.DataSource = Tabla.Tables(0)
         DatagridModulo = dgveditar
         Datagrid_Align()
 
@@ -177,7 +177,7 @@ Public Class ConfigAdmin
 
         Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where estado='0' and tipo = '1'"
         consultar()
-        Dgv_Baja.DataSource = Tabla
+        Dgv_Baja.DataSource = Tabla.Tables(0)
         DatagridModulo = Dgv_Baja
         Datagrid_Align()
         Dgv_Baja.Columns.Item("Tipo").Visible = False
@@ -278,7 +278,7 @@ Public Class ConfigAdmin
                 consultar()
                 Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where estado='1' and tipo='0'"
                 consultar()
-                DataGridView1.DataSource = Tabla
+                DataGridView1.DataSource = Tabla.Tables(0)
 
                 If ERROR1 = 1 Then
 
@@ -317,7 +317,7 @@ Public Class ConfigAdmin
 
         Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where nombre like '" & buscar_txt.Text & "%' and estado='1' and tipo = '1'"
         consultar()
-        DataGridView1.DataSource = Tabla
+        DataGridView1.DataSource = Tabla.Tables(0)
 
     End Sub
 
@@ -328,7 +328,7 @@ Public Class ConfigAdmin
             cedulaAdmin = InputBox("Ingrese una cedula de un administrador", Title:="Cedula Administrador")
             Consulta = "select cedula from usuarios where tipo = 0 and cedula = '" & cedulaAdmin & "'"
             consultar()
-            For Each row As DataRow In Tabla.Rows
+            For Each row As DataRow In Tabla.Tables(0).Rows
                 confirmacion = row("cedula").ToString
             Next
             If confirmacion = cedulaAdmin Then
@@ -337,10 +337,10 @@ Public Class ConfigAdmin
                 consultar()
                 Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where estado='1' and tipo ='1'"
                 consultar()
-                DataGridView1.DataSource = Tabla
+                DataGridView1.DataSource = Tabla.Tables(0)
                 Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where estado='0' and tipo = '1'"
                 consultar()
-                Dgv_Baja.DataSource = Tabla
+                Dgv_Baja.DataSource = Tabla.Tables(0)
                 listboxcarga()
             Else
                 MsgBox("La cedula ingresada no coincide con ningun administrador", MsgBoxStyle.OkOnly + MsgBoxStyle.Question, Title:="Error")
@@ -358,7 +358,7 @@ Public Class ConfigAdmin
             cedulaAdmin = InputBox("Ingrese una cedula de un administrador", Title:="Cedula Administrador")
             Consulta = "select cedula from usuarios where tipo = 0 and cedula = '" & cedulaAdmin & "'"
             consultar()
-            For Each row As DataRow In Tabla.Rows
+            For Each row As DataRow In Tabla.Tables(0).Rows
                 confirmacion = row("cedula").ToString
             Next
             If confirmacion = cedulaAdmin Then
@@ -367,10 +367,10 @@ Public Class ConfigAdmin
                 consultar()
                 Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where estado='0' and tipo ='1'"
                 consultar()
-                Dgv_Baja.DataSource = Tabla
+                Dgv_Baja.DataSource = Tabla.Tables(0)
                 Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where estado='1' and tipo='1'"
                 consultar()
-                DataGridView1.DataSource = Tabla
+                DataGridView1.DataSource = Tabla.Tables(0)
                 listboxcarga()
             Else
                 MsgBox("La cedula ingresada no coincide con ningun administrador", MsgBoxStyle.OkOnly + MsgBoxStyle.Question, Title:="Error")
@@ -384,7 +384,7 @@ Public Class ConfigAdmin
 
         Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where nombre like '" & Buscar_Baja_txt.Text & "%' and estado='0' and tipo = '1'"
         consultar()
-        Dgv_Baja.DataSource = Tabla
+        Dgv_Baja.DataSource = Tabla.Tables(0)
 
     End Sub
 
@@ -468,7 +468,7 @@ Public Class ConfigAdmin
             Consulta = "select rutaperfil from usuarios where cedula ='" + cedulaAdmin + "'"
             consultar()
 
-            For Each row As DataRow In Tabla.Rows
+            For Each row As DataRow In Tabla.Tables(0).Rows
                 ptbPerfilAdmin.ImageLocation = Convert.ToString(row("rutaperfil"))
             Next
         Catch ex As Exception
@@ -481,7 +481,7 @@ Public Class ConfigAdmin
             Consulta = "select rutaperfil from usuarios where cedula ='" + cedu_editar + "'"
             consultar()
 
-            For Each row As DataRow In Tabla.Rows
+            For Each row As DataRow In Tabla.Tables(0).Rows
                 ptb_perfil_editar.ImageLocation = Convert.ToString(row("rutaperfil"))
             Next
         Catch ex As Exception
@@ -572,7 +572,7 @@ Public Class ConfigAdmin
                 Try
                     Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento from usuarios where estado = 1 and tipo = 2;"
                     consultar()
-                    DataGridView1.DataSource = Tabla
+                    DataGridView1.DataSource = Tabla.Tables(0)
 
                 Catch ex As Exception
                     MsgBox(ex.Message)
@@ -630,7 +630,7 @@ Public Class ConfigAdmin
 
         Consulta = "select * from usuarios where cedula = '" + cedu_editar + "'"
         consultar()
-        For Each row As DataRow In Tabla.Rows
+        For Each row As DataRow In Tabla.Tables(0).Rows
 
             dia = row("nacimiento").ToString.Substring(0, 2)
             mes = row("nacimiento").ToString.Substring(3, 2)
@@ -680,9 +680,5 @@ Public Class ConfigAdmin
 
     Private Sub RadioButton4_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton4.CheckedChanged
         graficaseleccionada = 4
-    End Sub
-
-    Private Sub Panel2_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles Panel2.Paint
-
     End Sub
 End Class
