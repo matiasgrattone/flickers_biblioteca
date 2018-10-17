@@ -163,14 +163,20 @@
                             Pautor.Visible = True
                             Peditorial.Visible = False
                             Pclasificacion.Visible = False
+                            timereditorial.Enabled = True
+                            timerclasificacion.Enabled = True
                         Case 2
                             Peditorial.Visible = False
                             Pautor.Visible = False
                             Pclasificacion.Visible = True
+                            timerclasificacion.Enabled = True
+                            timerautor.Enabled = True
                         Case 3
                             Pclasificacion.Visible = False
                             Pautor.Visible = False
                             Peditorial.Visible = True
+                            timereditorial.Enabled = True
+                            timerautor.Enabled = True
                     End Select
 
                     ErrorProvider1.SetError(txtautor, "")
@@ -208,14 +214,20 @@
                             Pautor.Visible = True
                             Peditorial.Visible = False
                             Pclasificacion.Visible = False
+                            timereditorial.Enabled = True
+                            timerclasificacion.Enabled = True
                         Case 2
                             Peditorial.Visible = False
                             Pautor.Visible = False
                             Pclasificacion.Visible = True
+                            timerclasificacion.Enabled = True
+                            timerautor.Enabled = True
                         Case 3
                             Pclasificacion.Visible = False
                             Pautor.Visible = False
                             Peditorial.Visible = True
+                            timereditorial.Enabled = True
+                            timerautor.Enabled = True
                     End Select
 
                     ErrorProvider1.SetError(txtcasa_editorial, "")
@@ -693,14 +705,20 @@
                             Pautor.Visible = True
                             Peditorial.Visible = False
                             Pclasificacion.Visible = False
+                            timereditorial.Enabled = True
+                            timerclasificacion.Enabled = True
                         Case 2
                             Peditorial.Visible = False
                             Pautor.Visible = False
                             Pclasificacion.Visible = True
+                            timerclasificacion.Enabled = True
+                            timerautor.Enabled = True
                         Case 3
                             Pclasificacion.Visible = False
                             Pautor.Visible = False
                             Peditorial.Visible = True
+                            timereditorial.Enabled = True
+                            timerautor.Enabled = True
                     End Select
 
                     ErrorProvider1.SetError(txtclasificacion, "")
@@ -859,8 +877,7 @@
 
             Else
                 'Ingresa una nueva editorial a la Base de datos.
-                'Consulta = "INSERT INTO clasificacion values ('" + txtcodclas.Text + "',concat(upper(left('" + txtnombreclas.Text + "',1))),lower(substr('" + txtnombreclas.Text + "',2)))"
-                Consulta = "insert into clasificacion values('" & txtcodclas.Text & "','" & txtnombreclas.Text & "')"
+                Consulta = "insert into clasificacion values('" & txtcodclas.Text & "',concat(upper(left('" & txtnombreclas.Text & "',1)),lower(substr('" & txtnombreclas.Text & "',2))))"
                 consultar()
 
                 ErrorProvider1.SetError(txtcodclas, "")
