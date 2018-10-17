@@ -62,7 +62,6 @@ Partial Class FichaSocio
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBoxEstado = New System.Windows.Forms.PictureBox()
         Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.Rueda_de_carga1 = New Proyecto_Biblioteca.OptProgressControl.Rueda_de_carga()
         Me.labelLibroFavorito = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.LabelFecha_Ingreso = New System.Windows.Forms.Label()
@@ -452,7 +451,6 @@ Partial Class FichaSocio
         'Panel5
         '
         Me.Panel5.BackColor = System.Drawing.SystemColors.Control
-        Me.Panel5.Controls.Add(Me.Rueda_de_carga1)
         Me.Panel5.Controls.Add(Me.labelLibroFavorito)
         Me.Panel5.Controls.Add(Me.Label6)
         Me.Panel5.Controls.Add(Me.LabelFecha_Ingreso)
@@ -485,20 +483,6 @@ Partial Class FichaSocio
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(957, 628)
         Me.Panel5.TabIndex = 32
-        '
-        'Rueda_de_carga1
-        '
-        Me.Rueda_de_carga1.BackColor = System.Drawing.Color.Transparent
-        Me.Rueda_de_carga1.Interval = 60
-        Me.Rueda_de_carga1.Location = New System.Drawing.Point(573, 159)
-        Me.Rueda_de_carga1.MinimumSize = New System.Drawing.Size(28, 28)
-        Me.Rueda_de_carga1.Name = "Rueda_de_carga1"
-        Me.Rueda_de_carga1.Rotation = Proyecto_Biblioteca.OptProgressControl.Rueda_de_carga.Direction.CLOCKWISE
-        Me.Rueda_de_carga1.Size = New System.Drawing.Size(32, 35)
-        Me.Rueda_de_carga1.StartAngle = 270
-        Me.Rueda_de_carga1.TabIndex = 37
-        Me.Rueda_de_carga1.TickColor = System.Drawing.Color.FromArgb(CType(CType(58, Byte), Integer), CType(CType(58, Byte), Integer), CType(CType(58, Byte), Integer))
-        Me.Rueda_de_carga1.Visible = False
         '
         'labelLibroFavorito
         '
@@ -635,5 +619,4 @@ Partial Class FichaSocio
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents cmbaño As System.Windows.Forms.ComboBox
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
-    Friend WithEvents Rueda_de_carga1 As Proyecto_Biblioteca.OptProgressControl.Rueda_de_carga
 End Class
