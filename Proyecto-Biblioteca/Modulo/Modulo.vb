@@ -9,15 +9,29 @@ Imports System.Text
 
 Module Modulo
 
-    Public nombre As String 'Variable para cambiar mostrar nombre en inicio usuario
-
+    'conexion a la base de datos con datatable
     Dim ubicacion As String
     Public invitado As Integer = 0
     Public ERROR1 As Integer
     Public Conexion As MySqlDataAdapter
-    Public Tabla As DataSet
+    Public Tabla As DataTable
     Public Consulta As String
     Public MysqlConexion As MySqlConnection = New MySqlConnection(ubicacion)
+
+
+    'conexion a la base de datos con dataset
+    Dim ubicacion_dataset As String
+    Public ERROR1_dataset As Integer
+    Public Conexion_dataset As MySqlDataAdapter
+    Public Tabla_dataset As DataSet
+    Public Consulta_dataset As String
+    Public MysqlConexion_dataset As MySqlConnection = New MySqlConnection(ubicacion)
+
+
+
+
+    Public nombre As String 'Variable para cambiar mostrar nombre en inicio usuario
+
 
     Public rutaGuardadoFotos As String = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\Fotos_de_perfil" ' Ruta donde estan las fotos de perfil de los funcionarios
     Public cedula_ingresada As String
@@ -46,7 +60,7 @@ Module Modulo
 
         Try
             Conexion = New MySqlDataAdapter(Consulta, ubicacion)
-            Tabla = New DataSet
+            Tabla = New DataTable
             Conexion.Fill(Tabla)
             MysqlConexion.Close()
             If ERROR1 = 2 Then
@@ -286,4 +300,38 @@ Module Modulo
         Return Desencriptar
     End Function
 
+    Public Sub consultar_DataSet()
+
+        'ubicacion = "server=localhost; user id=root; password=''; database=biblioteca"
+        'ubicacion = "server=192.168.1.12; user id=admin; password=admin; database=biblioteca" ' NO BORRAR, YO USO ESTA PARA PROGRAMAR EN CASA, GUILLE (NO PUEDO USAR EL DOMINIO EN LAN)
+        ubicacion_dataset = "server=bibliotecadb.ddns.net; user id=admin; password=admin; database=biblioteca"
+
+        Try
+            Conexion_dataset = New MySqlDataAdapter(Consulta_dataset, ubicacion_dataset)
+            Tabla_dataset = New DataSet
+            Conexion_dataset.Fill(Tabla_dataset)
+            MysqlConexion.Close()
+            If ERROR1_dataset = 2 Then
+                'MsgBox("ha vuelto la conexiòn", MsgBoxStyle.Information)
+                ERROR1_dataset = 0
+            End If
+
+        Catch ex As Exception
+
+            If (ex.Message.ToLowerInvariant().Contains("unable to connect")) And ERROR1_dataset = 0 Then
+                '    MsgBox("no hay conexion con la base de datos", MsgBoxStyle.OkOnly, "ERROR")
+                ERROR1_dataset = 2
+            ElseIf (ex.Message.ToLowerInvariant().Contains("duplicate entry")) Then
+                MsgBox("hay datos duplicados , verifique que los datos no esten ya ingresados en la plataforma", MsgBoxStyle.OkOnly, "ERROR")
+                ERROR1_dataset = 1
+            ElseIf (ex.Message.ToLowerInvariant().Contains("unable to connect")) And ERROR1_dataset = 2 Then
+            ElseIf ERROR1_dataset <> 2 Then
+                If MsgBox("ha ocurrido un error desea verlo?", MsgBoxStyle.YesNo) = vbYes Then
+                    MsgBox(ex.ToString)
+                Else
+                End If
+            End If
+        End Try
+
+    End Sub
 End Module

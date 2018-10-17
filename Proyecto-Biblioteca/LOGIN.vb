@@ -35,7 +35,7 @@
             Try
                 Consulta = "select contrasenia , nombre , cedula from usuarios where cedula = '" + user + "' and tipo<'2';"
                 consultar()
-                For Each row As DataRow In Tabla.Tables(0).Rows
+                For Each row As DataRow In Tabla.Rows
                     If Desencriptar(row("contrasenia").ToString) = pass Then
                         MENU3.Nombre.Text = row("nombre")
                         MENU3.lbl_cedula.Text = row("cedula")
@@ -86,7 +86,7 @@
                 Try
                     Consulta = "select contrasenia , nombre , cedula from usuarios where cedula = '" + user + "' and tipo<'2';"
                     consultar()
-                    For Each row As DataRow In Tabla.Tables(0).Rows
+                    For Each row As DataRow In Tabla.Rows
 
                         If Desencriptar(row("contrasenia").ToString) = pass Then
                             MENU3.Nombre.Text = row("nombre")
@@ -146,7 +146,7 @@
                 Try
                     Consulta = "select contrasenia , nombre , cedula from usuarios where cedula = '" + user + "' and tipo<'2';"
                     consultar()
-                    For Each row As DataRow In Tabla.Tables(0).Rows
+                    For Each row As DataRow In Tabla.Rows
                         If Desencriptar(row("contrasenia").ToString) = pass Then
                             MENU3.Nombre.Text = row("nombre")
                             MENU3.lbl_cedula.Text = row("cedula")
@@ -195,7 +195,7 @@
 
         Consulta = "select * from usuarios where cedula = '" & mailrecuperar & "'"
         consultar()
-        For Each row As DataRow In Tabla.Tables(0).Rows
+        For Each row As DataRow In Tabla.Rows
             enviarEmail(row("mail"), "recuperación contraseña", "Su Contraseña es : " & Desencriptar(row("contrasenia")))
         Next
     End Sub

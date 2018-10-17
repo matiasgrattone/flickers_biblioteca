@@ -78,7 +78,7 @@
         Button4.Visible = False
         Consulta = "select cedula as 'Cedula', nombre as 'Nombre', apellido as 'Apellido', direccion as 'Direccion', telefono 'Telefono', nacimiento as 'Nacimiento' from usuarios where estado = 1 and tipo = 2;"
         consultar()
-        DataGridView1.DataSource = Tabla.Tables(0)
+        DataGridView1.DataSource = Tabla
 
         DatagridModulo = DataGridView1
         Datagrid_Align()
@@ -92,7 +92,7 @@
     Private Sub PlaceHolder1_TextChanged(sender As System.Object, e As System.EventArgs) Handles PlaceHolder1.TextChanged
         Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento from usuarios where cedula like '" & PlaceHolder1.Text & "%' and estado = 1 and tipo = 2"
         consultar()
-        DataGridView1.DataSource = Tabla.Tables(0)
+        DataGridView1.DataSource = Tabla
     End Sub
 
     Private Sub PictureBox1_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox1.Click
@@ -353,7 +353,7 @@
                 Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento , tipo from usuarios where cedula = '" & DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value & "'"
                 consultar()
 
-                For Each row As DataRow In Tabla.Tables(0).Rows
+                For Each row As DataRow In Tabla.Rows
 
                     nombre.Text = row("nombre").ToString
                     apellido.Text = row("apellido").ToString
@@ -414,14 +414,14 @@
                     Consulta = "select cedula from usuarios where tipo = 0 and cedula = '" & cedulaAdmin & "'"
                     consultar()
 
-                    For Each row As DataRow In Tabla.Tables(0).Rows
+                    For Each row As DataRow In Tabla.Rows
                         confirmacion = row("cedula").ToString
                     Next
                     If confirmacion = cedulaAdmin Then
 
                         Consulta = "update usuarios set estado = 0 where cedula = '" & cedulaUser & "' ; select cedula , nombre , apellido , direccion , telefono , nacimiento from usuarios where estado = 1 and tipo = 1"
                         consultar()
-                        DataGridView1.DataSource = Tabla.Tables(1)
+                        DataGridView1.DataSource = Tabla
                     Else
                         MsgBox("la cedula ingresada no coincide con ningun administrador", styleMSGOK_datagrid, Title:="Error")
                     End If
@@ -519,7 +519,7 @@
                 Try
                     Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento from usuarios where estado = 1 and tipo = 2;"
                     consultar()
-                    DataGridView1.DataSource = Tabla.Tables(0)
+                    DataGridView1.DataSource = Tabla
 
                 Catch ex As Exception
                     MsgBox(ex.Message)
@@ -665,7 +665,7 @@
         Try
             Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento from usuarios where estado = 1 and tipo = 2;"
             consultar()
-            DataGridView1.DataSource = Tabla.Tables(0)
+            DataGridView1.DataSource = Tabla
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -754,7 +754,7 @@
                 Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento , tipo from usuarios where cedula = '" & DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value & "'"
                 consultar()
 
-                For Each row As DataRow In Tabla.Tables(0).Rows
+                For Each row As DataRow In Tabla.Rows
 
                     ' //////////////////FECHA NACIMIENTO////////////////////
 
@@ -969,7 +969,7 @@
             Consulta = "select rutaperfil from usuarios where cedula ='" + ced_ingresar + "'"
             consultar()
 
-            For Each row As DataRow In Tabla.Tables(0).Rows
+            For Each row As DataRow In Tabla.Rows
                 ptbFotoSocio.ImageLocation = Convert.ToString(row("rutaperfil"))
             Next
         Catch ex As Exception
@@ -981,7 +981,7 @@
         Try
             Consulta = "select rutaperfil from usuarios where cedula ='" & cedula.Text & "'"
             consultar()
-            For Each row As DataRow In Tabla.Tables(0).Rows
+            For Each row As DataRow In Tabla.Rows
                 ptbFotoEditar.Refresh()
                 ptbFotoEditar.ImageLocation = Convert.ToString("Fotos de socio\student.png")
                 If row("rutaperfil") Is DBNull.Value Or row("rutaperfil") Is "" Then

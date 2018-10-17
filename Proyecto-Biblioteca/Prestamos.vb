@@ -199,7 +199,7 @@
             Consulta = "select cedula from usuarios where cedula like '" & Cedula.Text & "'"
             consultar()
 
-            If Tabla.Tables(0).Rows.Count = 0 Then ' VERFICAR SI ES NULO EL RESULTADO DE LA CONSULTA
+            If Tabla.Rows.Count = 0 Then ' VERFICAR SI ES NULO EL RESULTADO DE LA CONSULTA
 
 
                 'Ocultamos los grupbox por seguridad
@@ -238,7 +238,7 @@
                 Consulta = "select cedula , nombre from usuarios where cedula like '" & Cedula.Text & "'"
                 consultar()
                 Try
-                    For Each row As DataRow In Tabla.Tables(0).Rows
+                    For Each row As DataRow In Tabla.Rows
                         NOMBRE.Text = row("nombre") 'Hacemos un for each y iguaamos el label nombre al nombre dado por la consulta echa ya
                     Next
                 Catch ex As Exception
@@ -300,12 +300,12 @@
 
                 Consulta = "select * from prestamolibro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'; select cod_libro as 'Numero de Inventario', titulo as 'Titulo', volumen as 'Volumen', ubicacion as 'Ubicacion' from libro where estado ='0' "
                 consultar()
-                If (Tabla.Tables(0).Rows.Count = 0) Then
+                If (Tabla.Rows.Count = 0) Then
                     GrupBoxExtraccion.Visible = True
-                    DataGridViewlllllVerLibrosEnExtraccionlllll.DataSource = Tabla.Tables(1)
+                    DataGridViewlllllVerLibrosEnExtraccionlllll.DataSource = Tabla
                 Else
 
-                    For Each row As DataRow In Tabla.Tables(0).Rows
+                    For Each row As DataRow In Tabla.Rows
                         If row("fecha_entrada") Is DBNull.Value Then
                             FechaEntradaPrestamo = 1
                         Else
@@ -319,7 +319,7 @@
                         Case 0
                             Consulta = "select cod_libro as 'Numero de Inventario', titulo as 'Titulo', volumen as 'Volumen', ubicacion as 'Ubicacion' from libro where estado ='0'"
                             consultar()
-                            DataGridViewlllllVerLibrosEnExtraccionlllll.DataSource = Tabla.Tables(0)
+                            DataGridViewlllllVerLibrosEnExtraccionlllll.DataSource = Tabla
                             GrupBoxExtraccion.Visible = True
                     End Select
                 End If
@@ -333,7 +333,7 @@
         Try
             Consulta = "select cod_libro as 'Numero de Inventario', titulo as 'Titulo', volumen as 'Volumen', ubicacion as 'Ubicacion' from libro where estado ='0' and cod_libro LIKE '" & TextboxBuscador.Text & "%'"
             consultar()
-            DataGridViewlllllVerLibrosEnExtraccionlllll.DataSource = Tabla.Tables(0)
+            DataGridViewlllllVerLibrosEnExtraccionlllll.DataSource = Tabla
         Catch ex As Exception
         End Try
     End Sub
@@ -532,7 +532,7 @@
             Consulta = "select * from prestamolibro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
             consultar()
 
-            If (Tabla.Tables(0).Rows.Count = 0) Then
+            If (Tabla.Rows.Count = 0) Then
 
                 While contador < list
                     contador = Val(contador) + 1
@@ -557,7 +557,7 @@
             Else
 
 
-                For Each row As DataRow In Tabla.Tables(0).Rows
+                For Each row As DataRow In Tabla.Rows
                     If row("fecha_estimada") Is DBNull.Value Then
                         FechaEntradaPrestamo = 0
                     Else
@@ -604,7 +604,7 @@
 
             Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion', fecha_estimada as 'Fecha Maxima de Prestamo' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
             consultar()
-            DataGridParaDevolucion.DataSource = Tabla.Tables(0)
+            DataGridParaDevolucion.DataSource = Tabla
 
 
             '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -701,7 +701,7 @@
 
                     Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion', fecha_estimada as 'Fecha Maxima de Prestamo' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
                     consultar()
-                DataGridParaDevolucion.DataSource = Tabla.Tables(0)
+                DataGridParaDevolucion.DataSource = Tabla
 
                 Else
 
@@ -709,7 +709,7 @@
 
                 Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion', fecha_estimada as 'Fecha Maxima de Prestamo' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
                     consultar()
-                DataGridParaDevolucion.DataSource = Tabla.Tables(0)
+                DataGridParaDevolucion.DataSource = Tabla
 
                 End If
         Catch ex As Exception
@@ -735,7 +735,7 @@
             CrearReservacionGrupBox.Visible = True
             Consulta = "select cod_libro as 'Numero de Inventario', titulo as 'Titulo', volumen as 'Volumen', ubicacion as 'Ubicacion' from libro where estado ='0'"
             consultar()
-            LibrosParaReservar.DataSource = Tabla.Tables(0)
+            LibrosParaReservar.DataSource = Tabla
 
             '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -750,7 +750,7 @@
         Try
             Consulta = "select cod_libro as 'Numero de Inventario', titulo as 'Titulo', volumen as 'Volumen', ubicacion as 'Ubicacion' from libro where estado ='0' and cod_libro LIKE '" & TextBoxEnCrearReservaciones.Text & "%'"
             consultar()
-            LibrosParaReservar.DataSource = Tabla.Tables(0)
+            LibrosParaReservar.DataSource = Tabla
         Catch ex As Exception
         End Try
     End Sub
@@ -778,7 +778,7 @@
 
             Consulta = "select cod_libro as 'Numero de Inventario', titulo as 'Titulo', volumen as 'Volumen', ubicacion as 'Ubicacion' from libro where estado ='0'"
             consultar()
-            LibrosParaReservar.DataSource = Tabla.Tables(0)
+            LibrosParaReservar.DataSource = Tabla
 
         Else
 
@@ -786,7 +786,7 @@
 
             Consulta = "select cod_libro as 'Numero de Inventario', titulo as 'Titulo', volumen as 'Volumen', ubicacion as 'Ubicacion' from libro where estado ='0'"
             consultar()
-            LibrosParaReservar.DataSource = Tabla.Tables(0)
+            LibrosParaReservar.DataSource = Tabla
 
         End If
 
@@ -808,8 +808,8 @@
 
                 Consulta = "select * from prestamolibro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'; select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado = '2' and cedula = '" + Cedula.Text + "' and p.fecha_salida is NULL and p.fecha_entrada is NULL"
                 consultar()
-                If (Tabla.Tables(0).Rows.Count = 0) Then
-                    VerLibrosReservados2.DataSource = Tabla.Tables(1)
+                If (Tabla.Rows.Count = 0) Then
+                    VerLibrosReservados2.DataSource = Tabla
                     modoExtraer = "On"
                     BotonExtrearReservados.Visible = True
                 Else
@@ -818,7 +818,7 @@
 
                     Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado = '2' and cedula = '" + Cedula.Text + "' and p.fecha_salida is NULL and p.fecha_entrada is NULL"
                     consultar()
-                    VerLibrosReservados2.DataSource = Tabla.Tables(0)
+                    VerLibrosReservados2.DataSource = Tabla
                     modoExtraer = "Off"
                     BotonExtrearReservados.Visible = False
                 End If
@@ -887,7 +887,7 @@
 
                 Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado = '2' and cedula = '" + Cedula.Text + "' and p.fecha_salida is NULL and p.fecha_entrada is NULL"
                 consultar()
-                VerLibrosReservados2.DataSource = Tabla.Tables(0)
+                VerLibrosReservados2.DataSource = Tabla
             Else
                 MsgBox("No se canceló la reservación del libro", Title:="ERROR RESERVACIÓN")
             End If
@@ -898,7 +898,7 @@
 
         Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado = '2' and cedula = '" + Cedula.Text + "' and p.fecha_salida is NULL and p.fecha_entrada is NULL"
         consultar()
-        VerLibrosReservados2.DataSource = Tabla.Tables(0)
+        VerLibrosReservados2.DataSource = Tabla
 
     End Sub
 
@@ -920,7 +920,7 @@
             Consulta = "select * from prestamolibro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
                 consultar()
 
-            If (Tabla.Tables(0).Rows.Count = 0) Then
+            If (Tabla.Rows.Count = 0) Then
 
                 While contador < list
                     contador = Val(contador) + 1
@@ -940,7 +940,7 @@
                 ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
                 Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado = '2' and cedula = '" + Cedula.Text + "' and p.fecha_salida is NULL and p.fecha_entrada is NULL"
                 consultar()
-                VerLibrosReservados2.DataSource = Tabla.Tables(0)
+                VerLibrosReservados2.DataSource = Tabla
                 MsgBox("Se extrajo correctamente los libros", Title:="PRESTAMO")
                 GrupBoxExtraccion.Visible = False
 
@@ -948,7 +948,7 @@
             Else
 
 
-                For Each row As DataRow In Tabla.Tables(0).Rows
+                For Each row As DataRow In Tabla.Rows
                     If row("fecha_entrada") Is DBNull.Value Then
                         FechaEntradaPrestamo = 0
                     Else
@@ -978,7 +978,7 @@
                         ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
                         Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado = '2' and cedula = '" + Cedula.Text + "' and p.fecha_salida is NULL and p.fecha_entrada is NULL"
                         consultar()
-                        VerLibrosReservados2.DataSource = Tabla.Tables(0)
+                        VerLibrosReservados2.DataSource = Tabla
                         MsgBox("Se extrajo correctamente los libros", Title:="PRESTAMO")
                         GrupBoxExtraccion.Visible = False
 
@@ -1083,7 +1083,7 @@
 
             Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion', fecha_estimada as 'Fecha Maxima de Prestamo' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
             consultar()
-            dgvRenovacion.DataSource = Tabla.Tables(0)
+            dgvRenovacion.DataSource = Tabla
 
             '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1255,9 +1255,5 @@
 
     Private Sub ptbRenovar_MouseHover(ByVal sender As Object, ByVal e As System.EventArgs) Handles ptbRenovar.MouseHover
         LabelSELECCION_DE_FUNCION.Text = "Renovar Libros"
-    End Sub
-
-    Private Sub DataGridParaDevolucion_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridParaDevolucion.CellContentClick
-
     End Sub
 End Class

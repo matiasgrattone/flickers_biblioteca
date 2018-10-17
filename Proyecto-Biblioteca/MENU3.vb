@@ -26,7 +26,7 @@ Public Class MENU3
                 Dim fecha As String = DateTime.Now.ToString("yyyy/MM/dd") 'variable para filtrar la fecha estimada para entregar el libro
                 Consulta = "select titulo from prestamolibro p inner join libro l on p.cod_libro=l.cod_libro where fecha_estimada='" + fecha + "'"
                 consultar()
-                For Each row As DataRow In Tabla.Tables(0).Rows
+                For Each row As DataRow In Tabla.Rows
                     If Not IsDBNull(row("titulo")) Then 'verifica si titulo no es nulo para poder activar el panel de libros que hay que entregar en el dia
                         Pbadvertenciaprestamos.Visible = True
                     End If
@@ -45,7 +45,7 @@ Public Class MENU3
 
         Consulta = "select prestamolibro.cod_libro as Libros, libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where fecha_entrada is null"
         consultar()
-        DataGridViewLibros.DataSource = Tabla.Tables(0)
+        DataGridViewLibros.DataSource = Tabla
         DatagridModulo = DataGridViewLibros 'iguala la varible publica de tipo datagrid al datagrid que recibe los datos de la consulta
         Datagrid_Align() 'llama al metodo para alinear las filas y las columnas del datagrid
 
@@ -55,7 +55,7 @@ Public Class MENU3
             Consulta = "select rutaperfil from usuarios where cedula ='" + cedulaIngre + "'"
             consultar()
 
-            For Each row As DataRow In Tabla.Tables(0).Rows
+            For Each row As DataRow In Tabla.rows
                 Pbusuario.ImageLocation = Convert.ToString(row("rutaperfil")) 'iguala el picturebox de MENU3 con la ubicacion de la imagen guardada en la base
             Next
         Catch ex As Exception
@@ -133,7 +133,7 @@ Public Class MENU3
         Panel_Inicio.BackColor = Drawing.Color.LightGray
     End Sub
     Private Sub ComboBox1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBox1.SelectedIndexChanged
-        Chart()
+
     End Sub
     '////////////////////////////////Movimiento de Ventana//////////////////////////////////////////////////
     Private Sub Panel1_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Phoraencabezado.MouseDown
@@ -406,7 +406,7 @@ Public Class MENU3
                 contraseniaAdmin = InputBox("Por favor ingrese la cedula de un administrador", Title:="Biblioteca")
                 Consulta = "select * from usuarios where tipo < 2"
                 consultar()
-                For Each row As DataRow In Tabla.Tables(0).Rows
+                For Each row As DataRow In Tabla.Rows
                     If row("cedula") = contraseniaAdmin Then
                         cedula = 1
                         ConfigAdmin.ptbPerfilAdmin.ImageLocation = row("rutaperfil").ToString
@@ -538,7 +538,7 @@ Public Class MENU3
 
             Consulta = "select count(prestamolibro.cod_libro) , month(prestamolibro.fecha_salida) from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where fecha_salida IS NOT NULL and  year(fecha_salida) = '" & substring & "'group by month(fecha_salida)"
             consultar()
-            For Each row As DataRow In Tabla.Tables(0).Rows
+            For Each row As DataRow In Tabla.Rows
                 substring = row("month(prestamolibro.fecha_salida)")
                 If substring.Length = 1 Then
                     substring = "0" & row("month(prestamolibro.fecha_salida)")
@@ -561,7 +561,7 @@ Public Class MENU3
                 Consulta = "select cod_grafica from MenuConfig where cod_usuario = '" & lbl_cedula.Text & "'"
                 consultar()
 
-                For Each row As DataRow In Tabla.Tables(0).Rows
+                For Each row As DataRow In Tabla.Rows
                     Select Case row("cod_grafica")
                         Case 1
 
@@ -594,7 +594,7 @@ Public Class MENU3
                 consultar()
 
                 ContadorDia = 0
-                For Each row As DataRow In Tabla.Tables(0).Rows
+                For Each row As DataRow In Tabla.Rows
 
                     ChartPrestamosDia.Series("Prestamos Del Dia").Points.AddXY(row("day(prestamolibro.fecha_salida)"), row("count(prestamolibro.cod_libro)"))
                     ChartPrestamosDia.Series("Prestamos Del Dia").Points(ContadorDia).AxisLabel = "Dia : " + "#VALX"
@@ -620,7 +620,7 @@ Public Class MENU3
                 consultar()
 
                 Dim X As Integer = 0
-                For Each row As DataRow In Tabla.Tables(0).Rows
+                For Each row As DataRow In Tabla.Rows
 
                     ChartTOP.Series("TOP").Points.AddXY(row("titulo"), row("count(prestamolibro.cod_libro)"))
                     'ChartTOP.Series("TOP").Points(X).AxisLabel = row("count(prestamolibro.cod_libro)")
@@ -654,7 +654,7 @@ Public Class MENU3
                     DataGridViewLibros.Refresh()
                     Consulta = "select prestamolibro.cod_libro as Libros, libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where fecha_entrada is null"
                     consultar()
-                    DataGridViewLibros.DataSource = Tabla.Tables(0)
+                    DataGridViewLibros.DataSource = Tabla
                 Catch ex As Exception
                     MsgBox("Error Libros Prestados Timer" & ex.ToString)
                 End Try
@@ -698,7 +698,7 @@ Public Class MENU3
             Dim fecha As String = DateTime.Now.ToString("yyyy/MM/dd")
             Consulta = "select titulo from prestamolibro p inner join libro l on p.cod_libro=l.cod_libro where fecha_estimada='" + fecha + "'"
             consultar()
-            For Each row As DataRow In Tabla.Tables(0).Rows
+            For Each row As DataRow In Tabla.Rows
                 If Not IsDBNull(row("titulo")) Then
                     LbPrestamos.Items.Add(row("titulo"))
                 End If
@@ -728,7 +728,7 @@ Public Class MENU3
 
         Consulta = "select * from usuarios"
         consultar()
-        DataGridView1.DataSource = Tabla.Tables(0)
+        DataGridView1.DataSource = Tabla
         If DataGridView1.Rows.Count() = 0 Then
             Pbnube.Image = Image.FromFile("imagenes\cloud-error.png")
             ConfigAdmin.Label_BDestadoTXT.Text = lblhora.Text
@@ -820,7 +820,7 @@ Public Class MENU3
     Private Sub Pbusuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbusuario.Click
         Consulta = "select cedula , nombre , mail , tipo from usuarios where cedula = '" & lbl_cedula.Text & "'"
         consultar()
-        For Each row As DataRow In Tabla.Tables(0).Rows
+        For Each row As DataRow In Tabla.Rows
             If row("cedula") IsNot DBNull.Value Then
                 info_usuario.LabelCedula.Text = row("cedula")
                 info_usuario.LabelMail.Text = row("mail")
@@ -1146,5 +1146,19 @@ Public Class MENU3
     Private Sub PictureBox3_Click_1(sender As System.Object, e As System.EventArgs) Handles PictureBox3.Click
         Me.Close()
         LOGIN.Close()
+    End Sub
+
+    Private Sub ComboBox1_MouseEnter(sender As System.Object, e As System.EventArgs) Handles ComboBox1.MouseEnter
+        Timer_Prestamos_LIVE.Enabled = False
+        Timer_BD.Enabled = False
+    End Sub
+
+    Private Sub ComboBox1_DropDownClosed(sender As System.Object, e As System.EventArgs) Handles ComboBox1.DropDownClosed
+        Chart()
+    End Sub
+
+    Private Sub ComboBox1_MouseLeave(sender As System.Object, e As System.EventArgs) Handles ComboBox1.MouseLeave
+        Timer_Prestamos_LIVE.Enabled = True
+        Timer_BD.Enabled = True
     End Sub
 End Class

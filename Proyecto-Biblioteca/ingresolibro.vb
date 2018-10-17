@@ -108,7 +108,7 @@
                                 '///////////////////////////////////////////
                                 Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo' , autor.nombre, libro.volumen as 'Volumen' ,editorial.nombre, libro.anio, libro.origen as 'Origen', libro.observaciones as 'Observaciones',libro.cod_clas,clasificacion.nom_clas from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial inner join clasificacion on libro.cod_clas = clasificacion.cod_clas"
                                 consultar()
-                                dgvlibro.DataSource = Tabla.Tables(0)
+                                dgvlibro.DataSource = Tabla
                                 '///////////////////////////////////////////////////////////////////////////// 
                                 '/// Al haberse ingresado un nuevo dato, limpia los textbox del formulario ///
                                 '/////////////////////////////////////////////////////////////////////////////
@@ -177,7 +177,7 @@
                     ErrorProvider1.SetError(txtautor, "")
                     Consulta = "SELECT * FROM autor"
                     consultar()
-                    dgvautor.DataSource = Tabla.Tables(0)
+                    dgvautor.DataSource = Tabla
                     dgvautor.Columns(0).Visible = False
                     dgvautor.Columns(1).HeaderText = "Nombre de Autor"
                     dgvautor.Columns(2).HeaderText = "Nacionalidad"
@@ -223,7 +223,7 @@
                     ErrorProvider1.SetError(txtcasa_editorial, "")
                     Consulta = "SELECT * FROM editorial"
                     consultar()
-                    dgveditorial.DataSource = Tabla.Tables(0)
+                    dgveditorial.DataSource = Tabla
                     dgveditorial.Columns(1).HeaderText = "Nombre de Editorial"
                     dgveditorial.Columns(2).HeaderText = "Pais"
                     dgveditorial.Columns(3).HeaderText = "Año"
@@ -260,7 +260,7 @@
         Consulta = "select * from usuarios"
         consultar()
         Try
-            For Each row As DataRow In Tabla.Tables(0).Rows
+            For Each row As DataRow In Tabla.Rows
                 If row("nombre").ToString <> "" Then
                     bandera = 1
                 Else
@@ -279,7 +279,7 @@
 
                 Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo' , autor.nombre, libro.volumen as 'Volumen' ,editorial.nombre, libro.anio, libro.origen as 'Origen', libro.observaciones as 'Observaciones',libro.cod_clas,clasificacion.nom_clas from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial inner join clasificacion on libro.cod_clas = clasificacion.cod_clas"
                 consultar()
-                dgvlibro.DataSource = Tabla.Tables(0)
+                dgvlibro.DataSource = Tabla
                 dgvlibro.Columns(4).HeaderText = "Nombre Editorial"
                 dgvlibro.Columns(2).HeaderText = "Nombre Autor"
                 dgvlibro.Columns(0).HeaderText = "Nº de Inventario"
@@ -342,7 +342,7 @@
 
                         Consulta = "SELECT * FROM autor"
                         consultar()
-                        dgvautor.DataSource = Tabla.Tables(0)
+                        dgvautor.DataSource = Tabla
 
                         'El boton se esconde
                         btncancelarautor.Visible = False
@@ -515,7 +515,7 @@
                 Try
                     Consulta = "SELECT * FROM editorial"
                     consultar()
-                    dgveditorial.DataSource = Tabla.Tables(0)
+                    dgveditorial.DataSource = Tabla
 
                 Catch ex As Exception
                     MsgBox(ex)
@@ -545,7 +545,7 @@
         Try
             Consulta = "select * from autor where nombre like '" & txtbuscarautor.Text & "%'"
             consultar()
-            dgvautor.DataSource = Tabla.Tables(0)
+            dgvautor.DataSource = Tabla
         Catch ex As Exception
 
         End Try
@@ -578,7 +578,7 @@
         'Busqueda de editoriales
         Consulta = "select * from editorial where nombre like '" & txtbuscareditorial.Text & "%'"
         consultar()
-        dgveditorial.DataSource = Tabla.Tables(0)
+        dgveditorial.DataSource = Tabla
     End Sub
 
     Private Sub timerautor_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles timerautor.Tick
@@ -776,7 +776,7 @@
                     ErrorProvider1.SetError(txtclasificacion, "")
                     Consulta = "SELECT * FROM clasificacion"
                     consultar()
-                    dgvclasificacion.DataSource = Tabla.Tables(0)
+                    dgvclasificacion.DataSource = Tabla
                     dgvclasificacion.Columns(0).HeaderText = "Codigo de Clasificacion"
                     dgvclasificacion.Columns(1).HeaderText = "Clasificacion"
                     dgvclasificacion.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill 'Ajusta las columnas al tamaño del datagrid'
@@ -945,7 +945,7 @@
                 Try
                     Consulta = "SELECT * FROM clasificacion"
                     consultar()
-                    dgvclasificacion.DataSource = Tabla.Tables(0)
+                    dgvclasificacion.DataSource = Tabla
 
                 Catch ex As Exception
                     MsgBox(ex)
@@ -1022,15 +1022,15 @@
             Case 0
                 Consulta = "select * from clasificacion where cod_clas like '" & txtbuscarclas.Text & "%'"
                 consultar()
-                dgvclasificacion.DataSource = Tabla.Tables(0)
+                dgvclasificacion.DataSource = Tabla
             Case 1
                 Consulta = "select * from clasificacion where nom_clas like '" & txtbuscarclas.Text & "%'"
                 consultar()
-                dgvclasificacion.DataSource = Tabla.Tables(0)
+                dgvclasificacion.DataSource = Tabla
             Case Else
                 Consulta = "select * from clasificacion"
                 consultar()
-                dgvclasificacion.DataSource = Tabla.Tables(0)
+                dgvclasificacion.DataSource = Tabla
         End Select
         
     End Sub
@@ -1201,13 +1201,5 @@
             Case 1
                 ensala = 1
         End Select
-    End Sub
-
-    Private Sub Pautor_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Pautor.Paint
-
-    End Sub
-
-    Private Sub Pclasificacion_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Pclasificacion.Paint
-
     End Sub
 End Class

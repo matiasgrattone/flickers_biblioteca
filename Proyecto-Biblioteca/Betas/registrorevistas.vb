@@ -16,12 +16,12 @@
 
                     Consulta = "Select revistas.id_revistas, revistas.titulo, usuarios.cedula, usuarios.nombre, prestamorevistas.fecha_salida, prestamorevistas.fecha_entrada, prestamorevistas.cod_prestado, prestamorevistas.cod_devuelto from revistas inner join prestamorevistas on revistas.id_revistas = prestamorevistas.id_revistas inner join usuarios on usuarios.cedula=prestamorevistas.cedula where prestamorevistas.fecha_salida >= '" & cmbaño.SelectedItem & "-" & mesdesde & "-" & cmbdia.SelectedItem & "' and prestamorevistas.fecha_salida <= '" & cmbaño2.SelectedItem & "-" & meshasta & "-" & cmbdia2.SelectedItem & "' and usuarios.cedula like '" & txtbusqueda.Text & "%'"
                     consultar()
-                    dgvregistro.DataSource = Tabla.Tables(0)
+                    dgvregistro.DataSource = Tabla
 
                 Else
                     Consulta = "Select revistas.id_revistas, revistas.titulo, usuarios.cedula, usuarios.nombre, prestamorevistas.fecha_salida, prestamorevistas.fecha_entrada, prestamorevistas.cod_prestado, prestamorevistas.cod_devuelto from revistas inner join prestamorevistas on revistas.id_revistas = prestamorevistas.id_revistas inner join usuarios on usuarios.cedula=prestamorevistas.cedula where usuarios.cedula like '" & txtbusqueda.Text & "%'"
                     consultar()
-                    dgvregistro.DataSource = Tabla.Tables(0)
+                    dgvregistro.DataSource = Tabla
                 End If
 
             Case 1
@@ -36,12 +36,12 @@
 
                     Consulta = "Select revistas.id_revistas, revistas.titulo, usuarios.cedula, usuarios.nombre, prestamorevistas.fecha_salida, prestamorevistas.fecha_entrada, prestamorevistas.cod_prestado, prestamorevistas.cod_devuelto from revistas inner join prestamorevistas on revistas.id_revistas = prestamorevistas.id_revistas inner join usuarios on usuarios.cedula=prestamorevistas.cedula where prestamorevistas.fecha_salida >= '" & cmbaño.SelectedItem & "-" & mesdesde & "-" & cmbdia.SelectedItem & "' and prestamorevistas.fecha_salida <= '" & cmbaño2.SelectedItem & "-" & meshasta & "-" & cmbdia2.SelectedItem & "' and usuarios.nombre like '" & txtbusqueda.Text & "%'"
                     consultar()
-                    dgvregistro.DataSource = Tabla.Tables(0)
+                    dgvregistro.DataSource = Tabla
 
                 Else
                     Consulta = "Select revistas.id_revistas, revistas.titulo, usuarios.cedula, usuarios.nombre, prestamorevistas.fecha_salida, prestamorevistas.fecha_entrada, prestamorevistas.cod_prestado, prestamorevistas.cod_devuelto from revistas inner join prestamorevistas on revistas.id_revistas = prestamorevistas.id_revistas inner join usuarios on usuarios.cedula=prestamorevistas.cedula where usuarios.nombre like '" & txtbusqueda.Text & "%'"
                     consultar()
-                    dgvregistro.DataSource = Tabla.Tables(0)
+                    dgvregistro.DataSource = Tabla
                 End If
             Case 2
                 Dim mesdesde, meshasta As String
@@ -54,19 +54,19 @@
                     meshasta = substring
                     Consulta = "Select revistas.id_revistas, revistas.titulo, usuarios.cedula, usuarios.nombre, prestamorevistas.fecha_salida, prestamorevistas.fecha_entrada, prestamorevistas.cod_prestado, prestamorevistas.cod_devuelto from revistas inner join prestamorevistas on revistas.id_revistas = prestamorevistas.id_revistas inner join usuarios on usuarios.cedula=prestamorevistas.cedula where prestamorevistas.fecha_salida >= '" & cmbaño.SelectedItem & "-" & mesdesde & "-" & cmbdia.SelectedItem & "' and prestamorevistas.fecha_salida <= '" & cmbaño2.SelectedItem & "-" & meshasta & "-" & cmbdia2.SelectedItem & "' and revistas.titulo like '" & txtbusqueda.Text & "%'"
                     consultar()
-                    dgvregistro.DataSource = Tabla.Tables(0)
+                    dgvregistro.DataSource = Tabla
 
                 Else
                     Consulta = "Select revistas.id_revistas, revistas.titulo, usuarios.cedula, usuarios.nombre, prestamorevistas.fecha_salida, prestamorevistas.fecha_entrada, prestamorevistas.cod_prestado, prestamorevistas.cod_devuelto from revistas inner join prestamorevistas on revistas.id_revistas = prestamorevistas.id_revistas inner join usuarios on usuarios.cedula=prestamorevistas.cedula where revistas.titulo like '" & txtbusqueda.Text & "%'"
                     consultar()
-                    dgvregistro.DataSource = Tabla.Tables(0)
+                    dgvregistro.DataSource = Tabla
                 End If
 
             Case Else
 
                 Consulta = "Select revistas.id_revistas, revistas.titulo, usuarios.cedula, usuarios.nombre, prestamorevistas.fecha_salida, prestamorevistas.fecha_entrada, prestamorevistas.cod_prestado, prestamorevistas.cod_devuelto from revistas inner join prestamorevistas on revistas.id_revistas = prestamorevistas.id_revistas inner join usuarios on usuarios.cedula=prestamorevistas.cedula"
                 consultar()
-                dgvregistro.DataSource = Tabla.Tables(0)
+                dgvregistro.DataSource = Tabla
         End Select
     End Sub
 
@@ -86,7 +86,7 @@
 
         Consulta = "Select revistas.id_revistas, revistas.titulo, usuarios.cedula, usuarios.nombre, prestamorevistas.fecha_salida, prestamorevistas.fecha_entrada, prestamorevistas.cod_prestado, prestamorevistas.cod_devuelto from revistas inner join prestamorevistas on revistas.id_revistas = prestamorevistas.id_revistas inner join usuarios on usuarios.cedula=prestamorevistas.cedula"
         consultar()
-        dgvregistro.DataSource = Tabla.Tables(0)
+        dgvregistro.DataSource = Tabla
         DatagridModulo = dgvregistro
         Datagrid_Align()
         dgvregistro.Columns(0).Visible = False
@@ -197,7 +197,7 @@
 
                         Consulta = "Select revistas.id_revistas, revistas.titulo, usuarios.cedula, usuarios.nombre, prestamorevistas.fecha_salida, prestamorevistas.fecha_entrada, prestamorevistas.cod_prestado, prestamorevistas.cod_devuelto from revistas inner join prestamorevistas on revistas.id_revistas = prestamorevistas.id_revistas inner join usuarios on usuarios.cedula=prestamorevistas.cedula where prestamorevistas.fecha_salida >= '" & cmbaño.SelectedItem & "-" & mesdesde & "-" & cmbdia.SelectedItem & "' and prestamorevistas.fecha_salida <= '" & cmbaño2.SelectedItem & "-" & meshasta & "-" & cmbdia2.SelectedItem & "' and usuarios.cedula like '" & txtbusqueda.Text & "%'"
                         consultar()
-                        dgvregistro.DataSource = Tabla.Tables(0)
+                        dgvregistro.DataSource = Tabla
                     End If
 
                 Case 1
@@ -212,7 +212,7 @@
 
                         Consulta = "Select revistas.id_revistas, revistas.titulo, usuarios.cedula, usuarios.nombre, prestamorevistas.fecha_salida, prestamorevistas.fecha_entrada, prestamorevistas.cod_prestado, prestamorevistas.cod_devuelto from revistas inner join prestamorevistas on revistas.id_revistas = prestamorevistas.id_revistas inner join usuarios on usuarios.cedula=prestamorevistas.cedula where prestamorevistas.fecha_salida >= '" & cmbaño.SelectedItem & "-" & mesdesde & "-" & cmbdia.SelectedItem & "' and prestamorevistas.fecha_salida <= '" & cmbaño2.SelectedItem & "-" & meshasta & "-" & cmbdia2.SelectedItem & "' and usuarios.nombre like '" & txtbusqueda.Text & "%'"
                         consultar()
-                        dgvregistro.DataSource = Tabla.Tables(0)
+                        dgvregistro.DataSource = Tabla
                     End If
 
                 Case 2
@@ -226,7 +226,7 @@
                         meshasta = substring
                         Consulta = "Select revistas.id_revistas, revistas.titulo, usuarios.cedula, usuarios.nombre, prestamorevistas.fecha_salida, prestamorevistas.fecha_entrada, prestamorevistas.cod_prestado, prestamorevistas.cod_devuelto from revistas inner join prestamorevistas on revistas.id_revistas = prestamorevistas.id_revistas inner join usuarios on usuarios.cedula=prestamorevistas.cedula where prestamorevistas.fecha_salida >= '" & cmbaño.SelectedItem & "-" & mesdesde & "-" & cmbdia.SelectedItem & "' and prestamorevistas.fecha_salida <= '" & cmbaño2.SelectedItem & "-" & meshasta & "-" & cmbdia2.SelectedItem & "' and revistas.titulo like '" & txtbusqueda.Text & "%'"
                         consultar()
-                        dgvregistro.DataSource = Tabla.Tables(0)
+                        dgvregistro.DataSource = Tabla
                     End If
             End Select
         Else
@@ -240,7 +240,7 @@
                 meshasta = substring
                 Consulta = "Select revistas.id_revistas, revistas.titulo, usuarios.cedula, usuarios.nombre, prestamorevistas.fecha_salida, prestamorevistas.fecha_entrada, prestamorevistas.cod_prestado, prestamorevistas.cod_devuelto from revistas inner join prestamorevistas on revistas.id_revistas = prestamorevistas.id_revistas inner join usuarios on usuarios.cedula=prestamorevistas.cedula where prestamorevistas.fecha_salida >= '" & cmbaño.SelectedItem & "-" & mesdesde & "-" & cmbdia.SelectedItem & "' and prestamorevistas.fecha_salida <= '" & cmbaño2.SelectedItem & "-" & meshasta & "-" & cmbdia2.SelectedItem & "'"
                 consultar()
-                dgvregistro.DataSource = Tabla.Tables(0)
+                dgvregistro.DataSource = Tabla
             End If
         End If
     End Sub
@@ -259,7 +259,7 @@
 
         Consulta = "Select revistas.id_revistas, revistas.titulo, usuarios.cedula, usuarios.nombre, prestamorevistas.fecha_salida, prestamorevistas.fecha_entrada, prestamorevistas.cod_prestado, prestamorevistas.cod_devuelto from revistas inner join prestamorevistas on revistas.id_revistas = prestamorevistas.id_revistas inner join usuarios on usuarios.cedula=prestamorevistas.cedula"
         consultar()
-        dgvregistro.DataSource = Tabla.Tables(0)
+        dgvregistro.DataSource = Tabla
     End Sub
 
     Private Sub cmbbusqueda_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbbusqueda.SelectedIndexChanged

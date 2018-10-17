@@ -62,6 +62,7 @@ Partial Class FichaSocio
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBoxEstado = New System.Windows.Forms.PictureBox()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.Rueda_de_carga1 = New Proyecto_Biblioteca.OptProgressControl.Rueda_de_carga()
         Me.labelLibroFavorito = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.LabelFecha_Ingreso = New System.Windows.Forms.Label()
@@ -227,7 +228,7 @@ Partial Class FichaSocio
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(617, 1)
+        Me.Label1.Location = New System.Drawing.Point(537, 1)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(140, 15)
         Me.Label1.TabIndex = 14
@@ -286,7 +287,7 @@ Partial Class FichaSocio
         '
         Me.LabelFechaUltimaVez.AutoSize = True
         Me.LabelFechaUltimaVez.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelFechaUltimaVez.Location = New System.Drawing.Point(750, 1)
+        Me.LabelFechaUltimaVez.Location = New System.Drawing.Point(670, 1)
         Me.LabelFechaUltimaVez.Name = "LabelFechaUltimaVez"
         Me.LabelFechaUltimaVez.Size = New System.Drawing.Size(95, 15)
         Me.LabelFechaUltimaVez.TabIndex = 20
@@ -366,6 +367,7 @@ Partial Class FichaSocio
         Me.cmbmes.Name = "cmbmes"
         Me.cmbmes.Size = New System.Drawing.Size(116, 24)
         Me.cmbmes.TabIndex = 22
+        Me.cmbmes.Visible = False
         '
         'Label3
         '
@@ -450,6 +452,7 @@ Partial Class FichaSocio
         'Panel5
         '
         Me.Panel5.BackColor = System.Drawing.SystemColors.Control
+        Me.Panel5.Controls.Add(Me.Rueda_de_carga1)
         Me.Panel5.Controls.Add(Me.labelLibroFavorito)
         Me.Panel5.Controls.Add(Me.Label6)
         Me.Panel5.Controls.Add(Me.LabelFecha_Ingreso)
@@ -483,11 +486,25 @@ Partial Class FichaSocio
         Me.Panel5.Size = New System.Drawing.Size(957, 628)
         Me.Panel5.TabIndex = 32
         '
+        'Rueda_de_carga1
+        '
+        Me.Rueda_de_carga1.BackColor = System.Drawing.Color.Transparent
+        Me.Rueda_de_carga1.Interval = 60
+        Me.Rueda_de_carga1.Location = New System.Drawing.Point(573, 159)
+        Me.Rueda_de_carga1.MinimumSize = New System.Drawing.Size(28, 28)
+        Me.Rueda_de_carga1.Name = "Rueda_de_carga1"
+        Me.Rueda_de_carga1.Rotation = Proyecto_Biblioteca.OptProgressControl.Rueda_de_carga.Direction.CLOCKWISE
+        Me.Rueda_de_carga1.Size = New System.Drawing.Size(32, 35)
+        Me.Rueda_de_carga1.StartAngle = 270
+        Me.Rueda_de_carga1.TabIndex = 37
+        Me.Rueda_de_carga1.TickColor = System.Drawing.Color.FromArgb(CType(CType(58, Byte), Integer), CType(CType(58, Byte), Integer), CType(CType(58, Byte), Integer))
+        Me.Rueda_de_carga1.Visible = False
+        '
         'labelLibroFavorito
         '
         Me.labelLibroFavorito.AutoSize = True
         Me.labelLibroFavorito.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.labelLibroFavorito.Location = New System.Drawing.Point(751, 40)
+        Me.labelLibroFavorito.Location = New System.Drawing.Point(671, 40)
         Me.labelLibroFavorito.Name = "labelLibroFavorito"
         Me.labelLibroFavorito.Size = New System.Drawing.Size(95, 15)
         Me.labelLibroFavorito.TabIndex = 36
@@ -497,7 +514,7 @@ Partial Class FichaSocio
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(654, 40)
+        Me.Label6.Location = New System.Drawing.Point(574, 40)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(103, 15)
         Me.Label6.TabIndex = 35
@@ -507,7 +524,7 @@ Partial Class FichaSocio
         '
         Me.LabelFecha_Ingreso.AutoSize = True
         Me.LabelFecha_Ingreso.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelFecha_Ingreso.Location = New System.Drawing.Point(753, 20)
+        Me.LabelFecha_Ingreso.Location = New System.Drawing.Point(673, 20)
         Me.LabelFecha_Ingreso.Name = "LabelFecha_Ingreso"
         Me.LabelFecha_Ingreso.Size = New System.Drawing.Size(95, 15)
         Me.LabelFecha_Ingreso.TabIndex = 33
@@ -517,7 +534,7 @@ Partial Class FichaSocio
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(645, 20)
+        Me.Label4.Location = New System.Drawing.Point(565, 20)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(114, 15)
         Me.Label4.TabIndex = 32
@@ -532,6 +549,7 @@ Partial Class FichaSocio
         Me.cmbaño.Name = "cmbaño"
         Me.cmbaño.Size = New System.Drawing.Size(68, 24)
         Me.cmbaño.TabIndex = 21
+        Me.cmbaño.Visible = False
         '
         'PrintForm1
         '
@@ -543,8 +561,7 @@ Partial Class FichaSocio
         '
         'Timer2
         '
-        Me.Timer2.Enabled = True
-        Me.Timer2.Interval = 600
+        Me.Timer2.Interval = 10
         '
         'BackgroundWorker1
         '
@@ -618,4 +635,5 @@ Partial Class FichaSocio
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents cmbaño As System.Windows.Forms.ComboBox
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents Rueda_de_carga1 As Proyecto_Biblioteca.OptProgressControl.Rueda_de_carga
 End Class

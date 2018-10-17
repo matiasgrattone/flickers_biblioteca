@@ -95,7 +95,7 @@
             Consulta = "select rutaperfil from usuarios where cedula ='" + MENU3.cedulaIngre + "'"
             consultar()
 
-            For Each row As DataRow In Tabla.Tables(0).Rows
+            For Each row As DataRow In Tabla.Rows
                 ptbperfil.ImageLocation = Convert.ToString(row("rutaperfil"))
             Next
         Catch ex As Exception
