@@ -125,10 +125,12 @@
             holay = yc - yco
             Me.Location = New Point(xf + holax, yf + holay)
             Me.Opacity = 0.9
+            MENU3.Timer_Prestamos_LIVE.Enabled = False
         End If
         If a = 0 Then
             xco = Cursor.Position.X
             yco = Cursor.Position.Y
+            MENU3.Timer_Prestamos_LIVE.Enabled = True
         End If
     End Sub
     Private Sub Panel4_MouseUp(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel4.MouseUp
