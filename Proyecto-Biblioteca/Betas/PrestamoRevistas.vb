@@ -422,7 +422,7 @@
                             contador = Val(contador) + 1
 
 
-                            Consulta = "insert into prestamorevistas(cedula, cod_libro, fecha_salida, fecha_estimada, cod_prestado) values('" + Cedula.Text + "','" + ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "', '" + fecha_estimada + "','" + MENU3.lbl_cedula.Text + "')"
+                            Consulta = "insert into prestamorevistas(cedula, cod_libro, fecha_salida, fecha_estimada, cod_prestado) values('" + Cedula.Text + "','" + ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "', '" + fecha_estimada + "','" + MENU3.lbl_cedula.Text + "')"
                             consultar()
 
 
