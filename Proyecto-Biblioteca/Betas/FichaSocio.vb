@@ -52,7 +52,6 @@
         mes()
         cmbmes.SelectedItem = substring
 
-
     End Sub
 
     Private Sub RegistroSocio_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
@@ -104,6 +103,7 @@
                 PictureBoxEstado.Image = Image.FromFile("imagenes\delete.png")
             End If
         Next
+
         BackgroundWorker1.RunWorkerAsync()
         Timer2.Enabled = True
 
@@ -207,9 +207,12 @@
             DataGridView1.Columns(3).HeaderText = "Fecha Devoluciòn"
             DataGridView1.Columns(5).HeaderText = "Funcionario Devoluciòn"
 
+            cmbaño.Visible = True
+            cmbmes.Visible = True
 
             Timer2.Enabled = False
             Timer2.Stop()
+            primerinicio = 4
         End If
     End Sub
 End Class

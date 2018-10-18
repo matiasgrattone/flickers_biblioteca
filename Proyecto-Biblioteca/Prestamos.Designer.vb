@@ -73,6 +73,7 @@ Partial Class Prestamos
         Me.ButtonVERREGISTRO = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.LabelSELECCION_DE_FUNCION = New System.Windows.Forms.Label()
+        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.PictureCrearReservacion = New System.Windows.Forms.PictureBox()
         Me.PictureReservacion = New System.Windows.Forms.PictureBox()
         Me.PictureDevolucion = New System.Windows.Forms.PictureBox()
@@ -90,7 +91,6 @@ Partial Class Prestamos
         Me.Label4 = New System.Windows.Forms.Label()
         Me.dgvRenovacion = New System.Windows.Forms.DataGridView()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.PanelDelCarrito.SuspendLayout()
         Me.GrupBoxDevolucion.SuspendLayout()
         CType(Me.DataGridParaDevolucion, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -562,6 +562,7 @@ Partial Class Prestamos
         '
         'ptbRenovar
         '
+        Me.ptbRenovar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ptbRenovar.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.RenovarLibro
         Me.ptbRenovar.Location = New System.Drawing.Point(573, 11)
         Me.ptbRenovar.Name = "ptbRenovar"
@@ -607,8 +608,19 @@ Partial Class Prestamos
         Me.LabelSELECCION_DE_FUNCION.TabIndex = 66
         Me.LabelSELECCION_DE_FUNCION.Text = "SELECCION " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      DE " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FUNCION "
         '
+        'Cedula
+        '
+        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.Cedula.Location = New System.Drawing.Point(3, 50)
+        Me.Cedula.Name = "Cedula"
+        Me.Cedula.Size = New System.Drawing.Size(259, 20)
+        Me.Cedula.TabIndex = 0
+        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
+        Me.Cedula.WaterMarkText = "Cedula"
+        '
         'PictureCrearReservacion
         '
+        Me.PictureCrearReservacion.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureCrearReservacion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.crear_reserva
         Me.PictureCrearReservacion.Location = New System.Drawing.Point(789, 13)
         Me.PictureCrearReservacion.Name = "PictureCrearReservacion"
@@ -619,6 +631,7 @@ Partial Class Prestamos
         '
         'PictureReservacion
         '
+        Me.PictureReservacion.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureReservacion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.reservar
         Me.PictureReservacion.Location = New System.Drawing.Point(684, 13)
         Me.PictureReservacion.Name = "PictureReservacion"
@@ -629,6 +642,7 @@ Partial Class Prestamos
         '
         'PictureDevolucion
         '
+        Me.PictureDevolucion.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureDevolucion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.devolcion
         Me.PictureDevolucion.Location = New System.Drawing.Point(466, 13)
         Me.PictureDevolucion.Name = "PictureDevolucion"
@@ -639,6 +653,7 @@ Partial Class Prestamos
         '
         'PictureExtraccion
         '
+        Me.PictureExtraccion.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureExtraccion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.extraccion
         Me.PictureExtraccion.Location = New System.Drawing.Point(359, 14)
         Me.PictureExtraccion.Name = "PictureExtraccion"
@@ -853,16 +868,6 @@ Partial Class Prestamos
         Me.Label2.Size = New System.Drawing.Size(196, 34)
         Me.Label2.TabIndex = 63
         Me.Label2.Text = "RENOVAR LIBROS"
-        '
-        'Cedula
-        '
-        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Cedula.Location = New System.Drawing.Point(3, 50)
-        Me.Cedula.Name = "Cedula"
-        Me.Cedula.Size = New System.Drawing.Size(259, 20)
-        Me.Cedula.TabIndex = 0
-        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
-        Me.Cedula.WaterMarkText = "Cedula"
         '
         'Prestamos
         '

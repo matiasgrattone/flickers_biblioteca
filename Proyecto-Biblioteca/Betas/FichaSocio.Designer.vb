@@ -410,6 +410,7 @@ Partial Class FichaSocio
         'PictureBox4
         '
         Me.PictureBox4.BackColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(67, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.PictureBox4.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBox4.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.cancel
         Me.PictureBox4.Location = New System.Drawing.Point(926, 3)
         Me.PictureBox4.Name = "PictureBox4"
