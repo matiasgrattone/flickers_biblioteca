@@ -329,7 +329,6 @@
             End If
         End If
     End Sub
-
     '///BUSCAR LIBRO POR ID///
     Private Sub TextboxBuscador_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextboxBuscador.TextChanged
         Try
@@ -1260,5 +1259,9 @@
 
     Private Sub ptbRenovar_MouseHover(ByVal sender As Object, ByVal e As System.EventArgs) Handles ptbRenovar.MouseHover
         LabelSELECCION_DE_FUNCION.Text = "Renovar Libros"
+    End Sub
+
+    Private Sub DataGridViewlllllVerLibrosEnExtraccionlllll_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridViewlllllVerLibrosEnExtraccionlllll.CellContentClick
+
     End Sub
 End Class

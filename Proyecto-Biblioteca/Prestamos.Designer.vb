@@ -248,7 +248,7 @@ Partial Class Prestamos
         Me.GrupBoxDevolucion.Controls.Add(Me.ENPODER)
         Me.GrupBoxDevolucion.Location = New System.Drawing.Point(263, 98)
         Me.GrupBoxDevolucion.Name = "GrupBoxDevolucion"
-        Me.GrupBoxDevolucion.Size = New System.Drawing.Size(738, 547)
+        Me.GrupBoxDevolucion.Size = New System.Drawing.Size(761, 547)
         Me.GrupBoxDevolucion.TabIndex = 67
         Me.GrupBoxDevolucion.TabStop = False
         Me.GrupBoxDevolucion.Text = "DEVOLUCION"
@@ -333,7 +333,7 @@ Partial Class Prestamos
         Me.GrupBoxExtraccion.Controls.Add(Me.Label6)
         Me.GrupBoxExtraccion.Location = New System.Drawing.Point(263, 98)
         Me.GrupBoxExtraccion.Name = "GrupBoxExtraccion"
-        Me.GrupBoxExtraccion.Size = New System.Drawing.Size(737, 550)
+        Me.GrupBoxExtraccion.Size = New System.Drawing.Size(761, 550)
         Me.GrupBoxExtraccion.TabIndex = 66
         Me.GrupBoxExtraccion.TabStop = False
         Me.GrupBoxExtraccion.Text = "EXTRACCION"
@@ -452,7 +452,7 @@ Partial Class Prestamos
         Me.ReservacionGrupBox.Controls.Add(Me.BotonExtrearReservados)
         Me.ReservacionGrupBox.Location = New System.Drawing.Point(263, 99)
         Me.ReservacionGrupBox.Name = "ReservacionGrupBox"
-        Me.ReservacionGrupBox.Size = New System.Drawing.Size(737, 546)
+        Me.ReservacionGrupBox.Size = New System.Drawing.Size(761, 546)
         Me.ReservacionGrupBox.TabIndex = 77
         Me.ReservacionGrupBox.TabStop = False
         Me.ReservacionGrupBox.Text = "RESERVADOS"
@@ -674,7 +674,7 @@ Partial Class Prestamos
         Me.CrearReservacionGrupBox.Controls.Add(Me.Label25)
         Me.CrearReservacionGrupBox.Location = New System.Drawing.Point(263, 99)
         Me.CrearReservacionGrupBox.Name = "CrearReservacionGrupBox"
-        Me.CrearReservacionGrupBox.Size = New System.Drawing.Size(738, 549)
+        Me.CrearReservacionGrupBox.Size = New System.Drawing.Size(761, 549)
         Me.CrearReservacionGrupBox.TabIndex = 80
         Me.CrearReservacionGrupBox.TabStop = False
         Me.CrearReservacionGrupBox.Text = "CREAR RESERVACION"
@@ -798,7 +798,7 @@ Partial Class Prestamos
         Me.GroupBoxRenovacion.Controls.Add(Me.Label2)
         Me.GroupBoxRenovacion.Location = New System.Drawing.Point(263, 98)
         Me.GroupBoxRenovacion.Name = "GroupBoxRenovacion"
-        Me.GroupBoxRenovacion.Size = New System.Drawing.Size(738, 547)
+        Me.GroupBoxRenovacion.Size = New System.Drawing.Size(761, 547)
         Me.GroupBoxRenovacion.TabIndex = 84
         Me.GroupBoxRenovacion.TabStop = False
         Me.GroupBoxRenovacion.Text = "RENOVACION"
@@ -878,11 +878,11 @@ Partial Class Prestamos
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.PanelDelCarrito)
-        Me.Controls.Add(Me.CrearReservacionGrupBox)
-        Me.Controls.Add(Me.ReservacionGrupBox)
         Me.Controls.Add(Me.GrupBoxExtraccion)
         Me.Controls.Add(Me.GroupBoxRenovacion)
         Me.Controls.Add(Me.GrupBoxDevolucion)
+        Me.Controls.Add(Me.CrearReservacionGrupBox)
+        Me.Controls.Add(Me.ReservacionGrupBox)
         Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Prestamos"

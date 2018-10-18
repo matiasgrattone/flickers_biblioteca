@@ -46,6 +46,7 @@ Public Class MENU3
         Consulta = "select prestamolibro.cod_libro as Libros, libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where fecha_entrada is null"
         consultar()
         DataGridViewLibros.DataSource = Tabla
+        DataGridViewLibros.Columns(0).HeaderText = "Nº de inventario"
         DatagridModulo = DataGridViewLibros 'iguala la varible publica de tipo datagrid al datagrid que recibe los datos de la consulta
         Datagrid_Align() 'llama al metodo para alinear las filas y las columnas del datagrid
 
@@ -652,9 +653,10 @@ Public Class MENU3
                 Timer_BD.Interval = 6000
                 Try
                     DataGridViewLibros.Refresh()
-                    Consulta = "select prestamolibro.cod_libro as Libros, libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where fecha_entrada is null"
+                    Consulta = "select prestamolibro.cod_libro as ID, libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where fecha_entrada is null"
                     consultar()
                     DataGridViewLibros.DataSource = Tabla
+                    DataGridViewLibros.Columns(0).HeaderText = "Nº de inventario"
                 Catch ex As Exception
                     MsgBox("Error Libros Prestados Timer" & ex.ToString)
                 End Try

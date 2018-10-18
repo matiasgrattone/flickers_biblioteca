@@ -591,4 +591,90 @@
         FichaSocio.FichaCedulaSocio = Cedula.Text
         FichaSocio.Show()
     End Sub
+
+    Private Sub Cedula_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles Cedula.KeyDown
+        If e.KeyCode = Keys.Enter Then
+
+            'Se cambia el label solo cuando haya un valor en el textbox CEDULA
+
+
+            If Cedula.Text = "" Then
+                '//////////////////////Oculta los picturebox y la interfaz de las funciones///////////////////////////////
+
+                ExtGrup.Visible = False
+                devoCOMBO.Visible = False
+                PictureExtraccion.Visible = False
+                PictureDevolucion.Visible = False
+                LabelAlmacenTemporalParaLaCedula.Text = ""
+                LabelREVISTAS.Visible = False
+                LabelSELECCION_DE_FUNCION.Visible = False
+                CarritoDeRevistas.Items.Clear()
+                ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Clear()
+                PanelDelCarrito.Left = -268
+                MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
+                '/////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Else
+
+
+                Consulta = "select cedula from usuarios where cedula like '" & Cedula.Text & "'"
+                consultar()
+
+                If Tabla.Rows.Count = 0 Then ' VERFICAR SI ES NULO EL RESULTADO DE LA CONSULTA
+                    '//////////////////////Oculta los picturebox y la interfaz de las funciones///////////////////////////////
+
+                    ExtGrup.Visible = False
+                    devoCOMBO.Visible = False
+                    PictureExtraccion.Visible = False
+                    PictureDevolucion.Visible = False
+                    LabelAlmacenTemporalParaLaCedula.Text = ""
+                    LabelREVISTAS.Visible = False
+                    LabelSELECCION_DE_FUNCION.Visible = False
+                    CarritoDeRevistas.Items.Clear()
+                    ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Clear()
+                    PanelDelCarrito.Left = -268
+                    MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
+                    '/////////////////////////////////////////////////////////////////////////////////////////////////////////
+                Else
+
+
+
+                    Consulta = "select cedula , nombre , tipo from usuarios where cedula like '" & Cedula.Text & "'"
+                    consultar()
+                    Try
+                        For Each row As DataRow In Tabla.Rows
+                            NOMBRE.Text = row("nombre")
+                            Label12.Text = row("tipo")
+                        Next
+                    Catch ex As Exception
+                        MsgBox(ex.ToString)
+                    End Try
+
+                    '/////////////////////////////////////////////////////////////////////////////////////////////
+                    '////////////////////////////////Muestra los picturebox y la interfaz de las funciones///////////////////////
+                    '/////////////////////////////////////////////////////////////////////////////////////////////
+
+                    LabelREVISTAS.Visible = True
+                    ExtGrup.Visible = False
+                    devoCOMBO.Visible = False
+                    PictureExtraccion.Visible = True
+                    PictureDevolucion.Visible = True
+                    '///////////////////LABEL PARA HACER LAS FUNCIONES CON LA CEDULA///////////////////////////
+                    LabelAlmacenTemporalParaLaCedula.Text = Cedula.Text
+                    '/////////////////////////////////////////////////////////////////////////////////////////
+                    LabelREVISTAS.Visible = True
+                    LabelSELECCION_DE_FUNCION.Visible = True
+                    CarritoDeRevistas.Items.Clear()
+                    ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Clear()
+                    PanelDelCarrito.Left = -5
+
+                    If Label12.Text = 2 Then
+                        ButtonLiberar.Visible = True
+                    ElseIf Label12.Text = 0 Then
+                        ButtonMoroso.Visible = True
+                    End If
+                    '/////////////////////////////////////////////////////////////////////////////////////////////
+                End If
+            End If
+        End If
+    End Sub
 End Class

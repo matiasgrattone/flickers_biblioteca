@@ -34,7 +34,6 @@ Partial Class PrestamoRevistas
         Me.ButtonVerRegistro = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.LabelREVISTAS = New System.Windows.Forms.Label()
-        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.BotonParaBuscarCedula = New System.Windows.Forms.Button()
         Me.PictureDevolucion = New System.Windows.Forms.PictureBox()
@@ -68,6 +67,7 @@ Partial Class PrestamoRevistas
         Me.Label11 = New System.Windows.Forms.Label()
         Me.ENPODER = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
         CType(Me.PictureDevolucion, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -94,7 +94,7 @@ Partial Class PrestamoRevistas
         Me.Panel3.Controls.Add(Me.PictureExtraccion)
         Me.Panel3.Location = New System.Drawing.Point(-1, -2)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1016, 112)
+        Me.Panel3.Size = New System.Drawing.Size(1046, 112)
         Me.Panel3.TabIndex = 76
         '
         'ButtonVerFicha
@@ -144,16 +144,6 @@ Partial Class PrestamoRevistas
         Me.LabelREVISTAS.TabIndex = 66
         Me.LabelREVISTAS.Text = "REVISTAS"
         '
-        'Cedula
-        '
-        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Cedula.Location = New System.Drawing.Point(3, 50)
-        Me.Cedula.Name = "Cedula"
-        Me.Cedula.Size = New System.Drawing.Size(259, 20)
-        Me.Cedula.TabIndex = 75
-        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
-        Me.Cedula.WaterMarkText = "Cedula"
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -175,6 +165,7 @@ Partial Class PrestamoRevistas
         '
         'PictureDevolucion
         '
+        Me.PictureDevolucion.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureDevolucion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.devolcionRevistas
         Me.PictureDevolucion.Location = New System.Drawing.Point(620, 14)
         Me.PictureDevolucion.Name = "PictureDevolucion"
@@ -185,6 +176,7 @@ Partial Class PrestamoRevistas
         '
         'PictureExtraccion
         '
+        Me.PictureExtraccion.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureExtraccion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.extraccionRevista
         Me.PictureExtraccion.Location = New System.Drawing.Point(363, 14)
         Me.PictureExtraccion.Name = "PictureExtraccion"
@@ -206,7 +198,7 @@ Partial Class PrestamoRevistas
         Me.ExtGrup.Controls.Add(Me.Label6)
         Me.ExtGrup.Location = New System.Drawing.Point(263, 98)
         Me.ExtGrup.Name = "ExtGrup"
-        Me.ExtGrup.Size = New System.Drawing.Size(737, 550)
+        Me.ExtGrup.Size = New System.Drawing.Size(782, 550)
         Me.ExtGrup.TabIndex = 77
         Me.ExtGrup.TabStop = False
         Me.ExtGrup.Text = "EXTRACCION"
@@ -338,7 +330,7 @@ Partial Class PrestamoRevistas
         Me.PanelDelCarrito.Controls.Add(Me.LabelREVISTA)
         Me.PanelDelCarrito.Controls.Add(Me.LabelIDREVISTAS)
         Me.PanelDelCarrito.Controls.Add(Me.Label12)
-        Me.PanelDelCarrito.Location = New System.Drawing.Point(-272, -28)
+        Me.PanelDelCarrito.Location = New System.Drawing.Point(-269, -28)
         Me.PanelDelCarrito.Name = "PanelDelCarrito"
         Me.PanelDelCarrito.Size = New System.Drawing.Size(268, 676)
         Me.PanelDelCarrito.TabIndex = 78
@@ -472,7 +464,7 @@ Partial Class PrestamoRevistas
         Me.devoCOMBO.Controls.Add(Me.ENPODER)
         Me.devoCOMBO.Location = New System.Drawing.Point(263, 98)
         Me.devoCOMBO.Name = "devoCOMBO"
-        Me.devoCOMBO.Size = New System.Drawing.Size(738, 547)
+        Me.devoCOMBO.Size = New System.Drawing.Size(782, 547)
         Me.devoCOMBO.TabIndex = 79
         Me.devoCOMBO.TabStop = False
         Me.devoCOMBO.Text = "DEVOLUCION"
@@ -566,19 +558,29 @@ Partial Class PrestamoRevistas
         Me.Panel2.BackColor = System.Drawing.SystemColors.ControlDarkDark
         Me.Panel2.Location = New System.Drawing.Point(-1, 74)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1016, 38)
+        Me.Panel2.Size = New System.Drawing.Size(1046, 38)
         Me.Panel2.TabIndex = 80
+        '
+        'Cedula
+        '
+        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.Cedula.Location = New System.Drawing.Point(3, 50)
+        Me.Cedula.Name = "Cedula"
+        Me.Cedula.Size = New System.Drawing.Size(259, 20)
+        Me.Cedula.TabIndex = 75
+        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
+        Me.Cedula.WaterMarkText = "Cedula"
         '
         'PrestamoRevistas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1045, 608)
+        Me.ClientSize = New System.Drawing.Size(1061, 646)
         Me.Controls.Add(Me.Panel3)
-        Me.Controls.Add(Me.PanelDelCarrito)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.ExtGrup)
         Me.Controls.Add(Me.devoCOMBO)
+        Me.Controls.Add(Me.PanelDelCarrito)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "PrestamoRevistas"
         Me.Text = "PrestamoRevistas"
