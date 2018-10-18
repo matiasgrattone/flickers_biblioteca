@@ -79,10 +79,10 @@
         ErrorProvider1.SetError(usuario, "")
         i = 0
     End Sub
-    Private Sub Label1_MouseEnter(sender As System.Object, e As System.EventArgs) Handles Labels_transparentes4.MouseEnter
+    Private Sub Label1_MouseEnter(sender As System.Object, e As System.EventArgs) Handles Lbl_contraseña_recuperar.MouseEnter
         Me.Cursor = Cursors.Hand
     End Sub
-    Private Sub Label1_MouseLeave(sender As System.Object, e As System.EventArgs) Handles Labels_transparentes4.MouseLeave
+    Private Sub Label1_MouseLeave(sender As System.Object, e As System.EventArgs) Handles Lbl_contraseña_recuperar.MouseLeave
         Me.Cursor = Cursors.Default
     End Sub
     Private Sub Labels_transparentes3_MouseEnter(sender As System.Object, e As System.EventArgs)
@@ -91,7 +91,7 @@
     Private Sub Labels_transparentes3_MouseLeave(sender As System.Object, e As System.EventArgs)
         Me.Cursor = Cursors.Default
     End Sub
-    Private Sub Labels_transparentes4_Click(sender As System.Object, e As System.EventArgs) Handles Labels_transparentes4.Click
+    Private Sub Labels_transparentes4_Click(sender As System.Object, e As System.EventArgs) Handles Lbl_contraseña_recuperar.Click
         BackgroundWorker1.RunWorkerAsync()
     End Sub
     Private Sub BackgroundWorker1_DoWork(sender As System.Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
@@ -129,5 +129,24 @@
     Private Sub LOGIN_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         xf = Me.Location.X
         yf = Me.Location.Y
+
+
+
+        Consulta = "select * from usuarios"
+        consultar()
+        If Tabla.Rows.Count = 0 Then
+            Pbnube.Image = Image.FromFile("imagenes\cloud-error.png")
+            Button1.Enabled = False
+            usuario.Enabled = False
+            contrasenia.Enabled = False
+            Lbl_contraseña_recuperar.Enabled = False
+        Else
+            Pbnube.Image = Image.FromFile("imagenes\cloud.png")
+            Button1.Enabled = True
+            usuario.Enabled = True
+            contrasenia.Enabled = True
+            Lbl_contraseña_recuperar.Enabled = True
+        End If
+
     End Sub
 End Class

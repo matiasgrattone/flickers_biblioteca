@@ -29,14 +29,16 @@ Partial Class LOGIN
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.Pbnube = New Proyecto_Biblioteca.TransPicBox()
         Me.contrasenia = New Proyecto_Biblioteca.PlaceHolder()
         Me.usuario = New Proyecto_Biblioteca.PlaceHolder()
-        Me.Labels_transparentes4 = New Proyecto_Biblioteca.labels_transparentes()
+        Me.Lbl_contraseña_recuperar = New Proyecto_Biblioteca.labels_transparentes()
         Me.TransPicBox1 = New Proyecto_Biblioteca.TransPicBox()
         Me.Labels_transparentes2 = New Proyecto_Biblioteca.labels_transparentes()
         Me.Labels_transparentes1 = New Proyecto_Biblioteca.labels_transparentes()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Pbnube, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TransPicBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -76,6 +78,19 @@ Partial Class LOGIN
         'BackgroundWorker1
         '
         '
+        'Pbnube
+        '
+        Me.Pbnube.BackColor = System.Drawing.Color.Transparent
+        Me.Pbnube.ErrorImage = Nothing
+        Me.Pbnube.Image = Nothing
+        Me.Pbnube.InitialImage = Nothing
+        Me.Pbnube.Location = New System.Drawing.Point(15, 511)
+        Me.Pbnube.Name = "Pbnube"
+        Me.Pbnube.Size = New System.Drawing.Size(40, 40)
+        Me.Pbnube.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.Pbnube.TabIndex = 22
+        Me.Pbnube.TabStop = False
+        '
         'contrasenia
         '
         Me.contrasenia.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -97,16 +112,16 @@ Partial Class LOGIN
         Me.usuario.WaterMarkColor = System.Drawing.Color.LightGray
         Me.usuario.WaterMarkText = "Cedula"
         '
-        'Labels_transparentes4
+        'Lbl_contraseña_recuperar
         '
-        Me.Labels_transparentes4.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Labels_transparentes4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Labels_transparentes4.ForeColor = System.Drawing.Color.White
-        Me.Labels_transparentes4.Location = New System.Drawing.Point(496, 308)
-        Me.Labels_transparentes4.Name = "Labels_transparentes4"
-        Me.Labels_transparentes4.Size = New System.Drawing.Size(159, 23)
-        Me.Labels_transparentes4.TabIndex = 20
-        Me.Labels_transparentes4.Text = "Olvide mi contraseña"
+        Me.Lbl_contraseña_recuperar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Lbl_contraseña_recuperar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Lbl_contraseña_recuperar.ForeColor = System.Drawing.Color.White
+        Me.Lbl_contraseña_recuperar.Location = New System.Drawing.Point(496, 308)
+        Me.Lbl_contraseña_recuperar.Name = "Lbl_contraseña_recuperar"
+        Me.Lbl_contraseña_recuperar.Size = New System.Drawing.Size(159, 23)
+        Me.Lbl_contraseña_recuperar.TabIndex = 20
+        Me.Lbl_contraseña_recuperar.Text = "Olvide mi contraseña"
         '
         'TransPicBox1
         '
@@ -147,9 +162,10 @@ Partial Class LOGIN
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(973, 562)
+        Me.Controls.Add(Me.Pbnube)
         Me.Controls.Add(Me.contrasenia)
         Me.Controls.Add(Me.usuario)
-        Me.Controls.Add(Me.Labels_transparentes4)
+        Me.Controls.Add(Me.Lbl_contraseña_recuperar)
         Me.Controls.Add(Me.TransPicBox1)
         Me.Controls.Add(Me.Labels_transparentes2)
         Me.Controls.Add(Me.Labels_transparentes1)
@@ -163,6 +179,7 @@ Partial Class LOGIN
         Me.Text = "login"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Pbnube, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TransPicBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -174,9 +191,10 @@ Partial Class LOGIN
     Friend WithEvents Labels_transparentes2 As Proyecto_Biblioteca.labels_transparentes
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents TransPicBox1 As Proyecto_Biblioteca.TransPicBox
-    Friend WithEvents Labels_transparentes4 As Proyecto_Biblioteca.labels_transparentes
+    Friend WithEvents Lbl_contraseña_recuperar As Proyecto_Biblioteca.labels_transparentes
     Friend WithEvents ErrorProvider1 As System.Windows.Forms.ErrorProvider
     Friend WithEvents contrasenia As Proyecto_Biblioteca.PlaceHolder
     Friend WithEvents usuario As Proyecto_Biblioteca.PlaceHolder
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents Pbnube As Proyecto_Biblioteca.TransPicBox
 End Class
