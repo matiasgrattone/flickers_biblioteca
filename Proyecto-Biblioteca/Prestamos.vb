@@ -806,19 +806,16 @@
                 ReservacionGrupBox.Visible = True
                 '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-                Consulta = "select * from prestamolibro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'; select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado = '2' and cedula = '" + Cedula.Text + "' and p.fecha_salida is NULL and p.fecha_entrada is NULL"
+                Consulta = "select * from prestamolibro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'; select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado = '2' and cedula = '" + Cedula.Text + "' and p.fecha_salida is NULL and p.fecha_entrada is NULL; select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado = '2' and cedula = '" + Cedula.Text + "' and p.fecha_salida is NULL and p.fecha_entrada is NULL"
                 consultar()
                 If (Tabla.Tables(0).Rows.Count = 0) Then
-                    VerLibrosReservados2.DataSource = Tabla.Tables(1)
+                    VerLibrosReservados2.DataSource = Tabla.Tables(0)
                     modoExtraer = "On"
                     BotonExtrearReservados.Visible = True
                 Else
 
                     MsgBox("Este socio NO puede retirar un libro hasta devolver los ya prestados", Title:="ERROR")
-
-                    Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado = '2' and cedula = '" + Cedula.Text + "' and p.fecha_salida is NULL and p.fecha_entrada is NULL"
-                    consultar()
-                    VerLibrosReservados2.DataSource = Tabla.Tables(0)
+                    VerLibrosReservados2.DataSource = Tabla.Tables(1)
                     modoExtraer = "Off"
                     BotonExtrearReservados.Visible = False
                 End If

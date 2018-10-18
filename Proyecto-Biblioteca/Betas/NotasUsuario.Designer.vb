@@ -196,13 +196,13 @@ Partial Class NotasUsuario
         'FuenteToolStripMenuItem
         '
         Me.FuenteToolStripMenuItem.Name = "FuenteToolStripMenuItem"
-        Me.FuenteToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.FuenteToolStripMenuItem.Size = New System.Drawing.Size(110, 22)
         Me.FuenteToolStripMenuItem.Text = "Fuente"
         '
         'ColorToolStripMenuItem
         '
         Me.ColorToolStripMenuItem.Name = "ColorToolStripMenuItem"
-        Me.ColorToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ColorToolStripMenuItem.Size = New System.Drawing.Size(110, 22)
         Me.ColorToolStripMenuItem.Text = "Color"
         '
         'PanelNotas
@@ -211,7 +211,7 @@ Partial Class NotasUsuario
         Me.PanelNotas.Controls.Add(Me.ButtonX)
         Me.PanelNotas.Controls.Add(Me.DataGridViewParaVerNotasDisponibles)
         Me.PanelNotas.Controls.Add(Me.Label1)
-        Me.PanelNotas.Location = New System.Drawing.Point(840, -251)
+        Me.PanelNotas.Location = New System.Drawing.Point(840, -256)
         Me.PanelNotas.Name = "PanelNotas"
         Me.PanelNotas.Size = New System.Drawing.Size(200, 305)
         Me.PanelNotas.TabIndex = 3
