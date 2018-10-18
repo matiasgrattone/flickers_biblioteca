@@ -9,7 +9,7 @@
         Consulta = "select * from usuarios"
         consultar()
         Try
-            dgvcomprobar.DataSource = Tabla
+            dgvcomprobar.DataSource = Tabla.Tables(0)
             If dgvcomprobar.Item(0, dgvcomprobar.CurrentRow.Index).Value <> 0 Then
                 bandera = 1
             Else
@@ -25,7 +25,7 @@
             Dim contadoringreso As Integer = 0
             Consulta = "select titulo,anio,origen,descripcion from revistas"
             consultar()
-            dgvrevistas.DataSource = Tabla
+            dgvrevistas.DataSource = Tabla.Tables(0)
             DatagridModulo = dgvrevistas
             Datagrid_Align()
             dgvrevistas.Columns(0).HeaderText = "Titulo"
@@ -83,7 +83,7 @@
 
                     Consulta = "select titulo,anio,origen,descripcion from revistas"
                     consultar()
-                    dgvrevistas.DataSource = Tabla
+                    dgvrevistas.DataSource = Tabla.Tables(0)
                     'DatagridModulo = dgvrevistas
                     'Datagrid_Align()
 

@@ -341,7 +341,7 @@
     Function filtro(ByVal busqueda As String) As DataTable
         Consulta = "select cedula, nombre, apellido, telefono, direccion, nacimiento, contrasenia, tipo from usuarios where nombre like '%" + busqueda + "%';"
         consultar()
-        Return (Tabla)
+        Return (Tabla.Tables(0))
     End Function
     '////////////////////////////////////////////////////////////////////////////////////////
     '//////////////////////////////editar usuarios boton cargar //////////////////////
