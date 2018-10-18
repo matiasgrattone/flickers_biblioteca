@@ -123,10 +123,10 @@
     <Compile Include="Betas\FichaParaImprimirNumero2.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Betas\Mail.Designer.vb">
-      <DependentUpon>Mail.vb</DependentUpon>
+    <Compile Include="Betas\MailF.Designer.vb">
+      <DependentUpon>MailF.vb</DependentUpon>
     </Compile>
-    <Compile Include="Betas\Mail.vb">
+    <Compile Include="Betas\MailF.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Betas\PrestamoRevistas.Designer.vb">
@@ -284,8 +284,8 @@
     <EmbeddedResource Include="Betas\FichaParaImprimirNumero2.resx">
       <DependentUpon>FichaParaImprimirNumero2.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Betas\Mail.resx">
-      <DependentUpon>Mail.vb</DependentUpon>
+    <EmbeddedResource Include="Betas\MailF.resx">
+      <DependentUpon>MailF.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Betas\PrestamoRevistas.resx">
       <DependentUpon>PrestamoRevistas.vb</DependentUpon>

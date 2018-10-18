@@ -729,21 +729,24 @@ Public Class MENU3
 
         Consulta = "select * from usuarios"
         consultar()
-        DataGridView1.DataSource = Tabla
-        If DataGridView1.Rows.Count() = 0 Then
-            Pbnube.Image = Image.FromFile("imagenes\cloud-error.png")
-            ConfigAdmin.Label_BDestadoTXT.Text = lblhora.Text
-            ConfigAdmin.Label_BaseDatosTXT.Text = "LOCAL"
-            BD_ONLINE = 0
-        Else
-            Pbnube.Image = Image.FromFile("imagenes\cloud.png")
-            ConfigAdmin.Label_BDestadoTXT.Text = lblhora.Text
-            ConfigAdmin.Label_BaseDatosTXT.Text = "ONLINE"
-            BD_ONLINE = 1
-            If ERROR1 = 2 Then
-                Timer_BD.Interval = 10
-            End If
-        End If
+        'DataGridView1.DataSource = Tabla
+            For Each row As DataRow In Tabla.Rows
+                If Tabla.Rows.Count = 0 Then
+                    Pbnube.Image = Image.FromFile("imagenes\cloud-error.png")
+                    ConfigAdmin.Label_BDestadoTXT.Text = lblhora.Text
+                    ConfigAdmin.Label_BaseDatosTXT.Text = "LOCAL"
+                    BD_ONLINE = 0
+            Else
+                Pbnube.Image = Image.FromFile("imagenes\cloud.png")
+                ConfigAdmin.Label_BDestadoTXT.Text = lblhora.Text
+                ConfigAdmin.Label_BaseDatosTXT.Text = "ONLINE"
+                BD_ONLINE = 1
+                If ERROR1 = 2 Then
+                    Timer_BD.Interval = 10
+                End If
+
+                End If
+            Next
     End Sub
     Private Sub Timer_BD_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer_BD.Tick
         If primeriniciotimer = 0 Then

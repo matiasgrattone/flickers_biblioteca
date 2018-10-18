@@ -140,6 +140,7 @@ Partial Class ConfigAdmin
         '
         'TabPage1
         '
+        Me.TabPage1.BackColor = System.Drawing.Color.Transparent
         Me.TabPage1.Controls.Add(Me.DataGridView1)
         Me.TabPage1.Controls.Add(Me.Label2)
         Me.TabPage1.Controls.Add(Me.buscar_txt)
@@ -150,7 +151,6 @@ Partial Class ConfigAdmin
         Me.TabPage1.Size = New System.Drawing.Size(493, 415)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Buscar/Eliminar"
-        Me.TabPage1.UseVisualStyleBackColor = True
         '
         'DataGridView1
         '
@@ -838,7 +838,7 @@ Partial Class ConfigAdmin
         Me.PictureBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(67, Byte), Integer), CType(CType(67, Byte), Integer))
         Me.PictureBox1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.cancel
-        Me.PictureBox1.Location = New System.Drawing.Point(954, 6)
+        Me.PictureBox1.Location = New System.Drawing.Point(956, 9)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(24, 24)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage

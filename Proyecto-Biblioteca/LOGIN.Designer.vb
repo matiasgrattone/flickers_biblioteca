@@ -99,6 +99,7 @@ Partial Class LOGIN
         '
         'Labels_transparentes4
         '
+        Me.Labels_transparentes4.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Labels_transparentes4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Labels_transparentes4.ForeColor = System.Drawing.Color.White
         Me.Labels_transparentes4.Location = New System.Drawing.Point(496, 308)

@@ -8,12 +8,12 @@
     Dim xf, yf As Integer
     Dim holax, holay As Integer
 
-    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
+    Private Sub LOGIN()
         Dim user As String = Nothing
         Dim pass As String = Nothing
         Dim pass1 As String = Nothing
         Dim dia, mes, anio As Integer
-
+        i = 0
         dia = Val(DateTime.Now.ToString("dd"))
         mes = Val(DateTime.Now.ToString("MM"))
         anio = Val(DateTime.Now.ToString("yyyy"))
@@ -33,10 +33,10 @@
 
         If i = 0 Then
             Try
-                Consulta = "select contrasenia , nombre , cedula from usuarios where cedula = '" + user + "' and tipo<'2';"
+                Consulta = "select contrasenia , nombre , cedula from usuarios where cedula = '" + user + "' and tipo < 2"
                 consultar()
                 For Each row As DataRow In Tabla.Rows
-                    If Desencriptar(row("contrasenia").ToString) = pass Then
+                    If row("contrasenia").ToString = pass Then
                         MENU3.Nombre.Text = row("nombre")
                         MENU3.lbl_cedula.Text = row("cedula")
 
@@ -57,62 +57,13 @@
             End Try
         End If
     End Sub
+
+    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
+        LOGIN()
+    End Sub
     Private Sub contrasenia_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles contrasenia.KeyDown
         If e.KeyCode = Keys.Enter Then
-            Dim user As String = Nothing
-            Dim pass As String = Nothing
-            Dim pass1 As String = Nothing
-            Dim dia, mes, anio As Integer
-
-            dia = Val(DateTime.Now.ToString("dd"))
-            mes = Val(DateTime.Now.ToString("MM"))
-            anio = Val(DateTime.Now.ToString("yyyy"))
-
-            If LTrim$(usuario.Text) = "" Then ' Verifica si esta vacio nombre
-                ErrorProvider1.SetError(usuario, "Nombre no puede estar vacío")
-                i = 1
-            Else
-                user = usuario.Text
-            End If
-
-            If LTrim$(contrasenia.Text) = "" Then ' Verifica si esta vacio nombre
-                ErrorProvider1.SetError(contrasenia, "Contraseña no puede estar vacía")
-                i = 1
-            Else
-                pass = contrasenia.Text
-            End If
-
-            If i = 0 Then
-                Try
-                    Consulta = "select contrasenia , nombre , cedula from usuarios where cedula = '" + user + "' and tipo<'2';"
-                    consultar()
-                    For Each row As DataRow In Tabla.Rows
-
-                        If Desencriptar(row("contrasenia").ToString) = pass Then
-                            MENU3.Nombre.Text = row("nombre")
-                            MENU3.lbl_cedula.Text = row("cedula")
-
-                            MENU3.cedulaIngre = row("cedula").ToString
-
-                            Me.Hide()
-                            MENU3.Show()
-                        Else
-                            MsgBox("Cedula/Contraseaña Incorrecto")
-                            usuario.Clear()
-                            contrasenia.Clear()
-                            ErrorProvider1.SetError(usuario, " ")
-                            ErrorProvider1.SetError(contrasenia, " ")
-                        End If
-                    Next
-                Catch ex As Exception
-                    MsgBox("Cedula/Contraseaña Incorrecto")
-                    usuario.Clear()
-                    contrasenia.Clear()
-                    ErrorProvider1.SetError(usuario, " ")
-                    ErrorProvider1.SetError(contrasenia, " ")
-
-                End Try
-            End If
+            LOGIN()
         End If
     End Sub
     Private Sub contrasenia_TextChanged(sender As System.Object, e As System.EventArgs) Handles contrasenia.TextChanged
@@ -121,54 +72,7 @@
     End Sub
     Private Sub usuario_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles usuario.KeyDown
         If e.KeyCode = Keys.Enter Then
-            Dim user As String = Nothing
-            Dim pass As String = Nothing
-            Dim pass1 As String = Nothing
-            Dim dia, mes, anio As Integer
-
-            dia = Val(DateTime.Now.ToString("dd"))
-            mes = Val(DateTime.Now.ToString("MM"))
-            anio = Val(DateTime.Now.ToString("yyyy"))
-
-            If LTrim$(usuario.Text) = "" Then ' Verifica si esta vacio nombre
-                ErrorProvider1.SetError(usuario, "Nombre no puede estar vacío")
-                i = 1
-            Else
-                user = usuario.Text
-            End If
-            If LTrim$(contrasenia.Text) = "" Then ' Verifica si esta vacio nombre
-                ErrorProvider1.SetError(contrasenia, "Contraseña no puede estar vacía")
-                i = 1
-            Else
-                pass = contrasenia.Text
-            End If
-            If i = 0 Then
-                Try
-                    Consulta = "select contrasenia , nombre , cedula from usuarios where cedula = '" + user + "' and tipo<'2';"
-                    consultar()
-                    For Each row As DataRow In Tabla.Rows
-                        If Desencriptar(row("contrasenia").ToString) = pass Then
-                            MENU3.Nombre.Text = row("nombre")
-                            MENU3.lbl_cedula.Text = row("cedula")
-                            MENU3.cedulaIngre = row("cedula").ToString
-                            Me.Hide()
-                            MENU3.Show()
-                        Else
-                            MsgBox("Cedula/Contraseaña Incorrecto")
-                            usuario.Clear()
-                            contrasenia.Clear()
-                            ErrorProvider1.SetError(usuario, " ")
-                            ErrorProvider1.SetError(contrasenia, " ")
-                        End If
-                    Next
-                Catch ex As Exception
-                    MsgBox("Cedula/Contraseaña Incorrecto")
-                    usuario.Clear()
-                    contrasenia.Clear()
-                    ErrorProvider1.SetError(usuario, " ")
-                    ErrorProvider1.SetError(contrasenia, " ")
-                End Try
-            End If
+            LOGIN()
         End If
     End Sub
     Private Sub usuario_TextChanged(sender As System.Object, e As System.EventArgs) Handles usuario.TextChanged

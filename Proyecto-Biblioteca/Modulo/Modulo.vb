@@ -260,7 +260,7 @@ Module Modulo
             Email.Dispose()
 
             MsgBox("Correo Enviado", MsgBoxStyle.OkOnly & MsgBoxStyle.Information, Title:="Correo enviado")
-            Mail.Close()
+
         Catch ex As Exception
             MsgBox(ex.ToString)
             'MsgBox("Ocurrio un error al enviar el correo: " & ex.Message,

@@ -22,16 +22,24 @@ Partial Class ConfiguracionAdminV2
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.PbFondo = New System.Windows.Forms.PictureBox()
         Me.PanelOpciones = New System.Windows.Forms.Panel()
         Me.PictureboxBordesRedondos1 = New Proyecto_Biblioteca.PictureboxBordesRedondos()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.PbFondo = New System.Windows.Forms.PictureBox()
-        CType(Me.PictureboxBordesRedondos1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PbFondo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureboxBordesRedondos1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'PbFondo
+        '
+        Me.PbFondo.Location = New System.Drawing.Point(-1, -2)
+        Me.PbFondo.Name = "PbFondo"
+        Me.PbFondo.Size = New System.Drawing.Size(1144, 656)
+        Me.PbFondo.TabIndex = 6
+        Me.PbFondo.TabStop = False
         '
         'PanelOpciones
         '
@@ -85,14 +93,6 @@ Partial Class ConfiguracionAdminV2
         Me.Label4.TabIndex = 5
         Me.Label4.Text = "Label4"
         '
-        'PbFondo
-        '
-        Me.PbFondo.Location = New System.Drawing.Point(-1, -2)
-        Me.PbFondo.Name = "PbFondo"
-        Me.PbFondo.Size = New System.Drawing.Size(1144, 656)
-        Me.PbFondo.TabIndex = 6
-        Me.PbFondo.TabStop = False
-        '
         'ConfiguracionAdminV2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -107,17 +107,17 @@ Partial Class ConfiguracionAdminV2
         Me.Controls.Add(Me.PbFondo)
         Me.Name = "ConfiguracionAdminV2"
         Me.Text = "ConfiguracionAdminV2"
-        CType(Me.PictureboxBordesRedondos1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PbFondo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureboxBordesRedondos1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
+    Friend WithEvents PbFondo As System.Windows.Forms.PictureBox
     Friend WithEvents PanelOpciones As System.Windows.Forms.Panel
     Friend WithEvents PictureboxBordesRedondos1 As Proyecto_Biblioteca.PictureboxBordesRedondos
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents PbFondo As System.Windows.Forms.PictureBox
 End Class

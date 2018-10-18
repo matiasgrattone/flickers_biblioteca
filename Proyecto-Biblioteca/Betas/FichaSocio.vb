@@ -159,8 +159,8 @@
         FichaParaImprimir2.Hide()
     End Sub
     Private Sub PictureBox2_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox2.Click
-        Mail.Txt_Destino.Text = LabelMailtxt.Text
-        Mail.Show()
+        MailF.Txt_Destino.Text = LabelMailtxt.Text
+        MailF.Show()
     End Sub
 
     Private Sub cmbmes_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles cmbmes.SelectedIndexChanged
