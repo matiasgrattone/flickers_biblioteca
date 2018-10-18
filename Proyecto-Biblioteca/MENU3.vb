@@ -637,6 +637,7 @@ Public Class MENU3
 
                     ChartPrestamosDia.Series("Prestamos Del Dia").Points.AddXY(row("day(prestamolibro.fecha_salida)"), row("count(prestamolibro.cod_libro)"))
                     ChartPrestamosDia.Series("Prestamos Del Dia").Points(ContadorDia).AxisLabel = "Dia : " + "#VALX"
+
                     'ChartPrestamosDia.Series("Prestamos Del Dia").Points(ContadorDia).MarkerStyle = DataVisualization.Charting.MarkerStyle.Triangle
                     'ChartPrestamosDia.Series("Prestamos Del Dia").Points(ContadorDia).MarkerSize = 10
 
