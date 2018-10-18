@@ -83,7 +83,7 @@ Partial Class LOGIN
         Me.contrasenia.Name = "contrasenia"
         Me.contrasenia.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.contrasenia.Size = New System.Drawing.Size(237, 26)
-        Me.contrasenia.TabIndex = 1
+        Me.contrasenia.TabIndex = 2
         Me.contrasenia.WaterMarkColor = System.Drawing.Color.LightGray
         Me.contrasenia.WaterMarkText = "Contraseña"
         '
@@ -93,7 +93,7 @@ Partial Class LOGIN
         Me.usuario.Location = New System.Drawing.Point(496, 234)
         Me.usuario.Name = "usuario"
         Me.usuario.Size = New System.Drawing.Size(237, 26)
-        Me.usuario.TabIndex = 0
+        Me.usuario.TabIndex = 1
         Me.usuario.WaterMarkColor = System.Drawing.Color.LightGray
         Me.usuario.WaterMarkText = "Cedula"
         '
@@ -114,7 +114,7 @@ Partial Class LOGIN
         Me.TransPicBox1.ErrorImage = Nothing
         Me.TransPicBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.IMG_3252
         Me.TransPicBox1.InitialImage = Nothing
-        Me.TransPicBox1.Location = New System.Drawing.Point(81, 195)
+        Me.TransPicBox1.Location = New System.Drawing.Point(74, 195)
         Me.TransPicBox1.Name = "TransPicBox1"
         Me.TransPicBox1.Size = New System.Drawing.Size(250, 136)
         Me.TransPicBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage

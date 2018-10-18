@@ -830,8 +830,6 @@ Public Class MENU3
     End Sub
     Private Sub Pbusuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbusuario.Click
         If ERROR1 = 0 Then
-        Else
-
             Consulta = "select cedula , nombre , mail , tipo from usuarios where cedula = '" & lbl_cedula.Text & "'"
             consultar()
             For Each row As DataRow In Tabla.Rows
@@ -1163,8 +1161,16 @@ Public Class MENU3
     End Sub
 
     Private Sub PictureBox3_Click_1(sender As System.Object, e As System.EventArgs) Handles PictureBox3.Click
-        Me.Close()
-        LOGIN.Close()
+        Try
+            For Each f As Form In Application.OpenForms
+                If f.Name <> "MENU3" Then
+                    f.Close()
+                End If
+                Me.Close()
+            Next
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub ComboBox1_MouseEnter(sender As System.Object, e As System.EventArgs) Handles ComboBox1.MouseEnter
@@ -1176,9 +1182,19 @@ Public Class MENU3
         Timer_BD.Enabled = True
     End Sub
 
-  
-    Private Sub Button2_Click_1(sender As System.Object, e As System.EventArgs) Handles Bt_LogOut.Click
-        Me.Close()
-        LOGIN.Show()
+    Private Sub PictureBox4_Click_2(sender As System.Object, e As System.EventArgs) Handles PictureBox4.Click
+        Try
+            For Each f As Form In Application.OpenForms
+                If f.Name <> "LOGIN" And f.Name <> "MENU3" Then
+                    f.Close()
+                End If
+            Next
+            LOGIN.usuario.Clear()
+            LOGIN.contrasenia.Clear()
+            Me.Close()
+            LOGIN.Show()
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class
