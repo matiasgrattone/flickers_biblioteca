@@ -78,7 +78,7 @@
         Button4.Visible = False
         Consulta = "select cedula as 'Cedula', nombre as 'Nombre', apellido as 'Apellido', direccion as 'Direccion', telefono 'Telefono', nacimiento as 'Nacimiento' from usuarios where estado = 1 and tipo = 2;"
         consultar()
-        DataGridView1.DataSource = Tabla
+        DataGridView1.DataSource = Tabla.Tables(0)
 
         DatagridModulo = DataGridView1
         Datagrid_Align()
@@ -92,7 +92,7 @@
     Private Sub PlaceHolder1_TextChanged(sender As System.Object, e As System.EventArgs) Handles PlaceHolder1.TextChanged
         Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento from usuarios where cedula like '" & PlaceHolder1.Text & "%' and estado = 1 and tipo = 2"
         consultar()
-        DataGridView1.DataSource = Tabla
+        DataGridView1.DataSource = Tabla.Tables(0)
     End Sub
 
     Private Sub PictureBox1_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox1.Click
@@ -519,7 +519,7 @@
                 Try
                     Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento from usuarios where estado = 1 and tipo = 2;"
                     consultar()
-                    DataGridView1.DataSource = Tabla
+                    DataGridView1.DataSource = Tabla.Tables(0)
 
                 Catch ex As Exception
                     MsgBox(ex.Message)
@@ -665,7 +665,7 @@
         Try
             Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento from usuarios where estado = 1 and tipo = 2;"
             consultar()
-            DataGridView1.DataSource = Tabla
+            DataGridView1.DataSource = Tabla.Tables(0)
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
