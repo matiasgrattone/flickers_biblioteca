@@ -46,7 +46,7 @@
         'Se cambia el label solo cuando haya un valor en el textbox CEDULA
 
 
-        If Cedula.Text = "" Then
+        If Cedula.Text = "" And ERROR1 = 0 Then
             '//////////////////////Oculta los picturebox y la interfaz de las funciones///////////////////////////////
 
             ExtGrup.Visible = False
@@ -61,7 +61,7 @@
             PanelDelCarrito.Left = -268
             MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
             '/////////////////////////////////////////////////////////////////////////////////////////////////////////
-        Else
+        ElseIf ERROR1 = 0 Then
 
 
             Consulta = "select cedula from usuarios where cedula like '" & Cedula.Text & "'"
@@ -133,7 +133,9 @@
     End Sub
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonVerRegistro.Click
-        Registroprestamos.Show()
+        If ERROR1 = 0 Then
+            Registroprestamos.Show()
+        End If
     End Sub
     Private Sub ButonLiberar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonLiberar.Click
 
@@ -588,12 +590,14 @@
     End Sub
 
     Private Sub ButtonVerFicha_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonVerFicha.Click
-        FichaSocio.FichaCedulaSocio = Cedula.Text
-        FichaSocio.Show()
+        If ERROR1 = 0 Then
+            FichaSocio.FichaCedulaSocio = Cedula.Text
+            FichaSocio.Show()
+        End If
     End Sub
 
     Private Sub Cedula_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles Cedula.KeyDown
-        If e.KeyCode = Keys.Enter Then
+        If e.KeyCode = Keys.Enter And ERROR1 = 0 Then
 
             'Se cambia el label solo cuando haya un valor en el textbox CEDULA
 
@@ -613,7 +617,7 @@
                 PanelDelCarrito.Left = -268
                 MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
                 '/////////////////////////////////////////////////////////////////////////////////////////////////////////
-            Else
+            ElseIf ERROR1 = 0 Then
 
 
                 Consulta = "select cedula from usuarios where cedula like '" & Cedula.Text & "'"

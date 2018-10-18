@@ -79,7 +79,7 @@ Partial Class Seleccion_Revistas
         'pcbox1
         '
         Me.pcbox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.books
-        Me.pcbox1.Location = New System.Drawing.Point(410, 181)
+        Me.pcbox1.Location = New System.Drawing.Point(410, 214)
         Me.pcbox1.Name = "pcbox1"
         Me.pcbox1.Size = New System.Drawing.Size(133, 125)
         Me.pcbox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -99,7 +99,7 @@ Partial Class Seleccion_Revistas
         'pcbox2
         '
         Me.pcbox2.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.books
-        Me.pcbox2.Location = New System.Drawing.Point(359, 181)
+        Me.pcbox2.Location = New System.Drawing.Point(357, 215)
         Me.pcbox2.Name = "pcbox2"
         Me.pcbox2.Size = New System.Drawing.Size(133, 125)
         Me.pcbox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -110,7 +110,7 @@ Partial Class Seleccion_Revistas
         '
         Me.lbl2.AutoSize = True
         Me.lbl2.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl2.Location = New System.Drawing.Point(635, 256)
+        Me.lbl2.Location = New System.Drawing.Point(649, 257)
         Me.lbl2.Name = "lbl2"
         Me.lbl2.Size = New System.Drawing.Size(161, 39)
         Me.lbl2.TabIndex = 6
@@ -122,7 +122,7 @@ Partial Class Seleccion_Revistas
         Me.Panel2.Controls.Add(Me.pcbox2)
         Me.Panel2.Controls.Add(Me.pcbox4)
         Me.Panel2.Controls.Add(Me.lbl2)
-        Me.Panel2.Location = New System.Drawing.Point(54, -1)
+        Me.Panel2.Location = New System.Drawing.Point(54, -2)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(954, 651)
         Me.Panel2.TabIndex = 1
@@ -130,7 +130,7 @@ Partial Class Seleccion_Revistas
         'pcbox4
         '
         Me.pcbox4.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.back
-        Me.pcbox4.Location = New System.Drawing.Point(907, 256)
+        Me.pcbox4.Location = New System.Drawing.Point(907, 246)
         Me.pcbox4.Name = "pcbox4"
         Me.pcbox4.Size = New System.Drawing.Size(35, 50)
         Me.pcbox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage

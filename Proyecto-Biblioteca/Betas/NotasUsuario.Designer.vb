@@ -22,6 +22,7 @@ Partial Class NotasUsuario
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(NotasUsuario))
         Me.PanelEditroDeTexto = New System.Windows.Forms.Panel()
         Me.ButtonRecordatorio = New System.Windows.Forms.Button()
         Me.EditorDeTexto = New System.Windows.Forms.TextBox()
@@ -86,9 +87,9 @@ Partial Class NotasUsuario
         Me.PanelEditroDeTexto.Controls.Add(Me.ButtonRecordatorio)
         Me.PanelEditroDeTexto.Controls.Add(Me.EditorDeTexto)
         Me.PanelEditroDeTexto.Controls.Add(Me.MenuStrip1)
-        Me.PanelEditroDeTexto.Location = New System.Drawing.Point(2, 55)
+        Me.PanelEditroDeTexto.Location = New System.Drawing.Point(1, 55)
         Me.PanelEditroDeTexto.Name = "PanelEditroDeTexto"
-        Me.PanelEditroDeTexto.Size = New System.Drawing.Size(1039, 595)
+        Me.PanelEditroDeTexto.Size = New System.Drawing.Size(1042, 598)
         Me.PanelEditroDeTexto.TabIndex = 0
         '
         'ButtonRecordatorio
@@ -115,7 +116,7 @@ Partial Class NotasUsuario
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem, Me.EditarToolStripMenuItem, Me.FormatoToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1039, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1042, 24)
         Me.MenuStrip1.TabIndex = 1
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -129,19 +130,19 @@ Partial Class NotasUsuario
         'NuevoToolStripMenuItem
         '
         Me.NuevoToolStripMenuItem.Name = "NuevoToolStripMenuItem"
-        Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.NuevoToolStripMenuItem.Text = "Nuevo"
         '
         'AbrirToolStripMenuItem
         '
         Me.AbrirToolStripMenuItem.Name = "AbrirToolStripMenuItem"
-        Me.AbrirToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AbrirToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.AbrirToolStripMenuItem.Text = "Abrir"
         '
         'GuardarComoToolStripMenuItem
         '
         Me.GuardarComoToolStripMenuItem.Name = "GuardarComoToolStripMenuItem"
-        Me.GuardarComoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.GuardarComoToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.GuardarComoToolStripMenuItem.Text = "Guardar"
         '
         'EditarToolStripMenuItem
@@ -207,7 +208,7 @@ Partial Class NotasUsuario
         '
         'PanelNotas
         '
-        Me.PanelNotas.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.PanelNotas.BackColor = System.Drawing.SystemColors.AppWorkspace
         Me.PanelNotas.Controls.Add(Me.ButtonX)
         Me.PanelNotas.Controls.Add(Me.DataGridViewParaVerNotasDisponibles)
         Me.PanelNotas.Controls.Add(Me.Label1)
@@ -456,9 +457,9 @@ Partial Class NotasUsuario
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(67, Byte), Integer), CType(CType(67, Byte), Integer))
         Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Controls.Add(Me.Labels_transparentes1)
-        Me.Panel1.Location = New System.Drawing.Point(2, 2)
+        Me.Panel1.Location = New System.Drawing.Point(1, 1)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1039, 53)
+        Me.Panel1.Size = New System.Drawing.Size(1042, 55)
         Me.Panel1.TabIndex = 4
         '
         'PictureBox1
@@ -487,13 +488,14 @@ Partial Class NotasUsuario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(181, Byte), Integer), CType(CType(126, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.BackColor = System.Drawing.Color.Black
         Me.ClientSize = New System.Drawing.Size(1044, 654)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.PanelNotas)
         Me.Controls.Add(Me.PanelEditroDeTexto)
         Me.Controls.Add(Me.PanelRecordatorios)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "NotasUsuario"
         Me.Text = "Form3"

@@ -74,9 +74,9 @@
     Dim errorcedula As Integer = 0
     Private Sub BotonParaBuscarCedula_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BotonParaBuscarCedula.Click
         'Si el ModoCedula esta en modo "Buscar" ahi se llamara a ActuaizarCedula para poder iniciar las funciones de el menu 
-        If ModoCedula = "Buscar" Then
+        If ModoCedula = "Buscar" And ERROR1 = 0 Then
             ActualizarCedula()
-        Else 'En caso que no este en "Buscar" se le preguntara al usuario si quiere cambiar la cedula ya ingresada 
+        ElseIf ERROR1 = 0 Then 'En caso que no este en "Buscar" se le preguntara al usuario si quiere cambiar la cedula ya ingresada 
             z = 0
             z = MsgBox("Editar la cedula reiniciara lo echo hasta el momento, desea continuar ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
 
@@ -117,12 +117,12 @@
 
     '///BUSCAR CEDULA AL PRECIONAR ENTER///
     Private Sub Cedula_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Cedula.KeyDown
-        If ModoCedula = "Buscar" Then 'Si el ModoCedula esta en modo "Buscar" ahi se llamara a ActuaizarCedula para poder iniciar las funciones de el menu 
+        If ModoCedula = "Buscar" And ERROR1 = 0 Then 'Si el ModoCedula esta en modo "Buscar" ahi se llamara a ActuaizarCedula para poder iniciar las funciones de el menu 
             If e.KeyCode = Keys.Enter Then
                 ActualizarCedula()
             End If
 
-        Else 'En caso que no este en "Buscar" se le preguntara al usuario si quiere cambiar la cedula ya ingresada 
+        ElseIf ERROR1 = 0 Then 'En caso que no este en "Buscar" se le preguntara al usuario si quiere cambiar la cedula ya ingresada 
             z = 0
             z = MsgBox("Editar la cedula reiniciara lo echo hasta el momento, desea continuar ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
 
@@ -1063,13 +1063,17 @@
 
     '///////////////////////////VER FICHA/////////////////////////////
     Private Sub ButtonVerFicha_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonVerFicha.Click
-        FichaSocio.FichaCedulaSocio = Cedula.Text
-        FichaSocio.Show()
+        If ERROR1 = 0 Then
+            FichaSocio.FichaCedulaSocio = Cedula.Text
+            FichaSocio.Show()
+        End If
     End Sub
 
     '///////////////////////////VER REGISTRO DE SOCIOS/////////////////////////////
     Private Sub ButtonVERREGISTRO_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonVERREGISTRO.Click
-        Registroprestamos.Show()
+        If ERROR1 = 0 Then
+            Registroprestamos.Show()
+        End If
     End Sub
 
     '///////////////////////////IR A MODO REVISTAS/////////////////////////////

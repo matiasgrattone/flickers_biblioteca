@@ -54,9 +54,9 @@
     End Sub
 
     Private Sub Timer20_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer20.Tick
-        If Panel1.Width > 60 Then
+        If Panel1.Width > 60 And ERROR1 = 0 Then
             Panel1.Width -= 10
-        Else
+        ElseIf ERROR1 = 0 Then
             pcbox3.Visible = True
             pcbox4.Visible = False
             Timer20.Enabled = False
@@ -72,10 +72,10 @@
     End Sub
 
     Private Sub Timer30_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer30.Tick
-        If Panel1.Width < 900 Then
+        If Panel1.Width < 900 And ERROR1 = 0 Then
             Panel1.Width += 10
 
-        Else
+        ElseIf ERROR1 = 0 Then
 
             pcbox3.Visible = False
             pcbox4.Visible = True

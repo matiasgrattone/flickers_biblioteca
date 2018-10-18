@@ -74,6 +74,7 @@
     '////////////////////////////////////////////////////////////////////////////////
 
     Private Sub Inicio_UsuariosV2_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        bt_FichaSocio.Visible = False
 
         Button4.Visible = False
         Consulta = "select cedula as 'Cedula', nombre as 'Nombre', apellido as 'Apellido', direccion as 'Direccion', telefono 'Telefono', nacimiento as 'Nacimiento' from usuarios where estado = 1 and tipo = 2;"
@@ -341,6 +342,7 @@
         '///////////////////////////////////////////////////////////////////////////////////////////////////
         '///////////////////////////////////////////////////////////////////////////////////////////////////
         '///////////////////////////////////////////////////////////////////////////////////////////////////
+        bt_FichaSocio.Visible = True
 
         cedulaUser = DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value
 
@@ -1070,5 +1072,34 @@
     Private Sub RadioButton1_CheckedChanged_1(sender As System.Object, e As System.EventArgs) Handles RadioButton1.CheckedChanged
         PlaceHolderMail.Visible = True
         Label_Mail.Visible = True
+    End Sub
+
+    Private Sub Button5_Click(sender As System.Object, e As System.EventArgs) Handles bt_FichaSocio.Click
+        FichaSocio.FichaCedulaSocio = DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value
+        FichaSocio.Show()
+    End Sub
+
+    Private Sub Inicio_UsuariosV2_MouseClick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles MyBase.MouseClick
+        bt_FichaSocio.Visible = False
+    End Sub
+
+    Private Sub Panel3_MouseClick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel3.MouseClick
+        bt_FichaSocio.Visible = False
+    End Sub
+
+    Private Sub Panel4_MouseClick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel4.MouseClick
+        bt_FichaSocio.Visible = False
+    End Sub
+
+    Private Sub PlaceHolder1_MouseClick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles PlaceHolder1.MouseClick
+        bt_FichaSocio.Visible = False
+    End Sub
+
+    Private Sub Panel1_MouseClick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseClick
+        bt_FichaSocio.Visible = False
+    End Sub
+
+    Private Sub Panel2_MouseClick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel2.MouseClick
+        bt_FichaSocio.Visible = False
     End Sub
 End Class

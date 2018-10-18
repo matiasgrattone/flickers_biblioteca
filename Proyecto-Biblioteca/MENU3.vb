@@ -43,25 +43,29 @@ Public Class MENU3
         Rueda_de_carga1.Visible = False 'desactiva la rueda de carga
         verificarBD() 'llama al metodo para verificar si esta ONLINE la base de datos
 
-        Consulta = "select prestamolibro.cod_libro as Libros, libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where fecha_entrada is null"
-        consultar()
-        DataGridViewLibros.DataSource = Tabla
-        DataGridViewLibros.Columns(0).HeaderText = "Nº de inventario"
-        DatagridModulo = DataGridViewLibros 'iguala la varible publica de tipo datagrid al datagrid que recibe los datos de la consulta
-        Datagrid_Align() 'llama al metodo para alinear las filas y las columnas del datagrid
+        If ERROR1 = 0 Then
 
-        cedulaIngre = lbl_cedula.Text ' Variable para actualizar foto de perfil
 
-        Try
-            Consulta = "select rutaperfil from usuarios where cedula ='" + cedulaIngre + "'"
+            Consulta = "select prestamolibro.cod_libro as Libros, libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where fecha_entrada is null"
             consultar()
+            DataGridViewLibros.DataSource = Tabla
+            DataGridViewLibros.Columns(0).HeaderText = "Nº de inventario"
+            DatagridModulo = DataGridViewLibros 'iguala la varible publica de tipo datagrid al datagrid que recibe los datos de la consulta
+            Datagrid_Align() 'llama al metodo para alinear las filas y las columnas del datagrid
 
-            For Each row As DataRow In Tabla.rows
-                Pbusuario.ImageLocation = Convert.ToString(row("rutaperfil")) 'iguala el picturebox de MENU3 con la ubicacion de la imagen guardada en la base
-            Next
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+            cedulaIngre = lbl_cedula.Text ' Variable para actualizar foto de perfil
+
+            Try
+                Consulta = "select rutaperfil from usuarios where cedula ='" + cedulaIngre + "'"
+                consultar()
+
+                For Each row As DataRow In Tabla.Rows
+                    Pbusuario.ImageLocation = Convert.ToString(row("rutaperfil")) 'iguala el picturebox de MENU3 con la ubicacion de la imagen guardada en la base
+                Next
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        End If
 
         If ERROR1 = 0 Then 'si no hay error , llama al metodo chart para cargar las graficas , activa el timer_Prestamos  y llama al metodo inicio para verificar si hay libros para devolver en el dia
             Chart()
@@ -390,48 +394,50 @@ Public Class MENU3
         End If
     End Sub
     Private Sub Pbconfig_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbconfig.Click
-        Dim open As Integer
-        For Each f As Form In Application.OpenForms
+        If ERROR1 = 0 Then
+            Dim open As Integer
+            For Each f As Form In Application.OpenForms
 
-            If f.Name = "ConfiguraciónAdmin" Then
-                open = 1
-            Else
-                open = 0
-            End If
+                If f.Name = "ConfiguraciónAdmin" Then
+                    open = 1
+                Else
+                    open = 0
+                End If
 
-        Next
-        Dim cedula As Integer = 0
-        If open = 0 Then
-            Try
-                Dim contraseniaAdmin As String
-                contraseniaAdmin = InputBox("Por favor ingrese la cedula de un administrador", Title:="Biblioteca")
-                Consulta = "select * from usuarios where tipo < 2"
-                consultar()
-                For Each row As DataRow In Tabla.Rows
-                    If row("cedula") = contraseniaAdmin Then
-                        cedula = 1
-                        ConfigAdmin.ptbPerfilAdmin.ImageLocation = row("rutaperfil").ToString
-                        ConfigAdmin.cedulaFotoPerfil = row("cedula").ToString
-                        ConfigAdmin.Lbl_NombreADMIN_TXT.Text = row("nombre") & " " & row("apellido")
-                        contraseniaAdmin = "1"
-                    End If
-                    If row("cedula") Is DBNull.Value Then
-                        cedula = 0
+            Next
+            Dim cedula As Integer = 0
+            If open = 0 Then
+                Try
+                    Dim contraseniaAdmin As String
+                    contraseniaAdmin = InputBox("Por favor ingrese la cedula de un administrador", Title:="Biblioteca")
+                    Consulta = "select * from usuarios where tipo < 2"
+                    consultar()
+                    For Each row As DataRow In Tabla.Rows
+                        If row("cedula") = contraseniaAdmin Then
+                            cedula = 1
+                            ConfigAdmin.ptbPerfilAdmin.ImageLocation = row("rutaperfil").ToString
+                            ConfigAdmin.cedulaFotoPerfil = row("cedula").ToString
+                            ConfigAdmin.Lbl_NombreADMIN_TXT.Text = row("nombre") & " " & row("apellido")
+                            contraseniaAdmin = "1"
+                        End If
+                        If row("cedula") Is DBNull.Value Then
+                            cedula = 0
+                            MsgBox("Cedula Incorrecta")
+                        End If
+                    Next
+                    If cedula = 1 Then
+                        ConfigAdmin.Show()
+                    ElseIf cedula = 0 Then
                         MsgBox("Cedula Incorrecta")
                     End If
-                Next
-                If cedula = 1 Then
-                    ConfigAdmin.Show()
-                ElseIf cedula = 0 Then
-                    MsgBox("Cedula Incorrecta")
-                End If
-            Catch ex As Exception
-                If (ex.Message.ToLowerInvariant().Contains("double")) Then
-                    MsgBox("Cedula Incorrecta")
-                Else
-                    MsgBox(ex.Message)
-                End If
-            End Try
+                Catch ex As Exception
+                    If (ex.Message.ToLowerInvariant().Contains("double")) Then
+                        MsgBox("Cedula Incorrecta")
+                    Else
+                        MsgBox(ex.Message)
+                    End If
+                End Try
+            End If
         End If
     End Sub 'Evento clik
     Private Sub Pbconfig_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbconfig.MouseEnter
@@ -667,7 +673,7 @@ Public Class MENU3
     Dim x1 As Integer = 1
     Private Sub PictureBox1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox1.Click
 
-        If x1 = 0 Then
+        If x1 = 0 And ERROR1 = 0 Then
             PanelPrestamosLIVE.Left = 1010
             PanelGraph1.Width = 969
             ChartPrestamosDia.Width = 963
@@ -678,7 +684,7 @@ Public Class MENU3
             Chart_Prestamos.Width = 492
             PanelPrestamosTOP.Left = 525
             x1 = 1
-        Else
+        ElseIf ERROR1 = 0 Then
             PanelPrestamosLIVE.Left = 766
             PictureBox1.Left = 742
             PanelGraph1.Width = 735
@@ -731,24 +737,20 @@ Public Class MENU3
 
         Consulta = "select * from usuarios"
         consultar()
-        'DataGridView1.DataSource = Tabla
-            For Each row As DataRow In Tabla.Rows
-                If Tabla.Rows.Count = 0 Then
-                    Pbnube.Image = Image.FromFile("imagenes\cloud-error.png")
-                    ConfigAdmin.Label_BDestadoTXT.Text = lblhora.Text
-                    ConfigAdmin.Label_BaseDatosTXT.Text = "LOCAL"
-                    BD_ONLINE = 0
-            Else
-                Pbnube.Image = Image.FromFile("imagenes\cloud.png")
-                ConfigAdmin.Label_BDestadoTXT.Text = lblhora.Text
-                ConfigAdmin.Label_BaseDatosTXT.Text = "ONLINE"
-                BD_ONLINE = 1
-                If ERROR1 = 2 Then
-                    Timer_BD.Interval = 10
-                End If
-
-                End If
-            Next
+        If Tabla.Rows.Count = 0 Then
+            Pbnube.Image = Image.FromFile("imagenes\cloud-error.png")
+            ConfigAdmin.Label_BDestadoTXT.Text = lblhora.Text
+            ConfigAdmin.Label_BaseDatosTXT.Text = "LOCAL"
+            BD_ONLINE = 0
+        Else
+            Pbnube.Image = Image.FromFile("imagenes\cloud.png")
+            ConfigAdmin.Label_BDestadoTXT.Text = lblhora.Text
+            ConfigAdmin.Label_BaseDatosTXT.Text = "ONLINE"
+            BD_ONLINE = 1
+            If ERROR1 = 2 Then
+                Timer_BD.Interval = 10
+            End If
+        End If
     End Sub
     Private Sub Timer_BD_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer_BD.Tick
         If primeriniciotimer = 0 Then
@@ -778,15 +780,18 @@ Public Class MENU3
     End Sub
     Dim notasopen As Integer
     Private Sub PictureBox2_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox2.Click
-        For Each notas As Form In Application.OpenForms
-            If notas.Name = "Notas" Then
-                notasopen = 1
-            Else
-                notasopen = 0
+        If ERROR1 = 2 Then
+        ElseIf ERROR1 = 0 Then
+            For Each notas As Form In Application.OpenForms
+                If notas.Name = "Notas" Then
+                    notasopen = 1
+                Else
+                    notasopen = 0
+                End If
+            Next
+            If notasopen = 0 Then
+                NotasUsuario.Show()
             End If
-        Next
-        If notasopen = 0 Then
-            NotasUsuario.Show()
         End If
     End Sub
     Private Sub Panel_Inicio_MouseLeave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Panel_Inicio.MouseLeave
@@ -824,22 +829,26 @@ Public Class MENU3
         Chart()
     End Sub
     Private Sub Pbusuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbusuario.Click
-        Consulta = "select cedula , nombre , mail , tipo from usuarios where cedula = '" & lbl_cedula.Text & "'"
-        consultar()
-        For Each row As DataRow In Tabla.Rows
-            If row("cedula") IsNot DBNull.Value Then
-                info_usuario.LabelCedula.Text = row("cedula")
-                info_usuario.LabelMail.Text = row("mail")
-                info_usuario.LabelNombre.Text = row("nombre")
-                Select Case row("tipo")
-                    Case 0
-                        info_usuario.LabelTipo.Text = "Administrador"
-                    Case 1
-                        info_usuario.LabelTipo.Text = "Funcionario"
-                End Select
-            End If
-        Next
-        info_usuario.Show()
+        If ERROR1 = 0 Then
+        Else
+
+            Consulta = "select cedula , nombre , mail , tipo from usuarios where cedula = '" & lbl_cedula.Text & "'"
+            consultar()
+            For Each row As DataRow In Tabla.Rows
+                If row("cedula") IsNot DBNull.Value Then
+                    info_usuario.LabelCedula.Text = row("cedula")
+                    info_usuario.LabelMail.Text = row("mail")
+                    info_usuario.LabelNombre.Text = row("nombre")
+                    Select Case row("tipo")
+                        Case 0
+                            info_usuario.LabelTipo.Text = "Administrador"
+                        Case 1
+                            info_usuario.LabelTipo.Text = "Funcionario"
+                    End Select
+                End If
+            Next
+            info_usuario.Show()
+        End If
     End Sub
 
     Private Sub label_usuarios_MouseEnter(sender As System.Object, e As System.EventArgs) Handles label_usuarios.MouseEnter
@@ -937,25 +946,27 @@ Public Class MENU3
     End Sub
 
     Private Sub usuariosForm()
-        seleccionado = "usuarios" 'fija seleccion como usuarios
+        If ERROR1 = 0 Then
+            seleccionado = "usuarios" 'fija seleccion como usuarios
 
-        Timer_Prestamos_LIVE.Enabled = False 'desactiva el timer_Prestamos
+            Timer_Prestamos_LIVE.Enabled = False 'desactiva el timer_Prestamos
 
-        'fija todos los backcolors de los paneles de seleccion como silver , menos el que esta seleccionado
-        panel_usuarios.BackColor = Drawing.Color.LightGray
-        panel_libros.BackColor = Drawing.Color.Silver
-        panel_prestamos.BackColor = Drawing.Color.Silver
-        panel_navegador.BackColor = Drawing.Color.Silver
-        Panel_Revistas.BackColor = Drawing.Color.Silver
-        Panel_Inicio.BackColor = Drawing.Color.Silver
-        Panel_PrestamosRevistas.BackColor = Drawing.Color.Silver
-        Dim F1 As New Inicio_UsuariosV2 'declara la varibale F1 como tipo formulario en este caso como inicio_usuariosV2
-        panel_menu.Controls.Clear() 'limpia el panel donde va a estar alojado el formulario
-        F1.TopLevel = False 'pone en tipo false el nivel de la variable
-        F1.Parent = panel_menu 'declara como padre al formulario que aloja a la variable F1
-        F1.Show() 'mustra la varible F1
+            'fija todos los backcolors de los paneles de seleccion como silver , menos el que esta seleccionado
+            panel_usuarios.BackColor = Drawing.Color.LightGray
+            panel_libros.BackColor = Drawing.Color.Silver
+            panel_prestamos.BackColor = Drawing.Color.Silver
+            panel_navegador.BackColor = Drawing.Color.Silver
+            Panel_Revistas.BackColor = Drawing.Color.Silver
+            Panel_Inicio.BackColor = Drawing.Color.Silver
+            Panel_PrestamosRevistas.BackColor = Drawing.Color.Silver
+            Dim F1 As New Inicio_UsuariosV2 'declara la varibale F1 como tipo formulario en este caso como inicio_usuariosV2
+            panel_menu.Controls.Clear() 'limpia el panel donde va a estar alojado el formulario
+            F1.TopLevel = False 'pone en tipo false el nivel de la variable
+            F1.Parent = panel_menu 'declara como padre al formulario que aloja a la variable F1
+            F1.Show() 'mustra la varible F1
 
-        Preparar_Form() 'prepara los formulario para cargar la variable
+            Preparar_Form() 'prepara los formulario para cargar la variable
+        End If
     End Sub
 
     Private Sub inicioForm()
@@ -996,33 +1007,33 @@ Public Class MENU3
     End Sub
 
     Private Sub prestamosRevistasForm()
-        seleccionado = "PrestamosRevistas"
+            seleccionado = "PrestamosRevistas"
 
-        Dim F6 As New PrestamoRevistas
-        panel_menu.Controls.Clear()
-        F6.TopLevel = False
-        F6.Parent = panel_menu
+            Dim F6 As New PrestamoRevistas
+            panel_menu.Controls.Clear()
+            F6.TopLevel = False
+            F6.Parent = panel_menu
 
-        F6.Show()
+            F6.Show()
 
-        panel_menu.Visible = True
-        txtbuscar.Visible = False
-        btnatras.Visible = False
-        btnadelante.Visible = False
-        btnpaginainicio.Visible = False
-        btnrecargar.Visible = False
-        Pnavegador.Visible = False
-        Wbnavegador.Visible = False
+            panel_menu.Visible = True
+            txtbuscar.Visible = False
+            btnatras.Visible = False
+            btnadelante.Visible = False
+            btnpaginainicio.Visible = False
+            btnrecargar.Visible = False
+            Pnavegador.Visible = False
+            Wbnavegador.Visible = False
 
-        panel_usuarios.BackColor = Drawing.Color.Silver
-        panel_libros.BackColor = Drawing.Color.Silver
-        panel_prestamos.BackColor = Drawing.Color.Silver
-        panel_navegador.BackColor = Drawing.Color.Silver
-        Panel_Revistas.BackColor = Drawing.Color.Silver
-        Panel_Inicio.BackColor = Drawing.Color.Silver
-        Panel_PrestamosRevistas.BackColor = Drawing.Color.LightGray
+            panel_usuarios.BackColor = Drawing.Color.Silver
+            panel_libros.BackColor = Drawing.Color.Silver
+            panel_prestamos.BackColor = Drawing.Color.Silver
+            panel_navegador.BackColor = Drawing.Color.Silver
+            Panel_Revistas.BackColor = Drawing.Color.Silver
+            Panel_Inicio.BackColor = Drawing.Color.Silver
+            Panel_PrestamosRevistas.BackColor = Drawing.Color.LightGray
 
-        Panel_Graficos.Visible = False
+            Panel_Graficos.Visible = False
     End Sub
 
     Private Sub revistasForm()
@@ -1087,18 +1098,20 @@ Public Class MENU3
         prestamosRevistasForm()
     End Sub
     Private Sub navegadorForm()
-        seleccionado = "navegador"
-        Timer_Prestamos_LIVE.Enabled = False
+        If ERROR1 = 0 Then
+            seleccionado = "navegador"
+            Timer_Prestamos_LIVE.Enabled = False
 
-        panel_usuarios.BackColor = Drawing.Color.Silver
-        panel_libros.BackColor = Drawing.Color.Silver
-        panel_prestamos.BackColor = Drawing.Color.Silver
-        panel_navegador.BackColor = Drawing.Color.LightGray
-        Panel_Revistas.BackColor = Drawing.Color.Silver
-        Panel_Inicio.BackColor = Drawing.Color.Silver
-        Panel_PrestamosRevistas.BackColor = Drawing.Color.Silver
+            panel_usuarios.BackColor = Drawing.Color.Silver
+            panel_libros.BackColor = Drawing.Color.Silver
+            panel_prestamos.BackColor = Drawing.Color.Silver
+            panel_navegador.BackColor = Drawing.Color.LightGray
+            Panel_Revistas.BackColor = Drawing.Color.Silver
+            Panel_Inicio.BackColor = Drawing.Color.Silver
+            Panel_PrestamosRevistas.BackColor = Drawing.Color.Silver
 
-        Preparar_Form()
+            Preparar_Form()
+        End If
     End Sub
 
     Private Sub label_navegador_Click(sender As System.Object, e As System.EventArgs)
