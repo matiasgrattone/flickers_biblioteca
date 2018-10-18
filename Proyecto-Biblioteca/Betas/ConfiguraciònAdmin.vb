@@ -60,6 +60,7 @@ Public Class ConfigAdmin
         'Administrador 0
         'Funcionarios 1
         'Socios 2
+        MENU3.Timer_Prestamos_LIVE.Enabled = False
         a = 0
         PictureBox1.Visible = True
         xf = Me.Location.X
@@ -420,6 +421,7 @@ Public Class ConfigAdmin
     End Sub
 
     Private Sub PictureBox1_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox1.Click
+        MENU3.Timer_Prestamos_LIVE.Enabled = True
         Me.Close()
     End Sub
     Private Sub ptbPerfilAdmin_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles ptbPerfilAdmin.DoubleClick
@@ -643,8 +645,13 @@ Public Class ConfigAdmin
             telefono.Text = row("telefono").ToString
             cb_dia_editar.SelectedIndex = (Val(dia) + 1)
             cb_mes_editar.SelectedIndex = (Val(mes) + 1)
-            cb_anio_editar.SelectedIndex = (Val(anio) + 1)
-
+            Dim x As Integer = 0
+            For Each item In cb_anio_editar.Items
+                If item = anio Then
+                    cb_anio_editar.SelectedIndex = x
+                End If
+                x = x + 1
+            Next
             cargar2()
 
             btn_guardar_editar.Visible = True

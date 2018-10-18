@@ -999,9 +999,7 @@
             MsgBox(ex.Message)
         End Try
     End Sub
-
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
-
         Dim dialogoCarga As New OpenFileDialog 'Crea un objeto del tipo OpenFileDialog para seleccionar archivos
         dialogoCarga.Filter = "Imágenes|*.jpg; *.png; *.gif" 'Limita a que solo se puedan seleccionar imágenes de los tipos indicados
         dialogoCarga.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) 'Indica en un String la ubicación en donde busca por defecto, en este caso se obtiene el escritorio
@@ -1054,15 +1052,10 @@
         Else
             MsgBox("Los campos de nombre y cedula deben de estar completos para realizar esto")
         End If
-
     End Sub
-
-
     Private Sub VerFichaToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles VerFichaToolStripMenuItem.Click
-
         FichaSocio.FichaCedulaSocio = DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value
         FichaSocio.Show()
-
     End Sub
 
     Private Sub RadioButton2_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton2.CheckedChanged
@@ -1101,5 +1094,13 @@
 
     Private Sub Panel2_MouseClick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel2.MouseClick
         bt_FichaSocio.Visible = False
+    End Sub
+
+    Private Sub Label10_MouseHover(sender As System.Object, e As System.EventArgs) Handles Label10.MouseHover
+        ToolTip1.Show("Campo Opcional", Label10)
+    End Sub
+
+    Private Sub Label3_MouseHover(sender As System.Object, e As System.EventArgs) Handles Label3.MouseHover
+        ToolTip1.Show("Campo Opcional", Label13)
     End Sub
 End Class

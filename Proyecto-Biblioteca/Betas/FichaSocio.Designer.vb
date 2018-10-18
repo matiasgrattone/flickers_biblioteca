@@ -70,6 +70,7 @@ Partial Class FichaSocio
         Me.PrintForm1 = New Microsoft.VisualBasic.PowerPacks.Printing.PrintForm(Me.components)
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.Label5 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -157,7 +158,7 @@ Partial Class FichaSocio
         '
         Me.LabelMail.AutoSize = True
         Me.LabelMail.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelMail.Location = New System.Drawing.Point(185, 116)
+        Me.LabelMail.Location = New System.Drawing.Point(185, 117)
         Me.LabelMail.Name = "LabelMail"
         Me.LabelMail.Size = New System.Drawing.Size(56, 20)
         Me.LabelMail.TabIndex = 5
@@ -351,7 +352,7 @@ Partial Class FichaSocio
         '
         Me.Label_TIPO_txt.AutoSize = True
         Me.Label_TIPO_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_TIPO_txt.Location = New System.Drawing.Point(188, 89)
+        Me.Label_TIPO_txt.Location = New System.Drawing.Point(236, 90)
         Me.Label_TIPO_txt.Name = "Label_TIPO_txt"
         Me.Label_TIPO_txt.Size = New System.Drawing.Size(109, 20)
         Me.Label_TIPO_txt.TabIndex = 26
@@ -392,7 +393,7 @@ Partial Class FichaSocio
         '
         Me.Label_Telefono.AutoSize = True
         Me.Label_Telefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_Telefono.Location = New System.Drawing.Point(183, 144)
+        Me.Label_Telefono.Location = New System.Drawing.Point(185, 144)
         Me.Label_Telefono.Name = "Label_Telefono"
         Me.Label_Telefono.Size = New System.Drawing.Size(89, 20)
         Me.Label_Telefono.TabIndex = 27
@@ -421,6 +422,7 @@ Partial Class FichaSocio
         '
         'PictureBox3
         '
+        Me.PictureBox3.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBox3.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.printer_
         Me.PictureBox3.Location = New System.Drawing.Point(5, 50)
         Me.PictureBox3.Name = "PictureBox3"
@@ -431,6 +433,7 @@ Partial Class FichaSocio
         '
         'PictureBox2
         '
+        Me.PictureBox2.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBox2.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.gmail_logo
         Me.PictureBox2.Location = New System.Drawing.Point(5, 8)
         Me.PictureBox2.Name = "PictureBox2"
@@ -452,6 +455,7 @@ Partial Class FichaSocio
         'Panel5
         '
         Me.Panel5.BackColor = System.Drawing.SystemColors.Control
+        Me.Panel5.Controls.Add(Me.Label5)
         Me.Panel5.Controls.Add(Me.labelLibroFavorito)
         Me.Panel5.Controls.Add(Me.Label6)
         Me.Panel5.Controls.Add(Me.LabelFecha_Ingreso)
@@ -551,6 +555,16 @@ Partial Class FichaSocio
         'BackgroundWorker1
         '
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(185, 90)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(53, 20)
+        Me.Label5.TabIndex = 37
+        Me.Label5.Text = "Tipo :"
+        '
         'FichaSocio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -620,4 +634,5 @@ Partial Class FichaSocio
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents cmbaño As System.Windows.Forms.ComboBox
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents Label5 As System.Windows.Forms.Label
 End Class
