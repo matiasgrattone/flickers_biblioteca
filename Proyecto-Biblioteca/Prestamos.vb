@@ -547,7 +547,7 @@
                     Consulta = "insert into prestamolibro(cedula, cod_libro, fecha_salida, fecha_estimada, cod_prestado) values('" + Cedula.Text + "','" + ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "', '" + fecha_estimada + "','" + MENU3.lbl_cedula.Text + "')"
                     consultar()
 
-                    Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) & "';"
+                    Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) & "'"
                     consultar()
 
                     libros = libros + 1
@@ -600,6 +600,7 @@
                         MsgBox("Este socios no puede retirar libros hasta devolver los prestados", Title:="PRESTAMOS")
                 End Select
             End If
+            libros = 0
         End If
     End Sub
 
@@ -1267,7 +1268,13 @@
             Catch ex As Exception
                 MsgBox(ex.Message)
             End Try
-
         End If
+        Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion', fecha_estimada as 'Fecha Maxima de Prestamo' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
+        consultar()
+        dgvRenovacion.DataSource = Tabla
+    End Sub
+
+    Private Sub dgvRenovacion_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvRenovacion.CellContentClick
+
     End Sub
 End Class
