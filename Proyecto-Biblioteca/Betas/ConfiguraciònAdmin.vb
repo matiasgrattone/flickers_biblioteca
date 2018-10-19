@@ -30,6 +30,14 @@ Public Class ConfigAdmin
     Dim cedulaAdmin As String
     Dim cedulaUser As String
 
+    '///////////// Variable para verificar cedula y nombre para sacar foto ///////////
+    Public error12 As Integer = 0
+
+    '//////////// Variable para ver si cargo o saco la foto del socio ////////////
+    Public opcion As Integer ' 0 - Tomo la foto / 1 - Cargo la foto
+    Dim opcionEoI As Integer ' 0 - Desde ingresar / 1 - Desde editar
+    Dim cargarFoto As Integer = 0 ' Variable para el timer
+
     Dim graficaseleccionada As Integer 'que grafica selecciono el usuario para guardarla
 
     Private Sub listboxcarga()
@@ -183,6 +191,8 @@ Public Class ConfigAdmin
         Datagrid_Align()
         Dgv_Baja.Columns.Item("Tipo").Visible = False
 
+        TimerFoto.Enabled = False
+
     End Sub
 
 
@@ -275,7 +285,7 @@ Public Class ConfigAdmin
 
                 Dim nacimiento_ingresar As String = Str(cb_anio.SelectedItem).Substring(1, 4) + "-" + substring + "-" + dia_ingresar '//GUARDA LOS DATOS DEL COMBO A LA VARIABLE NACIMIENTO PARA LUEGO USARLA EN LA CONSULTA INSERT
 
-                Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo, nacimiento, estado, contrasenia, moroso) values (concat(upper(left('" + nom_ingresar + "',1)), lower(substr('" + nom_ingresar + "',2))), concat(upper(left('" + ape_ingresar + "',1)), lower(substr('" + ape_ingresar + "',2))), '" + Str(ced_ingresar) + "', '" + Str(tel_ingresar) + "', '" + dir_ingresar + "', '1', '" + nacimiento_ingresar + "','1', '" + cont_ingresar + "', 0);"
+                Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo, nacimiento, estado, contrasenia, moroso, rutaperfil) values (concat(upper(left('" + nom_ingresar + "',1)), lower(substr('" + nom_ingresar + "',2))), concat(upper(left('" + ape_ingresar + "',1)), lower(substr('" + ape_ingresar + "',2))), '" + Str(ced_ingresar) + "', '" + Str(tel_ingresar) + "', '" + dir_ingresar + "', '1', '" + nacimiento_ingresar + "','1', '" + cont_ingresar + "', 0, '" + rutaFoto + "');"
                 consultar()
                 Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where estado='1' and tipo='0'"
                 consultar()
@@ -700,4 +710,97 @@ Public Class ConfigAdmin
         DGV_ONLINE.Visible = False
     End Sub
 
+    Private Sub Button4_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
+
+        If LTrim$(nombre_txt.Text) = "" Then
+            error12 = 1
+        End If
+        If LTrim$(cedula_txt.Text) = "" Then
+            error12 = 1
+        End If
+
+        If error12 = 0 Then
+
+            opcionConfigUsers = 0
+
+            nombreFoto = nombre_txt.Text
+            cedulaFoto = cedula_txt.Text
+
+            opcion = 0
+
+            TomarFoto.Show()
+
+            opcionEoI = 0
+
+            TimerFoto.Enabled = True
+
+        Else
+            MsgBox("Los campos de nombre y cedula deben de estar completos para realizar esto")
+        End If
+
+    End Sub
+
+    Private Sub TimerFoto_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TimerFoto.Tick
+
+        If cargarFoto < 5 Then
+            For Each f In Application.OpenForms
+
+                If f.name = "TomarFoto" Then
+
+                    cargarFoto = 0
+
+                Else
+
+                    cargarFoto = 5
+
+                End If
+
+            Next
+
+        Else
+
+            Select Case opcionEoI
+                Case 0
+                    ptbFuncio.ImageLocation = rutaFoto
+                    ptbFuncio.Refresh()
+                    TimerFoto.Enabled = False
+                Case 1
+                    ptb_perfil_editar.ImageLocation = rutaFoto
+                    ptb_perfil_editar.Refresh()
+                    TimerFoto.Enabled = False
+            End Select
+
+
+        End If
+
+    End Sub
+
+    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
+        Dim dialogoCarga As New OpenFileDialog 'Crea un objeto del tipo OpenFileDialog para seleccionar archivos
+        dialogoCarga.Filter = "Imágenes|*.jpg; *.png; *.gif" 'Limita a que solo se puedan seleccionar imágenes de los tipos indicados
+        dialogoCarga.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) 'Indica en un String la ubicación en donde busca por defecto, en este caso se obtiene el escritorio
+
+        Dim rutaArchivo As String
+        Dim posicionBarra, longitudNombre As Integer
+
+        'dialogoCarga.ShowDialog() Abre una pantalla de diálogo que permite obtiener el nombre y la ruta del archivo cuando el usuario lo selecciona
+        If dialogoCarga.ShowDialog() = Windows.Forms.DialogResult.OK Then 'Solo si se ha seleccionado alguna imagen
+            rutaArchivo = dialogoCarga.FileName 'Guarda la ruta con el nombre del archivo
+
+            ptbPerfilAdmin.ImageLocation = rutaArchivo
+            posicionBarra = InStrRev(rutaArchivo, "\") ' Obtiene la posición en la que se encuentra la barra invertida en el String
+            longitudNombre = rutaArchivo.Length - posicionBarra 'Obtiene la cantidad de caracteres que ocupa el nombre
+
+            rutaFoto = "Fotos de perfil/" + rutaArchivo.Substring(posicionBarra, longitudNombre) 'Corta la parte del nombre de la ruta completa
+
+            If My.Computer.FileSystem.FileExists(rutaFoto) Then
+                ptbFuncio.ImageLocation = rutaFoto
+                ptbFuncio.Refresh()
+            Else
+                My.Computer.FileSystem.CopyFile(rutaArchivo, rutaFoto) 'Copia imagen seleccionada en la carpeta de guardado, no sobreescribe duplicados
+                ptbFuncio.ImageLocation = rutaFoto
+                ptbFuncio.Refresh()
+            End If
+        End If
+    End Sub
 End Class

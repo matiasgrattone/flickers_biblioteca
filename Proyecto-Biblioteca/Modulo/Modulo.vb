@@ -28,7 +28,7 @@ Module Modulo
     Public MysqlConexion_dataset As MySqlConnection = New MySqlConnection(ubicacion)
 
     Public nombre As String 'Variable para cambiar mostrar nombre en inicio usuario
-
+    Public opcionConfigUsers As Integer ' Variable para saber si tomar foto es llamado desde usuarios o config admin 0 - configadmin / 1- Usuarios
     Public nombreFoto, cedulaFoto As String 'Para guardar la foto
     Public tomarfotabierto As Integer = 0
     Public rutaFoto As String ' Para tomar desde webcam
