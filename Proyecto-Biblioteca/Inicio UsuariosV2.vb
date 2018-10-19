@@ -36,9 +36,6 @@
 
     '//////////////////////////////////////////////////////////////////
 
-    '//////////////////////////// Variables para foto de socio
-    Public nombreFoto, cedulaFoto As String
-
     '//////////////////////////// variables para ingresar usuarios ////////////////
 
     Dim ced_ingresar As Integer = Nothing
@@ -85,8 +82,6 @@
         Datagrid_Align()
 
         'DataGridView1.Columns.Add(DataGridView1.Columns.Count - 1, "Ficha")
-   
-
 
     End Sub
 
@@ -622,7 +617,7 @@
                 Dim nacimiento_ingresar As String = Str(ComboBox3.SelectedItem).Substring(1, 4) + "-" + substring + "-" + dia_ingresar '//GUARDA LOS DATOS DEL COMBO A LA VARIABLE NACIMIENTO PARA LUEGO USARLA EN LA CONSULTA INSERT
 
                 If opcion = 0 Then
-                    Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo , nacimiento, estado, contrasenia , moroso , fecha_ingreso, rutaperfil) values (concat(upper(left('" + nom_ingresar + "',1)), lower(substr('" + nom_ingresar + "',2))), concat(upper(left('" + ape_ingresar + "',1)), lower(substr('" + ape_ingresar + "',2))), '" + Str(ced_ingresar) + "', '" + Str(tel_ingresar) + "', '" + dir_ingresar + "', '2', '" + nacimiento_ingresar + "','1', '',0,'" & Date.Now.ToString("yyyy-MM-dd") & "'), '" + TomarFoto.rutaFoto + "'"
+                    Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo , nacimiento, estado, contrasenia , moroso , fecha_ingreso, rutaperfil) values (concat(upper(left('" + nom_ingresar + "',1)), lower(substr('" + nom_ingresar + "',2))), concat(upper(left('" + ape_ingresar + "',1)), lower(substr('" + ape_ingresar + "',2))), '" + Str(ced_ingresar) + "', '" + Str(tel_ingresar) + "', '" + dir_ingresar + "', '2', '" + nacimiento_ingresar + "','1', '',0,'" & Date.Now.ToString("yyyy-MM-dd") & "'), '" + rutaFoto + "'"
                     consultar()
                 End If
 
@@ -1044,14 +1039,21 @@
             error12 = 1
         End If
 
-        If error12 = 0 Then
-            nombreFoto = nombre_txt.Text
-            cedulaFoto = cedula_txt.Text
+            If error12 = 0 Then
+
+                nombreFoto = nombre_txt.Text
+                cedulaFoto = cedula_txt.Text
+
+            opcion = 0
 
             TomarFoto.Show()
+
         Else
             MsgBox("Los campos de nombre y cedula deben de estar completos para realizar esto")
         End If
+
+        ptbFotoSocio.ImageLocation = rutaFoto
+
     End Sub
     Private Sub VerFichaToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles VerFichaToolStripMenuItem.Click
         FichaSocio.FichaCedulaSocio = DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value
@@ -1103,4 +1105,5 @@
     Private Sub Label3_MouseHover(sender As System.Object, e As System.EventArgs) Handles Label3.MouseHover
         ToolTip1.Show("Campo Opcional", Label13)
     End Sub
+
 End Class
