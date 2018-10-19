@@ -1268,4 +1268,8 @@
     Private Sub DataGridViewlllllVerLibrosEnExtraccionlllll_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridViewlllllVerLibrosEnExtraccionlllll.CellContentClick
 
     End Sub
+
+    Private Sub dgvRenovacion_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvRenovacion.CellContentClick
+
+    End Sub
 End Class

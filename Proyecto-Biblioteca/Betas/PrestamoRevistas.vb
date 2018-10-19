@@ -12,7 +12,6 @@
 
     '//////////////VARIABLE PARA GUARDAR TEMPORALMENTE LA ID DEL LAS REVISTAS MAS ADELANTE//////////
 
-
     Dim revisarenovar As String
 
     Dim fecha_actual As Date
@@ -25,8 +24,10 @@
 
     Private Sub Form3_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         '/////////////////////////////////////////////GRUPBOX OCULTOS////////////////////
+        PictureRenovacion.Visible = False
+        GroupBoxRenovacion.Visible = False
         ExtGrup.Visible = False
-        devoCOMBO.Visible = False
+        DevoGRUP.Visible = False
         ButonParaExtreaer.Visible = False
         LabelREVISTAS.Visible = False
         PictureExtraccion.Visible = False
@@ -47,9 +48,10 @@
 
         If Cedula.Text = "" And ERROR1 = 0 Then
             '//////////////////////Oculta los picturebox y la interfaz de las funciones///////////////////////////////
-
+            PictureRenovacion.Visible = False
+            GroupBoxRenovacion.Visible = False
             ExtGrup.Visible = False
-            devoCOMBO.Visible = False
+            DevoGRUP.Visible = False
             PictureExtraccion.Visible = False
             PictureDevolucion.Visible = False
             LabelAlmacenTemporalParaLaCedula.Text = ""
@@ -68,9 +70,10 @@
 
             If Tabla.Rows.Count = 0 Then ' VERFICAR SI ES NULO EL RESULTADO DE LA CONSULTA
                 '//////////////////////Oculta los picturebox y la interfaz de las funciones///////////////////////////////
-
+                PictureRenovacion.Visible = False
+                GroupBoxRenovacion.Visible = False
                 ExtGrup.Visible = False
-                devoCOMBO.Visible = False
+                DevoGRUP.Visible = False
                 PictureExtraccion.Visible = False
                 PictureDevolucion.Visible = False
                 LabelAlmacenTemporalParaLaCedula.Text = ""
@@ -99,10 +102,11 @@
                 '/////////////////////////////////////////////////////////////////////////////////////////////
                 '////////////////////////////////Muestra los picturebox y la interfaz de las funciones///////////////////////
                 '/////////////////////////////////////////////////////////////////////////////////////////////
-
+                PictureRenovacion.Visible = True
                 LabelREVISTAS.Visible = True
+                GroupBoxRenovacion.Visible = False
                 ExtGrup.Visible = False
-                devoCOMBO.Visible = False
+                DevoGRUP.Visible = False
                 PictureExtraccion.Visible = True
                 PictureDevolucion.Visible = True
                 '///////////////////LABEL PARA HACER LAS FUNCIONES CON LA CEDULA///////////////////////////
@@ -119,6 +123,10 @@
     End Sub
     Private Sub PictureExtraccion_MouseHover(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureExtraccion.MouseHover
         LabelSELECCION_DE_FUNCION.Text = "Extraccion"
+    End Sub
+
+    Private Sub PictureBox2_MouseHover(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureRenovacion.MouseHover
+        LabelSELECCION_DE_FUNCION.Text = "Renovación"
     End Sub
 
     Private Sub PictureDevolucion_MouseHover(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureDevolucion.MouseHover
@@ -188,7 +196,8 @@
 
 
                 '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                devoCOMBO.Visible = False
+                DevoGRUP.Visible = False
+                GroupBoxRenovacion.Visible = False
                 '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -489,6 +498,180 @@
     End Sub
     '/////////////////////////////////////////////////////////FIN DE EXTRACCION///////////////////////////////////////////////////////////////
 
+    '/////////////////////////////////////////////////////////RENOVACIÓN///////////////////////////////////////////////////////////////
+    '///PARA INICIAR FUNCIONES DE RENOVACIÓN///
+    Private Sub PictureBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureRenovacion.Click
+        If CarritoDeRevistas.Items.Count = 0 Then
+
+            Consulta = "select r.id_revistas as 'Numero de Inventario', r.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion', fecha_estimada as 'Fecha Maxima de Prestamo' from prestamorevistas p INNER JOIN revistas r on p.id_revistas=r.id_revistas where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
+            consultar()
+            dgvRenovacion.DataSource = Tabla
+
+            '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ExtGrup.Visible = False
+            DevoGRUP.Visible = True
+            '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            GroupBoxRenovacion.Visible = True
+
+            '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        Else
+            MsgBox("Para cambiar de tarea debe tener el carrito vacio", Title:="Error")
+
+        End If
+    End Sub
+    '///PARA RENOVAR LAS REVISTAS EXTRAIDAS///
+    Private Sub dgvRenovacion_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvRenovacion.CellContentClick
+        revisarenovar = dgvRenovacion.Item(0, dgvRenovacion.CurrentRow.Index).Value
+
+        If MsgBox("Desea renovar el libro " & dgvRenovacion.Item(1, dgvRenovacion.CurrentRow.Index).Value & "?", MsgBoxStyle.YesNo, Title:="PRESTAMOS") = vbYes Then
+
+            '///////////////////////////////////////////////////////////////////////////////////
+            '///////////////Calcula la fecha en que deberia entregarse el libro/////////////////
+            '///////////////////////////////////////////////////////////////////////////////////
+            fecha_actual = DateTime.Now.ToString("yyyy/MM/dd")
+
+            dia = Val(DateTime.Now.ToString("dd")) + 7
+            mes = Val(DateTime.Now.ToString("MM"))
+            anio = Val(DateTime.Now.ToString("yyyy"))
+
+            If mes = 1 Then ' Mes de Enero
+                If dia >= 31 Then
+                    diferenciaDia = dia - 31
+                    dia = dia - diferenciaDia
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            If mes = 2 Then ' Mes de febrero
+                If dia >= 28 Then
+                    diferenciaDia = dia - 28
+                    dia = dia - diferenciaDia
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            If mes = 3 Then ' Mes de marzo
+                If dia >= 31 Then
+                    diferenciaDia = dia - 31
+                    dia = dia - diferenciaDia
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            If mes = 4 Then ' Mes de abril
+                If dia >= 30 Then
+                    diferenciaDia = dia - 30
+                    dia = dia - diferenciaDia
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            If mes = 5 Then ' Mes de mayo
+                If dia >= 31 Then
+                    diferenciaDia = dia - 31
+                    dia = dia - diferenciaDia
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            If mes = 6 Then ' Mes de junio
+                If dia >= 30 Then
+                    diferenciaDia = dia - 30
+                    dia = dia - diferenciaDia
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            If mes = 7 Then ' Mes de julio
+                If dia >= 31 Then
+                    diferenciaDia = dia - 31
+                    dia = dia - diferenciaDia
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            If mes = 8 Then ' Mes de agosto
+                If dia >= 31 Then
+                    diferenciaDia = dia - 31
+                    dia = dia - diferenciaDia
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            If mes = 9 Then ' Mes de setiembre
+                If dia >= 30 Then
+                    diferenciaDia = dia - 30
+                    dia = dia - diferenciaDia
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            If mes = 10 Then ' Mes de octubre
+                If dia >= 31 Then
+                    diferenciaDia = dia - 31
+                    dia = dia - diferenciaDia
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            If mes = 11 Then ' Mes de noviembre
+                If dia >= 30 Then
+                    diferenciaDia = dia - 30
+                    dia = dia - diferenciaDia
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            If mes = 12 Then ' Mes de diciembre
+                If dia >= 31 Then
+                    diferenciaDia = dia - 31
+                    dia = dia - diferenciaDia
+                    mes = 1
+                    anio = anio + 1
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            '////////////////////////////////////////////////////////////////////////
+
+            Try
+                'Renovacion sera 1 en la base de datos, 0 para cuando no lo se lo haya hecho
+                Consulta = "update prestamorevistas set fecha_estimada = '" + fecha_estimada + "', cod_prestado = '" + MENU3.cedulaIngre + "', renovacion = 1 where fecha_entrada is NULL and cedula = '" + Cedula.Text + "' and id_revistas = '" + revisarenovar + "'"
+                consultar()
+                dgvRenovacion.DataSource = Tabla
+                MsgBox("Se renovo el prestamo")
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+
+        End If
+
+    End Sub
+    '/////////////////////////////////////////////////////////FIN DE RENOVACIÓN///////////////////////////////////////////////////////////////
 
     '/////////////////////////////////////////////////////////DEVOLUCION///////////////////////////////////////////////////////////////
     '///PARA INICIAR FUNCIONES DE DEVOLUCION///
@@ -506,7 +689,8 @@
 
             '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             ExtGrup.Visible = False
-            devoCOMBO.Visible = True
+            DevoGRUP.Visible = True
+            GroupBoxRenovacion.Visible = False
             '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Else
 
@@ -636,7 +820,7 @@
         End If
     End Sub
 
-    Private Sub Cedula_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles Cedula.KeyDown
+    Private Sub Cedula_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Cedula.KeyDown
         If e.KeyCode = Keys.Enter And ERROR1 = 0 Then
 
             'Se cambia el label solo cuando haya un valor en el textbox CEDULA
@@ -644,9 +828,10 @@
 
             If Cedula.Text = "" Then
                 '//////////////////////Oculta los picturebox y la interfaz de las funciones///////////////////////////////
-
+                PictureRenovacion.Visible = False
+                GroupBoxRenovacion.Visible = False
                 ExtGrup.Visible = False
-                devoCOMBO.Visible = False
+                DevoGRUP.Visible = False
                 PictureExtraccion.Visible = False
                 PictureDevolucion.Visible = False
                 LabelAlmacenTemporalParaLaCedula.Text = ""
@@ -665,9 +850,10 @@
 
                 If Tabla.Rows.Count = 0 Then ' VERFICAR SI ES NULO EL RESULTADO DE LA CONSULTA
                     '//////////////////////Oculta los picturebox y la interfaz de las funciones///////////////////////////////
-
+                    PictureRenovacion.Visible = False
+                    GroupBoxRenovacion.Visible = False
                     ExtGrup.Visible = False
-                    devoCOMBO.Visible = False
+                    DevoGRUP.Visible = False
                     PictureExtraccion.Visible = False
                     PictureDevolucion.Visible = False
                     LabelAlmacenTemporalParaLaCedula.Text = ""
@@ -696,10 +882,11 @@
                     '/////////////////////////////////////////////////////////////////////////////////////////////
                     '////////////////////////////////Muestra los picturebox y la interfaz de las funciones///////////////////////
                     '/////////////////////////////////////////////////////////////////////////////////////////////
-
+                    PictureRenovacion.Visible = True
+                    GroupBoxRenovacion.Visible = False
                     LabelREVISTAS.Visible = True
                     ExtGrup.Visible = False
-                    devoCOMBO.Visible = False
+                    DevoGRUP.Visible = False
                     PictureExtraccion.Visible = True
                     PictureDevolucion.Visible = True
                     '///////////////////LABEL PARA HACER LAS FUNCIONES CON LA CEDULA///////////////////////////
@@ -724,4 +911,5 @@
         Catch ex As Exception
         End Try
     End Sub
+
 End Class
