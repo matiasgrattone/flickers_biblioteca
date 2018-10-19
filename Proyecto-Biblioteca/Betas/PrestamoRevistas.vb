@@ -22,8 +22,13 @@
 
     Dim errorcedula As Integer = 0
 
+    '///PARA QUE LA CEDULA SE PUEDA EDITAR///
+    Dim ModoCedula As String = "Buscar"
+    'Dim panelnombre As Integer = 0
+
     Private Sub Form3_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         '/////////////////////////////////////////////GRUPBOX OCULTOS////////////////////
+        ButtonVerFicha.Visible = False
         PictureRenovacion.Visible = False
         GroupBoxRenovacion.Visible = False
         ExtGrup.Visible = False
@@ -32,7 +37,7 @@
         LabelREVISTAS.Visible = False
         PictureExtraccion.Visible = False
         PictureDevolucion.Visible = False
-        LabelAlmacenTemporalParaLaCedula.Text = ""
+        LabelParaAlmacenarLaCedulaIngresada.Text = ""
         LabelSELECCION_DE_FUNCION.Visible = False
         ButtonMoroso.Visible = False
         '//////////////////////////////////////VARIABLES PARA RALIZAR "CONSULTAS Y IFs" SIN ERRORES///////////////////////
@@ -42,82 +47,39 @@
         End If
     End Sub
     Private Sub BotonParaBuscarCedula_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BotonParaBuscarCedula.Click
+        'Si el ModoCedula esta en modo "Buscar" ahi se llamara a ActuaizarCedula para poder iniciar las funciones de el menu 
+        If ModoCedula = "Buscar" And ERROR1 = 0 Then
+            ActualizarCedula()
+        ElseIf ERROR1 = 0 Then 'En caso que no este en "Buscar" se le preguntara al usuario si quiere cambiar la cedula ya ingresada 
+            z = 0
+            z = MsgBox("Editar la cedula reiniciara lo echo hasta el momento, desea continuar ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
 
-        'Se cambia el label solo cuando haya un valor en el textbox CEDULA
+            If z = MsgBoxResult.Yes Then 'Si dice que si todas las funciones volveran a las del inicio, como si nada hubiera pasado
+                Cedula.ReadOnly = False
+                ModoCedula = "Buscar"
+                BotonParaBuscarCedula.Text = "Buscar"
 
+                '///REINICIO DE FUNCIONES///
+                CarritoDeRevistas.Items.Clear() 'Borra los items del ListBox carrito de libros 
+                ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Clear() 'Borra los items del ListBox carrito para almacenar ids
+                Cedula.Clear() 'Borramos el contenido del textbox cedula 
+                PanelDelCarrito.Left = -268 'Regresamos el carrito a la ubicacion del inicio
 
-        If Cedula.Text = "" And ERROR1 = 0 Then
-            '//////////////////////Oculta los picturebox y la interfaz de las funciones///////////////////////////////
-            PictureRenovacion.Visible = False
-            GroupBoxRenovacion.Visible = False
-            ExtGrup.Visible = False
-            DevoGRUP.Visible = False
-            PictureExtraccion.Visible = False
-            PictureDevolucion.Visible = False
-            LabelAlmacenTemporalParaLaCedula.Text = ""
-            LabelREVISTAS.Visible = False
-            LabelSELECCION_DE_FUNCION.Visible = False
-            CarritoDeRevistas.Items.Clear()
-            ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Clear()
-            PanelDelCarrito.Left = -268
-            MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
-            '/////////////////////////////////////////////////////////////////////////////////////////////////////////
-        ElseIf ERROR1 = 0 Then
-
-
-            Consulta = "select cedula from usuarios where cedula like '" & Cedula.Text & "'"
-            consultar()
-
-            If Tabla.Rows.Count = 0 Then ' VERFICAR SI ES NULO EL RESULTADO DE LA CONSULTA
-                '//////////////////////Oculta los picturebox y la interfaz de las funciones///////////////////////////////
-                PictureRenovacion.Visible = False
+                'Ocultamos los grupbox por seguridad
                 GroupBoxRenovacion.Visible = False
                 ExtGrup.Visible = False
                 DevoGRUP.Visible = False
+
+                'Ocultamos los botones del menu con las funciones 
                 PictureExtraccion.Visible = False
                 PictureDevolucion.Visible = False
-                LabelAlmacenTemporalParaLaCedula.Text = ""
-                LabelREVISTAS.Visible = False
-                LabelSELECCION_DE_FUNCION.Visible = False
-                CarritoDeRevistas.Items.Clear()
-                ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Clear()
-                PanelDelCarrito.Left = -268
-                MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
-                '/////////////////////////////////////////////////////////////////////////////////////////////////////////
-            Else
+                PictureRenovacion.Visible = False
 
+                'Ocultamos el label que muestra la cedula del socio en el carrio
+                LabelParaAlmacenarLaCedulaIngresada.Visible = False
 
-
-                Consulta = "select cedula , nombre , tipo from usuarios where cedula like '" & Cedula.Text & "'"
-                consultar()
-                Try
-                    For Each row As DataRow In Tabla.Rows
-                        NOMBRE.Text = row("nombre")
-                        Label12.Text = row("tipo")
-                    Next
-                Catch ex As Exception
-                    MsgBox(ex.ToString)
-                End Try
-
-                '/////////////////////////////////////////////////////////////////////////////////////////////
-                '////////////////////////////////Muestra los picturebox y la interfaz de las funciones///////////////////////
-                '/////////////////////////////////////////////////////////////////////////////////////////////
-                PictureRenovacion.Visible = True
-                LabelREVISTAS.Visible = True
-                GroupBoxRenovacion.Visible = False
-                ExtGrup.Visible = False
-                DevoGRUP.Visible = False
-                PictureExtraccion.Visible = True
-                PictureDevolucion.Visible = True
-                '///////////////////LABEL PARA HACER LAS FUNCIONES CON LA CEDULA///////////////////////////
-                LabelAlmacenTemporalParaLaCedula.Text = Cedula.Text
-                '/////////////////////////////////////////////////////////////////////////////////////////
-                LabelREVISTAS.Visible = True
-                LabelSELECCION_DE_FUNCION.Visible = True
-                CarritoDeRevistas.Items.Clear()
-                ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Clear()
-                PanelDelCarrito.Left = -5
-                '/////////////////////////////////////////////////////////////////////////////////////////////
+                'Ocultamos el boton de ver ficha
+                ButtonVerFicha.Visible = False
             End If
         End If
     End Sub
@@ -144,7 +106,7 @@
 
         'Consulta a DATAGRIDVIEW oculto
 
-        Consulta = "select cedula , nombre from usuarios where cedula like '" & LabelAlmacenTemporalParaLaCedula.Text & "'  "
+        Consulta = "select cedula , nombre from usuarios where cedula like '" & LabelParaAlmacenarLaCedulaIngresada.Text & "'  "
         consultar()
         For Each row As DataRow In Tabla.Rows
             NOMBRE.Text = row("nombre")
@@ -161,7 +123,7 @@
                 '////////////////////////////////
                 If Es_moroso = vbYes Then
 
-                    Consulta = "update usuarios set (tipo = ""0"") where cedulaU = '" & LabelAlmacenTemporalParaLaCedula.Text & "';"
+                    Consulta = "update usuarios set (tipo = ""0"") where cedulaU = '" & LabelParaAlmacenarLaCedulaIngresada.Text & "';"
                     consultar()
 
                     MsgBox("El socios " & NOMBRE.Text & " esta libre ahora", Title:="PRESTAMOS")
@@ -192,7 +154,7 @@
     Private Sub PictureExtraccion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureExtraccion.Click
         If CarritoDeRevistas.Items.Count = 0 Then
 
-            If LabelAlmacenTemporalParaLaCedula.Text <> "" Then
+            If LabelParaAlmacenarLaCedulaIngresada.Text <> "" Then
 
 
                 '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -202,7 +164,7 @@
 
 
 
-                Consulta = "select * from prestamorevistas where fecha_entrada is NULL and cedula= '" & LabelAlmacenTemporalParaLaCedula.Text & "'"
+                Consulta = "select * from prestamorevistas where fecha_entrada is NULL and cedula= '" & LabelParaAlmacenarLaCedulaIngresada.Text & "'"
                 consultar()
                 If (Tabla.Rows.Count = 0) Then
                     ExtGrup.Visible = True
@@ -680,7 +642,7 @@
         If CarritoDeRevistas.Items.Count = 0 Then
 
 
-            Consulta = "select p.cedula as 'Cedula de Socio', p.id_revistas as 'Codigo de Revista', r.titulo as 'Titulo', p.fecha_salida as 'Fecha de Prestamo', p.fecha_entrada as 'Fecha de Devolucion' from prestamorevistas p INNER JOIN revistas r on p.id_revistas=r.id_revistas where fecha_entrada is NULL and cedula= '" & LabelAlmacenTemporalParaLaCedula.Text & "'"
+            Consulta = "select p.cedula as 'Cedula de Socio', p.id_revistas as 'Codigo de Revista', r.titulo as 'Titulo', p.fecha_salida as 'Fecha de Prestamo', p.fecha_entrada as 'Fecha de Devolucion' from prestamorevistas p INNER JOIN revistas r on p.id_revistas=r.id_revistas where fecha_entrada is NULL and cedula= '" & LabelParaAlmacenarLaCedulaIngresada.Text & "'"
             consultar()
             DataGridParaDevolucion.DataSource = Tabla
 
@@ -794,14 +756,14 @@
     End Sub
     '///PARA IR A MODO "VER REGISTRO DEL SOCIO"///
     Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
-        Consulta = "select p.cedula as 'Cedula de Socio', p.id_revistas as 'Codigo de Revista', r.titulo as 'Titulo', p.fecha_salida as 'Fecha de Prestamo', p.fecha_entrada as 'Fecha de Devolucion' from prestamorevistas p INNER JOIN revistas r on p.id_revistas=r.id_revistas where cedula= '" & LabelAlmacenTemporalParaLaCedula.Text & "'"
+        Consulta = "select p.cedula as 'Cedula de Socio', p.id_revistas as 'Codigo de Revista', r.titulo as 'Titulo', p.fecha_salida as 'Fecha de Prestamo', p.fecha_entrada as 'Fecha de Devolucion' from prestamorevistas p INNER JOIN revistas r on p.id_revistas=r.id_revistas where cedula= '" & LabelParaAlmacenarLaCedulaIngresada.Text & "'"
         consultar()
         DataGridParaDevolucion.DataSource = Tabla
         modo = "registro"
     End Sub
     '///PARA IR A MODO "VER REGISTRO DEL SOCIO"///
     Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
-        Consulta = "select p.cedula as 'Cedula de Socio', p.id_revistas as 'Codigo de Revista', r.titulo as 'Titulo', p.fecha_salida as 'Fecha de Prestamo', p.fecha_entrada as 'Fecha de Devolucion' from prestamorevistas p INNER JOIN revistas r on p.id_revistas=r.id_revistas where fecha_entrada is NULL and cedula= '" & LabelAlmacenTemporalParaLaCedula.Text & "'"
+        Consulta = "select p.cedula as 'Cedula de Socio', p.id_revistas as 'Codigo de Revista', r.titulo as 'Titulo', p.fecha_salida as 'Fecha de Prestamo', p.fecha_entrada as 'Fecha de Devolucion' from prestamorevistas p INNER JOIN revistas r on p.id_revistas=r.id_revistas where fecha_entrada is NULL and cedula= '" & LabelParaAlmacenarLaCedulaIngresada.Text & "'"
         consultar()
         DataGridParaDevolucion.DataSource = Tabla
         modo = "devolucion"
@@ -821,84 +783,39 @@
     End Sub
 
     Private Sub Cedula_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Cedula.KeyDown
-        If e.KeyCode = Keys.Enter And ERROR1 = 0 Then
+          'Si el ModoCedula esta en modo "Buscar" ahi se llamara a ActuaizarCedula para poder iniciar las funciones de el menu 
+        If ModoCedula = "Buscar" And ERROR1 = 0 Then
+            ActualizarCedula()
+        ElseIf ERROR1 = 0 Then 'En caso que no este en "Buscar" se le preguntara al usuario si quiere cambiar la cedula ya ingresada 
+            z = 0
+            z = MsgBox("Editar la cedula reiniciara lo echo hasta el momento, desea continuar ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
 
-            'Se cambia el label solo cuando haya un valor en el textbox CEDULA
+            If z = MsgBoxResult.Yes Then 'Si dice que si todas las funciones volveran a las del inicio, como si nada hubiera pasado
+                Cedula.ReadOnly = False
+                ModoCedula = "Buscar"
+                BotonParaBuscarCedula.Text = "Buscar"
 
+                '///REINICIO DE FUNCIONES///
+                CarritoDeRevistas.Items.Clear() 'Borra los items del ListBox carrito de libros 
+                ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Clear() 'Borra los items del ListBox carrito para almacenar ids
+                Cedula.Clear() 'Borramos el contenido del textbox cedula 
+                PanelDelCarrito.Left = -268 'Regresamos el carrito a la ubicacion del inicio
 
-            If Cedula.Text = "" Then
-                '//////////////////////Oculta los picturebox y la interfaz de las funciones///////////////////////////////
-                PictureRenovacion.Visible = False
+                'Ocultamos los grupbox por seguridad
                 GroupBoxRenovacion.Visible = False
                 ExtGrup.Visible = False
                 DevoGRUP.Visible = False
+
+                'Ocultamos los botones del menu con las funciones 
                 PictureExtraccion.Visible = False
                 PictureDevolucion.Visible = False
-                LabelAlmacenTemporalParaLaCedula.Text = ""
-                LabelREVISTAS.Visible = False
-                LabelSELECCION_DE_FUNCION.Visible = False
-                CarritoDeRevistas.Items.Clear()
-                ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Clear()
-                PanelDelCarrito.Left = -268
-                MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
-                '/////////////////////////////////////////////////////////////////////////////////////////////////////////
-            ElseIf ERROR1 = 0 Then
+                PictureRenovacion.Visible = False
 
+                'Ocultamos el label que muestra la cedula del socio en el carrio
+                LabelParaAlmacenarLaCedulaIngresada.Visible = False
 
-                Consulta = "select cedula from usuarios where cedula like '" & Cedula.Text & "'"
-                consultar()
-
-                If Tabla.Rows.Count = 0 Then ' VERFICAR SI ES NULO EL RESULTADO DE LA CONSULTA
-                    '//////////////////////Oculta los picturebox y la interfaz de las funciones///////////////////////////////
-                    PictureRenovacion.Visible = False
-                    GroupBoxRenovacion.Visible = False
-                    ExtGrup.Visible = False
-                    DevoGRUP.Visible = False
-                    PictureExtraccion.Visible = False
-                    PictureDevolucion.Visible = False
-                    LabelAlmacenTemporalParaLaCedula.Text = ""
-                    LabelREVISTAS.Visible = False
-                    LabelSELECCION_DE_FUNCION.Visible = False
-                    CarritoDeRevistas.Items.Clear()
-                    ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Clear()
-                    PanelDelCarrito.Left = -268
-                    MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
-                    '/////////////////////////////////////////////////////////////////////////////////////////////////////////
-                Else
-
-
-
-                    Consulta = "select cedula , nombre , tipo from usuarios where cedula like '" & Cedula.Text & "'"
-                    consultar()
-                    Try
-                        For Each row As DataRow In Tabla.Rows
-                            NOMBRE.Text = row("nombre")
-                            Label12.Text = row("tipo")
-                        Next
-                    Catch ex As Exception
-                        MsgBox(ex.ToString)
-                    End Try
-
-                    '/////////////////////////////////////////////////////////////////////////////////////////////
-                    '////////////////////////////////Muestra los picturebox y la interfaz de las funciones///////////////////////
-                    '/////////////////////////////////////////////////////////////////////////////////////////////
-                    PictureRenovacion.Visible = True
-                    GroupBoxRenovacion.Visible = False
-                    LabelREVISTAS.Visible = True
-                    ExtGrup.Visible = False
-                    DevoGRUP.Visible = False
-                    PictureExtraccion.Visible = True
-                    PictureDevolucion.Visible = True
-                    '///////////////////LABEL PARA HACER LAS FUNCIONES CON LA CEDULA///////////////////////////
-                    LabelAlmacenTemporalParaLaCedula.Text = Cedula.Text
-                    '/////////////////////////////////////////////////////////////////////////////////////////
-                    LabelREVISTAS.Visible = True
-                    LabelSELECCION_DE_FUNCION.Visible = True
-                    CarritoDeRevistas.Items.Clear()
-                    ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Clear()
-                    PanelDelCarrito.Left = -5
-                    '/////////////////////////////////////////////////////////////////////////////////////////////
-                End If
+                'Ocultamos el boton de ver ficha
+                ButtonVerFicha.Visible = False
             End If
         End If
     End Sub
@@ -912,4 +829,136 @@
         End Try
     End Sub
 
+    Private Sub CarritoDeRevistas_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles CarritoDeRevistas.MouseClick
+        '/////////////////////////////////////////////
+        Dim IdRevistas As String
+        Dim NomRevistas As String
+
+        NomRevistas = CarritoDeRevistas.SelectedItem
+        z = 0
+        '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        If CarritoDeRevistas.Items.Count <> 0 And CarritoDeRevistas.SelectedIndex <> vbNull And CarritoDeRevistas.SelectedItem <> "" Then
+            z = MsgBox("Desea cancelar la extracción de la revista? " & NomRevistas & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
+
+            If z = vbYes Then
+                IdRevistas = (ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.SelectedIndex = CarritoDeRevistas.SelectedIndex)
+
+                ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.RemoveAt(CarritoDeRevistas.SelectedIndex)
+                NomRevistas = CarritoDeRevistas.SelectedItem
+                CarritoDeRevistas.Items.RemoveAt(CarritoDeRevistas.SelectedIndex)
+            Else
+                MsgBox("La id del la revista no es correcta", Title:="PRESTAMO ERROR")
+            End If
+        End If
+    End Sub
+
+    '///ACTUALIZAR CEDULA///
+    Public Sub ActualizarCedula()
+        'Si la cedula esta vacia se ocultan los Grupbox, Botones y se regresan las funciones como al inicio
+        If Cedula.Text = "" Then
+
+            'Ocultamos los grupbox por seguridad
+            ExtGrup.Visible = False
+            DevoGRUP.Visible = False
+            GroupBoxRenovacion.Visible = False
+
+            'Ocultamos los botones del menu con las funciones 
+            PictureExtraccion.Visible = False
+            PictureDevolucion.Visible = False
+            PictureRenovacion.Visible = False
+
+            'Ocultamos el label que muestra la cedula del socio en el carrio
+            LabelParaAlmacenarLaCedulaIngresada.Visible = False
+
+            '///PARA QUE SE PUEDA EDITAR LA CEDULA LA PONEMOS EN READONLY = FALSE///
+            Cedula.ReadOnly = False
+            '///////////////////////////////////////////
+
+            CarritoDeRevistas.Items.Clear() 'Borra los items del ListBox carrito de libros 
+            ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Clear() 'Borra los items del ListBox carrito para almacenar ids
+            Cedula.Clear() 'Borramos el contenido del textbox cedula 
+            PanelDelCarrito.Left = -268 'Regresamos el carrito a la ubicacion del inicio
+
+            MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
+            'Ocultamos el boton de ver ficha
+            ButtonVerFicha.Visible = False
+            '/////////////////////////////////////////////////////////////////////////////////////////////////////////
+        Else
+            Consulta = "select cedula from usuarios where cedula like '" & Cedula.Text & "'"
+            consultar()
+
+            If Tabla.Rows.Count = 0 Then ' VERFICAR SI ES NULO EL RESULTADO DE LA CONSULTA
+
+
+                'Ocultamos los grupbox por seguridad
+                ExtGrup.Visible = False
+                DevoGRUP.Visible = False
+                GroupBoxRenovacion.Visible = False
+
+                'Ocultamos los botones del menu con las funciones 
+                PictureExtraccion.Visible = False
+                PictureDevolucion.Visible = False
+                PictureRenovacion.Visible = False
+
+                'Ocultamos el label que muestra la cedula del socio en el carrio
+                LabelParaAlmacenarLaCedulaIngresada.Visible = False
+
+                '///PARA QUE SE PUEDA EDITAR LA CEDULA LA PONEMOS EN READONLY = FALSE///
+                Cedula.ReadOnly = False
+                '///////////////////////////////////////////
+
+                CarritoDeRevistas.Items.Clear() 'Borra los items del ListBox carrito de libros 
+                ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Clear() 'Borra los items del ListBox carrito para almacenar ids
+                Cedula.Clear() 'Borramos el contenido del textbox cedula 
+                PanelDelCarrito.Left = -268 'Regresamos el carrito a la ubicacion del inicio
+
+                MsgBox("Cedula no valida, intente otra vez", Title:="ERROR EN PRESTAMOS")
+                'Ocultamos el boton de ver ficha
+                ButtonVerFicha.Visible = False
+
+            Else
+
+                'Hacemos una consulta a usuarios cuando la cedula sea igual a la ingresada por el programa
+                Consulta = "select cedula , nombre from usuarios where cedula like '" & Cedula.Text & "'"
+                consultar()
+                Try
+                    For Each row As DataRow In Tabla.Rows
+                        NOMBRE.Text = row("nombre") 'Hacemos un for each y iguaamos el label nombre al nombre dado por la consulta echa ya
+                    Next
+                Catch ex As Exception
+                    MsgBox(ex.ToString)
+                End Try
+
+                '////////////////////////////////////////////////////////////////////////////////////////////////////////
+                '///////////////////////Muestra los picturebox y la prepara la interfaz de las funciones/////////////////
+                '////////////////////////////////////////////////////////////////////////////////////////////////////////
+                'Ocultamos los grupbox por evitar errores
+                ExtGrup.Visible = False
+                DevoGRUP.Visible = False
+                GroupBoxRenovacion.Visible = False
+
+                'Mostramos los botones para reaizar las funcioes 
+                PictureExtraccion.Visible = True
+                PictureDevolucion.Visible = True
+                PictureRenovacion.Visible = True
+
+                CarritoDeRevistas.Items.Clear() 'Borramos los items de listbox carrito de libros 
+                ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Clear() 'Borramos los items de listbox carrito de libros 
+                PanelDelCarrito.Left = -5 'Mostramos el carrito
+
+                BotonParaBuscarCedula.Text = "Editar" 'Ponemos el texto de buscar cedula en "editar"
+                ModoCedula = "Editar" 'Ponemos el ModoCedula en modo "editar"
+                Cedula.ReadOnly = True 'Ponemos el textbox para la cedula en modo readOnly
+                ButtonVerFicha.Visible = True 'Mostramos el boton para ver la ficha
+                LabelParaAlmacenarLaCedulaIngresada.Visible = True 'Mostramos el label que muestra la cedula ingresada con la cual hacer las funciones
+                LabelParaAlmacenarLaCedulaIngresada.Text = Cedula.Text 'Lo igualamos al textbox 
+
+                '/////////////////////////////////////////////////////////////////////////////////////////////
+            End If
+        End If
+    End Sub
+
+    Private Sub Cedula_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cedula.TextChanged
+
+    End Sub
 End Class
