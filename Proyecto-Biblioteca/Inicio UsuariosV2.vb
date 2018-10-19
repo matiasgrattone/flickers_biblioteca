@@ -15,6 +15,7 @@
 
     '//////////// Variable para ver si cargo o saco la foto del socio ////////////
     Public opcion As Integer ' 0 - Tomo la foto / 1 - Cargo la foto
+    Dim opcionEoI As Integer ' 0 - Desde ingresar / 1 - Desde editar
 
     '//////////// Variable para guardar ruta del archivo para ingresar y editar //////////////
     Public nombreArchivo As String = "Fotos de socio/student.png"
@@ -84,6 +85,7 @@
 
         'DataGridView1.Columns.Add(DataGridView1.Columns.Count - 1, "Ficha")
 
+        TimerFoto.Enabled = False
     End Sub
 
     Private Sub PlaceHolder1_TextChanged(sender As System.Object, e As System.EventArgs) Handles PlaceHolder1.TextChanged
@@ -1042,6 +1044,8 @@
 
             If error12 = 0 Then
 
+            opcionConfigUsers = 1
+
                 nombreFoto = nombre_txt.Text
                 cedulaFoto = cedula_txt.Text
 
@@ -1049,12 +1053,12 @@
 
             TomarFoto.Show()
 
+            opcionEoI = 0
+
+            TimerFoto.Enabled = True
+
         Else
             MsgBox("Los campos de nombre y cedula deben de estar completos para realizar esto")
-        End If
-
-        If Not My.Computer.FileSystem.FileExists(rutaFoto) Then
-            ptbFotoSocio.ImageLocation = rutaFoto
         End If
 
     End Sub
@@ -1115,16 +1119,63 @@
 
     Private Sub TimerFoto_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TimerFoto.Tick
 
-        If cargarFoto <= 5 Then
+        If cargarFoto < 5 Then
             For Each f In Application.OpenForms
 
                 If f.name = "TomarFoto" Then
 
+                    cargarFoto = 0
 
+                Else
+
+                    cargarFoto = 5
 
                 End If
 
             Next
+
+        Else
+
+            Select Case opcionEoI
+                Case 0
+                    ptbFotoSocio.ImageLocation = rutaFoto
+                    ptbFotoSocio.Refresh()
+                    TimerFoto.Enabled = False
+                Case 1
+                    ptbFotoEditar.ImageLocation = rutaFoto
+                    ptbFotoEditar.Refresh()
+                    TimerFoto.Enabled = False
+            End Select
+
+
+        End If
+
+    End Sub
+
+    Private Sub Button5_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
+
+        If LTrim$(nombre_txt.Text) = "" Then
+            error12 = 1
+        End If
+        If LTrim$(cedula_txt.Text) = "" Then
+            error12 = 1
+        End If
+
+        If error12 = 0 Then
+
+            nombreFoto = nombre_txt.Text
+            cedulaFoto = cedula_txt.Text
+
+            opcion = 0
+
+            TomarFoto.Show()
+
+            opcionEoI = 1
+
+            TimerFoto.Enabled = True
+
+        Else
+            MsgBox("Los campos de nombre y cedula deben de estar completos para realizar esto")
         End If
 
     End Sub
