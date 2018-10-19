@@ -134,7 +134,7 @@
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonVerRegistro.Click
         If ERROR1 = 0 Then
-            Registroprestamos.Show()
+            registrorevistas.Show()
         End If
     End Sub
     Private Sub ButonLiberar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonLiberar.Click

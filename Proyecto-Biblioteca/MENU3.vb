@@ -70,7 +70,11 @@ Public Class MENU3
         If ERROR1 = 0 Then 'si no hay error , llama al metodo chart para cargar las graficas , activa el timer_Prestamos  y llama al metodo inicio para verificar si hay libros para devolver en el dia
             Chart()
             inicio()
-            Timer_Prestamos_LIVE.Enabled = True
+            If RadioButton1.Checked = True Then
+                Timer_Prestamos_LIVE.Enabled = True
+            Else
+                Timer_Prestamos_LIVE.Enabled = False
+            End If
         End If
 
         substring = Date.Now.ToString("MM")
@@ -761,17 +765,25 @@ Public Class MENU3
 
         Select Case ERROR1
             Case 2
-
-                Timer_Prestamos_LIVE.Enabled = False
+                If RadioButton1.Checked = True Then
+                    Timer_Prestamos_LIVE.Enabled = False
+                Else
+                    Timer_Prestamos_LIVE.Enabled = False
+                End If
                 ComboBox1.Enabled = False
                 ComboBox2.Enabled = False
                 Timer_RuedaDeCarga.Enabled = True
-                Chart()
-
+                If RadioButton1.Checked = True Then
+                    Chart()
+                End If
             Case 0
 
                 If seleccionado = "Inicio" Then
-                    Timer_Prestamos_LIVE.Enabled = True
+                    If RadioButton1.Checked = True Then
+                        Timer_Prestamos_LIVE.Enabled = True
+                    Else
+                        Timer_Prestamos_LIVE.Enabled = False
+                    End If
                 Else
                     Timer_BD.Interval = 6000
                 End If
@@ -969,8 +981,13 @@ Public Class MENU3
 
     Private Sub inicioForm()
         seleccionado = "Inicio"
-        Chart()
-        Timer_Prestamos_LIVE.Enabled = True
+        If RadioButton1.Checked = True Then
+            Chart()
+            Timer_Prestamos_LIVE.Enabled = True
+        Else
+            Timer_Prestamos_LIVE.Enabled = False
+        End If
+
 
         Preparar_Form()
 
@@ -1183,18 +1200,21 @@ Public Class MENU3
     End Sub
 
     Private Sub PictureBox4_Click_2(sender As System.Object, e As System.EventArgs) Handles PictureBox4.Click
-        Try
-            For Each f As Form In Application.OpenForms
-                If f.Name <> "LOGIN" And f.Name <> "MENU3" Then
-                    f.Close()
-                End If
-            Next
+        ConfigAdmin.Close()
+        info_usuario.Close()
+        NotasUsuario.Close()
+
             LOGIN.usuario.Clear()
             LOGIN.contrasenia.Clear()
             Me.Close()
             LOGIN.Show()
-        Catch ex As Exception
+    End Sub
 
-        End Try
+    Private Sub RadioButton1_CheckedChanged_1(sender As System.Object, e As System.EventArgs) Handles RadioButton1.CheckedChanged
+        Timer_Prestamos_LIVE.Enabled = True
+    End Sub
+
+    Private Sub RadioButton2_CheckedChanged_1(sender As System.Object, e As System.EventArgs) Handles RadioButton2.CheckedChanged
+        Timer_Prestamos_LIVE.Enabled = False
     End Sub
 End Class
