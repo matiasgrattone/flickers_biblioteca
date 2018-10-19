@@ -38,7 +38,6 @@ Partial Class PrestamoRevistas
         Me.ButtonVerFicha = New System.Windows.Forms.Button()
         Me.LabelSELECCION_DE_FUNCION = New System.Windows.Forms.Label()
         Me.ButtonVerRegistro = New System.Windows.Forms.Button()
-        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.BotonParaBuscarCedula = New System.Windows.Forms.Button()
         Me.PictureDevolucion = New System.Windows.Forms.PictureBox()
@@ -66,8 +65,6 @@ Partial Class PrestamoRevistas
         Me.Label12 = New System.Windows.Forms.Label()
         Me.DevoGRUP = New System.Windows.Forms.GroupBox()
         Me.DataGridParaDevolucion = New System.Windows.Forms.DataGridView()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.ENPODER = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -75,6 +72,7 @@ Partial Class PrestamoRevistas
         Me.Label4 = New System.Windows.Forms.Label()
         Me.dgvRenovacion = New System.Windows.Forms.DataGridView()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureRenovacion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureDevolucion, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -113,7 +111,7 @@ Partial Class PrestamoRevistas
         Me.LabelREVISTAS.Font = New System.Drawing.Font("Impact", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelREVISTAS.Location = New System.Drawing.Point(795, 0)
         Me.LabelREVISTAS.Name = "LabelREVISTAS"
-        Me.LabelREVISTAS.Size = New System.Drawing.Size(205, 60)
+        Me.LabelREVISTAS.Size = New System.Drawing.Size(203, 60)
         Me.LabelREVISTAS.TabIndex = 66
         Me.LabelREVISTAS.Text = "REVISTAS"
         '
@@ -155,16 +153,6 @@ Partial Class PrestamoRevistas
         Me.ButtonVerRegistro.TabIndex = 77
         Me.ButtonVerRegistro.Text = "Ver Registros"
         Me.ButtonVerRegistro.UseVisualStyleBackColor = True
-        '
-        'Cedula
-        '
-        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Cedula.Location = New System.Drawing.Point(3, 50)
-        Me.Cedula.Name = "Cedula"
-        Me.Cedula.Size = New System.Drawing.Size(259, 20)
-        Me.Cedula.TabIndex = 75
-        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
-        Me.Cedula.WaterMarkText = "Cedula"
         '
         'Label1
         '
@@ -364,7 +352,7 @@ Partial Class PrestamoRevistas
         Me.LabelParaAlmacenarLaCedulaIngresada.ForeColor = System.Drawing.Color.Black
         Me.LabelParaAlmacenarLaCedulaIngresada.Location = New System.Drawing.Point(54, 170)
         Me.LabelParaAlmacenarLaCedulaIngresada.Name = "LabelParaAlmacenarLaCedulaIngresada"
-        Me.LabelParaAlmacenarLaCedulaIngresada.Size = New System.Drawing.Size(115, 20)
+        Me.LabelParaAlmacenarLaCedulaIngresada.Size = New System.Drawing.Size(114, 20)
         Me.LabelParaAlmacenarLaCedulaIngresada.TabIndex = 86
         Me.LabelParaAlmacenarLaCedulaIngresada.Text = "CedulaTemporal"
         '
@@ -442,7 +430,7 @@ Partial Class PrestamoRevistas
         Me.LabelREVISTA.Font = New System.Drawing.Font("Impact", 12.0!)
         Me.LabelREVISTA.Location = New System.Drawing.Point(124, 205)
         Me.LabelREVISTA.Name = "LabelREVISTA"
-        Me.LabelREVISTA.Size = New System.Drawing.Size(67, 20)
+        Me.LabelREVISTA.Size = New System.Drawing.Size(66, 20)
         Me.LabelREVISTA.TabIndex = 70
         Me.LabelREVISTA.Text = "REVISTAS"
         '
@@ -470,8 +458,6 @@ Partial Class PrestamoRevistas
         '
         Me.DevoGRUP.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.DevoGRUP.Controls.Add(Me.DataGridParaDevolucion)
-        Me.DevoGRUP.Controls.Add(Me.Button4)
-        Me.DevoGRUP.Controls.Add(Me.Button5)
         Me.DevoGRUP.Controls.Add(Me.Label11)
         Me.DevoGRUP.Controls.Add(Me.ENPODER)
         Me.DevoGRUP.Location = New System.Drawing.Point(263, 98)
@@ -525,24 +511,6 @@ Partial Class PrestamoRevistas
         Me.DataGridParaDevolucion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridParaDevolucion.Size = New System.Drawing.Size(727, 401)
         Me.DataGridParaDevolucion.TabIndex = 82
-        '
-        'Button4
-        '
-        Me.Button4.Location = New System.Drawing.Point(199, 85)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(113, 34)
-        Me.Button4.TabIndex = 0
-        Me.Button4.Text = "Ver registro del socio"
-        Me.Button4.UseVisualStyleBackColor = True
-        '
-        'Button5
-        '
-        Me.Button5.Location = New System.Drawing.Point(398, 85)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(98, 34)
-        Me.Button5.TabIndex = 63
-        Me.Button5.Text = "Modo devolucion"
-        Me.Button5.UseVisualStyleBackColor = True
         '
         'Label11
         '
@@ -648,9 +616,19 @@ Partial Class PrestamoRevistas
         Me.Label5.Font = New System.Drawing.Font("Impact", 20.25!)
         Me.Label5.Location = New System.Drawing.Point(514, 33)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(221, 34)
+        Me.Label5.Size = New System.Drawing.Size(220, 34)
         Me.Label5.TabIndex = 63
         Me.Label5.Text = "RENOVAR REVISTAS"
+        '
+        'Cedula
+        '
+        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.Cedula.Location = New System.Drawing.Point(3, 50)
+        Me.Cedula.Name = "Cedula"
+        Me.Cedula.Size = New System.Drawing.Size(259, 20)
+        Me.Cedula.TabIndex = 75
+        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
+        Me.Cedula.WaterMarkText = "Cedula"
         '
         'PrestamoRevistas
         '
@@ -660,9 +638,9 @@ Partial Class PrestamoRevistas
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.PanelDelCarrito)
+        Me.Controls.Add(Me.GroupBoxRenovacion)
         Me.Controls.Add(Me.DevoGRUP)
         Me.Controls.Add(Me.ExtGrup)
-        Me.Controls.Add(Me.GroupBoxRenovacion)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "PrestamoRevistas"
         Me.Text = "PrestamoRevistas"
@@ -714,8 +692,6 @@ Partial Class PrestamoRevistas
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents LabelSELECCION_DE_FUNCION As System.Windows.Forms.Label
     Friend WithEvents DevoGRUP As System.Windows.Forms.GroupBox
-    Friend WithEvents Button4 As System.Windows.Forms.Button
-    Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents ENPODER As System.Windows.Forms.Label
     Friend WithEvents LabelParaAlmacenarLaCedulaIngresada As System.Windows.Forms.Label
