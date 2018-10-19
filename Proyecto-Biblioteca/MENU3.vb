@@ -1206,10 +1206,16 @@ Public Class MENU3
         info_usuario.Close()
         NotasUsuario.Close()
 
-            LOGIN.usuario.Clear()
-            LOGIN.contrasenia.Clear()
-            Me.Close()
-            LOGIN.Show()
+        LOGIN.usuario.Clear()
+        LOGIN.contrasenia.Clear()
+
+        If lbl_cedula.Text <> "................" Then
+            Consulta = "update usuarios set ultimaconexion = '' where cedula = '" & lbl_cedula.Text & "'"
+            consultar()
+        End If
+
+        Me.Close()
+        LOGIN.Show()
     End Sub
 
     Private Sub RadioButton1_CheckedChanged_1(sender As System.Object, e As System.EventArgs) Handles RadioButton1.CheckedChanged
