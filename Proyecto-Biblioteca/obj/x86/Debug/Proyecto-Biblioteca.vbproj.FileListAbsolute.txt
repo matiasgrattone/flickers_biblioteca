@@ -249,9 +249,8 @@ C:\Users\rex\Desktop\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proye
 <<<<<<< HEAD
 C:\Users\ellol\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.MailF.resources
 =======
-<<<<<<< HEAD
 C:\Users\PC Guille\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.MailF.resources
-=======
 C:\Users\usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.MailF.resources
 >>>>>>> 4f955684522f304ce2970d62272e0fba39771ad8
 >>>>>>> 1b28ee0fce7a3094c154bf3eeec2639b0ee44b38
+C:\Users\rex\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.MailF.resources

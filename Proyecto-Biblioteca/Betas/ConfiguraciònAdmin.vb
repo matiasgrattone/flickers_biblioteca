@@ -698,7 +698,7 @@ Public Class ConfigAdmin
     Private Sub RadioButton6_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton6.CheckedChanged
         TreeView1.Visible = False
         DGV_ONLINE.Visible = True
-        Consulta = "select nombre , ultimaconexion from usuarios where tipo < 2"
+        Consulta = "select nombre , ultimaconexion from usuarios where tipo < 2 and online = 1"
         consultar()
         DGV_ONLINE.DataSource = Tabla
         DatagridModulo = DGV_ONLINE
