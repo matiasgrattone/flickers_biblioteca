@@ -1178,16 +1178,18 @@ Public Class MENU3
     End Sub
 
     Private Sub PictureBox3_Click_1(sender As System.Object, e As System.EventArgs) Handles PictureBox3.Click
-        Try
-            For Each f As Form In Application.OpenForms
-                If f.Name <> "MENU3" Then
-                    f.Close()
-                End If
-                Me.Close()
-            Next
-        Catch ex As Exception
+        'Cierra el programa'
+        End
+        'Try
+        '    For Each f As Form In Application.OpenForms
+        '        If f.Name <> "MENU3" Then
+        '            f.Close()
+        '        End If
+        '        Me.Close()
+        '    Next
+        'Catch ex As Exception
 
-        End Try
+        'End Try
     End Sub
 
     Private Sub ComboBox1_MouseEnter(sender As System.Object, e As System.EventArgs) Handles ComboBox1.MouseEnter

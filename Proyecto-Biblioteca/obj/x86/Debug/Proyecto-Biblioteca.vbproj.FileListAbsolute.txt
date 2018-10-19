@@ -248,3 +248,4 @@ C:\Users\PC Guille\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\
 =======
 C:\Users\Usuario\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.MailF.resources
 >>>>>>> aa4d8392781e2572ff3ad500d9fa97be75fc89f4
+C:\Users\ellol\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Debug\Proyecto_Biblioteca.MailF.resources

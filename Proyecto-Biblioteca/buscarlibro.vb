@@ -602,7 +602,7 @@ Public Class buscarlibro
                                         consultar()
                                         dgvlibros.DataSource = Tabla
                                     Case "descontinuado"
-                                        Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre , editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado', libro.cod_clas,clasificacion.nom_clas, libro.cod_autor, libro.cod_editorial from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial inner join clasificacion on libro.cod_clas = clasificacion.cod_clas where libro.origen like '" & txtbusqueda.Text & "%' and libro.estado like '3' and ensala='1'"
+                                        Consulta = "SELECT libro.cod_libro, libro.titulo as 'Titulo', autor.nombre , editorial.nombre, libro.anio, libro.origen as 'Origen' , libro.estado as 'Estado', libro.cod_clas,clasificacion.nom_clas, libro.cod_autor, libro.cod_editorial, libro.fecha_ingreso from libro inner join autor on libro.cod_autor = autor.cod_autor inner join editorial on libro.cod_editorial = editorial.cod_editorial inner join clasificacion on libro.cod_clas = clasificacion.cod_clas where libro.origen like '" & txtbusqueda.Text & "%' and libro.estado like '3' and ensala='1'"
                                         consultar()
                                         dgvlibros.DataSource = Tabla
                                 End Select
@@ -1225,5 +1225,9 @@ Public Class buscarlibro
                         dgvlibros.DataSource = Tabla
                 End Select
         End Select
+    End Sub
+
+    Private Sub cmbdatos_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbdatos.SelectedIndexChanged
+
     End Sub
 End Class

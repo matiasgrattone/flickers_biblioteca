@@ -963,7 +963,7 @@
 
     Private Sub cargar()
         Try
-            Consulta = "select rutaperfil from usuarios where cedula ='" + ced_ingresar + "'"
+            Consulta = "select rutaperfil from usuarios where cedula ='" & ced_ingresar & "'"
             consultar()
 
             For Each row As DataRow In Tabla.Rows
