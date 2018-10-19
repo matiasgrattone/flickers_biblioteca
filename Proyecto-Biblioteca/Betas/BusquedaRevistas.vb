@@ -132,7 +132,7 @@
         End If
     End Sub
 
-    Private Sub dgvrevistas_CellContentClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvrevistas.CellContentClick
+    Private Sub dgvrevistas_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvrevistas.CellClick
         id = dgvrevistas.Item(0, dgvrevistas.CurrentRow.Index).Value
         Try
             '///El usuario selecciona una fila de datos en el DataGrid y estos son copiados a un Panel///'

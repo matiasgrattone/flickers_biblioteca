@@ -538,7 +538,7 @@ Partial Class buscarlibro
         'cmbupdate
         '
         Me.cmbupdate.FormattingEnabled = True
-        Me.cmbupdate.Items.AddRange(New Object() {"disponible", "ocupado", "reservado", "descontinuado"})
+        Me.cmbupdate.Items.AddRange(New Object() {"disponible", "prestado", "reservado", "descontinuado"})
         Me.cmbupdate.Location = New System.Drawing.Point(130, 429)
         Me.cmbupdate.Name = "cmbupdate"
         Me.cmbupdate.Size = New System.Drawing.Size(143, 21)
@@ -615,8 +615,9 @@ Partial Class buscarlibro
         Me.titulo_txt.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.titulo_txt.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.titulo_txt.Location = New System.Drawing.Point(137, 191)
+        Me.titulo_txt.Multiline = True
         Me.titulo_txt.Name = "titulo_txt"
-        Me.titulo_txt.Size = New System.Drawing.Size(136, 18)
+        Me.titulo_txt.Size = New System.Drawing.Size(136, 25)
         Me.titulo_txt.TabIndex = 21
         '
         'cod_libro_txt
@@ -738,7 +739,7 @@ Partial Class buscarlibro
         Me.cmbestado.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbestado.ForeColor = System.Drawing.Color.Black
         Me.cmbestado.FormattingEnabled = True
-        Me.cmbestado.Items.AddRange(New Object() {"disponible", "ocupado", "reservado", "descontinuado"})
+        Me.cmbestado.Items.AddRange(New Object() {"disponible", "prestado", "reservado", "descontinuado"})
         Me.cmbestado.Location = New System.Drawing.Point(454, 88)
         Me.cmbestado.Name = "cmbestado"
         Me.cmbestado.Size = New System.Drawing.Size(186, 28)
@@ -1450,8 +1451,8 @@ Partial Class buscarlibro
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.dgvlibros)
-        Me.Controls.Add(Me.Pactualizar)
         Me.Controls.Add(Me.Pmostrar)
+        Me.Controls.Add(Me.Pactualizar)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "buscarlibro"
         Me.Text = "Form2"

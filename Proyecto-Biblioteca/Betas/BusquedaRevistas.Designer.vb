@@ -24,8 +24,12 @@ Partial Class BusquedaRevistas
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(BusquedaRevistas))
-        Me.dgvrevistas = New System.Windows.Forms.DataGridView()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Pactualizar = New System.Windows.Forms.Panel()
+        Me.id_txt = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.lbldesc = New System.Windows.Forms.Label()
         Me.desc_txt = New System.Windows.Forms.TextBox()
         Me.cmbupdate = New System.Windows.Forms.ComboBox()
@@ -60,35 +64,16 @@ Partial Class BusquedaRevistas
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.dgvcomprobar = New System.Windows.Forms.DataGridView()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.id_txt = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.txtbusqueda = New Proyecto_Biblioteca.PlaceHolder()
-        CType(Me.dgvrevistas, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.dgvrevistas = New System.Windows.Forms.DataGridView()
         Me.Pactualizar.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Pmostrar.SuspendLayout()
         CType(Me.dgvcomprobar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvrevistas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'dgvrevistas
-        '
-        Me.dgvrevistas.AllowUserToAddRows = False
-        Me.dgvrevistas.AllowUserToDeleteRows = False
-        Me.dgvrevistas.AllowUserToResizeColumns = False
-        Me.dgvrevistas.AllowUserToResizeRows = False
-        Me.dgvrevistas.BackgroundColor = System.Drawing.Color.Silver
-        Me.dgvrevistas.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.dgvrevistas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvrevistas.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.dgvrevistas.Location = New System.Drawing.Point(12, 100)
-        Me.dgvrevistas.Name = "dgvrevistas"
-        Me.dgvrevistas.ReadOnly = True
-        Me.dgvrevistas.RowHeadersVisible = False
-        Me.dgvrevistas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvrevistas.Size = New System.Drawing.Size(614, 461)
-        Me.dgvrevistas.TabIndex = 26
         '
         'Pactualizar
         '
@@ -112,6 +97,26 @@ Partial Class BusquedaRevistas
         Me.Pactualizar.Name = "Pactualizar"
         Me.Pactualizar.Size = New System.Drawing.Size(275, 461)
         Me.Pactualizar.TabIndex = 35
+        '
+        'id_txt
+        '
+        Me.id_txt.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.id_txt.Enabled = False
+        Me.id_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.id_txt.Location = New System.Drawing.Point(84, 116)
+        Me.id_txt.Name = "id_txt"
+        Me.id_txt.Size = New System.Drawing.Size(160, 17)
+        Me.id_txt.TabIndex = 28
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(43, 115)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(30, 18)
+        Me.Label1.TabIndex = 27
+        Me.Label1.Text = "ID: "
         '
         'lbldesc
         '
@@ -358,9 +363,9 @@ Partial Class BusquedaRevistas
         Me.Pmostrar.Controls.Add(Me.origenlabel)
         Me.Pmostrar.Controls.Add(Me.aniolabel)
         Me.Pmostrar.Controls.Add(Me.lblorigenmostrar)
-        Me.Pmostrar.Location = New System.Drawing.Point(635, 100)
+        Me.Pmostrar.Location = New System.Drawing.Point(632, 101)
         Me.Pmostrar.Name = "Pmostrar"
-        Me.Pmostrar.Size = New System.Drawing.Size(275, 458)
+        Me.Pmostrar.Size = New System.Drawing.Size(275, 459)
         Me.Pmostrar.TabIndex = 53
         '
         'lblid
@@ -449,26 +454,6 @@ Partial Class BusquedaRevistas
         '
         Me.ErrorProvider1.ContainerControl = Me
         '
-        'id_txt
-        '
-        Me.id_txt.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.id_txt.Enabled = False
-        Me.id_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.id_txt.Location = New System.Drawing.Point(84, 116)
-        Me.id_txt.Name = "id_txt"
-        Me.id_txt.Size = New System.Drawing.Size(160, 17)
-        Me.id_txt.TabIndex = 28
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(43, 115)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(30, 18)
-        Me.Label1.TabIndex = 27
-        Me.Label1.Text = "ID: "
-        '
         'txtbusqueda
         '
         Me.txtbusqueda.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -479,25 +464,71 @@ Partial Class BusquedaRevistas
         Me.txtbusqueda.WaterMarkColor = System.Drawing.Color.Gray
         Me.txtbusqueda.WaterMarkText = "Buscar"
         '
+        'dgvrevistas
+        '
+        Me.dgvrevistas.AllowUserToAddRows = False
+        Me.dgvrevistas.AllowUserToDeleteRows = False
+        Me.dgvrevistas.AllowUserToResizeColumns = False
+        Me.dgvrevistas.AllowUserToResizeRows = False
+        Me.dgvrevistas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.dgvrevistas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvrevistas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgvrevistas.ColumnHeadersHeight = 40
+        Me.dgvrevistas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.dgvrevistas.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.dgvrevistas.EnableHeadersVisualStyles = False
+        Me.dgvrevistas.Location = New System.Drawing.Point(8, 96)
+        Me.dgvrevistas.MultiSelect = False
+        Me.dgvrevistas.Name = "dgvrevistas"
+        Me.dgvrevistas.ReadOnly = True
+        Me.dgvrevistas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvrevistas.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.dgvrevistas.RowHeadersVisible = False
+        Me.dgvrevistas.RowHeadersWidth = 50
+        Me.dgvrevistas.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White
+        Me.dgvrevistas.RowsDefaultCellStyle = DataGridViewCellStyle3
+        Me.dgvrevistas.RowTemplate.Height = 32
+        Me.dgvrevistas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvrevistas.Size = New System.Drawing.Size(616, 461)
+        Me.dgvrevistas.TabIndex = 67
+        '
         'BusquedaRevistas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkOrchid
         Me.ClientSize = New System.Drawing.Size(919, 573)
+        Me.Controls.Add(Me.dgvrevistas)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.dgvcomprobar)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.txtbusqueda)
         Me.Controls.Add(Me.cmbestado)
         Me.Controls.Add(Me.cmbdatos)
-        Me.Controls.Add(Me.dgvrevistas)
         Me.Controls.Add(Me.Pmostrar)
         Me.Controls.Add(Me.Pactualizar)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "BusquedaRevistas"
         Me.Text = "BusquedaRevistas"
-        CType(Me.dgvrevistas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Pactualizar.ResumeLayout(False)
         Me.Pactualizar.PerformLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -506,11 +537,11 @@ Partial Class BusquedaRevistas
         Me.Pmostrar.PerformLayout()
         CType(Me.dgvcomprobar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvrevistas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents dgvrevistas As System.Windows.Forms.DataGridView
     Friend WithEvents Pactualizar As System.Windows.Forms.Panel
     Friend WithEvents cmbupdate As System.Windows.Forms.ComboBox
     Friend WithEvents btnback As System.Windows.Forms.Button
@@ -549,4 +580,5 @@ Partial Class BusquedaRevistas
     Friend WithEvents labelid As System.Windows.Forms.Label
     Friend WithEvents id_txt As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents dgvrevistas As System.Windows.Forms.DataGridView
 End Class

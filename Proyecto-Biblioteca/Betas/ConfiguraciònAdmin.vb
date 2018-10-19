@@ -416,10 +416,6 @@ Public Class ConfigAdmin
             MENU3.Timer_Prestamos_LIVE.Enabled = True
         End If
     End Sub
-
-    Private Sub TreeView1_MouseEnter(sender As System.Object, e As System.EventArgs) Handles TreeView1.MouseEnter
-    End Sub
-
     Private Sub PictureBox1_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox1.Click
         MENU3.Timer_Prestamos_LIVE.Enabled = True
         Me.Close()
@@ -688,4 +684,20 @@ Public Class ConfigAdmin
     Private Sub RadioButton4_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton4.CheckedChanged
         graficaseleccionada = 4
     End Sub
+
+    Private Sub RadioButton6_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton6.CheckedChanged
+        TreeView1.Visible = False
+        DGV_ONLINE.Visible = True
+        Consulta = "select nombre , ultimaconexion from usuarios where tipo < 2"
+        consultar()
+        DGV_ONLINE.DataSource = Tabla
+        DatagridModulo = DGV_ONLINE
+        Datagrid_Align()
+    End Sub
+
+    Private Sub RadioButton7_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton7.CheckedChanged
+        TreeView1.Visible = True
+        DGV_ONLINE.Visible = False
+    End Sub
+
 End Class
