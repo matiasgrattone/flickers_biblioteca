@@ -1277,4 +1277,8 @@
     Private Sub dgvRenovacion_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvRenovacion.CellContentClick
 
     End Sub
+
+    Private Sub VerLibrosReservados2_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles VerLibrosReservados2.CellContentClick
+
+    End Sub
 End Class

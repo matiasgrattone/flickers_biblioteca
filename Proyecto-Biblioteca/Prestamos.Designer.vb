@@ -878,11 +878,11 @@ Partial Class Prestamos
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.PanelDelCarrito)
+        Me.Controls.Add(Me.ReservacionGrupBox)
+        Me.Controls.Add(Me.GrupBoxExtraccion)
         Me.Controls.Add(Me.GroupBoxRenovacion)
         Me.Controls.Add(Me.GrupBoxDevolucion)
         Me.Controls.Add(Me.CrearReservacionGrupBox)
-        Me.Controls.Add(Me.ReservacionGrupBox)
-        Me.Controls.Add(Me.GrupBoxExtraccion)
         Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Prestamos"

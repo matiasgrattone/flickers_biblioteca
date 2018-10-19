@@ -38,7 +38,7 @@
         LabelParaAlmacenarLaCedulaIngresada.Text = ""
         LabelSELECCION_DE_FUNCION.Visible = False
         ButtonMoroso.Visible = False
-        LabelREVISTAS.Visible = True
+        LblREVISTAS.Visible = True
         '//////////////////////////////////////VARIABLES PARA RALIZAR "CONSULTAS Y IFs" SIN ERRORES///////////////////////
         Dim Contador As Integer = 0
         If z = vbYes Then
@@ -951,5 +951,18 @@
 
     Private Sub DataGridParaDevolucion_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridParaDevolucion.CellContentClick
 
+    End Sub
+
+    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
+        PanelDelLeft.Left -= 5
+        If PanelDelLeft.Left <= -Width Then
+            PanelDelLeft.Left = Width
+        End If
+
+        If PanelDelLeft.Location.X < 795 Then
+            Timer1.Enabled = False
+        Else
+            Timer1.Enabled = True
+        End If
     End Sub
 End Class
