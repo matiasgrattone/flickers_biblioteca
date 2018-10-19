@@ -64,8 +64,8 @@ Partial Class BusquedaRevistas
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.dgvcomprobar = New System.Windows.Forms.DataGridView()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.txtbusqueda = New Proyecto_Biblioteca.PlaceHolder()
         Me.dgvrevistas = New System.Windows.Forms.DataGridView()
+        Me.txtbusqueda = New Proyecto_Biblioteca.PlaceHolder()
         Me.Pactualizar.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -249,7 +249,7 @@ Partial Class BusquedaRevistas
         Me.cmbestado.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbestado.ForeColor = System.Drawing.Color.Black
         Me.cmbestado.FormattingEnabled = True
-        Me.cmbestado.Items.AddRange(New Object() {"Disponible", "Ocupado", "Reservado", "Discontinuado"})
+        Me.cmbestado.Items.AddRange(New Object() {"Disponible", "Prestado", "Reservado", "Discontinuado"})
         Me.cmbestado.Location = New System.Drawing.Point(453, 65)
         Me.cmbestado.Name = "cmbestado"
         Me.cmbestado.Size = New System.Drawing.Size(172, 28)
@@ -454,16 +454,6 @@ Partial Class BusquedaRevistas
         '
         Me.ErrorProvider1.ContainerControl = Me
         '
-        'txtbusqueda
-        '
-        Me.txtbusqueda.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbusqueda.Location = New System.Drawing.Point(12, 64)
-        Me.txtbusqueda.Name = "txtbusqueda"
-        Me.txtbusqueda.Size = New System.Drawing.Size(257, 29)
-        Me.txtbusqueda.TabIndex = 51
-        Me.txtbusqueda.WaterMarkColor = System.Drawing.Color.Gray
-        Me.txtbusqueda.WaterMarkText = "Buscar"
-        '
         'dgvrevistas
         '
         Me.dgvrevistas.AllowUserToAddRows = False
@@ -510,6 +500,16 @@ Partial Class BusquedaRevistas
         Me.dgvrevistas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvrevistas.Size = New System.Drawing.Size(616, 461)
         Me.dgvrevistas.TabIndex = 67
+        '
+        'txtbusqueda
+        '
+        Me.txtbusqueda.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbusqueda.Location = New System.Drawing.Point(12, 64)
+        Me.txtbusqueda.Name = "txtbusqueda"
+        Me.txtbusqueda.Size = New System.Drawing.Size(257, 29)
+        Me.txtbusqueda.TabIndex = 51
+        Me.txtbusqueda.WaterMarkColor = System.Drawing.Color.Gray
+        Me.txtbusqueda.WaterMarkText = "Buscar"
         '
         'BusquedaRevistas
         '
