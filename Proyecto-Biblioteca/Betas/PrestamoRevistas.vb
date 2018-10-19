@@ -34,12 +34,12 @@
         ExtGrup.Visible = False
         DevoGRUP.Visible = False
         ButonParaExtreaer.Visible = False
-        LabelREVISTAS.Visible = False
         PictureExtraccion.Visible = False
         PictureDevolucion.Visible = False
         LabelParaAlmacenarLaCedulaIngresada.Text = ""
         LabelSELECCION_DE_FUNCION.Visible = False
         ButtonMoroso.Visible = False
+        LabelREVISTAS.Visible = True
         '//////////////////////////////////////VARIABLES PARA RALIZAR "CONSULTAS Y IFs" SIN ERRORES///////////////////////
         Dim Contador As Integer = 0
         If z = vbYes Then
@@ -419,43 +419,44 @@
         Dim list1 As Integer
         list1 = ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Count
 
+        If list1 <= 2 Then
+
+            If DataGridView_VerRevistasEnExtraccion_.Item(0, DataGridView_VerRevistasEnExtraccion_.CurrentRow.Index).Value <> list1 Then
+
+                Dim NomREVISTA As String
+                Dim IdREVISTA As String
+
+                NomREVISTA = DataGridView_VerRevistasEnExtraccion_.Item(1, DataGridView_VerRevistasEnExtraccion_.CurrentRow.Index).Value
+                IdREVISTA = DataGridView_VerRevistasEnExtraccion_.Item(0, DataGridView_VerRevistasEnExtraccion_.CurrentRow.Index).Value
 
 
-        If DataGridView_VerRevistasEnExtraccion_.Item(0, DataGridView_VerRevistasEnExtraccion_.CurrentRow.Index).Value <> list1 Then
 
-            Dim NomREVISTA As String
-            Dim IdREVISTA As String
+                If (ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Contains(IdREVISTA)) Then
 
-            NomREVISTA = DataGridView_VerRevistasEnExtraccion_.Item(1, DataGridView_VerRevistasEnExtraccion_.CurrentRow.Index).Value
-            IdREVISTA = DataGridView_VerRevistasEnExtraccion_.Item(0, DataGridView_VerRevistasEnExtraccion_.CurrentRow.Index).Value
+                    MsgBox("La revista " & NomREVISTA & " ya se encuentra en el carrito de extracción ", Title:="PRESTAMOS")
 
 
+                Else
 
-            If (ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Contains(IdREVISTA)) Then
+                    z = MsgBox("Desea llevar al carrito la revista " & NomREVISTA & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
 
-                MsgBox("La revista " & NomREVISTA & " ya se encuentra en el carrito de extracción ", Title:="PRESTAMOS")
-
-
-            Else
-
-                z = MsgBox("Desea llevar al carrito la revista " & NomREVISTA & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
-
-                If z = vbYes Then
+                    If z = vbYes Then
 
 
-                    ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Add(IdREVISTA)
-                    CarritoDeRevistas.Items.Add(IdREVISTA & "                          " & NomREVISTA)
+                        ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Add(IdREVISTA)
+                        CarritoDeRevistas.Items.Add(IdREVISTA & "                          " & NomREVISTA)
 
+                    End If
                 End If
             End If
-        End If
 
-        If CarritoDeRevistas.Items.Count <> 0 Then
+            If CarritoDeRevistas.Items.Count <> 0 Then
 
-            ButonParaExtreaer.Visible = True
-        Else
-            ButonParaExtreaer.Visible = False
+                ButonParaExtreaer.Visible = True
+            Else
+                ButonParaExtreaer.Visible = False
 
+            End If
         End If
     End Sub
     '/////////////////////////////////////////////////////////FIN DE EXTRACCION///////////////////////////////////////////////////////////////
@@ -622,7 +623,7 @@
 
             Try
                 'Renovacion sera 1 en la base de datos, 0 para cuando no lo se lo haya hecho
-                Consulta = "update prestamorevistas set fecha_estimada = '" + fecha_estimada + "', cod_prestado = '" + MENU3.cedulaIngre + "', renovacion = 1 where fecha_entrada is NULL and cedula = '" + Cedula.Text + "' and id_revistas = '" + revisarenovar + "'"
+                Consulta = "select r.id_revistas as 'Numero de Inventario', r.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion', fecha_estimada as 'Fecha Maxima de Prestamo' from prestamorevistas p INNER JOIN revistas r on p.id_revistas=r.id_revistas where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
                 consultar()
                 dgvRenovacion.DataSource = Tabla
                 MsgBox("Se renovo el prestamo")
@@ -783,9 +784,11 @@
     End Sub
 
     Private Sub Cedula_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Cedula.KeyDown
-          'Si el ModoCedula esta en modo "Buscar" ahi se llamara a ActuaizarCedula para poder iniciar las funciones de el menu 
-        If ModoCedula = "Buscar" And ERROR1 = 0 Then
-            ActualizarCedula()
+        If ModoCedula = "Buscar" And ERROR1 = 0 Then 'Si el ModoCedula esta en modo "Buscar" ahi se llamara a ActuaizarCedula para poder iniciar las funciones de el menu 
+            If e.KeyCode = Keys.Enter Then
+                ActualizarCedula()
+            End If
+
         ElseIf ERROR1 = 0 Then 'En caso que no este en "Buscar" se le preguntara al usuario si quiere cambiar la cedula ya ingresada 
             z = 0
             z = MsgBox("Editar la cedula reiniciara lo echo hasta el momento, desea continuar ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
@@ -816,6 +819,7 @@
 
                 'Ocultamos el boton de ver ficha
                 ButtonVerFicha.Visible = False
+                LabelSELECCION_DE_FUNCION.Visible = False
             End If
         End If
     End Sub
@@ -872,6 +876,7 @@
 
             '///PARA QUE SE PUEDA EDITAR LA CEDULA LA PONEMOS EN READONLY = FALSE///
             Cedula.ReadOnly = False
+            LabelSELECCION_DE_FUNCION.Visible = False
             '///////////////////////////////////////////
 
             CarritoDeRevistas.Items.Clear() 'Borra los items del ListBox carrito de libros 
@@ -905,6 +910,7 @@
 
                 '///PARA QUE SE PUEDA EDITAR LA CEDULA LA PONEMOS EN READONLY = FALSE///
                 Cedula.ReadOnly = False
+                LabelSELECCION_DE_FUNCION.Visible = False
                 '///////////////////////////////////////////
 
                 CarritoDeRevistas.Items.Clear() 'Borra los items del ListBox carrito de libros 
@@ -941,6 +947,7 @@
                 PictureExtraccion.Visible = True
                 PictureDevolucion.Visible = True
                 PictureRenovacion.Visible = True
+                LabelSELECCION_DE_FUNCION.Visible = True
 
                 CarritoDeRevistas.Items.Clear() 'Borramos los items de listbox carrito de libros 
                 ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Clear() 'Borramos los items de listbox carrito de libros 
@@ -958,7 +965,7 @@
         End If
     End Sub
 
-    Private Sub Cedula_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cedula.TextChanged
+    Private Sub DataGridParaDevolucion_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridParaDevolucion.CellContentClick
 
     End Sub
 End Class

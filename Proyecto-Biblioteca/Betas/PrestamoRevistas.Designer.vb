@@ -23,22 +23,21 @@ Partial Class PrestamoRevistas
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(PrestamoRevistas))
-        Dim DataGridViewCellStyle28 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle29 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle30 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle31 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle32 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle33 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle34 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle35 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle36 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.LabelREVISTAS = New System.Windows.Forms.Label()
         Me.PictureRenovacion = New System.Windows.Forms.PictureBox()
         Me.ButtonVerFicha = New System.Windows.Forms.Button()
         Me.LabelSELECCION_DE_FUNCION = New System.Windows.Forms.Label()
         Me.ButtonVerRegistro = New System.Windows.Forms.Button()
-        Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.LabelREVISTAS = New System.Windows.Forms.Label()
         Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.BotonParaBuscarCedula = New System.Windows.Forms.Button()
@@ -78,7 +77,6 @@ Partial Class PrestamoRevistas
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureRenovacion, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel4.SuspendLayout()
         CType(Me.PictureDevolucion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureExtraccion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ExtGrup.SuspendLayout()
@@ -94,11 +92,11 @@ Partial Class PrestamoRevistas
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.SystemColors.ScrollBar
+        Me.Panel3.Controls.Add(Me.LabelREVISTAS)
         Me.Panel3.Controls.Add(Me.PictureRenovacion)
         Me.Panel3.Controls.Add(Me.ButtonVerFicha)
         Me.Panel3.Controls.Add(Me.LabelSELECCION_DE_FUNCION)
         Me.Panel3.Controls.Add(Me.ButtonVerRegistro)
-        Me.Panel3.Controls.Add(Me.Panel4)
         Me.Panel3.Controls.Add(Me.Cedula)
         Me.Panel3.Controls.Add(Me.Label1)
         Me.Panel3.Controls.Add(Me.BotonParaBuscarCedula)
@@ -108,6 +106,16 @@ Partial Class PrestamoRevistas
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(1046, 112)
         Me.Panel3.TabIndex = 76
+        '
+        'LabelREVISTAS
+        '
+        Me.LabelREVISTAS.AutoSize = True
+        Me.LabelREVISTAS.Font = New System.Drawing.Font("Impact", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelREVISTAS.Location = New System.Drawing.Point(795, 0)
+        Me.LabelREVISTAS.Name = "LabelREVISTAS"
+        Me.LabelREVISTAS.Size = New System.Drawing.Size(205, 60)
+        Me.LabelREVISTAS.TabIndex = 66
+        Me.LabelREVISTAS.Text = "REVISTAS"
         '
         'PictureRenovacion
         '
@@ -147,25 +155,6 @@ Partial Class PrestamoRevistas
         Me.ButtonVerRegistro.TabIndex = 77
         Me.ButtonVerRegistro.Text = "Ver Registros"
         Me.ButtonVerRegistro.UseVisualStyleBackColor = True
-        '
-        'Panel4
-        '
-        Me.Panel4.BackColor = System.Drawing.SystemColors.ScrollBar
-        Me.Panel4.Controls.Add(Me.LabelREVISTAS)
-        Me.Panel4.Location = New System.Drawing.Point(795, 14)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(248, 87)
-        Me.Panel4.TabIndex = 76
-        '
-        'LabelREVISTAS
-        '
-        Me.LabelREVISTAS.AutoSize = True
-        Me.LabelREVISTAS.Font = New System.Drawing.Font("Impact", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelREVISTAS.Location = New System.Drawing.Point(40, 16)
-        Me.LabelREVISTAS.Name = "LabelREVISTAS"
-        Me.LabelREVISTAS.Size = New System.Drawing.Size(205, 60)
-        Me.LabelREVISTAS.TabIndex = 66
-        Me.LabelREVISTAS.Text = "REVISTAS"
         '
         'Cedula
         '
@@ -244,14 +233,14 @@ Partial Class PrestamoRevistas
         Me.DataGridView_VerRevistasEnExtraccion_.AllowUserToResizeRows = False
         Me.DataGridView_VerRevistasEnExtraccion_.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.DataGridView_VerRevistasEnExtraccion_.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle28.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        DataGridViewCellStyle28.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle28.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView_VerRevistasEnExtraccion_.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle28
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView_VerRevistasEnExtraccion_.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView_VerRevistasEnExtraccion_.ColumnHeadersHeight = 40
         Me.DataGridView_VerRevistasEnExtraccion_.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.DataGridView_VerRevistasEnExtraccion_.Cursor = System.Windows.Forms.Cursors.Hand
@@ -260,23 +249,23 @@ Partial Class PrestamoRevistas
         Me.DataGridView_VerRevistasEnExtraccion_.Name = "DataGridView_VerRevistasEnExtraccion_"
         Me.DataGridView_VerRevistasEnExtraccion_.ReadOnly = True
         Me.DataGridView_VerRevistasEnExtraccion_.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle29.BackColor = System.Drawing.Color.Gray
-        DataGridViewCellStyle29.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle29.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView_VerRevistasEnExtraccion_.RowHeadersDefaultCellStyle = DataGridViewCellStyle29
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView_VerRevistasEnExtraccion_.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridView_VerRevistasEnExtraccion_.RowHeadersVisible = False
         Me.DataGridView_VerRevistasEnExtraccion_.RowHeadersWidth = 50
         Me.DataGridView_VerRevistasEnExtraccion_.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle30.BackColor = System.Drawing.Color.Gray
-        DataGridViewCellStyle30.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle30.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle30.SelectionForeColor = System.Drawing.Color.White
-        Me.DataGridView_VerRevistasEnExtraccion_.RowsDefaultCellStyle = DataGridViewCellStyle30
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White
+        Me.DataGridView_VerRevistasEnExtraccion_.RowsDefaultCellStyle = DataGridViewCellStyle3
         Me.DataGridView_VerRevistasEnExtraccion_.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView_VerRevistasEnExtraccion_.Size = New System.Drawing.Size(727, 401)
         Me.DataGridView_VerRevistasEnExtraccion_.TabIndex = 82
@@ -500,14 +489,14 @@ Partial Class PrestamoRevistas
         Me.DataGridParaDevolucion.AllowUserToResizeRows = False
         Me.DataGridParaDevolucion.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.DataGridParaDevolucion.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle31.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        DataGridViewCellStyle31.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle31.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle31.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridParaDevolucion.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle31
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridParaDevolucion.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.DataGridParaDevolucion.ColumnHeadersHeight = 40
         Me.DataGridParaDevolucion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.DataGridParaDevolucion.Cursor = System.Windows.Forms.Cursors.Hand
@@ -516,23 +505,23 @@ Partial Class PrestamoRevistas
         Me.DataGridParaDevolucion.Name = "DataGridParaDevolucion"
         Me.DataGridParaDevolucion.ReadOnly = True
         Me.DataGridParaDevolucion.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle32.BackColor = System.Drawing.Color.Gray
-        DataGridViewCellStyle32.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle32.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridParaDevolucion.RowHeadersDefaultCellStyle = DataGridViewCellStyle32
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridParaDevolucion.RowHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.DataGridParaDevolucion.RowHeadersVisible = False
         Me.DataGridParaDevolucion.RowHeadersWidth = 50
         Me.DataGridParaDevolucion.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle33.BackColor = System.Drawing.Color.Gray
-        DataGridViewCellStyle33.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle33.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle33.SelectionForeColor = System.Drawing.Color.White
-        Me.DataGridParaDevolucion.RowsDefaultCellStyle = DataGridViewCellStyle33
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White
+        Me.DataGridParaDevolucion.RowsDefaultCellStyle = DataGridViewCellStyle6
         Me.DataGridParaDevolucion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridParaDevolucion.Size = New System.Drawing.Size(727, 401)
         Me.DataGridParaDevolucion.TabIndex = 82
@@ -617,14 +606,14 @@ Partial Class PrestamoRevistas
         Me.dgvRenovacion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvRenovacion.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.dgvRenovacion.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle34.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        DataGridViewCellStyle34.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle34.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle34.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvRenovacion.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle34
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvRenovacion.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
         Me.dgvRenovacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvRenovacion.Cursor = System.Windows.Forms.Cursors.Hand
         Me.dgvRenovacion.EnableHeadersVisualStyles = False
@@ -632,23 +621,23 @@ Partial Class PrestamoRevistas
         Me.dgvRenovacion.Name = "dgvRenovacion"
         Me.dgvRenovacion.ReadOnly = True
         Me.dgvRenovacion.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle35.BackColor = System.Drawing.Color.Gray
-        DataGridViewCellStyle35.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle35.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvRenovacion.RowHeadersDefaultCellStyle = DataGridViewCellStyle35
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle8.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvRenovacion.RowHeadersDefaultCellStyle = DataGridViewCellStyle8
         Me.dgvRenovacion.RowHeadersVisible = False
         Me.dgvRenovacion.RowHeadersWidth = 50
         Me.dgvRenovacion.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle36.BackColor = System.Drawing.Color.Gray
-        DataGridViewCellStyle36.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle36.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle36.SelectionForeColor = System.Drawing.Color.White
-        Me.dgvRenovacion.RowsDefaultCellStyle = DataGridViewCellStyle36
+        DataGridViewCellStyle9.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White
+        Me.dgvRenovacion.RowsDefaultCellStyle = DataGridViewCellStyle9
         Me.dgvRenovacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvRenovacion.Size = New System.Drawing.Size(727, 409)
         Me.dgvRenovacion.TabIndex = 83
@@ -671,17 +660,15 @@ Partial Class PrestamoRevistas
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.PanelDelCarrito)
+        Me.Controls.Add(Me.DevoGRUP)
         Me.Controls.Add(Me.ExtGrup)
         Me.Controls.Add(Me.GroupBoxRenovacion)
-        Me.Controls.Add(Me.DevoGRUP)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "PrestamoRevistas"
         Me.Text = "PrestamoRevistas"
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         CType(Me.PictureRenovacion, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel4.ResumeLayout(False)
-        Me.Panel4.PerformLayout()
         CType(Me.PictureDevolucion, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureExtraccion, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ExtGrup.ResumeLayout(False)
@@ -701,7 +688,6 @@ Partial Class PrestamoRevistas
     End Sub
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents ButtonVerRegistro As System.Windows.Forms.Button
-    Friend WithEvents Panel4 As System.Windows.Forms.Panel
     Friend WithEvents LabelREVISTAS As System.Windows.Forms.Label
     Friend WithEvents Cedula As Proyecto_Biblioteca.PlaceHolder
     Friend WithEvents Label1 As System.Windows.Forms.Label

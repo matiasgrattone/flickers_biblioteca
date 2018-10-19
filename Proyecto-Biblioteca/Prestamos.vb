@@ -57,7 +57,7 @@
 
         'Ocultamos el boton de ver ficha
         ButtonVerFicha.Visible = False
-
+        LabelSELECCION_DE_FUNCION.Visible = False
         '//////////////////////////////////////VARIABLES PARA RALIZAR "CONSULTAS Y IFs" SIN ERRORES///////////////////////
 
         Dim Contador As Integer = 0
@@ -110,6 +110,7 @@
 
                 'Ocultamos el boton de ver ficha
                 ButtonVerFicha.Visible = False
+                LabelSELECCION_DE_FUNCION.Visible = False
             End If
         End If
 
@@ -156,6 +157,7 @@
 
                 'Ocultamos el boton de ver ficha
                 ButtonVerFicha.Visible = False
+                LabelSELECCION_DE_FUNCION.Visible = False
             End If
         End If
     End Sub
@@ -184,6 +186,7 @@
 
             '///PARA QUE SE PUEDA EDITAR LA CEDULA LA PONEMOS EN READONLY = FALSE///
             Cedula.ReadOnly = False
+            LabelSELECCION_DE_FUNCION.Visible = False
             '///////////////////////////////////////////
 
             CarritoDeLibros.Items.Clear() 'Borra los items del ListBox carrito de libros 
@@ -221,6 +224,7 @@
 
                 '///PARA QUE SE PUEDA EDITAR LA CEDULA LA PONEMOS EN READONLY = FALSE///
                 Cedula.ReadOnly = False
+                LabelSELECCION_DE_FUNCION.Visible = False
                 '///////////////////////////////////////////
 
                 CarritoDeLibros.Items.Clear() 'Borra los items del ListBox carrito de libros 
@@ -261,6 +265,7 @@
                 PictureCrearReservacion.Visible = True
                 PictureReservacion.Visible = True
                 ptbRenovar.Visible = True
+                LabelSELECCION_DE_FUNCION.Visible = True
 
 
                 CarritoDeLibros.Items.Clear() 'Borramos los items de listbox carrito de libros 
@@ -1005,6 +1010,10 @@
     Private Sub PictureDevolucion_MouseHover(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureDevolucion.MouseHover
         LabelSELECCION_DE_FUNCION.Text = "Devolucion"
     End Sub
+    '///RENOVACIONES///
+    Private Sub ptbRenovar_MouseHover(ByVal sender As Object, ByVal e As System.EventArgs) Handles ptbRenovar.MouseHover
+        LabelSELECCION_DE_FUNCION.Text = "Renovar Libros"
+    End Sub
     '///RESERVACIONES///
     Private Sub PictureReservacion_MouseHover(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureReservacion.MouseHover
         LabelSELECCION_DE_FUNCION.Text = "ExtreaerLibro" + vbCrLf + "Reservado"
@@ -1021,6 +1030,7 @@
     Private Sub Panel4_MouseHover(ByVal sender As Object, ByVal e As System.EventArgs) Handles Panel4.MouseHover
         LabelSELECCION_DE_FUNCION.Text = "SELECCION " + vbCrLf + "DE" + vbCrLf + "FUNCION"
     End Sub
+
 
     '///////////////////////////CARRITO DE LIBROS Y IDS/////////////////////////////
     '///Eliminar un libro del carrito///
@@ -1259,9 +1269,5 @@
             End Try
 
         End If
-    End Sub
-
-    Private Sub ptbRenovar_MouseHover(ByVal sender As Object, ByVal e As System.EventArgs) Handles ptbRenovar.MouseHover
-        LabelSELECCION_DE_FUNCION.Text = "Renovar Libros"
     End Sub
 End Class
