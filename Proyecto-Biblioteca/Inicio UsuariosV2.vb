@@ -18,6 +18,7 @@
 
     '//////////// Variable para guardar ruta del archivo para ingresar y editar //////////////
     Public nombreArchivo As String = "Fotos de socio/student.png"
+    Dim cargarFoto As Integer = 0
 
     '/////////////////////variables para editar usuarios//////////////
 
@@ -1052,7 +1053,9 @@
             MsgBox("Los campos de nombre y cedula deben de estar completos para realizar esto")
         End If
 
-        ptbFotoSocio.ImageLocation = rutaFoto
+        If Not My.Computer.FileSystem.FileExists(rutaFoto) Then
+            ptbFotoSocio.ImageLocation = rutaFoto
+        End If
 
     End Sub
     Private Sub VerFichaToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles VerFichaToolStripMenuItem.Click
@@ -1106,4 +1109,23 @@
         ToolTip1.Show("Campo Opcional", Label13)
     End Sub
 
+    Private Sub DataGridView1_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+
+    End Sub
+
+    Private Sub TimerFoto_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TimerFoto.Tick
+
+        If cargarFoto <= 5 Then
+            For Each f In Application.OpenForms
+
+                If f.name = "TomarFoto" Then
+
+
+
+                End If
+
+            Next
+        End If
+
+    End Sub
 End Class

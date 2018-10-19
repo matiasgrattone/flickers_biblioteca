@@ -36,7 +36,7 @@ Partial Class TomarFoto
         '
         Me.WebCam1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.WebCam1.Imagen = Nothing
-        Me.WebCam1.Location = New System.Drawing.Point(24, 12)
+        Me.WebCam1.Location = New System.Drawing.Point(23, 12)
         Me.WebCam1.MilisegundosCaptura = 100
         Me.WebCam1.Name = "WebCam1"
         Me.WebCam1.Size = New System.Drawing.Size(320, 240)
