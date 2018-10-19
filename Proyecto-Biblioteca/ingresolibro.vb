@@ -123,7 +123,6 @@
                                 txtclasificacion.Clear()
                                 txtubicacion.Clear()
                                 '/////////////////////////////////////////////////////
-
                                 primeringreso = 0
                                 ErrorProvider1.SetError(txtcod_libro, "")
                                 ErrorProvider1.SetError(txttitulo, "")
@@ -134,21 +133,18 @@
                                 ErrorProvider1.SetError(txtcasa_editorial, "")
                                 ErrorProvider1.SetError(txtclasificacion, "")
                                 ErrorProvider1.SetError(txtubicacion, "")
-
-                                MsgBox("se ha ingresado el libro en el inventario")
+                                MsgBox("se ha ingresado el libro en el inventario", Title:="Biblioteca")
                             Catch ex As Exception
-                                MsgBox(ex.ToString)
+                                MsgBox(ex.ToString, Title:="Biblioteca")
                             End Try
-
                         End If
                     End If
                 End If
             Catch ex As Exception
-                MsgBox(ex.ToString)
-                'MsgBox("Error 01234: Imposible Ingresar el libro. Reintente")
+                MsgBox(ex.ToString, Title:="Biblioteca")
             End Try
         Else
-            MsgBox("Base de datos no disponible")
+            MsgBox("Base de datos no disponible", Title:="Biblioteca")
         End If
     End Sub
     Private Sub btnselectautor_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnselectautor.Click
@@ -188,17 +184,17 @@
                     dgvautor.Columns(2).HeaderText = "Nacionalidad"
                     dgvautor.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill 'Ajusta las columnas al tamaño del datagrid'
                 Catch ex As Exception
-                    MsgBox("No es posible acceder a la tabla Autor")
+                    MsgBox("No es posible acceder a la tabla Autor", Title:="Biblioteca")
                 End Try
                 'El boton se muestra
                 btningautor.Visible = True
                 'El boton se esconde
                 btncancelaredi.Visible = False
             Catch ex As Exception
-                MsgBox("Base de datos no disponible")
+                MsgBox("Base de datos no disponible", Title:="Biblioteca")
             End Try
         Else
-            MsgBox("Base de datos no disponible")
+            MsgBox("Base de datos no disponible", Title:="Biblioteca")
         End If
 
     End Sub
@@ -240,20 +236,18 @@
                     dgveditorial.Columns(0).Visible = False
                     dgveditorial.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill 'Ajusta las columnas al tamaño del datagrid'
                 Catch ex As Exception
-                    MsgBox("No es posible acceder a la tabla Editorial")
+                    MsgBox("No es posible acceder a la tabla Editorial", Title:="Biblioteca")
                 End Try
-
                 'El Boton se muestra
                 btningeditorial.Visible = True
                 'El boton se esconde
                 btncancelaredi.Visible = False
             Catch ex As Exception
-                MsgBox("Base de datos no disponible")
+                MsgBox("Base de datos no disponible", Title:="Biblioteca")
             End Try
         Else
-            MsgBox("Base de datos no disponible")
+            MsgBox("Base de datos no disponible", Title:="Biblioteca")
         End If
-
     End Sub
     Private Sub ingresolibro_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Dim contadoringreso As Integer = 0
@@ -276,7 +270,7 @@
                 End If
             Next
         Catch ex1 As Exception
-            MsgBox("Base de datos no disponible")
+            MsgBox("Base de datos no disponible", Title:="Biblioteca")
         End Try
         If bandera = 1 Then
             'Carga datos dentro de la tabla Libros en la base de datos en MySql y los muestra en la datagrid
@@ -291,7 +285,7 @@
                 dgvlibro.Columns(8).HeaderText = "Codigo de Clasificacion"
                 dgvlibro.Columns(9).HeaderText = "Clasificacion"
             Catch ex As Exception
-                MsgBox("Base de datos no disponible")
+                MsgBox("Base de datos no disponible", Title:="Biblioteca")
             End Try
             cmbsala.SelectedIndex = 0
             'Alinear celdas en el datagridview1'
@@ -354,7 +348,7 @@
                     End If
                 End If
             Catch ex As Exception
-                MsgBox("Base de datos no disponible")
+                MsgBox("Base de datos no disponible", Title:="Biblioteca")
             End Try
         End If
     End Sub
@@ -365,14 +359,13 @@
                 btningautor.Visible = False
                 'El boton se muestra
                 btncancelarautor.Visible = True
-
                 'El Datagrid se redimensiona y a su vez aparece un panel donde puede ingresarse un nuevo autor.
                 timerautor.Enabled = True
             Catch ex As Exception
-                MsgBox("No es posible realizar esta accion")
+                MsgBox("No es posible realizar esta accion", Title:="Biblioteca")
             End Try
         Else
-            MsgBox("Esta accion es imposible de realizar actualmente")
+            MsgBox("Esta accion es imposible de realizar actualmente", Title:="Biblioteca")
         End If
     End Sub
     Private Sub btningeditorial_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btningeditorial.Click
@@ -472,30 +465,24 @@
                 'Ingresa una nueva editorial a la Base de datos.
                 Consulta = "INSERT INTO editorial (nombre, pais, anio) values (concat(upper(left('" + txtnombree.Text + "',1)),lower(substr('" + txtnombree.Text + "',2))),concat(upper(left('" + txtpais.Text + "',1)),lower(substr('" + txtpais.Text + "',2))),'" + txtanioe.Text + "')"
                 consultar()
-
                 Try
                     Consulta = "SELECT * FROM editorial"
                     consultar()
                     dgveditorial.DataSource = Tabla
-
                 Catch ex As Exception
-                    MsgBox(ex)
+                    MsgBox(ex, Title:="Biblioteca")
                 End Try
-
                 'El boton se esconde
                 btncancelaredi.Visible = False
                 btningeditorial.Visible = True
-
                 'Limpia los campos de texto'
                 txtnombree.Clear()
                 txtpais.Clear()
                 txtanioe.Clear()
-
                 primeringresoedi = 0
                 ErrorProvider1.SetError(txtnombree, "")
                 ErrorProvider1.SetError(txtpais, "")
                 ErrorProvider1.SetError(txtanioe, "")
-
                 timereditorial.Enabled = True
             End If
         End If
@@ -720,7 +707,6 @@
                             timereditorial.Enabled = True
                             timerautor.Enabled = True
                     End Select
-
                     ErrorProvider1.SetError(txtclasificacion, "")
                     Consulta = "SELECT * FROM clasificacion"
                     consultar()
@@ -729,17 +715,17 @@
                     dgvclasificacion.Columns(1).HeaderText = "Clasificacion"
                     dgvclasificacion.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill 'Ajusta las columnas al tamaño del datagrid'
                 Catch ex As Exception
-                    MsgBox("No es posible acceder a la tabla Clasificacion")
+                    MsgBox("No es posible acceder a la tabla Clasificacion", Title:="Biblioteca")
                 End Try
                 'El boton se muestra
                 btninclas.Visible = True
                 'El boton se esconde
                 btncancelarclas.Visible = False
             Catch ex As Exception
-                MsgBox("Base de datos no disponible")
+                MsgBox("Base de datos no disponible", Title:="Biblioteca")
             End Try
         Else
-            MsgBox("Base de datos no disponible")
+            MsgBox("Base de datos no disponible", Title:="Biblioteca")
         End If
     End Sub
     Private Sub btninclas_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btninclas.Click
@@ -753,10 +739,10 @@
                 'El Datagrid se redimensiona y a su vez aparece un panel donde puede ingresarse un nuevo autor.
                 timerclasificacion.Enabled = True
             Catch ex As Exception
-                MsgBox("No es posible realizar esta accion")
+                MsgBox("No es posible realizar esta accion", Title:="Biblioteca")
             End Try
         Else
-            MsgBox("Esta accion es imposible de realizar actualmente")
+            MsgBox("Esta accion es imposible de realizar actualmente", Title:="Biblioteca")
         End If
     End Sub
     Private Sub btncancelar2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btncancelarautor.Click
@@ -888,21 +874,17 @@
                     dgvclasificacion.DataSource = Tabla
 
                 Catch ex As Exception
-                    MsgBox(ex)
+                    MsgBox(ex, Title:="Biblioteca")
                 End Try
-
                 'El boton se esconde
                 btncancelarclas.Visible = False
                 btninclas.Visible = True
-
                 'Limpia los campos de texto'
                 txtcodclas.Clear()
                 txtnombreclas.Clear()
-
                 primeringresoclas = 0
                 ErrorProvider1.SetError(txtcodclas, "")
                 ErrorProvider1.SetError(txtnombreclas, "")
-
                 timerclasificacion.Enabled = True
             End If
         End If

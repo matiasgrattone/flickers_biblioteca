@@ -23,7 +23,9 @@ Partial Class IngresoRevistas
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.dgvrevistas = New System.Windows.Forms.DataGridView()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.btningresarrevista = New System.Windows.Forms.Button()
         Me.lbltitulo = New System.Windows.Forms.Label()
         Me.lblanio = New System.Windows.Forms.Label()
@@ -38,25 +40,13 @@ Partial Class IngresoRevistas
         Me.txttitulo = New Proyecto_Biblioteca.PlaceHolder()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
-        CType(Me.dgvrevistas, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.dgvrevistas = New System.Windows.Forms.DataGridView()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvcomprobar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvrevistas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'dgvrevistas
-        '
-        Me.dgvrevistas.AllowUserToAddRows = False
-        Me.dgvrevistas.AllowUserToDeleteRows = False
-        Me.dgvrevistas.AllowUserToResizeColumns = False
-        Me.dgvrevistas.AllowUserToResizeRows = False
-        Me.dgvrevistas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvrevistas.Location = New System.Drawing.Point(12, 254)
-        Me.dgvrevistas.Name = "dgvrevistas"
-        Me.dgvrevistas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        Me.dgvrevistas.RowHeadersVisible = False
-        Me.dgvrevistas.Size = New System.Drawing.Size(844, 320)
-        Me.dgvrevistas.TabIndex = 0
         '
         'btningresarrevista
         '
@@ -183,12 +173,69 @@ Partial Class IngresoRevistas
         Me.Label3.TabIndex = 12
         Me.Label3.Text = "Ingreso de Revistas:"
         '
+        'dgvrevistas
+        '
+        Me.dgvrevistas.AllowUserToAddRows = False
+        Me.dgvrevistas.AllowUserToDeleteRows = False
+        Me.dgvrevistas.AllowUserToResizeColumns = False
+        Me.dgvrevistas.AllowUserToResizeRows = False
+        Me.dgvrevistas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.dgvrevistas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvrevistas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgvrevistas.ColumnHeadersHeight = 40
+        Me.dgvrevistas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.dgvrevistas.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.dgvrevistas.EnableHeadersVisualStyles = False
+        Me.dgvrevistas.Location = New System.Drawing.Point(8, 272)
+        Me.dgvrevistas.MultiSelect = False
+        Me.dgvrevistas.Name = "dgvrevistas"
+        Me.dgvrevistas.ReadOnly = True
+        Me.dgvrevistas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvrevistas.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.dgvrevistas.RowHeadersVisible = False
+        Me.dgvrevistas.RowHeadersWidth = 50
+        Me.dgvrevistas.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White
+        Me.dgvrevistas.RowsDefaultCellStyle = DataGridViewCellStyle3
+        Me.dgvrevistas.RowTemplate.Height = 32
+        Me.dgvrevistas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvrevistas.Size = New System.Drawing.Size(881, 299)
+        Me.dgvrevistas.TabIndex = 69
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.Gray
+        Me.Panel2.Location = New System.Drawing.Point(2, 265)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(894, 314)
+        Me.Panel2.TabIndex = 70
+        '
         'IngresoRevistas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(868, 586)
+        Me.Controls.Add(Me.dgvrevistas)
+        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.dgvcomprobar)
@@ -201,19 +248,17 @@ Partial Class IngresoRevistas
         Me.Controls.Add(Me.txtanior)
         Me.Controls.Add(Me.txttitulo)
         Me.Controls.Add(Me.btningresarrevista)
-        Me.Controls.Add(Me.dgvrevistas)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "IngresoRevistas"
         Me.Text = "IngresoRevistas"
-        CType(Me.dgvrevistas, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvcomprobar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorProvider2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvrevistas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents dgvrevistas As System.Windows.Forms.DataGridView
     Friend WithEvents btningresarrevista As System.Windows.Forms.Button
     Friend WithEvents txttitulo As Proyecto_Biblioteca.PlaceHolder
     Friend WithEvents txtanior As Proyecto_Biblioteca.PlaceHolder
@@ -228,4 +273,6 @@ Partial Class IngresoRevistas
     Friend WithEvents ErrorProvider2 As System.Windows.Forms.ErrorProvider
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents dgvrevistas As System.Windows.Forms.DataGridView
+    Friend WithEvents Panel2 As System.Windows.Forms.Panel
 End Class
