@@ -414,6 +414,7 @@ Public Class MENU3
             Panel_Inicio.BackColor = Drawing.Color.LightGray
         End If
     End Sub
+    Dim contraseniaAdmin As String
     Private Sub Pbconfig_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbconfig.Click
         If ERROR1 = 0 Then
             Dim open As Integer
@@ -429,8 +430,10 @@ Public Class MENU3
             Dim cedula As Integer = 0
             If open = 0 Then
                 Try
-                    Dim contraseniaAdmin As String
+
                     contraseniaAdmin = InputBox("Por favor ingrese la cedula de un administrador", Title:="Biblioteca")
+
+
                     Consulta = "select * from usuarios where tipo < 2"
                     consultar()
                     For Each row As DataRow In Tabla.Rows
@@ -441,7 +444,7 @@ Public Class MENU3
                             ConfigAdmin.Lbl_NombreADMIN_TXT.Text = row("nombre") & " " & row("apellido")
                             contraseniaAdmin = "1"
                         End If
-                        If row("cedula") Is DBNull.Value Then
+                        If row("cedula") Is DBNull.Value And contraseniaAdmin <> vbNull Then
                             cedula = 0
                             MsgBox("Cedula Incorrecta")
                         End If
@@ -927,7 +930,7 @@ Public Class MENU3
     Private Sub label_navegador_MouseEnter(sender As System.Object, e As System.EventArgs) Handles label_navegador.MouseEnter
         If seleccionado = "navegador" Then
         Else
-            panel_navegador.BackColor = Drawing.Color.lightgray
+            panel_navegador.BackColor = Drawing.Color.LightGray
         End If
     End Sub
 
@@ -1043,33 +1046,33 @@ Public Class MENU3
     End Sub
 
     Private Sub prestamosRevistasForm()
-            seleccionado = "PrestamosRevistas"
+        seleccionado = "PrestamosRevistas"
 
-            Dim F6 As New PrestamoRevistas
-            panel_menu.Controls.Clear()
-            F6.TopLevel = False
-            F6.Parent = panel_menu
+        Dim F6 As New PrestamoRevistas
+        panel_menu.Controls.Clear()
+        F6.TopLevel = False
+        F6.Parent = panel_menu
 
-            F6.Show()
+        F6.Show()
 
-            panel_menu.Visible = True
-            txtbuscar.Visible = False
-            btnatras.Visible = False
-            btnadelante.Visible = False
-            btnpaginainicio.Visible = False
-            btnrecargar.Visible = False
-            Pnavegador.Visible = False
-            Wbnavegador.Visible = False
+        panel_menu.Visible = True
+        txtbuscar.Visible = False
+        btnatras.Visible = False
+        btnadelante.Visible = False
+        btnpaginainicio.Visible = False
+        btnrecargar.Visible = False
+        Pnavegador.Visible = False
+        Wbnavegador.Visible = False
 
-            panel_usuarios.BackColor = Drawing.Color.Silver
-            panel_libros.BackColor = Drawing.Color.Silver
-            panel_prestamos.BackColor = Drawing.Color.Silver
-            panel_navegador.BackColor = Drawing.Color.Silver
-            Panel_Revistas.BackColor = Drawing.Color.Silver
-            Panel_Inicio.BackColor = Drawing.Color.Silver
-            Panel_PrestamosRevistas.BackColor = Drawing.Color.LightGray
+        panel_usuarios.BackColor = Drawing.Color.Silver
+        panel_libros.BackColor = Drawing.Color.Silver
+        panel_prestamos.BackColor = Drawing.Color.Silver
+        panel_navegador.BackColor = Drawing.Color.Silver
+        Panel_Revistas.BackColor = Drawing.Color.Silver
+        Panel_Inicio.BackColor = Drawing.Color.Silver
+        Panel_PrestamosRevistas.BackColor = Drawing.Color.LightGray
 
-            Panel_Graficos.Visible = False
+        Panel_Graficos.Visible = False
     End Sub
 
     Private Sub revistasForm()
@@ -1281,7 +1284,20 @@ Public Class MENU3
                 Next
             End If
             pictureboxPrestamosSwitch = 1
-            End If
+        End If
+    End Sub
+    Dim mouseentercomboaño As Integer = 0
+    Private Sub ComboBox2_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBox2.SelectedIndexChanged
+        If mouseentercomboaño = 1 Then
+            Chart()
+        End If
     End Sub
 
+    Private Sub ComboBox2_MouseEnter(sender As System.Object, e As System.EventArgs) Handles ComboBox2.MouseEnter
+        mouseentercomboaño = 1
+    End Sub
+
+    Private Sub ComboBox2_MouseLeave(sender As System.Object, e As System.EventArgs) Handles ComboBox2.MouseLeave
+        mouseentercomboaño = 0
+    End Sub
 End Class

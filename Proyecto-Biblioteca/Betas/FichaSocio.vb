@@ -100,6 +100,7 @@
                 mailtext = row("mail")
             End If
             If row("fecha_moroso") Is DBNull.Value Then
+                morosoultimavez = "Sin Antecedentes"
             Else
                 morosoultimavez = row("fecha_moroso")
             End If

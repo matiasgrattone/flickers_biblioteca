@@ -107,13 +107,14 @@ Partial Class ConfigAdmin
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         Me.ptbPerfilAdmin = New Proyecto_Biblioteca.PictureboxBordesRedondos()
-        Me.DGV_ONLINE = New System.Windows.Forms.DataGridView()
-        Me.Online = New System.Windows.Forms.DataGridViewImageColumn()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.RadioButton7 = New System.Windows.Forms.RadioButton()
         Me.RadioButton6 = New System.Windows.Forms.RadioButton()
+        Me.DGV_ONLINE = New System.Windows.Forms.DataGridView()
+        Me.Online = New System.Windows.Forms.DataGridViewImageColumn()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.TimerFoto = New System.Windows.Forms.Timer(Me.components)
+        Me.Button5 = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -129,8 +130,8 @@ Partial Class ConfigAdmin
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         CType(Me.ptbPerfilAdmin, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DGV_ONLINE, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.DGV_ONLINE, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TreeView1
@@ -591,7 +592,7 @@ Partial Class ConfigAdmin
         Me.cb_dia_editar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cb_dia_editar.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cb_dia_editar.FormattingEnabled = True
-        Me.cb_dia_editar.Location = New System.Drawing.Point(243, 309)
+        Me.cb_dia_editar.Location = New System.Drawing.Point(243, 347)
         Me.cb_dia_editar.Name = "cb_dia_editar"
         Me.cb_dia_editar.Size = New System.Drawing.Size(77, 27)
         Me.cb_dia_editar.TabIndex = 98
@@ -601,7 +602,7 @@ Partial Class ConfigAdmin
         Me.cb_mes_editar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cb_mes_editar.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cb_mes_editar.FormattingEnabled = True
-        Me.cb_mes_editar.Location = New System.Drawing.Point(331, 309)
+        Me.cb_mes_editar.Location = New System.Drawing.Point(331, 347)
         Me.cb_mes_editar.Name = "cb_mes_editar"
         Me.cb_mes_editar.Size = New System.Drawing.Size(81, 27)
         Me.cb_mes_editar.TabIndex = 99
@@ -611,7 +612,7 @@ Partial Class ConfigAdmin
         Me.cb_anio_editar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cb_anio_editar.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cb_anio_editar.FormattingEnabled = True
-        Me.cb_anio_editar.Location = New System.Drawing.Point(424, 309)
+        Me.cb_anio_editar.Location = New System.Drawing.Point(424, 347)
         Me.cb_anio_editar.Name = "cb_anio_editar"
         Me.cb_anio_editar.Size = New System.Drawing.Size(78, 27)
         Me.cb_anio_editar.TabIndex = 100
@@ -629,7 +630,7 @@ Partial Class ConfigAdmin
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(298, 269)
+        Me.Label12.Location = New System.Drawing.Point(298, 307)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(136, 16)
         Me.Label12.TabIndex = 85
@@ -894,6 +895,7 @@ Partial Class ConfigAdmin
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.Silver
+        Me.Panel2.Controls.Add(Me.Button5)
         Me.Panel2.Controls.Add(Me.Button2)
         Me.Panel2.Controls.Add(Me.Label20)
         Me.Panel2.Controls.Add(Me.Label3)
@@ -992,6 +994,41 @@ Partial Class ConfigAdmin
         Me.ptbPerfilAdmin.TabIndex = 19
         Me.ptbPerfilAdmin.TabStop = False
         '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.RadioButton7)
+        Me.GroupBox1.Controls.Add(Me.RadioButton6)
+        Me.GroupBox1.Controls.Add(Me.DGV_ONLINE)
+        Me.GroupBox1.Controls.Add(Me.TreeView1)
+        Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.GroupBox1.Location = New System.Drawing.Point(257, -7)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(278, 601)
+        Me.GroupBox1.TabIndex = 30
+        Me.GroupBox1.TabStop = False
+        '
+        'RadioButton7
+        '
+        Me.RadioButton7.AutoSize = True
+        Me.RadioButton7.Checked = True
+        Me.RadioButton7.Location = New System.Drawing.Point(18, 22)
+        Me.RadioButton7.Name = "RadioButton7"
+        Me.RadioButton7.Size = New System.Drawing.Size(127, 17)
+        Me.RadioButton7.TabIndex = 29
+        Me.RadioButton7.TabStop = True
+        Me.RadioButton7.Text = "Ver Lista De Usuarios"
+        Me.RadioButton7.UseVisualStyleBackColor = True
+        '
+        'RadioButton6
+        '
+        Me.RadioButton6.AutoSize = True
+        Me.RadioButton6.Location = New System.Drawing.Point(146, 22)
+        Me.RadioButton6.Name = "RadioButton6"
+        Me.RadioButton6.Size = New System.Drawing.Size(118, 17)
+        Me.RadioButton6.TabIndex = 28
+        Me.RadioButton6.Text = "Ver Usuarios Online"
+        Me.RadioButton6.UseVisualStyleBackColor = True
+        '
         'DGV_ONLINE
         '
         Me.DGV_ONLINE.AllowUserToAddRows = False
@@ -1047,43 +1084,17 @@ Partial Class ConfigAdmin
         Me.Online.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.Online.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.RadioButton7)
-        Me.GroupBox1.Controls.Add(Me.RadioButton6)
-        Me.GroupBox1.Controls.Add(Me.DGV_ONLINE)
-        Me.GroupBox1.Controls.Add(Me.TreeView1)
-        Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.GroupBox1.Location = New System.Drawing.Point(257, -7)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(278, 601)
-        Me.GroupBox1.TabIndex = 30
-        Me.GroupBox1.TabStop = False
-        '
-        'RadioButton7
-        '
-        Me.RadioButton7.AutoSize = True
-        Me.RadioButton7.Checked = True
-        Me.RadioButton7.Location = New System.Drawing.Point(18, 22)
-        Me.RadioButton7.Name = "RadioButton7"
-        Me.RadioButton7.Size = New System.Drawing.Size(127, 17)
-        Me.RadioButton7.TabIndex = 29
-        Me.RadioButton7.TabStop = True
-        Me.RadioButton7.Text = "Ver Lista De Usuarios"
-        Me.RadioButton7.UseVisualStyleBackColor = True
-        '
-        'RadioButton6
-        '
-        Me.RadioButton6.AutoSize = True
-        Me.RadioButton6.Location = New System.Drawing.Point(146, 22)
-        Me.RadioButton6.Name = "RadioButton6"
-        Me.RadioButton6.Size = New System.Drawing.Size(118, 17)
-        Me.RadioButton6.TabIndex = 28
-        Me.RadioButton6.Text = "Ver Usuarios Online"
-        Me.RadioButton6.UseVisualStyleBackColor = True
-        '
         'TimerFoto
         '
+        '
+        'Button5
+        '
+        Me.Button5.Location = New System.Drawing.Point(51, 248)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(152, 23)
+        Me.Button5.TabIndex = 30
+        Me.Button5.Text = "Cambiar Contraseña"
+        Me.Button5.UseVisualStyleBackColor = True
         '
         'ConfigAdmin
         '
@@ -1118,9 +1129,9 @@ Partial Class ConfigAdmin
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         CType(Me.ptbPerfilAdmin, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DGV_ONLINE, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.DGV_ONLINE, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1202,4 +1213,5 @@ Partial Class ConfigAdmin
     Friend WithEvents ptbFuncio As System.Windows.Forms.PictureBox
     Friend WithEvents TimerFoto As System.Windows.Forms.Timer
     Friend WithEvents Online As System.Windows.Forms.DataGridViewImageColumn
+    Friend WithEvents Button5 As System.Windows.Forms.Button
 End Class

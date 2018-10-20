@@ -62,6 +62,8 @@ Partial Class FichaSocio
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBoxEstado = New System.Windows.Forms.PictureBox()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.Lbl_morosoCausa_txt = New System.Windows.Forms.Label()
+        Me.Lbl_morosoCausa = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.labelLibroFavorito = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -71,8 +73,6 @@ Partial Class FichaSocio
         Me.PrintForm1 = New Microsoft.VisualBasic.PowerPacks.Printing.PrintForm(Me.components)
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
-        Me.Lbl_morosoCausa = New System.Windows.Forms.Label()
-        Me.Lbl_morosoCausa_txt = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -493,6 +493,26 @@ Partial Class FichaSocio
         Me.Panel5.Size = New System.Drawing.Size(957, 628)
         Me.Panel5.TabIndex = 32
         '
+        'Lbl_morosoCausa_txt
+        '
+        Me.Lbl_morosoCausa_txt.AutoSize = True
+        Me.Lbl_morosoCausa_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Lbl_morosoCausa_txt.Location = New System.Drawing.Point(665, 16)
+        Me.Lbl_morosoCausa_txt.Name = "Lbl_morosoCausa_txt"
+        Me.Lbl_morosoCausa_txt.Size = New System.Drawing.Size(95, 15)
+        Me.Lbl_morosoCausa_txt.TabIndex = 39
+        Me.Lbl_morosoCausa_txt.Text = "......................"
+        '
+        'Lbl_morosoCausa
+        '
+        Me.Lbl_morosoCausa.AutoSize = True
+        Me.Lbl_morosoCausa.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Lbl_morosoCausa.Location = New System.Drawing.Point(537, 16)
+        Me.Lbl_morosoCausa.Name = "Lbl_morosoCausa"
+        Me.Lbl_morosoCausa.Size = New System.Drawing.Size(131, 15)
+        Me.Lbl_morosoCausa.TabIndex = 38
+        Me.Lbl_morosoCausa.Text = "Causa de Moroso : "
+        '
         'Label5
         '
         Me.Label5.AutoSize = True
@@ -507,7 +527,7 @@ Partial Class FichaSocio
         '
         Me.labelLibroFavorito.AutoSize = True
         Me.labelLibroFavorito.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.labelLibroFavorito.Location = New System.Drawing.Point(669, 65)
+        Me.labelLibroFavorito.Location = New System.Drawing.Point(669, 56)
         Me.labelLibroFavorito.Name = "labelLibroFavorito"
         Me.labelLibroFavorito.Size = New System.Drawing.Size(95, 15)
         Me.labelLibroFavorito.TabIndex = 36
@@ -517,7 +537,7 @@ Partial Class FichaSocio
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(572, 65)
+        Me.Label6.Location = New System.Drawing.Point(572, 56)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(103, 15)
         Me.Label6.TabIndex = 35
@@ -527,7 +547,7 @@ Partial Class FichaSocio
         '
         Me.LabelFecha_Ingreso.AutoSize = True
         Me.LabelFecha_Ingreso.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelFecha_Ingreso.Location = New System.Drawing.Point(671, 45)
+        Me.LabelFecha_Ingreso.Location = New System.Drawing.Point(671, 36)
         Me.LabelFecha_Ingreso.Name = "LabelFecha_Ingreso"
         Me.LabelFecha_Ingreso.Size = New System.Drawing.Size(95, 15)
         Me.LabelFecha_Ingreso.TabIndex = 33
@@ -537,7 +557,7 @@ Partial Class FichaSocio
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(563, 45)
+        Me.Label4.Location = New System.Drawing.Point(563, 36)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(114, 15)
         Me.Label4.TabIndex = 32
@@ -568,26 +588,6 @@ Partial Class FichaSocio
         '
         'BackgroundWorker1
         '
-        '
-        'Lbl_morosoCausa
-        '
-        Me.Lbl_morosoCausa.AutoSize = True
-        Me.Lbl_morosoCausa.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Lbl_morosoCausa.Location = New System.Drawing.Point(537, 16)
-        Me.Lbl_morosoCausa.Name = "Lbl_morosoCausa"
-        Me.Lbl_morosoCausa.Size = New System.Drawing.Size(131, 15)
-        Me.Lbl_morosoCausa.TabIndex = 38
-        Me.Lbl_morosoCausa.Text = "Causa de Moroso : "
-        '
-        'Lbl_morosoCausa_txt
-        '
-        Me.Lbl_morosoCausa_txt.AutoSize = True
-        Me.Lbl_morosoCausa_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Lbl_morosoCausa_txt.Location = New System.Drawing.Point(665, 16)
-        Me.Lbl_morosoCausa_txt.Name = "Lbl_morosoCausa_txt"
-        Me.Lbl_morosoCausa_txt.Size = New System.Drawing.Size(95, 15)
-        Me.Lbl_morosoCausa_txt.TabIndex = 39
-        Me.Lbl_morosoCausa_txt.Text = "......................"
         '
         'FichaSocio
         '

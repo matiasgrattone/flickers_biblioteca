@@ -819,4 +819,27 @@ Public Class ConfigAdmin
             End If
         End If
     End Sub
+    Dim contraseniarestablecer As String = ""
+    Dim correctocontraseña As Integer = 0
+    Private Sub Button5_Click(sender As System.Object, e As System.EventArgs) Handles Button5.Click
+        contraseniarestablecer = InputBox("ingrese su contraseña anterior")
+        Consulta = "select contrasenia from usuarios where cedula = '" & cedulaFotoPerfil & "'"
+        consultar()
+        For Each row As DataRow In Tabla.Rows
+            If row("contrasenia").ToString = Encriptar(contraseniarestablecer) Then
+                correctocontraseña = 1
+            Else
+                correctocontraseña = 0
+            End If
+        Next
+
+        If correctocontraseña = 1 Then
+            contraseniarestablecer = InputBox("ingrese su nueva contraseña")
+            Consulta = "update usuarios set contrasenia = '" & Encriptar(contraseniarestablecer) & "' where cedula = '" & cedulaFotoPerfil & "'"
+            consultar()
+            MsgBox("se ha cambiado sastifactoriamente su contraseña", MsgBoxStyle.OkOnly, Title:="Biblioteca")
+        Else
+            MsgBox("la contraseña introducida es incorrecta")
+        End If
+    End Sub
 End Class
