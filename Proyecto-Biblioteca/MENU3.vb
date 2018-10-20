@@ -1200,9 +1200,10 @@ Public Class MENU3
 
     Private Sub PictureBox3_Click_1(sender As System.Object, e As System.EventArgs) Handles PictureBox3.Click
         'Cierra el programa'
-        End
         Consulta = "update usuarios set ultimaconexion = '" & Date.Now.ToString("yyyy-MM-dd hh:mm:ss") & "', online = 0 where cedula = '" & lbl_cedula.Text & "'"
         consultar()
+        End
+
         'Try
         '    For Each f As Form In Application.OpenForms
         '        If f.Name <> "MENU3" Then
@@ -1282,4 +1283,5 @@ Public Class MENU3
             pictureboxPrestamosSwitch = 1
             End If
     End Sub
+
 End Class

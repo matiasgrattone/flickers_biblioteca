@@ -22,7 +22,7 @@
     Public nombrecompleto As String
     Public fechaingreso As String
     Public mailtext As String
-
+    Public causaMoroso As String
 
 
     Private Sub BackgroundWorker1_DoWork(sender As System.Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
@@ -89,6 +89,12 @@
             direccion = row("direccion")
             nombrecompleto = row("nombre") & " " & row("apellido")
             fechaingreso = row("fecha_Ingreso")
+            If row("descripcion_moroso") IsNot DBNull.Value Then
+                causaMoroso = row("descripcion_moroso")
+            Else
+                causaMoroso = "......................"
+            End If
+
             If row("mail") Is DBNull.Value Then
             Else
                 mailtext = row("mail")
@@ -193,8 +199,10 @@
             LabelFechaUltimaVez.Text = morosoultimavez
             LabelFecha_Ingreso.Text = fechaingreso
             labelLibroFavorito.Text = librofavorito
+            Lbl_morosoCausa_txt.Text = causaMoroso
             DataGridViewLibros.DataSource = registro_de_libros
             DataGridView1.DataSource = registro_de_prestamos
+
 
             DatagridModulo = DataGridViewLibros
             Datagrid_Align()
