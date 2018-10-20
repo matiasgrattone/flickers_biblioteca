@@ -39,7 +39,6 @@ Partial Class MENU3
         Me.Phoraencabezado = New System.Windows.Forms.Panel()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.Pbusuario = New Proyecto_Biblioteca.PictureboxBordesRedondos()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.lbl_cedula = New System.Windows.Forms.Label()
         Me.Pbadvertenciaprestamos = New System.Windows.Forms.PictureBox()
@@ -51,7 +50,6 @@ Partial Class MENU3
         Me.Panel_PrestamosRevistas = New System.Windows.Forms.Panel()
         Me.pb_PrestamosRevistas = New System.Windows.Forms.PictureBox()
         Me.Label_Prestamos_Revistas = New System.Windows.Forms.Label()
-        Me.Rueda_de_carga1 = New Proyecto_Biblioteca.OptProgressControl.Rueda_de_carga()
         Me.Panel_Inicio = New System.Windows.Forms.Panel()
         Me.PbInicio = New System.Windows.Forms.PictureBox()
         Me.LabelInicio = New System.Windows.Forms.Label()
@@ -59,7 +57,6 @@ Partial Class MENU3
         Me.Pbrevistas = New System.Windows.Forms.PictureBox()
         Me.LabelRevistas = New System.Windows.Forms.Label()
         Me.Pbconfig = New System.Windows.Forms.PictureBox()
-        Me.Labels_transparentes1 = New Proyecto_Biblioteca.labels_transparentes()
         Me.Pbnube = New System.Windows.Forms.PictureBox()
         Me.panel_navegador = New System.Windows.Forms.Panel()
         Me.Pbnavegador = New System.Windows.Forms.PictureBox()
@@ -84,8 +81,6 @@ Partial Class MENU3
         Me.panel_menu = New System.Windows.Forms.Panel()
         Me.Panel_Graficos = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.Panel_prestamosdia = New System.Windows.Forms.Panel()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -103,16 +98,19 @@ Partial Class MENU3
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Chart_Prestamos = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.Timer_Prestamos_LIVE = New System.Windows.Forms.Timer(Me.components)
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Timer_BD = New System.Windows.Forms.Timer(Me.components)
         Me.Timer_RuedaDeCarga = New System.Windows.Forms.Timer(Me.components)
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.Pbusuario = New Proyecto_Biblioteca.PictureboxBordesRedondos()
+        Me.Rueda_de_carga1 = New Proyecto_Biblioteca.OptProgressControl.Rueda_de_carga()
+        Me.Labels_transparentes1 = New Proyecto_Biblioteca.labels_transparentes()
         Me.Phoraencabezado.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Pbusuario, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Pbadvertenciaprestamos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -145,6 +143,8 @@ Partial Class MENU3
         CType(Me.ChartPrestamosDia, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.Chart_Prestamos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Pbusuario, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Phoraencabezado
@@ -187,18 +187,6 @@ Partial Class MENU3
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox3.TabIndex = 11
         Me.PictureBox3.TabStop = False
-        '
-        'Pbusuario
-        '
-        Me.Pbusuario.BackColor = System.Drawing.Color.DarkGray
-        Me.Pbusuario.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Pbusuario.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.boss
-        Me.Pbusuario.Location = New System.Drawing.Point(977, 3)
-        Me.Pbusuario.Name = "Pbusuario"
-        Me.Pbusuario.Size = New System.Drawing.Size(42, 40)
-        Me.Pbusuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.Pbusuario.TabIndex = 10
-        Me.Pbusuario.TabStop = False
         '
         'PictureBox2
         '
@@ -326,19 +314,6 @@ Partial Class MENU3
         Me.Label_Prestamos_Revistas.TabIndex = 7
         Me.Label_Prestamos_Revistas.Text = "Prestamo Revistas"
         '
-        'Rueda_de_carga1
-        '
-        Me.Rueda_de_carga1.BackColor = System.Drawing.Color.Transparent
-        Me.Rueda_de_carga1.Interval = 60
-        Me.Rueda_de_carga1.Location = New System.Drawing.Point(57, 622)
-        Me.Rueda_de_carga1.MinimumSize = New System.Drawing.Size(28, 28)
-        Me.Rueda_de_carga1.Name = "Rueda_de_carga1"
-        Me.Rueda_de_carga1.Rotation = Proyecto_Biblioteca.OptProgressControl.Rueda_de_carga.Direction.CLOCKWISE
-        Me.Rueda_de_carga1.Size = New System.Drawing.Size(28, 28)
-        Me.Rueda_de_carga1.StartAngle = 270
-        Me.Rueda_de_carga1.TabIndex = 11
-        Me.Rueda_de_carga1.TickColor = System.Drawing.Color.FromArgb(CType(CType(58, Byte), Integer), CType(CType(58, Byte), Integer), CType(CType(58, Byte), Integer))
-        '
         'Panel_Inicio
         '
         Me.Panel_Inicio.Controls.Add(Me.PbInicio)
@@ -411,14 +386,6 @@ Partial Class MENU3
         Me.Pbconfig.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.Pbconfig.TabIndex = 15
         Me.Pbconfig.TabStop = False
-        '
-        'Labels_transparentes1
-        '
-        Me.Labels_transparentes1.Location = New System.Drawing.Point(99, 632)
-        Me.Labels_transparentes1.Name = "Labels_transparentes1"
-        Me.Labels_transparentes1.Size = New System.Drawing.Size(30, 23)
-        Me.Labels_transparentes1.TabIndex = 14
-        Me.Labels_transparentes1.Text = "V.3.0"
         '
         'Pbnube
         '
@@ -642,8 +609,6 @@ Partial Class MENU3
         '
         Me.Panel_Graficos.BackColor = System.Drawing.SystemColors.Control
         Me.Panel_Graficos.Controls.Add(Me.Label4)
-        Me.Panel_Graficos.Controls.Add(Me.RadioButton2)
-        Me.Panel_Graficos.Controls.Add(Me.RadioButton1)
         Me.Panel_Graficos.Controls.Add(Me.Panel_prestamosdia)
         Me.Panel_Graficos.Controls.Add(Me.PanelPrestamosLIVE)
         Me.Panel_Graficos.Controls.Add(Me.PictureBox1)
@@ -653,6 +618,7 @@ Partial Class MENU3
         Me.Panel_Graficos.Controls.Add(Me.ComboBox2)
         Me.Panel_Graficos.Controls.Add(Me.Panel1)
         Me.Panel_Graficos.Controls.Add(Me.ComboBox1)
+        Me.Panel_Graficos.Controls.Add(Me.PictureBox5)
         Me.Panel_Graficos.Location = New System.Drawing.Point(135, 45)
         Me.Panel_Graficos.Name = "Panel_Graficos"
         Me.Panel_Graficos.Size = New System.Drawing.Size(1006, 646)
@@ -661,33 +627,11 @@ Partial Class MENU3
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(299, 21)
+        Me.Label4.Location = New System.Drawing.Point(446, 21)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(94, 13)
         Me.Label4.TabIndex = 13
         Me.Label4.Text = "Prestamos en vivo"
-        '
-        'RadioButton2
-        '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(441, 19)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(39, 17)
-        Me.RadioButton2.TabIndex = 12
-        Me.RadioButton2.Text = "No"
-        Me.RadioButton2.UseVisualStyleBackColor = True
-        '
-        'RadioButton1
-        '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Checked = True
-        Me.RadioButton1.Location = New System.Drawing.Point(403, 19)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(34, 17)
-        Me.RadioButton1.TabIndex = 11
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "Si"
-        Me.RadioButton1.UseVisualStyleBackColor = True
         '
         'Panel_prestamosdia
         '
@@ -912,6 +856,15 @@ Partial Class MENU3
         Me.ComboBox1.Size = New System.Drawing.Size(216, 28)
         Me.ComboBox1.TabIndex = 1
         '
+        'PictureBox5
+        '
+        Me.PictureBox5.Location = New System.Drawing.Point(546, 0)
+        Me.PictureBox5.Name = "PictureBox5"
+        Me.PictureBox5.Size = New System.Drawing.Size(50, 51)
+        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox5.TabIndex = 14
+        Me.PictureBox5.TabStop = False
+        '
         'Timer_Prestamos_LIVE
         '
         Me.Timer_Prestamos_LIVE.Interval = 6000
@@ -928,6 +881,39 @@ Partial Class MENU3
         'Timer_RuedaDeCarga
         '
         Me.Timer_RuedaDeCarga.Interval = 500
+        '
+        'Pbusuario
+        '
+        Me.Pbusuario.BackColor = System.Drawing.Color.DarkGray
+        Me.Pbusuario.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Pbusuario.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.boss
+        Me.Pbusuario.Location = New System.Drawing.Point(977, 3)
+        Me.Pbusuario.Name = "Pbusuario"
+        Me.Pbusuario.Size = New System.Drawing.Size(42, 40)
+        Me.Pbusuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.Pbusuario.TabIndex = 10
+        Me.Pbusuario.TabStop = False
+        '
+        'Rueda_de_carga1
+        '
+        Me.Rueda_de_carga1.BackColor = System.Drawing.Color.Transparent
+        Me.Rueda_de_carga1.Interval = 60
+        Me.Rueda_de_carga1.Location = New System.Drawing.Point(57, 622)
+        Me.Rueda_de_carga1.MinimumSize = New System.Drawing.Size(28, 28)
+        Me.Rueda_de_carga1.Name = "Rueda_de_carga1"
+        Me.Rueda_de_carga1.Rotation = Proyecto_Biblioteca.OptProgressControl.Rueda_de_carga.Direction.CLOCKWISE
+        Me.Rueda_de_carga1.Size = New System.Drawing.Size(28, 28)
+        Me.Rueda_de_carga1.StartAngle = 270
+        Me.Rueda_de_carga1.TabIndex = 11
+        Me.Rueda_de_carga1.TickColor = System.Drawing.Color.FromArgb(CType(CType(58, Byte), Integer), CType(CType(58, Byte), Integer), CType(CType(58, Byte), Integer))
+        '
+        'Labels_transparentes1
+        '
+        Me.Labels_transparentes1.Location = New System.Drawing.Point(99, 632)
+        Me.Labels_transparentes1.Name = "Labels_transparentes1"
+        Me.Labels_transparentes1.Size = New System.Drawing.Size(30, 23)
+        Me.Labels_transparentes1.TabIndex = 14
+        Me.Labels_transparentes1.Text = "V.3.0"
         '
         'MENU3
         '
@@ -950,7 +936,6 @@ Partial Class MENU3
         Me.Phoraencabezado.PerformLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Pbusuario, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Pbadvertenciaprestamos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
@@ -994,6 +979,8 @@ Partial Class MENU3
         CType(Me.ChartPrestamosDia, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         CType(Me.Chart_Prestamos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Pbusuario, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1068,6 +1055,5 @@ Partial Class MENU3
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
     Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
-    Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
+    Friend WithEvents PictureBox5 As System.Windows.Forms.PictureBox
 End Class

@@ -287,6 +287,8 @@ Public Class ConfigAdmin
 
                 Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo, nacimiento, estado, contrasenia, moroso, rutaperfil) values (concat(upper(left('" + nom_ingresar + "',1)), lower(substr('" + nom_ingresar + "',2))), concat(upper(left('" + ape_ingresar + "',1)), lower(substr('" + ape_ingresar + "',2))), '" + Str(ced_ingresar) + "', '" + Str(tel_ingresar) + "', '" + dir_ingresar + "', '1', '" + nacimiento_ingresar + "','1', '" + cont_ingresar + "', 0, '" + rutaFoto + "');"
                 consultar()
+                Consulta = "insert into MenuConfig (cod_usuario,cod_grafica) values ('" & ced_ingresar & "' , 1)"
+                consultar()
                 Consulta = "select nombre As 'Nombre', apellido As 'Apellido', cedula As 'Cedula', telefono As 'Telefono', tipo As 'Tipo' from usuarios where estado='1' and tipo='0'"
                 consultar()
                 DataGridView1.DataSource = Tabla
@@ -698,11 +700,25 @@ Public Class ConfigAdmin
     Private Sub RadioButton6_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton6.CheckedChanged
         TreeView1.Visible = False
         DGV_ONLINE.Visible = True
-        Consulta = "select nombre , ultimaconexion from usuarios where tipo < 2 and online = 1"
+        Consulta = "select nombre , online , ultimaconexion from usuarios where tipo < 2"
         consultar()
         DGV_ONLINE.DataSource = Tabla
         DatagridModulo = DGV_ONLINE
         Datagrid_Align()
+
+        DGV_ONLINE.Columns(2).Visible = False
+        DGV_ONLINE.Columns(3).Visible = False
+
+        For x As Integer = 0 To DGV_ONLINE.Rows.Count - 1
+            If DGV_ONLINE.Rows(x).Cells(2).Value = "1" Then
+                DGV_ONLINE.Rows(x).Cells(0).Value = Image.FromFile("imagenes/online1.png")
+            Else
+                DGV_ONLINE.Rows(x).Cells(0).Value = Image.FromFile("imagenes/offline.png")
+            End If
+
+        Next
+
+
     End Sub
 
     Private Sub RadioButton7_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton7.CheckedChanged

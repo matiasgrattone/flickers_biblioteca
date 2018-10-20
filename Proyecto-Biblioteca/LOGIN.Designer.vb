@@ -29,7 +29,7 @@ Partial Class LOGIN
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
-        Me.Pbnube = New Proyecto_Biblioteca.TransPicBox()
+        Me.Pbnube1 = New Proyecto_Biblioteca.TransPicBox()
         Me.contrasenia = New Proyecto_Biblioteca.PlaceHolder()
         Me.usuario = New Proyecto_Biblioteca.PlaceHolder()
         Me.Lbl_contraseña_recuperar = New Proyecto_Biblioteca.labels_transparentes()
@@ -38,7 +38,7 @@ Partial Class LOGIN
         Me.Labels_transparentes1 = New Proyecto_Biblioteca.labels_transparentes()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Pbnube, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Pbnube1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TransPicBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -78,18 +78,18 @@ Partial Class LOGIN
         'BackgroundWorker1
         '
         '
-        'Pbnube
+        'Pbnube1
         '
-        Me.Pbnube.BackColor = System.Drawing.Color.Transparent
-        Me.Pbnube.ErrorImage = Nothing
-        Me.Pbnube.Image = Nothing
-        Me.Pbnube.InitialImage = Nothing
-        Me.Pbnube.Location = New System.Drawing.Point(15, 511)
-        Me.Pbnube.Name = "Pbnube"
-        Me.Pbnube.Size = New System.Drawing.Size(40, 40)
-        Me.Pbnube.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.Pbnube.TabIndex = 22
-        Me.Pbnube.TabStop = False
+        Me.Pbnube1.BackColor = System.Drawing.Color.Transparent
+        Me.Pbnube1.ErrorImage = Nothing
+        Me.Pbnube1.Image = Nothing
+        Me.Pbnube1.InitialImage = Nothing
+        Me.Pbnube1.Location = New System.Drawing.Point(15, 511)
+        Me.Pbnube1.Name = "Pbnube1"
+        Me.Pbnube1.Size = New System.Drawing.Size(40, 40)
+        Me.Pbnube1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.Pbnube1.TabIndex = 22
+        Me.Pbnube1.TabStop = False
         '
         'contrasenia
         '
@@ -162,7 +162,7 @@ Partial Class LOGIN
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(973, 562)
-        Me.Controls.Add(Me.Pbnube)
+        Me.Controls.Add(Me.Pbnube1)
         Me.Controls.Add(Me.contrasenia)
         Me.Controls.Add(Me.usuario)
         Me.Controls.Add(Me.Lbl_contraseña_recuperar)
@@ -179,7 +179,7 @@ Partial Class LOGIN
         Me.Text = "login"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Pbnube, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Pbnube1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TransPicBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -196,5 +196,5 @@ Partial Class LOGIN
     Friend WithEvents contrasenia As Proyecto_Biblioteca.PlaceHolder
     Friend WithEvents usuario As Proyecto_Biblioteca.PlaceHolder
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
-    Friend WithEvents Pbnube As Proyecto_Biblioteca.TransPicBox
+    Friend WithEvents Pbnube1 As Proyecto_Biblioteca.TransPicBox
 End Class

@@ -19,6 +19,7 @@ Public Class MENU3
 
     Public cedulaIngre As String ' Variable para actualizar foto de perfil, se carga en el load
     Public cedulaAdmin As String ' Variable para cargar foto de perfil en admin, se carga al abrir config admin
+    Dim pictureboxPrestamosSwitch As Integer
 
     Private Sub inicio() 'metodo para verificar si hay un libro que se tiene que entregar en el dia
         If ERROR1 = 0 Then
@@ -62,15 +63,31 @@ Public Class MENU3
                 Pbusuario.ImageLocation = (Convert.ToString(row("rutaperfil"))) 'iguala el picturebox de MENU3 con la ubicacion de la imagen guardada en la base
             Next
 
-
-
+            Consulta = "select cod_prestamosLive from MenuConfig where cod_usuario = '" & lbl_cedula.Text & "'"
+            consultar()
+            For Each row As DataRow In Tabla.Rows
+                If row("cod_prestamosLive") = "1" Then
+                    PictureBox5.Image = Image.FromFile("imagenes/switch_on.png")
+                    pictureboxPrestamosSwitch = 1
+                    Timer_Prestamos_LIVE.Enabled = True
+                Else
+                    PictureBox5.Image = Image.FromFile("imagenes/switch_off.png")
+                    pictureboxPrestamosSwitch = 0
+                    Timer_Prestamos_LIVE.Enabled = False
+                End If
+            Next
+            If Tabla.Rows.Count = 0 Then
+                PictureBox5.Image = Image.FromFile("imagenes/switch_off.png")
+                pictureboxPrestamosSwitch = 0
+                Timer_Prestamos_LIVE.Enabled = False
+            End If
 
         End If
 
         If ERROR1 = 0 Then 'si no hay error , llama al metodo chart para cargar las graficas , activa el timer_Prestamos  y llama al metodo inicio para verificar si hay libros para devolver en el dia
             Chart()
             inicio()
-            If RadioButton1.Checked = True Then
+            If pictureboxPrestamosSwitch = 1 Then
                 Timer_Prestamos_LIVE.Enabled = True
             Else
                 Timer_Prestamos_LIVE.Enabled = False
@@ -545,21 +562,25 @@ Public Class MENU3
             End If
 
             Chart_Prestamos.ChartAreas.Add("Prestamos")
-            Chart_Prestamos.Series.Add("Prestamos")
+            Chart_Prestamos.Series.Add("Prestamos Por Mes")
 
             Consulta = "select count(prestamolibro.cod_libro) , month(prestamolibro.fecha_salida) from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where fecha_salida IS NOT NULL and  year(fecha_salida) = '" & substring & "'group by month(fecha_salida)"
             consultar()
+            Dim xas As Integer = 0
             For Each row As DataRow In Tabla.Rows
                 substring = row("month(prestamolibro.fecha_salida)")
                 If substring.Length = 1 Then
                     substring = "0" & row("month(prestamolibro.fecha_salida)")
                 End If
                 mes()
-                Chart_Prestamos.Series("Prestamos").Points.AddXY(substring, row("count(prestamolibro.cod_libro)"))
+                Chart_Prestamos.Series("Prestamos Por Mes").Points.AddXY(substring, row("count(prestamolibro.cod_libro)"))
+                Chart_Prestamos.Series("Prestamos Por Mes").Label = "Libros : " + "#VALY"
             Next
 
-            Chart_Prestamos.Series("Prestamos").Label = "Libros : " + "#VALY"
+
             Chart_Prestamos.ChartAreas(0).AxisX.MajorGrid.Enabled = False
+            Chart_Prestamos.Series("Prestamos Por Mes").Color = Color.FromArgb(150, 1, 233, 1)
+
 
             Try
 
@@ -648,7 +669,7 @@ Public Class MENU3
                 ChartTOP.Series(0).ChartType = DataVisualization.Charting.SeriesChartType.Pie
 
             Catch ex As Exception
-            MsgBox(ex.ToString)
+                MsgBox(ex.ToString)
             End Try
         End If
     End Sub
@@ -765,7 +786,7 @@ Public Class MENU3
 
         Select Case ERROR1
             Case 2
-                If RadioButton1.Checked = True Then
+                If pictureboxPrestamosSwitch = 1 Then
                     Timer_Prestamos_LIVE.Enabled = False
                 Else
                     Timer_Prestamos_LIVE.Enabled = False
@@ -773,13 +794,13 @@ Public Class MENU3
                 ComboBox1.Enabled = False
                 ComboBox2.Enabled = False
                 Timer_RuedaDeCarga.Enabled = True
-                If RadioButton1.Checked = True Then
+                If pictureboxPrestamosSwitch = 1 Then
                     Chart()
                 End If
             Case 0
 
                 If seleccionado = "Inicio" Then
-                    If RadioButton1.Checked = True Then
+                    If pictureboxPrestamosSwitch = 1 Then
                         Timer_Prestamos_LIVE.Enabled = True
                     Else
                         Timer_Prestamos_LIVE.Enabled = False
@@ -981,7 +1002,7 @@ Public Class MENU3
 
     Private Sub inicioForm()
         seleccionado = "Inicio"
-        If RadioButton1.Checked = True Then
+        If pictureboxPrestamosSwitch = 1 Then
             Chart()
             Timer_Prestamos_LIVE.Enabled = True
         Else
@@ -1204,10 +1225,9 @@ Public Class MENU3
     End Sub
 
     Private Sub PictureBox4_Click_2(sender As System.Object, e As System.EventArgs) Handles PictureBox4.Click
-        ConfigAdmin.Close()
-        info_usuario.Close()
-        NotasUsuario.Close()
-
+        ConfigAdmin.Dispose()
+        info_usuario.Dispose()
+        NotasUsuario.Dispose()
         LOGIN.usuario.Clear()
         LOGIN.contrasenia.Clear()
 
@@ -1215,16 +1235,51 @@ Public Class MENU3
             Consulta = "update usuarios set ultimaconexion = '" & Date.Now.ToString("yyyy-MM-dd hh:mm:ss") & "', online = 0 where cedula = '" & lbl_cedula.Text & "'"
             consultar()
         End If
-
-        Me.Close()
+        Me.Dispose()
         LOGIN.Show()
+
+
+    End Sub
+    Private Sub Form1_FormClosing(ByVal sender As Object, ByVal e As FormClosingEventArgs) Handles Me.FormClosing
+        If lbl_cedula.Text <> "................" Then
+            Consulta = "update usuarios set ultimaconexion = '" & Date.Now.ToString("yyyy-MM-dd hh:mm:ss") & "' , online = 0 where cedula = '" & lbl_cedula.Text & "'"
+            consultar()
+            End
+        End If
     End Sub
 
-    Private Sub RadioButton1_CheckedChanged_1(sender As System.Object, e As System.EventArgs) Handles RadioButton1.CheckedChanged
-        Timer_Prestamos_LIVE.Enabled = True
-    End Sub
+    Private Sub PictureBox5_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox5.Click
+        If pictureboxPrestamosSwitch = 1 Then
+            PictureBox5.Image = Image.FromFile("imagenes/switch_off.png")
+            Timer_Prestamos_LIVE.Enabled = False
+            If lbl_cedula.Text <> "................" Then
+                Consulta = "select cod_prestamosLive from MenuConfig where cod_usuario = '" & lbl_cedula.Text & "'"
+                consultar()
+                For Each row As DataRow In Tabla.Rows
+                    If row("cod_prestamosLive") = "0" Then
+                    Else
+                        Consulta = "update MenuConfig set cod_prestamosLive = 0 where cod_usuario = '" & lbl_cedula.Text & "'"
+                        consultar()
+                    End If
+                Next
+            End If
+            pictureboxPrestamosSwitch = 0
+        ElseIf pictureboxPrestamosSwitch = 0 Then
 
-    Private Sub RadioButton2_CheckedChanged_1(sender As System.Object, e As System.EventArgs) Handles RadioButton2.CheckedChanged
-        Timer_Prestamos_LIVE.Enabled = False
+            PictureBox5.Image = Image.FromFile("imagenes/switch_on.png")
+            Timer_Prestamos_LIVE.Enabled = True
+            If lbl_cedula.Text <> "................" Then
+                Consulta = "select cod_prestamosLive from MenuConfig where cod_usuario = '" & lbl_cedula.Text & "'"
+                consultar()
+                For Each row As DataRow In Tabla.Rows
+                    If row("cod_prestamosLive") = "1" Then
+                    Else
+                        Consulta = "update MenuConfig set cod_prestamosLive = 1 where cod_usuario = '" & lbl_cedula.Text & "'"
+                        consultar()
+                    End If
+                Next
+            End If
+            pictureboxPrestamosSwitch = 1
+            End If
     End Sub
 End Class

@@ -14,6 +14,7 @@
         Dim pass1 As String = Nothing
         Dim dia, mes, anio As Integer
         i = 0
+
         dia = Val(DateTime.Now.ToString("dd"))
         mes = Val(DateTime.Now.ToString("MM"))
         anio = Val(DateTime.Now.ToString("yyyy"))
@@ -132,18 +133,18 @@
         xf = Me.Location.X
         yf = Me.Location.Y
 
-
+        MENU3.Dispose()
 
         Consulta = "select * from usuarios"
         consultar()
         If Tabla.Rows.Count = 0 Then
-            Pbnube.Image = Image.FromFile("imagenes\cloud-error.png")
+            Pbnube1.Image = Image.FromFile("imagenes\cloud-error.png")
             Button1.Enabled = False
             usuario.Enabled = False
             contrasenia.Enabled = False
             Lbl_contraseña_recuperar.Enabled = False
         Else
-            Pbnube.Image = Image.FromFile("imagenes\cloud.png")
+            Pbnube1.Image = Image.FromFile("imagenes\cloud.png")
             Button1.Enabled = True
             usuario.Enabled = True
             contrasenia.Enabled = True
