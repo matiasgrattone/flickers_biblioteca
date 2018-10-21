@@ -700,25 +700,28 @@ Public Class ConfigAdmin
     Private Sub RadioButton6_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton6.CheckedChanged
         TreeView1.Visible = False
         DGV_ONLINE.Visible = True
-        Consulta = "select nombre , online , ultimaconexion from usuarios where tipo < 2"
+        Consulta = "select nombre , online , substring(ultimaconexion,11) as 'ultima conexion' from usuarios where tipo < 2"
         consultar()
         DGV_ONLINE.DataSource = Tabla
         DatagridModulo = DGV_ONLINE
         Datagrid_Align()
 
-        DGV_ONLINE.Columns(2).Visible = False
-        DGV_ONLINE.Columns(3).Visible = False
+
 
         For x As Integer = 0 To DGV_ONLINE.Rows.Count - 1
+
+
             If DGV_ONLINE.Rows(x).Cells(2).Value = "1" Then
                 DGV_ONLINE.Rows(x).Cells(0).Value = Image.FromFile("imagenes/online1.png")
+                DGV_ONLINE.Rows(x).Cells(3).Value = " "
             Else
                 DGV_ONLINE.Rows(x).Cells(0).Value = Image.FromFile("imagenes/offline.png")
             End If
 
         Next
 
-
+        DGV_ONLINE.Columns(2).Visible = False
+        DGV_ONLINE.Rows(0).Cells(0).Selected = True
     End Sub
 
     Private Sub RadioButton7_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton7.CheckedChanged
@@ -840,6 +843,91 @@ Public Class ConfigAdmin
             MsgBox("se ha cambiado sastifactoriamente su contraseña", MsgBoxStyle.OkOnly, Title:="Biblioteca")
         Else
             MsgBox("la contraseña introducida es incorrecta")
+        End If
+    End Sub
+
+    Private Sub DGV_ONLINE_CellClick(sender As Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGV_ONLINE.CellClick
+        TreeView1.Visible = False
+        DGV_ONLINE.Visible = True
+        Consulta = "select nombre , online , substring(ultimaconexion,11) as 'ultima conexion' from usuarios where tipo < 2"
+        consultar()
+        DGV_ONLINE.DataSource = Tabla
+        DatagridModulo = DGV_ONLINE
+        Datagrid_Align()
+
+
+        For x As Integer = 0 To DGV_ONLINE.Rows.Count - 1
+
+
+            If DGV_ONLINE.Rows(x).Cells(2).Value = "1" Then
+                DGV_ONLINE.Rows(x).Cells(0).Value = Image.FromFile("imagenes/online1.png")
+                DGV_ONLINE.Rows(x).Cells(3).Value = " "
+            Else
+                DGV_ONLINE.Rows(x).Cells(0).Value = Image.FromFile("imagenes/offline.png")
+            End If
+
+        Next
+
+        DGV_ONLINE.Columns(2).Visible = False
+    End Sub
+
+    Private Sub DGV_ONLINE_ColumnHeaderMouseDoubleClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles DGV_ONLINE.ColumnHeaderMouseDoubleClick
+        TreeView1.Visible = False
+        DGV_ONLINE.Visible = True
+        Consulta = "select nombre , online , substring(ultimaconexion,11) as 'ultima conexion' from usuarios where tipo < 2"
+        consultar()
+        DGV_ONLINE.DataSource = Tabla
+        DatagridModulo = DGV_ONLINE
+        Datagrid_Align()
+
+
+        For x As Integer = 0 To DGV_ONLINE.Rows.Count - 1
+
+
+            If DGV_ONLINE.Rows(x).Cells(2).Value = "1" Then
+                DGV_ONLINE.Rows(x).Cells(0).Value = Image.FromFile("imagenes/online1.png")
+                DGV_ONLINE.Rows(x).Cells(3).Value = " "
+            Else
+                DGV_ONLINE.Rows(x).Cells(0).Value = Image.FromFile("imagenes/offline.png")
+            End If
+
+        Next
+
+        DGV_ONLINE.Columns(2).Visible = False
+    End Sub
+
+    Private Sub DGV_ONLINE_ColumnHeaderMouseClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles DGV_ONLINE.ColumnHeaderMouseClick
+        TreeView1.Visible = False
+        DGV_ONLINE.Visible = True
+        Consulta = "select nombre , online , substring(ultimaconexion,11) as 'ultima conexion' from usuarios where tipo < 2"
+        consultar()
+        DGV_ONLINE.DataSource = Tabla
+        DatagridModulo = DGV_ONLINE
+        Datagrid_Align()
+
+
+        For x As Integer = 0 To DGV_ONLINE.Rows.Count - 1
+
+
+            If DGV_ONLINE.Rows(x).Cells(2).Value = "1" Then
+                DGV_ONLINE.Rows(x).Cells(0).Value = Image.FromFile("imagenes/online1.png")
+                DGV_ONLINE.Rows(x).Cells(3).Value = " "
+            Else
+                DGV_ONLINE.Rows(x).Cells(0).Value = Image.FromFile("imagenes/offline.png")
+            End If
+
+        Next
+
+        DGV_ONLINE.Columns(2).Visible = False
+    End Sub
+
+    Private Sub Button6_Click(sender As System.Object, e As System.EventArgs) Handles Button6.Click
+        If GroupBox1.Visible = True Then
+            GroupBox1.Visible = False
+            Button6.Text = "Mostrar Configuracion"
+        Else
+            GroupBox1.Visible = True
+            Button6.Text = "Ocultar Configuracion"
         End If
     End Sub
 End Class
