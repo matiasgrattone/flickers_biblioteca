@@ -208,6 +208,12 @@
     <Compile Include="buscarlibro.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="InputBoxForm.Designer.vb">
+      <DependentUpon>InputBoxForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="InputBoxForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Prestamos.Designer.vb">
       <DependentUpon>Prestamos.vb</DependentUpon>
     </Compile>
@@ -313,6 +319,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="buscarlibro.resx">
       <DependentUpon>buscarlibro.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputBoxForm.resx">
+      <DependentUpon>InputBoxForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Prestamos.resx">
       <DependentUpon>Prestamos.vb</DependentUpon>

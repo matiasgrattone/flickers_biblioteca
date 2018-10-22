@@ -924,10 +924,44 @@ Public Class ConfigAdmin
     Private Sub Button6_Click(sender As System.Object, e As System.EventArgs) Handles Button6.Click
         If GroupBox1.Visible = True Then
             GroupBox1.Visible = False
-            Button6.Text = "Mostrar Configuracion"
+            Button6.Text = "Ocultar Configuracion"
+            Consulta = "select * from usuarios where cedula = '" & cedulaFotoPerfil & "'"
+            consultar()
+            For Each row As DataRow In Tabla.Rows
+                PlaceHolder5.Text = row("nombre")
+                PlaceHolder4.Text = row("apellido")
+                PlaceHolder3.Text = row("cedula")
+                PlaceHolder2.Text = row("telefono")
+                PlaceHolder6.Text = row("direccion")
+            Next
         Else
             GroupBox1.Visible = True
-            Button6.Text = "Ocultar Configuracion"
+            PlaceHolder2.Enabled = False
+            PlaceHolder3.Enabled = False
+            PlaceHolder4.Enabled = False
+            PlaceHolder5.Enabled = False
+            PlaceHolder6.Enabled = False
+            Button7.Text = "Editar"
+            Button6.Text = "Mostrar Configuracion"
+        End If
+    End Sub
+
+    Private Sub Button7_Click(sender As System.Object, e As System.EventArgs) Handles Button7.Click
+        If Button7.Text = "Editar" Then
+            InputBoxForm.Show()
+        Else
+            Consulta_dataset = "update usuarios set nombre = '" & PlaceHolder5.Text & "' , apellido = '" & PlaceHolder4.Text & "' , cedula = '" & PlaceHolder3.Text & "' , telefono = '" & PlaceHolder2.Text & "' , direccion = '" & PlaceHolder6.Text & "' where cedula = '" & cedulaFotoPerfil & "';select nombre from usuarios where cedula = '" & cedulaFotoPerfil & "'"
+            consultar_DataSet()
+            MsgBox("Cambios Guardados Correctamente")
+            For Each row As DataRow In Tabla_dataset.Tables(0).Rows
+                Lbl_NombreADMIN_TXT.Text = row("nombre") & " " & row("apellido")
+            Next
+            PlaceHolder2.Enabled = False
+            PlaceHolder3.Enabled = False
+            PlaceHolder4.Enabled = False
+            PlaceHolder5.Enabled = False
+            PlaceHolder6.Enabled = False
+            Button7.Text = "Editar"
         End If
     End Sub
 End Class
