@@ -69,6 +69,7 @@ Public Class ConfigAdmin
         'Funcionarios 1
         'Socios 2
         MENU3.Timer_Prestamos_LIVE.Enabled = False
+        chartVistaPrevia()
         a = 0
         PictureBox1.Visible = True
         xf = Me.Location.X
@@ -683,18 +684,22 @@ Public Class ConfigAdmin
 
     Private Sub RadioButton1_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton1.CheckedChanged
         graficaseleccionada = 1
+        chartVistaPrevia()
     End Sub
 
     Private Sub RadioButton2_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton2.CheckedChanged
         graficaseleccionada = 2
+        chartVistaPrevia()
     End Sub
 
     Private Sub RadioButton3_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton3.CheckedChanged
         graficaseleccionada = 3
+        chartVistaPrevia()
     End Sub
 
     Private Sub RadioButton4_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton4.CheckedChanged
         graficaseleccionada = 4
+        chartVistaPrevia()
     End Sub
 
     Private Sub RadioButton6_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton6.CheckedChanged
@@ -963,5 +968,39 @@ Public Class ConfigAdmin
             PlaceHolder6.Enabled = False
             Button7.Text = "Editar"
         End If
+    End Sub
+
+    Private Sub ConfigAdmin_FormClosing(sender As System.Object, e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
+        MENU3.Timer_Prestamos_LIVE.Enabled = True
+    End Sub
+    Public Sub chartVistaPrevia()
+        Chart1.ChartAreas.Clear()
+        Chart1.Series.Clear()
+        Chart1.ChartAreas.Add("ejemplo")
+        Chart1.Series.Add("ejemplo")
+        Chart1.Series("ejemplo").Points.AddXY(" ", 1)
+
+        If RadioButton1.Checked = True Then
+            Chart1.ChartAreas("ejemplo").Area3DStyle.Enable3D = False
+            Chart1.Series("ejemplo").ChartType = DataVisualization.Charting.SeriesChartType.Column
+        End If
+
+        If RadioButton2.Checked = True Then
+            Chart1.ChartAreas("ejemplo").Area3DStyle.Enable3D = True
+            Chart1.Series("ejemplo").ChartType = DataVisualization.Charting.SeriesChartType.Column
+        End If
+
+        If RadioButton3.Checked = True Then
+            Chart1.ChartAreas("ejemplo").Area3DStyle.Enable3D = False
+            Chart1.Series("ejemplo").ChartType = DataVisualization.Charting.SeriesChartType.Pie
+        End If
+
+        If RadioButton4.Checked = True Then
+            Chart1.ChartAreas("ejemplo").Area3DStyle.Enable3D = True
+            Chart1.Series("ejemplo").ChartType = DataVisualization.Charting.SeriesChartType.Pie
+        End If
+
+        Chart1.Series("ejemplo").IsVisibleInLegend = False
+
     End Sub
 End Class

@@ -583,6 +583,7 @@ Public Class MENU3
 
             Chart_Prestamos.ChartAreas(0).AxisX.MajorGrid.Enabled = False
             Chart_Prestamos.Series("Prestamos Por Mes").Color = Color.FromArgb(150, 1, 233, 1)
+            Chart_Prestamos.Series("Prestamos Por Mes").IsVisibleInLegend = False
 
 
             Try
@@ -641,6 +642,8 @@ Public Class MENU3
                 Next
 
                 ChartPrestamosDia.Series("Prestamos Del Dia").Label = "Libros : " + "#VALY"
+                ChartPrestamosDia.Series("Prestamos Del Dia").IsVisibleInLegend = False
+                ChartPrestamosDia.ChartAreas("Prestamos Del Dia").BorderWidth = 0
 
                 ChartPrestamosDia.ChartAreas(0).AxisX.MajorGrid.Enabled = False
                 PrimerInicio = 0
