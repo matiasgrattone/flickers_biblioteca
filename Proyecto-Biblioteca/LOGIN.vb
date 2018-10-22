@@ -42,7 +42,7 @@
                         MENU3.lbl_cedula.Text = row("cedula")
 
                         MENU3.cedulaIngre = row("cedula").ToString
-                        Consulta = "update usuarios set ultimaconexion = '" & Date.Now.ToString("yyyy-MM-dd hh:mm:ss") & "', online = 1 where cedula = '" & row("cedula") & "'"
+                        Consulta = "update usuarios set ultimaconexion = '" & Date.Now.ToString("yyyy-MM-dd HH:mm:ss") & "', online = 1 where cedula = '" & row("cedula") & "'"
                         consultar()
 
                         Me.Hide()

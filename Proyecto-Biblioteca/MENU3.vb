@@ -874,7 +874,10 @@ Public Class MENU3
             For Each row As DataRow In Tabla.Rows
                 If row("cedula") IsNot DBNull.Value Then
                     info_usuario.LabelCedula.Text = row("cedula")
-                    info_usuario.LabelMail.Text = row("mail")
+                    If row("mail") Is DBNull.Value Then
+                    Else
+                        info_usuario.LabelMail.Text = row("mail")
+                    End If
                     info_usuario.LabelNombre.Text = row("nombre")
                     Select Case row("tipo")
                         Case 0
@@ -1206,7 +1209,7 @@ Public Class MENU3
 
     Private Sub PictureBox3_Click_1(sender As System.Object, e As System.EventArgs) Handles PictureBox3.Click
         'Cierra el programa'
-        Consulta = "update usuarios set ultimaconexion = '" & Date.Now.ToString("yyyy-MM-dd hh:mm:ss") & "', online = 0 where cedula = '" & lbl_cedula.Text & "'"
+        Consulta = "update usuarios set ultimaconexion = '" & Date.Now.ToString("yyyy-MM-dd HH:mm:ss") & "', online = 0 where cedula = '" & lbl_cedula.Text & "'"
         consultar()
         End
 
@@ -1239,7 +1242,7 @@ Public Class MENU3
         LOGIN.contrasenia.Clear()
 
         If lbl_cedula.Text <> "................" Then
-            Consulta = "update usuarios set ultimaconexion = '" & Date.Now.ToString("yyyy-MM-dd hh:mm:ss") & "', online = 0 where cedula = '" & lbl_cedula.Text & "'"
+            Consulta = "update usuarios set ultimaconexion = '" & Date.Now.ToString("yyyy-MM-dd HH:mm:ss") & "', online = 0 where cedula = '" & lbl_cedula.Text & "'"
             consultar()
         End If
         Me.Dispose()
@@ -1249,7 +1252,7 @@ Public Class MENU3
     End Sub
     Private Sub Form1_FormClosing(ByVal sender As Object, ByVal e As FormClosingEventArgs) Handles Me.FormClosing
         If lbl_cedula.Text <> "................" Then
-            Consulta = "update usuarios set ultimaconexion = '" & Date.Now.ToString("yyyy-MM-dd hh:mm:ss") & "' , online = 0 where cedula = '" & lbl_cedula.Text & "'"
+            Consulta = "update usuarios set ultimaconexion = '" & Date.Now.ToString("yyyy-MM-dd HH:mm:ss") & "' , online = 0 where cedula = '" & lbl_cedula.Text & "'"
             consultar()
             End
         End If

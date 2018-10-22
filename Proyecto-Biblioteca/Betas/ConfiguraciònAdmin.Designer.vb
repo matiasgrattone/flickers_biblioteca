@@ -44,6 +44,7 @@ Partial Class ConfigAdmin
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.buscar_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
@@ -61,6 +62,12 @@ Partial Class ConfigAdmin
         Me.cb_dia = New System.Windows.Forms.ComboBox()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
+        Me.contrasenia_txt = New Proyecto_Biblioteca.PlaceHolder()
+        Me.telefono_txt = New Proyecto_Biblioteca.PlaceHolder()
+        Me.cedula_txt = New Proyecto_Biblioteca.PlaceHolder()
+        Me.apellido_txt = New Proyecto_Biblioteca.PlaceHolder()
+        Me.nombre_txt = New Proyecto_Biblioteca.PlaceHolder()
+        Me.direccion_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.dgveditar = New System.Windows.Forms.DataGridView()
         Me.btn_editar_perfil = New System.Windows.Forms.Button()
@@ -76,9 +83,15 @@ Partial Class ConfigAdmin
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
+        Me.direccion = New Proyecto_Biblioteca.PlaceHolder()
+        Me.telefono = New Proyecto_Biblioteca.PlaceHolder()
+        Me.cedula = New Proyecto_Biblioteca.PlaceHolder()
+        Me.apellido = New Proyecto_Biblioteca.PlaceHolder()
+        Me.nombre = New Proyecto_Biblioteca.PlaceHolder()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.Dgv_Baja = New System.Windows.Forms.DataGridView()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Buscar_Baja_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.Label_BaseDatos = New System.Windows.Forms.Label()
@@ -89,15 +102,18 @@ Partial Class ConfigAdmin
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.ptbPerfilAdmin = New Proyecto_Biblioteca.PictureboxBordesRedondos()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.RadioButton7 = New System.Windows.Forms.RadioButton()
         Me.RadioButton6 = New System.Windows.Forms.RadioButton()
         Me.DGV_ONLINE = New System.Windows.Forms.DataGridView()
         Me.Online = New System.Windows.Forms.DataGridViewImageColumn()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Label20 = New System.Windows.Forms.Label()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.RadioButton4 = New System.Windows.Forms.RadioButton()
@@ -111,29 +127,13 @@ Partial Class ConfigAdmin
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Label26 = New System.Windows.Forms.Label()
-        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.TimerFoto = New System.Windows.Forms.Timer(Me.components)
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.ptbPerfilAdmin = New Proyecto_Biblioteca.PictureboxBordesRedondos()
         Me.PlaceHolder2 = New Proyecto_Biblioteca.PlaceHolder()
         Me.PlaceHolder3 = New Proyecto_Biblioteca.PlaceHolder()
         Me.PlaceHolder4 = New Proyecto_Biblioteca.PlaceHolder()
         Me.PlaceHolder5 = New Proyecto_Biblioteca.PlaceHolder()
         Me.PlaceHolder6 = New Proyecto_Biblioteca.PlaceHolder()
-        Me.buscar_txt = New Proyecto_Biblioteca.PlaceHolder()
-        Me.contrasenia_txt = New Proyecto_Biblioteca.PlaceHolder()
-        Me.telefono_txt = New Proyecto_Biblioteca.PlaceHolder()
-        Me.cedula_txt = New Proyecto_Biblioteca.PlaceHolder()
-        Me.apellido_txt = New Proyecto_Biblioteca.PlaceHolder()
-        Me.nombre_txt = New Proyecto_Biblioteca.PlaceHolder()
-        Me.direccion_txt = New Proyecto_Biblioteca.PlaceHolder()
-        Me.direccion = New Proyecto_Biblioteca.PlaceHolder()
-        Me.telefono = New Proyecto_Biblioteca.PlaceHolder()
-        Me.cedula = New Proyecto_Biblioteca.PlaceHolder()
-        Me.apellido = New Proyecto_Biblioteca.PlaceHolder()
-        Me.nombre = New Proyecto_Biblioteca.PlaceHolder()
-        Me.Buscar_Baja_txt = New Proyecto_Biblioteca.PlaceHolder()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.TimerFoto = New System.Windows.Forms.Timer(Me.components)
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -148,13 +148,13 @@ Partial Class ConfigAdmin
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
+        CType(Me.ptbPerfilAdmin, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DGV_ONLINE, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox2.SuspendLayout()
-        Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ptbPerfilAdmin, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
         'TreeView1
@@ -244,6 +244,16 @@ Partial Class ConfigAdmin
         Me.Label2.Size = New System.Drawing.Size(276, 13)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Para dar de baja a un funcionario dar doble click sobre él"
+        '
+        'buscar_txt
+        '
+        Me.buscar_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.buscar_txt.Location = New System.Drawing.Point(72, 16)
+        Me.buscar_txt.Name = "buscar_txt"
+        Me.buscar_txt.Size = New System.Drawing.Size(301, 20)
+        Me.buscar_txt.TabIndex = 0
+        Me.buscar_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.buscar_txt.WaterMarkText = "Buscar por Nombre"
         '
         'TabPage2
         '
@@ -436,6 +446,66 @@ Partial Class ConfigAdmin
         Me.Label18.Size = New System.Drawing.Size(70, 19)
         Me.Label18.TabIndex = 133
         Me.Label18.Text = "Dirección"
+        '
+        'contrasenia_txt
+        '
+        Me.contrasenia_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.contrasenia_txt.Location = New System.Drawing.Point(208, 243)
+        Me.contrasenia_txt.Name = "contrasenia_txt"
+        Me.contrasenia_txt.Size = New System.Drawing.Size(189, 27)
+        Me.contrasenia_txt.TabIndex = 149
+        Me.contrasenia_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.contrasenia_txt.WaterMarkText = "Contraseña"
+        '
+        'telefono_txt
+        '
+        Me.telefono_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.telefono_txt.Location = New System.Drawing.Point(208, 172)
+        Me.telefono_txt.Name = "telefono_txt"
+        Me.telefono_txt.Size = New System.Drawing.Size(189, 27)
+        Me.telefono_txt.TabIndex = 147
+        Me.telefono_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.telefono_txt.WaterMarkText = "Teléfono"
+        '
+        'cedula_txt
+        '
+        Me.cedula_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cedula_txt.Location = New System.Drawing.Point(208, 139)
+        Me.cedula_txt.Name = "cedula_txt"
+        Me.cedula_txt.Size = New System.Drawing.Size(189, 27)
+        Me.cedula_txt.TabIndex = 146
+        Me.cedula_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.cedula_txt.WaterMarkText = "Cédula"
+        '
+        'apellido_txt
+        '
+        Me.apellido_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.apellido_txt.Location = New System.Drawing.Point(208, 103)
+        Me.apellido_txt.Name = "apellido_txt"
+        Me.apellido_txt.Size = New System.Drawing.Size(189, 27)
+        Me.apellido_txt.TabIndex = 145
+        Me.apellido_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.apellido_txt.WaterMarkText = "Apellido"
+        '
+        'nombre_txt
+        '
+        Me.nombre_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nombre_txt.Location = New System.Drawing.Point(208, 67)
+        Me.nombre_txt.Name = "nombre_txt"
+        Me.nombre_txt.Size = New System.Drawing.Size(189, 27)
+        Me.nombre_txt.TabIndex = 144
+        Me.nombre_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.nombre_txt.WaterMarkText = "Nombre"
+        '
+        'direccion_txt
+        '
+        Me.direccion_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.direccion_txt.Location = New System.Drawing.Point(208, 210)
+        Me.direccion_txt.Name = "direccion_txt"
+        Me.direccion_txt.Size = New System.Drawing.Size(189, 27)
+        Me.direccion_txt.TabIndex = 148
+        Me.direccion_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.direccion_txt.WaterMarkText = "Dirección"
         '
         'TabPage3
         '
@@ -639,6 +709,56 @@ Partial Class ConfigAdmin
         Me.Label19.TabIndex = 83
         Me.Label19.Text = "Telefono"
         '
+        'direccion
+        '
+        Me.direccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.direccion.Location = New System.Drawing.Point(334, 212)
+        Me.direccion.Name = "direccion"
+        Me.direccion.Size = New System.Drawing.Size(164, 20)
+        Me.direccion.TabIndex = 97
+        Me.direccion.WaterMarkColor = System.Drawing.Color.Gray
+        Me.direccion.WaterMarkText = "Direccion"
+        '
+        'telefono
+        '
+        Me.telefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.telefono.Location = New System.Drawing.Point(334, 178)
+        Me.telefono.Name = "telefono"
+        Me.telefono.Size = New System.Drawing.Size(164, 20)
+        Me.telefono.TabIndex = 96
+        Me.telefono.WaterMarkColor = System.Drawing.Color.Gray
+        Me.telefono.WaterMarkText = "Telefono"
+        '
+        'cedula
+        '
+        Me.cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.cedula.Location = New System.Drawing.Point(334, 139)
+        Me.cedula.Name = "cedula"
+        Me.cedula.Size = New System.Drawing.Size(164, 20)
+        Me.cedula.TabIndex = 95
+        Me.cedula.WaterMarkColor = System.Drawing.Color.Gray
+        Me.cedula.WaterMarkText = "Cedula"
+        '
+        'apellido
+        '
+        Me.apellido.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.apellido.Location = New System.Drawing.Point(334, 99)
+        Me.apellido.Name = "apellido"
+        Me.apellido.Size = New System.Drawing.Size(164, 20)
+        Me.apellido.TabIndex = 94
+        Me.apellido.WaterMarkColor = System.Drawing.Color.Gray
+        Me.apellido.WaterMarkText = "Apellido"
+        '
+        'nombre
+        '
+        Me.nombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.nombre.Location = New System.Drawing.Point(334, 63)
+        Me.nombre.Name = "nombre"
+        Me.nombre.Size = New System.Drawing.Size(164, 20)
+        Me.nombre.TabIndex = 93
+        Me.nombre.WaterMarkColor = System.Drawing.Color.Gray
+        Me.nombre.WaterMarkText = "Nombre"
+        '
         'TabPage4
         '
         Me.TabPage4.Controls.Add(Me.Dgv_Baja)
@@ -705,6 +825,16 @@ Partial Class ConfigAdmin
         Me.Label1.Size = New System.Drawing.Size(255, 13)
         Me.Label1.TabIndex = 4
         Me.Label1.Text = "Para activar a un funcionario dar doble click sobre él"
+        '
+        'Buscar_Baja_txt
+        '
+        Me.Buscar_Baja_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.Buscar_Baja_txt.Location = New System.Drawing.Point(72, 16)
+        Me.Buscar_Baja_txt.Name = "Buscar_Baja_txt"
+        Me.Buscar_Baja_txt.Size = New System.Drawing.Size(301, 20)
+        Me.Buscar_Baja_txt.TabIndex = 3
+        Me.Buscar_Baja_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.Buscar_Baja_txt.WaterMarkText = "Buscar por Nombre"
         '
         'ImageList1
         '
@@ -804,13 +934,51 @@ Partial Class ConfigAdmin
         Me.Panel2.Size = New System.Drawing.Size(1073, 597)
         Me.Panel2.TabIndex = 19
         '
+        'Button6
+        '
+        Me.Button6.Location = New System.Drawing.Point(51, 258)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(128, 25)
+        Me.Button6.TabIndex = 30
+        Me.Button6.Text = "Mostrar Configuracion"
+        Me.Button6.UseVisualStyleBackColor = True
+        '
+        'Button5
+        '
+        Me.Button5.Location = New System.Drawing.Point(51, 230)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(128, 25)
+        Me.Button5.TabIndex = 30
+        Me.Button5.Text = "Cambiar Contraseña"
+        Me.Button5.UseVisualStyleBackColor = True
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(32, 200)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(187, 13)
+        Me.Label20.TabIndex = 25
+        Me.Label20.Text = "Doble click en la imagen para cambiar"
+        '
+        'ptbPerfilAdmin
+        '
+        Me.ptbPerfilAdmin.BackColor = System.Drawing.Color.DarkGray
+        Me.ptbPerfilAdmin.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ptbPerfilAdmin.Location = New System.Drawing.Point(35, 31)
+        Me.ptbPerfilAdmin.Name = "ptbPerfilAdmin"
+        Me.ptbPerfilAdmin.Size = New System.Drawing.Size(155, 155)
+        Me.ptbPerfilAdmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.ptbPerfilAdmin.TabIndex = 19
+        Me.ptbPerfilAdmin.TabStop = False
+        '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.RadioButton7)
         Me.GroupBox1.Controls.Add(Me.RadioButton6)
-        Me.GroupBox1.Controls.Add(Me.TreeView1)
         Me.GroupBox1.Controls.Add(Me.DGV_ONLINE)
         Me.GroupBox1.Controls.Add(Me.TabControl1)
+        Me.GroupBox1.Controls.Add(Me.TreeView1)
         Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.GroupBox1.Location = New System.Drawing.Point(257, -7)
         Me.GroupBox1.Name = "GroupBox1"
@@ -900,32 +1068,15 @@ Partial Class ConfigAdmin
         Me.Online.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.Online.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         '
-        'Button6
+        'GroupBox4
         '
-        Me.Button6.Location = New System.Drawing.Point(51, 258)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(128, 25)
-        Me.Button6.TabIndex = 30
-        Me.Button6.Text = "Mostrar Configuracion"
-        Me.Button6.UseVisualStyleBackColor = True
-        '
-        'Button5
-        '
-        Me.Button5.Location = New System.Drawing.Point(51, 230)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(128, 25)
-        Me.Button5.TabIndex = 30
-        Me.Button5.Text = "Cambiar Contraseña"
-        Me.Button5.UseVisualStyleBackColor = True
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(32, 200)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(187, 13)
-        Me.Label20.TabIndex = 25
-        Me.Label20.Text = "Doble click en la imagen para cambiar"
+        Me.GroupBox4.Controls.Add(Me.GroupBox2)
+        Me.GroupBox4.Controls.Add(Me.GroupBox3)
+        Me.GroupBox4.Location = New System.Drawing.Point(257, -7)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(826, 601)
+        Me.GroupBox4.TabIndex = 163
+        Me.GroupBox4.TabStop = False
         '
         'GroupBox2
         '
@@ -941,6 +1092,24 @@ Partial Class ConfigAdmin
         Me.GroupBox2.Size = New System.Drawing.Size(218, 318)
         Me.GroupBox2.TabIndex = 31
         Me.GroupBox2.TabStop = False
+        '
+        'Chart1
+        '
+        ChartArea1.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea1)
+        Legend1.Enabled = False
+        Legend1.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend1)
+        Me.Chart1.Location = New System.Drawing.Point(13, 175)
+        Me.Chart1.Name = "Chart1"
+        Series1.ChartArea = "ChartArea1"
+        Series1.IsVisibleInLegend = False
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.Chart1.Series.Add(Series1)
+        Me.Chart1.Size = New System.Drawing.Size(193, 96)
+        Me.Chart1.TabIndex = 27
+        Me.Chart1.Text = "Chart1"
         '
         'Button2
         '
@@ -1078,48 +1247,6 @@ Partial Class ConfigAdmin
         Me.Label26.TabIndex = 150
         Me.Label26.Text = "Dirección"
         '
-        'TimerFoto
-        '
-        '
-        'GroupBox4
-        '
-        Me.GroupBox4.Controls.Add(Me.GroupBox2)
-        Me.GroupBox4.Controls.Add(Me.GroupBox3)
-        Me.GroupBox4.Location = New System.Drawing.Point(257, -7)
-        Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(826, 601)
-        Me.GroupBox4.TabIndex = 163
-        Me.GroupBox4.TabStop = False
-        '
-        'Chart1
-        '
-        ChartArea1.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea1)
-        Legend1.Enabled = False
-        Legend1.Name = "Legend1"
-        Me.Chart1.Legends.Add(Legend1)
-        Me.Chart1.Location = New System.Drawing.Point(13, 175)
-        Me.Chart1.Name = "Chart1"
-        Series1.ChartArea = "ChartArea1"
-        Series1.IsVisibleInLegend = False
-        Series1.Legend = "Legend1"
-        Series1.Name = "Series1"
-        Me.Chart1.Series.Add(Series1)
-        Me.Chart1.Size = New System.Drawing.Size(193, 96)
-        Me.Chart1.TabIndex = 27
-        Me.Chart1.Text = "Chart1"
-        '
-        'ptbPerfilAdmin
-        '
-        Me.ptbPerfilAdmin.BackColor = System.Drawing.Color.DarkGray
-        Me.ptbPerfilAdmin.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ptbPerfilAdmin.Location = New System.Drawing.Point(35, 31)
-        Me.ptbPerfilAdmin.Name = "ptbPerfilAdmin"
-        Me.ptbPerfilAdmin.Size = New System.Drawing.Size(155, 155)
-        Me.ptbPerfilAdmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.ptbPerfilAdmin.TabIndex = 19
-        Me.ptbPerfilAdmin.TabStop = False
-        '
         'PlaceHolder2
         '
         Me.PlaceHolder2.Enabled = False
@@ -1175,135 +1302,8 @@ Partial Class ConfigAdmin
         Me.PlaceHolder6.WaterMarkColor = System.Drawing.Color.Gray
         Me.PlaceHolder6.WaterMarkText = "Dirección"
         '
-        'buscar_txt
+        'TimerFoto
         '
-        Me.buscar_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.buscar_txt.Location = New System.Drawing.Point(72, 16)
-        Me.buscar_txt.Name = "buscar_txt"
-        Me.buscar_txt.Size = New System.Drawing.Size(301, 20)
-        Me.buscar_txt.TabIndex = 0
-        Me.buscar_txt.WaterMarkColor = System.Drawing.Color.Gray
-        Me.buscar_txt.WaterMarkText = "Buscar por Nombre"
-        '
-        'contrasenia_txt
-        '
-        Me.contrasenia_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.contrasenia_txt.Location = New System.Drawing.Point(208, 243)
-        Me.contrasenia_txt.Name = "contrasenia_txt"
-        Me.contrasenia_txt.Size = New System.Drawing.Size(189, 27)
-        Me.contrasenia_txt.TabIndex = 149
-        Me.contrasenia_txt.WaterMarkColor = System.Drawing.Color.Gray
-        Me.contrasenia_txt.WaterMarkText = "Contraseña"
-        '
-        'telefono_txt
-        '
-        Me.telefono_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.telefono_txt.Location = New System.Drawing.Point(208, 172)
-        Me.telefono_txt.Name = "telefono_txt"
-        Me.telefono_txt.Size = New System.Drawing.Size(189, 27)
-        Me.telefono_txt.TabIndex = 147
-        Me.telefono_txt.WaterMarkColor = System.Drawing.Color.Gray
-        Me.telefono_txt.WaterMarkText = "Teléfono"
-        '
-        'cedula_txt
-        '
-        Me.cedula_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cedula_txt.Location = New System.Drawing.Point(208, 139)
-        Me.cedula_txt.Name = "cedula_txt"
-        Me.cedula_txt.Size = New System.Drawing.Size(189, 27)
-        Me.cedula_txt.TabIndex = 146
-        Me.cedula_txt.WaterMarkColor = System.Drawing.Color.Gray
-        Me.cedula_txt.WaterMarkText = "Cédula"
-        '
-        'apellido_txt
-        '
-        Me.apellido_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.apellido_txt.Location = New System.Drawing.Point(208, 103)
-        Me.apellido_txt.Name = "apellido_txt"
-        Me.apellido_txt.Size = New System.Drawing.Size(189, 27)
-        Me.apellido_txt.TabIndex = 145
-        Me.apellido_txt.WaterMarkColor = System.Drawing.Color.Gray
-        Me.apellido_txt.WaterMarkText = "Apellido"
-        '
-        'nombre_txt
-        '
-        Me.nombre_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nombre_txt.Location = New System.Drawing.Point(208, 67)
-        Me.nombre_txt.Name = "nombre_txt"
-        Me.nombre_txt.Size = New System.Drawing.Size(189, 27)
-        Me.nombre_txt.TabIndex = 144
-        Me.nombre_txt.WaterMarkColor = System.Drawing.Color.Gray
-        Me.nombre_txt.WaterMarkText = "Nombre"
-        '
-        'direccion_txt
-        '
-        Me.direccion_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.direccion_txt.Location = New System.Drawing.Point(208, 210)
-        Me.direccion_txt.Name = "direccion_txt"
-        Me.direccion_txt.Size = New System.Drawing.Size(189, 27)
-        Me.direccion_txt.TabIndex = 148
-        Me.direccion_txt.WaterMarkColor = System.Drawing.Color.Gray
-        Me.direccion_txt.WaterMarkText = "Dirección"
-        '
-        'direccion
-        '
-        Me.direccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.direccion.Location = New System.Drawing.Point(334, 212)
-        Me.direccion.Name = "direccion"
-        Me.direccion.Size = New System.Drawing.Size(164, 20)
-        Me.direccion.TabIndex = 97
-        Me.direccion.WaterMarkColor = System.Drawing.Color.Gray
-        Me.direccion.WaterMarkText = "Direccion"
-        '
-        'telefono
-        '
-        Me.telefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.telefono.Location = New System.Drawing.Point(334, 178)
-        Me.telefono.Name = "telefono"
-        Me.telefono.Size = New System.Drawing.Size(164, 20)
-        Me.telefono.TabIndex = 96
-        Me.telefono.WaterMarkColor = System.Drawing.Color.Gray
-        Me.telefono.WaterMarkText = "Telefono"
-        '
-        'cedula
-        '
-        Me.cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.cedula.Location = New System.Drawing.Point(334, 139)
-        Me.cedula.Name = "cedula"
-        Me.cedula.Size = New System.Drawing.Size(164, 20)
-        Me.cedula.TabIndex = 95
-        Me.cedula.WaterMarkColor = System.Drawing.Color.Gray
-        Me.cedula.WaterMarkText = "Cedula"
-        '
-        'apellido
-        '
-        Me.apellido.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.apellido.Location = New System.Drawing.Point(334, 99)
-        Me.apellido.Name = "apellido"
-        Me.apellido.Size = New System.Drawing.Size(164, 20)
-        Me.apellido.TabIndex = 94
-        Me.apellido.WaterMarkColor = System.Drawing.Color.Gray
-        Me.apellido.WaterMarkText = "Apellido"
-        '
-        'nombre
-        '
-        Me.nombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.nombre.Location = New System.Drawing.Point(334, 63)
-        Me.nombre.Name = "nombre"
-        Me.nombre.Size = New System.Drawing.Size(164, 20)
-        Me.nombre.TabIndex = 93
-        Me.nombre.WaterMarkColor = System.Drawing.Color.Gray
-        Me.nombre.WaterMarkText = "Nombre"
-        '
-        'Buscar_Baja_txt
-        '
-        Me.Buscar_Baja_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Buscar_Baja_txt.Location = New System.Drawing.Point(72, 16)
-        Me.Buscar_Baja_txt.Name = "Buscar_Baja_txt"
-        Me.Buscar_Baja_txt.Size = New System.Drawing.Size(301, 20)
-        Me.Buscar_Baja_txt.TabIndex = 3
-        Me.Buscar_Baja_txt.WaterMarkColor = System.Drawing.Color.Gray
-        Me.Buscar_Baja_txt.WaterMarkText = "Buscar por Nombre"
         '
         'ConfigAdmin
         '
@@ -1337,16 +1337,16 @@ Partial Class ConfigAdmin
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        CType(Me.ptbPerfilAdmin, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.DGV_ONLINE, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
-        Me.GroupBox4.ResumeLayout(False)
-        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ptbPerfilAdmin, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
