@@ -620,12 +620,12 @@
                 Dim nacimiento_ingresar As String = Str(ComboBox3.SelectedItem).Substring(1, 4) + "-" + substring + "-" + dia_ingresar '//GUARDA LOS DATOS DEL COMBO A LA VARIABLE NACIMIENTO PARA LUEGO USARLA EN LA CONSULTA INSERT
 
                 If opcion = 0 Then
-                    Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo , nacimiento, estado, contrasenia , moroso , fecha_ingreso, rutaperfil) values (concat(upper(left('" + nom_ingresar + "',1)), lower(substr('" + nom_ingresar + "',2))), concat(upper(left('" + ape_ingresar + "',1)), lower(substr('" + ape_ingresar + "',2))), '" + Str(ced_ingresar) + "', '" + Str(tel_ingresar) + "', '" + dir_ingresar + "', '2', '" + nacimiento_ingresar + "','1', '',0,'" & Date.Now.ToString("yyyy-MM-dd") & "'), '" + rutaFoto + "'"
+                    Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo , nacimiento, estado , moroso , fecha_ingreso, rutaperfil) values (concat(upper(left('" + nom_ingresar + "',1)), lower(substr('" + nom_ingresar + "',2))), concat(upper(left('" + ape_ingresar + "',1)), lower(substr('" + ape_ingresar + "',2))), '" + Str(ced_ingresar) + "', '" + Str(tel_ingresar) + "', '" + dir_ingresar + "', '2', '" + nacimiento_ingresar + "','1',0,'" & Date.Now.ToString("yyyy-MM-dd") & "', '" & rutaFoto & "')"
                     consultar()
                 End If
 
                 If opcion = 1 Then
-                    Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo , nacimiento, estado, contrasenia , moroso , fecha_ingreso, rutaperfil) values (concat(upper(left('" + nom_ingresar + "',1)), lower(substr('" + nom_ingresar + "',2))), concat(upper(left('" + ape_ingresar + "',1)), lower(substr('" + ape_ingresar + "',2))), '" + Str(ced_ingresar) + "', '" + Str(tel_ingresar) + "', '" + dir_ingresar + "', '2', '" + nacimiento_ingresar + "','1', '',0,'" & Date.Now.ToString("yyyy-MM-dd") & "'), '" + nombreArchivo + "'"
+                    Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo , nacimiento, estado , moroso , fecha_ingreso, rutaperfil) values (concat(upper(left('" + nom_ingresar + "',1)), lower(substr('" + nom_ingresar + "',2))), concat(upper(left('" + ape_ingresar + "',1)), lower(substr('" + ape_ingresar + "',2))), '" + Str(ced_ingresar) + "', '" + Str(tel_ingresar) + "', '" + dir_ingresar + "', '2', '" + nacimiento_ingresar + "','1',0,'" & Date.Now.ToString("yyyy-MM-dd") & "', '" & nombreArchivo & "')"
                     consultar()
                 End If
 
@@ -1154,17 +1154,17 @@
 
     Private Sub Button5_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
 
-        If LTrim$(nombre_txt.Text) = "" Then
+        If LTrim$(nombre.Text) = "" Then
             error12 = 1
         End If
-        If LTrim$(cedula_txt.Text) = "" Then
+        If LTrim$(cedula.Text) = "" Then
             error12 = 1
         End If
 
         If error12 = 0 Then
 
-            nombreFoto = nombre_txt.Text
-            cedulaFoto = cedula_txt.Text
+            nombreFoto = nombre.Text
+            cedulaFoto = cedula.Text
 
             opcion = 0
 

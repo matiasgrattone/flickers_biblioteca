@@ -61,7 +61,7 @@
                     ptbFoto.Image.Save(rutaFoto)
                     Inicio_UsuariosV2.ptbFotoSocio.Image = Image.FromFile(rutaFoto)
                     Inicio_UsuariosV2.ptbFotoSocio.Refresh()
-                    'Inicio_UsuariosV2.ptbFotoSocio.ImageLocation = Convert.ToString(rutaFoto)
+                    Inicio_UsuariosV2.ptbFotoSocio.ImageLocation = Convert.ToString(rutaFoto)
                     MsgBox("Se guardo correctamente")
                     Me.Dispose()
                 Catch ex As Exception
