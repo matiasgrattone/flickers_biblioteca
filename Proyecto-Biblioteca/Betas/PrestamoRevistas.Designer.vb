@@ -35,14 +35,16 @@ Partial Class PrestamoRevistas
         Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.PictureRenovacion = New System.Windows.Forms.PictureBox()
-        Me.LblREVISTAS = New System.Windows.Forms.Label()
         Me.ButtonVerFicha = New System.Windows.Forms.Button()
         Me.LabelSELECCION_DE_FUNCION = New System.Windows.Forms.Label()
         Me.ButtonVerRegistro = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.BotonParaBuscarCedula = New System.Windows.Forms.Button()
         Me.PictureDevolucion = New System.Windows.Forms.PictureBox()
         Me.PictureExtraccion = New System.Windows.Forms.PictureBox()
+        Me.PanelDelLeft = New System.Windows.Forms.Panel()
+        Me.LblREVISTAS = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.ExtGrup = New System.Windows.Forms.GroupBox()
         Me.DataGridView_VerRevistasEnExtraccion_ = New System.Windows.Forms.DataGridView()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -60,7 +62,7 @@ Partial Class PrestamoRevistas
         Me.CarritoDeRevistas = New System.Windows.Forms.ListBox()
         Me.NOMBRE = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_ = New System.Windows.Forms.ListBox()
+        Me.ListboxParaGuardarLasIdDeLasRevistasEnElCarrito = New System.Windows.Forms.ListBox()
         Me.LabelREVISTA = New System.Windows.Forms.Label()
         Me.LabelIDREVISTAS = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -74,12 +76,11 @@ Partial Class PrestamoRevistas
         Me.dgvRenovacion = New System.Windows.Forms.DataGridView()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.PanelDelLeft = New System.Windows.Forms.Panel()
-        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureRenovacion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureDevolucion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureExtraccion, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelDelLeft.SuspendLayout()
         Me.ExtGrup.SuspendLayout()
         CType(Me.DataGridView_VerRevistasEnExtraccion_, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -88,7 +89,6 @@ Partial Class PrestamoRevistas
         CType(Me.DataGridParaDevolucion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBoxRenovacion.SuspendLayout()
         CType(Me.dgvRenovacion, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PanelDelLeft.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel3
@@ -120,16 +120,6 @@ Partial Class PrestamoRevistas
         Me.PictureRenovacion.TabIndex = 81
         Me.PictureRenovacion.TabStop = False
         '
-        'LblREVISTAS
-        '
-        Me.LblREVISTAS.AutoSize = True
-        Me.LblREVISTAS.Font = New System.Drawing.Font("Impact", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblREVISTAS.Location = New System.Drawing.Point(-2, 7)
-        Me.LblREVISTAS.Name = "LblREVISTAS"
-        Me.LblREVISTAS.Size = New System.Drawing.Size(203, 60)
-        Me.LblREVISTAS.TabIndex = 66
-        Me.LblREVISTAS.Text = "REVISTAS"
-        '
         'ButtonVerFicha
         '
         Me.ButtonVerFicha.Location = New System.Drawing.Point(12, 80)
@@ -157,16 +147,6 @@ Partial Class PrestamoRevistas
         Me.ButtonVerRegistro.TabIndex = 77
         Me.ButtonVerRegistro.Text = "Ver Registros"
         Me.ButtonVerRegistro.UseVisualStyleBackColor = True
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(3, 11)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(240, 16)
-        Me.Label1.TabIndex = 58
-        Me.Label1.Text = "INGRESE LA CEDULA DEL USUARIO "
         '
         'BotonParaBuscarCedula
         '
@@ -198,6 +178,44 @@ Partial Class PrestamoRevistas
         Me.PictureExtraccion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureExtraccion.TabIndex = 0
         Me.PictureExtraccion.TabStop = False
+        '
+        'PanelDelLeft
+        '
+        Me.PanelDelLeft.Controls.Add(Me.LblREVISTAS)
+        Me.PanelDelLeft.Location = New System.Drawing.Point(1063, 4)
+        Me.PanelDelLeft.Name = "PanelDelLeft"
+        Me.PanelDelLeft.Size = New System.Drawing.Size(203, 74)
+        Me.PanelDelLeft.TabIndex = 82
+        '
+        'LblREVISTAS
+        '
+        Me.LblREVISTAS.AutoSize = True
+        Me.LblREVISTAS.Font = New System.Drawing.Font("Impact", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblREVISTAS.Location = New System.Drawing.Point(-2, 7)
+        Me.LblREVISTAS.Name = "LblREVISTAS"
+        Me.LblREVISTAS.Size = New System.Drawing.Size(203, 60)
+        Me.LblREVISTAS.TabIndex = 66
+        Me.LblREVISTAS.Text = "REVISTAS"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(3, 11)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(240, 16)
+        Me.Label1.TabIndex = 58
+        Me.Label1.Text = "INGRESE LA CEDULA DEL USUARIO "
+        '
+        'Cedula
+        '
+        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.Cedula.Location = New System.Drawing.Point(3, 50)
+        Me.Cedula.Name = "Cedula"
+        Me.Cedula.Size = New System.Drawing.Size(259, 20)
+        Me.Cedula.TabIndex = 75
+        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
+        Me.Cedula.WaterMarkText = "Cedula"
         '
         'ExtGrup
         '
@@ -339,7 +357,7 @@ Partial Class PrestamoRevistas
         Me.PanelDelCarrito.Controls.Add(Me.CarritoDeRevistas)
         Me.PanelDelCarrito.Controls.Add(Me.NOMBRE)
         Me.PanelDelCarrito.Controls.Add(Me.Label2)
-        Me.PanelDelCarrito.Controls.Add(Me.ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_)
+        Me.PanelDelCarrito.Controls.Add(Me.ListboxParaGuardarLasIdDeLasRevistasEnElCarrito)
         Me.PanelDelCarrito.Controls.Add(Me.LabelREVISTA)
         Me.PanelDelCarrito.Controls.Add(Me.LabelIDREVISTAS)
         Me.PanelDelCarrito.Controls.Add(Me.Label12)
@@ -419,13 +437,13 @@ Partial Class PrestamoRevistas
         Me.Label2.TabIndex = 71
         Me.Label2.Text = "Label2"
         '
-        'ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_
+        'ListboxParaGuardarLasIdDeLasRevistasEnElCarrito
         '
-        Me.ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.FormattingEnabled = True
-        Me.ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Location = New System.Drawing.Point(141, 434)
-        Me.ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Name = "ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_"
-        Me.ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Size = New System.Drawing.Size(116, 30)
-        Me.ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.TabIndex = 64
+        Me.ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.FormattingEnabled = True
+        Me.ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Location = New System.Drawing.Point(141, 434)
+        Me.ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Name = "ListboxParaGuardarLasIdDeLasRevistasEnElCarrito"
+        Me.ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Size = New System.Drawing.Size(116, 30)
+        Me.ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.TabIndex = 64
         '
         'LabelREVISTA
         '
@@ -629,24 +647,6 @@ Partial Class PrestamoRevistas
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1
         '
-        'PanelDelLeft
-        '
-        Me.PanelDelLeft.Controls.Add(Me.LblREVISTAS)
-        Me.PanelDelLeft.Location = New System.Drawing.Point(1063, 4)
-        Me.PanelDelLeft.Name = "PanelDelLeft"
-        Me.PanelDelLeft.Size = New System.Drawing.Size(203, 74)
-        Me.PanelDelLeft.TabIndex = 82
-        '
-        'Cedula
-        '
-        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Cedula.Location = New System.Drawing.Point(3, 50)
-        Me.Cedula.Name = "Cedula"
-        Me.Cedula.Size = New System.Drawing.Size(259, 20)
-        Me.Cedula.TabIndex = 75
-        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
-        Me.Cedula.WaterMarkText = "Cedula"
-        '
         'PrestamoRevistas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -666,6 +666,8 @@ Partial Class PrestamoRevistas
         CType(Me.PictureRenovacion, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureDevolucion, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureExtraccion, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelDelLeft.ResumeLayout(False)
+        Me.PanelDelLeft.PerformLayout()
         Me.ExtGrup.ResumeLayout(False)
         Me.ExtGrup.PerformLayout()
         CType(Me.DataGridView_VerRevistasEnExtraccion_, System.ComponentModel.ISupportInitialize).EndInit()
@@ -678,8 +680,6 @@ Partial Class PrestamoRevistas
         Me.GroupBoxRenovacion.ResumeLayout(False)
         Me.GroupBoxRenovacion.PerformLayout()
         CType(Me.dgvRenovacion, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.PanelDelLeft.ResumeLayout(False)
-        Me.PanelDelLeft.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -705,7 +705,7 @@ Partial Class PrestamoRevistas
     Friend WithEvents CarritoDeRevistas As System.Windows.Forms.ListBox
     Friend WithEvents NOMBRE As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_ As System.Windows.Forms.ListBox
+    Friend WithEvents ListboxParaGuardarLasIdDeLasRevistasEnElCarrito As System.Windows.Forms.ListBox
     Friend WithEvents LabelREVISTA As System.Windows.Forms.Label
     Friend WithEvents LabelIDREVISTAS As System.Windows.Forms.Label
     Friend WithEvents Label12 As System.Windows.Forms.Label

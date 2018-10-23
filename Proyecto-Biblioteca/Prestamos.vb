@@ -87,7 +87,7 @@
 
                 '///REINICIO DE FUNCIONES///
                 CarritoDeLibros.Items.Clear() 'Borra los items del ListBox carrito de libros 
-                ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear() 'Borra los items del ListBox carrito para almacenar ids
+                ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Clear() 'Borra los items del ListBox carrito para almacenar ids
                 Cedula.Clear() 'Borramos el contenido del textbox cedula 
                 PanelDelCarrito.Left = -268 'Regresamos el carrito a la ubicacion del inicio
 
@@ -134,7 +134,7 @@
 
                 '///REINICIO DE FUNCIONES///
                 CarritoDeLibros.Items.Clear() 'Borra los items del ListBox carrito de libros 
-                ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear() 'Borra los items del ListBox carrito para almacenar ids
+                ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Clear() 'Borra los items del ListBox carrito para almacenar ids
                 Cedula.Clear() 'Borramos el contenido del textbox cedula 
                 PanelDelCarrito.Left = -268 'Regresamos el carrito a la ubicacion del inicio
 
@@ -190,7 +190,7 @@
             '///////////////////////////////////////////
 
             CarritoDeLibros.Items.Clear() 'Borra los items del ListBox carrito de libros 
-            ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear() 'Borra los items del ListBox carrito para almacenar ids
+            ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Clear() 'Borra los items del ListBox carrito para almacenar ids
             Cedula.Clear() 'Borramos el contenido del textbox cedula 
             PanelDelCarrito.Left = -268 'Regresamos el carrito a la ubicacion del inicio
 
@@ -228,7 +228,7 @@
                 '///////////////////////////////////////////
 
                 CarritoDeLibros.Items.Clear() 'Borra los items del ListBox carrito de libros 
-                ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear() 'Borra los items del ListBox carrito para almacenar ids
+                ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Clear() 'Borra los items del ListBox carrito para almacenar ids
                 Cedula.Clear() 'Borramos el contenido del textbox cedula 
                 PanelDelCarrito.Left = -268 'Regresamos el carrito a la ubicacion del inicio
 
@@ -269,7 +269,7 @@
 
 
                 CarritoDeLibros.Items.Clear() 'Borramos los items de listbox carrito de libros 
-                ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear() 'Borramos los items de listbox carrito de libros 
+                ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Clear() 'Borramos los items de listbox carrito de libros 
                 PanelDelCarrito.Left = -5 'Mostramos el carrito
 
                 BotonParaBuscarCedula.Text = "Editar" 'Ponemos el texto de buscar cedula en "editar"
@@ -335,7 +335,7 @@
         End If
     End Sub
     '///BUSCAR LIBRO POR ID///
-    Private Sub TextboxBuscador_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextboxBuscador.TextChanged
+    Private Sub TextboxBuscador_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextboxBuscador.TextChanged
         Try
             Consulta = "select cod_libro as 'Numero de Inventario', titulo as 'Titulo', volumen as 'Volumen', ubicacion as 'Ubicacion' from libro where estado ='0' and cod_libro LIKE '" & TextboxBuscador.Text & "%'"
             consultar()
@@ -355,14 +355,14 @@
 
 
         Dim list1 As Integer
-        list1 = ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Count
+        list1 = ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Count
 
         If list1 <= 2 Then
 
 
 
             If DataGridViewlllllVerLibrosEnExtraccionlllll.Item(0, DataGridViewlllllVerLibrosEnExtraccionlllll.CurrentRow.Index).Value <> list1 Then
-                If (ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Contains(NomLibros)) Then
+                If (ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Contains(NomLibros)) Then
 
                     MsgBox("El libro " & NomLibros & " ya se encuentra en el carrito de extracción ", Title:="PRESTAMOS")
 
@@ -372,7 +372,7 @@
                     z = MsgBox("Desea llevar al carrito el libro " & NomLibros & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
                     If z = vbYes Then
 
-                        ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Add(IdLibros)
+                        ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Add(IdLibros)
                         CarritoDeLibros.Items.Add(IdLibros & "                          " & NomLibros)
                     End If
                 End If
@@ -527,7 +527,7 @@
         '////////////////////////////////////////////////////////////////////////
 
         list = 0
-        list = ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Count
+        list = ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Count
         list = list
 
         '1) El usario que puede extraer un libro SI ESTE NO TIENE NINGUN LIBROS EN PODER AHORA
@@ -545,10 +545,10 @@
                     contador = Val(contador) + 1
 
                     'REVISAR ESTO'
-                    Consulta = "insert into prestamolibro(cedula, cod_libro, fecha_salida, fecha_estimada, cod_prestado) values('" + Cedula.Text + "','" + ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "', '" + fecha_estimada + "','" + MENU3.lbl_cedula.Text + "')"
+                    Consulta = "insert into prestamolibro(cedula, cod_libro, fecha_salida, fecha_estimada, cod_prestado) values('" + Cedula.Text + "','" + ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "', '" + fecha_estimada + "','" + MENU3.lbl_cedula.Text + "')"
                     consultar()
 
-                    Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) & "'"
+                    Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items(libros) & "'"
                     consultar()
 
                     libros = libros + 1
@@ -556,7 +556,7 @@
                 End While
 
                 CarritoDeLibros.Items.Clear()
-                ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
+                ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Clear()
                 MsgBox("Se extrajo correctamente los libros", Title:="PRESTAMO")
                 GrupBoxExtraccion.Visible = False
 
@@ -579,11 +579,11 @@
                             contador = Val(contador) + 1
 
 
-                            Consulta = "insert into prestamolibro(cedula, cod_libro, fecha_salida, fecha_estimada, cod_prestado) values('" + Cedula.Text + "','" + ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "', '" + fecha_estimada + "','" + MENU3.lbl_cedula.Text + "')"
+                            Consulta = "insert into prestamolibro(cedula, cod_libro, fecha_salida, fecha_estimada, cod_prestado) values('" + Cedula.Text + "','" + ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "', '" + fecha_estimada + "','" + MENU3.lbl_cedula.Text + "')"
                             consultar()
 
 
-                            Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) & "';"
+                            Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items(libros) & "';"
                             consultar()
 
                             libros = libros + 1
@@ -591,7 +591,7 @@
                         End While
 
                         CarritoDeLibros.Items.Clear()
-                        ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
+                        ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Clear()
                         MsgBox("Se extrajo correctamente los libros", Title:="PRESTAMO")
                         GrupBoxExtraccion.Visible = False
 
@@ -761,7 +761,7 @@
     End Sub
 
     '///BUSCAR LIBRO POR ID///
-    Private Sub TextBoxEnCrearReservaciones_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextBoxEnCrearReservaciones.TextChanged
+    Private Sub TextBoxEnCrearReservaciones_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBoxEnCrearReservaciones.TextChanged
         Try
             Consulta = "select cod_libro as 'Numero de Inventario', titulo as 'Titulo', volumen as 'Volumen', ubicacion as 'Ubicacion' from libro where estado ='0' and cod_libro LIKE '" & TextBoxEnCrearReservaciones.Text & "%'"
             consultar()
@@ -856,12 +856,12 @@
 
 
             Dim list1 As Integer
-            list1 = ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Count
+            list1 = ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Count
 
 
 
             If VerLibrosReservados2.Item(0, VerLibrosReservados2.CurrentRow.Index).Value <> list1 Then
-                If (ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Contains(NomLibros)) Then
+                If (ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Contains(NomLibros)) Then
 
                     MsgBox("El libro " & NomLibros & " ya se encuentra en el carrito de extracción ", Title:="PRESTAMOS")
 
@@ -871,7 +871,7 @@
                     z = MsgBox("Desea llevar al carrito el libro " & NomLibros & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
                     If z = vbYes Then
 
-                        ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Add(IdLibros)
+                        ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Add(IdLibros)
                         CarritoDeLibros.Items.Add(IdLibros & "                          " & NomLibros)
 
                     End If
@@ -926,17 +926,17 @@
         contador = 0
 
         list = 0
-        list = ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Count
+        list = ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Count
         list = list
 
         '1) El usario que puede extraer un libro SI ESTE NO TIENE NINGUN LIBROS EN PODER AHORA
         '/////////////////////CASO UNO///////////////////
-            If Cedula.Text <> "" Then
+        If Cedula.Text <> "" Then
 
 
 
             Consulta = "select * from prestamolibro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
-                consultar()
+            consultar()
 
             If (Tabla.Rows.Count = 0) Then
 
@@ -944,10 +944,10 @@
                     contador = Val(contador) + 1
 
 
-                    Consulta = "insert into prestamolibro(cedula,cod_libro,fecha_salida,cod_prestado) values('" + Cedula.Text + "','" + ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "','" + MENU3.lbl_cedula.Text + "')"
+                    Consulta = "insert into prestamolibro(cedula,cod_libro,fecha_salida,cod_prestado) values('" + Cedula.Text + "','" + ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "','" + MENU3.lbl_cedula.Text + "')"
                     consultar()
 
-                    Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) & "';"
+                    Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items(libros) & "';"
                     consultar()
 
                     libros = libros + 1
@@ -955,7 +955,7 @@
                 End While
 
                 CarritoDeLibros.Items.Clear()
-                ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
+                ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Clear()
                 Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado = '2' and cedula = '" + Cedula.Text + "' and p.fecha_salida is NULL and p.fecha_entrada is NULL"
                 consultar()
                 VerLibrosReservados2.DataSource = Tabla
@@ -981,11 +981,11 @@
                             contador = Val(contador) + 1
 
 
-                            Consulta = "insert into prestamolibro(cedula,cod_libro,fecha_salida,cod_prestado) values('" + Cedula.Text + "','" + ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "','" + MENU3.lbl_cedula.Text + "')"
+                            Consulta = "insert into prestamolibro(cedula,cod_libro,fecha_salida,cod_prestado) values('" + Cedula.Text + "','" + ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "','" + MENU3.lbl_cedula.Text + "')"
                             consultar()
 
 
-                            Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items(libros) & "';"
+                            Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items(libros) & "';"
                             consultar()
 
                             libros = libros + 1
@@ -993,7 +993,7 @@
                         End While
 
                         CarritoDeLibros.Items.Clear()
-                        ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
+                        ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Clear()
                         Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado = '2' and cedula = '" + Cedula.Text + "' and p.fecha_salida is NULL and p.fecha_entrada is NULL"
                         consultar()
                         VerLibrosReservados2.DataSource = Tabla
@@ -1006,7 +1006,7 @@
                         MsgBox("Este socios no puede retirar libros hasta devolver los prestados", Title:="PRESTAMOS")
                 End Select
             End If
-            End If
+        End If
     End Sub
 
 
@@ -1056,9 +1056,9 @@
             z = MsgBox("Desea cancelar la extracción del libro? " & NomLibro & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
 
             If z = vbYes Then
-                IdLibro = (ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.SelectedIndex = CarritoDeLibros.SelectedIndex)
+                IdLibro = (ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.SelectedIndex = CarritoDeLibros.SelectedIndex)
 
-                ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.RemoveAt(CarritoDeLibros.SelectedIndex)
+                ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.RemoveAt(CarritoDeLibros.SelectedIndex)
                 NomLibro = CarritoDeLibros.SelectedItem
                 CarritoDeLibros.Items.RemoveAt(CarritoDeLibros.SelectedIndex)
             Else
@@ -1075,7 +1075,7 @@
             z = MsgBox("Esta seguro que quiere vaciar el carrito de libros?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
             If z = vbYes Then
                 CarritoDeLibros.Items.Clear()
-                ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Items.Clear()
+                ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Clear()
             End If
         End If
     End Sub

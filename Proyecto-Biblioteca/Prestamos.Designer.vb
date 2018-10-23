@@ -45,7 +45,7 @@ Partial Class Prestamos
         Me.Button1 = New System.Windows.Forms.Button()
         Me.CarritoDeLibros = New System.Windows.Forms.ListBox()
         Me.NOMBRE = New System.Windows.Forms.Label()
-        Me.ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll = New System.Windows.Forms.ListBox()
+        Me.ListboxParaGuardarLasIdDeLosLibrosEnElCarrito = New System.Windows.Forms.ListBox()
         Me.LabelLIBRO = New System.Windows.Forms.Label()
         Me.LabelIDLIBRO = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -73,6 +73,7 @@ Partial Class Prestamos
         Me.ButtonVERREGISTRO = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.LabelSELECCION_DE_FUNCION = New System.Windows.Forms.Label()
+        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.PictureCrearReservacion = New System.Windows.Forms.PictureBox()
         Me.PictureReservacion = New System.Windows.Forms.PictureBox()
         Me.PictureDevolucion = New System.Windows.Forms.PictureBox()
@@ -90,7 +91,6 @@ Partial Class Prestamos
         Me.Label4 = New System.Windows.Forms.Label()
         Me.dgvRenovacion = New System.Windows.Forms.DataGridView()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.PanelDelCarrito.SuspendLayout()
         Me.GrupBoxDevolucion.SuspendLayout()
         CType(Me.DataGridParaDevolucion, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -139,7 +139,7 @@ Partial Class Prestamos
         Me.PanelDelCarrito.Controls.Add(Me.Button1)
         Me.PanelDelCarrito.Controls.Add(Me.CarritoDeLibros)
         Me.PanelDelCarrito.Controls.Add(Me.NOMBRE)
-        Me.PanelDelCarrito.Controls.Add(Me.ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll)
+        Me.PanelDelCarrito.Controls.Add(Me.ListboxParaGuardarLasIdDeLosLibrosEnElCarrito)
         Me.PanelDelCarrito.Controls.Add(Me.LabelLIBRO)
         Me.PanelDelCarrito.Controls.Add(Me.LabelIDLIBRO)
         Me.PanelDelCarrito.Location = New System.Drawing.Point(-268, -28)
@@ -200,13 +200,13 @@ Partial Class Prestamos
         Me.NOMBRE.TabIndex = 60
         Me.NOMBRE.Text = "Nombre"
         '
-        'ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll
+        'ListboxParaGuardarLasIdDeLosLibrosEnElCarrito
         '
-        Me.ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.FormattingEnabled = True
-        Me.ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Location = New System.Drawing.Point(10, 290)
-        Me.ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Name = "ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll"
-        Me.ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.Size = New System.Drawing.Size(116, 30)
-        Me.ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll.TabIndex = 64
+        Me.ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.FormattingEnabled = True
+        Me.ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Location = New System.Drawing.Point(10, 290)
+        Me.ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Name = "ListboxParaGuardarLasIdDeLosLibrosEnElCarrito"
+        Me.ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Size = New System.Drawing.Size(116, 30)
+        Me.ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.TabIndex = 64
         '
         'LabelLIBRO
         '
@@ -608,6 +608,16 @@ Partial Class Prestamos
         Me.LabelSELECCION_DE_FUNCION.TabIndex = 66
         Me.LabelSELECCION_DE_FUNCION.Text = "SELECCION " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      DE " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FUNCION "
         '
+        'Cedula
+        '
+        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.Cedula.Location = New System.Drawing.Point(3, 50)
+        Me.Cedula.Name = "Cedula"
+        Me.Cedula.Size = New System.Drawing.Size(259, 20)
+        Me.Cedula.TabIndex = 0
+        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
+        Me.Cedula.WaterMarkText = "Cedula"
+        '
         'PictureCrearReservacion
         '
         Me.PictureCrearReservacion.Cursor = System.Windows.Forms.Cursors.Hand
@@ -859,16 +869,6 @@ Partial Class Prestamos
         Me.Label2.TabIndex = 63
         Me.Label2.Text = "RENOVAR LIBROS"
         '
-        'Cedula
-        '
-        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Cedula.Location = New System.Drawing.Point(3, 50)
-        Me.Cedula.Name = "Cedula"
-        Me.Cedula.Size = New System.Drawing.Size(259, 20)
-        Me.Cedula.TabIndex = 0
-        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
-        Me.Cedula.WaterMarkText = "Cedula"
-        '
         'Prestamos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -929,7 +929,7 @@ Partial Class Prestamos
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents TextboxBuscador As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents ListboxOcultollllParaGuardarLasIdDeLosLibrosEnElCarritollll As System.Windows.Forms.ListBox
+    Friend WithEvents ListboxParaGuardarLasIdDeLosLibrosEnElCarrito As System.Windows.Forms.ListBox
     Friend WithEvents ENPODER As System.Windows.Forms.Label
     Friend WithEvents NOMBRE As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label

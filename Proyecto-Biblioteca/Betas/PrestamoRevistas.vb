@@ -60,7 +60,7 @@
 
                 '///REINICIO DE FUNCIONES///
                 CarritoDeRevistas.Items.Clear() 'Borra los items del ListBox carrito de libros 
-                ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Clear() 'Borra los items del ListBox carrito para almacenar ids
+                ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items.Clear() 'Borra los items del ListBox carrito para almacenar ids
                 Cedula.Clear() 'Borramos el contenido del textbox cedula 
                 PanelDelCarrito.Left = -268 'Regresamos el carrito a la ubicacion del inicio
 
@@ -335,7 +335,7 @@
         '////////////////////////////////////////////////////////////////////////
 
         list = 0
-        list = ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Count
+        list = ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items.Count
         list = list
 
         '1) El usario que puede extraer una revista SI ESTE NO TIENE NINGUNA REVISTAS EN PODER AHORA
@@ -352,19 +352,19 @@
                 While contador < list
                     contador = Val(contador) + 1
 
-                    Consulta = "insert into prestamorevistas(cedula, id_revistas, fecha_estimada, cod_prestado) values('" + Cedula.Text + "','" + ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items(revistas) + "', '" + fecha_estimada + "','" + MENU3.lbl_cedula.Text + "')"
+                    Consulta = "insert into prestamorevistas(cedula, id_revistas, fecha_estimada, cod_prestado) values('" + Cedula.Text + "','" + ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items(revistas) + "', '" + fecha_estimada + "','" + MENU3.lbl_cedula.Text + "')"
                     consultar()
-                    Consulta = "update prestamorevistas set fecha_salida = '" + Date.Now.ToString("yyyy-MM-dd") + "' where id_revistas= '" & ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items(revistas) & "' and cedula='" + Cedula.Text + "'"
+                    Consulta = "update prestamorevistas set fecha_salida = '" + Date.Now.ToString("yyyy-MM-dd") + "' where id_revistas= '" & ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items(revistas) & "' and cedula='" + Cedula.Text + "'"
                     consultar()
 
-                    Consulta = "update revistas set estado = 1 where id_revistas = '" & ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items(revistas) & "'"
+                    Consulta = "update revistas set estado = 1 where id_revistas = '" & ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items(revistas) & "'"
                     consultar()
 
                     revistas = revistas + 1
                 End While
 
                 CarritoDeRevistas.Items.Clear()
-                ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Clear()
+                ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items.Clear()
                 MsgBox("Se extrajo correctamente las revistas", Title:="PRESTAMO")
                 ExtGrup.Visible = False
 
@@ -387,11 +387,11 @@
                             contador = Val(contador) + 1
 
 
-                            Consulta = "insert into prestamorevistas(cedula, id_revistas, fecha_salida, fecha_estimada, cod_prestado) values('" + Cedula.Text + "','" + ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items(revistas) + "','" + Date.Now.ToString("yyyy-MM-dd") + "', '" + fecha_estimada + "','" + MENU3.lbl_cedula.Text + "')"
+                            Consulta = "insert into prestamorevistas(cedula, id_revistas, fecha_salida, fecha_estimada, cod_prestado) values('" + Cedula.Text + "','" + ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items(revistas) + "','" + Date.Now.ToString("yyyy-MM-dd") + "', '" + fecha_estimada + "','" + MENU3.lbl_cedula.Text + "')"
                             consultar()
 
 
-                            Consulta = "update revistas set estado = 1 where id_revistas = '" & ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items(revistas) & "';"
+                            Consulta = "update revistas set estado = 1 where id_revistas = '" & ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items(revistas) & "';"
                             consultar()
 
                             revistas = revistas + 1
@@ -399,7 +399,7 @@
                         End While
 
                         CarritoDeRevistas.Items.Clear()
-                        ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Clear()
+                        ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items.Clear()
                         MsgBox("Se extrajo correctamente las revistas", Title:="PRESTAMO")
                         ExtGrup.Visible = False
 
@@ -417,7 +417,7 @@
 
         '////////////////////////////SI LA CEDULA ES CORRECTA SE PODRA AGREGAR REVISTAS O REALIZAR OTRAS FUNCIONES  /////////////////////// 
         Dim list1 As Integer
-        list1 = ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Count
+        list1 = ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items.Count
 
         If list1 <= 2 Then
 
@@ -431,7 +431,7 @@
 
 
 
-                If (ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Contains(IdREVISTA)) Then
+                If (ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items.Contains(IdREVISTA)) Then
 
                     MsgBox("La revista " & NomREVISTA & " ya se encuentra en el carrito de extracción ", Title:="PRESTAMOS")
 
@@ -443,7 +443,7 @@
                     If z = vbYes Then
 
 
-                        ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Add(IdREVISTA)
+                        ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items.Add(IdREVISTA)
                         CarritoDeRevistas.Items.Add(IdREVISTA & "                          " & NomREVISTA)
 
                     End If
@@ -663,101 +663,101 @@
     End Sub
     '///PARA DEVOLVER LAS REVISTAS EXTRAIDAS///
     Private Sub DataGridParaDevolucion_CellDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridParaDevolucion.CellDoubleClick
-            Try
+        Try
 
             Revista1 = DataGridParaDevolucion.Item(1, DataGridParaDevolucion.CurrentRow.Index).Value
             ID_Revista1 = DataGridParaDevolucion.Item(0, DataGridParaDevolucion.CurrentRow.Index).Value
 
-                fecha_actual = DateTime.Now.ToString("yyyy/MM/dd")
+            fecha_actual = DateTime.Now.ToString("yyyy/MM/dd")
 
             dia = (DataGridParaDevolucion.Item(4, DataGridParaDevolucion.CurrentRow.Index).Value).ToString.Substring(0, 2)
             mes = (DataGridParaDevolucion.Item(4, DataGridParaDevolucion.CurrentRow.Index).Value).ToString.Substring(3, 2)
-                anio = Val(DateTime.Now.ToString("yyyy"))
+            anio = Val(DateTime.Now.ToString("yyyy"))
 
             fecha_estimada = DataGridParaDevolucion.Item(4, DataGridParaDevolucion.CurrentRow.Index).Value
 
-                If mes > fecha_actual.ToString.Substring(3, 2) Then
+            If mes > fecha_actual.ToString.Substring(3, 2) Then
 
-                    If dia >= 31 Then
-                        diferenciaDia = dia - 31
-                        dia = dia - diferenciaDia
-                        mes = mes + 1
-                        fecha_estimada = anio & "-" & mes & "-" & dia
-                    Else
-                        fecha_estimada = anio & "-" & mes & "-" & dia
-                    End If
-
+                If dia >= 31 Then
+                    diferenciaDia = dia - 31
+                    dia = dia - diferenciaDia
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & dia
                 Else
-
-                    diferenciaDia = dia - fecha_actual.ToString.Substring(0, 2)
-
+                    fecha_estimada = anio & "-" & mes & "-" & dia
                 End If
 
-                If diferenciaDia < 0 Then
+            Else
 
-                    diferenciaDia = diferenciaDia * (-2)
+                diferenciaDia = dia - fecha_actual.ToString.Substring(0, 2)
 
-                    If diferenciaDia >= 31 Then
-                        diferenciaDia1 = diferenciaDia - 31
-                        diferenciaDia1 = diferenciaDia - diferenciaDia1
-                        mes = mes + 1
-                        dia = fecha_actual.ToString.Substring(0, 2) + diferenciaDia1
-                        fecha_estimada = anio & "-" & mes & "-" & dia
-                    Else
-                        dia = fecha_actual.ToString.Substring(0, 2) + diferenciaDia
-                        fecha_estimada = anio & "-" & mes & "-" & dia
-                    End If
+            End If
 
-                    Try
-                        Consulta = "update usuarios set moroso = '1', fecha_moroso = '" + fecha_estimada + "' where cedula = '" + Cedula.Text + "'"
-                        consultar()
-                        MsgBox("El usuario es ahora moroso hasta " & fecha_estimada & " por devolver la revista fuera de la fecha máxima")
-                    Catch ex As Exception
-                        MsgBox(ex.Message)
-                    End Try
+            If diferenciaDia < 0 Then
 
+                diferenciaDia = diferenciaDia * (-2)
+
+                If diferenciaDia >= 31 Then
+                    diferenciaDia1 = diferenciaDia - 31
+                    diferenciaDia1 = diferenciaDia - diferenciaDia1
+                    mes = mes + 1
+                    dia = fecha_actual.ToString.Substring(0, 2) + diferenciaDia1
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                Else
+                    dia = fecha_actual.ToString.Substring(0, 2) + diferenciaDia
+                    fecha_estimada = anio & "-" & mes & "-" & dia
                 End If
 
-                z = 0
-                z = MsgBox("Desea devolver la revista " & Revista1 & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
-
-                '       1) Si se devuelve la revistas con un si, se actualiza la Base da datos 
-                If z = vbYes Then
-
-
-                    Consulta = "update revistas set estado = 0 where id_revistas = '" & ID_Revista1 & "'"
+                Try
+                    Consulta = "update usuarios set moroso = '1', fecha_moroso = '" + fecha_estimada + "' where cedula = '" + Cedula.Text + "'"
                     consultar()
-                    Consulta = "UPDATE prestamorevistas SET cod_devuelto = '" & MENU3.lbl_cedula.Text & "', fecha_entrada = '" & Date.Now.ToString("yyyy-MM-dd") & "' WHERE cedula = '" & Cedula.Text & "' and id_revistas ='" & ID_Revista1 & "'"
-                    consultar()
-                    'Consulta = "UPDATE prestamorevistas SET fecha_entrada = '" & Date.Now.ToString("yyyy-MM-dd") & "' WHERE cedula = '" & Cedula.Text & "' and id_revistas ='" & id_revistas1 & "'"
-                    'consultar()
-                    MsgBox("Se ha devuelto", Title:="PRESTAMO")
+                    MsgBox("El usuario es ahora moroso hasta " & fecha_estimada & " por devolver la revista fuera de la fecha máxima")
+                Catch ex As Exception
+                    MsgBox(ex.Message)
+                End Try
+
+            End If
+
+            z = 0
+            z = MsgBox("Desea devolver la revista " & Revista1 & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
+
+            '       1) Si se devuelve la revistas con un si, se actualiza la Base da datos 
+            If z = vbYes Then
+
+
+                Consulta = "update revistas set estado = 0 where id_revistas = '" & ID_Revista1 & "'"
+                consultar()
+                Consulta = "UPDATE prestamorevistas SET cod_devuelto = '" & MENU3.lbl_cedula.Text & "', fecha_entrada = '" & Date.Now.ToString("yyyy-MM-dd") & "' WHERE cedula = '" & Cedula.Text & "' and id_revistas ='" & ID_Revista1 & "'"
+                consultar()
+                'Consulta = "UPDATE prestamorevistas SET fecha_entrada = '" & Date.Now.ToString("yyyy-MM-dd") & "' WHERE cedula = '" & Cedula.Text & "' and id_revistas ='" & id_revistas1 & "'"
+                'consultar()
+                MsgBox("Se ha devuelto", Title:="PRESTAMO")
 
                 Consulta = "select p.id_revistas as 'Numero de Inventario', r.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion', fecha_estimada as 'Fecha Maxima de Prestamo' from prestamorevistas p INNER JOIN revistas r on p.id_revistas=r.id_revistas where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
                 consultar()
-                    DataGridParaDevolucion.DataSource = Tabla
+                DataGridParaDevolucion.DataSource = Tabla
 
-                Else
-
-                    MsgBox("Esta revista no se devolvio", Title:="PRESTAMOS")
-
-                Consulta = "select p.id_revistas as 'Numero de Inventario', r.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion', fecha_estimada as 'Fecha Maxima de Prestamo' from prestamorevistas p INNER JOIN revistas r on p.id_revistas=r.id_revistas where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
-                consultar()
-                    DataGridParaDevolucion.DataSource = Tabla
-
-                End If
-            Catch ex As Exception
+            Else
 
                 MsgBox("Esta revista no se devolvio", Title:="PRESTAMOS")
 
-            End Try
+                Consulta = "select p.id_revistas as 'Numero de Inventario', r.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion', fecha_estimada as 'Fecha Maxima de Prestamo' from prestamorevistas p INNER JOIN revistas r on p.id_revistas=r.id_revistas where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
+                consultar()
+                DataGridParaDevolucion.DataSource = Tabla
+
+            End If
+        Catch ex As Exception
+
+            MsgBox("Esta revista no se devolvio", Title:="PRESTAMOS")
+
+        End Try
     End Sub
 
     '/////////////////////////////////////////////////////////FIN DE DEVOLUCION///////////////////////////////////////////////////////////////
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         CarritoDeRevistas.Items.Clear()
-        ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Clear()
+        ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items.Clear()
     End Sub
 
     Private Sub ButtonVerFicha_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonVerFicha.Click
@@ -784,7 +784,7 @@
 
                 '///REINICIO DE FUNCIONES///
                 CarritoDeRevistas.Items.Clear() 'Borra los items del ListBox carrito de libros 
-                ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Clear() 'Borra los items del ListBox carrito para almacenar ids
+                ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items.Clear() 'Borra los items del ListBox carrito para almacenar ids
                 Cedula.Clear() 'Borramos el contenido del textbox cedula 
                 PanelDelCarrito.Left = -268 'Regresamos el carrito a la ubicacion del inicio
 
@@ -829,9 +829,9 @@
             z = MsgBox("Desea cancelar la extracción de la revista? " & NomRevistas & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
 
             If z = vbYes Then
-                IdRevistas = (ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.SelectedIndex = CarritoDeRevistas.SelectedIndex)
+                IdRevistas = (ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.SelectedIndex = CarritoDeRevistas.SelectedIndex)
 
-                ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.RemoveAt(CarritoDeRevistas.SelectedIndex)
+                ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items.RemoveAt(CarritoDeRevistas.SelectedIndex)
                 NomRevistas = CarritoDeRevistas.SelectedItem
                 CarritoDeRevistas.Items.RemoveAt(CarritoDeRevistas.SelectedIndex)
             Else
@@ -864,7 +864,7 @@
             '///////////////////////////////////////////
 
             CarritoDeRevistas.Items.Clear() 'Borra los items del ListBox carrito de libros 
-            ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Clear() 'Borra los items del ListBox carrito para almacenar ids
+            ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items.Clear() 'Borra los items del ListBox carrito para almacenar ids
             Cedula.Clear() 'Borramos el contenido del textbox cedula 
             PanelDelCarrito.Left = -268 'Regresamos el carrito a la ubicacion del inicio
 
@@ -898,7 +898,7 @@
                 '///////////////////////////////////////////
 
                 CarritoDeRevistas.Items.Clear() 'Borra los items del ListBox carrito de libros 
-                ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Clear() 'Borra los items del ListBox carrito para almacenar ids
+                ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items.Clear() 'Borra los items del ListBox carrito para almacenar ids
                 Cedula.Clear() 'Borramos el contenido del textbox cedula 
                 PanelDelCarrito.Left = -268 'Regresamos el carrito a la ubicacion del inicio
 
@@ -934,7 +934,7 @@
                 LabelSELECCION_DE_FUNCION.Visible = True
 
                 CarritoDeRevistas.Items.Clear() 'Borramos los items de listbox carrito de libros 
-                ListboxOculto_ParaGuardarLasIdDeLasRevistasEnElCarrito_.Items.Clear() 'Borramos los items de listbox carrito de libros 
+                ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items.Clear() 'Borramos los items de listbox carrito de libros 
                 PanelDelCarrito.Left = -5 'Mostramos el carrito
 
                 BotonParaBuscarCedula.Text = "Editar" 'Ponemos el texto de buscar cedula en "editar"
