@@ -84,7 +84,7 @@
         Datagrid_Align()
 
         'DataGridView1.Columns.Add(DataGridView1.Columns.Count - 1, "Ficha")
-
+        rutafoto1 = ""
         TimerFoto.Enabled = False
     End Sub
 
@@ -341,7 +341,6 @@
         '///////////////////////////////////////////////////////////////////////////////////////////////////
         '///////////////////////////////////////////////////////////////////////////////////////////////////
         bt_FichaSocio.Visible = True
-
         cedulaUser = DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value
 
         mouse = 0
@@ -349,8 +348,7 @@
         Select Case seleccionado
 
             Case 2
-
-                Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento , tipo from usuarios where cedula = '" & DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value & "'"
+                Consulta = "select * from usuarios where cedula = '" & DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value & "'"
                 consultar()
 
                 For Each row As DataRow In Tabla.Rows
@@ -364,10 +362,15 @@
                     dia_datagrid = row("nacimiento").ToString.Substring(0, 2)
                     mes_datagrid = row("nacimiento").ToString.Substring(3, 2)
                     año_datagrid = row("nacimiento").ToString.Substring(6, 4)
-
+                    If row("rutaperfil") Is DBNull.Value Then
+                        rutaFoto = Convert.ToString("Fotos de socio\student.jpg")
+                    Else
+                        rutaFoto = row("rutaperfil")
+                    End If
 
                 Next
-
+                ' Inactivo.Enabled = True
+                Button4.Visible = False
                 cargar2()
 
                 Dim x = 1
@@ -738,7 +741,8 @@
                 Inactivo.Enabled = True
         End Select
     End Sub
-    Private Sub VerificarModificacion()
+    Public rutafoto1 As String = "0"
+    Public Sub VerificarModificacion()
         Try
             If mouse = 0 Then
 
@@ -751,7 +755,9 @@
                 Dim mes2 As String = "0"
                 Dim año2 As String = "0"
                 Dim dianum As String = "0"
-                Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento , tipo from usuarios where cedula = '" & DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value & "'"
+                'rutafoto1 = "0"
+
+                Consulta = "select * from usuarios where cedula = '" & DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value & "'"
                 consultar()
 
                 For Each row As DataRow In Tabla.Rows
@@ -829,10 +835,20 @@
                     Else
                         direccion1 = "1"
                     End If
+
+                    If rutaFoto = "" Then
+                        rutafoto1 = "0"
+                    Else
+                        If row("rutaperfil") = rutaFoto Then
+                            rutafoto1 = "0"
+                        Else
+                            rutafoto1 = "1"
+                        End If
+                    End If
                 Next
 
 
-                If nombre1 = "0" And apellido1 = "0" And cedula1 = "0" And telefono1 = "0" And direccion1 = "0" And dia2 = "0" And mes2 = "0" And año2 = "0" Then
+                If nombre1 = "0" And apellido1 = "0" And cedula1 = "0" And telefono1 = "0" And direccion1 = "0" And dia2 = "0" And mes2 = "0" And año2 = "0" And rutafoto1 = "0" Then
                     Button4.Visible = False
                 Else
                     Button4.Visible = True
@@ -843,7 +859,7 @@
         Catch ex As Exception
 
         End Try
-       
+
     End Sub
 
     Private Sub apellido_TextChanged(sender As System.Object, e As System.EventArgs) Handles apellido.TextChanged
@@ -919,9 +935,9 @@
 
             If contador > 1 Then
                 contador = 0
-                Inactivo.Enabled = False
                 mouse = 0
                 VerificarModificacion()
+                Inactivo.Enabled = False
             End If
         Else
             Inactivo.Enabled = False
@@ -986,7 +1002,7 @@
                 ptbFotoEditar.ImageLocation = Convert.ToString("Fotos de socio\student.png")
                 If row("rutaperfil") Is DBNull.Value Or row("rutaperfil") Is "" Then
                     ptbFotoEditar.Refresh()
-                    ptbFotoEditar.ImageLocation = Convert.ToString("Fotos de socio\student.png")
+                    ptbFotoEditar.ImageLocation = Convert.ToString("Fotos de socio\student.jpg")
                 Else
                     ptbFotoEditar.Refresh()
                     ptbFotoEditar.ImageLocation = Convert.ToString(row("rutaperfil"))
@@ -1140,11 +1156,13 @@
                 Case 0
                     ptbFotoSocio.ImageLocation = rutaFoto
                     ptbFotoSocio.Refresh()
+                    Inactivo.Enabled = True
                     TimerFoto.Enabled = False
                 Case 1
                     ptbFotoEditar.ImageLocation = rutaFoto
                     ptbFotoEditar.Refresh()
                     TimerFoto.Enabled = False
+                    Inactivo.Enabled = True
             End Select
 
 
@@ -1177,6 +1195,10 @@
         Else
             MsgBox("Los campos de nombre y cedula deben de estar completos para realizar esto")
         End If
+
+    End Sub
+
+    Private Sub DataGridView1_CellContentDoubleClick(sender As Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellContentDoubleClick
 
     End Sub
 End Class

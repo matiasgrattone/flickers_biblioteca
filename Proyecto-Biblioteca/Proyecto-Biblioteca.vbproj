@@ -295,6 +295,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio UsuariosV2.resx">
       <DependentUpon>Inicio UsuariosV2.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Betas\NotasUsuario.resx">
       <DependentUpon>NotasUsuario.vb</DependentUpon>
