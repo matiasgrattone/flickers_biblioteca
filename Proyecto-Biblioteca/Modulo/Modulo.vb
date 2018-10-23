@@ -79,6 +79,7 @@ Module Modulo
             ElseIf ERROR1 <> 2 Then
                 If MsgBox("ha ocurrido un error desea verlo?", MsgBoxStyle.YesNo) = vbYes Then
                     MsgBox(ex.ToString)
+                    ERROR1 = 0
                 Else
                 End If
             End If
