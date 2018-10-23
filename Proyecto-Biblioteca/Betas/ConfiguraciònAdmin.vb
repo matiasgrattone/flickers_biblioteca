@@ -955,7 +955,7 @@ Public Class ConfigAdmin
         If Button7.Text = "Editar" Then
             InputBoxForm.Show()
         Else
-            Consulta_dataset = "update usuarios set nombre = '" & PlaceHolder5.Text & "' , apellido = '" & PlaceHolder4.Text & "' , cedula = '" & PlaceHolder3.Text & "' , telefono = '" & PlaceHolder2.Text & "' , direccion = '" & PlaceHolder6.Text & "' where cedula = '" & cedulaFotoPerfil & "';select nombre from usuarios where cedula = '" & cedulaFotoPerfil & "'"
+            Consulta_dataset = "update usuarios set nombre = '" & PlaceHolder5.Text & "' , apellido = '" & PlaceHolder4.Text & "' , cedula = '" & PlaceHolder3.Text & "' , telefono = '" & PlaceHolder2.Text & "' , direccion = '" & PlaceHolder6.Text & "' where cedula = '" & cedulaFotoPerfil & "';select * from usuarios where cedula = '" & cedulaFotoPerfil & "'"
             consultar_DataSet()
             MsgBox("Cambios Guardados Correctamente")
             For Each row As DataRow In Tabla_dataset.Tables(0).Rows
