@@ -69,9 +69,15 @@
 
                 Try
                     ptbFoto.Image.Save(rutaFoto)
-                    Inicio_UsuariosV2.ptbFotoSocio.Image = Image.FromFile(rutaFoto)
-                    Inicio_UsuariosV2.ptbFotoSocio.Refresh()
-                    Inicio_UsuariosV2.ptbFotoSocio.ImageLocation = Convert.ToString(rutaFoto)
+                    If opcionConfigUsers = 0 Then
+                        ConfigAdmin.ptbFuncio.Image = Image.FromFile(rutaFoto)
+                        ConfigAdmin.ptbFuncio.Refresh()
+                        ConfigAdmin.ptbFuncio.ImageLocation = Convert.ToString(rutaFoto)
+                    Else
+                        Inicio_UsuariosV2.ptbFotoSocio.Image = Image.FromFile(rutaFoto)
+                        Inicio_UsuariosV2.ptbFotoSocio.Refresh()
+                        Inicio_UsuariosV2.ptbFotoSocio.ImageLocation = Convert.ToString(rutaFoto)
+                    End If
                     MsgBox("Se guardo correctamente")
                     Me.Dispose()
                 Catch ex As Exception
