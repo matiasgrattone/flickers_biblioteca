@@ -49,8 +49,8 @@ Module Modulo
     Public Sub consultar()
 
         If invitado = 0 Then
-            'ubicacion = "server=localhost; user id=root; password=''; database=biblioteca"
-            ubicacion = "server=192.168.1.12; user id=admin; password=admin; database=biblioteca" ' NO BORRAR, YO USO ESTA PARA PROGRAMAR EN CASA, GUILLE (NO PUEDO USAR EL DOMINIO EN LAN)
+            ubicacion = "server=localhost; user id=root; password=''; database=biblioteca"
+            'ubicacion = "server=192.168.1.12; user id=admin; password=admin; database=biblioteca" ' NO BORRAR, YO USO ESTA PARA PROGRAMAR EN CASA, GUILLE (NO PUEDO USAR EL DOMINIO EN LAN)
             'ubicacion = "server=bibliotecadb.ddns.net; user id=admin; password=admin; database=biblioteca"
         Else
             'ubicacion = "server=192.168.1.12; user id=invitado; password=invitado; database=biblioteca"
