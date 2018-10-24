@@ -33,18 +33,17 @@ Partial Class ConfigAdmin
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ConfigAdmin))
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.buscar_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
@@ -62,12 +61,6 @@ Partial Class ConfigAdmin
         Me.cb_dia = New System.Windows.Forms.ComboBox()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
-        Me.contrasenia_txt = New Proyecto_Biblioteca.PlaceHolder()
-        Me.telefono_txt = New Proyecto_Biblioteca.PlaceHolder()
-        Me.cedula_txt = New Proyecto_Biblioteca.PlaceHolder()
-        Me.apellido_txt = New Proyecto_Biblioteca.PlaceHolder()
-        Me.nombre_txt = New Proyecto_Biblioteca.PlaceHolder()
-        Me.direccion_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.dgveditar = New System.Windows.Forms.DataGridView()
         Me.btn_editar_perfil = New System.Windows.Forms.Button()
@@ -83,15 +76,9 @@ Partial Class ConfigAdmin
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
-        Me.direccion = New Proyecto_Biblioteca.PlaceHolder()
-        Me.telefono = New Proyecto_Biblioteca.PlaceHolder()
-        Me.cedula = New Proyecto_Biblioteca.PlaceHolder()
-        Me.apellido = New Proyecto_Biblioteca.PlaceHolder()
-        Me.nombre = New Proyecto_Biblioteca.PlaceHolder()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.Dgv_Baja = New System.Windows.Forms.DataGridView()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Buscar_Baja_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.Label_BaseDatos = New System.Windows.Forms.Label()
@@ -105,12 +92,6 @@ Partial Class ConfigAdmin
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Label20 = New System.Windows.Forms.Label()
-        Me.ptbPerfilAdmin = New Proyecto_Biblioteca.PictureboxBordesRedondos()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton7 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton6 = New System.Windows.Forms.RadioButton()
-        Me.DGV_ONLINE = New System.Windows.Forms.DataGridView()
-        Me.Online = New System.Windows.Forms.DataGridViewImageColumn()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
@@ -121,19 +102,39 @@ Partial Class ConfigAdmin
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Button8 = New System.Windows.Forms.Button()
         Me.Button7 = New System.Windows.Forms.Button()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Label26 = New System.Windows.Forms.Label()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton7 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton6 = New System.Windows.Forms.RadioButton()
+        Me.DGV_ONLINE = New System.Windows.Forms.DataGridView()
+        Me.Online = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.TimerFoto = New System.Windows.Forms.Timer(Me.components)
+        Me.ptbPerfilAdmin = New Proyecto_Biblioteca.PictureboxBordesRedondos()
         Me.PlaceHolder2 = New Proyecto_Biblioteca.PlaceHolder()
         Me.PlaceHolder3 = New Proyecto_Biblioteca.PlaceHolder()
         Me.PlaceHolder4 = New Proyecto_Biblioteca.PlaceHolder()
         Me.PlaceHolder5 = New Proyecto_Biblioteca.PlaceHolder()
         Me.PlaceHolder6 = New Proyecto_Biblioteca.PlaceHolder()
-        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.TimerFoto = New System.Windows.Forms.Timer(Me.components)
+        Me.buscar_txt = New Proyecto_Biblioteca.PlaceHolder()
+        Me.contrasenia_txt = New Proyecto_Biblioteca.PlaceHolder()
+        Me.telefono_txt = New Proyecto_Biblioteca.PlaceHolder()
+        Me.cedula_txt = New Proyecto_Biblioteca.PlaceHolder()
+        Me.apellido_txt = New Proyecto_Biblioteca.PlaceHolder()
+        Me.nombre_txt = New Proyecto_Biblioteca.PlaceHolder()
+        Me.direccion_txt = New Proyecto_Biblioteca.PlaceHolder()
+        Me.direccion = New Proyecto_Biblioteca.PlaceHolder()
+        Me.telefono = New Proyecto_Biblioteca.PlaceHolder()
+        Me.cedula = New Proyecto_Biblioteca.PlaceHolder()
+        Me.apellido = New Proyecto_Biblioteca.PlaceHolder()
+        Me.nombre = New Proyecto_Biblioteca.PlaceHolder()
+        Me.Buscar_Baja_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -148,13 +149,13 @@ Partial Class ConfigAdmin
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
-        CType(Me.ptbPerfilAdmin, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox1.SuspendLayout()
-        CType(Me.DGV_ONLINE, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        CType(Me.DGV_ONLINE, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ptbPerfilAdmin, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TreeView1
@@ -244,16 +245,6 @@ Partial Class ConfigAdmin
         Me.Label2.Size = New System.Drawing.Size(276, 13)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Para dar de baja a un funcionario dar doble click sobre él"
-        '
-        'buscar_txt
-        '
-        Me.buscar_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.buscar_txt.Location = New System.Drawing.Point(72, 16)
-        Me.buscar_txt.Name = "buscar_txt"
-        Me.buscar_txt.Size = New System.Drawing.Size(301, 20)
-        Me.buscar_txt.TabIndex = 0
-        Me.buscar_txt.WaterMarkColor = System.Drawing.Color.Gray
-        Me.buscar_txt.WaterMarkText = "Buscar por Nombre"
         '
         'TabPage2
         '
@@ -446,66 +437,6 @@ Partial Class ConfigAdmin
         Me.Label18.Size = New System.Drawing.Size(70, 19)
         Me.Label18.TabIndex = 133
         Me.Label18.Text = "Dirección"
-        '
-        'contrasenia_txt
-        '
-        Me.contrasenia_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.contrasenia_txt.Location = New System.Drawing.Point(208, 243)
-        Me.contrasenia_txt.Name = "contrasenia_txt"
-        Me.contrasenia_txt.Size = New System.Drawing.Size(189, 27)
-        Me.contrasenia_txt.TabIndex = 149
-        Me.contrasenia_txt.WaterMarkColor = System.Drawing.Color.Gray
-        Me.contrasenia_txt.WaterMarkText = "Contraseña"
-        '
-        'telefono_txt
-        '
-        Me.telefono_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.telefono_txt.Location = New System.Drawing.Point(208, 172)
-        Me.telefono_txt.Name = "telefono_txt"
-        Me.telefono_txt.Size = New System.Drawing.Size(189, 27)
-        Me.telefono_txt.TabIndex = 147
-        Me.telefono_txt.WaterMarkColor = System.Drawing.Color.Gray
-        Me.telefono_txt.WaterMarkText = "Teléfono"
-        '
-        'cedula_txt
-        '
-        Me.cedula_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cedula_txt.Location = New System.Drawing.Point(208, 139)
-        Me.cedula_txt.Name = "cedula_txt"
-        Me.cedula_txt.Size = New System.Drawing.Size(189, 27)
-        Me.cedula_txt.TabIndex = 146
-        Me.cedula_txt.WaterMarkColor = System.Drawing.Color.Gray
-        Me.cedula_txt.WaterMarkText = "Cédula"
-        '
-        'apellido_txt
-        '
-        Me.apellido_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.apellido_txt.Location = New System.Drawing.Point(208, 103)
-        Me.apellido_txt.Name = "apellido_txt"
-        Me.apellido_txt.Size = New System.Drawing.Size(189, 27)
-        Me.apellido_txt.TabIndex = 145
-        Me.apellido_txt.WaterMarkColor = System.Drawing.Color.Gray
-        Me.apellido_txt.WaterMarkText = "Apellido"
-        '
-        'nombre_txt
-        '
-        Me.nombre_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nombre_txt.Location = New System.Drawing.Point(208, 67)
-        Me.nombre_txt.Name = "nombre_txt"
-        Me.nombre_txt.Size = New System.Drawing.Size(189, 27)
-        Me.nombre_txt.TabIndex = 144
-        Me.nombre_txt.WaterMarkColor = System.Drawing.Color.Gray
-        Me.nombre_txt.WaterMarkText = "Nombre"
-        '
-        'direccion_txt
-        '
-        Me.direccion_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.direccion_txt.Location = New System.Drawing.Point(208, 210)
-        Me.direccion_txt.Name = "direccion_txt"
-        Me.direccion_txt.Size = New System.Drawing.Size(189, 27)
-        Me.direccion_txt.TabIndex = 148
-        Me.direccion_txt.WaterMarkColor = System.Drawing.Color.Gray
-        Me.direccion_txt.WaterMarkText = "Dirección"
         '
         'TabPage3
         '
@@ -709,56 +640,6 @@ Partial Class ConfigAdmin
         Me.Label19.TabIndex = 83
         Me.Label19.Text = "Telefono"
         '
-        'direccion
-        '
-        Me.direccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.direccion.Location = New System.Drawing.Point(334, 212)
-        Me.direccion.Name = "direccion"
-        Me.direccion.Size = New System.Drawing.Size(164, 20)
-        Me.direccion.TabIndex = 97
-        Me.direccion.WaterMarkColor = System.Drawing.Color.Gray
-        Me.direccion.WaterMarkText = "Direccion"
-        '
-        'telefono
-        '
-        Me.telefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.telefono.Location = New System.Drawing.Point(334, 178)
-        Me.telefono.Name = "telefono"
-        Me.telefono.Size = New System.Drawing.Size(164, 20)
-        Me.telefono.TabIndex = 96
-        Me.telefono.WaterMarkColor = System.Drawing.Color.Gray
-        Me.telefono.WaterMarkText = "Telefono"
-        '
-        'cedula
-        '
-        Me.cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.cedula.Location = New System.Drawing.Point(334, 139)
-        Me.cedula.Name = "cedula"
-        Me.cedula.Size = New System.Drawing.Size(164, 20)
-        Me.cedula.TabIndex = 95
-        Me.cedula.WaterMarkColor = System.Drawing.Color.Gray
-        Me.cedula.WaterMarkText = "Cedula"
-        '
-        'apellido
-        '
-        Me.apellido.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.apellido.Location = New System.Drawing.Point(334, 99)
-        Me.apellido.Name = "apellido"
-        Me.apellido.Size = New System.Drawing.Size(164, 20)
-        Me.apellido.TabIndex = 94
-        Me.apellido.WaterMarkColor = System.Drawing.Color.Gray
-        Me.apellido.WaterMarkText = "Apellido"
-        '
-        'nombre
-        '
-        Me.nombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.nombre.Location = New System.Drawing.Point(334, 63)
-        Me.nombre.Name = "nombre"
-        Me.nombre.Size = New System.Drawing.Size(164, 20)
-        Me.nombre.TabIndex = 93
-        Me.nombre.WaterMarkColor = System.Drawing.Color.Gray
-        Me.nombre.WaterMarkText = "Nombre"
-        '
         'TabPage4
         '
         Me.TabPage4.Controls.Add(Me.Dgv_Baja)
@@ -825,16 +706,6 @@ Partial Class ConfigAdmin
         Me.Label1.Size = New System.Drawing.Size(255, 13)
         Me.Label1.TabIndex = 4
         Me.Label1.Text = "Para activar a un funcionario dar doble click sobre él"
-        '
-        'Buscar_Baja_txt
-        '
-        Me.Buscar_Baja_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Buscar_Baja_txt.Location = New System.Drawing.Point(72, 16)
-        Me.Buscar_Baja_txt.Name = "Buscar_Baja_txt"
-        Me.Buscar_Baja_txt.Size = New System.Drawing.Size(301, 20)
-        Me.Buscar_Baja_txt.TabIndex = 3
-        Me.Buscar_Baja_txt.WaterMarkColor = System.Drawing.Color.Gray
-        Me.Buscar_Baja_txt.WaterMarkText = "Buscar por Nombre"
         '
         'ImageList1
         '
@@ -962,113 +833,6 @@ Partial Class ConfigAdmin
         Me.Label20.TabIndex = 25
         Me.Label20.Text = "Doble click en la imagen para cambiar"
         '
-        'ptbPerfilAdmin
-        '
-        Me.ptbPerfilAdmin.BackColor = System.Drawing.Color.DarkGray
-        Me.ptbPerfilAdmin.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ptbPerfilAdmin.Location = New System.Drawing.Point(35, 31)
-        Me.ptbPerfilAdmin.Name = "ptbPerfilAdmin"
-        Me.ptbPerfilAdmin.Size = New System.Drawing.Size(155, 155)
-        Me.ptbPerfilAdmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.ptbPerfilAdmin.TabIndex = 19
-        Me.ptbPerfilAdmin.TabStop = False
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.RadioButton7)
-        Me.GroupBox1.Controls.Add(Me.RadioButton6)
-        Me.GroupBox1.Controls.Add(Me.DGV_ONLINE)
-        Me.GroupBox1.Controls.Add(Me.TabControl1)
-        Me.GroupBox1.Controls.Add(Me.TreeView1)
-        Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.GroupBox1.Location = New System.Drawing.Point(257, -7)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(826, 601)
-        Me.GroupBox1.TabIndex = 30
-        Me.GroupBox1.TabStop = False
-        '
-        'RadioButton7
-        '
-        Me.RadioButton7.AutoSize = True
-        Me.RadioButton7.Checked = True
-        Me.RadioButton7.Location = New System.Drawing.Point(14, 16)
-        Me.RadioButton7.Name = "RadioButton7"
-        Me.RadioButton7.Size = New System.Drawing.Size(127, 17)
-        Me.RadioButton7.TabIndex = 29
-        Me.RadioButton7.TabStop = True
-        Me.RadioButton7.Text = "Ver Lista De Usuarios"
-        Me.RadioButton7.UseVisualStyleBackColor = True
-        '
-        'RadioButton6
-        '
-        Me.RadioButton6.AutoSize = True
-        Me.RadioButton6.Location = New System.Drawing.Point(142, 16)
-        Me.RadioButton6.Name = "RadioButton6"
-        Me.RadioButton6.Size = New System.Drawing.Size(118, 17)
-        Me.RadioButton6.TabIndex = 28
-        Me.RadioButton6.Text = "Ver Usuarios Online"
-        Me.RadioButton6.UseVisualStyleBackColor = True
-        '
-        'DGV_ONLINE
-        '
-        Me.DGV_ONLINE.AllowUserToAddRows = False
-        Me.DGV_ONLINE.AllowUserToDeleteRows = False
-        Me.DGV_ONLINE.AllowUserToResizeColumns = False
-        Me.DGV_ONLINE.AllowUserToResizeRows = False
-        Me.DGV_ONLINE.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
-        Me.DGV_ONLINE.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable
-        Me.DGV_ONLINE.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle10.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Transparent
-        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Transparent
-        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DGV_ONLINE.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle10
-        Me.DGV_ONLINE.ColumnHeadersHeight = 40
-        Me.DGV_ONLINE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.DGV_ONLINE.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Online})
-        Me.DGV_ONLINE.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.DGV_ONLINE.EnableHeadersVisualStyles = False
-        Me.DGV_ONLINE.ImeMode = System.Windows.Forms.ImeMode.Off
-        Me.DGV_ONLINE.Location = New System.Drawing.Point(1, 41)
-        Me.DGV_ONLINE.MultiSelect = False
-        Me.DGV_ONLINE.Name = "DGV_ONLINE"
-        Me.DGV_ONLINE.ReadOnly = True
-        Me.DGV_ONLINE.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle11.BackColor = System.Drawing.Color.Gray
-        DataGridViewCellStyle11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DGV_ONLINE.RowHeadersDefaultCellStyle = DataGridViewCellStyle11
-        Me.DGV_ONLINE.RowHeadersVisible = False
-        Me.DGV_ONLINE.RowHeadersWidth = 50
-        Me.DGV_ONLINE.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle12.BackColor = System.Drawing.Color.Gray
-        DataGridViewCellStyle12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle12.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White
-        Me.DGV_ONLINE.RowsDefaultCellStyle = DataGridViewCellStyle12
-        Me.DGV_ONLINE.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Gray
-        Me.DGV_ONLINE.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DGV_ONLINE.Size = New System.Drawing.Size(268, 560)
-        Me.DGV_ONLINE.TabIndex = 19
-        Me.DGV_ONLINE.TabStop = False
-        '
-        'Online
-        '
-        Me.Online.HeaderText = "Online"
-        Me.Online.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
-        Me.Online.Name = "Online"
-        Me.Online.ReadOnly = True
-        Me.Online.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Online.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        '
         'GroupBox4
         '
         Me.GroupBox4.Controls.Add(Me.GroupBox2)
@@ -1172,6 +936,7 @@ Partial Class ConfigAdmin
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.Button8)
         Me.GroupBox3.Controls.Add(Me.Button7)
         Me.GroupBox3.Controls.Add(Me.Label22)
         Me.GroupBox3.Controls.Add(Me.Label23)
@@ -1189,9 +954,18 @@ Partial Class ConfigAdmin
         Me.GroupBox3.TabIndex = 162
         Me.GroupBox3.TabStop = False
         '
+        'Button8
+        '
+        Me.Button8.Location = New System.Drawing.Point(87, 529)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(119, 41)
+        Me.Button8.TabIndex = 163
+        Me.Button8.Text = "Cancelar"
+        Me.Button8.UseVisualStyleBackColor = True
+        '
         'Button7
         '
-        Me.Button7.Location = New System.Drawing.Point(131, 529)
+        Me.Button7.Location = New System.Drawing.Point(212, 529)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(128, 41)
         Me.Button7.TabIndex = 162
@@ -1248,6 +1022,116 @@ Partial Class ConfigAdmin
         Me.Label26.TabIndex = 150
         Me.Label26.Text = "Dirección"
         '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.RadioButton7)
+        Me.GroupBox1.Controls.Add(Me.RadioButton6)
+        Me.GroupBox1.Controls.Add(Me.DGV_ONLINE)
+        Me.GroupBox1.Controls.Add(Me.TabControl1)
+        Me.GroupBox1.Controls.Add(Me.TreeView1)
+        Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.GroupBox1.Location = New System.Drawing.Point(257, -7)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(826, 601)
+        Me.GroupBox1.TabIndex = 30
+        Me.GroupBox1.TabStop = False
+        '
+        'RadioButton7
+        '
+        Me.RadioButton7.AutoSize = True
+        Me.RadioButton7.Checked = True
+        Me.RadioButton7.Location = New System.Drawing.Point(14, 16)
+        Me.RadioButton7.Name = "RadioButton7"
+        Me.RadioButton7.Size = New System.Drawing.Size(127, 17)
+        Me.RadioButton7.TabIndex = 29
+        Me.RadioButton7.TabStop = True
+        Me.RadioButton7.Text = "Ver Lista De Usuarios"
+        Me.RadioButton7.UseVisualStyleBackColor = True
+        '
+        'RadioButton6
+        '
+        Me.RadioButton6.AutoSize = True
+        Me.RadioButton6.Location = New System.Drawing.Point(142, 16)
+        Me.RadioButton6.Name = "RadioButton6"
+        Me.RadioButton6.Size = New System.Drawing.Size(118, 17)
+        Me.RadioButton6.TabIndex = 28
+        Me.RadioButton6.Text = "Ver Usuarios Online"
+        Me.RadioButton6.UseVisualStyleBackColor = True
+        '
+        'DGV_ONLINE
+        '
+        Me.DGV_ONLINE.AllowUserToAddRows = False
+        Me.DGV_ONLINE.AllowUserToDeleteRows = False
+        Me.DGV_ONLINE.AllowUserToResizeColumns = False
+        Me.DGV_ONLINE.AllowUserToResizeRows = False
+        Me.DGV_ONLINE.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.DGV_ONLINE.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable
+        Me.DGV_ONLINE.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle10.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Transparent
+        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Transparent
+        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DGV_ONLINE.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle10
+        Me.DGV_ONLINE.ColumnHeadersHeight = 40
+        Me.DGV_ONLINE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.DGV_ONLINE.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Online})
+        Me.DGV_ONLINE.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.DGV_ONLINE.EnableHeadersVisualStyles = False
+        Me.DGV_ONLINE.ImeMode = System.Windows.Forms.ImeMode.Off
+        Me.DGV_ONLINE.Location = New System.Drawing.Point(1, 41)
+        Me.DGV_ONLINE.MultiSelect = False
+        Me.DGV_ONLINE.Name = "DGV_ONLINE"
+        Me.DGV_ONLINE.ReadOnly = True
+        Me.DGV_ONLINE.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle11.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DGV_ONLINE.RowHeadersDefaultCellStyle = DataGridViewCellStyle11
+        Me.DGV_ONLINE.RowHeadersVisible = False
+        Me.DGV_ONLINE.RowHeadersWidth = 50
+        Me.DGV_ONLINE.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        DataGridViewCellStyle12.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle12.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White
+        Me.DGV_ONLINE.RowsDefaultCellStyle = DataGridViewCellStyle12
+        Me.DGV_ONLINE.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Gray
+        Me.DGV_ONLINE.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DGV_ONLINE.Size = New System.Drawing.Size(268, 560)
+        Me.DGV_ONLINE.TabIndex = 19
+        Me.DGV_ONLINE.TabStop = False
+        '
+        'Online
+        '
+        Me.Online.HeaderText = "Online"
+        Me.Online.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
+        Me.Online.Name = "Online"
+        Me.Online.ReadOnly = True
+        Me.Online.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Online.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        '
+        'TimerFoto
+        '
+        '
+        'ptbPerfilAdmin
+        '
+        Me.ptbPerfilAdmin.BackColor = System.Drawing.Color.DarkGray
+        Me.ptbPerfilAdmin.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ptbPerfilAdmin.Location = New System.Drawing.Point(35, 31)
+        Me.ptbPerfilAdmin.Name = "ptbPerfilAdmin"
+        Me.ptbPerfilAdmin.Size = New System.Drawing.Size(155, 155)
+        Me.ptbPerfilAdmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.ptbPerfilAdmin.TabIndex = 19
+        Me.ptbPerfilAdmin.TabStop = False
+        '
         'PlaceHolder2
         '
         Me.PlaceHolder2.Enabled = False
@@ -1303,8 +1187,135 @@ Partial Class ConfigAdmin
         Me.PlaceHolder6.WaterMarkColor = System.Drawing.Color.Gray
         Me.PlaceHolder6.WaterMarkText = "Dirección"
         '
-        'TimerFoto
+        'buscar_txt
         '
+        Me.buscar_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.buscar_txt.Location = New System.Drawing.Point(72, 16)
+        Me.buscar_txt.Name = "buscar_txt"
+        Me.buscar_txt.Size = New System.Drawing.Size(301, 20)
+        Me.buscar_txt.TabIndex = 0
+        Me.buscar_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.buscar_txt.WaterMarkText = "Buscar por Nombre"
+        '
+        'contrasenia_txt
+        '
+        Me.contrasenia_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.contrasenia_txt.Location = New System.Drawing.Point(208, 243)
+        Me.contrasenia_txt.Name = "contrasenia_txt"
+        Me.contrasenia_txt.Size = New System.Drawing.Size(189, 27)
+        Me.contrasenia_txt.TabIndex = 149
+        Me.contrasenia_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.contrasenia_txt.WaterMarkText = "Contraseña"
+        '
+        'telefono_txt
+        '
+        Me.telefono_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.telefono_txt.Location = New System.Drawing.Point(208, 172)
+        Me.telefono_txt.Name = "telefono_txt"
+        Me.telefono_txt.Size = New System.Drawing.Size(189, 27)
+        Me.telefono_txt.TabIndex = 147
+        Me.telefono_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.telefono_txt.WaterMarkText = "Teléfono"
+        '
+        'cedula_txt
+        '
+        Me.cedula_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cedula_txt.Location = New System.Drawing.Point(208, 139)
+        Me.cedula_txt.Name = "cedula_txt"
+        Me.cedula_txt.Size = New System.Drawing.Size(189, 27)
+        Me.cedula_txt.TabIndex = 146
+        Me.cedula_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.cedula_txt.WaterMarkText = "Cédula"
+        '
+        'apellido_txt
+        '
+        Me.apellido_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.apellido_txt.Location = New System.Drawing.Point(208, 103)
+        Me.apellido_txt.Name = "apellido_txt"
+        Me.apellido_txt.Size = New System.Drawing.Size(189, 27)
+        Me.apellido_txt.TabIndex = 145
+        Me.apellido_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.apellido_txt.WaterMarkText = "Apellido"
+        '
+        'nombre_txt
+        '
+        Me.nombre_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nombre_txt.Location = New System.Drawing.Point(208, 67)
+        Me.nombre_txt.Name = "nombre_txt"
+        Me.nombre_txt.Size = New System.Drawing.Size(189, 27)
+        Me.nombre_txt.TabIndex = 144
+        Me.nombre_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.nombre_txt.WaterMarkText = "Nombre"
+        '
+        'direccion_txt
+        '
+        Me.direccion_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.direccion_txt.Location = New System.Drawing.Point(208, 210)
+        Me.direccion_txt.Name = "direccion_txt"
+        Me.direccion_txt.Size = New System.Drawing.Size(189, 27)
+        Me.direccion_txt.TabIndex = 148
+        Me.direccion_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.direccion_txt.WaterMarkText = "Dirección"
+        '
+        'direccion
+        '
+        Me.direccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.direccion.Location = New System.Drawing.Point(334, 212)
+        Me.direccion.Name = "direccion"
+        Me.direccion.Size = New System.Drawing.Size(164, 20)
+        Me.direccion.TabIndex = 97
+        Me.direccion.WaterMarkColor = System.Drawing.Color.Gray
+        Me.direccion.WaterMarkText = "Direccion"
+        '
+        'telefono
+        '
+        Me.telefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.telefono.Location = New System.Drawing.Point(334, 178)
+        Me.telefono.Name = "telefono"
+        Me.telefono.Size = New System.Drawing.Size(164, 20)
+        Me.telefono.TabIndex = 96
+        Me.telefono.WaterMarkColor = System.Drawing.Color.Gray
+        Me.telefono.WaterMarkText = "Telefono"
+        '
+        'cedula
+        '
+        Me.cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.cedula.Location = New System.Drawing.Point(334, 139)
+        Me.cedula.Name = "cedula"
+        Me.cedula.Size = New System.Drawing.Size(164, 20)
+        Me.cedula.TabIndex = 95
+        Me.cedula.WaterMarkColor = System.Drawing.Color.Gray
+        Me.cedula.WaterMarkText = "Cedula"
+        '
+        'apellido
+        '
+        Me.apellido.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.apellido.Location = New System.Drawing.Point(334, 99)
+        Me.apellido.Name = "apellido"
+        Me.apellido.Size = New System.Drawing.Size(164, 20)
+        Me.apellido.TabIndex = 94
+        Me.apellido.WaterMarkColor = System.Drawing.Color.Gray
+        Me.apellido.WaterMarkText = "Apellido"
+        '
+        'nombre
+        '
+        Me.nombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.nombre.Location = New System.Drawing.Point(334, 63)
+        Me.nombre.Name = "nombre"
+        Me.nombre.Size = New System.Drawing.Size(164, 20)
+        Me.nombre.TabIndex = 93
+        Me.nombre.WaterMarkColor = System.Drawing.Color.Gray
+        Me.nombre.WaterMarkText = "Nombre"
+        '
+        'Buscar_Baja_txt
+        '
+        Me.Buscar_Baja_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.Buscar_Baja_txt.Location = New System.Drawing.Point(72, 16)
+        Me.Buscar_Baja_txt.Name = "Buscar_Baja_txt"
+        Me.Buscar_Baja_txt.Size = New System.Drawing.Size(301, 20)
+        Me.Buscar_Baja_txt.TabIndex = 3
+        Me.Buscar_Baja_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.Buscar_Baja_txt.WaterMarkText = "Buscar por Nombre"
         '
         'ConfigAdmin
         '
@@ -1338,16 +1349,16 @@ Partial Class ConfigAdmin
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
-        CType(Me.ptbPerfilAdmin, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
-        CType(Me.DGV_ONLINE, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        CType(Me.DGV_ONLINE, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ptbPerfilAdmin, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1446,4 +1457,5 @@ Partial Class ConfigAdmin
     Friend WithEvents PlaceHolder6 As Proyecto_Biblioteca.PlaceHolder
     Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
     Friend WithEvents Chart1 As System.Windows.Forms.DataVisualization.Charting.Chart
+    Friend WithEvents Button8 As System.Windows.Forms.Button
 End Class
