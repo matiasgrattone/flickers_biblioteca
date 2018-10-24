@@ -159,20 +159,23 @@
                             Pautor.Visible = True
                             Peditorial.Visible = False
                             Pclasificacion.Visible = False
-                            timereditorial.Enabled = True
-                            timerclasificacion.Enabled = True
+
+                            timereditorial.Enabled = False
+                            timerclasificacion.Enabled = False
                         Case 2
+                            Pclasificacion.Visible = True
                             Peditorial.Visible = False
                             Pautor.Visible = False
-                            Pclasificacion.Visible = True
-                            timerclasificacion.Enabled = True
-                            timerautor.Enabled = True
+
+                            timereditorial.Enabled = False
+                            timerautor.Enabled = False
                         Case 3
+                            Peditorial.Visible = True
                             Pclasificacion.Visible = False
                             Pautor.Visible = False
-                            Peditorial.Visible = True
-                            timereditorial.Enabled = True
-                            timerautor.Enabled = True
+
+                            timerclasificacion.Enabled = False
+                            timerautor.Enabled = False
                     End Select
 
                     ErrorProvider1.SetError(txtautor, "")
@@ -206,24 +209,27 @@
                     '1 autor , 2 editorial, 3 clasificacion
                     seleccionado = 3
                     Select Case seleccionado
-                        Case 1
+                        Case 3
                             Pautor.Visible = True
                             Peditorial.Visible = False
                             Pclasificacion.Visible = False
-                            timereditorial.Enabled = True
-                            timerclasificacion.Enabled = True
+
+                            timereditorial.Enabled = False
+                            timerclasificacion.Enabled = False
                         Case 2
+                            Pclasificacion.Visible = True
                             Peditorial.Visible = False
                             Pautor.Visible = False
-                            Pclasificacion.Visible = True
-                            timerclasificacion.Enabled = True
-                            timerautor.Enabled = True
+
+                            timereditorial.Enabled = False
+                            timerautor.Enabled = False
                         Case 3
+                            Peditorial.Visible = True
                             Pclasificacion.Visible = False
                             Pautor.Visible = False
-                            Peditorial.Visible = True
-                            timereditorial.Enabled = True
-                            timerautor.Enabled = True
+
+                            timerclasificacion.Enabled = False
+                            timerautor.Enabled = False
                     End Select
 
                     ErrorProvider1.SetError(txtcasa_editorial, "")
@@ -685,27 +691,30 @@
             Try
                 'Este boton muestra un panel donde podremos seleccionar un autor o ingresar uno nuevo.
                 Try
-                    '1 autor , 2 editorial, 3 clasificacion
+                    '1 autor ,2 clasificacion,  3 editorial, 
                     seleccionado = 2
                     Select Case seleccionado
                         Case 1
                             Pautor.Visible = True
                             Peditorial.Visible = False
                             Pclasificacion.Visible = False
-                            timereditorial.Enabled = True
-                            timerclasificacion.Enabled = True
+
+                            timereditorial.Enabled = False
+                            timerclasificacion.Enabled = False
                         Case 2
+                            Pclasificacion.Visible = True
                             Peditorial.Visible = False
                             Pautor.Visible = False
-                            Pclasificacion.Visible = True
-                            timerclasificacion.Enabled = True
-                            timerautor.Enabled = True
+
+                            timereditorial.Enabled = False
+                            timerautor.Enabled = False
                         Case 3
+                            Peditorial.Visible = True
                             Pclasificacion.Visible = False
                             Pautor.Visible = False
-                            Peditorial.Visible = True
-                            timereditorial.Enabled = True
-                            timerautor.Enabled = True
+
+                            timerclasificacion.Enabled = False
+                            timerautor.Enabled = False
                     End Select
                     ErrorProvider1.SetError(txtclasificacion, "")
                     Consulta = "SELECT * FROM clasificacion"
