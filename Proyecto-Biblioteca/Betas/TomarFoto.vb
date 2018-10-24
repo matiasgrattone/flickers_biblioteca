@@ -23,11 +23,11 @@
 
         WebCam1.Start()
 
-        'If opcionConfigUsers = 0 Then
-        '    rutaFoto = "Fotos de perfil/" & nombre & "-" & cedula & ".png"
-        'Else
-        '    rutaFoto = "Fotos de socio/" & nombre & "-" & cedula & ".png"
-        'End If
+        If opcionConfigUsers = 0 Then
+            rutaFoto = "Fotos de perfil/" & nombre & "-" & cedula & ".png"
+        Else
+            rutaFoto = "Fotos de socio/" & nombre & "-" & cedula & ".png"
+        End If
 
 
     End Sub
