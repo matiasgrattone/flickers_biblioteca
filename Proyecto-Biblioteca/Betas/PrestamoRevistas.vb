@@ -936,6 +936,7 @@
                 PictureDevolucion.Visible = True
                 PictureRenovacion.Visible = True
                 LabelSELECCION_DE_FUNCION.Visible = True
+                VerificarMoroso()
 
                 CarritoDeRevistas.Items.Clear() 'Borramos los items de listbox carrito de libros 
                 ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items.Clear() 'Borramos los items de listbox carrito de libros 
@@ -951,7 +952,7 @@
                 '/////////////////////////////////////////////////////////////////////////////////////////////
             End If
         End If
-        VerificarMoroso()
+
     End Sub
 
     Private Sub DataGridParaDevolucion_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridParaDevolucion.CellContentClick
