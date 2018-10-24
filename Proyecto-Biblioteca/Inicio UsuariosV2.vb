@@ -95,6 +95,10 @@
             FichaSocio.FichaCedulaSocio = DataGridView1.Item(0, DataGridView1.Rows(contadordatagrid).Index).Value
             FichaSocio.Show()
         End If
+        If e.KeyCode = Keys.Right Then
+            seleccionado = 2
+            PanelMenu()
+        End If
         If e.KeyCode = Keys.Up And contadordatagrid > 0 Then
             DataGridView1.Rows(contadordatagrid - 1).Selected = True
             contadordatagrid = contadordatagrid - 1
@@ -944,9 +948,13 @@
     End Sub
 
     Private Sub cedula_TextChanged(sender As System.Object, e As System.EventArgs) Handles cedula.TextChanged
+        contador = 0
+        Inactivo.Enabled = True
         Select Case seleccionado
             Case 1
                 ErrorProvider1.SetError(cedula, "")
+                contador = 0
+                Inactivo.Enabled = True
             Case 2
                 ErrorProvider1.SetError(cedula, "")
                 contador = 0
@@ -955,9 +963,13 @@
     End Sub
 
     Private Sub nombre_TextChanged(sender As System.Object, e As System.EventArgs) Handles nombre.TextChanged
+        contador = 0
+        Inactivo.Enabled = True
         Select Case seleccionado
             Case 1
                 ErrorProvider1.SetError(nombre, "")
+                contador = 0
+                Inactivo.Enabled = True
             Case 2
                 ErrorProvider1.SetError(nombre, "")
                 contador = 0
@@ -1060,7 +1072,7 @@
                         direccion1 = "1"
                     End If
 
-                    If rutaFoto = "" Then
+                    If rutaFoto = "" Or row("rutaperfil") Is DBNull.Value Then
                         rutafoto1 = "0"
                     Else
                         If row("rutaperfil") = rutaFoto Then
@@ -1092,15 +1104,19 @@
             End If
 
         Catch ex As Exception
-
+            MsgBox(ex.ToString)
         End Try
 
     End Sub
 
     Private Sub apellido_TextChanged(sender As System.Object, e As System.EventArgs) Handles apellido.TextChanged
+        contador = 0
+        Inactivo.Enabled = True
         Select Case seleccionado
             Case 1
                 ErrorProvider1.SetError(apellido, "")
+                contador = 0
+                Inactivo.Enabled = True
             Case 2
                 ErrorProvider1.SetError(apellido, "")
                 contador = 0
@@ -1109,9 +1125,13 @@
     End Sub
 
     Private Sub telefono_TextChanged(sender As System.Object, e As System.EventArgs) Handles telefono.TextChanged
+        contador = 0
+        Inactivo.Enabled = True
         Select Case seleccionado
             Case 1
                 ErrorProvider1.SetError(telefono, "")
+                contador = 0
+                Inactivo.Enabled = True
             Case 2
                 ErrorProvider1.SetError(telefono, "")
                 contador = 0
@@ -1120,9 +1140,13 @@
     End Sub
 
     Private Sub direccion_TextChanged(sender As System.Object, e As System.EventArgs) Handles direccion.TextChanged
+        contador = 0
+        Inactivo.Enabled = True
         Select Case seleccionado
             Case 1
                 ErrorProvider1.SetError(direccion, "")
+                contador = 0
+                Inactivo.Enabled = True
             Case 2
                 ErrorProvider1.SetError(direccion, "")
                 contador = 0
@@ -1131,9 +1155,13 @@
     End Sub
 
     Private Sub ComboBox4_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBox4.SelectedIndexChanged
+        contador = 0
+        Inactivo.Enabled = True
         Select Case seleccionado
             Case 1
                 ErrorProvider1.SetError(ComboBox4, "")
+                contador = 0
+                Inactivo.Enabled = True
             Case 2
                 ErrorProvider1.SetError(ComboBox4, "")
                 contador = 0
@@ -1142,10 +1170,13 @@
     End Sub
 
     Private Sub ComboBox5_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBox5.SelectedIndexChanged
+        contador = 0
+        Inactivo.Enabled = True
         Select Case seleccionado
             Case 1
                 ErrorProvider1.SetError(ComboBox5, "")
-
+                contador = 0
+                Inactivo.Enabled = True
             Case 2
                 ErrorProvider1.SetError(ComboBox5, "")
                 contador = 0
@@ -1154,9 +1185,13 @@
     End Sub
 
     Private Sub ComboBox6_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBox6.SelectedIndexChanged
+        contador = 0
+        Inactivo.Enabled = True
         Select Case seleccionado
             Case 1
                 ErrorProvider1.SetError(ComboBox6, "")
+                contador = 0
+                Inactivo.Enabled = True
             Case 2
                 ErrorProvider1.SetError(ComboBox6, "")
                 contador = 0
@@ -1433,8 +1468,12 @@
 
     End Sub
     Private Sub PlaceHolder_Mail_Editar_TextChanged(sender As System.Object, e As System.EventArgs) Handles PlaceHolder_Mail_Editar.TextChanged
+        contador = 0
+        Inactivo.Enabled = True
         Select Case seleccionado
             Case 1
+                contador = 0
+                Inactivo.Enabled = True
             Case 2
                 contador = 0
                 Inactivo.Enabled = True
@@ -1446,7 +1485,10 @@
             FichaSocio.FichaCedulaSocio = DataGridView1.Item(0, DataGridView1.Rows(contadordatagrid).Index).Value
             FichaSocio.Show()
         End If
-
+        If e.KeyCode = Keys.Right Then
+            seleccionado = 2
+            PanelMenu()
+        End If
         If e.KeyCode = Keys.Enter And Menu_Panel.Left = 650 Then
             DataGridView1.Rows(contadordatagrid).Selected = True
             contadordatagrid = contadordatagrid
@@ -1592,5 +1634,9 @@
                 cargar2()
             End If
         End If
+    End Sub
+
+    Private Sub Editar_Panel_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles Editar_Panel.Paint
+
     End Sub
 End Class
