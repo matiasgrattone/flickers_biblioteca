@@ -199,302 +199,16 @@
     End Sub
     '///PARA EXTRAER LAS REVISTAS DEL CARRTIO///
     Private Sub ButonParaExtreaer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButonParaExtreaer.Click
-        Dim list, contador, revistas As Integer
-        contador = 0
-
-        '///////////////////////////////////////////////////////////////////////////////////
-        '///////////////Calcula la fecha en que deberia entregarse la revista/////////////////
-        '///////////////////////////////////////////////////////////////////////////////////
-        fecha_actual = DateTime.Now.ToString("yyyy/MM/dd")
-
-        dia = Val(DateTime.Now.ToString("dd")) + 14
-        mes = Val(DateTime.Now.ToString("MM"))
-        anio = Val(DateTime.Now.ToString("yyyy"))
-
-        If mes = 1 Then ' Mes de Enero
-            If dia >= 31 Then
-                diferenciaDia = dia - 31
-                dia = dia - diferenciaDia
-                mes = mes + 1
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            End If
-        End If
-        If mes = 2 Then ' Mes de febrero
-            If dia >= 28 Then
-                diferenciaDia = dia - 28
-                dia = dia - diferenciaDia
-                mes = mes + 1
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            End If
-        End If
-        If mes = 3 Then ' Mes de marzo
-            If dia >= 31 Then
-                diferenciaDia = dia - 31
-                dia = dia - diferenciaDia
-                mes = mes + 1
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            End If
-        End If
-        If mes = 4 Then ' Mes de abril
-            If dia >= 30 Then
-                diferenciaDia = dia - 30
-                dia = dia - diferenciaDia
-                mes = mes + 1
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            End If
-        End If
-        If mes = 5 Then ' Mes de mayo
-            If dia >= 31 Then
-                diferenciaDia = dia - 31
-                dia = dia - diferenciaDia
-                mes = mes + 1
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            End If
-        End If
-        If mes = 6 Then ' Mes de junio
-            If dia >= 30 Then
-                diferenciaDia = dia - 30
-                dia = dia - diferenciaDia
-                mes = mes + 1
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            End If
-        End If
-        If mes = 7 Then ' Mes de julio
-            If dia >= 31 Then
-                diferenciaDia = dia - 31
-                dia = dia - diferenciaDia
-                mes = mes + 1
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            End If
-        End If
-        If mes = 8 Then ' Mes de agosto
-            If dia >= 31 Then
-                diferenciaDia = dia - 31
-                dia = dia - diferenciaDia
-                mes = mes + 1
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            End If
-        End If
-        If mes = 9 Then ' Mes de setiembre
-            If dia >= 30 Then
-                diferenciaDia = dia - 30
-                dia = dia - diferenciaDia
-                mes = mes + 1
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            End If
-        End If
-        If mes = 10 Then ' Mes de octubre
-            If dia >= 31 Then
-                diferenciaDia = dia - 31
-                dia = dia - diferenciaDia
-                mes = mes + 1
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            End If
-        End If
-        If mes = 11 Then ' Mes de noviembre
-            If dia >= 30 Then
-                diferenciaDia = dia - 30
-                dia = dia - diferenciaDia
-                mes = mes + 1
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            End If
-        End If
-        If mes = 12 Then ' Mes de diciembre
-            If dia >= 31 Then
-                diferenciaDia = dia - 31
-                dia = dia - diferenciaDia
-                mes = 1
-                anio = anio + 1
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
-            End If
-        End If
-        '////////////////////////////////////////////////////////////////////////
-
-        list = 0
-        list = ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items.Count
-        list = list
-
-        '1) El usario que puede extraer una revista SI ESTE NO TIENE NINGUNA REVISTAS EN PODER AHORA
-        '/////////////////////CASO UNO///////////////////
-        If Cedula.Text <> "" Then
-
-
-
-            Consulta = "select * from prestamorevistas where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
-            consultar()
-
-            If (Tabla.Rows.Count = 0) Then
-
-                While contador < list
-                    contador = Val(contador) + 1
-
-                    Consulta = "insert into prestamorevistas(cedula, id_revistas, fecha_estimada, cod_prestado) values('" + Cedula.Text + "','" + ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items(revistas) + "', '" + fecha_estimada + "','" + MENU3.lbl_cedula.Text + "')"
-                    consultar()
-                    Consulta = "update prestamorevistas set fecha_salida = '" + Date.Now.ToString("yyyy-MM-dd") + "' where id_revistas= '" & ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items(revistas) & "' and cedula='" + Cedula.Text + "'"
-                    consultar()
-
-                    Consulta = "update revistas set estado = 1 where id_revistas = '" & ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items(revistas) & "'"
-                    consultar()
-
-                    revistas = revistas + 1
-                End While
-
-                CarritoDeRevistas.Items.Clear()
-                ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items.Clear()
-                MsgBox("Se extrajo correctamente las revistas", Title:="PRESTAMO")
-                ExtGrup.Visible = False
-
-
-            Else
-
-
-                For Each row As DataRow In Tabla.Rows
-                    If row("fecha_estimada") Is DBNull.Value Then
-                        FechaEntradaPrestamo = 0
-                    Else
-                        FechaEntradaPrestamo = 1
-                    End If
-                Next
-
-                Select Case FechaEntradaPrestamo
-                    Case 1
-
-                        While contador < list
-                            contador = Val(contador) + 1
-
-
-                            Consulta = "insert into prestamorevistas(cedula, id_revistas, fecha_salida, fecha_estimada, cod_prestado) values('" + Cedula.Text + "','" + ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items(revistas) + "','" + Date.Now.ToString("yyyy-MM-dd") + "', '" + fecha_estimada + "','" + MENU3.lbl_cedula.Text + "')"
-                            consultar()
-
-
-                            Consulta = "update revistas set estado = 1 where id_revistas = '" & ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items(revistas) & "';"
-                            consultar()
-
-                            revistas = revistas + 1
-
-                        End While
-
-                        CarritoDeRevistas.Items.Clear()
-                        ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items.Clear()
-                        MsgBox("Se extrajo correctamente las revistas", Title:="PRESTAMO")
-                        ExtGrup.Visible = False
-
-
-                    Case 0
-
-                        MsgBox("Este socios no puede retirar revistas hasta devolver los prestados", Title:="PRESTAMOS")
-                End Select
-            End If
-            revistas = 0
-        End If
-    End Sub
-    '///PARA LLEVAR LAS REVISTAS AL CARRTIO///
-    Private Sub DataGridView_VerRevistasEnExtraccion__CellDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView_VerRevistasEnExtraccion_.CellDoubleClick
-
-        '////////////////////////////SI LA CEDULA ES CORRECTA SE PODRA AGREGAR REVISTAS O REALIZAR OTRAS FUNCIONES  /////////////////////// 
-        Dim list1 As Integer
-        list1 = ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items.Count
-
-        If list1 <= 2 Then
-
-            If DataGridView_VerRevistasEnExtraccion_.Item(0, DataGridView_VerRevistasEnExtraccion_.CurrentRow.Index).Value <> list1 Then
-
-                Dim NomREVISTA As String
-                Dim IdREVISTA As String
-
-                NomREVISTA = DataGridView_VerRevistasEnExtraccion_.Item(1, DataGridView_VerRevistasEnExtraccion_.CurrentRow.Index).Value
-                IdREVISTA = DataGridView_VerRevistasEnExtraccion_.Item(0, DataGridView_VerRevistasEnExtraccion_.CurrentRow.Index).Value
-
-
-
-                If (ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items.Contains(IdREVISTA)) Then
-
-                    MsgBox("La revista " & NomREVISTA & " ya se encuentra en el carrito de extracción ", Title:="PRESTAMOS")
-
-
-                Else
-
-                    z = MsgBox("Desea llevar al carrito la revista " & NomREVISTA & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
-
-                    If z = vbYes Then
-
-
-                        ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items.Add(IdREVISTA)
-                        CarritoDeRevistas.Items.Add(IdREVISTA & "                          " & NomREVISTA)
-
-                    End If
-                End If
-            End If
-
-            If CarritoDeRevistas.Items.Count <> 0 Then
-
-                ButonParaExtreaer.Visible = True
-            Else
-                ButonParaExtreaer.Visible = False
-
-            End If
-        End If
-    End Sub
-    '/////////////////////////////////////////////////////////FIN DE EXTRACCION///////////////////////////////////////////////////////////////
-
-    '/////////////////////////////////////////////////////////RENOVACIÓN///////////////////////////////////////////////////////////////
-    '///PARA INICIAR FUNCIONES DE RENOVACIÓN///
-    Private Sub PictureBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureRenovacion.Click
-        If CarritoDeRevistas.Items.Count = 0 Then
-
-            Consulta = "select r.id_revistas as 'Numero de Inventario', r.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion', fecha_estimada as 'Fecha Maxima de Prestamo' from prestamorevistas p INNER JOIN revistas r on p.id_revistas=r.id_revistas where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
-            consultar()
-            dgvRenovacion.DataSource = Tabla
-
-            '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            ExtGrup.Visible = False
-            DevoGRUP.Visible = False
-            '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-            GroupBoxRenovacion.Visible = True
-
-            '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        Else
-            MsgBox("Para cambiar de tarea debe tener el carrito vacio", Title:="Error")
-
-        End If
-    End Sub
-    '///PARA RENOVAR LAS REVISTAS EXTRAIDAS///
-    Private Sub dgvRenovacion_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvRenovacion.CellContentClick
-        revisarenovar = dgvRenovacion.Item(0, dgvRenovacion.CurrentRow.Index).Value
-
-        If MsgBox("Desea renovar el libro " & dgvRenovacion.Item(1, dgvRenovacion.CurrentRow.Index).Value & "?", MsgBoxStyle.YesNo, Title:="PRESTAMOS") = vbYes Then
+        If CarritoDeRevistas.Items.Count <> 0 Then
+            Dim list, contador, revistas As Integer
+            contador = 0
 
             '///////////////////////////////////////////////////////////////////////////////////
-            '///////////////Calcula la fecha en que deberia entregarse el libro/////////////////
+            '///////////////Calcula la fecha en que deberia entregarse la revista/////////////////
             '///////////////////////////////////////////////////////////////////////////////////
             fecha_actual = DateTime.Now.ToString("yyyy/MM/dd")
 
-            dia = Val(DateTime.Now.ToString("dd")) + 7
+            dia = Val(DateTime.Now.ToString("dd")) + 30
             mes = Val(DateTime.Now.ToString("MM"))
             anio = Val(DateTime.Now.ToString("yyyy"))
 
@@ -621,19 +335,309 @@
             End If
             '////////////////////////////////////////////////////////////////////////
 
-            Try
-                'Renovacion sera 1 en la base de datos, 0 para cuando no lo se lo haya hecho
-                Consulta = "update prestamorevistas set fecha_estimada = '" + fecha_estimada + "', cod_prestado = '" + MENU3.cedulaIngre + "', renovacion = 1 where fecha_entrada is NULL and cedula = '" + Cedula.Text + "' and id_revistas = '" + revisarenovar + "'"
+            list = 0
+            list = ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items.Count
+            list = list
+
+            '1) El usario que puede extraer una revista SI ESTE NO TIENE NINGUNA REVISTAS EN PODER AHORA
+            '/////////////////////CASO UNO///////////////////
+            If Cedula.Text <> "" Then
+
+
+
+                Consulta = "select * from prestamorevistas where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
                 consultar()
-                MsgBox("Se renovo el prestamo")
-            Catch ex As Exception
-                MsgBox(ex.Message)
-            End Try
+
+                If (Tabla.Rows.Count = 0) Then
+
+                    While contador < list
+                        contador = Val(contador) + 1
+
+                        Consulta = "insert into prestamorevistas(cedula, id_revistas, fecha_estimada, cod_prestado) values('" + Cedula.Text + "','" + ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items(revistas) + "', '" + fecha_estimada + "','" + MENU3.lbl_cedula.Text + "')"
+                        consultar()
+                        Consulta = "update prestamorevistas set fecha_salida = '" + Date.Now.ToString("yyyy-MM-dd") + "' where id_revistas= '" & ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items(revistas) & "' and cedula='" + Cedula.Text + "'"
+                        consultar()
+
+                        Consulta = "update revistas set estado = 1 where id_revistas = '" & ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items(revistas) & "'"
+                        consultar()
+
+                        revistas = revistas + 1
+                    End While
+
+                    CarritoDeRevistas.Items.Clear()
+                    ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items.Clear()
+                    MsgBox("Se extrajo correctamente las revistas", Title:="PRESTAMO")
+                    ExtGrup.Visible = False
+
+
+                Else
+
+
+                    For Each row As DataRow In Tabla.Rows
+                        If row("fecha_estimada") Is DBNull.Value Then
+                            FechaEntradaPrestamo = 0
+                        Else
+                            FechaEntradaPrestamo = 1
+                        End If
+                    Next
+
+                    Select Case FechaEntradaPrestamo
+                        Case 1
+
+                            While contador < list
+                                contador = Val(contador) + 1
+
+
+                                Consulta = "insert into prestamorevistas(cedula, id_revistas, fecha_salida, fecha_estimada, cod_prestado) values('" + Cedula.Text + "','" + ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items(revistas) + "','" + Date.Now.ToString("yyyy-MM-dd") + "', '" + fecha_estimada + "','" + MENU3.lbl_cedula.Text + "')"
+                                consultar()
+
+
+                                Consulta = "update revistas set estado = 1 where id_revistas = '" & ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items(revistas) & "';"
+                                consultar()
+
+                                revistas = revistas + 1
+
+                            End While
+
+                            CarritoDeRevistas.Items.Clear()
+                            ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items.Clear()
+                            MsgBox("Se extrajo correctamente las revistas", Title:="PRESTAMO")
+                            ExtGrup.Visible = False
+
+
+                        Case 0
+
+                            MsgBox("Este socios no puede retirar revistas hasta devolver los prestados", Title:="PRESTAMOS")
+                    End Select
+                End If
+                revistas = 0
+            End If
         End If
-        Consulta = "select r.id_revistas as 'Numero de Inventario', r.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion', fecha_estimada as 'Fecha Maxima de Prestamo' from prestamorevistas p INNER JOIN revistas r on p.id_revistas=r.id_revistas where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
-        consultar()
-        dgvRenovacion.DataSource = Tabla
     End Sub
+    '///PARA LLEVAR LAS REVISTAS AL CARRTIO///
+    Private Sub DataGridView_VerRevistasEnExtraccion__CellDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView_VerRevistasEnExtraccion_.CellDoubleClick
+
+        '////////////////////////////SI LA CEDULA ES CORRECTA SE PODRA AGREGAR REVISTAS O REALIZAR OTRAS FUNCIONES  /////////////////////// 
+        Dim list1 As Integer
+        list1 = ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items.Count
+
+        If list1 <= 2 Then
+
+            If DataGridView_VerRevistasEnExtraccion_.Item(0, DataGridView_VerRevistasEnExtraccion_.CurrentRow.Index).Value <> list1 Then
+
+                Dim NomREVISTA As String
+                Dim IdREVISTA As String
+
+                NomREVISTA = DataGridView_VerRevistasEnExtraccion_.Item(1, DataGridView_VerRevistasEnExtraccion_.CurrentRow.Index).Value
+                IdREVISTA = DataGridView_VerRevistasEnExtraccion_.Item(0, DataGridView_VerRevistasEnExtraccion_.CurrentRow.Index).Value
+
+
+
+                If (ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items.Contains(IdREVISTA)) Then
+
+                    MsgBox("La revista " & NomREVISTA & " ya se encuentra en el carrito de extracción ", Title:="PRESTAMOS")
+
+
+                Else
+
+                    z = MsgBox("Desea llevar al carrito la revista " & NomREVISTA & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
+
+                    If z = vbYes Then
+
+
+                        ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items.Add(IdREVISTA)
+                        CarritoDeRevistas.Items.Add(IdREVISTA & "                          " & NomREVISTA)
+
+                    End If
+                End If
+            End If
+
+            If CarritoDeRevistas.Items.Count <> 0 Then
+
+                ButonParaExtreaer.Visible = True
+            Else
+                ButonParaExtreaer.Visible = False
+
+            End If
+        End If
+    End Sub
+    '/////////////////////////////////////////////////////////FIN DE EXTRACCION///////////////////////////////////////////////////////////////
+
+    '/////////////////////////////////////////////////////////RENOVACIÓN///////////////////////////////////////////////////////////////
+    '///PARA INICIAR FUNCIONES DE RENOVACIÓN///
+    Private Sub PictureBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureRenovacion.Click
+        If CarritoDeRevistas.Items.Count = 0 Then
+
+            Consulta = "select r.id_revistas as 'Numero de Inventario', r.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion', fecha_estimada as 'Fecha Maxima de Prestamo' from prestamorevistas p INNER JOIN revistas r on p.id_revistas=r.id_revistas where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
+            consultar()
+            dgvRenovacion.DataSource = Tabla
+
+            '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ExtGrup.Visible = False
+            DevoGRUP.Visible = False
+            '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            GroupBoxRenovacion.Visible = True
+
+            '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        Else
+            MsgBox("Para cambiar de tarea debe tener el carrito vacio", Title:="Error")
+
+        End If
+    End Sub
+    '///PARA RENOVAR LAS REVISTAS EXTRAIDAS///
+    Private Sub dgvRenovacion_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvRenovacion.CellDoubleClick
+        revisarenovar = dgvRenovacion.Item(0, dgvRenovacion.CurrentRow.Index).Value
+        Dim renovado As Integer = 0
+        If MsgBox("Desea renovar la revista " & dgvRenovacion.Item(1, dgvRenovacion.CurrentRow.Index).Value & "?", MsgBoxStyle.YesNo, Title:="PRESTAMOS") = vbYes Then
+
+            '///////////////////////////////////////////////////////////////////////////////////
+            '///////////////Calcula la fecha en que deberia entregarse el libro/////////////////
+            '///////////////////////////////////////////////////////////////////////////////////
+
+                fecha_actual = DateTime.Now.ToString("yyyy/MM/dd")
+
+            dia = Val(DateTime.Now.ToString("dd")) + 14
+                mes = Val(DateTime.Now.ToString("MM"))
+                anio = Val(DateTime.Now.ToString("yyyy"))
+
+                If mes = 1 And renovado = 0 Then ' Mes de Enero
+                    If dia >= 31 Then
+                        diferenciaDia = dia - 31
+                        mes = mes + 1
+                        fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                        renovado = 1
+                    Else
+                        fecha_estimada = anio & "-" & mes & "-" & dia
+                    End If
+                End If
+                If mes = 2 And renovado = 0 Then ' Mes de febrero
+                    If dia >= 28 Then
+                        diferenciaDia = dia - 28
+                        mes = mes + 1
+                        fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                        renovado = 1
+                    Else
+                        fecha_estimada = anio & "-" & mes & "-" & dia
+                    End If
+                End If
+                If mes = 3 And renovado = 0 Then ' Mes de marzo
+                    If dia >= 31 Then
+                        diferenciaDia = dia - 31
+                        mes = mes + 1
+                        fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                        renovado = 1
+                    Else
+                        fecha_estimada = anio & "-" & mes & "-" & dia
+                    End If
+                End If
+                If mes = 4 And renovado = 0 Then ' Mes de abril
+                    If dia >= 30 Then
+                        diferenciaDia = dia - 30
+                        mes = mes + 1
+                        fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                        renovado = 1
+                    Else
+                        fecha_estimada = anio & "-" & mes & "-" & dia
+                    End If
+                End If
+                If mes = 5 And renovado = 0 Then ' Mes de mayo
+                    If dia >= 31 Then
+                        diferenciaDia = dia - 31
+                        mes = mes + 1
+                        fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                        renovado = 1
+                    Else
+                        fecha_estimada = anio & "-" & mes & "-" & dia
+                    End If
+                End If
+                If mes = 6 And renovado = 0 Then ' Mes de junio
+                    If dia >= 30 Then
+                        diferenciaDia = dia - 30
+                        mes = mes + 1
+                        fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                        renovado = 1
+                    Else
+                        fecha_estimada = anio & "-" & mes & "-" & dia
+                    End If
+                End If
+                If mes = 7 And renovado = 0 Then ' Mes de julio
+                    If dia >= 31 Then
+                        diferenciaDia = dia - 31
+                        mes = mes + 1
+                        fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                        renovado = 1
+                    Else
+                        fecha_estimada = anio & "-" & mes & "-" & dia
+                    End If
+                End If
+                If mes = 8 And renovado = 0 Then ' Mes de agosto
+                    If dia >= 31 Then
+                        diferenciaDia = dia - 31
+                        mes = mes + 1
+                        fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                        renovado = 1
+                    Else
+                        fecha_estimada = anio & "-" & mes & "-" & dia
+                    End If
+                End If
+                If mes = 9 And renovado = 0 Then ' Mes de setiembre
+                    If dia >= 30 Then
+                        diferenciaDia = dia - 30
+                        mes = mes + 1
+                        fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                        renovado = 1
+                    Else
+                        fecha_estimada = anio & "-" & mes & "-" & dia
+                    End If
+                End If
+                If mes = 10 And renovado = 0 Then ' Mes de octubre
+                    If dia >= 31 Then
+                        diferenciaDia = dia - 31
+                        mes = mes + 1
+                        fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                        renovado = 1
+                    Else
+                        fecha_estimada = anio & "-" & mes & "-" & dia
+                    End If
+                End If
+                If mes = 11 And renovado = 0 Then ' Mes de noviembre
+                    If dia >= 30 Then
+                        diferenciaDia = dia - 30
+                        mes = mes + 1
+                        fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                        renovado = 1
+                    Else
+                        fecha_estimada = anio & "-" & mes & "-" & dia
+                    End If
+                End If
+                If mes = 12 And renovado = 0 Then ' Mes de diciembre
+                    If dia >= 31 Then
+                        diferenciaDia = dia - 31
+                        mes = 1
+                        anio = anio + 1
+                        fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                        renovado = 1
+                    Else
+                        fecha_estimada = anio & "-" & mes & "-" & dia
+                    End If
+                End If
+                '////////////////////////////////////////////////////////////////////////
+
+                Try
+                    'Renovacion sera 1 en la base de datos, 0 para cuando no lo se lo haya hecho
+                    Consulta = "update prestamorevistas set fecha_estimada = '" + fecha_estimada + "', cod_prestado = '" + MENU3.cedulaIngre + "', renovacion = 1 where fecha_entrada is NULL and cedula = '" + Cedula.Text + "' and id_revistas = '" + revisarenovar + "'"
+                    consultar()
+                    MsgBox("Se renovo el prestamo")
+                Catch ex As Exception
+                    MsgBox(ex.Message)
+                End Try
+            End If
+            Consulta = "select r.id_revistas as 'Numero de Inventario', r.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion', fecha_estimada as 'Fecha Maxima de Prestamo' from prestamorevistas p INNER JOIN revistas r on p.id_revistas=r.id_revistas where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
+            consultar()
+            dgvRenovacion.DataSource = Tabla
+    End Sub
+
     '/////////////////////////////////////////////////////////FIN DE RENOVACIÓN///////////////////////////////////////////////////////////////
 
     '/////////////////////////////////////////////////////////DEVOLUCION///////////////////////////////////////////////////////////////
@@ -964,5 +968,9 @@
         Else
             Timer1.Enabled = True
         End If
+    End Sub
+
+    Private Sub dgvRenovacion_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvRenovacion.CellContentClick
+
     End Sub
 End Class
