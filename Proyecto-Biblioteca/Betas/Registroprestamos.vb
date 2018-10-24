@@ -265,6 +265,19 @@
                         dgvregistro.DataSource = Tabla
                     End If
             End Select
+        Else
+            Dim mesdesde, meshasta As String
+            If cmbdia.Text <> "Dia" And cmbmes.Text <> "Mes" And cmbaño.Text <> "Año" And cmbdia2.Text <> "Dia" And cmbmes2.Text <> "Mes" And cmbaño2.Text <> "Año" Then
+                substring = cmbmes.SelectedItem.ToString
+                mestonum()
+                mesdesde = substring
+                substring = cmbmes2.SelectedItem.ToString
+                mestonum()
+                meshasta = substring
+                Consulta = "Select libro.cod_libro,libro.titulo, usuarios.cedula, usuarios.nombre, prestamolibro.fecha_salida, prestamolibro.fecha_entrada, prestamolibro.cod_prestado, prestamolibro.cod_devuelto from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro inner join usuarios on usuarios.cedula = prestamolibro.cedula where prestamolibro.fecha_salida >= '" & cmbaño.SelectedItem & "-" & mesdesde & "-" & cmbdia.SelectedItem & "' and prestamolibro.fecha_salida <= '" & cmbaño2.SelectedItem & "-" & meshasta & "-" & cmbdia2.SelectedItem & "'"
+                consultar()
+                dgvregistro.DataSource = Tabla
+            End If
         End If
     End Sub
 
