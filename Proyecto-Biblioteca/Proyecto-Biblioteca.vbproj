@@ -403,6 +403,7 @@
     <None Include="Resources\faq.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\question.png" />
     <None Include="Resources\RenovarLibro.png" />
     <None Include="Resources\renovar.png" />
     <None Include="Resources\student.png" />

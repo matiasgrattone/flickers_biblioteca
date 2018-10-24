@@ -86,6 +86,155 @@
         'DataGridView1.Columns.Add(DataGridView1.Columns.Count - 1, "Ficha")
         rutafoto1 = ""
         TimerFoto.Enabled = False
+
+        PlaceHolder1.Select()
+    End Sub
+    Public contadordatagrid As Integer = 0
+    Private Sub PlaceHolder1_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles PlaceHolder1.KeyDown
+        If e.KeyCode = Keys.Enter And Menu_Panel.Left = 954 And seleccionado <> 3 Then
+            FichaSocio.FichaCedulaSocio = DataGridView1.Item(0, DataGridView1.Rows(contadordatagrid).Index).Value
+            FichaSocio.Show()
+        End If
+        If e.KeyCode = Keys.Up And contadordatagrid > 0 Then
+            DataGridView1.Rows(contadordatagrid - 1).Selected = True
+            contadordatagrid = contadordatagrid - 1
+
+            If seleccionado = 2 Then
+                PlaceHolder_Mail_Editar.Clear()
+                Consulta = "select * from usuarios where cedula = '" & DataGridView1.Item(0, DataGridView1.Rows(contadordatagrid).Index).Value & "'"
+                consultar()
+
+                For Each row As DataRow In Tabla.Rows
+
+                    nombre.Text = row("nombre").ToString
+                    apellido.Text = row("apellido").ToString
+                    cedula.Text = row("cedula").ToString
+                    telefono.Text = row("telefono").ToString
+                    direccion.Text = row("direccion").ToString
+                    If row("mail") IsNot DBNull.Value Then
+                        PlaceHolder_Mail_Editar.Text = row("mail")
+                    End If
+
+                    dia_datagrid = row("nacimiento").ToString.Substring(0, 2)
+                    mes_datagrid = row("nacimiento").ToString.Substring(3, 2)
+                    año_datagrid = row("nacimiento").ToString.Substring(6, 4)
+
+                    If row("rutaperfil") Is DBNull.Value Then
+                        rutaFoto = Convert.ToString("Fotos de socio\student.jpg")
+                    Else
+                        rutaFoto = row("rutaperfil")
+                    End If
+
+                Next
+
+                Dim x = 1
+
+                substring = mes_datagrid
+                mes()
+                mes_datagrid = substring
+
+                For Each item In ComboBox4.Items
+                    If item.ToString = dia_datagrid Then
+                        ComboBox4.SelectedIndex = x - 1
+                    End If
+                    x = x + 1
+                Next
+
+
+                ComboBox4.SelectedText = dia_datagrid.ToString
+
+                x = 1
+
+                For Each item In ComboBox5.Items
+                    If item = mes_datagrid Then
+                        ComboBox5.SelectedIndex = x - 1
+                    End If
+                    x = x + 1
+                Next
+
+                x = 1
+
+                For Each item In ComboBox6.Items
+                    If item.ToString = año_datagrid Then
+                        ComboBox6.SelectedIndex = x - 1
+                    End If
+                    x = x + 1
+                Next
+                ' Inactivo.Enabled = True
+                Button4.Visible = False
+                cargar2()
+            End If
+        End If
+        If e.KeyCode = Keys.Down And contadordatagrid < DataGridView1.Rows.Count - 1 Then
+            DataGridView1.Rows(contadordatagrid + 1).Selected = True
+
+            contadordatagrid = contadordatagrid + 1
+            If seleccionado = 2 Then
+                PlaceHolder_Mail_Editar.Clear()
+                Consulta = "select * from usuarios where cedula = '" & DataGridView1.Item(0, DataGridView1.Rows(contadordatagrid).Index).Value & "'"
+                consultar()
+
+                For Each row As DataRow In Tabla.Rows
+
+                    nombre.Text = row("nombre").ToString
+                    apellido.Text = row("apellido").ToString
+                    cedula.Text = row("cedula").ToString
+                    telefono.Text = row("telefono").ToString
+                    direccion.Text = row("direccion").ToString
+                    If row("mail") IsNot DBNull.Value Then
+                        PlaceHolder_Mail_Editar.Text = row("mail")
+                    End If
+
+                    dia_datagrid = row("nacimiento").ToString.Substring(0, 2)
+                    mes_datagrid = row("nacimiento").ToString.Substring(3, 2)
+                    año_datagrid = row("nacimiento").ToString.Substring(6, 4)
+
+                    If row("rutaperfil") Is DBNull.Value Then
+                        rutaFoto = Convert.ToString("Fotos de socio\student.jpg")
+                    Else
+                        rutaFoto = row("rutaperfil")
+                    End If
+
+                Next
+
+                Dim x = 1
+
+                substring = mes_datagrid
+                mes()
+                mes_datagrid = substring
+
+                For Each item In ComboBox4.Items
+                    If item.ToString = dia_datagrid Then
+                        ComboBox4.SelectedIndex = x - 1
+                    End If
+                    x = x + 1
+                Next
+
+
+                ComboBox4.SelectedText = dia_datagrid.ToString
+
+                x = 1
+
+                For Each item In ComboBox5.Items
+                    If item = mes_datagrid Then
+                        ComboBox5.SelectedIndex = x - 1
+                    End If
+                    x = x + 1
+                Next
+
+                x = 1
+
+                For Each item In ComboBox6.Items
+                    If item.ToString = año_datagrid Then
+                        ComboBox6.SelectedIndex = x - 1
+                    End If
+                    x = x + 1
+                Next
+                ' Inactivo.Enabled = True
+                Button4.Visible = False
+                cargar2()
+            End If
+        End If
     End Sub
 
     Private Sub PlaceHolder1_TextChanged(sender As System.Object, e As System.EventArgs) Handles PlaceHolder1.TextChanged
@@ -200,7 +349,7 @@
                         ComboBox3.SelectedIndex = 0
 
                     Case 2
-
+                        mouse = 0
                         ComboClear()
 
                         Menu_Panel.BackColor = Color.Silver
@@ -259,6 +408,69 @@
                         ComboBox5.SelectedIndex = 0
                         ComboBox6.SelectedIndex = 0
                         '////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                        PlaceHolder_Mail_Editar.Clear()
+                        Consulta = "select * from usuarios where cedula = '" & DataGridView1.Item(0, DataGridView1.Rows(contadordatagrid).Index).Value & "'"
+                        consultar()
+
+                        For Each row As DataRow In Tabla.Rows
+
+                            nombre.Text = row("nombre").ToString
+                            apellido.Text = row("apellido").ToString
+                            cedula.Text = row("cedula").ToString
+                            telefono.Text = row("telefono").ToString
+                            direccion.Text = row("direccion").ToString
+                            If row("mail") IsNot DBNull.Value Then
+                                PlaceHolder_Mail_Editar.Text = row("mail")
+                            End If
+                            dia_datagrid = row("nacimiento").ToString.Substring(0, 2)
+                            mes_datagrid = row("nacimiento").ToString.Substring(3, 2)
+                            año_datagrid = row("nacimiento").ToString.Substring(6, 4)
+                            If row("rutaperfil") Is DBNull.Value Then
+                                rutaFoto = Convert.ToString("Fotos de socio\student.jpg")
+                            Else
+                                rutaFoto = row("rutaperfil")
+                            End If
+                        Next
+                        cargar2()
+
+                        Dim x = 1
+
+                        substring = mes_datagrid
+                        mes()
+                        mes_datagrid = substring
+
+                        For Each item In ComboBox4.Items
+                            If item.ToString = dia_datagrid Then
+                                ComboBox4.SelectedIndex = x - 1
+                            End If
+                            x = x + 1
+                        Next
+
+
+                        ComboBox4.SelectedText = dia_datagrid.ToString
+
+                        x = 1
+
+                        For Each item In ComboBox5.Items
+                            If item = mes_datagrid Then
+                                ComboBox5.SelectedIndex = x - 1
+                            End If
+                            x = x + 1
+                        Next
+
+                        x = 1
+
+                        For Each item In ComboBox6.Items
+                            If item.ToString = año_datagrid Then
+                                ComboBox6.SelectedIndex = x - 1
+                            End If
+                            x = x + 1
+                        Next
+
+
+
+
                     Case 3
                         '//////LLAMA A COMBOCLEAR PARA LIMPIAR TODOS LOS COMBOBOX///////
                         ComboClear()
@@ -345,10 +557,14 @@
 
         mouse = 0
 
+        contadordatagrid = DataGridView1.CurrentRow.Index
+
         Select Case seleccionado
 
+
             Case 2
-                Consulta = "select * from usuarios where cedula = '" & DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value & "'"
+                PlaceHolder_Mail_Editar.Clear()
+                Consulta = "select * from usuarios where cedula = '" & DataGridView1.Item(0, DataGridView1.Rows(contadordatagrid).Index).Value & "'"
                 consultar()
 
                 For Each row As DataRow In Tabla.Rows
@@ -358,10 +574,14 @@
                     cedula.Text = row("cedula").ToString
                     telefono.Text = row("telefono").ToString
                     direccion.Text = row("direccion").ToString
+                    If row("mail") IsNot DBNull.Value Then
+                        PlaceHolder_Mail_Editar.Text = row("mail")
+                    End If
 
                     dia_datagrid = row("nacimiento").ToString.Substring(0, 2)
                     mes_datagrid = row("nacimiento").ToString.Substring(3, 2)
                     año_datagrid = row("nacimiento").ToString.Substring(6, 4)
+
                     If row("rutaperfil") Is DBNull.Value Then
                         rutaFoto = Convert.ToString("Fotos de socio\student.jpg")
                     Else
@@ -369,9 +589,6 @@
                     End If
 
                 Next
-                ' Inactivo.Enabled = True
-                Button4.Visible = False
-                cargar2()
 
                 Dim x = 1
 
@@ -406,6 +623,10 @@
                     End If
                     x = x + 1
                 Next
+                ' Inactivo.Enabled = True
+                Button4.Visible = False
+                cargar2()
+
 
 
 
@@ -507,13 +728,15 @@
 
         End If
 
+
+
         substring = ComboBox5.SelectedItem
         mestonum()
 
         If i_editar = 0 Then
             Dim nacimiento_editar As String = Str(ComboBox6.SelectedItem).Substring(1, 4) + "-" + substring + "-" + dia_editar
             Try
-                Consulta = "update usuarios set cedula='" & Str(ced_editar) & "' , nombre='" & nom_editar & "', apellido='" & ape_editar & "', direccion='" & dir_editar & "', telefono='" & tel_editar & "', nacimiento='" & nacimiento_editar & "' , tipo='2' where cedula = '" & Str(ced_editar) & "'"
+                Consulta = "update usuarios set cedula='" & Str(ced_editar) & "' , nombre='" & nom_editar & "', apellido='" & ape_editar & "', direccion='" & dir_editar & "', telefono='" & tel_editar & "', nacimiento='" & nacimiento_editar & "' ,mail = '" & PlaceHolder_Mail_Editar.Text & "', tipo='2' where cedula = '" & Str(ced_editar) & "'"
                 consultar()
 
                 MsgBox("Edición guardada satisfactoriamente")
@@ -755,9 +978,10 @@
                 Dim mes2 As String = "0"
                 Dim año2 As String = "0"
                 Dim dianum As String = "0"
+                Dim Mail As String = "0"
                 'rutafoto1 = "0"
 
-                Consulta = "select * from usuarios where cedula = '" & DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value & "'"
+                Consulta = "select * from usuarios where cedula = '" & DataGridView1.Item(0, DataGridView1.Rows(contadordatagrid).Index).Value & "'"
                 consultar()
 
                 For Each row As DataRow In Tabla.Rows
@@ -845,10 +1069,21 @@
                             rutafoto1 = "1"
                         End If
                     End If
+
+                    If row("mail") Is DBNull.Value Then
+                        Mail = "0"
+                    End If
+
+                    If row("mail").ToString = PlaceHolder_Mail_Editar.Text Then
+                        Mail = "0"
+                    Else
+                        Mail = "1"
+                    End If
+
+
+
                 Next
-
-
-                If nombre1 = "0" And apellido1 = "0" And cedula1 = "0" And telefono1 = "0" And direccion1 = "0" And dia2 = "0" And mes2 = "0" And año2 = "0" And rutafoto1 = "0" Then
+                If nombre1 = "0" And apellido1 = "0" And cedula1 = "0" And telefono1 = "0" And direccion1 = "0" And dia2 = "0" And mes2 = "0" And año2 = "0" And rutafoto1 = "0" And Mail = "0" Then
                     Button4.Visible = False
                 Else
                     Button4.Visible = True
@@ -1197,8 +1432,165 @@
         End If
 
     End Sub
+    Private Sub PlaceHolder_Mail_Editar_TextChanged(sender As System.Object, e As System.EventArgs) Handles PlaceHolder_Mail_Editar.TextChanged
+        Select Case seleccionado
+            Case 1
+            Case 2
+                contador = 0
+                Inactivo.Enabled = True
+        End Select
+    End Sub
 
-    Private Sub DataGridView1_CellContentDoubleClick(sender As Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellContentDoubleClick
+    Private Sub DataGridView1_KeyDown(sender As System.Object, e As System.Windows.Forms.KeyEventArgs) Handles DataGridView1.KeyDown
+        If e.KeyCode = Keys.Enter And Menu_Panel.Left = 954 And seleccionado <> 3 Then
+            FichaSocio.FichaCedulaSocio = DataGridView1.Item(0, DataGridView1.Rows(contadordatagrid).Index).Value
+            FichaSocio.Show()
+        End If
 
+        If e.KeyCode = Keys.Enter And Menu_Panel.Left = 650 Then
+            DataGridView1.Rows(contadordatagrid).Selected = True
+            contadordatagrid = contadordatagrid
+        End If
+
+        If e.KeyCode = Keys.Up And contadordatagrid > 0 Then
+            DataGridView1.Rows(contadordatagrid - 1).Selected = True
+            contadordatagrid = contadordatagrid - 1
+
+            If seleccionado = 2 Then
+                PlaceHolder_Mail_Editar.Clear()
+                Consulta = "select * from usuarios where cedula = '" & DataGridView1.Item(0, DataGridView1.Rows(contadordatagrid).Index).Value & "'"
+                consultar()
+
+                For Each row As DataRow In Tabla.Rows
+
+                    nombre.Text = row("nombre").ToString
+                    apellido.Text = row("apellido").ToString
+                    cedula.Text = row("cedula").ToString
+                    telefono.Text = row("telefono").ToString
+                    direccion.Text = row("direccion").ToString
+                    If row("mail") IsNot DBNull.Value Then
+                        PlaceHolder_Mail_Editar.Text = row("mail")
+                    End If
+
+                    dia_datagrid = row("nacimiento").ToString.Substring(0, 2)
+                    mes_datagrid = row("nacimiento").ToString.Substring(3, 2)
+                    año_datagrid = row("nacimiento").ToString.Substring(6, 4)
+
+                    If row("rutaperfil") Is DBNull.Value Then
+                        rutaFoto = Convert.ToString("Fotos de socio\student.jpg")
+                    Else
+                        rutaFoto = row("rutaperfil")
+                    End If
+
+                Next
+
+                Dim x = 1
+
+                substring = mes_datagrid
+                mes()
+                mes_datagrid = substring
+
+                For Each item In ComboBox4.Items
+                    If item.ToString = dia_datagrid Then
+                        ComboBox4.SelectedIndex = x - 1
+                    End If
+                    x = x + 1
+                Next
+
+
+                ComboBox4.SelectedText = dia_datagrid.ToString
+
+                x = 1
+
+                For Each item In ComboBox5.Items
+                    If item = mes_datagrid Then
+                        ComboBox5.SelectedIndex = x - 1
+                    End If
+                    x = x + 1
+                Next
+
+                x = 1
+
+                For Each item In ComboBox6.Items
+                    If item.ToString = año_datagrid Then
+                        ComboBox6.SelectedIndex = x - 1
+                    End If
+                    x = x + 1
+                Next
+                ' Inactivo.Enabled = True
+                Button4.Visible = False
+                cargar2()
+            End If
+        End If
+        If e.KeyCode = Keys.Down And contadordatagrid < DataGridView1.Rows.Count - 1 Then
+            DataGridView1.Rows(contadordatagrid + 1).Selected = True
+
+            contadordatagrid = contadordatagrid + 1
+            If seleccionado = 2 Then
+                PlaceHolder_Mail_Editar.Clear()
+                Consulta = "select * from usuarios where cedula = '" & DataGridView1.Item(0, DataGridView1.Rows(contadordatagrid).Index).Value & "'"
+                consultar()
+
+                For Each row As DataRow In Tabla.Rows
+
+                    nombre.Text = row("nombre").ToString
+                    apellido.Text = row("apellido").ToString
+                    cedula.Text = row("cedula").ToString
+                    telefono.Text = row("telefono").ToString
+                    direccion.Text = row("direccion").ToString
+                    If row("mail") IsNot DBNull.Value Then
+                        PlaceHolder_Mail_Editar.Text = row("mail")
+                    End If
+
+                    dia_datagrid = row("nacimiento").ToString.Substring(0, 2)
+                    mes_datagrid = row("nacimiento").ToString.Substring(3, 2)
+                    año_datagrid = row("nacimiento").ToString.Substring(6, 4)
+
+                    If row("rutaperfil") Is DBNull.Value Then
+                        rutaFoto = Convert.ToString("Fotos de socio\student.jpg")
+                    Else
+                        rutaFoto = row("rutaperfil")
+                    End If
+
+                Next
+
+                Dim x = 1
+
+                substring = mes_datagrid
+                mes()
+                mes_datagrid = substring
+
+                For Each item In ComboBox4.Items
+                    If item.ToString = dia_datagrid Then
+                        ComboBox4.SelectedIndex = x - 1
+                    End If
+                    x = x + 1
+                Next
+
+
+                ComboBox4.SelectedText = dia_datagrid.ToString
+
+                x = 1
+
+                For Each item In ComboBox5.Items
+                    If item = mes_datagrid Then
+                        ComboBox5.SelectedIndex = x - 1
+                    End If
+                    x = x + 1
+                Next
+
+                x = 1
+
+                For Each item In ComboBox6.Items
+                    If item.ToString = año_datagrid Then
+                        ComboBox6.SelectedIndex = x - 1
+                    End If
+                    x = x + 1
+                Next
+                ' Inactivo.Enabled = True
+                Button4.Visible = False
+                cargar2()
+            End If
+        End If
     End Sub
 End Class

@@ -811,6 +811,8 @@ Public Class MENU3
                     Else
                         Timer_Prestamos_LIVE.Enabled = False
                     End If
+                    ComboBox1.Enabled = True
+                    ComboBox2.Enabled = True
                 Else
                     Timer_BD.Interval = 6000
                 End If
