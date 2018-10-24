@@ -734,14 +734,35 @@ Public Class buscarlibro
                             Pautor.Visible = True
                             Peditorial.Visible = False
                             Pclasificacion.Visible = False
+
+                            If Paneleditorial.Left < 429 Then
+                                timereditorial.Enabled = True
+                            End If
+                            If panelclasificacion.Left < 423 Then
+                                timerclasificacion.Enabled = True
+                            End If
                         Case 2
+                            Pclasificacion.Visible = True
                             Peditorial.Visible = False
                             Pautor.Visible = False
-                            Pclasificacion.Visible = True
+
+                            If Paneleditorial.Left < 429 Then
+                                timereditorial.Enabled = True
+                            End If
+                            If panelautor.Left < 419 Then
+                                timerautor.Enabled = True
+                            End If
                         Case 3
+                            Peditorial.Visible = True
                             Pclasificacion.Visible = False
                             Pautor.Visible = False
-                            Peditorial.Visible = True
+
+                            If panelautor.Left < 419 Then
+                                timerautor.Enabled = True
+                            End If
+                            If panelclasificacion.Left < 423 Then
+                                timereditorial.Enabled = True
+                            End If
                     End Select
 
                     If activadoAut = 1 Then
@@ -1030,6 +1051,42 @@ Public Class buscarlibro
     Private Sub btnselecteditorial_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnselecteditorial.Click
         If bandera = 1 Then
             Try
+                seleccionado = 3
+                Select Case seleccionado
+                    Case 1
+                        Pautor.Visible = True
+                        Peditorial.Visible = False
+                        Pclasificacion.Visible = False
+
+                        If Paneleditorial.Left < 429 Then
+                            timereditorial.Enabled = True
+                        End If
+                        If panelclasificacion.Left < 423 Then
+                            timerclasificacion.Enabled = True
+                        End If
+                    Case 2
+                        Pclasificacion.Visible = True
+                        Peditorial.Visible = False
+                        Pautor.Visible = False
+
+                        If Paneleditorial.Left < 429 Then
+                            timereditorial.Enabled = True
+                        End If
+                        If panelautor.Left < 419 Then
+                            timerautor.Enabled = True
+                        End If
+                    Case 3
+                        Peditorial.Visible = True
+                        Pclasificacion.Visible = False
+                        Pautor.Visible = False
+
+                        If panelautor.Left < 419 Then
+                            timerautor.Enabled = True
+                        End If
+                        If panelclasificacion.Left < 423 Then
+                            timereditorial.Enabled = True
+                        End If
+                End Select
                 'Este boton muestra un panel donde podremos seleccionar una editorial o ingresar una nueva.
                 Try
                     If activadoEdi = 1 Then
@@ -1098,14 +1155,35 @@ Public Class buscarlibro
                             Pautor.Visible = True
                             Peditorial.Visible = False
                             Pclasificacion.Visible = False
+
+                            If Paneleditorial.Left < 429 Then
+                                timereditorial.Enabled = True
+                            End If
+                            If panelclasificacion.Left < 423 Then
+                                timerclasificacion.Enabled = True
+                            End If
                         Case 2
+                            Pclasificacion.Visible = True
                             Peditorial.Visible = False
                             Pautor.Visible = False
-                            Pclasificacion.Visible = True
+
+                            If Paneleditorial.Left < 429 Then
+                                timereditorial.Enabled = True
+                            End If
+                            If panelautor.Left < 419 Then
+                                timerautor.Enabled = True
+                            End If
                         Case 3
+                            Peditorial.Visible = True
                             Pclasificacion.Visible = False
                             Pautor.Visible = False
-                            Peditorial.Visible = True
+
+                            If panelautor.Left < 419 Then
+                                timerautor.Enabled = True
+                            End If
+                            If panelclasificacion.Left < 423 Then
+                                timereditorial.Enabled = True
+                            End If
                     End Select
 
                     Consulta = "SELECT * FROM clasificacion"

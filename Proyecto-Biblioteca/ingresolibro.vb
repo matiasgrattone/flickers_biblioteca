@@ -160,22 +160,34 @@
                             Peditorial.Visible = False
                             Pclasificacion.Visible = False
 
-                            timereditorial.Enabled = False
-                            timerclasificacion.Enabled = False
+                            If Paneleditorial.Left < 429 Then
+                                timereditorial.Enabled = True
+                            End If
+                            If panelclasificacion.Left < 423 Then
+                                timerclasificacion.Enabled = True
+                            End If
                         Case 2
                             Pclasificacion.Visible = True
                             Peditorial.Visible = False
                             Pautor.Visible = False
 
-                            timereditorial.Enabled = False
-                            timerautor.Enabled = False
+                            If Paneleditorial.Left < 429 Then
+                                timereditorial.Enabled = True
+                            End If
+                            If panelautor.Left < 419 Then
+                                timerautor.Enabled = True
+                            End If
                         Case 3
                             Peditorial.Visible = True
                             Pclasificacion.Visible = False
                             Pautor.Visible = False
 
-                            timerclasificacion.Enabled = False
-                            timerautor.Enabled = False
+                            If panelautor.Left < 419 Then
+                                timerautor.Enabled = True
+                            End If
+                            If panelclasificacion.Left < 423 Then
+                                timereditorial.Enabled = True
+                            End If
                     End Select
 
                     ErrorProvider1.SetError(txtautor, "")
@@ -206,30 +218,42 @@
             Try
                 'Este boton muestra un panel donde podremos seleccionar una editorial o ingresar una nueva.
                 Try
-                    '1 autor , 2 editorial, 3 clasificacion
+
                     seleccionado = 3
                     Select Case seleccionado
-                        Case 3
+                        Case 1
                             Pautor.Visible = True
                             Peditorial.Visible = False
                             Pclasificacion.Visible = False
 
-                            timereditorial.Enabled = False
-                            timerclasificacion.Enabled = False
+                            If Paneleditorial.Left < 429 Then
+                                timereditorial.Enabled = True
+                            End If
+                            If panelclasificacion.Left < 423 Then
+                                timerclasificacion.Enabled = True
+                            End If
                         Case 2
                             Pclasificacion.Visible = True
                             Peditorial.Visible = False
                             Pautor.Visible = False
 
-                            timereditorial.Enabled = False
-                            timerautor.Enabled = False
+                            If Paneleditorial.Left < 429 Then
+                                timereditorial.Enabled = True
+                            End If
+                            If panelautor.Left < 419 Then
+                                timerautor.Enabled = True
+                            End If
                         Case 3
                             Peditorial.Visible = True
                             Pclasificacion.Visible = False
                             Pautor.Visible = False
 
-                            timerclasificacion.Enabled = False
-                            timerautor.Enabled = False
+                            If panelautor.Left < 419 Then
+                                timerautor.Enabled = True
+                            End If
+                            If panelclasificacion.Left < 423 Then
+                                timereditorial.Enabled = True
+                            End If
                     End Select
 
                     ErrorProvider1.SetError(txtcasa_editorial, "")
@@ -691,7 +715,6 @@
             Try
                 'Este boton muestra un panel donde podremos seleccionar un autor o ingresar uno nuevo.
                 Try
-                    '1 autor ,2 clasificacion,  3 editorial, 
                     seleccionado = 2
                     Select Case seleccionado
                         Case 1
@@ -699,23 +722,36 @@
                             Peditorial.Visible = False
                             Pclasificacion.Visible = False
 
-                            timereditorial.Enabled = False
-                            timerclasificacion.Enabled = False
+                            If Paneleditorial.Left < 429 Then
+                                timereditorial.Enabled = True
+                            End If
+                            If panelclasificacion.Left < 423 Then
+                                timerclasificacion.Enabled = True
+                            End If
                         Case 2
                             Pclasificacion.Visible = True
                             Peditorial.Visible = False
                             Pautor.Visible = False
 
-                            timereditorial.Enabled = False
-                            timerautor.Enabled = False
+                            If Paneleditorial.Left < 429 Then
+                                timereditorial.Enabled = True
+                            End If
+                            If panelautor.Left < 419 Then
+                                timerautor.Enabled = True
+                            End If
                         Case 3
                             Peditorial.Visible = True
                             Pclasificacion.Visible = False
                             Pautor.Visible = False
 
-                            timerclasificacion.Enabled = False
-                            timerautor.Enabled = False
+                            If panelautor.Left < 419 Then
+                                timerautor.Enabled = True
+                            End If
+                            If panelclasificacion.Left < 423 Then
+                                timereditorial.Enabled = True
+                            End If
                     End Select
+
                     ErrorProvider1.SetError(txtclasificacion, "")
                     Consulta = "SELECT * FROM clasificacion"
                     consultar()
