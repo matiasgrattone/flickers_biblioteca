@@ -1451,8 +1451,8 @@ Partial Class buscarlibro
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.dgvlibros)
-        Me.Controls.Add(Me.Pmostrar)
         Me.Controls.Add(Me.Pactualizar)
+        Me.Controls.Add(Me.Pmostrar)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "buscarlibro"
         Me.Text = "Form2"
