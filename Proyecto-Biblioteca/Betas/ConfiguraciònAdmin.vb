@@ -974,19 +974,22 @@ Public Class ConfigAdmin
                 End If
 
             Else
+                Try
+                    Consulta_dataset = "update usuarios set nombre = '" & PlaceHolder5.Text & "' , apellido = '" & PlaceHolder4.Text & "' , cedula = '" & PlaceHolder3.Text & "' , telefono = '" & PlaceHolder2.Text & "' , direccion = '" & PlaceHolder6.Text & "' where cedula = '" & cedulaFotoPerfil & "';select * from usuarios where cedula = '" & cedulaFotoPerfil & "'"
+                    consultar_DataSet()
+                    MsgBox("Cambios Guardados Correctamente")
+                    For Each row As DataRow In Tabla_dataset.Tables(0).Rows
+                        Lbl_NombreADMIN_TXT.Text = row("nombre") & " " & row("apellido")
+                    Next
+                    PlaceHolder2.Enabled = False
+                    PlaceHolder3.Enabled = False
+                    PlaceHolder4.Enabled = False
+                    PlaceHolder5.Enabled = False
+                    PlaceHolder6.Enabled = False
+                    Button7.Text = "Editar"
+                Catch ex As Exception
 
-                Consulta_dataset = "update usuarios set nombre = '" & PlaceHolder5.Text & "' , apellido = '" & PlaceHolder4.Text & "' , cedula = '" & PlaceHolder3.Text & "' , telefono = '" & PlaceHolder2.Text & "' , direccion = '" & PlaceHolder6.Text & "' where cedula = '" & cedulaFotoPerfil & "';select * from usuarios where cedula = '" & cedulaFotoPerfil & "'"
-                consultar_DataSet()
-                MsgBox("Cambios Guardados Correctamente")
-                For Each row As DataRow In Tabla_dataset.Tables(0).Rows
-                    Lbl_NombreADMIN_TXT.Text = row("nombre") & " " & row("apellido")
-                Next
-                PlaceHolder2.Enabled = False
-                PlaceHolder3.Enabled = False
-                PlaceHolder4.Enabled = False
-                PlaceHolder5.Enabled = False
-                PlaceHolder6.Enabled = False
-                Button7.Text = "Editar"
+                End Try
 
             End If
 
