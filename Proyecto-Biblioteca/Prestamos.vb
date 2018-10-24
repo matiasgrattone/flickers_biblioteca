@@ -264,7 +264,7 @@
                 PictureReservacion.Visible = True
                 ptbRenovar.Visible = True
                 LabelSELECCION_DE_FUNCION.Visible = True
-
+                VerificarMoroso()
 
                 CarritoDeLibros.Items.Clear() 'Borramos los items de listbox carrito de libros 
                 ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Clear() 'Borramos los items de listbox carrito de libros 
@@ -280,7 +280,7 @@
                 '/////////////////////////////////////////////////////////////////////////////////////////////
             End If
         End If
-        VerificarMoroso()
+
     End Sub
 
 

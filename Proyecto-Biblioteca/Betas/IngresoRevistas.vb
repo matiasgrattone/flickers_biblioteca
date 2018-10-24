@@ -19,27 +19,28 @@
             MsgBox("Base de datos no disponible")
         End Try
 
+        txtanior.MaxLength = 4
 
-        If bandera = 1 Then
+            If bandera = 1 Then
 
-            Dim contadoringreso As Integer = 0
-            Consulta = "select titulo,anio,origen,descripcion from revistas"
-            consultar()
-            dgvrevistas.DataSource = Tabla
-            DatagridModulo = dgvrevistas
-            Datagrid_Align()
-            dgvrevistas.Columns(0).HeaderText = "Titulo"
-            dgvrevistas.Columns(1).HeaderText = "Año"
-            dgvrevistas.Columns(2).HeaderText = "Pais de Origen"
-            dgvrevistas.Columns(3).HeaderText = "Descripcion"
+                Dim contadoringreso As Integer = 0
+                Consulta = "select titulo,anio,origen,descripcion from revistas"
+                consultar()
+                dgvrevistas.DataSource = Tabla
+                DatagridModulo = dgvrevistas
+                Datagrid_Align()
+                dgvrevistas.Columns(0).HeaderText = "Titulo"
+                dgvrevistas.Columns(1).HeaderText = "Año"
+                dgvrevistas.Columns(2).HeaderText = "Pais de Origen"
+                dgvrevistas.Columns(3).HeaderText = "Descripcion"
 
-        Else
+            Else
 
-            txttitulo.ReadOnly = True
-            txtorigenr.ReadOnly = True
-            txtanior.ReadOnly = True
-            txtdescripcion.ReadOnly = True
-        End If
+                txttitulo.ReadOnly = True
+                txtorigenr.ReadOnly = True
+                txtanior.ReadOnly = True
+                txtdescripcion.ReadOnly = True
+            End If
     End Sub
 
     Private Sub btningresarrevista_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btningresarrevista.Click
@@ -125,11 +126,14 @@
 
     Private Sub txtanior_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtanior.TextChanged
         If primeringreso = 1 Then
-            If txtanior.Text = "" Then
-                ErrorProvider1.SetError(txtanior, "El campo se encuentra vacio")
-            Else
-                'En caso de escribir algo en el textbox este se desactiva
-                ErrorProvider1.SetError(txtanior, "")
+            If Not IsNumeric(txtanior.Text) Then
+                ErrorProvider1.SetError(txtanior, "El campo permite solo numeros")
+                If txtanior.Text = "" Then
+                    ErrorProvider1.SetError(txtanior, "El campo se encuentra vacio")
+                Else
+                    'En caso de escribir algo en el textbox este se desactiva
+                    ErrorProvider1.SetError(txtanior, "")
+                End If
             End If
         End If
     End Sub
