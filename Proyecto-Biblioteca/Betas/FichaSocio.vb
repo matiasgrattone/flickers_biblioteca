@@ -166,8 +166,13 @@
         FichaParaImprimir2.Hide()
     End Sub
     Private Sub PictureBox2_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox2.Click
-        MailF.Txt_Destino.Text = LabelMailtxt.Text
-        MailF.Show()
+        If LabelMailtxt.Text = "" Then
+            MsgBox("El usuario no tiene correo", MsgBoxStyle.OkOnly, Title:="Mail")
+        Else
+            MailF.Txt_Destino.Text = LabelMailtxt.Text
+            MailF.Show()
+        End If
+
     End Sub
 
     Private Sub cmbmes_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles cmbmes.SelectedIndexChanged

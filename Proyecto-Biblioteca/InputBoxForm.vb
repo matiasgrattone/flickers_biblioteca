@@ -6,8 +6,8 @@
     Dim xc, yc As Integer
     Dim xf, yf As Integer
     Dim holax, holay As Integer
-
     Private Sub PlaceHolder5_Keyup(sender As System.Object, e As System.Windows.Forms.KeyEventArgs) Handles PlaceHolder5.KeyUp
+
         If e.KeyCode = Keys.Enter Then
             confirmacionEdicionAdmin = PlaceHolder5.Text
             Consulta = "select contrasenia from usuarios where cedula = '" & ConfigAdmin.cedulaFotoPerfil & "'"

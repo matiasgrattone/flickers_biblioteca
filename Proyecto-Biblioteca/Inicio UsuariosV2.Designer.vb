@@ -111,9 +111,9 @@ Partial Class Inicio_UsuariosV2
         Me.Menu_Panel.BackColor = System.Drawing.Color.Silver
         Me.Menu_Panel.Controls.Add(Me.Panel1)
         Me.Menu_Panel.Controls.Add(Me.Panel2)
-        Me.Menu_Panel.Controls.Add(Me.Editar_Panel)
         Me.Menu_Panel.Controls.Add(Me.Ingresar_Panel)
-        Me.Menu_Panel.Location = New System.Drawing.Point(954, -3)
+        Me.Menu_Panel.Controls.Add(Me.Editar_Panel)
+        Me.Menu_Panel.Location = New System.Drawing.Point(807, -3)
         Me.Menu_Panel.Name = "Menu_Panel"
         Me.Menu_Panel.Size = New System.Drawing.Size(360, 651)
         Me.Menu_Panel.TabIndex = 0
