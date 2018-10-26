@@ -55,6 +55,7 @@ Public Class buscarlibro
     Private Sub buscarlibro_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Pautor.Visible = False
         Peditorial.Visible = False
+        Pmostrar.BringToFront()
         Pclasificacion.Visible = False
         cmbsala.SelectedIndex = 0
         Consulta = "select * from usuarios"

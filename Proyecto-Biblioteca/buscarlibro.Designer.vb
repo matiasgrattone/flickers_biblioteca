@@ -1421,7 +1421,7 @@ Partial Class buscarlibro
         Me.dgvlibros.RowsDefaultCellStyle = DataGridViewCellStyle12
         Me.dgvlibros.RowTemplate.Height = 32
         Me.dgvlibros.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvlibros.Size = New System.Drawing.Size(628, 461)
+        Me.dgvlibros.Size = New System.Drawing.Size(628, 510)
         Me.dgvlibros.TabIndex = 66
         '
         'txtbusqueda
@@ -1439,7 +1439,7 @@ Partial Class buscarlibro
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LimeGreen
-        Me.ClientSize = New System.Drawing.Size(935, 612)
+        Me.ClientSize = New System.Drawing.Size(935, 636)
         Me.Controls.Add(Me.Label23)
         Me.Controls.Add(Me.cmbsala)
         Me.Controls.Add(Me.Peditorial)
@@ -1451,8 +1451,8 @@ Partial Class buscarlibro
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.dgvlibros)
-        Me.Controls.Add(Me.Pactualizar)
         Me.Controls.Add(Me.Pmostrar)
+        Me.Controls.Add(Me.Pactualizar)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "buscarlibro"
         Me.Text = "Form2"

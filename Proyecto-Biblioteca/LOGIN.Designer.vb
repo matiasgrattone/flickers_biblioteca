@@ -81,6 +81,7 @@ Partial Class LOGIN
         'Pbnube1
         '
         Me.Pbnube1.BackColor = System.Drawing.Color.Transparent
+        Me.Pbnube1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Pbnube1.ErrorImage = Nothing
         Me.Pbnube1.Image = Nothing
         Me.Pbnube1.InitialImage = Nothing

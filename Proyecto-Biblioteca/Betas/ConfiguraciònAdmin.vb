@@ -9,7 +9,7 @@ Public Class ConfigAdmin
     Dim ced_ingresar As Integer
     Dim nom_ingresar As String
     Dim ape_ingresar As String
-    Dim tel_ingresar As Integer
+    Dim tel_ingresar As String
     Dim dir_ingresar As String
     Dim tipo_ingresar As Integer
     Dim pass_ingresar As String
@@ -286,7 +286,7 @@ Public Class ConfigAdmin
 
                 Dim nacimiento_ingresar As String = Str(cb_anio.SelectedItem).Substring(1, 4) + "-" + substring + "-" + dia_ingresar '//GUARDA LOS DATOS DEL COMBO A LA VARIABLE NACIMIENTO PARA LUEGO USARLA EN LA CONSULTA INSERT
 
-                Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo, nacimiento, estado, contrasenia, moroso, rutaperfil) values (concat(upper(left('" + nom_ingresar + "',1)), lower(substr('" + nom_ingresar + "',2))), concat(upper(left('" + ape_ingresar + "',1)), lower(substr('" + ape_ingresar + "',2))), '" + Str(ced_ingresar) + "', '" + Str(tel_ingresar) + "', '" + dir_ingresar + "', '1', '" + nacimiento_ingresar + "','1', '" + cont_ingresar + "', 0, '" + rutaFoto + "');"
+                Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo, nacimiento, estado, contrasenia, moroso, rutaperfil) values (concat(upper(left('" + nom_ingresar + "',1)), lower(substr('" + nom_ingresar + "',2))), concat(upper(left('" + ape_ingresar + "',1)), lower(substr('" + ape_ingresar + "',2))), '" + Str(ced_ingresar) + "', '" & tel_ingresar & "', '" + dir_ingresar + "', '1', '" + nacimiento_ingresar + "','1', '" + cont_ingresar + "', 0, '" + rutaFoto + "');"
                 consultar()
                 Consulta = "insert into MenuConfig (cod_usuario,cod_grafica) values ('" & ced_ingresar & "' , 1)"
                 consultar()
@@ -565,7 +565,7 @@ Public Class ConfigAdmin
             ErrorProvider1.SetError(cb_anio_editar, "seleccione un año")
             i_editar = 1
         Else
-            anio_editar = cb_anio_editar.SelectedIndex
+            anio_editar = cb_anio_editar.SelectedItem
         End If
 
         substring = cb_mes_editar.SelectedItem
@@ -574,11 +574,11 @@ Public Class ConfigAdmin
         If i_editar = 0 Then
             Dim nacimiento_editar As String = anio_editar + "-" + mes_editar + "-" + dia_editar
             Try
-                Consulta = "update usuarios set cedula='" & Str(ced_editar) & "' , nombre='" & nom_editar & "', apellido='" & ape_editar & "', direccion='" & dir_editar & "', telefono='" & tel_editar & "', nacimiento='" & nacimiento_editar & "' , tipo='2' where cedula = '" & Str(ced_editar) & "'"
+                Consulta = "update usuarios set cedula='" & Str(ced_editar) & "' , nombre='" & nom_editar & "', apellido='" & ape_editar & "', direccion='" & dir_editar & "', telefono='" & tel_editar & "', nacimiento='" & nacimiento_editar & "' , tipo='1' where cedula = '" & Str(ced_editar) & "'"
                 consultar()
 
                 MsgBox("Edición guardada satisfactoriamente")
-
+                listboxcarga()
                 '//////////////////Mostrar los datos actualizados en el datagrid///////////////////////
                 Try
                     Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento from usuarios where estado = 1 and tipo = 2;"
@@ -652,8 +652,8 @@ Public Class ConfigAdmin
             cedula.Text = row("cedula").ToString
             direccion.Text = row("direccion").ToString
             telefono.Text = row("telefono").ToString
-            cb_dia_editar.SelectedIndex = (Val(dia) + 1)
-            cb_mes_editar.SelectedIndex = (Val(mes) + 1)
+            cb_dia_editar.SelectedIndex = (Val(dia))
+            cb_mes_editar.SelectedIndex = (Val(mes))
             Dim x As Integer = 0
             For Each item In cb_anio_editar.Items
                 If item = anio Then
@@ -1123,5 +1123,17 @@ Public Class ConfigAdmin
         PlaceHolder5.Enabled = False
         PlaceHolder6.Enabled = False
         Button7.Text = "Editar"
+    End Sub
+
+
+    Private Sub TabPage2_Click(sender As System.Object, e As System.EventArgs) Handles TabPage2.Click
+        nombre.Clear()
+        apellido.Clear()
+        cedula.Clear()
+        direccion.Clear()
+        telefono.Clear()
+        cb_dia_editar.SelectedIndex = 0
+        cb_mes_editar.SelectedIndex = 0
+        cb_anio_editar.SelectedIndex = 0
     End Sub
 End Class
