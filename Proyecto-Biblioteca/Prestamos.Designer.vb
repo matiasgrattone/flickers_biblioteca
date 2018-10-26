@@ -40,6 +40,7 @@ Partial Class Prestamos
         Me.ButonParaExtreaer = New System.Windows.Forms.Button()
         Me.BotonParaBuscarCedula = New System.Windows.Forms.Button()
         Me.PanelDelCarrito = New System.Windows.Forms.Panel()
+        Me.Pb_moroso = New System.Windows.Forms.PictureBox()
         Me.LabelParaAlmacenarLaCedulaIngresada = New System.Windows.Forms.Label()
         Me.LabelCI = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -73,6 +74,7 @@ Partial Class Prestamos
         Me.ButtonVERREGISTRO = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.LabelSELECCION_DE_FUNCION = New System.Windows.Forms.Label()
+        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.PictureCrearReservacion = New System.Windows.Forms.PictureBox()
         Me.PictureDevolucion = New System.Windows.Forms.PictureBox()
         Me.PictureExtraccion = New System.Windows.Forms.PictureBox()
@@ -90,8 +92,8 @@ Partial Class Prestamos
         Me.Label4 = New System.Windows.Forms.Label()
         Me.dgvRenovacion = New System.Windows.Forms.DataGridView()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.PanelDelCarrito.SuspendLayout()
+        CType(Me.Pb_moroso, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GrupBoxDevolucion.SuspendLayout()
         CType(Me.DataGridParaDevolucion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GrupBoxExtraccion.SuspendLayout()
@@ -134,6 +136,7 @@ Partial Class Prestamos
         'PanelDelCarrito
         '
         Me.PanelDelCarrito.BackColor = System.Drawing.SystemColors.ScrollBar
+        Me.PanelDelCarrito.Controls.Add(Me.Pb_moroso)
         Me.PanelDelCarrito.Controls.Add(Me.LabelParaAlmacenarLaCedulaIngresada)
         Me.PanelDelCarrito.Controls.Add(Me.LabelCI)
         Me.PanelDelCarrito.Controls.Add(Me.Button1)
@@ -142,10 +145,20 @@ Partial Class Prestamos
         Me.PanelDelCarrito.Controls.Add(Me.ListboxParaGuardarLasIdDeLosLibrosEnElCarrito)
         Me.PanelDelCarrito.Controls.Add(Me.LabelLIBRO)
         Me.PanelDelCarrito.Controls.Add(Me.LabelIDLIBRO)
-        Me.PanelDelCarrito.Location = New System.Drawing.Point(-268, -28)
+        Me.PanelDelCarrito.Location = New System.Drawing.Point(-269, -28)
         Me.PanelDelCarrito.Name = "PanelDelCarrito"
         Me.PanelDelCarrito.Size = New System.Drawing.Size(268, 676)
         Me.PanelDelCarrito.TabIndex = 73
+        '
+        'Pb_moroso
+        '
+        Me.Pb_moroso.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.delete
+        Me.Pb_moroso.Location = New System.Drawing.Point(199, 147)
+        Me.Pb_moroso.Name = "Pb_moroso"
+        Me.Pb_moroso.Size = New System.Drawing.Size(51, 50)
+        Me.Pb_moroso.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.Pb_moroso.TabIndex = 83
+        Me.Pb_moroso.TabStop = False
         '
         'LabelParaAlmacenarLaCedulaIngresada
         '
@@ -155,7 +168,7 @@ Partial Class Prestamos
         Me.LabelParaAlmacenarLaCedulaIngresada.ForeColor = System.Drawing.Color.Black
         Me.LabelParaAlmacenarLaCedulaIngresada.Location = New System.Drawing.Point(51, 169)
         Me.LabelParaAlmacenarLaCedulaIngresada.Name = "LabelParaAlmacenarLaCedulaIngresada"
-        Me.LabelParaAlmacenarLaCedulaIngresada.Size = New System.Drawing.Size(115, 20)
+        Me.LabelParaAlmacenarLaCedulaIngresada.Size = New System.Drawing.Size(114, 20)
         Me.LabelParaAlmacenarLaCedulaIngresada.TabIndex = 84
         Me.LabelParaAlmacenarLaCedulaIngresada.Text = "CedulaTemporal"
         '
@@ -608,6 +621,16 @@ Partial Class Prestamos
         Me.LabelSELECCION_DE_FUNCION.TabIndex = 66
         Me.LabelSELECCION_DE_FUNCION.Text = "SELECCION " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      DE " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FUNCION "
         '
+        'Cedula
+        '
+        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.Cedula.Location = New System.Drawing.Point(3, 50)
+        Me.Cedula.Name = "Cedula"
+        Me.Cedula.Size = New System.Drawing.Size(259, 20)
+        Me.Cedula.TabIndex = 0
+        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
+        Me.Cedula.WaterMarkText = "Cedula"
+        '
         'PictureCrearReservacion
         '
         Me.PictureCrearReservacion.Cursor = System.Windows.Forms.Cursors.Hand
@@ -859,16 +882,6 @@ Partial Class Prestamos
         Me.Label2.TabIndex = 63
         Me.Label2.Text = "RENOVAR LIBROS"
         '
-        'Cedula
-        '
-        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Cedula.Location = New System.Drawing.Point(3, 50)
-        Me.Cedula.Name = "Cedula"
-        Me.Cedula.Size = New System.Drawing.Size(259, 20)
-        Me.Cedula.TabIndex = 0
-        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
-        Me.Cedula.WaterMarkText = "Cedula"
-        '
         'Prestamos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -889,6 +902,7 @@ Partial Class Prestamos
         Me.Text = "PRESTAMOS"
         Me.PanelDelCarrito.ResumeLayout(False)
         Me.PanelDelCarrito.PerformLayout()
+        CType(Me.Pb_moroso, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GrupBoxDevolucion.ResumeLayout(False)
         Me.GrupBoxDevolucion.PerformLayout()
         CType(Me.DataGridParaDevolucion, System.ComponentModel.ISupportInitialize).EndInit()
@@ -972,4 +986,5 @@ Partial Class Prestamos
     Private WithEvents ptbRenovar As System.Windows.Forms.PictureBox
     Friend WithEvents dgvRenovacion As System.Windows.Forms.DataGridView
     Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents Pb_moroso As System.Windows.Forms.PictureBox
 End Class

@@ -91,6 +91,11 @@ Public Class buscarlibro
                     dgvlibros.Columns(10).Visible = False
                     dgvlibros.Columns(11).HeaderText = "Fecha de Ingreso"
 
+
+                    dgvlibros.Columns(7).Visible = False
+                    dgvlibros.Columns(5).Visible = False
+                    dgvlibros.Columns(8).Visible = False
+
                     cmbestado.SelectedIndex = 0
                     cmbdatos.SelectedIndex = 0
 

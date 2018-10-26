@@ -25,6 +25,7 @@
   
     Private Sub Prestamos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'Alineamos todo los datagridviews para que queden mas lindos :3
+        Cedula.Select()
         DatagridModulo = VerLibrosReservados2
         Datagrid_Align()
         DatagridModulo = DataGridViewlllllVerLibrosEnExtraccionlllll
@@ -75,15 +76,16 @@
         'Si el ModoCedula esta en modo "Buscar" ahi se llamara a ActuaizarCedula para poder iniciar las funciones de el menu 
         If ModoCedula = "Buscar" And ERROR1 = 0 Then
             ActualizarCedula()
+            Cedula.Select()
         ElseIf ERROR1 = 0 Then 'En caso que no este en "Buscar" se le preguntara al usuario si quiere cambiar la cedula ya ingresada 
             z = 0
             z = MsgBox("Editar la cedula reiniciara lo echo hasta el momento, desea continuar ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
-
+            Cedula.Select()
             If z = MsgBoxResult.Yes Then 'Si dice que si todas las funciones volveran a las del inicio, como si nada hubiera pasado
                 Cedula.ReadOnly = False
                 ModoCedula = "Buscar"
                 BotonParaBuscarCedula.Text = "Buscar"
-
+                Cedula.Select()
                 '///REINICIO DE FUNCIONES///
                 CarritoDeLibros.Items.Clear() 'Borra los items del ListBox carrito de libros 
                 ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Clear() 'Borra los items del ListBox carrito para almacenar ids
@@ -110,6 +112,7 @@
                 'Ocultamos el boton de ver ficha
                 ButtonVerFicha.Visible = False
                 LabelSELECCION_DE_FUNCION.Visible = False
+                Cedula.Select()
             End If
         End If
     End Sub
@@ -306,7 +309,7 @@
                 consultar()
                 If (Tabla.Rows.Count = 0) Then
                     GrupBoxExtraccion.Visible = True
-                    Consulta = "select cod_libro as 'Numero de Inventario', titulo as 'Titulo', volumen as 'Volumen', ubicacion as 'Ubicacion' from libro where estado ='0'"
+                    Consulta = "select cod_libro as 'Numero de Inventario', titulo as 'Titulo', volumen as 'Volumen', ubicacion as 'Ubicacion' from libro where estado ='0' and ensala = 0"
                     consultar()
                     DataGridViewlllllVerLibrosEnExtraccionlllll.DataSource = Tabla
                 Else
@@ -323,7 +326,7 @@
                         Case 1
                             MsgBox("Este socio NO puede retirar un libro hasta devolver los ya prestados", Title:="ERROR")
                         Case 0
-                            Consulta = "select cod_libro as 'Numero de Inventario', titulo as 'Titulo', volumen as 'Volumen', ubicacion as 'Ubicacion' from libro where estado ='0'"
+                            Consulta = "select cod_libro as 'Numero de Inventario', titulo as 'Titulo', volumen as 'Volumen', ubicacion as 'Ubicacion' from libro where estado ='0' and ensala = 0"
                             consultar()
                             DataGridViewlllllVerLibrosEnExtraccionlllll.DataSource = Tabla
                             GrupBoxExtraccion.Visible = True
@@ -336,7 +339,7 @@
     '///BUSCAR LIBRO POR ID///
     Private Sub TextboxBuscador_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextboxBuscador.TextChanged
         Try
-            Consulta = "select cod_libro as 'Numero de Inventario', titulo as 'Titulo', volumen as 'Volumen', ubicacion as 'Ubicacion' from libro where estado ='0' and cod_libro LIKE '" & TextboxBuscador.Text & "%'"
+            Consulta = "select cod_libro as 'Numero de Inventario', titulo as 'Titulo', volumen as 'Volumen', ubicacion as 'Ubicacion' from libro where estado ='0' and ensala = 0 and cod_libro LIKE '" & TextboxBuscador.Text & "%'"
             consultar()
             DataGridViewlllllVerLibrosEnExtraccionlllll.DataSource = Tabla
         Catch ex As Exception
@@ -649,7 +652,7 @@
             dia = Val((DataGridParaDevolucion.Item(4, DataGridParaDevolucion.CurrentRow.Index).Value).ToString.Substring(0, 2))
 
             If dia < 10 Then
-                mes = Val((DataGridParaDevolucion.Item(4, DataGridParaDevolucion.CurrentRow.Index).Value).ToString.Substring(2, 2))
+                mes = (DataGridParaDevolucion.Item(4, DataGridParaDevolucion.CurrentRow.Index).Value).ToString.Substring(3, 2)
                 anio = Val((DataGridParaDevolucion.Item(4, DataGridParaDevolucion.CurrentRow.Index).Value).ToString.Substring(6, 4))
             Else
                 mes = Val((DataGridParaDevolucion.Item(4, DataGridParaDevolucion.CurrentRow.Index).Value).ToString.Substring(3, 2))
@@ -675,6 +678,11 @@
                     Consulta = "update usuarios set moroso = '1', fecha_moroso = '" + fecha_estimada + "' where cedula = '" + Cedula.Text + "'"
                     consultar()
                     MsgBox("El usuario es ahora moroso hasta " & fecha_estimada & " por devolver el libro fuera de la fecha máxima")
+
+                    GrupBoxDevolucion.Visible = False
+                    ReservacionGrupBox.Visible = False
+                    CrearReservacionGrupBox.Visible = False
+                    GroupBoxRenovacion.Visible = False
                 Catch ex As Exception
                     MsgBox(ex.Message)
                 End Try
@@ -698,14 +706,16 @@
                     fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
 
                 End If
+                If Not diferenciaDia = 0 Then
+                    Try
+                        Consulta = "update usuarios set moroso = '1', fecha_moroso = '" + fecha_estimada + "' where cedula = '" + Cedula.Text + "'"
+                        consultar()
+                        MsgBox("El usuario es ahora moroso hasta " & fecha_estimada & " por devolver el libro fuera de la fecha máxima")
+                    Catch ex As Exception
+                        MsgBox(ex.Message)
+                    End Try
+                End If
 
-                Try
-                    Consulta = "update usuarios set moroso = '1', fecha_moroso = '" + fecha_estimada + "' where cedula = '" + Cedula.Text + "'"
-                    consultar()
-                    MsgBox("El usuario es ahora moroso hasta " & fecha_estimada & " por devolver el libro fuera de la fecha máxima")
-                Catch ex As Exception
-                    MsgBox(ex.Message)
-                End Try
 
                 moroso = 1
 
@@ -753,7 +763,7 @@
                 Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion', fecha_estimada as 'Fecha Maxima de Prestamo' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and fecha_salida is NOT NULL and p.cedula= '" & Cedula.Text & "'"
                 consultar()
                 DataGridParaDevolucion.DataSource = Tabla
-
+                VerificarMoroso()
             Else
 
                 MsgBox("Este libro no se devolvio", Title:="PRESTAMOS")
@@ -1327,6 +1337,7 @@
 
     Public Sub VerificarMoroso()
         Dim moroso As Integer
+        Dim fecha_moroso As String
         Try
             If Cedula.Text <> "" Then
                 Consulta = "SELECT moroso FROM `usuarios` WHERE cedula = '" + Cedula.Text + "'"
@@ -1337,15 +1348,44 @@
                 moroso = row("moroso")
             Next
             If moroso = 1 Then
-                MsgBox("Este socio no puede usar la funcion de extracciòn por ser moroso", Title:="MOROSO")
+                Consulta = "select fecha_moroso from usuarios where cedula = '" & Cedula.Text & "'"
+                consultar()
+                For Each row As DataRow In Tabla.Rows
+                    fecha_moroso = row("fecha_moroso")
+                Next
+                If Date.Now.ToString("yyyy") > fecha_moroso.Substring(6, 4) Then
+                    Consulta = "update usuarios set moroso = 0 where cedula = '" & Cedula.Text & "'"
+                    consultar()
+                    moroso = 0
+                ElseIf Date.Now.ToString("yyyy") = fecha_moroso.Substring(6, 4) Then
+                    moroso = 1
+                    If Date.Now.ToString("MM") > fecha_moroso.Substring(3, 2) Then
+                        Consulta = "update usuarios set moroso = 0 where cedula = '" & Cedula.Text & "'"
+                        consultar()
+                        moroso = 0
+                    ElseIf Date.Now.ToString("MM") = fecha_moroso.Substring(3, 2) Then
+                        moroso = 1
+                        If Date.Now.ToString("dd") > fecha_moroso.Substring(0, 2) Then
+                            Consulta = "update usuarios set moroso = 0 where cedula = '" & Cedula.Text & "'"
+                            consultar()
+                            moroso = 0
+                        ElseIf Date.Now.ToString("dd") = fecha_moroso.Substring(0, 2) Then
+                            moroso = 0
+                        End If
+                    End If
+                End If
+
+            End If
+            If moroso = 1 Then
+                Pb_moroso.Visible = True
                 PictureExtraccion.Visible = False
                 PictureReservacion.Visible = False
             Else
+                Pb_moroso.Visible = False
                 PictureExtraccion.Visible = True
                 PictureReservacion.Visible = True
             End If
         Catch ex As Exception
-
         End Try
 
     End Sub
