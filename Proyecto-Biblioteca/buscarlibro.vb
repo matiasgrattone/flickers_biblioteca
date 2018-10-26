@@ -1416,7 +1416,27 @@ Public Class buscarlibro
     End Sub
 
     Private Sub cmbdatos_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbdatos.SelectedIndexChanged
-
+        If cmbdatos.Text = "" Then
+            txtbusqueda.WaterMarkText = "Buscar"
+        End If
+        If cmbdatos.Text = "Codigo" Then
+            txtbusqueda.WaterMarkText = "Ej: 544"
+        End If
+        If cmbdatos.Text = "Autor" Then
+            txtbusqueda.WaterMarkText = "Ej: Gabriel Garcia Marquez"
+        End If
+        If cmbdatos.Text = "Titulo" Then
+            txtbusqueda.WaterMarkText = "Ej: La divina comedia"
+        End If
+        If cmbdatos.Text = "Editorial" Then
+            txtbusqueda.WaterMarkText = "Ej: Diario Rio Uruguay"
+        End If
+        If cmbdatos.Text = "Año" Then
+            txtbusqueda.WaterMarkText = "Ej: 2018"
+        End If
+        If cmbdatos.Text = "Origen" Then
+            txtbusqueda.WaterMarkText = "Ej: Uruguay"
+        End If
     End Sub
 
     Private Sub Pactualizar_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Pactualizar.Paint
