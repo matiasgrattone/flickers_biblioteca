@@ -951,6 +951,7 @@
                 '/////////////////////////////////////////////////////////////////////////////////////////////
             End If
         End If
+        VerificarMoroso()
     End Sub
 
     Private Sub DataGridParaDevolucion_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridParaDevolucion.CellContentClick
@@ -969,8 +970,26 @@
             Timer1.Enabled = True
         End If
     End Sub
+    Public Sub VerificarMoroso()
+        Dim moroso As Integer
+        Try
+            If Cedula.Text <> "" Then
+                Consulta = "SELECT moroso FROM `usuarios` WHERE cedula = '" + Cedula.Text + "'"
+                consultar()
+            End If
 
-    Private Sub dgvRenovacion_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvRenovacion.CellContentClick
+            For Each row As DataRow In Tabla.Rows
+                moroso = row("moroso")
+            Next
+            If moroso = 1 Then
+                MsgBox("Este socio no puede usar la funcion de extracciòn por ser moroso", Title:="MOROSO")
+                PictureExtraccion.Visible = False
+            Else
+                PictureExtraccion.Visible = True
+            End If
+        Catch ex As Exception
+
+        End Try
 
     End Sub
 End Class

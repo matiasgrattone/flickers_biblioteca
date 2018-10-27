@@ -441,6 +441,8 @@
     <None Include="bin\Debug\imagenes\magazine.png" />
     <None Include="bin\Debug\imagenes\magazinePNG.png" />
     <None Include="Resources\logout.png" />
+    <None Include="bin\Debug\imagenes\delete.png" />
+    <None Include="bin\Debug\imagenes\cancel %282%29.png" />
     <Content Include="Resources\navigator.png" />
     <None Include="Resources\Sin título-1.jpg" />
     <None Include="Resources\reading.png" />

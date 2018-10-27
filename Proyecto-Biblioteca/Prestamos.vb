@@ -64,7 +64,6 @@
         If z = vbYes Then
             Contador = 1 + Contador
         End If
-
     End Sub
 
 
@@ -113,7 +112,6 @@
                 LabelSELECCION_DE_FUNCION.Visible = False
             End If
         End If
-
     End Sub
 
     '///BUSCAR CEDULA AL PRECIONAR ENTER///
@@ -282,6 +280,7 @@
                 '/////////////////////////////////////////////////////////////////////////////////////////////
             End If
         End If
+        VerificarMoroso()
     End Sub
 
 
@@ -1291,11 +1290,28 @@
         dgvRenovacion.DataSource = Tabla
     End Sub
 
-    Private Sub DataGridParaDevolucion_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridParaDevolucion.CellContentClick
+    Public Sub VerificarMoroso()
+        Dim moroso As Integer
+        Try
+            If Cedula.Text <> "" Then
+                Consulta = "SELECT moroso FROM `usuarios` WHERE cedula = '" + Cedula.Text + "'"
+                consultar()
+            End If
 
-    End Sub
+            For Each row As DataRow In Tabla.Rows
+                moroso = row("moroso")
+            Next
+            If moroso = 1 Then
+                MsgBox("Este socio no puede usar la funcion de extracciòn por ser moroso", Title:="MOROSO")
+                PictureExtraccion.Visible = False
+                PictureReservacion.Visible = False
+            Else
+                PictureExtraccion.Visible = True
+                PictureReservacion.Visible = True
+            End If
+        Catch ex As Exception
 
-    Private Sub dgvRenovacion_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvRenovacion.CellContentClick
+        End Try
 
     End Sub
 End Class
