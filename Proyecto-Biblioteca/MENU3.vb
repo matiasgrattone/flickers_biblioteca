@@ -811,6 +811,8 @@ Public Class MENU3
                     Else
                         Timer_Prestamos_LIVE.Enabled = False
                     End If
+                    ComboBox1.Enabled = True
+                    ComboBox2.Enabled = True
                 Else
                     Timer_BD.Interval = 6000
                 End If
@@ -868,7 +870,7 @@ Public Class MENU3
         Chart()
     End Sub
     Private Sub Pbusuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbusuario.Click
-        If ERROR1 = 0 Then
+        If ERROR1 = 0 And lbl_cedula.Text = "................" Then
             Consulta = "select cedula , nombre , mail , tipo from usuarios where cedula = '" & lbl_cedula.Text & "'"
             consultar()
             For Each row As DataRow In Tabla.Rows

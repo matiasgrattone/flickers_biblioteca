@@ -955,21 +955,84 @@ Public Class ConfigAdmin
         If Button7.Text = "Editar" Then
             InputBoxForm.Show()
         Else
-            Consulta_dataset = "update usuarios set nombre = '" & PlaceHolder5.Text & "' , apellido = '" & PlaceHolder4.Text & "' , cedula = '" & PlaceHolder3.Text & "' , telefono = '" & PlaceHolder2.Text & "' , direccion = '" & PlaceHolder6.Text & "' where cedula = '" & cedulaFotoPerfil & "';select * from usuarios where cedula = '" & cedulaFotoPerfil & "'"
-            consultar_DataSet()
-            MsgBox("Cambios Guardados Correctamente")
-            For Each row As DataRow In Tabla_dataset.Tables(0).Rows
-                Lbl_NombreADMIN_TXT.Text = row("nombre") & " " & row("apellido")
-            Next
-            PlaceHolder2.Enabled = False
-            PlaceHolder3.Enabled = False
-            PlaceHolder4.Enabled = False
-            PlaceHolder5.Enabled = False
-            PlaceHolder6.Enabled = False
-            Button7.Text = "Editar"
+            If PlaceHolder2.Text = "" Or PlaceHolder3.Text = "" Or PlaceHolder4.Text = "" Or PlaceHolder5.Text = "" Or PlaceHolder6.Text = "" Then
+
+                If PlaceHolder2.Text = "" Then
+                    ErrorProvider1.SetError(PlaceHolder2, "el campo no puede estar vacio")
+                End If
+                If PlaceHolder3.Text = "" Then
+                    ErrorProvider1.SetError(PlaceHolder3, "el campo no puede estar vacio")
+                End If
+                If PlaceHolder4.Text = "" Then
+                    ErrorProvider1.SetError(PlaceHolder4, "el campo no puede estar vacio")
+                End If
+                If PlaceHolder5.Text = "" Then
+                    ErrorProvider1.SetError(PlaceHolder5, "el campo no puede estar vacio")
+                End If
+                If PlaceHolder6.Text = "" Then
+                    ErrorProvider1.SetError(PlaceHolder6, "el campo no puede estar vacio")
+                End If
+
+            Else
+
+                Consulta_dataset = "update usuarios set nombre = '" & PlaceHolder5.Text & "' , apellido = '" & PlaceHolder4.Text & "' , cedula = '" & PlaceHolder3.Text & "' , telefono = '" & PlaceHolder2.Text & "' , direccion = '" & PlaceHolder6.Text & "' where cedula = '" & cedulaFotoPerfil & "';select * from usuarios where cedula = '" & cedulaFotoPerfil & "'"
+                consultar_DataSet()
+                MsgBox("Cambios Guardados Correctamente")
+                For Each row As DataRow In Tabla_dataset.Tables(0).Rows
+                    Lbl_NombreADMIN_TXT.Text = row("nombre") & " " & row("apellido")
+                Next
+                PlaceHolder2.Enabled = False
+                PlaceHolder3.Enabled = False
+                PlaceHolder4.Enabled = False
+                PlaceHolder5.Enabled = False
+                PlaceHolder6.Enabled = False
+                Button7.Text = "Editar"
+
+            End If
+
         End If
     End Sub
+    Public Sub guardarmodificacion()
+        If Button7.Text = "Editar" Then
+            InputBoxForm.Show()
+        Else
+            If PlaceHolder2.Text = "" Or PlaceHolder3.Text = "" Or PlaceHolder4.Text = "" Or PlaceHolder5.Text = "" Or PlaceHolder6.Text = "" Then
 
+                If PlaceHolder2.Text = "" Then
+                    ErrorProvider1.SetError(PlaceHolder2, "el campo no puede estar vacio")
+                End If
+                If PlaceHolder3.Text = "" Then
+                    ErrorProvider1.SetError(PlaceHolder3, "el campo no puede estar vacio")
+                End If
+                If PlaceHolder4.Text = "" Then
+                    ErrorProvider1.SetError(PlaceHolder4, "el campo no puede estar vacio")
+                End If
+                If PlaceHolder5.Text = "" Then
+                    ErrorProvider1.SetError(PlaceHolder5, "el campo no puede estar vacio")
+                End If
+                If PlaceHolder6.Text = "" Then
+                    ErrorProvider1.SetError(PlaceHolder6, "el campo no puede estar vacio")
+                End If
+
+            Else
+
+                Consulta_dataset = "update usuarios set nombre = '" & PlaceHolder5.Text & "' , apellido = '" & PlaceHolder4.Text & "' , cedula = '" & PlaceHolder3.Text & "' , telefono = '" & PlaceHolder2.Text & "' , direccion = '" & PlaceHolder6.Text & "' where cedula = '" & cedulaFotoPerfil & "';select * from usuarios where cedula = '" & cedulaFotoPerfil & "'"
+                consultar_DataSet()
+                MsgBox("Cambios Guardados Correctamente")
+                For Each row As DataRow In Tabla_dataset.Tables(0).Rows
+                    Lbl_NombreADMIN_TXT.Text = row("nombre") & " " & row("apellido")
+                Next
+                PlaceHolder2.Enabled = False
+                PlaceHolder3.Enabled = False
+                PlaceHolder4.Enabled = False
+                PlaceHolder5.Enabled = False
+                PlaceHolder6.Enabled = False
+                Button7.Text = "Editar"
+
+            End If
+
+        End If
+    End Sub
     Private Sub ConfigAdmin_FormClosing(sender As System.Object, e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
         MENU3.Timer_Prestamos_LIVE.Enabled = True
     End Sub
@@ -1002,5 +1065,60 @@ Public Class ConfigAdmin
 
         Chart1.Series("ejemplo").IsVisibleInLegend = False
 
+    End Sub
+
+    Private Sub PlaceHolder5_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles PlaceHolder5.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            guardarmodificacion()
+        End If
+    End Sub
+
+    Private Sub PlaceHolder6_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles PlaceHolder6.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            guardarmodificacion()
+        End If
+    End Sub
+    Private Sub PlaceHolder4_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles PlaceHolder4.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            guardarmodificacion()
+        End If
+    End Sub
+    Private Sub PlaceHolder3_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles PlaceHolder3.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            guardarmodificacion()
+        End If
+    End Sub
+    Private Sub PlaceHolder2_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles PlaceHolder2.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            guardarmodificacion()
+        End If
+    End Sub
+    Private Sub PlaceHolder5_TextChanged(sender As System.Object, e As System.EventArgs) Handles PlaceHolder5.TextChanged
+        ErrorProvider1.SetError(PlaceHolder5, "")
+    End Sub
+
+    Private Sub PlaceHolder4_TextChanged(sender As System.Object, e As System.EventArgs) Handles PlaceHolder4.TextChanged
+        ErrorProvider1.SetError(PlaceHolder4, "")
+    End Sub
+
+    Private Sub PlaceHolder3_TextChanged(sender As System.Object, e As System.EventArgs) Handles PlaceHolder3.TextChanged
+        ErrorProvider1.SetError(PlaceHolder3, "")
+    End Sub
+
+    Private Sub PlaceHolder2_TextChanged(sender As System.Object, e As System.EventArgs) Handles PlaceHolder2.TextChanged
+        ErrorProvider1.SetError(PlaceHolder2, "")
+    End Sub
+
+    Private Sub PlaceHolder6_TextChanged(sender As System.Object, e As System.EventArgs) Handles PlaceHolder6.TextChanged
+        ErrorProvider1.SetError(PlaceHolder6, "")
+    End Sub
+
+    Private Sub Button8_Click(sender As System.Object, e As System.EventArgs) Handles Button8.Click
+        PlaceHolder2.Enabled = False
+        PlaceHolder3.Enabled = False
+        PlaceHolder4.Enabled = False
+        PlaceHolder5.Enabled = False
+        PlaceHolder6.Enabled = False
+        Button7.Text = "Editar"
     End Sub
 End Class

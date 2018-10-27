@@ -8,47 +8,52 @@
     Dim nombreArchivo As String
 
     Private Sub info_usuario_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Me.MaximizeBox = False
-        xf = Me.Location.X
-        yf = Me.Location.Y
+        Try
+
+            Me.MaximizeBox = False
+            xf = Me.Location.X
+            yf = Me.Location.Y
 
 
 
-        cargar()
+            cargar()
 
-        Select Case LabelTipo.Text
-            Case "Administrador"
-                Consulta = "select nombre , online , substring(ultimaconexion,11) as 'ultima conexion' from usuarios where tipo < 2"
-                consultar()
-            Case "Funcionario"
-                Consulta = "select nombre , online , substring(ultimaconexion,11) as 'ultima conexion' from usuarios where tipo = 1"
-                consultar()
+            Select Case LabelTipo.Text
+                Case "Administrador"
+                    Consulta = "select nombre , online , substring(ultimaconexion,11) as 'ultima conexion' from usuarios where tipo < 2"
+                    consultar()
+                Case "Funcionario"
+                    Consulta = "select nombre , online , substring(ultimaconexion,11) as 'ultima conexion' from usuarios where tipo = 1"
+                    consultar()
 
-        End Select
-        
-
-
-        DGV_ONLINE.DataSource = Tabla
-        DatagridModulo = DGV_ONLINE
-        Datagrid_Align()
-
-
-        For x As Integer = 0 To DGV_ONLINE.Rows.Count - 1
-
-
-            If DGV_ONLINE.Rows(x).Cells(2).Value = "1" Then
-                DGV_ONLINE.Rows(x).Cells(0).Value = Image.FromFile("imagenes/online1.png")
-                DGV_ONLINE.Rows(x).Cells(3).Value = " "
-            Else
-                DGV_ONLINE.Rows(x).Cells(0).Value = Image.FromFile("imagenes/offline.png")
-            End If
-
-        Next
-
-        DGV_ONLINE.Columns(2).Visible = False
+            End Select
 
 
 
+            DGV_ONLINE.DataSource = Tabla
+            DatagridModulo = DGV_ONLINE
+            Datagrid_Align()
+
+
+            For x As Integer = 0 To DGV_ONLINE.Rows.Count - 1
+
+
+                If DGV_ONLINE.Rows(x).Cells(2).Value = "1" Then
+                    DGV_ONLINE.Rows(x).Cells(0).Value = Image.FromFile("imagenes/online1.png")
+                    DGV_ONLINE.Rows(x).Cells(3).Value = " "
+                Else
+                    DGV_ONLINE.Rows(x).Cells(0).Value = Image.FromFile("imagenes/offline.png")
+                End If
+
+            Next
+
+            DGV_ONLINE.Columns(2).Visible = False
+
+
+
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub Panel1_MouseUp(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseUp
