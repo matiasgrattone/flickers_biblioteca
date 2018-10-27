@@ -390,218 +390,220 @@
 
     '///EXTREAER LIBROS CON EL BOTON///
     Private Sub ButonParaExtreaer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButonParaExtreaer.Click
-        Dim list, contador, libros As Integer
-        contador = 0
-        Dim estimado As Integer = 0
+        If CarritoDeLibros.Items.Count <> 0 Then
+            Dim list, contador, libros As Integer
+            contador = 0
+            Dim estimado As Integer = 0
 
-        '///////////////////////////////////////////////////////////////////////////////////
-        '///////////////Calcula la fecha en que deberia entregarse el libro/////////////////
-        '///////////////////////////////////////////////////////////////////////////////////
-        fecha_actual = DateTime.Now.ToString("yyyy/MM/dd")
+            '///////////////////////////////////////////////////////////////////////////////////
+            '///////////////Calcula la fecha en que deberia entregarse el libro/////////////////
+            '///////////////////////////////////////////////////////////////////////////////////
+            fecha_actual = DateTime.Now.ToString("yyyy/MM/dd")
 
-        dia = Val(DateTime.Now.ToString("dd")) + 14
-        mes = Val(DateTime.Now.ToString("MM"))
-        anio = Val(DateTime.Now.ToString("yyyy"))
+            dia = Val(DateTime.Now.ToString("dd")) + 14
+            mes = Val(DateTime.Now.ToString("MM"))
+            anio = Val(DateTime.Now.ToString("yyyy"))
 
-        If mes = 1 And estimado = 0 Then ' Mes de Enero
-            If dia >= 31 Then
-                diferenciaDia = dia - 31
-                mes = mes + 1
-                fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
-                estimado = 1
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
+            If mes = 1 And estimado = 0 Then ' Mes de Enero
+                If dia >= 31 Then
+                    diferenciaDia = dia - 31
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                    estimado = 1
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
             End If
-        End If
-        If mes = 2 And estimado = 0 Then ' Mes de febrero
-            If dia >= 28 Then
-                diferenciaDia = dia - 28
-                mes = mes + 1
-                fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
-                estimado = 1
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
+            If mes = 2 And estimado = 0 Then ' Mes de febrero
+                If dia >= 28 Then
+                    diferenciaDia = dia - 28
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                    estimado = 1
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
             End If
-        End If
-        If mes = 3 And estimado = 0 Then ' Mes de marzo
-            If dia >= 31 Then
-                diferenciaDia = dia - 31
-                mes = mes + 1
-                fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
-                estimado = 1
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
+            If mes = 3 And estimado = 0 Then ' Mes de marzo
+                If dia >= 31 Then
+                    diferenciaDia = dia - 31
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                    estimado = 1
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
             End If
-        End If
-        If mes = 4 And estimado = 0 Then ' Mes de abril
-            If dia >= 30 Then
-                diferenciaDia = dia - 30
-                mes = mes + 1
-                fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
-                estimado = 1
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
+            If mes = 4 And estimado = 0 Then ' Mes de abril
+                If dia >= 30 Then
+                    diferenciaDia = dia - 30
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                    estimado = 1
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
             End If
-        End If
-        If mes = 5 And estimado = 0 Then ' Mes de mayo
-            If dia >= 31 Then
-                diferenciaDia = dia - 31
-                mes = mes + 1
-                fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
-                estimado = 1
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
+            If mes = 5 And estimado = 0 Then ' Mes de mayo
+                If dia >= 31 Then
+                    diferenciaDia = dia - 31
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                    estimado = 1
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
             End If
-        End If
-        If mes = 6 And estimado = 0 Then ' Mes de junio
-            If dia >= 30 Then
-                diferenciaDia = dia - 30
-                mes = mes + 1
-                fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
-                estimado = 1
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
+            If mes = 6 And estimado = 0 Then ' Mes de junio
+                If dia >= 30 Then
+                    diferenciaDia = dia - 30
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                    estimado = 1
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
             End If
-        End If
-        If mes = 7 And estimado = 0 Then ' Mes de julio
-            If dia >= 31 Then
-                diferenciaDia = dia - 31
-                mes = mes + 1
-                fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
-                estimado = 1
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
+            If mes = 7 And estimado = 0 Then ' Mes de julio
+                If dia >= 31 Then
+                    diferenciaDia = dia - 31
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                    estimado = 1
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
             End If
-        End If
-        If mes = 8 And estimado = 0 Then ' Mes de agosto
-            If dia >= 31 Then
-                diferenciaDia = dia - 31
-                mes = mes + 1
-                fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
-                estimado = 1
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
+            If mes = 8 And estimado = 0 Then ' Mes de agosto
+                If dia >= 31 Then
+                    diferenciaDia = dia - 31
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                    estimado = 1
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
             End If
-        End If
-        If mes = 9 And estimado = 0 Then ' Mes de setiembre
-            If dia >= 30 Then
-                diferenciaDia = dia - 30
-                mes = mes + 1
-                fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
-                estimado = 1
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
+            If mes = 9 And estimado = 0 Then ' Mes de setiembre
+                If dia >= 30 Then
+                    diferenciaDia = dia - 30
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                    estimado = 1
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
             End If
-        End If
-        If mes = 10 And estimado = 0 Then ' Mes de octubre
-            If dia >= 31 Then
-                diferenciaDia = dia - 31
-                mes = mes + 1
-                fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
-                estimado = 1
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
+            If mes = 10 And estimado = 0 Then ' Mes de octubre
+                If dia >= 31 Then
+                    diferenciaDia = dia - 31
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                    estimado = 1
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
             End If
-        End If
-        If mes = 11 And estimado = 0 Then ' Mes de noviembre
-            If dia >= 30 Then
-                diferenciaDia = dia - 30
-                mes = mes + 1
-                fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
-                estimado = 1
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
+            If mes = 11 And estimado = 0 Then ' Mes de noviembre
+                If dia >= 30 Then
+                    diferenciaDia = dia - 30
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                    estimado = 1
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
             End If
-        End If
-        If mes = 12 And estimado = 0 Then ' Mes de diciembre
-            If dia >= 31 Then
-                diferenciaDia = dia - 31
-                mes = 1
-                anio = anio + 1
-                fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
-                estimado = 1
-            Else
-                fecha_estimada = anio & "-" & mes & "-" & dia
+            If mes = 12 And estimado = 0 Then ' Mes de diciembre
+                If dia >= 31 Then
+                    diferenciaDia = dia - 31
+                    mes = 1
+                    anio = anio + 1
+                    fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                    estimado = 1
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
             End If
-        End If
-        '////////////////////////////////////////////////////////////////////////
+            '////////////////////////////////////////////////////////////////////////
 
-        list = 0
-        list = ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Count
-        list = list
+            list = 0
+            list = ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Count
+            list = list
 
-        '1) El usario que puede extraer un libro SI ESTE NO TIENE NINGUN LIBROS EN PODER AHORA
-        '/////////////////////CASO UNO///////////////////
-        If Cedula.Text <> "" Then
-
+            '1) El usario que puede extraer un libro SI ESTE NO TIENE NINGUN LIBROS EN PODER AHORA
+            '/////////////////////CASO UNO///////////////////
+            If Cedula.Text <> "" Then
 
 
-            Consulta = "select * from prestamolibro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
-            consultar()
 
-            If (Tabla.Rows.Count = 0) Then
+                Consulta = "select * from prestamolibro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
+                consultar()
 
-                While contador < list
-                    contador = Val(contador) + 1
+                If (Tabla.Rows.Count = 0) Then
 
-                    'REVISAR ESTO'
-                    Consulta = "insert into prestamolibro(cedula, cod_libro, fecha_salida, fecha_estimada, cod_prestado) values('" + Cedula.Text + "','" + ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "', '" + fecha_estimada + "','" + MENU3.lbl_cedula.Text + "')"
-                    consultar()
+                    While contador < list
+                        contador = Val(contador) + 1
 
-                    Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items(libros) & "'"
-                    consultar()
+                        'REVISAR ESTO'
+                        Consulta = "insert into prestamolibro(cedula, cod_libro, fecha_salida, fecha_estimada, cod_prestado) values('" + Cedula.Text + "','" + ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "', '" + fecha_estimada + "','" + MENU3.lbl_cedula.Text + "')"
+                        consultar()
 
-                    libros = libros + 1
+                        Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items(libros) & "'"
+                        consultar()
 
-                End While
+                        libros = libros + 1
 
-                CarritoDeLibros.Items.Clear()
-                ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Clear()
-                MsgBox("Se extrajo correctamente los libros", Title:="PRESTAMO")
-                GrupBoxExtraccion.Visible = False
+                    End While
 
-
-            Else
+                    CarritoDeLibros.Items.Clear()
+                    ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Clear()
+                    MsgBox("Se extrajo correctamente los libros", Title:="PRESTAMO")
+                    GrupBoxExtraccion.Visible = False
 
 
-                For Each row As DataRow In Tabla.Rows
-                    If row("fecha_estimada") Is DBNull.Value Then
-                        FechaEntradaPrestamo = 0
-                    Else
-                        FechaEntradaPrestamo = 1
-                    End If
-                Next
-
-                Select Case FechaEntradaPrestamo
-                    Case 1
-
-                        While contador < list
-                            contador = Val(contador) + 1
+                Else
 
 
-                            Consulta = "insert into prestamolibro(cedula, cod_libro, fecha_salida, fecha_estimada, cod_prestado) values('" + Cedula.Text + "','" + ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "', '" + fecha_estimada + "','" + MENU3.lbl_cedula.Text + "')"
-                            consultar()
+                    For Each row As DataRow In Tabla.Rows
+                        If row("fecha_estimada") Is DBNull.Value Then
+                            FechaEntradaPrestamo = 0
+                        Else
+                            FechaEntradaPrestamo = 1
+                        End If
+                    Next
+
+                    Select Case FechaEntradaPrestamo
+                        Case 1
+
+                            While contador < list
+                                contador = Val(contador) + 1
 
 
-                            Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items(libros) & "';"
-                            consultar()
-
-                            libros = libros + 1
-
-                        End While
-
-                        CarritoDeLibros.Items.Clear()
-                        ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Clear()
-                        MsgBox("Se extrajo correctamente los libros", Title:="PRESTAMO")
-                        GrupBoxExtraccion.Visible = False
+                                Consulta = "insert into prestamolibro(cedula, cod_libro, fecha_salida, fecha_estimada, cod_prestado) values('" + Cedula.Text + "','" + ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "', '" + fecha_estimada + "','" + MENU3.lbl_cedula.Text + "')"
+                                consultar()
 
 
-                    Case 0
+                                Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items(libros) & "';"
+                                consultar()
 
-                        MsgBox("Este socios no puede retirar libros hasta devolver los prestados", Title:="PRESTAMOS")
-                End Select
+                                libros = libros + 1
+
+                            End While
+
+                            CarritoDeLibros.Items.Clear()
+                            ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Clear()
+                            MsgBox("Se extrajo correctamente los libros", Title:="PRESTAMO")
+                            GrupBoxExtraccion.Visible = False
+
+
+                        Case 0
+
+                            MsgBox("Este socios no puede retirar libros hasta devolver los prestados", Title:="PRESTAMOS")
+                    End Select
+                End If
+                libros = 0
             End If
-            libros = 0
         End If
     End Sub
 
@@ -610,7 +612,7 @@
     Private Sub PictureDevolucion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureDevolucion.Click
         If CarritoDeLibros.Items.Count = 0 Then
 
-            Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion', fecha_estimada as 'Fecha Maxima de Prestamo' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
+            Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion', fecha_estimada as 'Fecha Maxima de Prestamo' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and fecha_salida is NOT NULL and p.cedula= '" & Cedula.Text & "'"
             consultar()
             DataGridParaDevolucion.DataSource = Tabla
 
@@ -714,7 +716,7 @@
                 consultar()
                 MsgBox("Se ha devuelto", Title:="PRESTAMO")
 
-                Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion', fecha_estimada as 'Fecha Maxima de Prestamo' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
+                Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion', fecha_estimada as 'Fecha Maxima de Prestamo' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and fecha_salida is NOT NULL and p.cedula= '" & Cedula.Text & "'"
                 consultar()
                 DataGridParaDevolucion.DataSource = Tabla
 
@@ -722,7 +724,7 @@
 
                 MsgBox("Este libro no se devolvio", Title:="PRESTAMOS")
 
-                Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion', fecha_estimada as 'Fecha Maxima de Prestamo' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
+                Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion', fecha_estimada as 'Fecha Maxima de Prestamo' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and fecha_salida is NOT NULL and p.cedula= '" & Cedula.Text & "'"
                 consultar()
                 DataGridParaDevolucion.DataSource = Tabla
 
@@ -744,6 +746,7 @@
             GrupBoxExtraccion.Visible = False
             GrupBoxDevolucion.Visible = False
             ReservacionGrupBox.Visible = False
+            GroupBoxRenovacion.Visible = False
             '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -818,6 +821,7 @@
                 GrupBoxDevolucion.Visible = False
                 GrupBoxExtraccion.Visible = False
                 CrearReservacionGrupBox.Visible = False
+                GroupBoxRenovacion.Visible = False
                 ReservacionGrupBox.Visible = True
                 '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -825,7 +829,7 @@
                 consultar()
                 If (Tabla.Rows.Count = 0) Then
 
-                    Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado = '2' and cedula = '" + Cedula.Text + "' and p.fecha_salida is NULL and p.fecha_entrada is NULL"
+                    Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado = '2' and p.cedula = '" + Cedula.Text + "' and p.fecha_salida is NULL and p.fecha_entrada is NULL"
                     consultar()
                     VerLibrosReservados2.DataSource = Tabla
                     modoExtraer = "On"
@@ -834,7 +838,7 @@
 
                     MsgBox("Este socio NO puede retirar un libro hasta devolver los ya prestados", Title:="ERROR")
 
-                    Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado = '2' and cedula = '" + Cedula.Text + "' and p.fecha_salida is NULL and p.fecha_entrada is NULL"
+                    Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado = '2' and p.cedula = '" + Cedula.Text + "' and p.fecha_salida is NULL and p.fecha_entrada is NULL"
                     consultar()
                     VerLibrosReservados2.DataSource = Tabla
                     modoExtraer = "Off"
@@ -892,119 +896,123 @@
 
     '///ELIMINAR RESERVACION///
     Private Sub ButtonEliminarReservacion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonEliminarReservacion.Click
-        Dim IDLIBRO As String
-        IDLIBRO = InputBox("Ingrese el código del libro que desea eliminar", Title:="PRESTAMOS")
-        Try
-            If IDLIBRO <> "" Then
+        If VerLibrosReservados2.Rows.Count <> 0 Then
+            Dim IDLIBRO As String
+            IDLIBRO = InputBox("Ingrese el código del libro que desea eliminar", Title:="PRESTAMOS")
+            Try
+                If IDLIBRO <> "" Then
 
-                Consulta = "update libro set estado = 0 where cod_libro ='" & IDLIBRO & "'"
-                consultar()
-                Consulta = "DELETE FROM `prestamolibro` WHERE cedula = '" + Cedula.Text + "' and cod_libro = '" + IDLIBRO + "'"
-                consultar()
-                MsgBox("Se a cancelado la reservacion", Title:="PRESTAMO")
+                    Consulta = "update libro set estado = 0 where cod_libro ='" & IDLIBRO & "'"
+                    consultar()
+                    Consulta = "DELETE FROM `prestamolibro` WHERE cedula = '" + Cedula.Text + "' and cod_libro = '" + IDLIBRO + "'"
+                    consultar()
+                    MsgBox("Se a cancelado la reservacion", Title:="PRESTAMO")
 
-                Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado = '2' and cedula = '" + Cedula.Text + "' and p.fecha_salida is NULL and p.fecha_entrada is NULL"
-                consultar()
-                VerLibrosReservados2.DataSource = Tabla
-            Else
-                MsgBox("No se canceló la reservación del libro", Title:="ERROR RESERVACIÓN")
-            End If
+                    Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado = '2' and p.cedula = '" + Cedula.Text + "' and p.fecha_salida is NULL and p.fecha_entrada is NULL"
+                    consultar()
+                    VerLibrosReservados2.DataSource = Tabla
+                Else
+                    MsgBox("No se canceló la reservación del libro", Title:="ERROR RESERVACIÓN")
+                End If
 
-        Catch ex As Exception
-            MsgBox("Ha ocurrido un error en la eliminación de las reservación", Title:="ERROR RESERVACIÓN")
-        End Try
+            Catch ex As Exception
+                MsgBox("Ha ocurrido un error en la eliminación de las reservación", Title:="ERROR RESERVACIÓN")
+            End Try
 
-        Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado = '2' and cedula = '" + Cedula.Text + "' and p.fecha_salida is NULL and p.fecha_entrada is NULL"
-        consultar()
-        VerLibrosReservados2.DataSource = Tabla
+            Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado = '2' and p.cedula = '" + Cedula.Text + "' and p.fecha_salida is NULL and p.fecha_entrada is NULL"
+            consultar()
+            VerLibrosReservados2.DataSource = Tabla
+        End If
 
     End Sub
 
     '///EXTREAER LIBROS CON EL BOTON///
     Private Sub BotonExtrearReservados_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BotonExtrearReservados.Click
-        Dim list, contador, libros As Integer
-        contador = 0
+        If CarritoDeLibros.Items.Count <> 0 Then
+            Dim list, contador, libros As Integer
+            contador = 0
 
-        list = 0
-        list = ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Count
-        list = list
+            list = 0
+            list = ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Count
+            list = list
 
-        '1) El usario que puede extraer un libro SI ESTE NO TIENE NINGUN LIBROS EN PODER AHORA
-        '/////////////////////CASO UNO///////////////////
-        If Cedula.Text <> "" Then
-
-
-
-            Consulta = "select * from prestamolibro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
-            consultar()
-
-            If (Tabla.Rows.Count = 0) Then
-
-                While contador < list
-                    contador = Val(contador) + 1
+            '1) El usario que puede extraer un libro SI ESTE NO TIENE NINGUN LIBROS EN PODER AHORA
+            '/////////////////////CASO UNO///////////////////
+            If Cedula.Text <> "" Then
 
 
-                    Consulta = "insert into prestamolibro(cedula,cod_libro,fecha_salida,cod_prestado) values('" + Cedula.Text + "','" + ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "','" + MENU3.lbl_cedula.Text + "')"
-                    consultar()
 
-                    Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items(libros) & "';"
-                    consultar()
-
-                    libros = libros + 1
-
-                End While
-
-                CarritoDeLibros.Items.Clear()
-                ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Clear()
-                Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado = '2' and cedula = '" + Cedula.Text + "' and p.fecha_salida is NULL and p.fecha_entrada is NULL"
+                Consulta = "select * from prestamolibro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
                 consultar()
-                VerLibrosReservados2.DataSource = Tabla
-                MsgBox("Se extrajo correctamente los libros", Title:="PRESTAMO")
-                GrupBoxExtraccion.Visible = False
+
+                If (Tabla.Rows.Count = 0) Then
+
+                    While contador < list
+                        contador = Val(contador) + 1
 
 
-            Else
-
-
-                For Each row As DataRow In Tabla.Rows
-                    If row("fecha_entrada") Is DBNull.Value Then
-                        FechaEntradaPrestamo = 0
-                    Else
-                        FechaEntradaPrestamo = 1
-                    End If
-                Next
-
-                Select Case FechaEntradaPrestamo
-                    Case 1
-
-                        While contador < list
-                            contador = Val(contador) + 1
-
-
-                            Consulta = "insert into prestamolibro(cedula,cod_libro,fecha_salida,cod_prestado) values('" + Cedula.Text + "','" + ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "','" + MENU3.lbl_cedula.Text + "')"
-                            consultar()
-
-
-                            Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items(libros) & "';"
-                            consultar()
-
-                            libros = libros + 1
-
-                        End While
-
-                        CarritoDeLibros.Items.Clear()
-                        ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Clear()
-                        Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado = '2' and cedula = '" + Cedula.Text + "' and p.fecha_salida is NULL and p.fecha_entrada is NULL"
+                        Consulta = "insert into prestamolibro(cedula,cod_libro,fecha_salida,cod_prestado) values('" + Cedula.Text + "','" + ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "','" + MENU3.lbl_cedula.Text + "')"
                         consultar()
-                        VerLibrosReservados2.DataSource = Tabla
-                        MsgBox("Se extrajo correctamente los libros", Title:="PRESTAMO")
-                        GrupBoxExtraccion.Visible = False
+
+                        Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items(libros) & "';"
+                        consultar()
+
+                        libros = libros + 1
+
+                    End While
+
+                    CarritoDeLibros.Items.Clear()
+                    ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Clear()
+                    Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado = '2' and p.cedula = '" + Cedula.Text + "' and p.fecha_salida is NULL and p.fecha_entrada is NULL"
+                    consultar()
+                    VerLibrosReservados2.DataSource = Tabla
+                    MsgBox("Se extrajo correctamente los libros", Title:="PRESTAMO")
+                    GrupBoxExtraccion.Visible = False
 
 
-                    Case 0
+                Else
 
-                        MsgBox("Este socios no puede retirar libros hasta devolver los prestados", Title:="PRESTAMOS")
-                End Select
+
+                    For Each row As DataRow In Tabla.Rows
+                        If row("fecha_entrada") Is DBNull.Value Then
+                            FechaEntradaPrestamo = 0
+                        Else
+                            FechaEntradaPrestamo = 1
+                        End If
+                    Next
+
+                    Select Case FechaEntradaPrestamo
+                        Case 1
+
+                            While contador < list
+                                contador = Val(contador) + 1
+
+
+                                Consulta = "insert into prestamolibro(cedula,cod_libro,fecha_salida,cod_prestado) values('" + Cedula.Text + "','" + ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "','" + MENU3.lbl_cedula.Text + "')"
+                                consultar()
+
+
+                                Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items(libros) & "';"
+                                consultar()
+
+                                libros = libros + 1
+
+                            End While
+
+                            CarritoDeLibros.Items.Clear()
+                            ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Clear()
+                            Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado = '2' and p.cedula = '" + Cedula.Text + "' and p.fecha_salida is NULL and p.fecha_entrada is NULL"
+                            consultar()
+                            VerLibrosReservados2.DataSource = Tabla
+                            MsgBox("Se extrajo correctamente los libros", Title:="PRESTAMO")
+                            GrupBoxExtraccion.Visible = False
+
+
+                        Case 0
+
+                            MsgBox("Este socios no puede retirar libros hasta devolver los prestados", Title:="PRESTAMOS")
+                    End Select
+                End If
             End If
         End If
     End Sub
@@ -1108,7 +1116,7 @@
 
         If CarritoDeLibros.Items.Count = 0 Then
 
-            Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion', fecha_estimada as 'Fecha Maxima de Prestamo' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
+            Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion', fecha_estimada as 'Fecha Maxima de Prestamo' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and fecha_salida is NOT NULL and p.cedula= '" & Cedula.Text & "'"
             consultar()
             dgvRenovacion.DataSource = Tabla
 
@@ -1278,12 +1286,16 @@
                 MsgBox(ex.Message)
             End Try
         End If
-        Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion', fecha_estimada as 'Fecha Maxima de Prestamo' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"
+        Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion', fecha_estimada as 'Fecha Maxima de Prestamo' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and fecha_salida is NOT NULL and p.cedula= '" & Cedula.Text & "'"
         consultar()
         dgvRenovacion.DataSource = Tabla
     End Sub
 
     Private Sub DataGridParaDevolucion_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridParaDevolucion.CellContentClick
+
+    End Sub
+
+    Private Sub dgvRenovacion_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvRenovacion.CellContentClick
 
     End Sub
 End Class
