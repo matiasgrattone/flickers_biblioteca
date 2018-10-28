@@ -122,6 +122,7 @@ Partial Class Prestamos
         '
         'ButonParaExtreaer
         '
+        Me.ButonParaExtreaer.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ButonParaExtreaer.Location = New System.Drawing.Point(373, 95)
         Me.ButonParaExtreaer.Name = "ButonParaExtreaer"
         Me.ButonParaExtreaer.Size = New System.Drawing.Size(106, 32)
@@ -131,6 +132,7 @@ Partial Class Prestamos
         '
         'BotonParaBuscarCedula
         '
+        Me.BotonParaBuscarCedula.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BotonParaBuscarCedula.Location = New System.Drawing.Point(268, 49)
         Me.BotonParaBuscarCedula.Name = "BotonParaBuscarCedula"
         Me.BotonParaBuscarCedula.Size = New System.Drawing.Size(71, 21)
@@ -173,7 +175,7 @@ Partial Class Prestamos
         Me.LabelParaAlmacenarLaCedulaIngresada.ForeColor = System.Drawing.Color.Black
         Me.LabelParaAlmacenarLaCedulaIngresada.Location = New System.Drawing.Point(51, 169)
         Me.LabelParaAlmacenarLaCedulaIngresada.Name = "LabelParaAlmacenarLaCedulaIngresada"
-        Me.LabelParaAlmacenarLaCedulaIngresada.Size = New System.Drawing.Size(114, 20)
+        Me.LabelParaAlmacenarLaCedulaIngresada.Size = New System.Drawing.Size(115, 20)
         Me.LabelParaAlmacenarLaCedulaIngresada.TabIndex = 84
         Me.LabelParaAlmacenarLaCedulaIngresada.Text = "CedulaTemporal"
         '
@@ -404,6 +406,7 @@ Partial Class Prestamos
         '
         'ButtonLupita
         '
+        Me.ButtonLupita.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ButtonLupita.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.busqueda
         Me.ButtonLupita.Location = New System.Drawing.Point(458, 49)
         Me.ButtonLupita.Name = "ButtonLupita"
@@ -522,6 +525,7 @@ Partial Class Prestamos
         '
         'ButtonEliminarReservacion
         '
+        Me.ButtonEliminarReservacion.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ButtonEliminarReservacion.Location = New System.Drawing.Point(590, 233)
         Me.ButtonEliminarReservacion.Name = "ButtonEliminarReservacion"
         Me.ButtonEliminarReservacion.Size = New System.Drawing.Size(138, 44)
@@ -552,6 +556,7 @@ Partial Class Prestamos
         '
         'BotonExtrearReservados
         '
+        Me.BotonExtrearReservados.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BotonExtrearReservados.Location = New System.Drawing.Point(590, 151)
         Me.BotonExtrearReservados.Name = "BotonExtrearReservados"
         Me.BotonExtrearReservados.Size = New System.Drawing.Size(138, 58)
@@ -610,6 +615,7 @@ Partial Class Prestamos
         '
         'ButtonVerFicha
         '
+        Me.ButtonVerFicha.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ButtonVerFicha.Location = New System.Drawing.Point(12, 80)
         Me.ButtonVerFicha.Name = "ButtonVerFicha"
         Me.ButtonVerFicha.Size = New System.Drawing.Size(75, 23)
@@ -619,6 +625,7 @@ Partial Class Prestamos
         '
         'ButtonVERREGISTRO
         '
+        Me.ButtonVERREGISTRO.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ButtonVERREGISTRO.Location = New System.Drawing.Point(93, 80)
         Me.ButtonVERREGISTRO.Name = "ButtonVERREGISTRO"
         Me.ButtonVERREGISTRO.Size = New System.Drawing.Size(85, 23)
@@ -763,6 +770,7 @@ Partial Class Prestamos
         '
         'LupitaParaBuscarLibrosEnReservacion
         '
+        Me.LupitaParaBuscarLibrosEnReservacion.Cursor = System.Windows.Forms.Cursors.Hand
         Me.LupitaParaBuscarLibrosEnReservacion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.busqueda
         Me.LupitaParaBuscarLibrosEnReservacion.Location = New System.Drawing.Point(369, 48)
         Me.LupitaParaBuscarLibrosEnReservacion.Name = "LupitaParaBuscarLibrosEnReservacion"
@@ -920,11 +928,11 @@ Partial Class Prestamos
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.PanelDelCarrito)
-        Me.Controls.Add(Me.ReservacionGrupBox)
         Me.Controls.Add(Me.GrupBoxExtraccion)
         Me.Controls.Add(Me.GroupBoxRenovacion)
         Me.Controls.Add(Me.GrupBoxDevolucion)
         Me.Controls.Add(Me.CrearReservacionGrupBox)
+        Me.Controls.Add(Me.ReservacionGrupBox)
         Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Prestamos"

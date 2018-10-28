@@ -44,6 +44,7 @@ Partial Class PrestamoRevistas
         Me.PanelDelLeft = New System.Windows.Forms.Panel()
         Me.LblREVISTAS = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.ExtGrup = New System.Windows.Forms.GroupBox()
         Me.DataGridView_VerRevistasEnExtraccion_ = New System.Windows.Forms.DataGridView()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -76,7 +77,6 @@ Partial Class PrestamoRevistas
         Me.dgvRenovacion = New System.Windows.Forms.DataGridView()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureRenovacion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureDevolucion, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -124,6 +124,7 @@ Partial Class PrestamoRevistas
         '
         'ButtonVerFicha
         '
+        Me.ButtonVerFicha.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ButtonVerFicha.Location = New System.Drawing.Point(12, 80)
         Me.ButtonVerFicha.Name = "ButtonVerFicha"
         Me.ButtonVerFicha.Size = New System.Drawing.Size(75, 23)
@@ -143,6 +144,7 @@ Partial Class PrestamoRevistas
         '
         'ButtonVerRegistro
         '
+        Me.ButtonVerRegistro.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ButtonVerRegistro.Location = New System.Drawing.Point(93, 80)
         Me.ButtonVerRegistro.Name = "ButtonVerRegistro"
         Me.ButtonVerRegistro.Size = New System.Drawing.Size(85, 23)
@@ -152,6 +154,7 @@ Partial Class PrestamoRevistas
         '
         'BotonParaBuscarCedula
         '
+        Me.BotonParaBuscarCedula.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BotonParaBuscarCedula.Location = New System.Drawing.Point(268, 49)
         Me.BotonParaBuscarCedula.Name = "BotonParaBuscarCedula"
         Me.BotonParaBuscarCedula.Size = New System.Drawing.Size(71, 21)
@@ -195,7 +198,7 @@ Partial Class PrestamoRevistas
         Me.LblREVISTAS.Font = New System.Drawing.Font("Impact", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblREVISTAS.Location = New System.Drawing.Point(-2, 7)
         Me.LblREVISTAS.Name = "LblREVISTAS"
-        Me.LblREVISTAS.Size = New System.Drawing.Size(203, 60)
+        Me.LblREVISTAS.Size = New System.Drawing.Size(205, 60)
         Me.LblREVISTAS.TabIndex = 66
         Me.LblREVISTAS.Text = "REVISTAS"
         '
@@ -208,6 +211,16 @@ Partial Class PrestamoRevistas
         Me.Label1.Size = New System.Drawing.Size(240, 16)
         Me.Label1.TabIndex = 58
         Me.Label1.Text = "INGRESE LA CEDULA DEL USUARIO "
+        '
+        'Cedula
+        '
+        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.Cedula.Location = New System.Drawing.Point(3, 50)
+        Me.Cedula.Name = "Cedula"
+        Me.Cedula.Size = New System.Drawing.Size(259, 20)
+        Me.Cedula.TabIndex = 75
+        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
+        Me.Cedula.WaterMarkText = "Cedula"
         '
         'ExtGrup
         '
@@ -377,7 +390,7 @@ Partial Class PrestamoRevistas
         Me.LabelParaAlmacenarLaCedulaIngresada.ForeColor = System.Drawing.Color.Black
         Me.LabelParaAlmacenarLaCedulaIngresada.Location = New System.Drawing.Point(54, 170)
         Me.LabelParaAlmacenarLaCedulaIngresada.Name = "LabelParaAlmacenarLaCedulaIngresada"
-        Me.LabelParaAlmacenarLaCedulaIngresada.Size = New System.Drawing.Size(114, 20)
+        Me.LabelParaAlmacenarLaCedulaIngresada.Size = New System.Drawing.Size(115, 20)
         Me.LabelParaAlmacenarLaCedulaIngresada.TabIndex = 86
         Me.LabelParaAlmacenarLaCedulaIngresada.Text = "CedulaTemporal"
         '
@@ -455,7 +468,7 @@ Partial Class PrestamoRevistas
         Me.LabelREVISTA.Font = New System.Drawing.Font("Impact", 12.0!)
         Me.LabelREVISTA.Location = New System.Drawing.Point(124, 205)
         Me.LabelREVISTA.Name = "LabelREVISTA"
-        Me.LabelREVISTA.Size = New System.Drawing.Size(66, 20)
+        Me.LabelREVISTA.Size = New System.Drawing.Size(67, 20)
         Me.LabelREVISTA.TabIndex = 70
         Me.LabelREVISTA.Text = "REVISTAS"
         '
@@ -641,7 +654,7 @@ Partial Class PrestamoRevistas
         Me.Label5.Font = New System.Drawing.Font("Impact", 20.25!)
         Me.Label5.Location = New System.Drawing.Point(514, 33)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(220, 34)
+        Me.Label5.Size = New System.Drawing.Size(221, 34)
         Me.Label5.TabIndex = 63
         Me.Label5.Text = "RENOVAR REVISTAS"
         '
@@ -649,16 +662,6 @@ Partial Class PrestamoRevistas
         '
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1
-        '
-        'Cedula
-        '
-        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Cedula.Location = New System.Drawing.Point(3, 50)
-        Me.Cedula.Name = "Cedula"
-        Me.Cedula.Size = New System.Drawing.Size(259, 20)
-        Me.Cedula.TabIndex = 75
-        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
-        Me.Cedula.WaterMarkText = "Cedula"
         '
         'PrestamoRevistas
         '
