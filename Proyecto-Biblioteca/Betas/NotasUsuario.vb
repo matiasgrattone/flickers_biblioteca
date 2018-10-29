@@ -396,46 +396,48 @@ Public Class NotasUsuario
     Private Sub DataGridViewParaVerNotasDisponibles_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridViewParaVerNotasDisponibles.CellDoubleClick
         Dim TEXTOUbicacion As String
         Dim a As String
-
-        NombreDeLaNotaParaRecordar = DataGridViewParaVerNotasDisponibles.Item(0, DataGridViewParaVerNotasDisponibles.CurrentRow.Index).Value
-        TEXTOUbicacion = DataGridViewParaVerNotasDisponibles.Item(1, DataGridViewParaVerNotasDisponibles.CurrentRow.Index).Value
-
-
-        If modo = "recordar" Then
+        Try
+            NombreDeLaNotaParaRecordar = DataGridViewParaVerNotasDisponibles.Item(0, DataGridViewParaVerNotasDisponibles.CurrentRow.Index).Value
+            TEXTOUbicacion = DataGridViewParaVerNotasDisponibles.Item(1, DataGridViewParaVerNotasDisponibles.CurrentRow.Index).Value
 
 
+            If modo = "recordar" Then
 
-            a = MsgBox("Desea recordar la nota " + NombreDeLaNotaParaRecordar + "?", MsgBoxStyle.YesNoCancel, Title:="Recordatorios")
-            If a = vbYes Then
 
-                TEXTOUbicacion = DataGridViewParaVerNotasDisponibles.Item(1, DataGridViewParaVerNotasDisponibles.CurrentRow.Index).Value
-                If (TEXTOUbicacion.Contains("\")) Then 'Detectamos si la variable tiene una barrita  
-                    TEXTOUbicacion = Replace(TEXTOUbicacion, "\", "\\") 'Remplazamos la barrita por 2  
+
+                a = MsgBox("Desea recordar la nota " + NombreDeLaNotaParaRecordar + "?", MsgBoxStyle.YesNoCancel, Title:="Recordatorios")
+                If a = vbYes Then
+
+                    TEXTOUbicacion = DataGridViewParaVerNotasDisponibles.Item(1, DataGridViewParaVerNotasDisponibles.CurrentRow.Index).Value
+                    If (TEXTOUbicacion.Contains("\")) Then 'Detectamos si la variable tiene una barrita  
+                        TEXTOUbicacion = Replace(TEXTOUbicacion, "\", "\\") 'Remplazamos la barrita por 2  
+                    End If
+                    Consulta = "UPDATE notas SET recordar ='" + RecordatorioValor.ToString + "' WHERE cedula = '" + cedula.ToString + "' and texto ='" + TEXTOUbicacion.ToString + "';"
+                    consultar()
+                    ActualizarNotas()
+
+                    PanelNotas.Top = 844
                 End If
-                Consulta = "UPDATE notas SET recordar ='" + RecordatorioValor.ToString + "' WHERE cedula = '" + cedula.ToString + "' and texto ='" + TEXTOUbicacion.ToString + "';"
-                consultar()
                 ActualizarNotas()
-
-                PanelNotas.Top = 844
             End If
-            ActualizarNotas()
-        End If
 
-        If modo = "Abrir" Then
+            If modo = "Abrir" Then
 
-            a = MsgBox("Desea abrir el archivo " + NombreDeLaNotaParaRecordar + "?", MsgBoxStyle.YesNoCancel, Title:="Recordatorios")
-            If a = vbYes Then
-                RutaDeDocumentos = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
-                TEXTOUbicacion = RutaDeDocumentos + TEXTOUbicacion
-                Dim Recordar As System.IO.StreamReader = New System.IO.StreamReader(TEXTOUbicacion, System.Text.Encoding.[Default])
-                EditorDeTexto.Text = Recordar.ReadToEnd() 'Igualamos la variable "Texto" ah a el contenido del archivo con el comando ReadToEnd del archivo que ya buscamos con anterioridad con la variable "Ubicacion" 
-                Recordar.Close()
+                a = MsgBox("Desea abrir el archivo " + NombreDeLaNotaParaRecordar + "?", MsgBoxStyle.YesNoCancel, Title:="Recordatorios")
+                If a = vbYes Then
+                    RutaDeDocumentos = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
+                    TEXTOUbicacion = RutaDeDocumentos + TEXTOUbicacion
+                    Dim Recordar As System.IO.StreamReader = New System.IO.StreamReader(TEXTOUbicacion, System.Text.Encoding.[Default])
+                    EditorDeTexto.Text = Recordar.ReadToEnd() 'Igualamos la variable "Texto" ah a el contenido del archivo con el comando ReadToEnd del archivo que ya buscamos con anterioridad con la variable "Ubicacion" 
+                    Recordar.Close()
 
 
-                PanelNotas.Top = -305
+                    PanelNotas.Top = -305
 
+                End If
             End If
-        End If
+        Catch ex As Exception
+        End Try
     End Sub
 
     Private Sub ButtonX_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonX.Click

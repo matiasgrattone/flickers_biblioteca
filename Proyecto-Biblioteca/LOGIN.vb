@@ -133,7 +133,7 @@
         xf = Me.Location.X
         yf = Me.Location.Y
 
-        MENU3.Dispose()
+        'MENU3.Dispose()
 
         Consulta = "select * from usuarios"
         consultar()
