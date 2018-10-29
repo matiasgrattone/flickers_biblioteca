@@ -376,4 +376,22 @@
     Private Sub origen_txt_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles origen_txt.TextChanged
         ErrorProvider1.SetError(origen_txt, "")
     End Sub
+
+    Private Sub cmbdatos_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbdatos.SelectedIndexChanged
+        If cmbdatos.Text = "" Then
+            txtbusqueda.WaterMarkText = "Buscar"
+        End If
+        If cmbdatos.Text = "Titulo" Then
+            txtbusqueda.WaterMarkText = "Ej: La Revista de las celebridades"
+        End If
+        If cmbdatos.Text = "Descripcion" Then
+            txtbusqueda.WaterMarkText = "Ej: CARAS"
+        End If
+        If cmbdatos.Text = "Año" Then
+            txtbusqueda.WaterMarkText = "Ej: 2018"
+        End If
+        If cmbdatos.Text = "Origen" Then
+            txtbusqueda.WaterMarkText = "Ej: Uruguay"
+        End If
+    End Sub
 End Class

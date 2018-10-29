@@ -1416,6 +1416,9 @@ Public Class buscarlibro
     End Sub
 
     Private Sub cmbdatos_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbdatos.SelectedIndexChanged
+        If cmbdatos.Text = "" Then
+            txtbusqueda.WaterMarkText = "Buscar"
+        End If
         If cmbdatos.Text = "Codigo" Then
             txtbusqueda.WaterMarkText = "Ej: 544"
         End If
