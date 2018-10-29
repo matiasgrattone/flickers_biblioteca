@@ -578,6 +578,7 @@
         End Select
     End Sub
     Private Sub txtcod_libro_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtcod_libro.KeyUp
+        txtcod_libro.MaxLength = 10
         If Not IsNumeric(txtcod_libro.Text) And txtcod_libro.Text <> "" Then
             ErrorProvider1.SetError(txtcod_libro, "ingrese solo numeros")
             error10 = 1
