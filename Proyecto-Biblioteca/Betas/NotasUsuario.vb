@@ -121,6 +121,7 @@ Public Class NotasUsuario
     End Sub
     Dim RutaDeDocumentos As String = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
     Private Sub GuardarComoToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GuardarComoToolStripMenuItem.Click
+        RutaDeDocumentos = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
         Dim NombreDelArchivo As String
         Dim Intru As Object
         Dim Archivo As Object
