@@ -355,7 +355,6 @@
         NomLibros = DataGridViewlllllVerLibrosEnExtraccionlllll.Item(1, DataGridViewlllllVerLibrosEnExtraccionlllll.CurrentRow.Index).Value
         IdLibros = DataGridViewlllllVerLibrosEnExtraccionlllll.Item(0, DataGridViewlllllVerLibrosEnExtraccionlllll.CurrentRow.Index).Value
 
-
         Dim list1 As Integer
         list1 = ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Count
 
@@ -379,14 +378,15 @@
                     End If
                 End If
             End If
+        End If
 
-            If CarritoDeLibros.Items.Count <> 0 Then
+        If CarritoDeLibros.Items.Count <> 0 Then
 
-                ButonParaExtreaer.Visible = True
-            Else
-                ButonParaExtreaer.Visible = False
-
-            End If
+            ButonParaExtreaer.Visible = True
+            ButtonEliminarReservacion.Visible = False
+        Else
+            ButonParaExtreaer.Visible = False
+            ButtonEliminarReservacion.Visible = True
         End If
     End Sub
 
@@ -903,13 +903,8 @@
             IdLibros = VerLibrosReservados2.Item(0, VerLibrosReservados2.CurrentRow.Index).Value
 
 
-            Dim list1 As Integer
-            list1 = ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Count
-
-
-
-            If VerLibrosReservados2.Item(0, VerLibrosReservados2.CurrentRow.Index).Value <> list1 Then
-                If (ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Contains(NomLibros)) Then
+            If VerLibrosReservados2.Item(0, VerLibrosReservados2.CurrentRow.Index).Value <> ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Count Then
+                If (ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Contains(IdLibros)) Then
 
                     MsgBox("El libro " & NomLibros & " ya se encuentra en el carrito de extracción ", Title:="PRESTAMOS")
 
@@ -1404,6 +1399,14 @@
     End Sub
 
     Private Sub DataGridParaDevolucion_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridParaDevolucion.CellContentClick
+
+    End Sub
+
+    Private Sub VerLibrosReservados2_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles VerLibrosReservados2.CellContentClick
+
+    End Sub
+
+    Private Sub DataGridViewlllllVerLibrosEnExtraccionlllll_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridViewlllllVerLibrosEnExtraccionlllll.CellContentClick
 
     End Sub
 End Class
