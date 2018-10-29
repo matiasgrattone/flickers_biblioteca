@@ -279,7 +279,7 @@
                 ButtonVerFicha.Visible = True 'Mostramos el boton para ver la ficha
                 LabelParaAlmacenarLaCedulaIngresada.Visible = True 'Mostramos el label que muestra la cedula ingresada con la cual hacer las funciones
                 LabelParaAlmacenarLaCedulaIngresada.Text = Cedula.Text 'Lo igualamos al textbox 
-
+                PanelDelLeft.Visible = False
                 '/////////////////////////////////////////////////////////////////////////////////////////////
             End If
         End If
@@ -1390,8 +1390,17 @@
 
     End Sub
 
-    Private Sub dgvRenovacion_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvRenovacion.CellContentClick
+    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
+        PanelDelLeft.Left -= 5
+        If PanelDelLeft.Left <= -Width Then
+            PanelDelLeft.Left = Width
+        End If
 
+        If PanelDelLeft.Location.X < 810 Then
+            Timer1.Enabled = False
+        Else
+            Timer1.Enabled = True
+        End If
     End Sub
 
     Private Sub DataGridParaDevolucion_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridParaDevolucion.CellContentClick

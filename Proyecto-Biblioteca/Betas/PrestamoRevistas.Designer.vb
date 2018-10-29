@@ -44,7 +44,6 @@ Partial Class PrestamoRevistas
         Me.PanelDelLeft = New System.Windows.Forms.Panel()
         Me.LblREVISTAS = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.ExtGrup = New System.Windows.Forms.GroupBox()
         Me.DataGridView_VerRevistasEnExtraccion_ = New System.Windows.Forms.DataGridView()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -55,6 +54,7 @@ Partial Class PrestamoRevistas
         Me.TextboxBuscador = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.PanelDelCarrito = New System.Windows.Forms.Panel()
+        Me.Pb_moroso = New System.Windows.Forms.PictureBox()
         Me.LabelParaAlmacenarLaCedulaIngresada = New System.Windows.Forms.Label()
         Me.LabelCI = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -76,6 +76,7 @@ Partial Class PrestamoRevistas
         Me.dgvRenovacion = New System.Windows.Forms.DataGridView()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureRenovacion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureDevolucion, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -85,6 +86,7 @@ Partial Class PrestamoRevistas
         CType(Me.DataGridView_VerRevistasEnExtraccion_, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelDelCarrito.SuspendLayout()
+        CType(Me.Pb_moroso, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DevoGRUP.SuspendLayout()
         CType(Me.DataGridParaDevolucion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBoxRenovacion.SuspendLayout()
@@ -206,16 +208,6 @@ Partial Class PrestamoRevistas
         Me.Label1.Size = New System.Drawing.Size(240, 16)
         Me.Label1.TabIndex = 58
         Me.Label1.Text = "INGRESE LA CEDULA DEL USUARIO "
-        '
-        'Cedula
-        '
-        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Cedula.Location = New System.Drawing.Point(3, 50)
-        Me.Cedula.Name = "Cedula"
-        Me.Cedula.Size = New System.Drawing.Size(259, 20)
-        Me.Cedula.TabIndex = 75
-        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
-        Me.Cedula.WaterMarkText = "Cedula"
         '
         'ExtGrup
         '
@@ -350,6 +342,7 @@ Partial Class PrestamoRevistas
         'PanelDelCarrito
         '
         Me.PanelDelCarrito.BackColor = System.Drawing.SystemColors.ScrollBar
+        Me.PanelDelCarrito.Controls.Add(Me.Pb_moroso)
         Me.PanelDelCarrito.Controls.Add(Me.LabelParaAlmacenarLaCedulaIngresada)
         Me.PanelDelCarrito.Controls.Add(Me.LabelCI)
         Me.PanelDelCarrito.Controls.Add(Me.Button1)
@@ -361,10 +354,20 @@ Partial Class PrestamoRevistas
         Me.PanelDelCarrito.Controls.Add(Me.LabelREVISTA)
         Me.PanelDelCarrito.Controls.Add(Me.LabelIDREVISTAS)
         Me.PanelDelCarrito.Controls.Add(Me.Label12)
-        Me.PanelDelCarrito.Location = New System.Drawing.Point(-268, -28)
+        Me.PanelDelCarrito.Location = New System.Drawing.Point(-271, -28)
         Me.PanelDelCarrito.Name = "PanelDelCarrito"
         Me.PanelDelCarrito.Size = New System.Drawing.Size(268, 676)
         Me.PanelDelCarrito.TabIndex = 78
+        '
+        'Pb_moroso
+        '
+        Me.Pb_moroso.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.delete
+        Me.Pb_moroso.Location = New System.Drawing.Point(206, 146)
+        Me.Pb_moroso.Name = "Pb_moroso"
+        Me.Pb_moroso.Size = New System.Drawing.Size(51, 50)
+        Me.Pb_moroso.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.Pb_moroso.TabIndex = 84
+        Me.Pb_moroso.TabStop = False
         '
         'LabelParaAlmacenarLaCedulaIngresada
         '
@@ -647,6 +650,16 @@ Partial Class PrestamoRevistas
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1
         '
+        'Cedula
+        '
+        Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.Cedula.Location = New System.Drawing.Point(3, 50)
+        Me.Cedula.Name = "Cedula"
+        Me.Cedula.Size = New System.Drawing.Size(259, 20)
+        Me.Cedula.TabIndex = 75
+        Me.Cedula.WaterMarkColor = System.Drawing.Color.Gray
+        Me.Cedula.WaterMarkText = "Cedula"
+        '
         'PrestamoRevistas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -655,9 +668,9 @@ Partial Class PrestamoRevistas
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.PanelDelCarrito)
-        Me.Controls.Add(Me.GroupBoxRenovacion)
         Me.Controls.Add(Me.DevoGRUP)
         Me.Controls.Add(Me.ExtGrup)
+        Me.Controls.Add(Me.GroupBoxRenovacion)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "PrestamoRevistas"
         Me.Text = "PrestamoRevistas"
@@ -674,6 +687,7 @@ Partial Class PrestamoRevistas
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelDelCarrito.ResumeLayout(False)
         Me.PanelDelCarrito.PerformLayout()
+        CType(Me.Pb_moroso, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DevoGRUP.ResumeLayout(False)
         Me.DevoGRUP.PerformLayout()
         CType(Me.DataGridParaDevolucion, System.ComponentModel.ISupportInitialize).EndInit()
@@ -726,4 +740,5 @@ Partial Class PrestamoRevistas
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents PanelDelLeft As System.Windows.Forms.Panel
+    Friend WithEvents Pb_moroso As System.Windows.Forms.PictureBox
 End Class

@@ -22,6 +22,7 @@ Partial Class Prestamos
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -69,6 +70,8 @@ Partial Class Prestamos
         Me.Label19 = New System.Windows.Forms.Label()
         Me.BotonExtrearReservados = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.PanelDelLeft = New System.Windows.Forms.Panel()
+        Me.LblLIBROS = New System.Windows.Forms.Label()
         Me.ptbRenovar = New System.Windows.Forms.PictureBox()
         Me.ButtonVerFicha = New System.Windows.Forms.Button()
         Me.ButtonVERREGISTRO = New System.Windows.Forms.Button()
@@ -92,6 +95,7 @@ Partial Class Prestamos
         Me.Label4 = New System.Windows.Forms.Label()
         Me.dgvRenovacion = New System.Windows.Forms.DataGridView()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.PanelDelCarrito.SuspendLayout()
         CType(Me.Pb_moroso, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GrupBoxDevolucion.SuspendLayout()
@@ -102,6 +106,7 @@ Partial Class Prestamos
         Me.ReservacionGrupBox.SuspendLayout()
         CType(Me.VerLibrosReservados2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
+        Me.PanelDelLeft.SuspendLayout()
         CType(Me.ptbRenovar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel4.SuspendLayout()
         CType(Me.PictureCrearReservacion, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -557,6 +562,7 @@ Partial Class Prestamos
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.SystemColors.ScrollBar
+        Me.Panel3.Controls.Add(Me.PanelDelLeft)
         Me.Panel3.Controls.Add(Me.ptbRenovar)
         Me.Panel3.Controls.Add(Me.ButtonVerFicha)
         Me.Panel3.Controls.Add(Me.ButtonVERREGISTRO)
@@ -572,6 +578,24 @@ Partial Class Prestamos
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(1016, 112)
         Me.Panel3.TabIndex = 75
+        '
+        'PanelDelLeft
+        '
+        Me.PanelDelLeft.Controls.Add(Me.LblLIBROS)
+        Me.PanelDelLeft.Location = New System.Drawing.Point(1041, 4)
+        Me.PanelDelLeft.Name = "PanelDelLeft"
+        Me.PanelDelLeft.Size = New System.Drawing.Size(203, 74)
+        Me.PanelDelLeft.TabIndex = 85
+        '
+        'LblLIBROS
+        '
+        Me.LblLIBROS.AutoSize = True
+        Me.LblLIBROS.Font = New System.Drawing.Font("Impact", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblLIBROS.Location = New System.Drawing.Point(34, 7)
+        Me.LblLIBROS.Name = "LblLIBROS"
+        Me.LblLIBROS.Size = New System.Drawing.Size(161, 60)
+        Me.LblLIBROS.TabIndex = 66
+        Me.LblLIBROS.Text = "LIBROS"
         '
         'ptbRenovar
         '
@@ -882,6 +906,11 @@ Partial Class Prestamos
         Me.Label2.TabIndex = 63
         Me.Label2.Text = "RENOVAR LIBROS"
         '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 1
+        '
         'Prestamos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -915,6 +944,8 @@ Partial Class Prestamos
         CType(Me.VerLibrosReservados2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
+        Me.PanelDelLeft.ResumeLayout(False)
+        Me.PanelDelLeft.PerformLayout()
         CType(Me.ptbRenovar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
@@ -987,4 +1018,7 @@ Partial Class Prestamos
     Friend WithEvents dgvRenovacion As System.Windows.Forms.DataGridView
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Pb_moroso As System.Windows.Forms.PictureBox
+    Friend WithEvents PanelDelLeft As System.Windows.Forms.Panel
+    Friend WithEvents LblLIBROS As System.Windows.Forms.Label
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
 End Class
