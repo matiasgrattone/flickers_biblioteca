@@ -895,6 +895,7 @@
     '///MANDAR LIBROS AL CARRITO///
     Private Sub VerLibrosReservados2_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles VerLibrosReservados2.CellDoubleClick
         If modoExtraer <> "Off" Then
+            ButtonEliminarReservacion.Visible = True
             'Se iguala una variable a un valor de la base de datos
             z = 0
             Dim NomLibros As String
@@ -922,11 +923,11 @@
             End If
 
             If CarritoDeLibros.Items.Count <> 0 Then
-
+                ButtonEliminarReservacion.Visible = False
                 ButonParaExtreaer.Visible = True
             Else
                 ButonParaExtreaer.Visible = False
-
+                ButtonEliminarReservacion.Visible = True
             End If
         Else
             MsgBox("Este socio NO puede retirar un libro hasta devolver los ya prestados", Title:="ERROR")

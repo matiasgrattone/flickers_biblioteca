@@ -734,8 +734,7 @@ Public Class MENU3
         If Panel_prestamosdia.Visible = False Then
             LbPrestamos.Items.Clear()
             Panel_prestamosdia.Visible = True
-            Dim fecha As String = DateTime.Now.ToString("yyyy/MM/dd")
-            Consulta = "select titulo from prestamolibro p inner join libro l on p.cod_libro=l.cod_libro where fecha_estimada='" + fecha + "'"
+            Consulta = "select titulo from prestamolibro p inner join libro l on p.cod_libro=l.cod_libro where fecha_estimada='" + DateTime.Now.ToString("yyyy/MM/dd") + "' and fecha_entrada IS NULL"
             consultar()
             LbPrestamos.Items.Clear()
             For Each row As DataRow In Tabla.Rows

@@ -75,7 +75,7 @@
                 PictureExtraccion.Visible = False
                 PictureDevolucion.Visible = False
                 PictureRenovacion.Visible = False
-
+                LabelSELECCION_DE_FUNCION.Visible = False
                 'Ocultamos el label que muestra la cedula del socio en el carrio
                 LabelParaAlmacenarLaCedulaIngresada.Visible = False
 
@@ -905,7 +905,7 @@
             PictureExtraccion.Visible = False
             PictureDevolucion.Visible = False
             PictureRenovacion.Visible = False
-
+            LabelSELECCION_DE_FUNCION.Visible = False
             'Ocultamos el label que muestra la cedula del socio en el carrio
             LabelParaAlmacenarLaCedulaIngresada.Visible = False
 
@@ -939,7 +939,7 @@
                 PictureExtraccion.Visible = False
                 PictureDevolucion.Visible = False
                 PictureRenovacion.Visible = False
-
+                LabelSELECCION_DE_FUNCION.Visible = False
                 'Ocultamos el label que muestra la cedula del socio en el carrio
                 LabelParaAlmacenarLaCedulaIngresada.Visible = False
 

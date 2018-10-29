@@ -143,7 +143,7 @@ Public Class NotasUsuario
             Archivo.WriteLine(EditorDeTexto.Text)
             Archivo.Close()
 
-            Consulta = "INSERT INTO notas (NombreNota, texto, cedula, fecha) VALUES ( '" + NombreDelArchivo + "', '" + UbicacionParaLaBaseDeDatos.ToString + "', '" + MENU3.lbl_cedula.Text + "','" + Date.Now.ToString("yyyy-MM-dd") + "')"
+            Consulta = "INSERT INTO notas (NombreNota, texto, cedula, fecha) VALUES ( '" + NombreDelArchivo.ToString + "', '" + UbicacionParaLaBaseDeDatos.ToString + "', '" + MENU3.lbl_cedula.Text + "','" + Date.Now.ToString("yyyy-MM-dd") + "')"
             consultar()
             ActualizarNotas()
         End If
