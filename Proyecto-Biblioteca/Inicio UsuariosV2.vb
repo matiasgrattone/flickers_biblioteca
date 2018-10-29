@@ -247,24 +247,36 @@
     Private Sub PlaceHolder1_TextChanged(sender As System.Object, e As System.EventArgs) Handles PlaceHolder1.TextChanged
         Select Case modoVista
             Case 1
-                Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento from usuarios where cedula like '" & PlaceHolder1.Text & "%' and estado = 0 and tipo = 2"
-                consultar()
-                DataGridView1.DataSource = Tabla
-                DatagridModulo = DataGridView1
-                Datagrid_Align()
-                contadordatagrid = 0
-                If DataGridView1.Rows.Count > 0 Then
-                    DataGridView1.Rows(0).Selected = True
+                If Not IsNumeric(PlaceHolder1.Text) Then
+                    Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento from usuarios where estado = 0 and tipo = 2"
+                    consultar()
+                    DataGridView1.DataSource = Tabla
+                Else
+                    Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento from usuarios where cedula like '" & PlaceHolder1.Text & "%' and estado = 0 and tipo = 2"
+                    consultar()
+                    DataGridView1.DataSource = Tabla
+                    DatagridModulo = DataGridView1
+                    Datagrid_Align()
+                    contadordatagrid = 0
+                    If DataGridView1.Rows.Count > 0 Then
+                        DataGridView1.Rows(0).Selected = True
+                    End If
                 End If
             Case 0
-                Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento from usuarios where cedula like '" & PlaceHolder1.Text & "%' and estado = 1 and tipo = 2"
-                consultar()
-                DataGridView1.DataSource = Tabla
-                DatagridModulo = DataGridView1
-                Datagrid_Align()
-                contadordatagrid = 0
-                If DataGridView1.Rows.Count > 0 Then
-                    DataGridView1.Rows(0).Selected = True
+                If Not IsNumeric(PlaceHolder1.Text) Then
+                    Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento from usuarios where estado = 1 and tipo = 2"
+                    consultar()
+                    DataGridView1.DataSource = Tabla
+                Else
+                    Consulta = "select cedula , nombre , apellido , direccion , telefono , nacimiento from usuarios where cedula like '" & PlaceHolder1.Text & "%' and estado = 1 and tipo = 2"
+                    consultar()
+                    DataGridView1.DataSource = Tabla
+                    DatagridModulo = DataGridView1
+                    Datagrid_Align()
+                    contadordatagrid = 0
+                    If DataGridView1.Rows.Count > 0 Then
+                        DataGridView1.Rows(0).Selected = True
+                    End If
                 End If
         End Select
 
