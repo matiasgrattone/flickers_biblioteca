@@ -48,7 +48,7 @@ Public Class MENU3
         If ERROR1 = 0 Then
 
 
-            Consulta = "select prestamolibro.cod_libro as Libros, libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where fecha_entrada is null"
+            Consulta = "select prestamolibro.cod_libro as ID, libro.titulo , usuarios.nombre from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro inner join usuarios on usuarios.cedula = prestamolibro.cedula where fecha_entrada is null"
             consultar()
             DataGridViewLibros.DataSource = Tabla
             DataGridViewLibros.Columns(0).HeaderText = "Nº de inventario"
@@ -690,7 +690,7 @@ Public Class MENU3
                 Timer_BD.Interval = 6000
                 Try
                     DataGridViewLibros.Refresh()
-                    Consulta = "select prestamolibro.cod_libro as ID, libro.titulo from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro where fecha_entrada is null"
+                    Consulta = "select prestamolibro.cod_libro as ID, libro.titulo , usuarios.nombre from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro inner join usuarios on usuarios.cedula = prestamolibro.cedula where fecha_entrada is null"
                     consultar()
                     DataGridViewLibros.DataSource = Tabla
                     DataGridViewLibros.Columns(0).HeaderText = "Nº de inventario"
@@ -733,15 +733,19 @@ Public Class MENU3
 
         If Panel_prestamosdia.Visible = False Then
             LbPrestamos.Items.Clear()
-            Panel_prestamosdia.Visible = True
             Consulta = "select titulo from prestamolibro p inner join libro l on p.cod_libro=l.cod_libro where fecha_estimada='" + DateTime.Now.ToString("yyyy/MM/dd") + "' and fecha_entrada IS NULL"
             consultar()
             LbPrestamos.Items.Clear()
-            For Each row As DataRow In Tabla.Rows
-                If Not IsDBNull(row("titulo")) Then
-                    LbPrestamos.Items.Add(row("titulo"))
-                End If
-            Next
+            If Tabla.Rows.Count = 0 Then
+                Panel_prestamosdia.Visible = False
+            Else
+                Panel_prestamosdia.Visible = True
+                For Each row As DataRow In Tabla.Rows
+                    If Not IsDBNull(row("titulo")) Then
+                        LbPrestamos.Items.Add(row("titulo"))
+                    End If
+                Next
+            End If
         Else
             Panel_prestamosdia.Visible = False
         End If

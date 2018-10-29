@@ -80,8 +80,8 @@
         ElseIf ERROR1 = 0 Then 'En caso que no este en "Buscar" se le preguntara al usuario si quiere cambiar la cedula ya ingresada 
             z = 0
             z = MsgBox("Editar la cedula reiniciara lo echo hasta el momento, desea continuar ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS")
-            Cedula.Select()
             If z = MsgBoxResult.Yes Then 'Si dice que si todas las funciones volveran a las del inicio, como si nada hubiera pasado
+                Cedula.Select()
                 Cedula.ReadOnly = False
                 ModoCedula = "Buscar"
                 BotonParaBuscarCedula.Text = "Buscar"

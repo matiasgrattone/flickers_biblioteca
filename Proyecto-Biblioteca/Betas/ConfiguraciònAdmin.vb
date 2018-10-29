@@ -1120,12 +1120,28 @@ Public Class ConfigAdmin
     End Sub
 
     Private Sub Button8_Click(sender As System.Object, e As System.EventArgs) Handles Button8.Click
-        PlaceHolder2.Enabled = False
-        PlaceHolder3.Enabled = False
-        PlaceHolder4.Enabled = False
-        PlaceHolder5.Enabled = False
-        PlaceHolder6.Enabled = False
-        Button7.Text = "Editar"
+        If cedulaFotoPerfil = "" Then
+        Else
+            Consulta = "select * from usuarios where cedula = '" & cedulaFotoPerfil & "'"
+            consultar()
+            If Tabla.Rows.Count = 0 Then
+            Else
+                For Each row As DataRow In Tabla.Rows
+                    PlaceHolder2.Text = row("telefono")
+                    PlaceHolder3.Text = row("cedula")
+                    PlaceHolder4.Text = row("apellido")
+                    PlaceHolder5.Text = row("nombre")
+                    PlaceHolder6.Text = row("direccion")
+                Next
+            End If
+
+            PlaceHolder2.Enabled = False
+            PlaceHolder3.Enabled = False
+            PlaceHolder4.Enabled = False
+            PlaceHolder5.Enabled = False
+            PlaceHolder6.Enabled = False
+            Button7.Text = "Editar"
+        End If
     End Sub
 
 
