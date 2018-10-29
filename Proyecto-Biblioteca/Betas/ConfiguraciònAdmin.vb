@@ -313,6 +313,7 @@ Public Class ConfigAdmin
                 cedula_txt.Clear()
                 telefono_txt.Clear()
                 direccion_txt.Clear()
+                contrasenia_txt.Clear()
 
                 cb_dia.SelectedIndex = 0
                 cb_mes.SelectedIndex = 0
@@ -325,6 +326,8 @@ Public Class ConfigAdmin
         Else
             MsgBox("Existen errores en el formulario, revisar los campos remarcados")
         End If
+
+
     End Sub
 
     Private Sub buscar_txt_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles buscar_txt.TextChanged

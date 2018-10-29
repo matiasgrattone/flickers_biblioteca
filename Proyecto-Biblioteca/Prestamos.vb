@@ -971,6 +971,139 @@
         If CarritoDeLibros.Items.Count <> 0 Then
             Dim list, contador, libros As Integer
             contador = 0
+            Dim estimado As Integer = 0
+
+            '///////////////////////////////////////////////////////////////////////////////////
+            '///////////////Calcula la fecha en que deberia entregarse el libro/////////////////
+            '///////////////////////////////////////////////////////////////////////////////////
+            fecha_actual = DateTime.Now.ToString("yyyy/MM/dd")
+
+            dia = Val(DateTime.Now.ToString("dd")) + 14
+            mes = Val(DateTime.Now.ToString("MM"))
+            anio = Val(DateTime.Now.ToString("yyyy"))
+
+            If mes = 1 And estimado = 0 Then ' Mes de Enero
+                If dia >= 31 Then
+                    diferenciaDia = dia - 31
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                    estimado = 1
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            If mes = 2 And estimado = 0 Then ' Mes de febrero
+                If dia >= 28 Then
+                    diferenciaDia = dia - 28
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                    estimado = 1
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            If mes = 3 And estimado = 0 Then ' Mes de marzo
+                If dia >= 31 Then
+                    diferenciaDia = dia - 31
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                    estimado = 1
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            If mes = 4 And estimado = 0 Then ' Mes de abril
+                If dia >= 30 Then
+                    diferenciaDia = dia - 30
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                    estimado = 1
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            If mes = 5 And estimado = 0 Then ' Mes de mayo
+                If dia >= 31 Then
+                    diferenciaDia = dia - 31
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                    estimado = 1
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            If mes = 6 And estimado = 0 Then ' Mes de junio
+                If dia >= 30 Then
+                    diferenciaDia = dia - 30
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                    estimado = 1
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            If mes = 7 And estimado = 0 Then ' Mes de julio
+                If dia >= 31 Then
+                    diferenciaDia = dia - 31
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                    estimado = 1
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            If mes = 8 And estimado = 0 Then ' Mes de agosto
+                If dia >= 31 Then
+                    diferenciaDia = dia - 31
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                    estimado = 1
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            If mes = 9 And estimado = 0 Then ' Mes de setiembre
+                If dia >= 30 Then
+                    diferenciaDia = dia - 30
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                    estimado = 1
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            If mes = 10 And estimado = 0 Then ' Mes de octubre
+                If dia >= 31 Then
+                    diferenciaDia = dia - 31
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                    estimado = 1
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            If mes = 11 And estimado = 0 Then ' Mes de noviembre
+                If dia >= 30 Then
+                    diferenciaDia = dia - 30
+                    mes = mes + 1
+                    fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                    estimado = 1
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            If mes = 12 And estimado = 0 Then ' Mes de diciembre
+                If dia >= 31 Then
+                    diferenciaDia = dia - 31
+                    mes = 1
+                    anio = anio + 1
+                    fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+                    estimado = 1
+                Else
+                    fecha_estimada = anio & "-" & mes & "-" & dia
+                End If
+            End If
+            '////////////////////////////////////////////////////////////////////////
 
             list = 0
             list = ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Count
@@ -990,11 +1123,11 @@
                     While contador < list
                         contador = Val(contador) + 1
 
-
-                        Consulta = "insert into prestamolibro(cedula,cod_libro,fecha_salida,cod_prestado) values('" + Cedula.Text + "','" + ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "','" + MENU3.lbl_cedula.Text + "')"
+                        'REVISAR ESTO'
+                        Consulta = "insert into prestamolibro(cedula, cod_libro, fecha_salida, fecha_estimada, cod_prestado) values('" + Cedula.Text + "','" + ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "', '" + fecha_estimada + "','" + MENU3.lbl_cedula.Text + "')"
                         consultar()
 
-                        Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items(libros) & "';"
+                        Consulta = "update libro set estado = 1 where cod_libro = '" & ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items(libros) & "'"
                         consultar()
 
                         libros = libros + 1
@@ -1003,9 +1136,6 @@
 
                     CarritoDeLibros.Items.Clear()
                     ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Clear()
-                    Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado = '2' and p.cedula = '" + Cedula.Text + "' and p.fecha_salida is NULL and p.fecha_entrada is NULL"
-                    consultar()
-                    VerLibrosReservados2.DataSource = Tabla
                     MsgBox("Se extrajo correctamente los libros", Title:="PRESTAMO")
                     GrupBoxExtraccion.Visible = False
 
@@ -1014,7 +1144,7 @@
 
 
                     For Each row As DataRow In Tabla.Rows
-                        If row("fecha_entrada") Is DBNull.Value Then
+                        If row("fecha_estimada") Is DBNull.Value Then
                             FechaEntradaPrestamo = 0
                         Else
                             FechaEntradaPrestamo = 1
@@ -1028,7 +1158,7 @@
                                 contador = Val(contador) + 1
 
 
-                                Consulta = "insert into prestamolibro(cedula,cod_libro,fecha_salida,cod_prestado) values('" + Cedula.Text + "','" + ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "','" + MENU3.lbl_cedula.Text + "')"
+                                Consulta = "insert into prestamolibro(cedula, cod_libro, fecha_salida, fecha_estimada, cod_prestado) values('" + Cedula.Text + "','" + ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items(libros) + "','" + Date.Now.ToString("yyyy-MM-dd") + "', '" + fecha_estimada + "','" + MENU3.lbl_cedula.Text + "')"
                                 consultar()
 
 
@@ -1041,9 +1171,6 @@
 
                             CarritoDeLibros.Items.Clear()
                             ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Clear()
-                            Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', l.volumen as 'Volumen' from libro l inner join prestamolibro p on l.cod_libro=p.cod_libro where estado = '2' and p.cedula = '" + Cedula.Text + "' and p.fecha_salida is NULL and p.fecha_entrada is NULL"
-                            consultar()
-                            VerLibrosReservados2.DataSource = Tabla
                             MsgBox("Se extrajo correctamente los libros", Title:="PRESTAMO")
                             GrupBoxExtraccion.Visible = False
 
@@ -1053,6 +1180,7 @@
                             MsgBox("Este socios no puede retirar libros hasta devolver los prestados", Title:="PRESTAMOS")
                     End Select
                 End If
+                libros = 0
             End If
         End If
     End Sub
