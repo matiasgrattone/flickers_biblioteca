@@ -126,6 +126,17 @@
             'My.Computer.FileSystem.CopyFile(rutaArchivo, rutaGuardadoFotos + "\" + nombreArchivo) 'Copia imagen seleccionada en la carpeta de guardado, no sobreescribe duplicados
             'cargar()
         End If
+
+        Try
+            Consulta = "select rutaperfil from usuarios where cedula ='" + MENU3.cedulaIngre + "'"
+            consultar()
+            For Each row As DataRow In Tabla.Rows
+                MENU3.Pbusuario.ImageLocation = (Convert.ToString(row("rutaperfil"))) 'iguala el picturebox de MENU3 con la ubicacion de la imagen guardada en la base
+            Next
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 
     Private Sub cargar()
