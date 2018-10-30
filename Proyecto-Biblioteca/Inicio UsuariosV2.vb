@@ -764,6 +764,7 @@
                 Modulo.Verificar_Cedula(cedula.Text)
                 If Modulo.correcto = 0 Then
                     ced_editar = cedula.Text
+                    i_editar = 0
                 Else
                     i_editar = 1
                     ErrorProvider1.SetError(cedula, "Cedula no valida")
@@ -874,20 +875,6 @@
         If i_ingresar = 0 Then
             If IsNumeric(cedula_txt.Text) = True Then
                 Modulo.Verificar_Cedula(cedula_txt.Text)
-                Consulta = "select cedula from usuarios where cedula = '" & cedula_txt.Text & "'"
-                consultar()
-                If Tabla.Rows.Count = 0 Then
-                    i_ingresar = 1
-                    ErrorProvider1.SetError(cedula_txt, "Cedula no valida")
-                End If
-                For Each row As DataRow In Tabla.Rows
-                    If row("cedula") = cedula_txt.Text Then
-                        i_ingresar = 1
-                        ErrorProvider1.SetError(cedula_txt, "Cedula no valida")
-                    End If
-                Next
-
-
                 If Modulo.correcto = 0 Then
                     ced_ingresar = cedula_txt.Text
                 Else

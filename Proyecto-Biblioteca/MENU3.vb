@@ -48,7 +48,7 @@ Public Class MENU3
         If ERROR1 = 0 Then
 
 
-            Consulta = "select prestamolibro.cod_libro as ID, libro.titulo , usuarios.nombre from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro inner join usuarios on usuarios.cedula = prestamolibro.cedula where fecha_entrada is null"
+            Consulta = "select prestamolibro.cod_libro as ID, libro.titulo , usuarios.cedula from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro inner join usuarios on usuarios.cedula = prestamolibro.cedula where fecha_entrada is null"
             consultar()
             DataGridViewLibros.DataSource = Tabla
             DataGridViewLibros.Columns(0).HeaderText = "Nº de inventario"
@@ -67,17 +67,20 @@ Public Class MENU3
             consultar()
             For Each row As DataRow In Tabla.Rows
                 If row("cod_prestamosLive") = "1" Then
-                    PictureBox5.Image = Image.FromFile("imagenes/switch_on.png")
+                    'PictureBox5.Image = Image.FromFile("imagenes/switch_on.png")
+                    PictureBox5.Image = My.Resources.ResourceManager.GetObject("switch_on")
                     pictureboxPrestamosSwitch = 1
                     Timer_Prestamos_LIVE.Enabled = True
                 Else
-                    PictureBox5.Image = Image.FromFile("imagenes/switch_off.png")
+                    PictureBox5.Image = My.Resources.ResourceManager.GetObject("switch_off")
+                    'PictureBox5.Image = Image.FromFile("imagenes/switch_off.png")
                     pictureboxPrestamosSwitch = 0
                     Timer_Prestamos_LIVE.Enabled = False
                 End If
             Next
             If Tabla.Rows.Count = 0 Then
-                PictureBox5.Image = Image.FromFile("imagenes/switch_off.png")
+                PictureBox5.Image = My.Resources.ResourceManager.GetObject("switch_off")
+                'PictureBox5.Image = Image.FromFile("imagenes/switch_off.png")
                 pictureboxPrestamosSwitch = 0
                 Timer_Prestamos_LIVE.Enabled = False
             End If
@@ -690,7 +693,7 @@ Public Class MENU3
                 Timer_BD.Interval = 6000
                 Try
                     DataGridViewLibros.Refresh()
-                    Consulta = "select prestamolibro.cod_libro as ID, libro.titulo , usuarios.nombre from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro inner join usuarios on usuarios.cedula = prestamolibro.cedula where fecha_entrada is null"
+                    Consulta = "select prestamolibro.cod_libro as ID, libro.titulo , usuarios.cedula from libro inner join prestamolibro on libro.cod_libro = prestamolibro.cod_libro inner join usuarios on usuarios.cedula = prestamolibro.cedula where fecha_entrada is null"
                     consultar()
                     DataGridViewLibros.DataSource = Tabla
                     DataGridViewLibros.Columns(0).HeaderText = "Nº de inventario"
@@ -1267,7 +1270,8 @@ Public Class MENU3
 
     Private Sub PictureBox5_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox5.Click
         If pictureboxPrestamosSwitch = 1 Then
-            PictureBox5.Image = Image.FromFile("imagenes/switch_off.png")
+            'PictureBox5.Image = Image.FromFile("imagenes/switch_off.png")
+            PictureBox5.Image = My.Resources.ResourceManager.GetObject("switch_off")
             Timer_Prestamos_LIVE.Enabled = False
             If lbl_cedula.Text <> "................" Then
                 Consulta = "select cod_prestamosLive from MenuConfig where cod_usuario = '" & lbl_cedula.Text & "'"
@@ -1283,7 +1287,8 @@ Public Class MENU3
             pictureboxPrestamosSwitch = 0
         ElseIf pictureboxPrestamosSwitch = 0 Then
 
-            PictureBox5.Image = Image.FromFile("imagenes/switch_on.png")
+            'PictureBox5.Image = Image.FromFile("imagenes/switch_on.png")
+            PictureBox5.Image = My.Resources.ResourceManager.GetObject("switch_on")
             Timer_Prestamos_LIVE.Enabled = True
             If lbl_cedula.Text <> "................" Then
                 Consulta = "select cod_prestamosLive from MenuConfig where cod_usuario = '" & lbl_cedula.Text & "'"

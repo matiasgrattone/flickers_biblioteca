@@ -867,10 +867,10 @@ Public Class ConfigAdmin
 
 
             If DGV_ONLINE.Rows(x).Cells(2).Value = "1" Then
-                DGV_ONLINE.Rows(x).Cells(0).Value = Image.FromFile("imagenes/online1.png")
+                DGV_ONLINE.Rows(x).Cells(0).Value = My.Resources.ResourceManager.GetObject("online1")
                 DGV_ONLINE.Rows(x).Cells(3).Value = " "
             Else
-                DGV_ONLINE.Rows(x).Cells(0).Value = Image.FromFile("imagenes/offline.png")
+                DGV_ONLINE.Rows(x).Cells(0).Value = My.Resources.ResourceManager.GetObject("offline")
             End If
 
         Next
@@ -887,15 +887,14 @@ Public Class ConfigAdmin
         DatagridModulo = DGV_ONLINE
         Datagrid_Align()
 
-
-        For x As Integer = 0 To DGV_ONLINE.Rows.Count - 1
+       For x As Integer = 0 To DGV_ONLINE.Rows.Count - 1
 
 
             If DGV_ONLINE.Rows(x).Cells(2).Value = "1" Then
-                DGV_ONLINE.Rows(x).Cells(0).Value = Image.FromFile("imagenes/online1.png")
+                DGV_ONLINE.Rows(x).Cells(0).Value = My.Resources.ResourceManager.GetObject("online1")
                 DGV_ONLINE.Rows(x).Cells(3).Value = " "
             Else
-                DGV_ONLINE.Rows(x).Cells(0).Value = Image.FromFile("imagenes/offline.png")
+                DGV_ONLINE.Rows(x).Cells(0).Value = My.Resources.ResourceManager.GetObject("offline")
             End If
 
         Next
@@ -913,14 +912,14 @@ Public Class ConfigAdmin
         Datagrid_Align()
 
 
-        For x As Integer = 0 To DGV_ONLINE.Rows.Count - 1
+       For x As Integer = 0 To DGV_ONLINE.Rows.Count - 1
 
 
             If DGV_ONLINE.Rows(x).Cells(2).Value = "1" Then
-                DGV_ONLINE.Rows(x).Cells(0).Value = Image.FromFile("imagenes/online1.png")
+                DGV_ONLINE.Rows(x).Cells(0).Value = My.Resources.ResourceManager.GetObject("online1")
                 DGV_ONLINE.Rows(x).Cells(3).Value = " "
             Else
-                DGV_ONLINE.Rows(x).Cells(0).Value = Image.FromFile("imagenes/offline.png")
+                DGV_ONLINE.Rows(x).Cells(0).Value = My.Resources.ResourceManager.GetObject("offline")
             End If
 
         Next
