@@ -485,6 +485,7 @@ Public Class ConfigAdmin
             For Each row As DataRow In Tabla.Rows
                 ptbPerfilAdmin.ImageLocation = rutaGuardadoFotos & "/" & Convert.ToString(row("rutaperfil"))
             Next
+
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -496,7 +497,7 @@ Public Class ConfigAdmin
             consultar()
 
             For Each row As DataRow In Tabla.Rows
-                ptb_perfil_editar.ImageLocation = Convert.ToString(row("rutaperfil"))
+                ptb_perfil_editar.ImageLocation = rutaGuardadoFotos & "/" & Convert.ToString(row("rutaperfil"))
             Next
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -1149,4 +1150,5 @@ Public Class ConfigAdmin
         cb_mes_editar.SelectedIndex = 0
         cb_anio_editar.SelectedIndex = 0
     End Sub
+
 End Class

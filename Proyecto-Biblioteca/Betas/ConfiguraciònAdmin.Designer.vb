@@ -33,12 +33,12 @@ Partial Class ConfigAdmin
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ConfigAdmin))
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
@@ -106,6 +106,11 @@ Partial Class ConfigAdmin
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.ptbPerfilAdmin = New Proyecto_Biblioteca.PictureboxBordesRedondos()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton7 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton6 = New System.Windows.Forms.RadioButton()
+        Me.DGV_ONLINE = New System.Windows.Forms.DataGridView()
+        Me.Online = New System.Windows.Forms.DataGridViewImageColumn()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
@@ -128,11 +133,6 @@ Partial Class ConfigAdmin
         Me.PlaceHolder4 = New Proyecto_Biblioteca.PlaceHolder()
         Me.PlaceHolder5 = New Proyecto_Biblioteca.PlaceHolder()
         Me.PlaceHolder6 = New Proyecto_Biblioteca.PlaceHolder()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton7 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton6 = New System.Windows.Forms.RadioButton()
-        Me.DGV_ONLINE = New System.Windows.Forms.DataGridView()
-        Me.Online = New System.Windows.Forms.DataGridViewImageColumn()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.TimerFoto = New System.Windows.Forms.Timer(Me.components)
         Me.TabControl1.SuspendLayout()
@@ -150,12 +150,12 @@ Partial Class ConfigAdmin
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         CType(Me.ptbPerfilAdmin, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
+        CType(Me.DGV_ONLINE, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
-        CType(Me.DGV_ONLINE, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TreeView1
@@ -974,6 +974,102 @@ Partial Class ConfigAdmin
         Me.ptbPerfilAdmin.TabIndex = 19
         Me.ptbPerfilAdmin.TabStop = False
         '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.RadioButton7)
+        Me.GroupBox1.Controls.Add(Me.RadioButton6)
+        Me.GroupBox1.Controls.Add(Me.DGV_ONLINE)
+        Me.GroupBox1.Controls.Add(Me.TabControl1)
+        Me.GroupBox1.Controls.Add(Me.TreeView1)
+        Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.GroupBox1.Location = New System.Drawing.Point(257, -7)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(826, 601)
+        Me.GroupBox1.TabIndex = 30
+        Me.GroupBox1.TabStop = False
+        '
+        'RadioButton7
+        '
+        Me.RadioButton7.AutoSize = True
+        Me.RadioButton7.Checked = True
+        Me.RadioButton7.Location = New System.Drawing.Point(14, 16)
+        Me.RadioButton7.Name = "RadioButton7"
+        Me.RadioButton7.Size = New System.Drawing.Size(127, 17)
+        Me.RadioButton7.TabIndex = 29
+        Me.RadioButton7.TabStop = True
+        Me.RadioButton7.Text = "Ver Lista De Usuarios"
+        Me.RadioButton7.UseVisualStyleBackColor = True
+        '
+        'RadioButton6
+        '
+        Me.RadioButton6.AutoSize = True
+        Me.RadioButton6.Location = New System.Drawing.Point(142, 16)
+        Me.RadioButton6.Name = "RadioButton6"
+        Me.RadioButton6.Size = New System.Drawing.Size(118, 17)
+        Me.RadioButton6.TabIndex = 28
+        Me.RadioButton6.Text = "Ver Usuarios Online"
+        Me.RadioButton6.UseVisualStyleBackColor = True
+        '
+        'DGV_ONLINE
+        '
+        Me.DGV_ONLINE.AllowUserToAddRows = False
+        Me.DGV_ONLINE.AllowUserToDeleteRows = False
+        Me.DGV_ONLINE.AllowUserToResizeColumns = False
+        Me.DGV_ONLINE.AllowUserToResizeRows = False
+        Me.DGV_ONLINE.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.DGV_ONLINE.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable
+        Me.DGV_ONLINE.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle10.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Transparent
+        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Transparent
+        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DGV_ONLINE.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle10
+        Me.DGV_ONLINE.ColumnHeadersHeight = 40
+        Me.DGV_ONLINE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.DGV_ONLINE.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Online})
+        Me.DGV_ONLINE.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.DGV_ONLINE.EnableHeadersVisualStyles = False
+        Me.DGV_ONLINE.ImeMode = System.Windows.Forms.ImeMode.Off
+        Me.DGV_ONLINE.Location = New System.Drawing.Point(1, 41)
+        Me.DGV_ONLINE.MultiSelect = False
+        Me.DGV_ONLINE.Name = "DGV_ONLINE"
+        Me.DGV_ONLINE.ReadOnly = True
+        Me.DGV_ONLINE.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle11.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DGV_ONLINE.RowHeadersDefaultCellStyle = DataGridViewCellStyle11
+        Me.DGV_ONLINE.RowHeadersVisible = False
+        Me.DGV_ONLINE.RowHeadersWidth = 50
+        Me.DGV_ONLINE.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        DataGridViewCellStyle12.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle12.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White
+        Me.DGV_ONLINE.RowsDefaultCellStyle = DataGridViewCellStyle12
+        Me.DGV_ONLINE.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Gray
+        Me.DGV_ONLINE.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DGV_ONLINE.Size = New System.Drawing.Size(268, 560)
+        Me.DGV_ONLINE.TabIndex = 19
+        Me.DGV_ONLINE.TabStop = False
+        '
+        'Online
+        '
+        Me.Online.HeaderText = "Online"
+        Me.Online.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
+        Me.Online.Name = "Online"
+        Me.Online.ReadOnly = True
+        Me.Online.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Online.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        '
         'GroupBox4
         '
         Me.GroupBox4.Controls.Add(Me.GroupBox2)
@@ -1218,102 +1314,6 @@ Partial Class ConfigAdmin
         Me.PlaceHolder6.WaterMarkColor = System.Drawing.Color.Gray
         Me.PlaceHolder6.WaterMarkText = "Dirección"
         '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.RadioButton7)
-        Me.GroupBox1.Controls.Add(Me.RadioButton6)
-        Me.GroupBox1.Controls.Add(Me.DGV_ONLINE)
-        Me.GroupBox1.Controls.Add(Me.TabControl1)
-        Me.GroupBox1.Controls.Add(Me.TreeView1)
-        Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.GroupBox1.Location = New System.Drawing.Point(257, -7)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(826, 601)
-        Me.GroupBox1.TabIndex = 30
-        Me.GroupBox1.TabStop = False
-        '
-        'RadioButton7
-        '
-        Me.RadioButton7.AutoSize = True
-        Me.RadioButton7.Checked = True
-        Me.RadioButton7.Location = New System.Drawing.Point(14, 16)
-        Me.RadioButton7.Name = "RadioButton7"
-        Me.RadioButton7.Size = New System.Drawing.Size(127, 17)
-        Me.RadioButton7.TabIndex = 29
-        Me.RadioButton7.TabStop = True
-        Me.RadioButton7.Text = "Ver Lista De Usuarios"
-        Me.RadioButton7.UseVisualStyleBackColor = True
-        '
-        'RadioButton6
-        '
-        Me.RadioButton6.AutoSize = True
-        Me.RadioButton6.Location = New System.Drawing.Point(142, 16)
-        Me.RadioButton6.Name = "RadioButton6"
-        Me.RadioButton6.Size = New System.Drawing.Size(118, 17)
-        Me.RadioButton6.TabIndex = 28
-        Me.RadioButton6.Text = "Ver Usuarios Online"
-        Me.RadioButton6.UseVisualStyleBackColor = True
-        '
-        'DGV_ONLINE
-        '
-        Me.DGV_ONLINE.AllowUserToAddRows = False
-        Me.DGV_ONLINE.AllowUserToDeleteRows = False
-        Me.DGV_ONLINE.AllowUserToResizeColumns = False
-        Me.DGV_ONLINE.AllowUserToResizeRows = False
-        Me.DGV_ONLINE.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
-        Me.DGV_ONLINE.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable
-        Me.DGV_ONLINE.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle10.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Transparent
-        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Transparent
-        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DGV_ONLINE.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle10
-        Me.DGV_ONLINE.ColumnHeadersHeight = 40
-        Me.DGV_ONLINE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.DGV_ONLINE.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Online})
-        Me.DGV_ONLINE.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.DGV_ONLINE.EnableHeadersVisualStyles = False
-        Me.DGV_ONLINE.ImeMode = System.Windows.Forms.ImeMode.Off
-        Me.DGV_ONLINE.Location = New System.Drawing.Point(1, 41)
-        Me.DGV_ONLINE.MultiSelect = False
-        Me.DGV_ONLINE.Name = "DGV_ONLINE"
-        Me.DGV_ONLINE.ReadOnly = True
-        Me.DGV_ONLINE.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle11.BackColor = System.Drawing.Color.Gray
-        DataGridViewCellStyle11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DGV_ONLINE.RowHeadersDefaultCellStyle = DataGridViewCellStyle11
-        Me.DGV_ONLINE.RowHeadersVisible = False
-        Me.DGV_ONLINE.RowHeadersWidth = 50
-        Me.DGV_ONLINE.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle12.BackColor = System.Drawing.Color.Gray
-        DataGridViewCellStyle12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle12.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White
-        Me.DGV_ONLINE.RowsDefaultCellStyle = DataGridViewCellStyle12
-        Me.DGV_ONLINE.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Gray
-        Me.DGV_ONLINE.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DGV_ONLINE.Size = New System.Drawing.Size(268, 560)
-        Me.DGV_ONLINE.TabIndex = 19
-        Me.DGV_ONLINE.TabStop = False
-        '
-        'Online
-        '
-        Me.Online.HeaderText = "Online"
-        Me.Online.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
-        Me.Online.Name = "Online"
-        Me.Online.ReadOnly = True
-        Me.Online.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Online.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        '
         'TimerFoto
         '
         '
@@ -1350,15 +1350,15 @@ Partial Class ConfigAdmin
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         CType(Me.ptbPerfilAdmin, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        CType(Me.DGV_ONLINE, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
-        CType(Me.DGV_ONLINE, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

@@ -442,7 +442,7 @@ Public Class MENU3
                     For Each row As DataRow In Tabla.Rows
                         If row("cedula") = contraseniaAdmin Then
                             cedula = 1
-                            ConfigAdmin.ptbPerfilAdmin.ImageLocation = row("rutaperfil").ToString
+                            ConfigAdmin.ptbPerfilAdmin.ImageLocation = rutaGuardadoFotos & "/" & row("rutaperfil").ToString
                             ConfigAdmin.cedulaFotoPerfil = row("cedula").ToString
                             ConfigAdmin.Lbl_NombreADMIN_TXT.Text = row("nombre") & " " & row("apellido")
                             contraseniaAdmin = "1"
