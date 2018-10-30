@@ -1435,8 +1435,8 @@
     End Sub
 
     Public Sub VerificarMoroso()
-        Dim moroso As Integer
-        Dim fecha_moroso As String
+        Dim moroso As Integer = Nothing
+        Dim fecha_moroso As String = Nothing
         Try
             If Cedula.Text <> "" Then
                 Consulta = "SELECT moroso FROM `usuarios` WHERE cedula = '" + Cedula.Text + "'"
