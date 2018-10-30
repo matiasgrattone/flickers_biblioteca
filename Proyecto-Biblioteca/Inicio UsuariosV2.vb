@@ -18,7 +18,7 @@
     Dim opcionEoI As Integer ' 0 - Desde ingresar / 1 - Desde editar
 
     '//////////// Variable para guardar ruta del archivo para ingresar y editar //////////////
-    Public nombreArchivo As String = "Fotos de socio/student.png"
+    Public nombreArchivo As String = rutaGuardadoFotos & "/" & "Fotos de socio/student.png"
     Dim cargarFoto As Integer = 0
 
     '/////////////////////variables para editar usuarios//////////////
@@ -126,9 +126,9 @@
                         año_datagrid = row("nacimiento").ToString.Substring(6, 4)
 
                         If row("rutaperfil") Is DBNull.Value Then
-                            rutaFoto = Convert.ToString("Fotos de socio\student.jpg")
+                            rutaFoto = rutaGuardadoFotos & "/" & Convert.ToString("Fotos de socio\student.jpg")
                         Else
-                            rutaFoto = row("rutaperfil")
+                            rutaFoto = rutaGuardadoFotos & "/" & row("rutaperfil")
                         End If
 
                     Next
@@ -196,9 +196,9 @@
                         año_datagrid = row("nacimiento").ToString.Substring(6, 4)
 
                         If row("rutaperfil") Is DBNull.Value Then
-                            rutaFoto = Convert.ToString("Fotos de socio\student.jpg")
+                            rutaFoto = rutaGuardadoFotos & "/" & Convert.ToString("Fotos de socio\student.jpg")
                         Else
-                            rutaFoto = row("rutaperfil")
+                            rutaFoto = rutaGuardadoFotos & "/" & row("rutaperfil")
                         End If
 
                     Next
@@ -476,9 +476,9 @@
                             mes_datagrid = row("nacimiento").ToString.Substring(3, 2)
                             año_datagrid = row("nacimiento").ToString.Substring(6, 4)
                             If row("rutaperfil") Is DBNull.Value Then
-                                rutaFoto = Convert.ToString("Fotos de socio\student.jpg")
+                                rutaFoto = rutaGuardadoFotos & "/" & Convert.ToString("Fotos de socio\student.jpg")
                             Else
-                                rutaFoto = row("rutaperfil")
+                                rutaFoto = rutaGuardadoFotos & "/" & row("rutaperfil")
                             End If
                         Next
                         cargar2()
@@ -665,9 +665,9 @@
                             año_datagrid = row("nacimiento").ToString.Substring(6, 4)
 
                             If row("rutaperfil") Is DBNull.Value Then
-                                rutaFoto = Convert.ToString("Fotos de socio\student.jpg")
+                                rutaFoto = rutaGuardadoFotos & "/" & Convert.ToString("Fotos de socio\student.jpg")
                             Else
-                                rutaFoto = row("rutaperfil")
+                                rutaFoto = rutaGuardadoFotos & "/" & row("rutaperfil")
                             End If
 
                         Next
@@ -1168,7 +1168,7 @@
                     If rutaFoto = "" Or row("rutaperfil") Is DBNull.Value Then
                         rutafoto1 = "0"
                     Else
-                        If row("rutaperfil") = rutaFoto Then
+                        If (rutaGuardadoFotos & "/" & row("rutaperfil")) = rutaFoto Then
                             rutafoto1 = "0"
                         Else
                             rutafoto1 = "1"
@@ -1323,7 +1323,7 @@
             posicionBarra = InStrRev(rutaArchivo, "\") ' Obtiene la posición en la que se encuentra la barra invertida en el String
             longitudNombre = rutaArchivo.Length - posicionBarra 'Obtiene la cantidad de caracteres que ocupa el nombre
 
-            nombreArchivo = "Fotos de socio/" + rutaArchivo.Substring(posicionBarra, longitudNombre) 'Corta la parte del nombre de la ruta completa
+            nombreArchivo = rutaGuardadoFotos & "/" & "Fotos de socio/" + rutaArchivo.Substring(posicionBarra, longitudNombre) 'Corta la parte del nombre de la ruta completa
 
             Try
                 opcion = 1
@@ -1348,7 +1348,7 @@
             consultar()
 
             For Each row As DataRow In Tabla.Rows
-                ptbFotoSocio.ImageLocation = Convert.ToString(row("rutaperfil"))
+                ptbFotoSocio.ImageLocation = rutaGuardadoFotos & "/" & Convert.ToString(row("rutaperfil"))
             Next
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -1367,7 +1367,7 @@
                     ptbFotoEditar.ImageLocation = Convert.ToString("Fotos de socio\student.jpg")
                 Else
                     ptbFotoEditar.Refresh()
-                    ptbFotoEditar.ImageLocation = Convert.ToString(row("rutaperfil"))
+                    ptbFotoEditar.ImageLocation = rutaGuardadoFotos & "/" & Convert.ToString(row("rutaperfil"))
                 End If
             Next
 
@@ -1391,7 +1391,7 @@
             posicionBarra = InStrRev(rutaArchivo, "\") ' Obtiene la posición en la que se encuentra la barra invertida en el String
             longitudNombre = rutaArchivo.Length - posicionBarra 'Obtiene la cantidad de caracteres que ocupa el nombre
 
-            nombreArchivo = "Fotos de socio/" + rutaArchivo.Substring(posicionBarra, longitudNombre) 'Corta la parte del nombre de la ruta completa
+            nombreArchivo = rutaGuardadoFotos & "/" & "Fotos de socio/" + rutaArchivo.Substring(posicionBarra, longitudNombre) 'Corta la parte del nombre de la ruta completa
 
             Try
                 Consulta = "update usuarios set rutaperfil = '" & nombreArchivo & "' where cedula='" + cedula.Text + "'"

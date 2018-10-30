@@ -32,7 +32,7 @@ Module Modulo
     Public nombreFoto, cedulaFoto As String 'Para guardar la foto
     Public tomarfotabierto As Integer = 0
     Public rutaFoto As String ' Para tomar desde webcam
-    Public rutaGuardadoFotos As String = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\Fotos_de_perfil" ' Ruta donde estan las fotos de perfil de los funcionarios
+    Public rutaGuardadoFotos As String = "C:\Program Files (x86)\Biblioteca" ' Ruta donde estan las fotos de perfil de los funcionarios
     Public cedula_ingresada As String
 
     Public opcioncolor As Color
@@ -49,9 +49,9 @@ Module Modulo
     Public Sub consultar()
 
         If invitado = 0 Then
-            ubicacion = "server=localhost; user id=root; password=''; database=biblioteca"
+            'ubicacion = "server=localhost; user id=root; password=''; database=biblioteca"
             'ubicacion = "server=192.168.1.12; user id=admin; password=admin; database=biblioteca" ' NO BORRAR, YO USO ESTA PARA PROGRAMAR EN CASA, GUILLE (NO PUEDO USAR EL DOMINIO EN LAN)
-            'ubicacion = "server=bibliotecadb.ddns.net; user id=admin; password=admin; database=biblioteca"
+            ubicacion = "server=bibliotecadb.ddns.net; user id=admin; password=admin; database=biblioteca"
         Else
             'ubicacion = "server=192.168.1.12; user id=invitado; password=invitado; database=biblioteca"
             'ubicacion = "server=bibliotecadb.ddns.net; user id=invitado; password=invitado; database=biblioteca"
