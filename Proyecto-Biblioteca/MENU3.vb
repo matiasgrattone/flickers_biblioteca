@@ -60,7 +60,7 @@ Public Class MENU3
             Consulta = "select rutaperfil from usuarios where cedula ='" + cedulaIngre + "'"
             consultar()
             For Each row As DataRow In Tabla.Rows
-                Pbusuario.ImageLocation = (Convert.ToString(row("rutaperfil"))) 'iguala el picturebox de MENU3 con la ubicacion de la imagen guardada en la base
+                Pbusuario.ImageLocation = rutaGuardadoFotos & "/" & Convert.ToString(row("rutaperfil")) 'iguala el picturebox de MENU3 con la ubicacion de la imagen guardada en la base
             Next
 
             Consulta = "select cod_prestamosLive from MenuConfig where cod_usuario = '" & lbl_cedula.Text & "'"
@@ -1313,4 +1313,5 @@ Public Class MENU3
     Private Sub ComboBox2_MouseLeave(sender As System.Object, e As System.EventArgs) Handles ComboBox2.MouseLeave
         mouseentercomboaño = 0
     End Sub
+
 End Class
