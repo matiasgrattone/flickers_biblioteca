@@ -24,9 +24,9 @@
         WebCam1.Start()
 
         If opcionConfigUsers = 0 Then
-            rutaFoto = "Fotos de perfil/" & nombre & "-" & cedula & ".png"
+            rutaFoto = rutaGuardadoFotos & "/" & "Fotos de perfil/" & nombre & "-" & cedula & ".png"
         Else
-            rutaFoto = "Fotos de socio/" & nombre & "-" & cedula & ".png"
+            rutaFoto = rutaGuardadoFotos & "/" & "Fotos de socio/" & nombre & "-" & cedula & ".png"
         End If
 
 
@@ -92,7 +92,7 @@
                 WebCam1.Start()
                 ptbFoto.SendToBack()
 
-                rutaFoto = "Fotos de socio/student.jpg"
+                rutaFoto = rutaGuardadoFotos & "/" & "Fotos de socio/student.jpg"
             End If
 
         End If

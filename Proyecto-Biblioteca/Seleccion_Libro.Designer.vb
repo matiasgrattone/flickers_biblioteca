@@ -24,23 +24,23 @@ Partial Class Seleccion_Libro
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.pcbox4 = New System.Windows.Forms.PictureBox()
-        Me.pcbox1 = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.pcbox3 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.pcbox2 = New System.Windows.Forms.PictureBox()
         Me.Timer10 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer20 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer30 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer40 = New System.Windows.Forms.Timer(Me.components)
+        Me.pcbox3 = New System.Windows.Forms.PictureBox()
+        Me.pcbox2 = New System.Windows.Forms.PictureBox()
+        Me.pcbox4 = New System.Windows.Forms.PictureBox()
+        Me.pcbox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
-        CType(Me.pcbox4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pcbox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         CType(Me.pcbox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pcbox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pcbox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pcbox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -53,26 +53,6 @@ Partial Class Seleccion_Libro
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(954, 651)
         Me.Panel1.TabIndex = 0
-        '
-        'pcbox4
-        '
-        Me.pcbox4.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.back
-        Me.pcbox4.Location = New System.Drawing.Point(907, 246)
-        Me.pcbox4.Name = "pcbox4"
-        Me.pcbox4.Size = New System.Drawing.Size(35, 50)
-        Me.pcbox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pcbox4.TabIndex = 4
-        Me.pcbox4.TabStop = False
-        '
-        'pcbox1
-        '
-        Me.pcbox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.books
-        Me.pcbox1.Location = New System.Drawing.Point(356, 215)
-        Me.pcbox1.Name = "pcbox1"
-        Me.pcbox1.Size = New System.Drawing.Size(133, 125)
-        Me.pcbox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pcbox1.TabIndex = 3
-        Me.pcbox1.TabStop = False
         '
         'Label2
         '
@@ -95,16 +75,6 @@ Partial Class Seleccion_Libro
         Me.Panel2.Size = New System.Drawing.Size(482, 664)
         Me.Panel2.TabIndex = 1
         '
-        'pcbox3
-        '
-        Me.pcbox3.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.right_arrow1
-        Me.pcbox3.Location = New System.Drawing.Point(3, 225)
-        Me.pcbox3.Name = "pcbox3"
-        Me.pcbox3.Size = New System.Drawing.Size(38, 50)
-        Me.pcbox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pcbox3.TabIndex = 3
-        Me.pcbox3.TabStop = False
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -114,16 +84,6 @@ Partial Class Seleccion_Libro
         Me.Label1.Size = New System.Drawing.Size(197, 39)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "INGRESAR"
-        '
-        'pcbox2
-        '
-        Me.pcbox2.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.books
-        Me.pcbox2.Location = New System.Drawing.Point(411, 215)
-        Me.pcbox2.Name = "pcbox2"
-        Me.pcbox2.Size = New System.Drawing.Size(133, 125)
-        Me.pcbox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pcbox2.TabIndex = 1
-        Me.pcbox2.TabStop = False
         '
         'Timer10
         '
@@ -141,6 +101,46 @@ Partial Class Seleccion_Libro
         '
         Me.Timer40.Interval = 1
         '
+        'pcbox3
+        '
+        Me.pcbox3.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.right_arrow1
+        Me.pcbox3.Location = New System.Drawing.Point(3, 225)
+        Me.pcbox3.Name = "pcbox3"
+        Me.pcbox3.Size = New System.Drawing.Size(38, 50)
+        Me.pcbox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pcbox3.TabIndex = 3
+        Me.pcbox3.TabStop = False
+        '
+        'pcbox2
+        '
+        Me.pcbox2.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.books
+        Me.pcbox2.Location = New System.Drawing.Point(411, 215)
+        Me.pcbox2.Name = "pcbox2"
+        Me.pcbox2.Size = New System.Drawing.Size(133, 125)
+        Me.pcbox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pcbox2.TabIndex = 1
+        Me.pcbox2.TabStop = False
+        '
+        'pcbox4
+        '
+        Me.pcbox4.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.back
+        Me.pcbox4.Location = New System.Drawing.Point(907, 246)
+        Me.pcbox4.Name = "pcbox4"
+        Me.pcbox4.Size = New System.Drawing.Size(35, 50)
+        Me.pcbox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pcbox4.TabIndex = 4
+        Me.pcbox4.TabStop = False
+        '
+        'pcbox1
+        '
+        Me.pcbox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.books
+        Me.pcbox1.Location = New System.Drawing.Point(356, 215)
+        Me.pcbox1.Name = "pcbox1"
+        Me.pcbox1.Size = New System.Drawing.Size(133, 125)
+        Me.pcbox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pcbox1.TabIndex = 3
+        Me.pcbox1.TabStop = False
+        '
         'Seleccion_Libro
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -153,12 +153,12 @@ Partial Class Seleccion_Libro
         Me.Text = "Seleccion_Libro"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.pcbox4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pcbox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         CType(Me.pcbox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pcbox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pcbox4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pcbox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

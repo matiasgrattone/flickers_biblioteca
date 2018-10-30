@@ -113,22 +113,20 @@
     End Sub
 
     Private Sub pcbox3_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles pcbox3.MouseEnter
-        pcbox3.Image = Image.FromFile("imagenes\right-arrow1.png")
-
+        pcbox3.Image = My.Resources.ResourceManager.GetObject("right-arrow1")
     End Sub
 
     Private Sub pcbox4_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles pcbox4.MouseEnter
-        pcbox4.Image = Image.FromFile("imagenes\back1.png")
+        pcbox4.Image = My.Resources.ResourceManager.GetObject("back1")
 
     End Sub
 
     Private Sub pcbox4_MouseLeave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles pcbox4.MouseLeave
-        pcbox4.Image = Image.FromFile("imagenes\back.png")
+        pcbox4.Image = My.Resources.ResourceManager.GetObject("back")
     End Sub
 
     Private Sub pcbox3_MouseLeave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles pcbox3.MouseLeave
-        pcbox3.Image = Image.FromFile("imagenes\right-arrow.png")
-
+        pcbox3.Image = My.Resources.ResourceManager.GetObject("right-arrow1")
     End Sub
 
     Private Sub Label1_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label1.MouseEnter

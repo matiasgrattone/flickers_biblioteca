@@ -454,7 +454,7 @@ Public Class ConfigAdmin
             posicionBarra = InStrRev(rutaArchivo, "\") ' Obtiene la posición en la que se encuentra la barra invertida en el String
             longitudNombre = rutaArchivo.Length - posicionBarra 'Obtiene la cantidad de caracteres que ocupa el nombre
 
-            nombreArchivo = "Fotos de perfil/" + rutaArchivo.Substring(posicionBarra, longitudNombre) 'Corta la parte del nombre de la ruta completa
+            nombreArchivo = rutaGuardadoFotos & "/" & "Fotos de perfil/" + rutaArchivo.Substring(posicionBarra, longitudNombre) 'Corta la parte del nombre de la ruta completa
 
             Try
                 Consulta = "update usuarios set rutaperfil = '" & nombreArchivo & "' where cedula='" + cedulaFotoPerfil + "'"
@@ -483,7 +483,7 @@ Public Class ConfigAdmin
             consultar()
 
             For Each row As DataRow In Tabla.Rows
-                ptbPerfilAdmin.ImageLocation = Convert.ToString(row("rutaperfil"))
+                ptbPerfilAdmin.ImageLocation = rutaGuardadoFotos & "/" & Convert.ToString(row("rutaperfil"))
             Next
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -618,7 +618,7 @@ Public Class ConfigAdmin
             posicionBarra = InStrRev(rutaArchivo, "\") ' Obtiene la posición en la que se encuentra la barra invertida en el String
             longitudNombre = rutaArchivo.Length - posicionBarra 'Obtiene la cantidad de caracteres que ocupa el nombre
 
-            nombreArchivo = "Fotos de perfil/" + rutaArchivo.Substring(posicionBarra, longitudNombre) 'Corta la parte del nombre de la ruta completa
+            nombreArchivo = rutaGuardadoFotos & "/" & "Fotos de perfil/" + rutaArchivo.Substring(posicionBarra, longitudNombre) 'Corta la parte del nombre de la ruta completa
 
             Try
                 Consulta = "update usuarios set rutaperfil = '" & nombreArchivo & "' where cedula='" + cedu_editar + "'"
@@ -679,10 +679,6 @@ Public Class ConfigAdmin
         If cedulaFotoPerfil = MENU3.lbl_cedula.Text Then
             MENU3.Chart()
         End If
-    End Sub
-
-    Private Sub ptbPerfilAdmin_Click(sender As System.Object, e As System.EventArgs) Handles ptbPerfilAdmin.Click
-
     End Sub
 
     Private Sub RadioButton1_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RadioButton1.CheckedChanged
@@ -817,7 +813,7 @@ Public Class ConfigAdmin
             posicionBarra = InStrRev(rutaArchivo, "\") ' Obtiene la posición en la que se encuentra la barra invertida en el String
             longitudNombre = rutaArchivo.Length - posicionBarra 'Obtiene la cantidad de caracteres que ocupa el nombre
 
-            rutaFoto = "Fotos de perfil/" + rutaArchivo.Substring(posicionBarra, longitudNombre) 'Corta la parte del nombre de la ruta completa
+            rutaFoto = rutaGuardadoFotos & "/" & "Fotos de perfil/" + rutaArchivo.Substring(posicionBarra, longitudNombre) 'Corta la parte del nombre de la ruta completa
 
             If My.Computer.FileSystem.FileExists(rutaFoto) Then
                 ptbFuncio.ImageLocation = rutaFoto

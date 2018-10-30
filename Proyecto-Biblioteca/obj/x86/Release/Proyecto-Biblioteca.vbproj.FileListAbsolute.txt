@@ -31,7 +31,6 @@ C:\Users\rex\Desktop\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Release\Pro
 C:\Users\rex\Desktop\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Release\Proyecto-Biblioteca.exe
 C:\Users\rex\Desktop\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Release\Proyecto-Biblioteca.xml
 C:\Users\rex\Desktop\flickers_biblioteca\Proyecto-Biblioteca\obj\x86\Release\Proyecto-Biblioteca.pdb
-C:\Users\PC Guille\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Release\Proyecto-Biblioteca.exe
 C:\Users\PC Guille\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Release\Proyecto-Biblioteca.pdb
 C:\Users\PC Guille\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Release\Proyecto-Biblioteca.xml
 C:\Users\PC Guille\Documents\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Release\mysql.data.dll

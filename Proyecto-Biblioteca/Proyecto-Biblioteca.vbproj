@@ -449,6 +449,7 @@
     <None Include="bin\Debug\imagenes\switch_off.png" />
     <None Include="bin\Debug\imagenes\online1.png" />
     <None Include="bin\Debug\imagenes\offline.png" />
+    <None Include="bin\Debug\imagenes\back1.png" />
     <Content Include="Resources\navigator.png" />
     <None Include="Resources\Sin título-1.jpg" />
     <None Include="Resources\reading.png" />
