@@ -687,7 +687,7 @@
 
             fecha_estimada = DataGridParaDevolucion.Item(4, DataGridParaDevolucion.CurrentRow.Index).Value
 
-            diferenciaMes = mes - fecha_actual.ToString.Substring(3, 2)
+            diferenciaMes = fecha_actual.ToString.Substring(3, 2) - mes
 
             If diferenciaMes > 1 Then
 
@@ -716,7 +716,7 @@
 
             If diferenciaMes = 1 And moroso = 0 Then
 
-                diferenciaDia = dia - diferenciaDia = dia - fecha_actual.ToString.Substring(0, 2)
+                diferenciaDia = dia - fecha_actual.ToString.Substring(0, 2)
                 diferenciaDia = diferenciaDia * 2
                 If diferenciaDia > 30 Then
 

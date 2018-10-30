@@ -63,7 +63,7 @@
         consultar_DataSet()
         'Primer Consulta
         For Each row As DataRow In Tabla_dataset.Tables(0).Rows
-            PictureBox1.ImageLocation = Convert.ToString(row("rutaperfil"))
+            PictureBox1.ImageLocation = rutaGuardadoFotos & "/" & row("rutaperfil").ToString
         Next
         'Segunda Consulta
         registro_de_libros = Tabla_dataset.Tables(1)
@@ -230,11 +230,4 @@
         End If
     End Sub
 
-    Private Sub Panel4_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles Panel4.Paint
-
-    End Sub
-
-    Private Sub Panel5_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles Panel5.Paint
-
-    End Sub
 End Class

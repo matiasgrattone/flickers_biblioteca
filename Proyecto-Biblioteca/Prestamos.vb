@@ -693,61 +693,36 @@
 
             If diferenciaMes = 1 And moroso = 0 Then
 
-                diferenciaDia = dia - diferenciaDia = dia - fecha_actual.ToString.Substring(0, 2)
-                diferenciaDia = diferenciaDia * 2
-                If diferenciaDia > 30 Then
+                If dia <= fecha_actual.ToString.Substring(0, 2) Then
 
-                    diferenciaDia = diferenciaDia - 30
-                    mes = mes + 1
-                    If mes > 12 Then
-                        mes = 2
+                    diferenciaDia = fecha_actual.ToString.Substring(0, 2) - dia
+                    diferenciaDia = diferenciaDia * 2
+                    If diferenciaDia > 30 Then
+                        mes = mes + 1
+                        If mes > 12 Then
+                            mes = 2
+                            anio = anio + 2
+                        End If
                     End If
 
                     fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
 
-                End If
-                If Not diferenciaDia = 0 Then
-                    Try
-                        Consulta = "update usuarios set moroso = '1', fecha_moroso = '" + fecha_estimada + "' where cedula = '" + Cedula.Text + "'"
-                        consultar()
-                        MsgBox("El usuario es ahora moroso hasta " & fecha_estimada & " por devolver el libro fuera de la fecha máxima")
-                    Catch ex As Exception
-                        MsgBox(ex.Message)
-                    End Try
+                    moroso = 1
+
                 End If
 
+            End If
+            If Not diferenciaDia <= 0 Then
+                Try
+                    Consulta = "update usuarios set moroso = '1', fecha_moroso = '" + fecha_estimada + "' where cedula = '" + Cedula.Text + "'"
+                    consultar()
+                    MsgBox("El usuario es ahora moroso hasta " & fecha_estimada & " por devolver el libro fuera de la fecha máxima")
+                Catch ex As Exception
+                    MsgBox(ex.Message)
+                End Try
 
                 moroso = 1
 
-            End If
-
-            If moroso = 0 Then
-
-                diferenciaDia = dia - fecha_actual.ToString.Substring(3, 2)
-                If diferenciaDia < 0 Then
-
-                    diferenciaDia = diferenciaDia * (-2)
-
-                    If diferenciaDia >= 31 Then
-                        diferenciaDia1 = diferenciaDia - 31
-                        diferenciaDia1 = diferenciaDia - diferenciaDia1
-                        mes = fecha_actual.ToString.Substring(3, 2) + 1
-                        dia = fecha_actual.ToString.Substring(0, 2) + diferenciaDia1
-                        fecha_estimada = anio & "-" & mes & "-" & dia
-                    Else
-                        dia = fecha_actual.ToString.Substring(0, 2) + diferenciaDia
-                        fecha_estimada = anio & "-" & fecha_actual.ToString.Substring(3, 2) & "-" & dia
-                    End If
-
-                    Try
-                        Consulta = "update usuarios set moroso = '1', fecha_moroso = '" + fecha_estimada + "' where cedula = '" + Cedula.Text + "'"
-                        consultar()
-                        MsgBox("El usuario es ahora moroso hasta " & fecha_estimada & " por devolver el libro fuera de la fecha máxima")
-                    Catch ex As Exception
-                        MsgBox(ex.Message)
-                    End Try
-
-                End If
             End If
 
             '       1) Si se devuelve el libro con un si, se actualiza la Base da datos 
