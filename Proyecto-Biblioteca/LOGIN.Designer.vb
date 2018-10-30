@@ -162,6 +162,7 @@ Partial Class LOGIN
         'TransPicBox2
         '
         Me.TransPicBox2.BackColor = System.Drawing.Color.Transparent
+        Me.TransPicBox2.Cursor = System.Windows.Forms.Cursors.Hand
         Me.TransPicBox2.ErrorImage = Nothing
         Me.TransPicBox2.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.cancel__2_
         Me.TransPicBox2.InitialImage = Nothing

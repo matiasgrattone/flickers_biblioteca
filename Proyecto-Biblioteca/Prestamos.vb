@@ -640,87 +640,87 @@
     '///PARA DEVOLVER EL LIBRO///
     Private Sub DataGridParaDevolucion_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridParaDevolucion.CellDoubleClick
 
-        Dim moroso As Integer = 0
+        'Dim moroso As Integer = 0
 
         Try
 
-            Libro1 = DataGridParaDevolucion.Item(1, DataGridParaDevolucion.CurrentRow.Index).Value
-            cod_libros = DataGridParaDevolucion.Item(0, DataGridParaDevolucion.CurrentRow.Index).Value
+            '    Libro1 = DataGridParaDevolucion.Item(1, DataGridParaDevolucion.CurrentRow.Index).Value
+            '    cod_libros = DataGridParaDevolucion.Item(0, DataGridParaDevolucion.CurrentRow.Index).Value
 
-            fecha_actual = DateTime.Now.ToString("yyyy/MM/dd")
+            '    fecha_actual = DateTime.Now.ToString("yyyy/MM/dd")
 
-            dia = Val((DataGridParaDevolucion.Item(4, DataGridParaDevolucion.CurrentRow.Index).Value).ToString.Substring(0, 2))
+            '    dia = Val((DataGridParaDevolucion.Item(4, DataGridParaDevolucion.CurrentRow.Index).Value).ToString.Substring(0, 2))
 
-            If dia < 10 Then
-                mes = (DataGridParaDevolucion.Item(4, DataGridParaDevolucion.CurrentRow.Index).Value).ToString.Substring(3, 2)
-                anio = Val((DataGridParaDevolucion.Item(4, DataGridParaDevolucion.CurrentRow.Index).Value).ToString.Substring(6, 4))
-            Else
-                mes = Val((DataGridParaDevolucion.Item(4, DataGridParaDevolucion.CurrentRow.Index).Value).ToString.Substring(3, 2))
-                anio = Val((DataGridParaDevolucion.Item(4, DataGridParaDevolucion.CurrentRow.Index).Value).ToString.Substring(7, 4))
+            '    If dia < 10 Then
+            '        mes = (DataGridParaDevolucion.Item(4, DataGridParaDevolucion.CurrentRow.Index).Value).ToString.Substring(3, 2)
+            '        anio = Val((DataGridParaDevolucion.Item(4, DataGridParaDevolucion.CurrentRow.Index).Value).ToString.Substring(6, 4))
+            '    Else
+            '        mes = Val((DataGridParaDevolucion.Item(4, DataGridParaDevolucion.CurrentRow.Index).Value).ToString.Substring(3, 2))
+            '        anio = Val((DataGridParaDevolucion.Item(4, DataGridParaDevolucion.CurrentRow.Index).Value).ToString.Substring(7, 4))
 
-            End If
+            '    End If
 
-            fecha_estimada = DataGridParaDevolucion.Item(4, DataGridParaDevolucion.CurrentRow.Index).Value
+            '    fecha_estimada = DataGridParaDevolucion.Item(4, DataGridParaDevolucion.CurrentRow.Index).Value
 
-            diferenciaMes = fecha_actual.ToString.Substring(3, 2) - mes
+            '    diferenciaMes = fecha_actual.ToString.Substring(3, 2) - mes
 
-            If diferenciaMes > 1 Then
+            '    If diferenciaMes > 1 Then
 
-                mes = mes + 2
-                If mes >= 12 Then
-                    mes = 2
-                    anio = anio + 1
-                End If
+            '        mes = mes + 2
+            '        If mes >= 12 Then
+            '            mes = 2
+            '            anio = anio + 1
+            '        End If
 
-                fecha_estimada = anio & "-" & mes & "-" & dia
+            '        fecha_estimada = anio & "-" & mes & "-" & dia
 
-                Try
-                    Consulta = "update usuarios set moroso = '1', fecha_moroso = '" + fecha_estimada + "' where cedula = '" + Cedula.Text + "'"
-                    consultar()
-                    MsgBox("El usuario es ahora moroso hasta " & fecha_estimada & " por devolver el libro fuera de la fecha máxima")
+            '        Try
+            '            Consulta = "update usuarios set moroso = '1', fecha_moroso = '" + fecha_estimada + "' where cedula = '" + Cedula.Text + "'"
+            '            consultar()
+            '            MsgBox("El usuario es ahora moroso hasta " & fecha_estimada & " por devolver el libro fuera de la fecha máxima")
 
-                    GrupBoxDevolucion.Visible = False
-                    ReservacionGrupBox.Visible = False
-                    CrearReservacionGrupBox.Visible = False
-                    GroupBoxRenovacion.Visible = False
-                Catch ex As Exception
-                    MsgBox(ex.Message)
-                End Try
+            '            GrupBoxDevolucion.Visible = False
+            '            ReservacionGrupBox.Visible = False
+            '            CrearReservacionGrupBox.Visible = False
+            '            GroupBoxRenovacion.Visible = False
+            '        Catch ex As Exception
+            '            MsgBox(ex.Message)
+            '        End Try
 
-                moroso = 1
+            '        moroso = 1
 
-            End If
+            '    End If
 
-            If diferenciaMes <= 1 And moroso = 0 Then
+            '    If diferenciaMes <= 1 And moroso = 0 Then
 
-                If dia <= fecha_actual.ToString.Substring(0, 2) Then
+            '        If dia <= fecha_actual.ToString.Substring(0, 2) Then
 
-                    diferenciaDia = fecha_actual.ToString.Substring(0, 2) - dia
-                    diferenciaDia = diferenciaDia * 2
-                    If diferenciaDia > 30 Then
-                        diferenciaDia = diferenciaDia - 30
-                        mes = mes + 1
-                        If mes > 12 Then
-                            mes = 2
-                            anio = Val(anio) + 1
-                        End If
-                    End If
+            '            diferenciaDia = fecha_actual.ToString.Substring(0, 2) - dia
+            '            diferenciaDia = diferenciaDia * 2
+            '            If diferenciaDia > 30 Then
+            '                diferenciaDia = diferenciaDia - 30
+            '                mes = mes + 1
+            '                If mes > 12 Then
+            '                    mes = 2
+            '                    anio = Val(anio) + 1
+            '                End If
+            '            End If
 
-                    fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+            '            fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
 
-                End If
+            '        End If
 
-                Try
-                    Consulta = "update usuarios set moroso = '1', fecha_moroso = '" + fecha_estimada + "' where cedula = '" + Cedula.Text + "'"
-                    consultar()
-                    MsgBox("El usuario es ahora moroso hasta " & fecha_estimada & " por devolver el libro fuera de la fecha máxima")
-                Catch ex As Exception
-                    MsgBox(ex.Message)
-                End Try
+            '        Try
+            '            Consulta = "update usuarios set moroso = '1', fecha_moroso = '" + fecha_estimada + "' where cedula = '" + Cedula.Text + "'"
+            '            consultar()
+            '            MsgBox("El usuario es ahora moroso hasta " & fecha_estimada & " por devolver el libro fuera de la fecha máxima")
+            '        Catch ex As Exception
+            '            MsgBox(ex.Message)
+            '        End Try
 
-                moroso = 1
+            '        moroso = 1
 
-            End If
+            '    End If
 
             '       1) Si se devuelve el libro con un si, se actualiza la Base da datos 
             If MsgBox("Desea devolver el libro " & Libro1 & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS") = vbYes Then
@@ -735,7 +735,7 @@
                 Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion', fecha_estimada as 'Fecha Maxima de Prestamo' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and fecha_salida is NOT NULL and p.cedula= '" & Cedula.Text & "'"
                 consultar()
                 DataGridParaDevolucion.DataSource = Tabla
-                VerificarMoroso()
+                ' VerificarMoroso()
             Else
 
                 MsgBox("Este libro no se devolvio", Title:="PRESTAMOS")

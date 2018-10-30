@@ -1129,13 +1129,14 @@ Public Class ConfigAdmin
                     PlaceHolder6.Text = row("direccion")
                 Next
             End If
-
+            GroupBox1.Visible = True
             PlaceHolder2.Enabled = False
             PlaceHolder3.Enabled = False
             PlaceHolder4.Enabled = False
             PlaceHolder5.Enabled = False
             PlaceHolder6.Enabled = False
             Button7.Text = "Editar"
+            Button6.Text = "Mostrar Configuracion"
         End If
     End Sub
 
