@@ -1538,4 +1538,8 @@
     Private Sub DataGridViewlllllVerLibrosEnExtraccionlllll_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridViewlllllVerLibrosEnExtraccionlllll.CellContentClick
 
     End Sub
+
+    Private Sub Cedula_TextChanged(sender As System.Object, e As System.EventArgs) Handles Cedula.TextChanged
+
+    End Sub
 End Class

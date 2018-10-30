@@ -138,13 +138,13 @@
         Consulta = "select * from usuarios"
         consultar()
         If Tabla.Rows.Count = 0 Then
-            Pbnube1.Image = Image.FromFile("imagenes\cloud-error.png")
+            Pbnube1.Image = My.Resources.ResourceManager.GetObject("cloud-error")
             Button1.Enabled = False
             usuario.Enabled = False
             contrasenia.Enabled = False
             Lbl_contraseña_recuperar.Enabled = False
         Else
-            Pbnube1.Image = Image.FromFile("imagenes\cloud.png")
+            Pbnube1.Image = My.Resources.ResourceManager.GetObject("cloud")
             Button1.Enabled = True
             usuario.Enabled = True
             contrasenia.Enabled = True

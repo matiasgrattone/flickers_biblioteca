@@ -772,12 +772,14 @@ Public Class MENU3
         Consulta = "select * from usuarios"
         consultar()
         If Tabla.Rows.Count = 0 Then
-            Pbnube.Image = Image.FromFile("imagenes\cloud-error.png")
+            'Pbnube.Image = Image.FromFile("My Proyect\Resources\cloud-error.png")
+            Pbnube.Image = My.Resources.ResourceManager.GetObject("cloud-error")
             ConfigAdmin.Label_BDestadoTXT.Text = lblhora.Text
             ConfigAdmin.Label_BaseDatosTXT.Text = "LOCAL"
             BD_ONLINE = 0
         Else
-            Pbnube.Image = Image.FromFile("imagenes\cloud.png")
+            'Pbnube.Image = Image.FromFile("My Proyect\Resources\cloud.png")
+            Pbnube.Image = My.Resources.ResourceManager.GetObject("cloud")
             ConfigAdmin.Label_BDestadoTXT.Text = lblhora.Text
             ConfigAdmin.Label_BaseDatosTXT.Text = "ONLINE"
             BD_ONLINE = 1

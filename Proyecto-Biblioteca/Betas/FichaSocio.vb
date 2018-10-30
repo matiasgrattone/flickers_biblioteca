@@ -105,9 +105,9 @@
                 morosoultimavez = row("fecha_moroso")
             End If
             If row("moroso") = 0 Then
-                PictureBoxEstado.Image = Image.FromFile("imagenes\checked.png")
+                PictureBoxEstado.Image = My.Resources.ResourceManager.GetObject("checked")
             Else
-                PictureBoxEstado.Image = Image.FromFile("imagenes\delete.png")
+                PictureBoxEstado.Image = My.Resources.ResourceManager.GetObject("delete")
             End If
         Next
 
@@ -228,5 +228,13 @@
             Timer2.Stop()
             primerinicio = 4
         End If
+    End Sub
+
+    Private Sub Panel4_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles Panel4.Paint
+
+    End Sub
+
+    Private Sub Panel5_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles Panel5.Paint
+
     End Sub
 End Class

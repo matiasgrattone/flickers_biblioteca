@@ -443,6 +443,12 @@
     <None Include="Resources\logout.png" />
     <None Include="bin\Debug\imagenes\delete.png" />
     <None Include="bin\Debug\imagenes\cancel %282%29.png" />
+    <None Include="bin\Debug\imagenes\cloud-error.png" />
+    <None Include="bin\Debug\imagenes\checked.png" />
+    <None Include="bin\Debug\imagenes\switch_on.png" />
+    <None Include="bin\Debug\imagenes\switch_off.png" />
+    <None Include="bin\Debug\imagenes\online1.png" />
+    <None Include="bin\Debug\imagenes\offline.png" />
     <Content Include="Resources\navigator.png" />
     <None Include="Resources\Sin título-1.jpg" />
     <None Include="Resources\reading.png" />
