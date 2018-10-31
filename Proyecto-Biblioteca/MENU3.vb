@@ -637,7 +637,6 @@ Public Class MENU3
 
                     ChartPrestamosDia.Series("Prestamos Del Dia").Points.AddXY(row("day(prestamolibro.fecha_salida)"), row("count(prestamolibro.cod_libro)"))
                     ChartPrestamosDia.Series("Prestamos Del Dia").Points(ContadorDia).AxisLabel = "Dia : " + "#VALX"
-
                     'ChartPrestamosDia.Series("Prestamos Del Dia").Points(ContadorDia).MarkerStyle = DataVisualization.Charting.MarkerStyle.Triangle
                     'ChartPrestamosDia.Series("Prestamos Del Dia").Points(ContadorDia).MarkerSize = 10
 
@@ -647,7 +646,7 @@ Public Class MENU3
 
                 ChartPrestamosDia.Series("Prestamos Del Dia").Label = "Libros : " + "#VALY"
                 ChartPrestamosDia.Series("Prestamos Del Dia").IsVisibleInLegend = False
-                ChartPrestamosDia.ChartAreas("Prestamos Del Dia").BorderWidth = 0
+                '.ChartAreas("Prestamos Del Dia").BorderWidth = 0
 
                 ChartPrestamosDia.ChartAreas(0).AxisX.MajorGrid.Enabled = False
                 PrimerInicio = 0
