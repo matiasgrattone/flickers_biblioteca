@@ -644,8 +644,8 @@
 
         Try
 
-            '    Libro1 = DataGridParaDevolucion.Item(1, DataGridParaDevolucion.CurrentRow.Index).Value
-            '    cod_libros = DataGridParaDevolucion.Item(0, DataGridParaDevolucion.CurrentRow.Index).Value
+            Libro1 = DataGridParaDevolucion.Item(1, DataGridParaDevolucion.CurrentRow.Index).Value
+            cod_libros = DataGridParaDevolucion.Item(0, DataGridParaDevolucion.CurrentRow.Index).Value
 
             '    fecha_actual = DateTime.Now.ToString("yyyy/MM/dd")
 
@@ -735,7 +735,7 @@
                 Consulta = "select p.cod_libro as 'Numero de Inventario', l.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion', fecha_estimada as 'Fecha Maxima de Prestamo' from prestamolibro p INNER JOIN libro l on p.cod_libro=l.cod_libro where fecha_entrada is NULL and fecha_salida is NOT NULL and p.cedula= '" & Cedula.Text & "'"
                 consultar()
                 DataGridParaDevolucion.DataSource = Tabla
-                ' VerificarMoroso()
+                VerificarMoroso()
             Else
 
                 MsgBox("Este libro no se devolvio", Title:="PRESTAMOS")
