@@ -90,7 +90,7 @@
             nombrecompleto = row("nombre") & " " & row("apellido")
             fechaingreso = row("fecha_Ingreso")
             If row("descripcion_moroso") IsNot DBNull.Value Then
-                causaMoroso = row("descripcion_moroso")
+                causaMoroso = row("descripcion_moroso").ToString
             Else
                 causaMoroso = "......................"
             End If
@@ -103,6 +103,11 @@
                 morosoultimavez = "Sin Antecedentes"
             Else
                 morosoultimavez = row("fecha_moroso")
+                If row("fecha_moroso") < Date.Now.ToString("yyyy-MM-dd") Then
+                    Label1.Text = "Ultima vez moroso:"
+                Else
+                    Label1.Text = "Moroso hasta:"
+                End If
             End If
             If row("moroso") = 0 Then
                 PictureBoxEstado.Image = My.Resources.ResourceManager.GetObject("checked")

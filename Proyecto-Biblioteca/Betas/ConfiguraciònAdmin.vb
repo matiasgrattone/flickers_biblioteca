@@ -220,6 +220,10 @@ Public Class ConfigAdmin
             ErrorProvider1.SetError(cedula_txt, "Cedula no puede estar vacío")
             i_ingresar = 1
         End If
+        If LTrim$(mail_txt.Text) = "" Then ' Verifica si esta vacio cedula
+            ErrorProvider1.SetError(mail_txt, "Mail no puede estar vacío")
+            i_ingresar = 1
+        End If
 
 
         If i_ingresar = 0 Then
@@ -1151,5 +1155,4 @@ Public Class ConfigAdmin
         cb_mes_editar.SelectedIndex = 0
         cb_anio_editar.SelectedIndex = 0
     End Sub
-
 End Class

@@ -135,6 +135,8 @@ Partial Class ConfigAdmin
         Me.PlaceHolder6 = New Proyecto_Biblioteca.PlaceHolder()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.TimerFoto = New System.Windows.Forms.Timer(Me.components)
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.mail_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -258,6 +260,8 @@ Partial Class ConfigAdmin
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.Label21)
+        Me.TabPage2.Controls.Add(Me.mail_txt)
         Me.TabPage2.Controls.Add(Me.Button4)
         Me.TabPage2.Controls.Add(Me.Button3)
         Me.TabPage2.Controls.Add(Me.ptbFuncio)
@@ -291,7 +295,7 @@ Partial Class ConfigAdmin
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(277, 377)
+        Me.Button4.Location = New System.Drawing.Point(279, 410)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(120, 24)
         Me.Button4.TabIndex = 156
@@ -300,7 +304,7 @@ Partial Class ConfigAdmin
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(277, 413)
+        Me.Button3.Location = New System.Drawing.Point(279, 446)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(120, 24)
         Me.Button3.TabIndex = 155
@@ -310,7 +314,7 @@ Partial Class ConfigAdmin
         'ptbFuncio
         '
         Me.ptbFuncio.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.boss
-        Me.ptbFuncio.Location = New System.Drawing.Point(153, 361)
+        Me.ptbFuncio.Location = New System.Drawing.Point(155, 394)
         Me.ptbFuncio.Name = "ptbFuncio"
         Me.ptbFuncio.Size = New System.Drawing.Size(94, 80)
         Me.ptbFuncio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -319,7 +323,7 @@ Partial Class ConfigAdmin
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(245, 474)
+        Me.Button1.Location = New System.Drawing.Point(247, 507)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(93, 35)
         Me.Button1.TabIndex = 153
@@ -401,7 +405,7 @@ Partial Class ConfigAdmin
         Me.cb_anio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cb_anio.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cb_anio.FormattingEnabled = True
-        Me.cb_anio.Location = New System.Drawing.Point(342, 319)
+        Me.cb_anio.Location = New System.Drawing.Point(344, 352)
         Me.cb_anio.Name = "cb_anio"
         Me.cb_anio.Size = New System.Drawing.Size(77, 27)
         Me.cb_anio.TabIndex = 152
@@ -411,7 +415,7 @@ Partial Class ConfigAdmin
         Me.cb_mes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cb_mes.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cb_mes.FormattingEnabled = True
-        Me.cb_mes.Location = New System.Drawing.Point(245, 319)
+        Me.cb_mes.Location = New System.Drawing.Point(247, 352)
         Me.cb_mes.Name = "cb_mes"
         Me.cb_mes.Size = New System.Drawing.Size(81, 27)
         Me.cb_mes.TabIndex = 151
@@ -423,7 +427,7 @@ Partial Class ConfigAdmin
         Me.cb_dia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cb_dia.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cb_dia.FormattingEnabled = True
-        Me.cb_dia.Location = New System.Drawing.Point(153, 319)
+        Me.cb_dia.Location = New System.Drawing.Point(155, 352)
         Me.cb_dia.Name = "cb_dia"
         Me.cb_dia.Size = New System.Drawing.Size(78, 27)
         Me.cb_dia.TabIndex = 150
@@ -432,7 +436,7 @@ Partial Class ConfigAdmin
         '
         Me.Label17.AutoSize = True
         Me.Label17.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(215, 291)
+        Me.Label17.Location = New System.Drawing.Point(217, 324)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(143, 19)
         Me.Label17.TabIndex = 134
@@ -1317,6 +1321,26 @@ Partial Class ConfigAdmin
         'TimerFoto
         '
         '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.Location = New System.Drawing.Point(164, 279)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(38, 19)
+        Me.Label21.TabIndex = 158
+        Me.Label21.Text = "Mail"
+        '
+        'mail_txt
+        '
+        Me.mail_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.mail_txt.Location = New System.Drawing.Point(208, 276)
+        Me.mail_txt.Name = "mail_txt"
+        Me.mail_txt.Size = New System.Drawing.Size(189, 27)
+        Me.mail_txt.TabIndex = 157
+        Me.mail_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.mail_txt.WaterMarkText = "Mail"
+        '
         'ConfigAdmin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1458,4 +1482,6 @@ Partial Class ConfigAdmin
     Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
     Friend WithEvents Chart1 As System.Windows.Forms.DataVisualization.Charting.Chart
     Friend WithEvents Button8 As System.Windows.Forms.Button
+    Friend WithEvents Label21 As System.Windows.Forms.Label
+    Friend WithEvents mail_txt As Proyecto_Biblioteca.PlaceHolder
 End Class
