@@ -73,6 +73,7 @@
 
     Dim errorcedula As Integer = 0
     Private Sub BotonParaBuscarCedula_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BotonParaBuscarCedula.Click
+
         'Si el ModoCedula esta en modo "Buscar" ahi se llamara a ActuaizarCedula para poder iniciar las funciones de el menu 
         If ModoCedula = "Buscar" And ERROR1 = 0 Then
             ActualizarCedula()
@@ -122,6 +123,7 @@
         If ModoCedula = "Buscar" And ERROR1 = 0 Then 'Si el ModoCedula esta en modo "Buscar" ahi se llamara a ActuaizarCedula para poder iniciar las funciones de el menu 
             If e.KeyCode = Keys.Enter Then
                 ActualizarCedula()
+                VerificarMoroso()
             End If
 
         ElseIf ERROR1 = 0 Then 'En caso que no este en "Buscar" se le preguntara al usuario si quiere cambiar la cedula ya ingresada 
@@ -267,7 +269,7 @@
                 PictureReservacion.Visible = True
                 ptbRenovar.Visible = True
                 LabelSELECCION_DE_FUNCION.Visible = True
-                VerificarMoroso()
+                'VerificarMoroso()
 
                 CarritoDeLibros.Items.Clear() 'Borramos los items de listbox carrito de libros 
                 ListboxParaGuardarLasIdDeLosLibrosEnElCarrito.Items.Clear() 'Borramos los items de listbox carrito de libros 
@@ -1403,59 +1405,65 @@
     Public Sub VerificarMoroso()
         Dim moroso As Integer = Nothing
         Dim fecha_moroso As String = Nothing
-        Try
-            If Cedula.Text <> "" Then
-                Consulta = "SELECT moroso FROM `usuarios` WHERE cedula = '" + Cedula.Text + "'"
-                consultar()
-            End If
+        Dim anio0 As String
 
-            For Each row As DataRow In Tabla.Rows
-                moroso = row("moroso")
-            Next
-            If moroso = 1 Then
-                Consulta = "select fecha_moroso from usuarios where cedula = '" & Cedula.Text & "'"
-                consultar()
-                For Each row As DataRow In Tabla.Rows
-                    fecha_moroso = row("fecha_moroso")
-                Next
-                If Date.Now.ToString("yyyy") > fecha_moroso.Substring(6, 4) Then
-                    Consulta = "update usuarios set moroso = 0 where cedula = '" & Cedula.Text & "'"
-                    consultar()
-                    moroso = 0
-                ElseIf Date.Now.ToString("yyyy") = fecha_moroso.Substring(6, 4) Then
-                    moroso = 1
-                    If Date.Now.ToString("MM") > fecha_moroso.Substring(3, 2) Then
-                        Consulta = "update usuarios set moroso = 0 where cedula = '" & Cedula.Text & "'"
-                        consultar()
-                        moroso = 0
-                    ElseIf Date.Now.ToString("MM") = fecha_moroso.Substring(3, 2) Then
-                        moroso = 1
-                        If Date.Now.ToString("dd") > fecha_moroso.Substring(0, 2) Then
-                            Consulta = "update usuarios set moroso = 0 where cedula = '" & Cedula.Text & "'"
-                            consultar()
-                            moroso = 0
-                        ElseIf Date.Now.ToString("dd") = fecha_moroso.Substring(0, 2) Then
-                            moroso = 0
-                        End If
-                    End If
-                End If
+        If Cedula.Text <> "" Then
+            Consulta = "SELECT moroso FROM usuarios WHERE cedula = '" + Cedula.Text + "'"
+            consultar()
+        End If
 
-            End If
-            If moroso = 1 Then
-                Pb_moroso.Visible = True
-                PictureExtraccion.Visible = False
-                PictureReservacion.Visible = False
-                PictureCrearReservacion.Visible = False
-                ptbRenovar.Visible = False
-            Else
-                Pb_moroso.Visible = False
-                PictureExtraccion.Visible = True
-                PictureReservacion.Visible = True
-                PictureCrearReservacion.Visible = True
-                ptbRenovar.Visible = True
-            End If
-        Catch ex As Exception
-        End Try
+        For Each row As DataRow In Tabla.Rows
+            moroso = row("moroso")
+        Next
+
+        'If moroso = 1 Then
+        '    Consulta = "select fecha_moroso from usuarios where cedula = '" & Cedula.Text & "'"
+        '    consultar()
+        '    For Each row As DataRow In Tabla.Rows
+        '        fecha_moroso = row("fecha_moroso")
+        '    Next
+        '    If fecha_moroso.Substring(0, 2) > 9 Then
+        '        anio0 = fecha_moroso.Substring(7, 4)
+        '    Else
+        '        anio0 = fecha_moroso.Substring(6, 4)
+        '    End If
+
+        '    If Date.Now.ToString("yyyy") > anio0 Then
+        '        Consulta = "update usuarios set moroso = 0 where cedula = '" & Cedula.Text & "'"
+        '        consultar()
+        '        moroso = 0
+        '    ElseIf Date.Now.ToString("yyyy") = anio0 Then
+        '        moroso = 1
+        '        If Date.Now.ToString("MM") > fecha_moroso.Substring(3, 2) Then
+        '            Consulta = "update usuarios set moroso = 0 where cedula = '" & Cedula.Text & "'"
+        '            consultar()
+        '            moroso = 0
+        '        ElseIf Date.Now.ToString("MM") = fecha_moroso.Substring(3, 2) Then
+        '            moroso = 1
+        '            If Date.Now.ToString("dd") > fecha_moroso.Substring(0, 2) Then
+        '                Consulta = "update usuarios set moroso = 0 where cedula = '" & Cedula.Text & "'"
+        '                consultar()
+        '                moroso = 0
+        '            ElseIf Date.Now.ToString("dd") = fecha_moroso.Substring(0, 2) Then
+        '                moroso = 0
+        '            End If
+        '        End If
+        '    End If
+        'End If
+
+        If moroso = 1 Then
+            Pb_moroso.Visible = True
+            PictureExtraccion.Visible = False
+            PictureReservacion.Visible = False
+            PictureCrearReservacion.Visible = False
+            ptbRenovar.Visible = False
+        Else
+            Pb_moroso.Visible = False
+            PictureExtraccion.Visible = True
+            PictureReservacion.Visible = True
+            PictureCrearReservacion.Visible = True
+            ptbRenovar.Visible = True
+        End If
 
     End Sub
 
