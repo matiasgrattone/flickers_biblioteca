@@ -220,10 +220,6 @@ Public Class ConfigAdmin
             ErrorProvider1.SetError(cedula_txt, "Cedula no puede estar vacío")
             i_ingresar = 1
         End If
-        If LTrim$(mail_txt.Text) = "" Then ' Verifica si esta vacio cedula
-            ErrorProvider1.SetError(mail_txt, "Mail no puede estar vacío")
-            i_ingresar = 1
-        End If
 
 
         If i_ingresar = 0 Then
@@ -458,7 +454,7 @@ Public Class ConfigAdmin
             posicionBarra = InStrRev(rutaArchivo, "\") ' Obtiene la posición en la que se encuentra la barra invertida en el String
             longitudNombre = rutaArchivo.Length - posicionBarra 'Obtiene la cantidad de caracteres que ocupa el nombre
 
-            nombreArchivo = rutaGuardadoFotos & "/" & "Fotos de perfil/" + rutaArchivo.Substring(posicionBarra, longitudNombre) 'Corta la parte del nombre de la ruta completa
+            nombreArchivo = "/" & "Fotos de perfil/" + rutaArchivo.Substring(posicionBarra, longitudNombre) 'Corta la parte del nombre de la ruta completa
 
             Try
                 Consulta = "update usuarios set rutaperfil = '" & nombreArchivo & "' where cedula='" + cedulaFotoPerfil + "'"
@@ -1154,5 +1150,9 @@ Public Class ConfigAdmin
         cb_dia_editar.SelectedIndex = 0
         cb_mes_editar.SelectedIndex = 0
         cb_anio_editar.SelectedIndex = 0
+    End Sub
+
+    Private Sub ptbPerfilAdmin_Click(sender As System.Object, e As System.EventArgs) Handles ptbPerfilAdmin.Click
+
     End Sub
 End Class

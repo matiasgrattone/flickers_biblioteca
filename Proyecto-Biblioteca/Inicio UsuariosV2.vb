@@ -664,10 +664,10 @@
                             mes_datagrid = row("nacimiento").ToString.Substring(3, 2)
                             año_datagrid = row("nacimiento").ToString.Substring(6, 4)
 
-                            If row("rutaperfil") Is DBNull.Value Then
-                                rutaFoto = rutaGuardadoFotos & "/" & Convert.ToString("Fotos de socio\student.jpg")
+                            If row("rutaperfil") Is DBNull.Value Or row("rutaperfil") Is "" Then
+                                rutaFoto = rutaGuardadoFotos & "\" & Convert.ToString("Fotos de socio\student.jpg")
                             Else
-                                rutaFoto = rutaGuardadoFotos & "/" & row("rutaperfil")
+                                rutaFoto = rutaGuardadoFotos & "\" & row("rutaperfil")
                             End If
 
                         Next
@@ -1071,7 +1071,7 @@
                 Dim año2 As String = "0"
                 Dim dianum As String = "0"
                 Dim Mail As String = "0"
-                'rutafoto1 = "0"
+                rutafoto1 = "0"
 
                 Consulta = "select * from usuarios where cedula = '" & DataGridView1.Item(0, DataGridView1.Rows(contadordatagrid).Index).Value & "'"
                 consultar()
@@ -1152,10 +1152,10 @@
                         direccion1 = "1"
                     End If
 
-                    If rutaFoto = "" Or row("rutaperfil") Is DBNull.Value Then
+                    If row("rutaperfil") Is "" Or row("rutaperfil") Is DBNull.Value Then
                         rutafoto1 = "0"
                     Else
-                        If (rutaGuardadoFotos & "/" & row("rutaperfil")) = rutaFoto Then
+                        If (rutaGuardadoFotos & "\" & row("rutaperfil")) = rutaFoto Then
                             rutafoto1 = "0"
                         Else
                             rutafoto1 = "1"
@@ -1351,7 +1351,7 @@
                 ptbFotoEditar.ImageLocation = Convert.ToString("Fotos de socio\student.png")
                 If row("rutaperfil") Is DBNull.Value Or row("rutaperfil") Is "" Then
                     ptbFotoEditar.Refresh()
-                    ptbFotoEditar.ImageLocation = Convert.ToString("Fotos de socio\student.jpg")
+                    ptbFotoEditar.ImageLocation = rutaGuardadoFotos & "/" & Convert.ToString("Fotos de socio\student.jpg")
                 Else
                     ptbFotoEditar.Refresh()
                     ptbFotoEditar.ImageLocation = rutaGuardadoFotos & "/" & Convert.ToString(row("rutaperfil"))

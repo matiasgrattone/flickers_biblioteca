@@ -175,7 +175,7 @@ Partial Class Prestamos
         Me.LabelParaAlmacenarLaCedulaIngresada.ForeColor = System.Drawing.Color.Black
         Me.LabelParaAlmacenarLaCedulaIngresada.Location = New System.Drawing.Point(51, 169)
         Me.LabelParaAlmacenarLaCedulaIngresada.Name = "LabelParaAlmacenarLaCedulaIngresada"
-        Me.LabelParaAlmacenarLaCedulaIngresada.Size = New System.Drawing.Size(115, 20)
+        Me.LabelParaAlmacenarLaCedulaIngresada.Size = New System.Drawing.Size(114, 20)
         Me.LabelParaAlmacenarLaCedulaIngresada.TabIndex = 84
         Me.LabelParaAlmacenarLaCedulaIngresada.Text = "CedulaTemporal"
         '
@@ -928,11 +928,11 @@ Partial Class Prestamos
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.PanelDelCarrito)
+        Me.Controls.Add(Me.GrupBoxDevolucion)
+        Me.Controls.Add(Me.CrearReservacionGrupBox)
         Me.Controls.Add(Me.ReservacionGrupBox)
         Me.Controls.Add(Me.GrupBoxExtraccion)
         Me.Controls.Add(Me.GroupBoxRenovacion)
-        Me.Controls.Add(Me.GrupBoxDevolucion)
-        Me.Controls.Add(Me.CrearReservacionGrupBox)
         Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Prestamos"

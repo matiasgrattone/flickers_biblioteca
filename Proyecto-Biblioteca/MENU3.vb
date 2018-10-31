@@ -646,7 +646,7 @@ Public Class MENU3
 
                 ChartPrestamosDia.Series("Prestamos Del Dia").Label = "Libros : " + "#VALY"
                 ChartPrestamosDia.Series("Prestamos Del Dia").IsVisibleInLegend = False
-                ChartPrestamosDia.ChartAreas("Prestamos Del Dia").BorderWidth = 0
+                '.ChartAreas("Prestamos Del Dia").BorderWidth = 0
 
                 ChartPrestamosDia.ChartAreas(0).AxisX.MajorGrid.Enabled = False
                 PrimerInicio = 0
