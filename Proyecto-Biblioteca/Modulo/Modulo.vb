@@ -243,7 +243,7 @@ Module Modulo
             Email.From = New MailAddress("flickers.srl.uy@gmail.com")
             Email.To.Add(New MailAddress(destino))
             Email.Subject = asunto
-            Email.Body = cuerpo
+            Email.Body = cuerpo & vbNewLine & "Este correo es automatico, no responda"
 
             'Especificamos cual es nuestro servidor SMTP
             SMTPServer.Host = "smtp.gmail.com"

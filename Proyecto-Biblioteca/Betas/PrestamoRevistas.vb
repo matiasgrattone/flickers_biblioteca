@@ -665,83 +665,43 @@
     End Sub
     '///PARA DEVOLVER LAS REVISTAS EXTRAIDAS///
     Private Sub DataGridParaDevolucion_CellDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridParaDevolucion.CellDoubleClick
-        'Dim moroso As Integer = 0
+
+        Dim fecha_moroso As String
+        Dim fecha1 As Date = Date.Now.ToString("yyyy/MM/dd")
+        Dim fecha2 As Date = DataGridParaDevolucion.Item(4, DataGridParaDevolucion.CurrentRow.Index).Value
+        mes = Date.Now.ToString("MM")
+        anio = Date.Now.ToString("yyyy")
+        Dim moroso As Integer = 0
+
+        If fecha1 > fecha2 Then
+            fecha_moroso = Str(Val(fecha1) - Val(fecha2))
+            fecha_moroso = Str(Val(fecha1) + Val(fecha_estimada))
+
+            If fecha_moroso > 30 Then
+                diferenciaDia = fecha_moroso - 30
+                mes = mes + 2
+                If mes > 12 Then
+                    mes = 2
+                    anio = anio + 1
+                End If
+                diferenciaDia = Str(diferenciaDia).Replace(" ", String.Empty)
+                fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
+            Else
+                mes = mes + 1
+                If mes > 12 Then
+                    mes = 2
+                    anio = anio + 1
+                End If
+                fecha_moroso = fecha_moroso.Replace(" ", String.Empty)
+                fecha_estimada = anio & "-" & mes & "-" & fecha_moroso
+            End If
+            moroso = 1
+        End If
 
         Try
 
-            '    Revista1 = DataGridParaDevolucion.Item(1, DataGridParaDevolucion.CurrentRow.Index).Value
-            '    ID_Revista1 = DataGridParaDevolucion.Item(0, DataGridParaDevolucion.CurrentRow.Index).Value
-
-            '    fecha_actual = DateTime.Now.ToString("yyyy/MM/dd")
-
-            '    dia = Val((DataGridParaDevolucion.Item(4, DataGridParaDevolucion.CurrentRow.Index).Value).ToString.Substring(0, 2))
-
-            '    If dia < 10 Then
-            '        mes = (DataGridParaDevolucion.Item(4, DataGridParaDevolucion.CurrentRow.Index).Value).ToString.Substring(3, 2)
-            '        anio = Val((DataGridParaDevolucion.Item(4, DataGridParaDevolucion.CurrentRow.Index).Value).ToString.Substring(6, 4))
-            '    Else
-            '        mes = Val((DataGridParaDevolucion.Item(4, DataGridParaDevolucion.CurrentRow.Index).Value).ToString.Substring(3, 2))
-            '        anio = Val((DataGridParaDevolucion.Item(4, DataGridParaDevolucion.CurrentRow.Index).Value).ToString.Substring(7, 4))
-
-            '    End If
-
-            '    fecha_estimada = DataGridParaDevolucion.Item(4, DataGridParaDevolucion.CurrentRow.Index).Value
-
-            '    diferenciaMes = fecha_actual.ToString.Substring(3, 2) - mes
-
-            '    If diferenciaMes > 1 Then
-
-            '        mes = mes + 2
-            '        If mes >= 12 Then
-            '            mes = 2
-            '            anio = anio + 1
-            '        End If
-
-            '        fecha_estimada = anio & "-" & mes & "-" & dia
-
-            '        Try
-            '            Consulta = "update usuarios set moroso = '1', fecha_moroso = '" + fecha_estimada + "' where cedula = '" + Cedula.Text + "'"
-            '            consultar()
-            '            MsgBox("El usuario es ahora moroso hasta " & fecha_estimada & " por devolver el libro fuera de la fecha máxima")
-
-            '        Catch ex As Exception
-            '            MsgBox(ex.Message)
-            '        End Try
-
-            '        moroso = 1
-
-            '    End If
-
-            '    If diferenciaMes <= 1 And moroso = 0 Then
-
-            '        If dia <= fecha_actual.ToString.Substring(0, 2) Then
-
-            '            diferenciaDia = fecha_actual.ToString.Substring(0, 2) - dia
-            '            diferenciaDia = diferenciaDia * 2
-            '            If diferenciaDia > 30 Then
-            '                diferenciaDia = diferenciaDia - 30
-            '                mes = mes + 1
-            '                If mes > 12 Then
-            '                    mes = 2
-            '                    anio = Val(anio) + 1
-            '                End If
-            '            End If
-
-            '            fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
-
-            '        End If
-
-            '        Try
-            '            Consulta = "update usuarios set moroso = '1', fecha_moroso = '" + fecha_estimada + "' where cedula = '" + Cedula.Text + "'"
-            '            consultar()
-            '            MsgBox("El usuario es ahora moroso hasta " & fecha_estimada & " por devolver el libro fuera de la fecha máxima")
-            '        Catch ex As Exception
-            '            MsgBox(ex.Message)
-            '        End Try
-
-            '        moroso = 1
-
-            '    End If
+            Revista1 = DataGridParaDevolucion.Item(1, DataGridParaDevolucion.CurrentRow.Index).Value
+            ID_Revista1 = DataGridParaDevolucion.Item(0, DataGridParaDevolucion.CurrentRow.Index).Value
 
             '       1) Si se devuelve el libro con un si, se actualiza la Base da datos 
             If MsgBox("Desea devolver la revista " & Revista1 & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS") = vbYes Then
@@ -751,6 +711,20 @@
                 consultar()
                 Consulta = "UPDATE prestamorevistas SET cod_devuelto = '" & MENU3.lbl_cedula.Text & "', fecha_entrada = '" & Date.Now.ToString("yyyy-MM-dd") & "' WHERE cedula = '" & Cedula.Text & "' and id_revistas ='" & ID_Revista1 & "'"
                 consultar()
+
+                If moroso = 1 Then
+                    Consulta = "update usuarios set moroso = '1', fecha_moroso = '" + fecha_estimada + "', descripcion_moroso='Devolver revistas fuera de fecha' where cedula = '" + Cedula.Text + "'"
+                    consultar()
+                    MsgBox("El usuario es ahora moroso hasta " & fecha_estimada & " por devolver el libro fuera de la fecha máxima")
+                    fecha_moroso = Nothing
+                    fecha_estimada = Nothing
+                    mes = Nothing
+                    anio = Nothing
+                    diferenciaDia = Nothing
+                    fecha1 = Nothing
+                    fecha2 = Nothing
+                End If
+
                 MsgBox("Se ha devuelto", Title:="PRESTAMO")
 
                 Consulta = "select p.id_revistas as 'Numero de Inventario', r.titulo as 'Titulo', p.fecha_salida as 'Fecha de Extraccion', p.fecha_entrada as 'Fecha de Devolucion', fecha_estimada as 'Fecha Maxima de Prestamo' from prestamorevistas p INNER JOIN revistas r on p.id_revistas=r.id_revistas where fecha_entrada is NULL and fecha_salida is NOT NULL and cedula= '" & Cedula.Text & "'"

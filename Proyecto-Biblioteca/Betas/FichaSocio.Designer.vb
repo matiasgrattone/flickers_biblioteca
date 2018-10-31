@@ -45,6 +45,7 @@ Partial Class FichaSocio
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.LabelLibrosPoder = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.LabelFechaUltimaVez = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
@@ -56,6 +57,7 @@ Partial Class FichaSocio
         Me.Label_Telefono_txt = New System.Windows.Forms.Label()
         Me.Label_Telefono = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Lbl_morosoCausa_txt = New System.Windows.Forms.Label()
         Me.Lbl_morosoCausa = New System.Windows.Forms.Label()
@@ -64,28 +66,26 @@ Partial Class FichaSocio
         Me.Label6 = New System.Windows.Forms.Label()
         Me.LabelFecha_Ingreso = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.cmbaño = New System.Windows.Forms.ComboBox()
+        Me.PictureBoxEstado = New System.Windows.Forms.PictureBox()
         Me.PrintForm1 = New Microsoft.VisualBasic.PowerPacks.Printing.PrintForm(Me.components)
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.PictureBoxEstado = New System.Windows.Forms.PictureBox()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         CType(Me.DataGridViewLibros, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel4.SuspendLayout()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBoxEstado, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DataGridView1
@@ -264,6 +264,17 @@ Partial Class FichaSocio
         Me.Panel2.Size = New System.Drawing.Size(132, 146)
         Me.Panel2.TabIndex = 18
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.LightGray
+        Me.PictureBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.boss
+        Me.PictureBox1.Location = New System.Drawing.Point(1, 2)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(130, 142)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 1
+        Me.PictureBox1.TabStop = False
+        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -399,6 +410,18 @@ Partial Class FichaSocio
         Me.Panel4.Size = New System.Drawing.Size(957, 33)
         Me.Panel4.TabIndex = 29
         '
+        'PictureBox4
+        '
+        Me.PictureBox4.BackColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(67, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.PictureBox4.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureBox4.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.cancel
+        Me.PictureBox4.Location = New System.Drawing.Point(926, 3)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(24, 24)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox4.TabIndex = 1
+        Me.PictureBox4.TabStop = False
+        '
         'Panel5
         '
         Me.Panel5.BackColor = System.Drawing.SystemColors.Control
@@ -508,32 +531,6 @@ Partial Class FichaSocio
         Me.Label4.TabIndex = 32
         Me.Label4.Text = "Fecha_Ingreso : "
         '
-        'cmbaño
-        '
-        Me.cmbaño.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbaño.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbaño.FormattingEnabled = True
-        Me.cmbaño.Location = New System.Drawing.Point(573, 168)
-        Me.cmbaño.Name = "cmbaño"
-        Me.cmbaño.Size = New System.Drawing.Size(68, 24)
-        Me.cmbaño.TabIndex = 21
-        Me.cmbaño.Visible = False
-        '
-        'PrintForm1
-        '
-        Me.PrintForm1.DocumentName = "document"
-        Me.PrintForm1.Form = Me
-        Me.PrintForm1.PrintAction = System.Drawing.Printing.PrintAction.PrintToPrinter
-        Me.PrintForm1.PrinterSettings = CType(resources.GetObject("PrintForm1.PrinterSettings"), System.Drawing.Printing.PrinterSettings)
-        Me.PrintForm1.PrintFileName = Nothing
-        '
-        'Timer2
-        '
-        Me.Timer2.Interval = 10
-        '
-        'BackgroundWorker1
-        '
-        '
         'PictureBox3
         '
         Me.PictureBox3.Cursor = System.Windows.Forms.Cursors.Hand
@@ -556,16 +553,16 @@ Partial Class FichaSocio
         Me.PictureBox2.TabIndex = 30
         Me.PictureBox2.TabStop = False
         '
-        'PictureBox1
+        'cmbaño
         '
-        Me.PictureBox1.BackColor = System.Drawing.Color.LightGray
-        Me.PictureBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.boss
-        Me.PictureBox1.Location = New System.Drawing.Point(1, 2)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(130, 142)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 1
-        Me.PictureBox1.TabStop = False
+        Me.cmbaño.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbaño.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbaño.FormattingEnabled = True
+        Me.cmbaño.Location = New System.Drawing.Point(573, 168)
+        Me.cmbaño.Name = "cmbaño"
+        Me.cmbaño.Size = New System.Drawing.Size(68, 24)
+        Me.cmbaño.TabIndex = 21
+        Me.cmbaño.Visible = False
         '
         'PictureBoxEstado
         '
@@ -577,17 +574,20 @@ Partial Class FichaSocio
         Me.PictureBoxEstado.TabIndex = 13
         Me.PictureBoxEstado.TabStop = False
         '
-        'PictureBox4
+        'PrintForm1
         '
-        Me.PictureBox4.BackColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(67, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.PictureBox4.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureBox4.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.cancel
-        Me.PictureBox4.Location = New System.Drawing.Point(926, 3)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(24, 24)
-        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox4.TabIndex = 1
-        Me.PictureBox4.TabStop = False
+        Me.PrintForm1.DocumentName = "document"
+        Me.PrintForm1.Form = Me
+        Me.PrintForm1.PrintAction = System.Drawing.Printing.PrintAction.PrintToPrinter
+        Me.PrintForm1.PrinterSettings = CType(resources.GetObject("PrintForm1.PrinterSettings"), System.Drawing.Printing.PrinterSettings)
+        Me.PrintForm1.PrintFileName = Nothing
+        '
+        'Timer2
+        '
+        Me.Timer2.Interval = 10
+        '
+        'BackgroundWorker1
+        '
         '
         'FichaSocio
         '
@@ -605,16 +605,16 @@ Partial Class FichaSocio
         Me.ContextMenuStrip1.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         CType(Me.DataGridViewLibros, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel4.ResumeLayout(False)
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBoxEstado, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
