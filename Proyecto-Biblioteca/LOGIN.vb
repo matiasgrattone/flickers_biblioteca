@@ -9,6 +9,13 @@
     Dim holax, holay As Integer
 
     Private Sub LOGIN()
+
+        If cbData.SelectedIndex = 0 Then
+            database = 0
+        Else
+            database = 1
+        End If
+
         Dim user As String = Nothing
         Dim pass As String = Nothing
         Dim pass1 As String = Nothing
@@ -133,16 +140,49 @@
         xf = Me.Location.X
         yf = Me.Location.Y
 
+        cbData.Items.Add("Online")
+        cbData.Items.Add("Local")
+        cbData.SelectedIndex = 0
+
         MENU3.Dispose()
 
+        comprobarDB()
+
+    End Sub
+
+    Private Sub TransPicBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TransPicBox2.Click
+        End
+    End Sub
+
+    Public Sub comprobarDB()
+        Select Case cbData.SelectedIndex
+            Case 0
+                database = 0
+            Case 1
+                database = 1
+        End Select
         Consulta = "select * from usuarios"
         consultar()
         If Tabla.Rows.Count = 0 Then
-            Pbnube1.Image = My.Resources.ResourceManager.GetObject("cloud-error")
-            Button1.Enabled = False
-            usuario.Enabled = False
-            contrasenia.Enabled = False
-            Lbl_contraseña_recuperar.Enabled = False
+            MsgBox("No hay conexion con la base de datos online, se usara una local")
+            cbData.SelectedIndex = 1
+            database = 1
+            Consulta = "select * from usuarios"
+            consultar()
+            If Tabla.Rows.Count = 0 Then
+                Pbnube1.Image = My.Resources.ResourceManager.GetObject("cloud-error")
+                Button1.Enabled = False
+                usuario.Enabled = False
+                contrasenia.Enabled = False
+                Lbl_contraseña_recuperar.Enabled = False
+            Else
+                Pbnube1.Image = My.Resources.ResourceManager.GetObject("cloud")
+                Button1.Enabled = True
+                usuario.Enabled = True
+                contrasenia.Enabled = True
+                Lbl_contraseña_recuperar.Enabled = True
+            End If
+
         Else
             Pbnube1.Image = My.Resources.ResourceManager.GetObject("cloud")
             Button1.Enabled = True
@@ -150,10 +190,17 @@
             contrasenia.Enabled = True
             Lbl_contraseña_recuperar.Enabled = True
         End If
+    End Sub
+
+    Private Sub cbData_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbData.SelectedIndexChanged
+
+        comprobarDB()
 
     End Sub
 
-    Private Sub TransPicBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TransPicBox2.Click
-        End
+    Private Sub cbData_SelectedValueChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cbData.SelectedValueChanged
+
+        comprobarDB()
+
     End Sub
 End Class

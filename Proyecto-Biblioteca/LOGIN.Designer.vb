@@ -28,20 +28,22 @@ Partial Class LOGIN
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.cbData = New System.Windows.Forms.ComboBox()
+        Me.Labels_transparentes3 = New Proyecto_Biblioteca.labels_transparentes()
+        Me.TransPicBox2 = New Proyecto_Biblioteca.TransPicBox()
+        Me.Pbnube1 = New Proyecto_Biblioteca.TransPicBox()
         Me.contrasenia = New Proyecto_Biblioteca.PlaceHolder()
         Me.usuario = New Proyecto_Biblioteca.PlaceHolder()
         Me.Lbl_contraseña_recuperar = New Proyecto_Biblioteca.labels_transparentes()
+        Me.TransPicBox1 = New Proyecto_Biblioteca.TransPicBox()
         Me.Labels_transparentes2 = New Proyecto_Biblioteca.labels_transparentes()
         Me.Labels_transparentes1 = New Proyecto_Biblioteca.labels_transparentes()
-        Me.Pbnube1 = New Proyecto_Biblioteca.TransPicBox()
-        Me.TransPicBox1 = New Proyecto_Biblioteca.TransPicBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.TransPicBox2 = New Proyecto_Biblioteca.TransPicBox()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Pbnube1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TransPicBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TransPicBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Pbnube1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TransPicBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button1
@@ -69,6 +71,62 @@ Partial Class LOGIN
         '
         'BackgroundWorker1
         '
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.Sin_título_1
+        Me.PictureBox1.Location = New System.Drawing.Point(-7, -1)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(984, 563)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 18
+        Me.PictureBox1.TabStop = False
+        '
+        'cbData
+        '
+        Me.cbData.FormattingEnabled = True
+        Me.cbData.Location = New System.Drawing.Point(507, 338)
+        Me.cbData.Name = "cbData"
+        Me.cbData.Size = New System.Drawing.Size(226, 21)
+        Me.cbData.TabIndex = 24
+        '
+        'Labels_transparentes3
+        '
+        Me.Labels_transparentes3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Labels_transparentes3.ForeColor = System.Drawing.Color.White
+        Me.Labels_transparentes3.Location = New System.Drawing.Point(378, 338)
+        Me.Labels_transparentes3.Name = "Labels_transparentes3"
+        Me.Labels_transparentes3.Size = New System.Drawing.Size(123, 23)
+        Me.Labels_transparentes3.TabIndex = 25
+        Me.Labels_transparentes3.Text = "Base de Datos"
+        '
+        'TransPicBox2
+        '
+        Me.TransPicBox2.BackColor = System.Drawing.Color.Transparent
+        Me.TransPicBox2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.TransPicBox2.ErrorImage = Nothing
+        Me.TransPicBox2.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.cancel__2_
+        Me.TransPicBox2.InitialImage = Nothing
+        Me.TransPicBox2.Location = New System.Drawing.Point(933, 12)
+        Me.TransPicBox2.Name = "TransPicBox2"
+        Me.TransPicBox2.Size = New System.Drawing.Size(28, 26)
+        Me.TransPicBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.TransPicBox2.TabIndex = 23
+        Me.TransPicBox2.TabStop = False
+        '
+        'Pbnube1
+        '
+        Me.Pbnube1.BackColor = System.Drawing.Color.Transparent
+        Me.Pbnube1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Pbnube1.ErrorImage = Nothing
+        Me.Pbnube1.Image = Nothing
+        Me.Pbnube1.InitialImage = Nothing
+        Me.Pbnube1.Location = New System.Drawing.Point(15, 511)
+        Me.Pbnube1.Name = "Pbnube1"
+        Me.Pbnube1.Size = New System.Drawing.Size(40, 40)
+        Me.Pbnube1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.Pbnube1.TabIndex = 22
+        Me.Pbnube1.TabStop = False
         '
         'contrasenia
         '
@@ -102,6 +160,19 @@ Partial Class LOGIN
         Me.Lbl_contraseña_recuperar.TabIndex = 20
         Me.Lbl_contraseña_recuperar.Text = "Olvide mi contraseña"
         '
+        'TransPicBox1
+        '
+        Me.TransPicBox1.BackColor = System.Drawing.Color.Transparent
+        Me.TransPicBox1.ErrorImage = Nothing
+        Me.TransPicBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.IMG_3252
+        Me.TransPicBox1.InitialImage = Nothing
+        Me.TransPicBox1.Location = New System.Drawing.Point(74, 195)
+        Me.TransPicBox1.Name = "TransPicBox1"
+        Me.TransPicBox1.Size = New System.Drawing.Size(250, 136)
+        Me.TransPicBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.TransPicBox1.TabIndex = 19
+        Me.TransPicBox1.TabStop = False
+        '
         'Labels_transparentes2
         '
         Me.Labels_transparentes2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -122,63 +193,14 @@ Partial Class LOGIN
         Me.Labels_transparentes1.TabIndex = 11
         Me.Labels_transparentes1.Text = "Cedula"
         '
-        'Pbnube1
-        '
-        Me.Pbnube1.BackColor = System.Drawing.Color.Transparent
-        Me.Pbnube1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Pbnube1.ErrorImage = Nothing
-        Me.Pbnube1.Image = Nothing
-        Me.Pbnube1.InitialImage = Nothing
-        Me.Pbnube1.Location = New System.Drawing.Point(15, 511)
-        Me.Pbnube1.Name = "Pbnube1"
-        Me.Pbnube1.Size = New System.Drawing.Size(40, 40)
-        Me.Pbnube1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.Pbnube1.TabIndex = 22
-        Me.Pbnube1.TabStop = False
-        '
-        'TransPicBox1
-        '
-        Me.TransPicBox1.BackColor = System.Drawing.Color.Transparent
-        Me.TransPicBox1.ErrorImage = Nothing
-        Me.TransPicBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.IMG_3252
-        Me.TransPicBox1.InitialImage = Nothing
-        Me.TransPicBox1.Location = New System.Drawing.Point(74, 195)
-        Me.TransPicBox1.Name = "TransPicBox1"
-        Me.TransPicBox1.Size = New System.Drawing.Size(250, 136)
-        Me.TransPicBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.TransPicBox1.TabIndex = 19
-        Me.TransPicBox1.TabStop = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.Sin_título_1
-        Me.PictureBox1.Location = New System.Drawing.Point(-7, -1)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(984, 563)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 18
-        Me.PictureBox1.TabStop = False
-        '
-        'TransPicBox2
-        '
-        Me.TransPicBox2.BackColor = System.Drawing.Color.Transparent
-        Me.TransPicBox2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.TransPicBox2.ErrorImage = Nothing
-        Me.TransPicBox2.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.cancel__2_
-        Me.TransPicBox2.InitialImage = Nothing
-        Me.TransPicBox2.Location = New System.Drawing.Point(933, 12)
-        Me.TransPicBox2.Name = "TransPicBox2"
-        Me.TransPicBox2.Size = New System.Drawing.Size(28, 26)
-        Me.TransPicBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.TransPicBox2.TabIndex = 23
-        Me.TransPicBox2.TabStop = False
-        '
         'LOGIN
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(973, 562)
+        Me.Controls.Add(Me.Labels_transparentes3)
+        Me.Controls.Add(Me.cbData)
         Me.Controls.Add(Me.TransPicBox2)
         Me.Controls.Add(Me.Pbnube1)
         Me.Controls.Add(Me.contrasenia)
@@ -196,10 +218,10 @@ Partial Class LOGIN
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "login"
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Pbnube1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TransPicBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TransPicBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Pbnube1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TransPicBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -217,4 +239,6 @@ Partial Class LOGIN
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
     Friend WithEvents Pbnube1 As Proyecto_Biblioteca.TransPicBox
     Friend WithEvents TransPicBox2 As Proyecto_Biblioteca.TransPicBox
+    Friend WithEvents Labels_transparentes3 As Proyecto_Biblioteca.labels_transparentes
+    Friend WithEvents cbData As System.Windows.Forms.ComboBox
 End Class
