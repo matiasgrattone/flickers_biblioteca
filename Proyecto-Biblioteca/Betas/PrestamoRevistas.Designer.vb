@@ -198,7 +198,7 @@ Partial Class PrestamoRevistas
         Me.LblREVISTAS.Font = New System.Drawing.Font("Impact", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblREVISTAS.Location = New System.Drawing.Point(-2, 7)
         Me.LblREVISTAS.Name = "LblREVISTAS"
-        Me.LblREVISTAS.Size = New System.Drawing.Size(205, 60)
+        Me.LblREVISTAS.Size = New System.Drawing.Size(203, 60)
         Me.LblREVISTAS.TabIndex = 66
         Me.LblREVISTAS.Text = "REVISTAS"
         '
@@ -390,7 +390,7 @@ Partial Class PrestamoRevistas
         Me.LabelParaAlmacenarLaCedulaIngresada.ForeColor = System.Drawing.Color.Black
         Me.LabelParaAlmacenarLaCedulaIngresada.Location = New System.Drawing.Point(54, 170)
         Me.LabelParaAlmacenarLaCedulaIngresada.Name = "LabelParaAlmacenarLaCedulaIngresada"
-        Me.LabelParaAlmacenarLaCedulaIngresada.Size = New System.Drawing.Size(115, 20)
+        Me.LabelParaAlmacenarLaCedulaIngresada.Size = New System.Drawing.Size(114, 20)
         Me.LabelParaAlmacenarLaCedulaIngresada.TabIndex = 86
         Me.LabelParaAlmacenarLaCedulaIngresada.Text = "CedulaTemporal"
         '
@@ -468,7 +468,7 @@ Partial Class PrestamoRevistas
         Me.LabelREVISTA.Font = New System.Drawing.Font("Impact", 12.0!)
         Me.LabelREVISTA.Location = New System.Drawing.Point(124, 205)
         Me.LabelREVISTA.Name = "LabelREVISTA"
-        Me.LabelREVISTA.Size = New System.Drawing.Size(67, 20)
+        Me.LabelREVISTA.Size = New System.Drawing.Size(66, 20)
         Me.LabelREVISTA.TabIndex = 70
         Me.LabelREVISTA.Text = "REVISTAS"
         '
@@ -654,7 +654,7 @@ Partial Class PrestamoRevistas
         Me.Label5.Font = New System.Drawing.Font("Impact", 20.25!)
         Me.Label5.Location = New System.Drawing.Point(514, 33)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(221, 34)
+        Me.Label5.Size = New System.Drawing.Size(220, 34)
         Me.Label5.TabIndex = 63
         Me.Label5.Text = "RENOVAR REVISTAS"
         '
@@ -671,9 +671,9 @@ Partial Class PrestamoRevistas
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.PanelDelCarrito)
-        Me.Controls.Add(Me.DevoGRUP)
         Me.Controls.Add(Me.ExtGrup)
         Me.Controls.Add(Me.GroupBoxRenovacion)
+        Me.Controls.Add(Me.DevoGRUP)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "PrestamoRevistas"
         Me.Text = "PrestamoRevistas"

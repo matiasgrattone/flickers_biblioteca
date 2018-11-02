@@ -61,7 +61,7 @@
                 BotonParaBuscarCedula.Text = "Buscar"
 
                 '///REINICIO DE FUNCIONES///
-                CarritoDeRevistas.Items.Clear() 'Borra los items del ListBox carrito de libros 
+                CarritoDeRevistas.Items.Clear() 'Borra los items del ListBox carrito de revistas 
                 ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items.Clear() 'Borra los items del ListBox carrito para almacenar ids
                 Cedula.Clear() 'Borramos el contenido del textbox cedula 
                 PanelDelCarrito.Left = -268 'Regresamos el carrito a la ubicacion del inicio
@@ -207,7 +207,7 @@
             Dim estimado As Integer = 0
 
             '///////////////////////////////////////////////////////////////////////////////////
-            '///////////////Calcula la fecha en que deberia entregarse el libro/////////////////
+            '///////////////Calcula la fecha en que deberia entregarse las revistas/////////////////
             '///////////////////////////////////////////////////////////////////////////////////
             fecha_actual = DateTime.Now.ToString("yyyy/MM/dd")
 
@@ -342,7 +342,7 @@
             list = ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items.Count
             list = list
 
-            '1) El usario que puede extraer un libro SI ESTE NO TIENE NINGUN LIBROS EN PODER AHORA
+            '1) El usario que puede extraer una revista SI ESTE NO TIENE NINGUNA REVISTA EN PODER AHORA
             '/////////////////////CASO UNO///////////////////
             If Cedula.Text <> "" Then
 
@@ -360,6 +360,8 @@
                         consultar()
                         Consulta = "update prestamorevistas set fecha_salida = '" + Date.Now.ToString("yyyy-MM-dd") + "' where id_revistas= '" & ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items(revistas) & "' and cedula='" + Cedula.Text + "'"
                         consultar()
+                        Consulta = "update revistas set estado = 1 where id_revistas = '" + ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items(revistas) + "'"
+                        consultar()
 
                         revistas = revistas + 1
 
@@ -367,7 +369,7 @@
 
                     CarritoDeRevistas.Items.Clear()
                     ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items.Clear()
-                    MsgBox("Se extrajo correctamente los libros", Title:="PRESTAMO")
+                    MsgBox("Se extrajo correctamente las revistas", Title:="PRESTAMO")
                     ExtGrup.Visible = False
 
 
@@ -392,6 +394,8 @@
                                 consultar()
                                 Consulta = "update prestamorevistas set fecha_salida = '" + Date.Now.ToString("yyyy-MM-dd") + "' where id_revistas= '" & ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items(revistas) & "' and cedula='" + Cedula.Text + "'"
                                 consultar()
+                                Consulta = "update revistas set estado = 1 where id_revistas = '" + ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items(revistas) + "'"
+                                consultar()
 
                                 revistas = revistas + 1
 
@@ -399,7 +403,7 @@
 
                             CarritoDeRevistas.Items.Clear()
                             ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items.Clear()
-                            MsgBox("Se extrajo correctamente los libros", Title:="PRESTAMO")
+                            MsgBox("Se extrajo correctamente las revistas", Title:="PRESTAMO")
                             ExtGrup.Visible = False
 
 
@@ -490,7 +494,7 @@
         If MsgBox("Desea renovar la revista " & dgvRenovacion.Item(1, dgvRenovacion.CurrentRow.Index).Value & "?", MsgBoxStyle.YesNo, Title:="PRESTAMOS") = vbYes Then
 
             '///////////////////////////////////////////////////////////////////////////////////
-            '///////////////Calcula la fecha en que deberia entregarse el libro/////////////////
+            '///////////////Calcula la fecha en que deberia entregarse el revista/////////////////
             '///////////////////////////////////////////////////////////////////////////////////
 
             fecha_actual = DateTime.Now.ToString("yyyy/MM/dd")
@@ -702,7 +706,7 @@
                 Try
                     Consulta = "update usuarios set moroso = '1', fecha_moroso = '" + fecha_estimada + "' where cedula = '" + Cedula.Text + "'"
                     consultar()
-                    MsgBox("El usuario es ahora moroso hasta " & fecha_estimada & " por devolver el libro fuera de la fecha máxima")
+                    MsgBox("El usuario es ahora moroso hasta " & fecha_estimada & " por devolver las revistas fuera de la fecha máxima")
 
                     ExtGrup.Visible = False
                     GroupBoxRenovacion.Visible = False
@@ -733,7 +737,7 @@
                     Try
                         Consulta = "update usuarios set moroso = '1', fecha_moroso = '" + fecha_estimada + "' where cedula = '" + Cedula.Text + "'"
                         consultar()
-                        MsgBox("El usuario es ahora moroso hasta " & fecha_estimada & " por devolver el libro fuera de la fecha máxima")
+                        MsgBox("El usuario es ahora moroso hasta " & fecha_estimada & " por devolver la revista fuera de la fecha máxima")
                     Catch ex As Exception
                         MsgBox(ex.Message)
                     End Try
@@ -765,7 +769,7 @@
                     Try
                         Consulta = "update usuarios set moroso = '1', fecha_moroso = '" + fecha_estimada + "' where cedula = '" + Cedula.Text + "'"
                         consultar()
-                        MsgBox("El usuario es ahora moroso hasta " & fecha_estimada & " por devolver el libro fuera de la fecha máxima")
+                        MsgBox("El usuario es ahora moroso hasta " & fecha_estimada & " por devolver la revista fuera de la fecha máxima")
                     Catch ex As Exception
                         MsgBox(ex.Message)
                     End Try
@@ -773,7 +777,7 @@
                 End If
             End If
 
-            '       1) Si se devuelve el libro con un si, se actualiza la Base da datos 
+            '       1) Si se devuelve la revista con un si, se actualiza la Base da datos 
             If MsgBox("Desea devolver la revista " & Revista1 & " ?", MsgBoxStyle.YesNo, Title:="PRESTAMOS") = vbYes Then
 
 
@@ -834,7 +838,7 @@
                 BotonParaBuscarCedula.Text = "Buscar"
                 Cedula.Select()
                 '///REINICIO DE FUNCIONES///
-                CarritoDeRevistas.Items.Clear() 'Borra los items del ListBox carrito de libros 
+                CarritoDeRevistas.Items.Clear() 'Borra los items del ListBox carrito de revistas 
                 ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items.Clear() 'Borra los items del ListBox carrito para almacenar ids
                 Cedula.Clear() 'Borramos el contenido del textbox cedula 
                 PanelDelCarrito.Left = -268 'Regresamos el carrito a la ubicacion del inicio
@@ -914,7 +918,7 @@
             LabelSELECCION_DE_FUNCION.Visible = False
             '///////////////////////////////////////////
 
-            CarritoDeRevistas.Items.Clear() 'Borra los items del ListBox carrito de libros 
+            CarritoDeRevistas.Items.Clear() 'Borra los items del ListBox carrito de revistas 
             ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items.Clear() 'Borra los items del ListBox carrito para almacenar ids
             Cedula.Clear() 'Borramos el contenido del textbox cedula 
             PanelDelCarrito.Left = -268 'Regresamos el carrito a la ubicacion del inicio
@@ -948,7 +952,7 @@
                 LabelSELECCION_DE_FUNCION.Visible = False
                 '///////////////////////////////////////////
 
-                CarritoDeRevistas.Items.Clear() 'Borra los items del ListBox carrito de libros 
+                CarritoDeRevistas.Items.Clear() 'Borra los items del ListBox carrito de revistas 
                 ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items.Clear() 'Borra los items del ListBox carrito para almacenar ids
                 Cedula.Clear() 'Borramos el contenido del textbox cedula 
                 PanelDelCarrito.Left = -268 'Regresamos el carrito a la ubicacion del inicio
@@ -985,8 +989,8 @@
                 LabelSELECCION_DE_FUNCION.Visible = True
                 VerificarMoroso()
 
-                CarritoDeRevistas.Items.Clear() 'Borramos los items de listbox carrito de libros 
-                ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items.Clear() 'Borramos los items de listbox carrito de libros 
+                CarritoDeRevistas.Items.Clear() 'Borramos los items de listbox carrito de revistas 
+                ListboxParaGuardarLasIdDeLasRevistasEnElCarrito.Items.Clear() 'Borramos los items de listbox carrito de revistas 
                 PanelDelCarrito.Left = -5 'Mostramos el carrito
 
                 BotonParaBuscarCedula.Text = "Editar" 'Ponemos el texto de buscar cedula en "editar"
