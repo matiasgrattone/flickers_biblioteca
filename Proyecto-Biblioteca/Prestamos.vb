@@ -1479,10 +1479,14 @@
                 Pb_moroso.Visible = True
                 PictureExtraccion.Visible = False
                 PictureReservacion.Visible = False
+                PictureCrearReservacion.Visible = False
+                ptbRenovar.Visible = False
             Else
                 Pb_moroso.Visible = False
                 PictureExtraccion.Visible = True
                 PictureReservacion.Visible = True
+                PictureCrearReservacion.Visible = True
+                ptbRenovar.Visible = True
             End If
         Catch ex As Exception
         End Try
