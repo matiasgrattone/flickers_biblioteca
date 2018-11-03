@@ -136,6 +136,7 @@
     Private Sub PictureBox1_MouseDown(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles PictureBox1.MouseDown
         a = 1
     End Sub
+
     Private Sub LOGIN_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         xf = Me.Location.X
         yf = Me.Location.Y
@@ -143,6 +144,13 @@
         cbData.Items.Add("Online")
         cbData.Items.Add("Local")
         cbData.SelectedIndex = 0
+
+        If Not My.Computer.FileSystem.DirectoryExists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "\Documentos Biblioteca") Then
+            My.Computer.FileSystem.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "\Documentos Biblioteca")
+            My.Computer.FileSystem.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "\Documentos Biblioteca\Fotos de perfil")
+            My.Computer.FileSystem.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "\Documentos Biblioteca\Fotos de socio")
+            My.Computer.FileSystem.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "\Documentos Biblioteca\Notas")
+        End If
 
         MENU3.Dispose()
 
