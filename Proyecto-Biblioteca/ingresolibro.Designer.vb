@@ -139,7 +139,7 @@ Partial Class ingresolibro
         Me.ingresar_boton.Location = New System.Drawing.Point(566, 250)
         Me.ingresar_boton.Name = "ingresar_boton"
         Me.ingresar_boton.Size = New System.Drawing.Size(183, 34)
-        Me.ingresar_boton.TabIndex = 20
+        Me.ingresar_boton.TabIndex = 16
         Me.ingresar_boton.Text = "Ingresar"
         Me.ingresar_boton.UseVisualStyleBackColor = True
         '
@@ -239,7 +239,7 @@ Partial Class ingresolibro
         Me.btnselectautor.Location = New System.Drawing.Point(729, 64)
         Me.btnselectautor.Name = "btnselectautor"
         Me.btnselectautor.Size = New System.Drawing.Size(61, 24)
-        Me.btnselectautor.TabIndex = 40
+        Me.btnselectautor.TabIndex = 9
         Me.btnselectautor.Text = "Dato"
         Me.btnselectautor.UseVisualStyleBackColor = True
         '
@@ -249,7 +249,7 @@ Partial Class ingresolibro
         Me.btnselecteditorial.Location = New System.Drawing.Point(729, 125)
         Me.btnselecteditorial.Name = "btnselecteditorial"
         Me.btnselecteditorial.Size = New System.Drawing.Size(61, 27)
-        Me.btnselecteditorial.TabIndex = 39
+        Me.btnselecteditorial.TabIndex = 13
         Me.btnselecteditorial.Text = "Dato"
         Me.btnselecteditorial.UseVisualStyleBackColor = True
         '
@@ -707,7 +707,7 @@ Partial Class ingresolibro
         Me.btnselectclas.Location = New System.Drawing.Point(729, 92)
         Me.btnselectclas.Name = "btnselectclas"
         Me.btnselectclas.Size = New System.Drawing.Size(61, 27)
-        Me.btnselectclas.TabIndex = 59
+        Me.btnselectclas.TabIndex = 11
         Me.btnselectclas.Text = "Dato"
         Me.btnselectclas.UseVisualStyleBackColor = True
         '
@@ -941,7 +941,7 @@ Partial Class ingresolibro
         Me.cmbsala.Location = New System.Drawing.Point(207, 241)
         Me.cmbsala.Name = "cmbsala"
         Me.cmbsala.Size = New System.Drawing.Size(180, 26)
-        Me.cmbsala.TabIndex = 66
+        Me.cmbsala.TabIndex = 7
         '
         'dgvlibro
         '
@@ -1004,7 +1004,7 @@ Partial Class ingresolibro
         Me.txtubicacion.Location = New System.Drawing.Point(208, 211)
         Me.txtubicacion.Name = "txtubicacion"
         Me.txtubicacion.Size = New System.Drawing.Size(179, 25)
-        Me.txtubicacion.TabIndex = 64
+        Me.txtubicacion.TabIndex = 6
         Me.txtubicacion.WaterMarkColor = System.Drawing.Color.Gray
         Me.txtubicacion.WaterMarkText = "Ej: Biblioteca Municipal"
         '
@@ -1015,7 +1015,7 @@ Partial Class ingresolibro
         Me.txtclasificacion.Name = "txtclasificacion"
         Me.txtclasificacion.ReadOnly = True
         Me.txtclasificacion.Size = New System.Drawing.Size(203, 25)
-        Me.txtclasificacion.TabIndex = 61
+        Me.txtclasificacion.TabIndex = 10
         Me.txtclasificacion.WaterMarkColor = System.Drawing.Color.Gray
         Me.txtclasificacion.WaterMarkText = "Ej: 1.12"
         '
@@ -1025,7 +1025,7 @@ Partial Class ingresolibro
         Me.txttitulo.Location = New System.Drawing.Point(208, 94)
         Me.txttitulo.Name = "txttitulo"
         Me.txttitulo.Size = New System.Drawing.Size(178, 25)
-        Me.txttitulo.TabIndex = 54
+        Me.txttitulo.TabIndex = 2
         Me.txttitulo.WaterMarkColor = System.Drawing.Color.Gray
         Me.txttitulo.WaterMarkText = "Ej: Historia de un viejo"
         '
@@ -1035,7 +1035,7 @@ Partial Class ingresolibro
         Me.txtanio.Location = New System.Drawing.Point(208, 123)
         Me.txtanio.Name = "txtanio"
         Me.txtanio.Size = New System.Drawing.Size(178, 25)
-        Me.txtanio.TabIndex = 53
+        Me.txtanio.TabIndex = 3
         Me.txtanio.WaterMarkColor = System.Drawing.Color.Gray
         Me.txtanio.WaterMarkText = "Ej: 2001"
         '
@@ -1045,7 +1045,7 @@ Partial Class ingresolibro
         Me.txtorigen.Location = New System.Drawing.Point(208, 151)
         Me.txtorigen.Name = "txtorigen"
         Me.txtorigen.Size = New System.Drawing.Size(178, 25)
-        Me.txtorigen.TabIndex = 52
+        Me.txtorigen.TabIndex = 4
         Me.txtorigen.WaterMarkColor = System.Drawing.Color.Gray
         Me.txtorigen.WaterMarkText = "Ej: Uruguay"
         '
@@ -1056,7 +1056,7 @@ Partial Class ingresolibro
         Me.txtobservaciones.Multiline = True
         Me.txtobservaciones.Name = "txtobservaciones"
         Me.txtobservaciones.Size = New System.Drawing.Size(333, 84)
-        Me.txtobservaciones.TabIndex = 51
+        Me.txtobservaciones.TabIndex = 14
         Me.txtobservaciones.WaterMarkColor = System.Drawing.Color.Gray
         Me.txtobservaciones.WaterMarkText = "El Libro esta en un mal estado"
         '
@@ -1067,7 +1067,7 @@ Partial Class ingresolibro
         Me.txtcasa_editorial.Name = "txtcasa_editorial"
         Me.txtcasa_editorial.ReadOnly = True
         Me.txtcasa_editorial.Size = New System.Drawing.Size(202, 25)
-        Me.txtcasa_editorial.TabIndex = 50
+        Me.txtcasa_editorial.TabIndex = 12
         Me.txtcasa_editorial.WaterMarkColor = System.Drawing.Color.Gray
         Me.txtcasa_editorial.WaterMarkText = "Ej: Del Lago"
         '
@@ -1077,7 +1077,7 @@ Partial Class ingresolibro
         Me.txtvolumen.Location = New System.Drawing.Point(207, 180)
         Me.txtvolumen.Name = "txtvolumen"
         Me.txtvolumen.Size = New System.Drawing.Size(179, 25)
-        Me.txtvolumen.TabIndex = 49
+        Me.txtvolumen.TabIndex = 5
         Me.txtvolumen.WaterMarkColor = System.Drawing.Color.Gray
         Me.txtvolumen.WaterMarkText = "Ej: 1"
         '
@@ -1088,7 +1088,7 @@ Partial Class ingresolibro
         Me.txtautor.Name = "txtautor"
         Me.txtautor.ReadOnly = True
         Me.txtautor.Size = New System.Drawing.Size(203, 25)
-        Me.txtautor.TabIndex = 48
+        Me.txtautor.TabIndex = 8
         Me.txtautor.WaterMarkColor = System.Drawing.SystemColors.GrayText
         Me.txtautor.WaterMarkText = "Ej: Garcia Marques"
         '
@@ -1098,7 +1098,7 @@ Partial Class ingresolibro
         Me.txtcod_libro.Location = New System.Drawing.Point(207, 66)
         Me.txtcod_libro.Name = "txtcod_libro"
         Me.txtcod_libro.Size = New System.Drawing.Size(178, 25)
-        Me.txtcod_libro.TabIndex = 47
+        Me.txtcod_libro.TabIndex = 1
         Me.txtcod_libro.WaterMarkColor = System.Drawing.Color.Gray
         Me.txtcod_libro.WaterMarkText = "Ej: 51"
         '

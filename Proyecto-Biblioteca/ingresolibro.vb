@@ -100,7 +100,7 @@
                                     Consulta = "insert into libro values('" + txtcod_libro.Text + "',concat(upper(left('" + txttitulo.Text + "',1)),lower(substr('" + txttitulo.Text + "',2))), concat(upper(left('" & autor & "',1)),lower(substr('" & autor & "',2))), concat(upper(left('" & editorial & "',1)),lower(substr('" & editorial & "',2))),'" + txtvolumen.Text + "','" + txtanio.Text + "', concat(upper(left('" + txtorigen.Text + "',1)),lower(substr('" + txtorigen.Text + "',2))), concat(upper(left('" + txtobservaciones.Text + "' ,1)),lower(substr('" + txtobservaciones.Text + "' ,2))),'0', concat(upper(left('" & clasificacion & "',1)),lower(substr('" & clasificacion & "',2))),concat(upper(left('" + txtubicacion.Text + "',1)),lower(substr('" + txtubicacion.Text + "',2))),'0','" + Date.Now.ToString("yyyy-MM-dd") + "','" + MENU3.lbl_cedula.Text + "')"
                                     consultar()
                                 ElseIf cmbsala.SelectedItem = "Si" Then
-                                    Consulta = "insert into libro values('" + txtcod_libro.Text + "',concat(upper(left('" + txttitulo.Text + "',1)),lower(substr('" + txttitulo.Text + "',2))), concat(upper(left('" & autor & "',1)),lower(substr('" & autor & "',2))), concat(upper(left('" & editorial & "',1)),lower(substr('" & editorial & "',2))),'" + txtvolumen.Text + "','" + txtanio.Text + "', concat(upper(left('" + txtorigen.Text + "',1)),lower(substr('" + txtorigen.Text + "',2))), concat(upper(left('" + txtobservaciones.Text + "' ,1)),lower(substr('" + txtobservaciones.Text + "' ,2))),'0', concat(upper(left('" & clasificacion & "',1)),lower(substr('" & clasificacion & "',2))),concat(upper(left('" + txtubicacion.Text + "',1)),lower(substr('" + txtubicacion.Text + "',2))),'1','" + Date.Now.ToString("yyyy-MM-dd") + "')"
+                                    Consulta = "insert into libro values('" + txtcod_libro.Text + "',concat(upper(left('" + txttitulo.Text + "',1)),lower(substr('" + txttitulo.Text + "',2))), concat(upper(left('" & autor & "',1)),lower(substr('" & autor & "',2))), concat(upper(left('" & editorial & "',1)),lower(substr('" & editorial & "',2))),'" + txtvolumen.Text + "','" + txtanio.Text + "', concat(upper(left('" + txtorigen.Text + "',1)),lower(substr('" + txtorigen.Text + "',2))), concat(upper(left('" + txtobservaciones.Text + "' ,1)),lower(substr('" + txtobservaciones.Text + "' ,2))),'0', concat(upper(left('" & clasificacion & "',1)),lower(substr('" & clasificacion & "',2))),concat(upper(left('" + txtubicacion.Text + "',1)),lower(substr('" + txtubicacion.Text + "',2))),'1','" + Date.Now.ToString("yyyy-MM-dd") + "','" + MENU3.lbl_cedula.Text + "')"
                                     consultar()
                                 End If
                                 '///////////////////////////////////////////
@@ -578,7 +578,7 @@
         End Select
     End Sub
     Private Sub txtcod_libro_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtcod_libro.KeyUp
-        txtcod_libro.MaxLength = 10
+        txtcod_libro.MaxLength = 7
         If Not IsNumeric(txtcod_libro.Text) And txtcod_libro.Text <> "" Then
             ErrorProvider1.SetError(txtcod_libro, "ingrese solo numeros")
             error10 = 1

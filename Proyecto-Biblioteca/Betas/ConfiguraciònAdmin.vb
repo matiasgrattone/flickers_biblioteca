@@ -286,7 +286,7 @@ Public Class ConfigAdmin
 
                 Dim nacimiento_ingresar As String = Str(cb_anio.SelectedItem).Substring(1, 4) + "-" + substring + "-" + dia_ingresar '//GUARDA LOS DATOS DEL COMBO A LA VARIABLE NACIMIENTO PARA LUEGO USARLA EN LA CONSULTA INSERT
 
-                Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo, nacimiento, estado, contrasenia, moroso, rutaperfil) values (concat(upper(left('" + nom_ingresar + "',1)), lower(substr('" + nom_ingresar + "',2))), concat(upper(left('" + ape_ingresar + "',1)), lower(substr('" + ape_ingresar + "',2))), '" + Str(ced_ingresar) + "', '" & tel_ingresar & "', '" + dir_ingresar + "', '1', '" + nacimiento_ingresar + "','1', '" + cont_ingresar + "', 0, '" + rutaFoto + "');"
+                Consulta = "insert into usuarios (nombre, apellido, cedula, telefono, direccion, tipo, nacimiento, estado, contrasenia, moroso, rutaperfil,online) values (concat(upper(left('" + nom_ingresar + "',1)), lower(substr('" + nom_ingresar + "',2))), concat(upper(left('" + ape_ingresar + "',1)), lower(substr('" + ape_ingresar + "',2))), '" + Str(ced_ingresar) + "', '" & tel_ingresar & "', '" + dir_ingresar + "', '1', '" + nacimiento_ingresar + "','1', '" + cont_ingresar + "', 0, '" + rutaFoto + "',0);"
                 consultar()
                 Consulta = "insert into MenuConfig (cod_usuario,cod_grafica) values ('" & ced_ingresar & "' , 1)"
                 consultar()
@@ -1154,5 +1154,17 @@ Public Class ConfigAdmin
 
     Private Sub ptbPerfilAdmin_Click(sender As System.Object, e As System.EventArgs) Handles ptbPerfilAdmin.Click
 
+    End Sub
+
+    Private Sub cedula_txt_TextChanged(sender As System.Object, e As System.EventArgs) Handles cedula_txt.TextChanged
+
+    End Sub
+
+    Private Sub cedula_txt_KeyUp(sender As System.Object, e As System.Windows.Forms.KeyEventArgs) Handles cedula_txt.KeyUp
+        cedula_txt.MaxLength = 8
+    End Sub
+
+    Private Sub cedula_KeyUp(sender As System.Object, e As System.Windows.Forms.KeyEventArgs) Handles cedula.KeyUp
+        cedula_txt.MaxLength = 8
     End Sub
 End Class

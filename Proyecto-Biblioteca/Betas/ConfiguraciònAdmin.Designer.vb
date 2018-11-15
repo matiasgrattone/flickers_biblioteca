@@ -46,6 +46,8 @@ Partial Class ConfigAdmin
         Me.Label2 = New System.Windows.Forms.Label()
         Me.buscar_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.mail_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.ptbFuncio = New System.Windows.Forms.PictureBox()
@@ -135,8 +137,6 @@ Partial Class ConfigAdmin
         Me.PlaceHolder6 = New Proyecto_Biblioteca.PlaceHolder()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.TimerFoto = New System.Windows.Forms.Timer(Me.components)
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.mail_txt = New Proyecto_Biblioteca.PlaceHolder()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -292,6 +292,26 @@ Partial Class ConfigAdmin
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Registro"
         Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.Location = New System.Drawing.Point(164, 279)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(38, 19)
+        Me.Label21.TabIndex = 158
+        Me.Label21.Text = "Mail"
+        '
+        'mail_txt
+        '
+        Me.mail_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.mail_txt.Location = New System.Drawing.Point(208, 276)
+        Me.mail_txt.Name = "mail_txt"
+        Me.mail_txt.Size = New System.Drawing.Size(189, 27)
+        Me.mail_txt.TabIndex = 157
+        Me.mail_txt.WaterMarkColor = System.Drawing.Color.Gray
+        Me.mail_txt.WaterMarkText = "Mail"
         '
         'Button4
         '
@@ -457,6 +477,7 @@ Partial Class ConfigAdmin
         Me.contrasenia_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.contrasenia_txt.Location = New System.Drawing.Point(208, 243)
         Me.contrasenia_txt.Name = "contrasenia_txt"
+        Me.contrasenia_txt.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.contrasenia_txt.Size = New System.Drawing.Size(189, 27)
         Me.contrasenia_txt.TabIndex = 149
         Me.contrasenia_txt.WaterMarkColor = System.Drawing.Color.Gray
@@ -1320,26 +1341,6 @@ Partial Class ConfigAdmin
         '
         'TimerFoto
         '
-        '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label21.Location = New System.Drawing.Point(164, 279)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(38, 19)
-        Me.Label21.TabIndex = 158
-        Me.Label21.Text = "Mail"
-        '
-        'mail_txt
-        '
-        Me.mail_txt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.mail_txt.Location = New System.Drawing.Point(208, 276)
-        Me.mail_txt.Name = "mail_txt"
-        Me.mail_txt.Size = New System.Drawing.Size(189, 27)
-        Me.mail_txt.TabIndex = 157
-        Me.mail_txt.WaterMarkColor = System.Drawing.Color.Gray
-        Me.mail_txt.WaterMarkText = "Mail"
         '
         'ConfigAdmin
         '
