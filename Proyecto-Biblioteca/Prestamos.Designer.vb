@@ -55,6 +55,7 @@ Partial Class Prestamos
         Me.ENPODER = New System.Windows.Forms.Label()
         Me.GrupBoxExtraccion = New System.Windows.Forms.GroupBox()
         Me.DataGridViewlllllVerLibrosEnExtraccionlllll = New System.Windows.Forms.DataGridView()
+        Me.ButtonLupita = New System.Windows.Forms.PictureBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -67,12 +68,18 @@ Partial Class Prestamos
         Me.Label19 = New System.Windows.Forms.Label()
         Me.BotonExtrearReservados = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.ptbRenovar = New System.Windows.Forms.PictureBox()
         Me.ButtonVerFicha = New System.Windows.Forms.Button()
         Me.ButtonVERREGISTRO = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.LabelSELECCION_DE_FUNCION = New System.Windows.Forms.Label()
+        Me.PictureCrearReservacion = New System.Windows.Forms.PictureBox()
+        Me.PictureDevolucion = New System.Windows.Forms.PictureBox()
+        Me.PictureExtraccion = New System.Windows.Forms.PictureBox()
+        Me.PictureReservacion = New System.Windows.Forms.PictureBox()
         Me.CrearReservacionGrupBox = New System.Windows.Forms.GroupBox()
         Me.LibrosParaReservar = New System.Windows.Forms.DataGridView()
+        Me.LupitaParaBuscarLibrosEnReservacion = New System.Windows.Forms.PictureBox()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.TextBoxEnCrearReservaciones = New System.Windows.Forms.TextBox()
         Me.Label23 = New System.Windows.Forms.Label()
@@ -83,34 +90,27 @@ Partial Class Prestamos
         Me.Label4 = New System.Windows.Forms.Label()
         Me.dgvRenovacion = New System.Windows.Forms.DataGridView()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.ptbRenovar = New System.Windows.Forms.PictureBox()
-        Me.PictureCrearReservacion = New System.Windows.Forms.PictureBox()
-        Me.PictureDevolucion = New System.Windows.Forms.PictureBox()
-        Me.PictureExtraccion = New System.Windows.Forms.PictureBox()
-        Me.PictureReservacion = New System.Windows.Forms.PictureBox()
-        Me.LupitaParaBuscarLibrosEnReservacion = New System.Windows.Forms.PictureBox()
-        Me.ButtonLupita = New System.Windows.Forms.PictureBox()
         Me.Cedula = New Proyecto_Biblioteca.PlaceHolder()
         Me.PanelDelCarrito.SuspendLayout()
         Me.GrupBoxDevolucion.SuspendLayout()
         CType(Me.DataGridParaDevolucion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GrupBoxExtraccion.SuspendLayout()
         CType(Me.DataGridViewlllllVerLibrosEnExtraccionlllll, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ButtonLupita, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ReservacionGrupBox.SuspendLayout()
         CType(Me.VerLibrosReservados2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
-        Me.Panel4.SuspendLayout()
-        Me.CrearReservacionGrupBox.SuspendLayout()
-        CType(Me.LibrosParaReservar, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBoxRenovacion.SuspendLayout()
-        CType(Me.dgvRenovacion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ptbRenovar, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel4.SuspendLayout()
         CType(Me.PictureCrearReservacion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureDevolucion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureExtraccion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureReservacion, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.CrearReservacionGrupBox.SuspendLayout()
+        CType(Me.LibrosParaReservar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LupitaParaBuscarLibrosEnReservacion, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ButtonLupita, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBoxRenovacion.SuspendLayout()
+        CType(Me.dgvRenovacion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ButonParaExtreaer
@@ -155,7 +155,7 @@ Partial Class Prestamos
         Me.LabelParaAlmacenarLaCedulaIngresada.ForeColor = System.Drawing.Color.Black
         Me.LabelParaAlmacenarLaCedulaIngresada.Location = New System.Drawing.Point(51, 169)
         Me.LabelParaAlmacenarLaCedulaIngresada.Name = "LabelParaAlmacenarLaCedulaIngresada"
-        Me.LabelParaAlmacenarLaCedulaIngresada.Size = New System.Drawing.Size(114, 20)
+        Me.LabelParaAlmacenarLaCedulaIngresada.Size = New System.Drawing.Size(115, 20)
         Me.LabelParaAlmacenarLaCedulaIngresada.TabIndex = 84
         Me.LabelParaAlmacenarLaCedulaIngresada.Text = "CedulaTemporal"
         '
@@ -384,6 +384,16 @@ Partial Class Prestamos
         Me.DataGridViewlllllVerLibrosEnExtraccionlllll.Size = New System.Drawing.Size(727, 401)
         Me.DataGridViewlllllVerLibrosEnExtraccionlllll.TabIndex = 81
         '
+        'ButtonLupita
+        '
+        Me.ButtonLupita.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.busqueda
+        Me.ButtonLupita.Location = New System.Drawing.Point(458, 49)
+        Me.ButtonLupita.Name = "ButtonLupita"
+        Me.ButtonLupita.Size = New System.Drawing.Size(21, 20)
+        Me.ButtonLupita.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.ButtonLupita.TabIndex = 77
+        Me.ButtonLupita.TabStop = False
+        '
         'Label7
         '
         Me.Label7.AutoSize = True
@@ -550,6 +560,17 @@ Partial Class Prestamos
         Me.Panel3.Size = New System.Drawing.Size(1016, 112)
         Me.Panel3.TabIndex = 75
         '
+        'ptbRenovar
+        '
+        Me.ptbRenovar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ptbRenovar.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.RenovarLibro
+        Me.ptbRenovar.Location = New System.Drawing.Point(573, 11)
+        Me.ptbRenovar.Name = "ptbRenovar"
+        Me.ptbRenovar.Size = New System.Drawing.Size(82, 85)
+        Me.ptbRenovar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.ptbRenovar.TabIndex = 81
+        Me.ptbRenovar.TabStop = False
+        '
         'ButtonVerFicha
         '
         Me.ButtonVerFicha.Location = New System.Drawing.Point(12, 80)
@@ -586,6 +607,50 @@ Partial Class Prestamos
         Me.LabelSELECCION_DE_FUNCION.Size = New System.Drawing.Size(86, 48)
         Me.LabelSELECCION_DE_FUNCION.TabIndex = 66
         Me.LabelSELECCION_DE_FUNCION.Text = "SELECCION " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      DE " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FUNCION "
+        '
+        'PictureCrearReservacion
+        '
+        Me.PictureCrearReservacion.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureCrearReservacion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.crear_reserva
+        Me.PictureCrearReservacion.Location = New System.Drawing.Point(789, 13)
+        Me.PictureCrearReservacion.Name = "PictureCrearReservacion"
+        Me.PictureCrearReservacion.Size = New System.Drawing.Size(82, 85)
+        Me.PictureCrearReservacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureCrearReservacion.TabIndex = 3
+        Me.PictureCrearReservacion.TabStop = False
+        '
+        'PictureDevolucion
+        '
+        Me.PictureDevolucion.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureDevolucion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.devolcion
+        Me.PictureDevolucion.Location = New System.Drawing.Point(466, 13)
+        Me.PictureDevolucion.Name = "PictureDevolucion"
+        Me.PictureDevolucion.Size = New System.Drawing.Size(82, 85)
+        Me.PictureDevolucion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureDevolucion.TabIndex = 1
+        Me.PictureDevolucion.TabStop = False
+        '
+        'PictureExtraccion
+        '
+        Me.PictureExtraccion.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureExtraccion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.extraccion
+        Me.PictureExtraccion.Location = New System.Drawing.Point(359, 14)
+        Me.PictureExtraccion.Name = "PictureExtraccion"
+        Me.PictureExtraccion.Size = New System.Drawing.Size(82, 85)
+        Me.PictureExtraccion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureExtraccion.TabIndex = 0
+        Me.PictureExtraccion.TabStop = False
+        '
+        'PictureReservacion
+        '
+        Me.PictureReservacion.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureReservacion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.reservar
+        Me.PictureReservacion.Location = New System.Drawing.Point(684, 13)
+        Me.PictureReservacion.Name = "PictureReservacion"
+        Me.PictureReservacion.Size = New System.Drawing.Size(82, 85)
+        Me.PictureReservacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureReservacion.TabIndex = 2
+        Me.PictureReservacion.TabStop = False
         '
         'CrearReservacionGrupBox
         '
@@ -648,6 +713,16 @@ Partial Class Prestamos
         Me.LibrosParaReservar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.LibrosParaReservar.Size = New System.Drawing.Size(725, 401)
         Me.LibrosParaReservar.TabIndex = 81
+        '
+        'LupitaParaBuscarLibrosEnReservacion
+        '
+        Me.LupitaParaBuscarLibrosEnReservacion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.busqueda
+        Me.LupitaParaBuscarLibrosEnReservacion.Location = New System.Drawing.Point(369, 48)
+        Me.LupitaParaBuscarLibrosEnReservacion.Name = "LupitaParaBuscarLibrosEnReservacion"
+        Me.LupitaParaBuscarLibrosEnReservacion.Size = New System.Drawing.Size(21, 20)
+        Me.LupitaParaBuscarLibrosEnReservacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.LupitaParaBuscarLibrosEnReservacion.TabIndex = 81
+        Me.LupitaParaBuscarLibrosEnReservacion.TabStop = False
         '
         'Label22
         '
@@ -784,81 +859,6 @@ Partial Class Prestamos
         Me.Label2.TabIndex = 63
         Me.Label2.Text = "RENOVAR LIBROS"
         '
-        'ptbRenovar
-        '
-        Me.ptbRenovar.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ptbRenovar.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.RenovarLibro
-        Me.ptbRenovar.Location = New System.Drawing.Point(573, 11)
-        Me.ptbRenovar.Name = "ptbRenovar"
-        Me.ptbRenovar.Size = New System.Drawing.Size(82, 85)
-        Me.ptbRenovar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.ptbRenovar.TabIndex = 81
-        Me.ptbRenovar.TabStop = False
-        '
-        'PictureCrearReservacion
-        '
-        Me.PictureCrearReservacion.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureCrearReservacion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.crear_reserva
-        Me.PictureCrearReservacion.Location = New System.Drawing.Point(789, 13)
-        Me.PictureCrearReservacion.Name = "PictureCrearReservacion"
-        Me.PictureCrearReservacion.Size = New System.Drawing.Size(82, 85)
-        Me.PictureCrearReservacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureCrearReservacion.TabIndex = 3
-        Me.PictureCrearReservacion.TabStop = False
-        '
-        'PictureDevolucion
-        '
-        Me.PictureDevolucion.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureDevolucion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.devolcion
-        Me.PictureDevolucion.Location = New System.Drawing.Point(466, 13)
-        Me.PictureDevolucion.Name = "PictureDevolucion"
-        Me.PictureDevolucion.Size = New System.Drawing.Size(82, 85)
-        Me.PictureDevolucion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureDevolucion.TabIndex = 1
-        Me.PictureDevolucion.TabStop = False
-        '
-        'PictureExtraccion
-        '
-        Me.PictureExtraccion.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureExtraccion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.extraccion
-        Me.PictureExtraccion.Location = New System.Drawing.Point(359, 14)
-        Me.PictureExtraccion.Name = "PictureExtraccion"
-        Me.PictureExtraccion.Size = New System.Drawing.Size(82, 85)
-        Me.PictureExtraccion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureExtraccion.TabIndex = 0
-        Me.PictureExtraccion.TabStop = False
-        '
-        'PictureReservacion
-        '
-        Me.PictureReservacion.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureReservacion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.reservar
-        Me.PictureReservacion.Location = New System.Drawing.Point(684, 13)
-        Me.PictureReservacion.Name = "PictureReservacion"
-        Me.PictureReservacion.Size = New System.Drawing.Size(82, 85)
-        Me.PictureReservacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureReservacion.TabIndex = 2
-        Me.PictureReservacion.TabStop = False
-        '
-        'LupitaParaBuscarLibrosEnReservacion
-        '
-        Me.LupitaParaBuscarLibrosEnReservacion.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.busqueda
-        Me.LupitaParaBuscarLibrosEnReservacion.Location = New System.Drawing.Point(369, 48)
-        Me.LupitaParaBuscarLibrosEnReservacion.Name = "LupitaParaBuscarLibrosEnReservacion"
-        Me.LupitaParaBuscarLibrosEnReservacion.Size = New System.Drawing.Size(21, 20)
-        Me.LupitaParaBuscarLibrosEnReservacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.LupitaParaBuscarLibrosEnReservacion.TabIndex = 81
-        Me.LupitaParaBuscarLibrosEnReservacion.TabStop = False
-        '
-        'ButtonLupita
-        '
-        Me.ButtonLupita.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.busqueda
-        Me.ButtonLupita.Location = New System.Drawing.Point(458, 49)
-        Me.ButtonLupita.Name = "ButtonLupita"
-        Me.ButtonLupita.Size = New System.Drawing.Size(21, 20)
-        Me.ButtonLupita.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.ButtonLupita.TabIndex = 77
-        Me.ButtonLupita.TabStop = False
-        '
         'Cedula
         '
         Me.Cedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
@@ -878,11 +878,11 @@ Partial Class Prestamos
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.PanelDelCarrito)
-        Me.Controls.Add(Me.GroupBoxRenovacion)
         Me.Controls.Add(Me.GrupBoxDevolucion)
         Me.Controls.Add(Me.CrearReservacionGrupBox)
         Me.Controls.Add(Me.ReservacionGrupBox)
         Me.Controls.Add(Me.GrupBoxExtraccion)
+        Me.Controls.Add(Me.GroupBoxRenovacion)
         Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Prestamos"
@@ -895,26 +895,26 @@ Partial Class Prestamos
         Me.GrupBoxExtraccion.ResumeLayout(False)
         Me.GrupBoxExtraccion.PerformLayout()
         CType(Me.DataGridViewlllllVerLibrosEnExtraccionlllll, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ButtonLupita, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ReservacionGrupBox.ResumeLayout(False)
         Me.ReservacionGrupBox.PerformLayout()
         CType(Me.VerLibrosReservados2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
+        CType(Me.ptbRenovar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
-        Me.CrearReservacionGrupBox.ResumeLayout(False)
-        Me.CrearReservacionGrupBox.PerformLayout()
-        CType(Me.LibrosParaReservar, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBoxRenovacion.ResumeLayout(False)
-        Me.GroupBoxRenovacion.PerformLayout()
-        CType(Me.dgvRenovacion, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ptbRenovar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureCrearReservacion, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureDevolucion, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureExtraccion, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureReservacion, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.CrearReservacionGrupBox.ResumeLayout(False)
+        Me.CrearReservacionGrupBox.PerformLayout()
+        CType(Me.LibrosParaReservar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LupitaParaBuscarLibrosEnReservacion, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ButtonLupita, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBoxRenovacion.ResumeLayout(False)
+        Me.GroupBoxRenovacion.PerformLayout()
+        CType(Me.dgvRenovacion, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
