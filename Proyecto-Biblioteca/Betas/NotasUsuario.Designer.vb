@@ -130,19 +130,19 @@ Partial Class NotasUsuario
         'NuevoToolStripMenuItem
         '
         Me.NuevoToolStripMenuItem.Name = "NuevoToolStripMenuItem"
-        Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
+        Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.NuevoToolStripMenuItem.Text = "Nuevo"
         '
         'AbrirToolStripMenuItem
         '
         Me.AbrirToolStripMenuItem.Name = "AbrirToolStripMenuItem"
-        Me.AbrirToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
+        Me.AbrirToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.AbrirToolStripMenuItem.Text = "Abrir"
         '
         'GuardarComoToolStripMenuItem
         '
         Me.GuardarComoToolStripMenuItem.Name = "GuardarComoToolStripMenuItem"
-        Me.GuardarComoToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
+        Me.GuardarComoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.GuardarComoToolStripMenuItem.Text = "Guardar"
         '
         'EditarToolStripMenuItem
@@ -447,14 +447,15 @@ Partial Class NotasUsuario
         Me.PanelRecordatorios.Controls.Add(Me.Panel2)
         Me.PanelRecordatorios.Controls.Add(Me.Panel4)
         Me.PanelRecordatorios.ForeColor = System.Drawing.Color.Black
-        Me.PanelRecordatorios.Location = New System.Drawing.Point(1045, 55)
+        Me.PanelRecordatorios.Location = New System.Drawing.Point(1045, 54)
         Me.PanelRecordatorios.Name = "PanelRecordatorios"
-        Me.PanelRecordatorios.Size = New System.Drawing.Size(421, 595)
+        Me.PanelRecordatorios.Size = New System.Drawing.Size(418, 604)
         Me.PanelRecordatorios.TabIndex = 0
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(67, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.PanelRecordatorios)
         Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Controls.Add(Me.Labels_transparentes1)
         Me.Panel1.Location = New System.Drawing.Point(1, 1)
@@ -493,7 +494,6 @@ Partial Class NotasUsuario
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.PanelNotas)
         Me.Controls.Add(Me.PanelEditroDeTexto)
-        Me.Controls.Add(Me.PanelRecordatorios)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1

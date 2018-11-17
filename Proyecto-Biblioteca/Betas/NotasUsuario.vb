@@ -27,7 +27,7 @@ Public Class NotasUsuario
         DataGridViewParaVerNotasDisponibles.DataSource = Tabla
         DataGridViewParaVerNotasDisponibles.Columns(1).Visible = False
 
-        Dim RutaDeGuardadoDeNotas As String = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\DATOS\Notas" 'Ruta en la que se guardarán las imágenes cargadas: "Documentos\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\DATOS\Notas"
+        Dim RutaDeGuardadoDeNotas As String = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "\Documentos Biblioteca\Notas" 'Ruta en la que se guardarán las imágenes cargadas: "Documentos\Documentos Biblioteca\Notas"
         My.Computer.FileSystem.CreateDirectory(RutaDeGuardadoDeNotas) 'Crea la carpeta "Notas" en la ruta especificada si esta no existe
 
 
@@ -125,7 +125,7 @@ Public Class NotasUsuario
         Dim NombreDelArchivo As String
         Dim Intru As Object
         Dim Archivo As Object
-        Dim UbicacionParaLaBaseDeDatos As String = "\\GitHub\\flickers_biblioteca\\Proyecto-Biblioteca\\bin\\Debug\\DATOS\\Notas\\"
+        Dim UbicacionParaLaBaseDeDatos As String = "\\Documentos Biblioteca\\Notas"
 
         NombreDelArchivo = InputBox("Ingrese el nombre de su nota", Title:="Notas")
         If NombreDelArchivo = "" Then
@@ -134,11 +134,9 @@ Public Class NotasUsuario
 
             NombreDelArchivo = NombreDelArchivo + ".txt"
             UbicacionParaLaBaseDeDatos = UbicacionParaLaBaseDeDatos + NombreDelArchivo.ToString
-            RutaDeDocumentos = RutaDeDocumentos + "\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\DATOS\Notas\" + NombreDelArchivo.ToString
-            RutaDeDocumentos = RutaDeDocumentos
+            RutaDeDocumentos = RutaDeDocumentos & "\Documentos Biblioteca\Notas" & NombreDelArchivo.ToString
 
             Intru = CreateObject("Scripting.FileSystemObject")
-
 
             Archivo = Intru.CreateTextFile(RutaDeDocumentos, True)
             Archivo.WriteLine(EditorDeTexto.Text)
@@ -224,6 +222,7 @@ Public Class NotasUsuario
             End If
         End If
         ActualizarNotas()
+
     End Sub
 
     Private Sub CrearRecordatorio2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CrearRecordatorio2.Click
@@ -311,7 +310,7 @@ Public Class NotasUsuario
         DataGridViewParaVerNotasDisponibles.DataSource = Tabla
         DataGridViewParaVerNotasDisponibles.Columns(1).Visible = False
 
-        Dim RutaDeGuardadoDeNotas As String = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\DATOS\Notas" 'Ruta en la que se guardarán las imágenes cargadas: "Documentos\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\DATOS\Notas"
+        Dim RutaDeGuardadoDeNotas As String = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\Documentos Biblioteca\Notas" 'Ruta en la que se guardarán las imágenes cargadas: "Documentos\GitHub\flickers_biblioteca\Proyecto-Biblioteca\bin\Debug\DATOS\Notas"
         My.Computer.FileSystem.CreateDirectory(RutaDeGuardadoDeNotas) 'Crea la carpeta "Notas" en la ruta especificada si esta no existe
 
 
@@ -544,4 +543,5 @@ Public Class NotasUsuario
     Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox1.Click
         Me.Close()
     End Sub
+
 End Class
