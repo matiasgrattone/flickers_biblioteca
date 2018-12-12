@@ -36,10 +36,12 @@ Partial Class LOGIN
         Me.Pbnube1 = New Proyecto_Biblioteca.TransPicBox()
         Me.TransPicBox1 = New Proyecto_Biblioteca.TransPicBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.TransPicBox2 = New Proyecto_Biblioteca.TransPicBox()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Pbnube1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TransPicBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TransPicBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button1
@@ -157,12 +159,26 @@ Partial Class LOGIN
         Me.PictureBox1.TabIndex = 18
         Me.PictureBox1.TabStop = False
         '
+        'TransPicBox2
+        '
+        Me.TransPicBox2.BackColor = System.Drawing.Color.Transparent
+        Me.TransPicBox2.ErrorImage = Nothing
+        Me.TransPicBox2.Image = Global.Proyecto_Biblioteca.My.Resources.Resources.cancel__2_
+        Me.TransPicBox2.InitialImage = Nothing
+        Me.TransPicBox2.Location = New System.Drawing.Point(933, 12)
+        Me.TransPicBox2.Name = "TransPicBox2"
+        Me.TransPicBox2.Size = New System.Drawing.Size(28, 26)
+        Me.TransPicBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.TransPicBox2.TabIndex = 23
+        Me.TransPicBox2.TabStop = False
+        '
         'LOGIN
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(973, 562)
+        Me.Controls.Add(Me.TransPicBox2)
         Me.Controls.Add(Me.Pbnube1)
         Me.Controls.Add(Me.contrasenia)
         Me.Controls.Add(Me.usuario)
@@ -182,6 +198,7 @@ Partial Class LOGIN
         CType(Me.Pbnube1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TransPicBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TransPicBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -198,4 +215,5 @@ Partial Class LOGIN
     Friend WithEvents usuario As Proyecto_Biblioteca.PlaceHolder
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
     Friend WithEvents Pbnube1 As Proyecto_Biblioteca.TransPicBox
+    Friend WithEvents TransPicBox2 As Proyecto_Biblioteca.TransPicBox
 End Class

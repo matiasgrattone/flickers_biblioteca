@@ -152,4 +152,8 @@
         End If
 
     End Sub
+
+    Private Sub TransPicBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TransPicBox2.Click
+        End
+    End Sub
 End Class

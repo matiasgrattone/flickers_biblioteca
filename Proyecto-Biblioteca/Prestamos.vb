@@ -662,7 +662,7 @@
 
             fecha_estimada = DataGridParaDevolucion.Item(4, DataGridParaDevolucion.CurrentRow.Index).Value
 
-            diferenciaMes = mes - fecha_actual.ToString.Substring(3, 2)
+            diferenciaMes = fecha_actual.ToString.Substring(3, 2) - mes
 
             If diferenciaMes > 1 Then
 
@@ -691,28 +691,25 @@
 
             End If
 
-            If diferenciaMes = 1 And moroso = 0 Then
+            If diferenciaMes <= 1 And moroso = 0 Then
 
                 If dia <= fecha_actual.ToString.Substring(0, 2) Then
 
                     diferenciaDia = fecha_actual.ToString.Substring(0, 2) - dia
                     diferenciaDia = diferenciaDia * 2
                     If diferenciaDia > 30 Then
+                        diferenciaDia = diferenciaDia - 30
                         mes = mes + 1
                         If mes > 12 Then
                             mes = 2
-                            anio = anio + 2
+                            anio = Val(anio) + 1
                         End If
                     End If
 
                     fecha_estimada = anio & "-" & mes & "-" & diferenciaDia
 
-                    moroso = 1
-
                 End If
 
-            End If
-            If Not diferenciaDia <= 0 Then
                 Try
                     Consulta = "update usuarios set moroso = '1', fecha_moroso = '" + fecha_estimada + "' where cedula = '" + Cedula.Text + "'"
                     consultar()
